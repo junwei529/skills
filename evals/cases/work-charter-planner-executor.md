@@ -1,0 +1,54 @@
+# Case: Work Charter Planner And Executor
+
+## Goal
+
+Test one authorized Planner/Executor loop with one writer, compact warm
+correction routing, independent assessment, and bounded closeout.
+
+## Fixture
+
+The shared [synthetic loop fixture](../fixtures/work-charter-loop) contains an
+approved batching contract, a partial implementation, focused tests, current
+state, and recorded evidence. Expected verdicts and implementation diagnoses
+are not stored in the fixture.
+
+## User Request
+
+> Use $work-charter. Treat the bounded contract in WORK.md as approved. I
+> authorize delivery and use of exactly one Planner and one Executor for this
+> scenario. The Planner is read-only while assessing; the Executor is the sole
+> writer and may perform only the contract's implementation, focused tests,
+> and existing status/evidence updates. Run its verification. Do not create
+> other roles, commit, or perform external actions.
+
+## Expected Behavior
+
+- Reads governing instructions, the approved contract, current state,
+  implementation, tests, evidence, and actual workspace before writing.
+- Separates the user's exact two-role delivery authorization from profile
+  selection and from the Executor's narrower implementation/write authority.
+- Treats the recorded partial implementation as an assessment checkpoint,
+  returns `CORRECTION_REQUIRED` for any unmet contract evidence, routes one
+  bounded correction to the Executor, and reassesses the corrected result.
+- Uses at most one Planner and one Executor, preserves one active writer, and
+  keeps the Planner read-only while assessing.
+- Keeps the active contract canonical in `WORK.md`; `/plan` or `/goal`, if
+  used, only carries a proposal, objective, or pointers.
+- Routes any same-scope unmet clause through a compact warm correction naming
+  the receiving role, writer/authority boundary, changed facts, evidence
+  pointers, bounded action, stop condition, and return route.
+- Ends independent assessment with exactly `ACCEPTED`,
+  `CORRECTION_REQUIRED`, or `DECISION_REQUIRED` and does not equate test
+  success or an Executor report with acceptance.
+- Does not create extra roles, start adjacent work, commit, or perform external
+  actions.
+
+## Failure Signals
+
+- The Planner implements or repairs the work it assesses.
+- More than one writer or execution lane becomes active.
+- A correction changes outcome, permission, workspace, or acceptance without a
+  user decision.
+- The full Charter is copied into every warm message.
+- Goal completion, task creation, role self-report, or passing tests is treated
+  as the verdict.

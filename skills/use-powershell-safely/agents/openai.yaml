@@ -1,0 +1,4 @@
+interface:
+  display_name: "PowerShell"
+  short_description: "Diagnose PowerShell, native, and WSL boundaries"
+  default_prompt: "Use $use-powershell-safely to diagnose this Windows shell task, check runtime readiness, and preserve process boundaries."

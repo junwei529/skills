@@ -1,0 +1,7 @@
+interface:
+  display_name: "Work Charter"
+  short_description: "Bound consequential work with explicit authority"
+  default_prompt: "Use $work-charter to bound this consequential task, its authority, coordination, evidence, and recovery."
+
+policy:
+  allow_implicit_invocation: true
