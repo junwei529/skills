@@ -1,6 +1,6 @@
 # Product Specification
 
-Last updated: 2026-07-29
+Last updated: 2026-07-30
 
 ## Goal
 
@@ -253,7 +253,7 @@ symptom or for POSIX-only work.
   `$skill-installer` only when the request names the exact repository URL and
   immutable tag or candidate commit.
 - Use
-  [`matsuri1987/eddie-skills`](https://github.com/matsuri1987/eddie-skills)
+  [`junwei529/skills`](https://github.com/junwei529/skills)
   as the public repository identity and permit the accepted candidate commit
   to be visible there before the stable tag for a commit-pinned installation
   smoke.
@@ -347,9 +347,11 @@ symptom or for POSIX-only work.
 
 ## Open Decisions
 
-No Project Docs, Work Charter v0.1 product-contract, or v0.1 distribution
-decision remains open. Current evidence, acceptance, and remaining lifecycle
-gates are owned by [`docs/STATUS.md`](STATUS.md) and
+No Project Docs, Work Charter v0.1 product-contract, GitHub account-identity,
+or v0.1 distribution decision remains open. Decision 0013 owns the current
+repository-owner and MIT public-attribution identifiers. Current evidence,
+acceptance, and remaining lifecycle gates are owned by
+[`docs/STATUS.md`](STATUS.md) and
 [`docs/VERIFICATION.md`](VERIFICATION.md); operational procedures are owned by
 [`docs/RUNBOOK.md`](RUNBOOK.md).
 

@@ -1,7 +1,7 @@
 # 0005: v0.1 Standalone GitHub Distribution
 
 Date: 2026-07-28
-Status: accepted
+Status: accepted; repository-owner locator superseded by Decision 0013
 
 ## Context
 
@@ -93,6 +93,7 @@ changes or cannot install an immutable GitHub subdirectory reproducibly.
 
 ## Related Documents
 
+- [GitHub public identity update](0013-github-public-identity-update.md)
 - [Development, installation, and release runbook](../RUNBOOK.md)
 - [Product specification](../SPEC.md)
 - [Architecture](../ARCHITECTURE.md)

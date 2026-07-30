@@ -46,14 +46,15 @@ explicit scenarios against the current six-file package and passed with exact
 SOURCE hashes. This closes current-source behavior attribution only; native
 selection behavior remains unproved. Candidate identity is determined by the
 repository's actual `HEAD`; the development evidence above is not
-retroactively release-pinned by a later commit. No remote, candidate
-installation, stable installation, tag, or release exists. The standalone GitHub
-distribution contract and
-[`matsuri1987/eddie-skills`](https://github.com/matsuri1987/eddie-skills)
-repository identity are selected. Release progression requires an exact
-reviewed commit, isolated candidate evidence, and the other repository
-milestones. No generalized efficacy, portability, native-trigger, or
-token-saving claim has been established.
+retroactively release-pinned by a later commit. The reviewed local root commit
+exists, but no remote, candidate installation, stable installation, tag, or
+release exists. The standalone GitHub distribution contract and current
+[`junwei529/skills`](https://github.com/junwei529/skills)
+repository identity are selected. The new repository is not yet publicly
+reachable. Release progression requires the reviewed identity correction, a
+separately authorized push, isolated candidate evidence, and the other
+repository milestones. No generalized efficacy, portability, native-trigger,
+or token-saving claim has been established.
 
 The Work Charter M2R product contract is accepted in
 [Decision 0012](docs/decisions/0012-work-charter-v0-1-identity-and-minimum-sufficient-design.md).
@@ -140,13 +141,13 @@ The approved PowerShell installation prompt for the intended `v0.1.0` release
 is:
 
 ```text
-$skill-installer Install the Skill from https://github.com/matsuri1987/eddie-skills/tree/v0.1.0/skills/use-powershell-safely.
+$skill-installer Install the Skill from https://github.com/junwei529/skills/tree/v0.1.0/skills/use-powershell-safely.
 ```
 
 To install the complete set from the same tag as an optional convenience:
 
 ```text
-$skill-installer Install `skills/manage-project-docs`, `skills/work-charter`, and `skills/use-powershell-safely` from https://github.com/matsuri1987/eddie-skills at tag `v0.1.0`.
+$skill-installer Install `skills/manage-project-docs`, `skills/work-charter`, and `skills/use-powershell-safely` from https://github.com/junwei529/skills at tag `v0.1.0`.
 ```
 
 These prompts are the intended release contract, not currently working
@@ -159,8 +160,9 @@ Current OpenAI guidance supports standalone local Skills and repository
 downloads through `$skill-installer`, while preferring Plugins for broader
 installable distribution. This project intentionally keeps v0.1 as an early
 standalone Codex release and defers Plugin packaging. See the
-[distribution decision](docs/decisions/0005-v0-1-standalone-github-distribution.md)
-and [runbook](docs/RUNBOOK.md).
+[distribution decision](docs/decisions/0005-v0-1-standalone-github-distribution.md),
+[identity update](docs/decisions/0013-github-public-identity-update.md), and
+[runbook](docs/RUNBOOK.md).
 
 ## Why Skills Instead Of One Global File
 
@@ -219,4 +221,4 @@ and [provenance record](docs/PROVENANCE.md).
 
 ## License
 
-Licensed under the [MIT License](LICENSE), copyright 2026 matsuri1987.
+Licensed under the [MIT License](LICENSE), copyright 2026 junwei529.

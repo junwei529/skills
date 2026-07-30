@@ -1,7 +1,7 @@
 # 0004: Public MIT License
 
 Date: 2026-07-28
-Status: accepted
+Status: accepted; public-attribution identifier superseded by Decision 0013
 
 ## Context
 
@@ -54,6 +54,7 @@ the project adopts a materially different contribution or patent policy.
 
 ## Related Documents
 
+- [GitHub public identity update](0013-github-public-identity-update.md)
 - [Product specification](../SPEC.md)
 - [Provenance and publication boundary](../PROVENANCE.md)
 - [Current status](../STATUS.md)

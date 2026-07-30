@@ -1,25 +1,26 @@
 # Handoff
 
-Last updated: 2026-07-29
+Last updated: 2026-07-30
 
 ## Snapshot
 
 - Project: Agent Workflow Skills
 - Workspace: repository root
 - Branch: `main`
-- Commit: the first local candidate exists only when actual `HEAD` resolves to
-  the reviewed root commit
+- Baseline: reviewed local root commit
+  `624553b03c794bb8cbd24e6c454d251ac214e24f`
+- Commit state: resolve from Git; if `HEAD` is still the baseline and the
+  identity correction is staged, its local commit gate remains active; if a
+  clean `HEAD` contains Decision 0013, the identity commit is complete
 - Remote: none
-- Active gate: Project Docs M1R, Work Charter M2R, and PowerShell are accepted
-  for candidate inclusion; the Release Custodian owns the user-authorized
-  coherent-scope, staging, cumulative native-review, and one-local-commit
-  window as sole repository writer
-- Candidate boundary: the complete 139-file public baseline; retired
-  `manage-large-tasks` and superseded Project Docs files are absent, current
-  `work-charter` and current eval/evidence files are present, and discovery,
-  installation, cache, ignored run, and interpreter-cache paths are excluded
-- Index boundary: before commit the index must exactly match that candidate;
-  after a successful root commit the working tree must be clean
+- Public identity: `junwei529/skills`, selected by Decision 0013; the
+  repository was not publicly reachable during the 2026-07-30 read-only check
+- Active gate: finish the authorized governance-only local commit while the
+  correction is staged; after a clean identity-corrected `HEAD`, remote/push
+  becomes the next separate authorization gate
+- Candidate boundary: exact identity-corrected `HEAD`; discovery,
+  installation, cache, ignored run, and interpreter-cache paths remain
+  excluded
 
 ## Authoritative Pointers
 
@@ -119,12 +120,12 @@ relinquished.
 
 ## Immediate Next Action
 
-If `git rev-parse HEAD` remains unresolved, finish the authorized stable-diff
-and cumulative native-review gate and create the one local root commit only
-when material coverage is clean. If `HEAD` resolves and the working tree is
-clean, stop: remote/push and isolated `RC_INSTALL` are separate user gates.
-Explicit-only Project Docs selection and actual loaded-copy proof belong to
-that later isolated candidate window.
+Resolve `HEAD`, index, and worktree state. Finish the already authorized local
+identity commit only if the correction remains staged and its commit gate
+passes. If the worktree is clean and `HEAD` contains Decision 0013, stop until
+the user separately authorizes remote configuration and push for that exact
+commit. Isolated `RC_INSTALL` remains another separate gate after the commit is
+GitHub-visible.
 
 ## Material Risks
 
@@ -142,7 +143,7 @@ that later isolated candidate window.
 ## Prohibited Without Separate User Authorization
 
 - Discovery mapping, installation, update, rollback, or user configuration.
-- Any additional commit or amend beyond the one authorized local root commit.
+- Any additional commit or amend without a new explicit authorization.
 - Remote, push, `RC_INSTALL`, tag, stable installation, release, or cleanup.
 - Plugin, MCP, cross-Harness package, or other deferred product surface.
 - Any additional eval run or lifecycle progression not separately authorized.

@@ -1,6 +1,6 @@
 # Documentation Index
 
-Last updated: 2026-07-29
+Last updated: 2026-07-30
 
 ## Core Documents
 
@@ -26,8 +26,8 @@ Last updated: 2026-07-29
 | [`docs/decisions/0001-v0-1-scope-and-names.md`](decisions/0001-v0-1-scope-and-names.md) | Initial three-skill v0.1 structure and names | accepted; partially superseded by 0007 and 0012 |
 | [`docs/decisions/0002-powershell-scope-and-runtime-readiness.md`](decisions/0002-powershell-scope-and-runtime-readiness.md) | PowerShell scope, progressive references, and runtime-readiness boundary | accepted |
 | [`docs/decisions/0003-source-install-release-boundaries.md`](decisions/0003-source-install-release-boundaries.md) | Canonical source, development mapping, candidate, stable install, and version identity | accepted |
-| [`docs/decisions/0004-public-mit-license.md`](decisions/0004-public-mit-license.md) | MIT license selection and public-attribution boundary | accepted |
-| [`docs/decisions/0005-v0-1-standalone-github-distribution.md`](decisions/0005-v0-1-standalone-github-distribution.md) | Standalone GitHub source, tag-pinned per-Skill installation, and deferred Plugin packaging | accepted |
+| [`docs/decisions/0004-public-mit-license.md`](decisions/0004-public-mit-license.md) | MIT license selection and public-attribution boundary | accepted; identifier clause superseded by 0013 |
+| [`docs/decisions/0005-v0-1-standalone-github-distribution.md`](decisions/0005-v0-1-standalone-github-distribution.md) | Standalone GitHub source, tag-pinned per-Skill installation, and deferred Plugin packaging | accepted; repository-owner clause superseded by 0013 |
 | [`docs/decisions/0006-project-docs-progressive-governance.md`](decisions/0006-project-docs-progressive-governance.md) | Project Docs target user, minimum logical contract, triggers, continuity, and deferred architecture | accepted |
 | [`docs/decisions/0007-independent-skills-and-optional-recipes.md`](decisions/0007-independent-skills-and-optional-recipes.md) | Independent Skill products, shared audience, optional recipes, and non-propagating authorization | accepted; naming clauses refined by 0012 |
 | [`docs/decisions/0008-work-charter-logical-contract-and-codex-carriers.md`](decisions/0008-work-charter-logical-contract-and-codex-carriers.md) | Work Charter logical responsibilities, persistence threshold, Codex carriers, and deferred Harness adaptation | accepted; partially superseded by 0012 |
@@ -35,6 +35,7 @@ Last updated: 2026-07-29
 | [`docs/decisions/0010-compact-role-handoff-and-event-checkpoints.md`](decisions/0010-compact-role-handoff-and-event-checkpoints.md) | Anchor + Delta + Role Capsule handoffs, session reuse, and event-based checkpoints | accepted; partially superseded by 0012 |
 | [`docs/decisions/0011-standard-ope-is-a-supported-advanced-profile.md`](decisions/0011-standard-ope-is-a-supported-advanced-profile.md) | Formal v0.1 support for Standard Orchestrator/Planner/Executor | accepted; activation detail superseded by 0012 |
 | [`docs/decisions/0012-work-charter-v0-1-identity-and-minimum-sufficient-design.md`](decisions/0012-work-charter-v0-1-identity-and-minimum-sufficient-design.md) | Work Charter identity, proportional activation, simplified handoff and assessment, concurrency, and correction bounds | accepted |
+| [`docs/decisions/0013-github-public-identity-update.md`](decisions/0013-github-public-identity-update.md) | Current GitHub owner, repository slug, local-directory boundary, and MIT public-attribution identifier | accepted; supersedes only public-identity clauses in 0004 and 0005 |
 
 ## Skill Sources
 

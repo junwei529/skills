@@ -1,6 +1,6 @@
 # Provenance And Publication Boundary
 
-Last updated: 2026-07-28
+Last updated: 2026-07-30
 
 ## Purpose
 
@@ -18,6 +18,7 @@ This repository extracts portable workflow ideas from a private Codex working en
 | [Microsoft WSL documentation](https://learn.microsoft.com/en-us/windows/wsl/) | Primary source for Windows/Linux command, path, working-directory, permission, and state boundaries | Portable boundary rules were summarized without host-specific distribution or path data |
 | [multica-ai/andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills) | Public example of packaging agent guidance as a repository artifact | Packaging inspiration only; no text or code copied |
 | [mattpocock/skills](https://github.com/mattpocock/skills) | Public example of small, composable skill packages | Packaging inspiration only; no text or code copied |
+| [emilkowalski/skills](https://github.com/emilkowalski/skills) | Public example of an owner-namespaced `skills` repository for a differentiated Skill collection | Repository-naming inspiration only; no text or code copied |
 
 ## Transformation Rules
 

@@ -1,6 +1,6 @@
 # Verification
 
-Last updated: 2026-07-29
+Last updated: 2026-07-30
 
 ## Required Checks
 
@@ -8,20 +8,20 @@ Last updated: 2026-07-29
 |---|---|---|
 | Bundled skill validator | Validate frontmatter and directory naming | pass for all three public Skills, 2026-07-29 |
 | Scaffolding-marker scan | Ensure operative files contain no generated placeholder markers | pass, 2026-07-27 |
-| Repository checker | Check links, strict UTF-8, BOM, trailing whitespace, scaffolding, direct references, exact public Skill/package shape, exact eval sets, and publication patterns | pass across 139 text files, eleven cases, and ten fixtures after Project Docs current-source evidence sync, 2026-07-29 |
+| Repository checker | Check links, strict UTF-8, BOM, trailing whitespace, scaffolding, direct references, exact public Skill/package shape, exact eval sets, and publication patterns | pass across 140 text files, eleven cases, and ten fixtures after GitHub identity sync, 2026-07-30 |
 | Fixture preconditions | Confirm all ten synthetic repositories start in the intended state, including Project Docs M1R, isolated Git/manifest inspection, reparse-point containment, cold-resume drift, the shared Work Charter loop, and the Standard boundary | pass for fourteen precondition checks, 2026-07-29 |
 | Direct-reference check | Ensure every reference is linked from its skill entry | pass for all Skills, including three revised PowerShell references, 2026-07-28 |
 | Publication-safety scan | Detect private paths, IDs, credentials, and copied host data | configured repository patterns pass, 2026-07-28 |
-| Gitleaks directory scan | Detect secret-like content independently | pass after Project Docs current-source evidence sync, no leaks found, 2026-07-29 |
-| Native Codex candidate-diff review | Inspect the complete first candidate baseline beyond deterministic checks | cycle 1 used five reviews and found one P1 plus seven P2 issues; after the user-approved reset, cycle 2 review one found the ninth P2, review two was clean but could not certify later concurrent M1R/M2R changes, review three found the tenth P2, and review four found an eleventh P2 in reparse-point containment; all eleven findings are corrected and the latest fix requires a later clean review before commit, 2026-07-29 |
+| Gitleaks directory scan | Detect secret-like content independently | pass after GitHub identity sync, no leaks found, 2026-07-30 |
+| Native Codex candidate-diff review | Inspect candidate changes beyond deterministic checks | the first baseline used five reviews in cycle 1 and five after one user-approved reset, ending clean before root commit `624553b03c794bb8cbd24e6c454d251ac214e24f`; the separately authorized public-identity correction also received a clean staged review with material diff coverage, 2026-07-30 |
 | Fresh-context forward tests | Observe actual skill behavior | original baseline and revised PowerShell results retained; five Project Docs M1R explicit scenarios passed against current exact SOURCE; Work Charter M2R five SOURCE-assisted groups plus two controlled negative variants were independently accepted for their recorded hashes, 2026-07-29 |
 | Revised Project Docs contract | Prove the accepted minimum responsibilities, trigger surfaces, continuity, authorization, and safety boundaries | current exact-hash SOURCE-assisted matrix passed all five explicit scenarios; persistence-only continuity remains separately unattributed; explicit-only native selection, candidate, and release proof remain absent |
 | Revised Work Charter contract | Prove the accepted identity, proposal-only boundary, proportional coordination, compact recovery, assessment, correction, and Standard behavior | independent Planner accepted the exact-hash SOURCE-assisted matrix; separate P/E and O/P/E role delivery was observed in the evaluation environment; native implicit selection and loaded-copy proof remain absent |
 | Recovery and selection boundary | Check recovery drift and flat-task selection behavior | pass for one recovery run and one catalog-assisted smoke; native trigger telemetry unverified, 2026-07-27 |
 | PowerShell runtime probe | Validate the documented read-only 5.1-to-`pwsh` discovery and launch shape | pass on one development host with `pwsh` present; absent/install branches not exercised, 2026-07-28 |
 | Source/install identity | Prove canonical source, actual loaded copy, exact candidate commit with clean candidate source, and stable tag mapping | lifecycle specified; no development mapping, RC install, or stable install exercised |
-| Distribution contract | Confirm a supported v0.1 source, version, per-Skill path, and installer interface | `matsuri1987/eddie-skills`, immutable tag, per-Skill paths, and `$skill-installer` prompts accepted; Work Charter SOURCE exists, but remote, tag, and installation behavior do not |
-| Git publication preflight | Check writer identity, intended source scope, derived-file exclusions, candidate identity, and remotes | publication-safe local identity revalidated without publishing account data; no candidate exists while `HEAD` is unresolved; derived paths excluded and no remote exists, 2026-07-28 |
+| Distribution contract | Confirm a supported v0.1 source, version, per-Skill path, and installer interface | `junwei529/skills`, immutable tag, per-Skill paths, and `$skill-installer` prompts accepted; the reviewed local root commit exists, but the new repository is not publicly reachable and no remote, tag, or installation evidence exists |
+| Git publication preflight | Check writer identity, intended source scope, derived-file exclusions, candidate identity, and remotes | baseline root commit `624553b03c794bb8cbd24e6c454d251ac214e24f` exists on `main`; the identity correction was staged against that baseline when checked, derived paths remain excluded, no remote exists, and any later lifecycle action must resolve current `HEAD` and confirm it contains Decision 0013; a read-only probe found `junwei529/skills` not publicly reachable, 2026-07-30 |
 
 ## Claim Ledger
 
@@ -36,8 +36,8 @@ Last updated: 2026-07-29
 | PowerShell conditionally recommends 7 without unauthorized installation | passed one synthetic answer-level recommendation/stop scenario; actual installation and post-install verification untested |
 | Cold recovery stops on material workspace drift | passed one synthetic combined-skill behavior test |
 | Development, candidate, stable-install, and release identities are separated | specified in the accepted lifecycle and runbook; operational isolation unverified |
-| Public v0.1 license | root MIT `LICENSE` materialized with user-confirmed public attribution; exact header, standard clauses, repository checks, and Gitleaks pass |
-| v0.1 has a defined distribution form | verified as an accepted design: `matsuri1987/eddie-skills`, repository tag, per-Skill paths, `$skill-installer`, and pre-tag candidate visibility; Plugin deferred |
+| Public v0.1 license | root MIT `LICENSE` materialized with the current user-confirmed public attribution `Copyright (c) 2026 junwei529`; repository and Gitleaks checks pass |
+| v0.1 has a defined distribution form | verified as an accepted design: `junwei529/skills`, repository tag, per-Skill paths, `$skill-installer`, and pre-tag candidate visibility; Plugin deferred; public reachability remains absent |
 | Each public Skill is an independent product and composition is optional | accepted project design; source packages are structurally separate, but standalone real-world adoption and composed-recipe behavior are unverified |
 | Work Charter is the unified product, contract, and `work-charter` package identity | accepted design, structurally implemented SOURCE, and independently accepted exact-hash SOURCE-assisted matrix; loaded-copy identity unverified |
 | Work Charter uses proportional symptom-based activation and internal coordination/readiness diagnostics | SOURCE-assisted small-task, midstream, correction, and controlled-negative behavior passed; native selection unverified |
@@ -111,6 +111,49 @@ Known gaps:
 ```
 
 ## Evidence Log
+
+### 2026-07-30 — Local baseline commit and GitHub identity correction
+
+The complete public baseline passed its cumulative native-review gate and was
+committed locally as root commit
+`624553b03c794bb8cbd24e6c454d251ac214e24f`. The final review in cycle 2 was
+clean after eleven cumulative findings were corrected. The post-commit
+worktree was clean and no remote was configured.
+
+The user then changed the current public GitHub account identifier from
+`matsuri1987` to `junwei529`. Decision 0013 supersedes only the old
+account-specific repository locator and MIT public-attribution clauses. The
+current intended distribution identity is
+[`junwei529/skills`](https://github.com/junwei529/skills), and the
+root license uses `Copyright (c) 2026 junwei529`.
+
+A read-only command checked the intended remote locator:
+
+```text
+git ls-remote https://github.com/junwei529/skills.git
+```
+
+GitHub returned `Repository not found`. This proves only that the selected
+repository was not publicly reachable at check time; it does not distinguish
+an absent repository from a private repository without current credentials.
+No remote, push, installation, tag, or release action occurred. The user
+separately authorized the bounded identity correction's local commit gate; that
+authorization did not extend to any publication or installation action.
+
+After the identity sync:
+
+```text
+python -B scripts/check_repository.py
+git diff --check
+gitleaks dir . --no-banner --redact --no-color --exit-code 1
+```
+
+The repository checker passed across 140 text files, eleven cases, and ten
+fixtures; the diff check passed; and Gitleaks found no leaks. No Skill SOURCE
+file changed, so the Skill validators and behavior suites were not repeated.
+The first staged native review returned clean with material diff coverage.
+The subsequent current-state synchronization removed obsolete
+pre-authorization wording and re-entered the same commit gate before commit.
 
 ### 2026-07-29 — Project Docs M1R current-SOURCE rerun
 

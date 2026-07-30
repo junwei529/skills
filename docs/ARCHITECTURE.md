@@ -1,6 +1,6 @@
 # Architecture
 
-Last updated: 2026-07-29
+Last updated: 2026-07-30
 
 ## Overview
 
@@ -284,7 +284,7 @@ development identity includes checkout, commit or unborn state, and dirty
 state; release identity uses a repository-level version tag and exact commit.
 
 v0.1 uses
-[`matsuri1987/eddie-skills`](https://github.com/matsuri1987/eddie-skills)
+[`junwei529/skills`](https://github.com/junwei529/skills)
 as the standalone GitHub distribution envelope. The supported Codex
 installation interface is `$skill-installer` with that exact repository URL,
 an immutable repository tag, and one or more

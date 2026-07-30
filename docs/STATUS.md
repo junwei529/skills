@@ -1,8 +1,23 @@
 # Current Status
 
-Last updated: 2026-07-29
+Last updated: 2026-07-30
 
 ## Current Stage
+
+The complete first public baseline passed its cumulative native-review gate and
+was committed locally as root commit
+`624553b03c794bb8cbd24e6c454d251ac214e24f` on `main`. The working tree was
+clean after that commit, and no remote was configured.
+
+The user subsequently changed the current public GitHub account identifier
+from `matsuri1987` to `junwei529`. Decision 0013 now owns the current
+`junwei529/skills` repository locator and MIT public-attribution
+identifier. This governance-only correction is the authorized follow-up
+candidate; no Skill SOURCE changed. Its actual inclusion is determined from
+Git, not this document: while `HEAD` remains the root commit, the correction is
+only staged; a later clean `HEAD` containing Decision 0013 proves the local
+identity commit succeeded. A read-only GitHub check found the new repository
+is not yet publicly reachable.
 
 Work Charter M2R Tranche 1 was accepted after correction round 2. Tranche 2
 then ran the approved SOURCE-assisted matrix in unique ignored fixture copies.
@@ -36,6 +51,9 @@ identity, candidate identity, or release identity.
 
 ## Completed
 
+- The complete 139-file public baseline passed deterministic verification and
+  the cumulative native-review gate, then became local root commit
+  `624553b03c794bb8cbd24e6c454d251ac214e24f`.
 - The three independent public Skills and lifecycle boundary are accepted;
   canonical decisions own rationale and
   [`docs/RUNBOOK.md`](RUNBOOK.md) owns operational procedure.
@@ -61,12 +79,14 @@ Historical checks, findings, and behavior evidence remain only in
 
 ## In Progress
 
-- No Skill implementation or evaluation writer remains active. The Release
-  Custodian owns the user-authorized first local candidate-commit gate as the
-  sole repository writer. That window covers coherent scope reconciliation,
-  staging, deterministic verification, cumulative native review, and one local
-  root commit only. Remote, push, discovery, installation, `RC_INSTALL`, tag,
-  stable installation, release, and cleanup remain unauthorized.
+- No Skill implementation or evaluation writer remains active. During the
+  authorized public-identity commit gate, the Release Custodian is the sole
+  repository writer. A clean `HEAD` containing Decision 0013 closes that local
+  writer window.
+- The correction is limited to canonical governance, public installation
+  locators, and MIT attribution; it does not change Skill behavior.
+- Remote, push, discovery, installation, `RC_INSTALL`, tag, stable
+  installation, release, and cleanup remain unauthorized.
 
 ## Known Gaps
 
@@ -83,8 +103,9 @@ Historical checks, findings, and behavior evidence remain only in
   cross-Harness compatibility claim is established.
 - No development discovery mapping, isolated candidate installation, stable
   installation, loaded-copy identity smoke, remote, tag, or release exists.
-- The repository has no candidate commit while `git rev-parse HEAD` remains
-  unresolved.
+- The selected `junwei529/skills` URL is not yet publicly reachable, so
+  it cannot support commit-pinned installer evidence until a separately
+  authorized remote/push window succeeds.
 
 ## Open Questions
 
@@ -94,13 +115,16 @@ decisions.
 
 ## Next Gate
 
-Project Docs M1R, Work Charter M2R, and PowerShell are ready for inclusion in
-the complete first public baseline. While `git rev-parse HEAD` remains
-unresolved, the active gate is to align the index to that complete baseline,
-rerun deterministic checks, continue the cumulative native-review attempt, and
-create the authorized local root commit only if the review gate passes. Once
-`HEAD` resolves, the next lifecycle action is a separately authorized
-remote/push and isolated `RC_INSTALL` window.
+Project Docs M1R, Work Charter M2R, and PowerShell are included in the reviewed
+local baseline. Resolve the current Git state before proceeding:
+
+- if `HEAD` is still `624553b03c794bb8cbd24e6c454d251ac214e24f` and the
+  identity correction is staged, finish its authorized local commit gate;
+- if the worktree is clean and `HEAD` contains Decision 0013, stop until the
+  user separately authorizes remote configuration and push.
+
+The isolated `RC_INSTALL` and actual-loaded-copy proof remain another later
+gate after the exact identity-corrected commit is GitHub-visible.
 
 Explicit-only native Project Docs selection remains a separate candidate
 evidence gate. It can be tested against the exact isolated candidate; this

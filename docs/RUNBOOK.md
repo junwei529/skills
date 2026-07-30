@@ -1,6 +1,6 @@
 # Development, Installation, And Release Runbook
 
-Last updated: 2026-07-28
+Last updated: 2026-07-30
 
 ## Quick Navigation
 
@@ -24,7 +24,9 @@ selected. The remote and release tag do not yet exist.
 
 See
 [Decision 0003](decisions/0003-source-install-release-boundaries.md) and
-[Decision 0005](decisions/0005-v0-1-standalone-github-distribution.md)
+[Decision 0005](decisions/0005-v0-1-standalone-github-distribution.md), with
+the current account-specific locator in
+[Decision 0013](decisions/0013-github-public-identity-update.md),
 for the rationale. Product requirements remain in
 [`docs/SPEC.md`](SPEC.md), and evidence belongs in
 [`docs/VERIFICATION.md`](VERIFICATION.md).
@@ -65,7 +67,7 @@ independent per-Skill version lines without a later accepted decision.
 ## v0.1 Distribution Contract
 
 The public v0.1 source is
-[`matsuri1987/eddie-skills`](https://github.com/matsuri1987/eddie-skills).
+[`junwei529/skills`](https://github.com/junwei529/skills).
 The supported Codex installation interface is a `$skill-installer` request
 that identifies:
 
@@ -94,13 +96,13 @@ workspace, connector, or one-click distribution.
 The intended stable PowerShell prompt is:
 
 ```text
-$skill-installer Install the Skill from https://github.com/matsuri1987/eddie-skills/tree/v0.1.0/skills/use-powershell-safely.
+$skill-installer Install the Skill from https://github.com/junwei529/skills/tree/v0.1.0/skills/use-powershell-safely.
 ```
 
 The intended complete-set prompt is:
 
 ```text
-$skill-installer Install `skills/manage-project-docs`, `skills/work-charter`, and `skills/use-powershell-safely` from https://github.com/matsuri1987/eddie-skills at tag `v0.1.0`.
+$skill-installer Install `skills/manage-project-docs`, `skills/work-charter`, and `skills/use-powershell-safely` from https://github.com/junwei529/skills at tag `v0.1.0`.
 ```
 
 These prompts are not executable release evidence until the remote and named
