@@ -34,21 +34,29 @@ The implementation now uses two conditional references, two minimal output
 assets, and five focused Project Docs eval scenarios rather than a prescribed
 document suite.
 
-The original three-skill baseline has synthetic development evidence, and the
-revised PowerShell Skill has three passing behavior scenarios, one partial
-Windows-to-WSL result, and one catalog-assisted POSIX non-trigger smoke. The
-M1R Project Docs development source passed five explicit fresh-context
-behavior scenarios plus a separate persistence-only continuity run after two
-recorded contract corrections. A later source alignment made outcome
-precedence explicit in one direct reference and enforced explicit-only
-invocation in frontmatter and metadata. Five new fresh contexts then reran all
-explicit scenarios against the current six-file package and passed with exact
-SOURCE hashes. This closes current-source behavior attribution only; native
-selection behavior remains unproved. Candidate identity is determined by the
-repository's actual `HEAD`; the development evidence above is not
-retroactively release-pinned by a later commit. The reviewed local root commit
-exists, but no remote, candidate installation, stable installation, tag, or
-release exists. The standalone GitHub distribution contract and current
+The original three-skill baseline has synthetic development evidence. The
+later PowerShell portable-guidance migration revision adds bounded
+generalization, high-signal trigger terms, native error-preference handling,
+stronger WSL identity/stream checks, and explicit private-host exclusions.
+Seven boundary scenarios and two catalog-assisted non-trigger canaries now
+pass against that exact development SOURCE identity. This is SOURCE-assisted
+behavior and catalog-level selection evidence. Controlled native
+DEV_DISCOVERY canaries also proved implicit selection of canonical SOURCE and
+non-loading for an ordinary cmdlet. This is development loaded-copy evidence,
+not candidate, stable-install, or release proof. Project Docs now aligns its
+explicit-only invocation, AGENTS
+loading, continuity routing, and authorization boundaries with the current
+official Codex manual. Five explicit fresh-context behavior groups, one
+persistence-only broken-routing variant, and controlled native DEV_DISCOVERY
+positive/negative canaries passed at the current six hashes. This proves the
+selected development SOURCE and non-loading without explicit invocation in the
+controlled canary, not candidate or release identity. Candidate identity is
+the clean reviewed commit containing this record; a staged or dirty working
+tree is not a candidate, and the development evidence above is not
+retroactively release-pinned by a later commit. Before downstream lifecycle
+work, verify that `HEAD` contains Decision 0014 and this record and that the
+working tree is clean. No remote, candidate installation, stable installation,
+tag, or release exists. The standalone GitHub distribution contract and current
 [`junwei529/skills`](https://github.com/junwei529/skills)
 repository identity are selected. The new repository is not yet publicly
 reachable. Release progression requires the reviewed identity correction, a
@@ -72,8 +80,12 @@ See the sanitized
 [initial development report](evals/results/2026-07-27-development-forward-tests.md)
 and
 [revised PowerShell report](evals/results/2026-07-28-powershell-forward-tests.md),
+the
+[PowerShell portable-guidance migration check](evals/results/2026-07-30-powershell-portable-guidance-migration.md),
 and the
 [Project Docs M1R report](evals/results/2026-07-29-project-docs-m1r-forward-tests.md),
+and the
+[Project Docs official-manual alignment report](evals/results/2026-07-30-project-docs-official-manual-alignment.md),
 and the
 [Work Charter M2R report](evals/results/2026-07-29-work-charter-m2r-forward-tests.md)
 for evidence and limitations.

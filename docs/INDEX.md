@@ -36,6 +36,7 @@ Last updated: 2026-07-30
 | [`docs/decisions/0011-standard-ope-is-a-supported-advanced-profile.md`](decisions/0011-standard-ope-is-a-supported-advanced-profile.md) | Formal v0.1 support for Standard Orchestrator/Planner/Executor | accepted; activation detail superseded by 0012 |
 | [`docs/decisions/0012-work-charter-v0-1-identity-and-minimum-sufficient-design.md`](decisions/0012-work-charter-v0-1-identity-and-minimum-sufficient-design.md) | Work Charter identity, proportional activation, simplified handoff and assessment, concurrency, and correction bounds | accepted |
 | [`docs/decisions/0013-github-public-identity-update.md`](decisions/0013-github-public-identity-update.md) | Current GitHub owner, repository slug, local-directory boundary, and MIT public-attribution identifier | accepted; supersedes only public-identity clauses in 0004 and 0005 |
+| [`docs/decisions/0014-powershell-portable-guidance-and-private-host-delta.md`](decisions/0014-powershell-portable-guidance-and-private-host-delta.md) | Public PowerShell rule classification, minimal global bootstrap, private host delta, and safe migration evidence | accepted |
 
 ## Skill Sources
 
@@ -66,6 +67,10 @@ Last updated: 2026-07-30
 - Understand the Work Charter refinement:
   [`Decision 0012`](decisions/0012-work-charter-v0-1-identity-and-minimum-sufficient-design.md) →
   [`docs/SPEC.md`](SPEC.md) → [`docs/ARCHITECTURE.md`](ARCHITECTURE.md).
+- Understand the PowerShell global-rule migration:
+  [`Decision 0014`](decisions/0014-powershell-portable-guidance-and-private-host-delta.md) →
+  [`docs/PROVENANCE.md`](PROVENANCE.md) →
+  [`docs/RUNBOOK.md`](RUNBOOK.md).
 - Check reuse terms: [`LICENSE`](../LICENSE).
 - Check current progress: [`docs/STATUS.md`](STATUS.md) →
   [`docs/VERIFICATION.md`](VERIFICATION.md).

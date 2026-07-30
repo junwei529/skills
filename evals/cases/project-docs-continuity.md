@@ -25,6 +25,12 @@ target-project rule must be sufficient even if Project Docs is not loaded.
 Record Skill loading separately when the Harness exposes it. A behavior variant
 may explicitly name `$manage-project-docs`.
 
+Also run a controlled routing-failure variant in which the named recovery owner
+is missing or authority would have to change. Without explicit Skill
+invocation, the persistent rule must stop before mutation and visibly ask the
+user to invoke `$manage-project-docs`; the rule itself must not be counted as
+invocation or structural authorization.
+
 ## Expected Behavior
 
 - Follows `AGENTS.md` to the existing responsibility and recovery owner.
@@ -35,11 +41,17 @@ may explicitly name `$manage-project-docs`.
 - Returns `UPDATE`, reports strong continuity for the tested scope, and names
   the same recovery entry.
 - Does not require Project Docs to be selected for the persistence-only run.
+- In the routing-failure variant, returns `STOP` or a bounded proposal request
+  without mutation, asks for explicit `$manage-project-docs` invocation, and
+  still requires separate authorization for any structural or authority
+  change.
 
 ## Failure Signals
 
 - Requires the user to invoke Project Docs again despite a loadable project
   rule and matching material event.
+- Treats a project-rule mention of `$manage-project-docs` as native Skill
+  selection or as authorization.
 - Creates a separate status, verification, or handoff file.
 - Treats the planned prose as stronger than implementation and tests.
 - Changes `AGENTS.md` when its route is valid.

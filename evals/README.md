@@ -147,16 +147,22 @@ The inspector compares every non-`.git` file by path, size, and SHA-256,
 including ignored caches. The agent completion report and evaluator must
 account for every manifest delta; Git status alone is insufficient.
 
-Run the continuity case twice:
+Run the continuity case in three controlled conditions:
 
 1. expose the target project with no Skill named or preselected to test whether
    its persistent rule is sufficient after the material event;
 2. explicitly invoke `$manage-project-docs` to test the matching maintenance
-   behavior.
+   behavior; and
+3. break the routed recovery owner in a separately committed synthetic
+   baseline, do not invoke the Skill, and verify that the persistent rule stops
+   before mutation and asks the user to explicitly invoke
+   `$manage-project-docs`.
 
-The first run does not require Project Docs to load. If the Harness can prove
-that it did or did not load, record that as a separate selection observation.
-A self-report is not native trigger telemetry.
+The first and third runs do not require Project Docs to load. A project-rule
+mention of `$manage-project-docs` is neither invocation nor structural
+authorization. If the Harness can prove that it did or did not load, record
+that as a separate selection observation. A self-report is not native trigger
+telemetry.
 
 After development behavior passes, repeat the required cases against an
 isolated `RC_INSTALL` produced from an exact commit. Do not attribute an
@@ -177,21 +183,31 @@ evidence. They do not prove the Work Charter identity, implicit proposal-only
 boundary, proportional coordination, compact warm handoff, revised assessment,
 or Standard standing-policy behavior.
 
-The executed revised Project Docs source was tested in
+The earlier Project Docs M1R hashes were tested in
 [Project Docs M1R Forward Tests](results/2026-07-29-project-docs-m1r-forward-tests.md).
-Five explicit behavior scenarios passed against the recorded
-development-source hashes after two outcome/taxonomy corrections, and the
-separate no-Skill continuity run passed as target-project persistence evidence.
-Later frontmatter, metadata, and audit-reference alignment requires all five
-explicit scenarios to be rerun against current source. Explicit-only native
-selection, a pinned candidate, and release evidence remain unproved.
+They are historical after the later official-manual alignment. The
+[current-source alignment report](results/2026-07-30-project-docs-official-manual-alignment.md)
+records five explicit behavior passes, one persistence-only broken-routing
+variant, and controlled native DEV_DISCOVERY positive and negative canaries
+for the current six-file SOURCE. This is development selection and loaded-copy
+evidence, not broad trigger telemetry, `RC_INSTALL`, stable-install, or release
+proof.
 
-The materially revised PowerShell Skill was tested again in
-[Revised PowerShell Development Forward Tests](results/2026-07-28-powershell-forward-tests.md).
-Three behavior scenarios passed, the Windows-to-WSL scenario was partial, and
-one POSIX-only catalog-assisted non-trigger smoke passed with explicit
-limitations. These were produced from uncommitted development sources and
-remain development results rather than release-pinned evidence.
+The
+[Work Charter M2R report](results/2026-07-29-work-charter-m2r-forward-tests.md)
+records five SOURCE-assisted behavior groups and two controlled negative
+variants for its exact hashes. Native implicit selection, loaded-copy identity,
+real-project behavior, candidate, and release proof remain unverified.
+
+The
+[Revised PowerShell Development Forward Tests](results/2026-07-28-powershell-forward-tests.md)
+remain historical behavior evidence for older SOURCE. The
+[portable-guidance migration result](results/2026-07-30-powershell-portable-guidance-migration.md)
+records deterministic checks and normalized hashes for the current revision.
+Seven boundary-sensitive fresh contexts, two catalog-assisted non-trigger
+canaries, and controlled native DEV_DISCOVERY positive/negative canaries
+exercised that SOURCE identity. Candidate, stable-install, shadow-period, and
+release proof remain unverified.
 
 ## Evidence Policy
 

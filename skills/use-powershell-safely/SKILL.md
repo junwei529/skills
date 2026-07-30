@@ -1,6 +1,6 @@
 ---
 name: use-powershell-safely
-description: Diagnose and safely execute Windows shell workflows across PowerShell, native executables, and WSL. Use for a Windows task involving PowerShell 5.1 versus 7, PowerShell 7 readiness or installation guidance, quoting or argument boundaries, stdout/stderr or native exit codes, pipelines or redirection, UTF-8/BOM/newline/hash correctness, JSON/schema/text, legacy code pages or non-ASCII text, WSL path or transport, Start-Process or ProcessStartInfo, sandbox or permission boundaries, or destructive filesystem operations. Do not use for ordinary version-independent cmdlets with no boundary symptom or for POSIX-only work.
+description: Diagnose and safely execute boundary-sensitive Windows shell workflows across PowerShell, native executables, and WSL. Use when a Windows task involves PowerShell 5.1 versus 7, PowerShell 7 readiness or installation guidance, quoting or argument boundaries, NativeCommandError, unexpected stdout/stderr or native exit status such as $LASTEXITCODE, missing or truncated output, stdin, pipelines, redirection, heredocs or nested shell strings, $PSNativeCommandArgumentPassing, Invoke-Expression, UTF-8/BOM/newline/hash correctness, JSON/schema/text, legacy code pages or non-ASCII text, WSL path or transport, Start-Process or ProcessStartInfo, sandbox or permission boundaries, or destructive filesystem operations. Do not use for ordinary version-independent cmdlets with no boundary symptom or for POSIX-only work.
 ---
 
 # Use PowerShell Safely
@@ -35,12 +35,27 @@ Get-Command pwsh -CommandType Application -ErrorAction SilentlyContinue
   [Native And Process Boundaries](references/native-process-boundaries.md)
   before recommending a version or installation method.
 
+## Classify Evidence Before Generalizing
+
+- Treat documented platform behavior and a reproduced version boundary as
+  portable guidance.
+- Treat a failure seen on one host as a bounded hypothesis until the mechanism,
+  prerequisite, and affected versions are established. State the uncertainty
+  instead of turning one observation into a universal PowerShell rule.
+- Treat exact executable paths, installed versions, account or distribution
+  names, environment-variable values, `PATH` order, package provenance,
+  sandbox identities, and current host state as local evidence. Verify them on
+  the active host and do not expose unrelated values.
+- Generalize the diagnostic question or safe command shape, not the private
+  host answer.
+
 ## Load Only The Relevant Detail
 
 - Read [Native And Process Boundaries](references/native-process-boundaries.md)
-  for cmdlets versus native executables, versions, arguments, streams,
-  pipelines, `ProcessStartInfo`, `Start-Process`, permissions, destructive
-  operations, or PowerShell 7 installation guidance.
+  for cmdlets versus native executables, versions, arguments,
+  `NativeCommandError`, streams, pipelines, `ProcessStartInfo`,
+  `Start-Process`, permissions, destructive operations, or PowerShell 7
+  installation guidance.
 - Read [Text And Encoding Boundaries](references/text-encoding-boundaries.md)
   only when text bytes, UTF-8, BOM, newline, JSON/schema, hashes, non-ASCII
   content, or a legacy code page may matter.

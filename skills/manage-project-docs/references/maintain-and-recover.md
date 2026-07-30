@@ -82,15 +82,13 @@ the recovery source.
 
 ## Recover
 
-1. Read the nearest project instructions and routed recovery entry.
+1. Follow the applicable project instructions already loaded by the Harness
+   and read the routed recovery entry.
 2. Revalidate scope, branch or checkout, commit state, dirty ownership, active
    writer, and the last cheap evidence checkpoint.
 3. Compare the durable record with current state.
-4. Resume only when the next action remains inside the recorded authority.
-5. Use `UPDATE` for a verified stale status or recovery fact.
-6. Use `PROPOSE` for broken structure or owner routing.
-7. Use `STOP` for material contract, permission, writer, workspace, or external
-   state drift.
+4. Apply the primary outcome and stop rules in `SKILL.md` to the revalidated
+   state; do not resume outside the recorded authority.
 
 ## Completion Report
 
@@ -100,12 +98,4 @@ intentional edits. Remove only artifacts created by this run when cleanup is
 authorized and safe; otherwise report them. Do not infer “no file changes” from
 the intended edit list.
 
-State:
-
-- primary outcome: `NOOP`, `REPORT`, `UPDATE`, `PROPOSE`, or `STOP`;
-- scope and canonical owners inspected;
-- every actual file change and its disposition;
-- evidence checked and limitations;
-- unresolved facts and their owners;
-- continuity strength: strong, weak, or not applicable;
-- exact recovery entry and next safe action.
+Use the report fields and continuity taxonomy defined in `SKILL.md`.

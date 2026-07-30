@@ -93,7 +93,10 @@ degrades honestly to weak continuity.
 
 Routine maintenance can follow the durable rule without loading Project Docs.
 The Skill is explicitly re-invoked only when governance fails or structure
-changes; project duration alone is not a trigger.
+changes; project duration alone is not a trigger. A target-project rule may ask
+the user to invoke `$manage-project-docs`, but the rule's mention is neither
+native Skill invocation nor authorization for a structural or authority
+change.
 
 Named maturity levels are not stored project state and do not trigger
 whole-layer upgrades. Modules expand only when concrete events make the
@@ -262,6 +265,20 @@ probe. The skill may detect and recommend PowerShell 7 without mutation.
 Installation or update remains an external state change that requires explicit
 authorization and current official guidance. No deterministic installer is
 bundled in v0.1.
+
+PowerShell guidance crosses a private-to-public provenance boundary:
+
+| Category | Canonical owner | Public treatment |
+|---|---|---|
+| Documented or reproduced portable rule | `use-powershell-safely` | State the affected interface, prerequisite, and version boundary |
+| Failure-derived bounded inference | `use-powershell-safely` only after corroboration | Publish a conditional diagnostic and safe response; retain uncertainty |
+| Exact host path, version, account, env value, distribution, package, sandbox identity, or current state | Private host guidance | Do not copy the value into the repository |
+| Pre-selection trigger, hard authorization invariant, and unavailable-Skill fallback | Minimal private global bootstrap | Route to the Skill without duplicating its detailed procedure |
+
+The public Skill becomes the sole canonical owner for portable procedures only
+after selection and loaded-copy evidence supports migration. A private host
+reference can remain operationally necessary without becoming a second public
+product or source tree.
 
 ## Source And Release Environments
 

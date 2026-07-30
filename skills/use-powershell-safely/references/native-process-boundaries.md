@@ -9,6 +9,7 @@ destructive operations, and PowerShell 7 installation guidance.
 - [Runtime Readiness](#runtime-readiness)
 - [Installation Is A Separate Authorized Action](#installation-is-a-separate-authorized-action)
 - [Cmdlet Or Native Executable](#cmdlet-or-native-executable)
+- [Native Errors And Preference Variables](#native-errors-and-preference-variables)
 - [Preserve Native Arguments](#preserve-native-arguments)
 - [Streams, Pipelines, And Redirection](#streams-pipelines-and-redirection)
 - [Process APIs](#process-apis)
@@ -122,6 +123,36 @@ For routine cmdlets, prefer named parameters and literal filesystem paths:
 Get-Content -LiteralPath $path -Encoding UTF8
 ```
 
+## Native Errors And Preference Variables
+
+Windows PowerShell 5.1 can surface text written by a native executable to
+stderr as a `NativeCommandError` record. In some hosts or collection shapes,
+`$ErrorActionPreference = 'Stop'` can then terminate the surrounding
+PowerShell operation before the caller has classified the native result. The
+error record is evidence about the PowerShell stream boundary; it does not
+replace the executable's documented stdout, stderr, and numeric exit-code
+contract.
+
+PowerShell 7 behavior also depends on version and preferences. When available,
+inspect `$PSNativeCommandUseErrorActionPreference` before assuming that a
+nonzero native exit is or is not converted into a PowerShell error. Do not
+change that preference globally as a diagnostic shortcut.
+
+Use this order:
+
+1. record the PowerShell edition, version, relevant preference values, and
+   invocation shape;
+2. reproduce with the smallest direct native invocation;
+3. preserve stdout, stderr, and `$LASTEXITCODE` as separate evidence;
+4. decide success from the native tool's documented contract; and
+5. change preference handling only in the narrow owning scope when the task
+   requires it.
+
+Do not catch and discard a terminating error merely to force a green result.
+If PowerShell prevents complete stream capture, use the native tool's
+output-file options or an explicitly configured process API and keep the
+original error as evidence.
+
 ## Preserve Native Arguments
 
 Prefer one array item per argument:
@@ -222,11 +253,19 @@ target executable rather than presenting it as structured transport.
 ## Paths, Permissions, And Destructive State
 
 - Use `-LiteralPath` unless wildcard expansion is intentional.
+- Resolve ambiguous command names before destructive work. For example,
+  `rd`/`rmdir` may name a PowerShell alias or a `cmd.exe` built-in depending on
+  the parser. Use `Get-Command <name> -All` for PowerShell resolution and name
+  the intended executable or cmdlet explicitly.
 - Before recursive delete, move, or overwrite, reject empty, unresolved, root,
   home, or workspace-wide targets; resolve each target and prove it stays under
   the intended root.
 - Keep enumeration and mutation in one PowerShell process. Preview a new
   destructive shape with a read-only listing or `-WhatIf` when supported.
+- Do not enumerate paths in PowerShell and concatenate them into a
+  `cmd.exe /c rd` or `rmdir` string. If a native or `cmd.exe` operation is
+  genuinely required, treat it as a new parser boundary and revalidate every
+  literal target in the owning shell.
 - Treat success only with elevation as a permission boundary, not evidence for
   an application patch.
 - A sandbox process-creation failure can occur before the requested command
@@ -244,6 +283,7 @@ target executable rather than presenting it as structured transport.
 - [Migrate from Windows PowerShell 5.1 to PowerShell 7](https://learn.microsoft.com/en-us/powershell/scripting/whats-new/migrating-from-windows-powershell-51-to-powershell-7)
 - [about_Parsing](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_parsing)
 - [about_Automatic_Variables](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_automatic_variables)
+- [about_Preference_Variables](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_preference_variables)
 - [about_Redirection](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_redirection)
 - [Start-Process](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.management/start-process)
 - [ProcessStartInfo.ArgumentList](https://learn.microsoft.com/en-us/dotnet/api/system.diagnostics.processstartinfo.argumentlist)

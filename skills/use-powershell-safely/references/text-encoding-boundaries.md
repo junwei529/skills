@@ -73,6 +73,9 @@ encoding defaults. Use explicit call-site behavior or a byte-oriented writer.
   contract.
 - Preserve the repository's newline policy. Inspect bytes when CRLF versus LF
   affects a consumer or hash rather than relying on the current host default.
+- When text must be truncated by a byte budget, decode it first or select a
+  validated UTF-8 code-point boundary. An arbitrary byte slice can end inside a
+  multi-byte sequence and create invalid UTF-8.
 - Avoid `Out-File`, `Set-Content`, `Add-Content`, `>` or `>>` when their
   version-specific encoding or append behavior cannot be proven to preserve
   the target contract.
@@ -119,6 +122,11 @@ locale-sensitive native program.
 of a file, a GUI application, or every native stream. A Chinese Windows locale
 often exposes CP936/GBK assumptions, but English environments can have the same
 UTF-8/BOM/newline defects and should follow the same general diagnostic order.
+
+A locale-specific failure observed on one machine supports a bounded
+hypothesis about the producer, consumer, or code-page boundary. It does not
+justify publishing that machine's locale, environment-variable values, or
+tool paths as a general prerequisite.
 
 Do not default to changing system locale, registry, profile, global code page,
 the “Beta: Use Unicode UTF-8” setting, or application-wide defaults. Those

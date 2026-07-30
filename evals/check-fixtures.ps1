@@ -133,9 +133,11 @@ Add-Check `
         $continuityText -notmatch '(?m)^(?:FAILED|ERROR)' -and
         $continuityState -match 'planned but not implemented' -and
         $continuityRules -match '## Project Documentation Continuity' -and
-        $continuityRules -match 'PROJECT_STATE\.md#next-action-and-recovery'
+        $continuityRules -match 'PROJECT_STATE\.md#next-action-and-recovery' -and
+        $continuityRules -match '\$manage-project-docs' -and
+        $continuityRules -match 'neither an invocation'
     ) `
-    -Expectation 'passing implementation evidence conflicts with one routed stale owner'
+    -Expectation 'ordinary updates stay routed while broken governance requests explicit Skill invocation'
 
 $safetyDocs = Join-Path $repoRoot 'evals\fixtures\project-docs-safety-boundaries'
 $serviceDocs = Join-Path $safetyDocs 'apps\service'

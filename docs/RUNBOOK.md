@@ -169,6 +169,42 @@ required, classify it as an isolated candidate and pin its source revision.
 Dirty-working-tree evidence is useful development evidence, but it is not
 release-candidate or release evidence.
 
+## Private Global-Guidance Migration
+
+Replacing reusable private Project Docs or PowerShell rules is a staged
+migration, not a file copy:
+
+1. Review the private source in place. Do not paste it into tracked files,
+   evaluation prompts, or public evidence.
+2. For Project Docs, first subtract current native Codex behavior: AGENTS
+   discovery and precedence, Skill progressive disclosure and invocation
+   policy, and technical sandbox/approval controls. For PowerShell, classify
+   each candidate as a portable rule, bounded inference, or private host delta
+   using
+   [Decision 0014](decisions/0014-powershell-portable-guidance-and-private-host-delta.md).
+3. For a portable rule, record the interface, prerequisite, and affected
+   versions. For a bounded inference, corroborate the failure mechanism and
+   write only a conditional diagnostic and safe response.
+4. Keep exact paths, installed versions, accounts, environment values,
+   distributions, package provenance, sandbox identities, local tool routes,
+   and current host results outside the public package.
+5. Add or strengthen a positive or negative eval row for each newly public
+   behavior. Structural validation alone does not prove the migration.
+6. Prove `SOURCE` behavior, then separately prove authorized native selection
+   and the actually loaded `DEV_DISCOVERY`, `RC_INSTALL`, and
+   `STABLE_INSTALL` identities.
+7. Route through the Skill during a bounded shadow period before retiring the
+   duplicate private procedure. For explicit-only Project Docs, test both
+   explicit invocation and ordinary maintenance through an adopted
+   target-project rule. Preserve a recoverable private fallback until
+   missed-routing and safety-regression checks pass.
+
+The private global bootstrap may retain only high-signal routing, hard
+authorization or destructive-operation invariants that apply before Skill
+selection, current host facts, and an unavailable-Skill fallback. Changing
+that bootstrap or private reference is a user-configuration mutation and is
+not authorized by a SOURCE edit or test.
+
 ## Release-Candidate Procedure
 
 Do not create or install a release candidate until the user authorizes the

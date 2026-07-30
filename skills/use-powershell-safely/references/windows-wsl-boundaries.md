@@ -30,6 +30,11 @@ Identify each owner:
 Do not debug all layers at once. First verify the active PowerShell host, then
 use a read-only WSL probe, then add the target command.
 
+If the PowerShell minor version or native argument mode is not observed, keep
+it unknown. On PowerShell 7.3 and newer, record
+`$PSNativeCommandArgumentPassing` when argument transport is part of the
+hypothesis.
+
 ## Prefer Direct Execution
 
 Use an explicit distribution and executable with separate arguments:
@@ -99,6 +104,9 @@ boundary.
 
 - Verify the distribution, Linux user, working directory, executable, and
   relevant environment rather than assuming the default.
+- Prove identity and location with direct read-only commands such as
+  `/usr/bin/whoami` and `/bin/pwd` after selecting the distribution. Use
+  `--user` only when the task requires a specific known Linux account.
 - Windows elevation does not equal Linux `root`; Linux `sudo` is a separate
   authority boundary.
 - A sandbox may block `wsl.exe` process creation or access before Linux runs.
@@ -132,15 +140,20 @@ Before deleting or moving files across Windows and WSL:
 ## Diagnostic Sequence
 
 1. Verify the active PowerShell edition/version and resolved `wsl.exe`.
-2. Inspect WSL status and distribution identity only as needed.
-3. Run a direct read-only executable probe.
-4. Confirm working directory, user, rights, and path namespace.
-5. Add the real command with one array element per argument.
-6. Add stdin, pipelines, redirection, or a shell only after the direct form
+2. Record the native argument mode when supported and material; otherwise keep
+   it unknown.
+3. Inspect WSL status and distribution identity only as needed.
+4. Run a direct read-only executable probe.
+5. Confirm the actual Linux user, working directory, rights, and path
+   namespace with separate probes rather than inferred defaults.
+6. Test stdout, stderr, and exit status separately with a fixed non-sensitive
+   payload when stream behavior is material.
+7. Add the real command with one array element per argument.
+8. Add stdin, pipelines, redirection, or a shell only after the direct form
    works.
-7. Capture exit status and streams at every added boundary.
-8. Classify the failure before changing the application, WSL state, or system
-   configuration.
+9. Capture exit status and streams at every added boundary.
+10. Classify the failure before changing the application, WSL state, or system
+    configuration.
 
 ## Official Sources
 

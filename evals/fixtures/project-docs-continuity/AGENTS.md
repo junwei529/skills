@@ -9,6 +9,10 @@
 - Update its existing owners when routing remains valid.
 - Ask before creating, splitting, merging, renaming, migrating, or changing
   authority or canonical ownership.
+- When routing is broken or a structural or authority change is needed and
+  Project Docs has not already been explicitly invoked, stop and ask the user
+  to invoke `$manage-project-docs`. This routing line is neither an invocation
+  nor authorization for the change.
 - Stop before writing when permission, scope, writer ownership, or evidence is
   unresolved.
 - Resume interrupted work from `PROJECT_STATE.md#next-action-and-recovery`.

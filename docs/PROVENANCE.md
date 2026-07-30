@@ -14,16 +14,34 @@ This repository extracts portable workflow ideas from a private Codex working en
 | Author-maintained project documentation practice | Requirements source for specification, status, handoff, verification, and decision responsibilities | Generalized templates use placeholders rather than project facts |
 | Locally bundled `skill-creator` | `<CODEX_HOME>/skills/.system/skill-creator/scripts/init_skill.py` generated the initial directories and metadata; `quick_validate.py` checked package structure | Generated instructional placeholders were removed; the tool revision was not exposed and remains unpinned |
 | [OpenAI Build skills guidance](https://learn.chatgpt.com/docs/build-skills) | Primary source for current standalone Skill discovery, `$skill-installer`, and Skill-versus-Plugin distribution boundaries | The v0.1 standalone GitHub choice is documented as a narrower early distribution path; the repository does not claim Plugin-directory availability |
+| [OpenAI AGENTS.md guidance](https://learn.chatgpt.com/docs/agent-configuration/agents-md) | Primary source for native global-to-project instruction loading and nearest-scope precedence | Project Docs follows the instruction chain already loaded by Codex; its separate responsibility map and canonical-write rules remain product semantics |
+| [OpenAI approval and security guidance](https://learn.chatgpt.com/docs/agent-approvals-security) | Primary source for native sandbox capability and approval-policy behavior | Project Docs structural and authority gates are semantic user-authorization boundaries and are not replaced by workspace write capability |
 | [Microsoft PowerShell documentation](https://learn.microsoft.com/en-us/powershell/) | Primary source for version, parsing, encoding, stream, process, lifecycle, migration, and Windows installation behavior | Technical facts and command interfaces were independently summarized; version-sensitive claims point back to current official guidance |
 | [Microsoft WSL documentation](https://learn.microsoft.com/en-us/windows/wsl/) | Primary source for Windows/Linux command, path, working-directory, permission, and state boundaries | Portable boundary rules were summarized without host-specific distribution or path data |
 | [multica-ai/andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills) | Public example of packaging agent guidance as a repository artifact | Packaging inspiration only; no text or code copied |
 | [mattpocock/skills](https://github.com/mattpocock/skills) | Public example of small, composable skill packages | Packaging inspiration only; no text or code copied |
 | [emilkowalski/skills](https://github.com/emilkowalski/skills) | Public example of an owner-namespaced `skills` repository for a differentiated Skill collection | Repository-naming inspiration only; no text or code copied |
 
+## Private-Rule Classification
+
+Private global guidance is reviewed without copying it into the repository:
+
+| Classification | Evidence threshold | Publication treatment |
+|---|---|---|
+| Portable rule | Current first-party interface documentation or a reproducible boundary across the stated versions | Rewrite the mechanism and qualify its versions and prerequisites |
+| Bounded inference | A concrete failure plus corroborating interface behavior or a sanitized minimal reproduction | Publish only the conditional diagnostic question and safe response; preserve uncertainty |
+| Private host delta | Exact path, installed version, package source, account, environment value, `PATH` order, distribution, registry/WSL state, sandbox identity, tool route, or current probe result | Keep outside the public repository; record only that the category was excluded |
+
+One-machine experience can motivate an eval case. It cannot by itself establish
+general efficacy, prevalence, compatibility, or a universal platform rule.
+
 ## Transformation Rules
 
 - Do not copy private global guidance or reference files verbatim.
-- Keep reusable principles; remove host-, account-, repository-, model-, and tool-route-specific policy.
+- Keep documented portable principles. Convert corroborated host failures only
+  into bounded, conditional diagnostics.
+- Remove host-, account-, repository-, model-, environment-, package-, and
+  tool-route-specific values.
 - Replace private absolute paths and task identifiers with logical locators.
 - Exclude session transcripts, memory, rollout data, prompts, completions, hidden reasoning, secrets, and environment dumps.
 - Treat repository files under `skills/` as canonical source. Keep local

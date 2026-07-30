@@ -7,20 +7,23 @@ Last updated: 2026-07-30
 - Project: Agent Workflow Skills
 - Workspace: repository root
 - Branch: `main`
-- Baseline: reviewed local root commit
-  `624553b03c794bb8cbd24e6c454d251ac214e24f`
-- Commit state: resolve from Git; if `HEAD` is still the baseline and the
-  identity correction is staged, its local commit gate remains active; if a
-  clean `HEAD` contains Decision 0013, the identity commit is complete
+- Historical baseline: identity-corrected local commit
+  `24714788a4c489620643a58f5651a6a3888a8fd3`; resolve current identity with
+  `git rev-parse HEAD`
+- Commit state: the coherent PowerShell portable-guidance migration and
+  Project Docs official-alignment revision is a local repository candidate
+  only when current `HEAD` contains Decision 0014 and this record and the
+  working tree is clean
 - Remote: none
 - Public identity: `junwei529/skills`, selected by Decision 0013; the
   repository was not publicly reachable during the 2026-07-30 read-only check
-- Active gate: finish the authorized governance-only local commit while the
-  correction is staged; after a clean identity-corrected `HEAD`, remote/push
-  becomes the next separate authorization gate
-- Candidate boundary: exact identity-corrected `HEAD`; discovery,
-  installation, cache, ignored run, and interpreter-cache paths remain
-  excluded
+- Active gate: finish the authorized local commit gate if the candidate
+  condition above fails; otherwise obtain separate authorization for the
+  remote/publication transition
+- Candidate boundary: staged or dirty SOURCE is not a candidate, and no
+  materialized `RC_INSTALL` or stable installation exists. Development
+  discovery mappings, installation, cache, private-global, ignored run, and
+  interpreter-cache paths remain excluded from repository source
 
 ## Authoritative Pointers
 
@@ -28,6 +31,8 @@ Last updated: 2026-07-30
   [Decision 0012](decisions/0012-work-charter-v0-1-identity-and-minimum-sufficient-design.md)
 - Independent-Skills boundary:
   [Decision 0007](decisions/0007-independent-skills-and-optional-recipes.md)
+- PowerShell public/private boundary:
+  [Decision 0014](decisions/0014-powershell-portable-guidance-and-private-host-delta.md)
 - Stable requirements and ownership:
   [`docs/SPEC.md`](SPEC.md) and
   [`docs/ARCHITECTURE.md`](ARCHITECTURE.md)
@@ -89,48 +94,81 @@ proof. The M2R writer has relinquished.
 
 ## Current Project Docs M1R State
 
-Five new `gpt-5.6-sol` contexts at medium reasoning reran the explicit mature,
-adoption, continuity, authority-conflict, and safety-boundary cases against the
-current six-file canonical SOURCE package. Every context independently
-reproduced the same normalized UTF-8/LF hashes. The outcomes were `NOOP`,
-`UPDATE`, `UPDATE`, `PROPOSE`, and `REPORT`; no canonical SOURCE correction was
-required.
+The current six-file SOURCE is aligned with the official Codex Skill,
+AGENTS, and approval contracts. It treats project-rule mentions as routing
+only, avoids redundant project-instruction rereads, consolidates duplicated
+outcome/report rules, and persists a visible explicit-reselection route.
+
+Five fresh `gpt-5.6-sol` contexts at medium reasoning passed the explicit
+mature, adoption, continuity, authority-conflict, and safety-boundary groups at
+the new hashes. A separate persistence-only broken-routing variant stopped
+without mutation and requested explicit `$manage-project-docs` invocation
+without treating the routing line as invocation or authorization.
 
 The
-[Project Docs M1R report](../evals/results/2026-07-29-project-docs-m1r-forward-tests.md)
-preserves the old-hash matrix as historical evidence, records the current
-six-file identities and complete manifests, and explains the supersession
-boundary. The task-specific ignored run root was removed without touching the
-two older run roots. This is current exact-hash SOURCE-assisted behavior
-evidence, not native explicit-only selection, trigger telemetry, loaded-copy,
-candidate, or release proof. The Project Docs evidence writer has
-relinquished.
+[official-alignment report](../evals/results/2026-07-30-project-docs-official-manual-alignment.md)
+also records controlled native DEV_DISCOVERY positive and negative canaries.
+The explicit run selected canonical SOURCE; the negative run did not load the
+full Skill body. This closes the development explicit-only selection and
+loaded-copy gate, but not broad trigger telemetry, `RC_INSTALL`, stable
+installation, or release proof. The earlier
+[M1R report](../evals/results/2026-07-29-project-docs-m1r-forward-tests.md)
+remains historical evidence for superseded hashes.
+
+## Current PowerShell Migration State
+
+Decision 0014 classifies candidate global rules as documented portable rules,
+bounded inference, or private host delta. The current SOURCE adds high-signal
+trigger terms, conditional native error-preference guidance, stronger WSL
+identity and stream checks, destructive parser boundaries, and explicit
+host-value exclusions while retaining exactly three references.
+
+The sanitized
+[PowerShell migration check](../evals/results/2026-07-30-powershell-portable-guidance-migration.md)
+records the five normalized SOURCE hashes. The Skill validator, metadata
+assertion, repository checker, all fourteen fixture checks, PowerShell parser
+check, whitespace check, and Gitleaks pass. No private global file was changed,
+and the source writer has relinquished.
+
+Seven isolated boundary-sensitive scenarios pass against the revised
+development SOURCE, including 5.1, 7.3/7.4, WSL, legacy CJK, PowerShell 7
+recommendation, sandbox, and destructive-operation boundaries. Two
+catalog-assisted canaries correctly declined an ordinary cmdlet and POSIX-only
+task without loading the Skill body. No SOURCE correction was required.
+A user-scope DEV_DISCOVERY junction now resolves directly to canonical SOURCE.
+One native implicit-selection canary loaded and hashed the entry plus the two
+relevant references, reproduced the fixture diagnosis, and avoided the WSL
+reference. A second native canary completed an ordinary cmdlet without reading
+the Skill body. Candidate, stable-install, shadow-period, and release proof
+remain absent.
 
 ## Resume Order
 
-1. Read `AGENTS.md`, `docs/INDEX.md`, Decisions 0006, 0007, and 0012.
+1. Read `AGENTS.md`, `docs/INDEX.md`, Decisions 0002, 0003, 0007, 0012, and
+   0014.
 2. Read `docs/SPEC.md`, `docs/ARCHITECTURE.md`, `docs/STATUS.md`, and
    `docs/VERIFICATION.md`.
 3. Inspect `git status --short --branch`; preserve the inherited index and all
    unrelated dirty ownership.
-4. Read the six current Project Docs SOURCE files, five current Work Charter
-   SOURCE files, and their public cases.
+4. Read the five current PowerShell SOURCE files, its public case, and the
+   portable-guidance migration result before evaluating or changing it.
 5. Read `docs/RUNBOOK.md` before any discovery, installation, candidate,
    version, or release action.
 
 ## Immediate Next Action
 
-Resolve `HEAD`, index, and worktree state. Finish the already authorized local
-identity commit only if the correction remains staged and its commit gate
-passes. If the worktree is clean and `HEAD` contains Decision 0013, stop until
-the user separately authorizes remote configuration and push for that exact
-commit. Isolated `RC_INSTALL` remains another separate gate after the commit is
-GitHub-visible.
+Verify that current `HEAD` contains Decision 0014 and this record and that the
+worktree is clean. If either check fails, finish the already authorized local
+commit gate. If both pass, obtain separate user authorization for the
+remote/publication transition. Local-commit authority does not propagate to
+remote configuration, push, `RC_INSTALL`, tag, stable installation, release,
+or global-rule migration.
 
 ## Material Risks
 
 - Treating SOURCE-assisted reads as native selection or installed-copy proof.
-- Treating the current Project Docs rerun as explicit-only native selection.
+- Treating Project Docs DEV_DISCOVERY selection as candidate, stable-install,
+  or release identity.
 - Letting profile or standing-policy selection imply role delivery, write
   authority, execution, acceptance, or lifecycle authorization.
 - Recreating the retired `manage-large-tasks` path as an alias.
@@ -138,12 +176,20 @@ GitHub-visible.
   canonical SOURCE.
 - Treating the Tranche 2 results as native-selection, installed-copy,
   candidate, real-Harness outage, or release evidence.
+- Treating catalog-assisted PowerShell negative canaries as native Harness
+  trigger telemetry.
+- Copying private paths, accounts, environment values, installed state,
+  distribution identity, or sandbox details into public source or evidence.
+- Removing the private fallback before candidate/stable loaded-copy and
+  shadow-use evidence pass.
 - Disturbing inherited staged or unrelated dirty ownership.
 
 ## Prohibited Without Separate User Authorization
 
-- Discovery mapping, installation, update, rollback, or user configuration.
+- Any further discovery-mapping change, installation, update, rollback, or
+  user configuration.
 - Any additional commit or amend without a new explicit authorization.
 - Remote, push, `RC_INSTALL`, tag, stable installation, release, or cleanup.
+- Private global guidance or fallback edits.
 - Plugin, MCP, cross-Harness package, or other deferred product surface.
-- Any additional eval run or lifecycle progression not separately authorized.
+- Native-selection or lifecycle progression not separately authorized.

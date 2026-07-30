@@ -40,7 +40,8 @@ project truth. It must:
 - require explicit Project Docs invocation for initial use and later
   reselection; allow ordinary maintenance to follow an adopted target-project
   rule without loading the Skill, and do not activate merely because a project
-  is long-lived;
+  is long-lived; treat a project-rule mention of `$manage-project-docs` as
+  routing only, never as Skill invocation or structural authorization;
 - finish with one primary outcome: `NOOP`, `REPORT`, `UPDATE`, `PROPOSE`, or
   `STOP`;
 - preserve `UNKNOWN` and distinguish intended contract, actual implementation,
@@ -211,12 +212,24 @@ with safe execution guidance. It must:
 - classify application defects, shell transport, encoding, WSL/path semantics,
   environment drift, sandbox or permission failures, cleanup noise, and
   unresolved hypotheses before changing application code;
+- distinguish documented portable behavior, a bounded inference from an
+  observed failure, and current host state before presenting a reusable rule;
+- generalize only the corroborated mechanism, version boundary, diagnostic
+  question, or safe command shape; keep exact paths, installed versions,
+  accounts, environment values, distributions, package provenance, sandbox
+  identities, and current host results out of public guidance;
 - verify destructive filesystem targets before mutation.
 
 Detailed native/process, text/encoding, and WSL guidance must remain in three
 directly linked, conditionally loaded references. The frontmatter must not
 trigger this skill for ordinary version-independent cmdlets without a boundary
 symptom or for POSIX-only work.
+
+The Skill is the intended canonical owner for portable PowerShell procedures.
+A private global layer may retain only the pre-selection routing and safety
+kernel plus current-machine facts and fallback behavior. Duplicate private
+procedures may be retired only after authorized native selection, loaded-copy,
+candidate, stable-install, and shadow-use evidence.
 
 ## Shared Requirements
 
@@ -332,8 +345,8 @@ symptom or for POSIX-only work.
   A composed recipe cannot substitute for standalone Work Charter evidence.
 - The PowerShell forward-test contract covers runtime-present, runtime-absent,
   5.1 compatibility, user-declined installation, authorized-installation,
-  encoding, native-process, WSL, destructive-operation, and non-trigger
-  branches.
+  encoding, native-process, WSL, destructive-operation, public-rule
+  classification, and non-trigger branches.
 - At least one supported public `$skill-installer` path is documented with the
   exact GitHub repository URL, immutable tag or candidate commit, and
   `skills/<skill-name>` path, then smoke-tested against the release candidate.
@@ -347,10 +360,11 @@ symptom or for POSIX-only work.
 
 ## Open Decisions
 
-No Project Docs, Work Charter v0.1 product-contract, GitHub account-identity,
-or v0.1 distribution decision remains open. Decision 0013 owns the current
-repository-owner and MIT public-attribution identifiers. Current evidence,
-acceptance, and remaining lifecycle gates are owned by
+No Project Docs, Work Charter v0.1, PowerShell global-rule-migration, GitHub
+account-identity, or v0.1 distribution decision remains open. Decision 0013
+owns the current repository-owner and MIT public-attribution identifiers;
+Decision 0014 owns the PowerShell portable-guidance and private-host boundary.
+Current evidence, acceptance, and remaining lifecycle gates are owned by
 [`docs/STATUS.md`](STATUS.md) and
 [`docs/VERIFICATION.md`](VERIFICATION.md); operational procedures are owned by
 [`docs/RUNBOOK.md`](RUNBOOK.md).

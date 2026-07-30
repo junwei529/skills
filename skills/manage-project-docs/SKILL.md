@@ -1,6 +1,6 @@
 ---
 name: manage-project-docs
-description: Audit, adopt, repair, and maintain a repository's project-document governance so humans and coding agents can find authoritative scope, working rules, current evidence, and recovery state. Use only when the user explicitly invokes Project Docs, including to establish, audit, repair, or maintain project-document governance or project-level handoff and recovery; or when an adopted target-project instruction explicitly invokes Project Docs for a governance failure or structural change. Applicable problems include missing, conflicting, duplicated, stale, generated, externally owned, or hard-to-resume documentation. Preserve sufficient mature layouts, require authorization before structural changes, and do not use merely because a project is long-lived, for ordinary canonical-document updates already covered by a valid project rule, ordinary prose editing, or generated-document formatting that does not affect governance.
+description: Audit, adopt, repair, and maintain repository project-document governance so humans and coding agents can find authoritative scope, working rules, current evidence, and recovery state. Use only after the user explicitly invokes Project Docs for project-document governance or project-level handoff and recovery. An adopted target-project instruction may route ordinary canonical updates without this Skill; for a governance failure or structural change, it may ask the user to invoke Project Docs but does not itself invoke the Skill or authorize a change. Applicable problems include missing, conflicting, duplicated, stale, generated, externally owned, or hard-to-resume documentation. Preserve sufficient mature layouts, require authorization before structural changes, and do not use merely because a project is long-lived, for ordinary updates already covered by a valid project rule, ordinary prose editing, or generated-document formatting that does not affect governance.
 ---
 
 # Manage Project Docs
@@ -11,9 +11,9 @@ Maintain reliable project truth without imposing a fixed file suite.
 
 1. Establish the target scope, requested outcome, write permission, current
    writer, and whether structural change is authorized.
-2. Read the nearest project instructions and existing navigation, then inspect
-   relevant code, tests, Git state, and external evidence. Do not infer current
-   behavior from prose alone.
+2. Follow the applicable project instructions already loaded by the Harness
+   and inspect the existing navigation, relevant code, tests, Git state, and
+   external evidence. Do not infer current behavior from prose alone.
 3. Map existing sources to five logical responsibilities:
 
    | Responsibility | Required answer |
@@ -82,7 +82,7 @@ facts from this Skill repository into a target project.
 
 ## Boundaries
 
-- Project-specific instructions and existing authority rules override this skill.
+- Follow the target project's declared authority and canonical write routing.
 - Treat audit as read-only unless the request separately authorizes an update.
 - Require explicit authorization for first adoption, new modules, split, merge,
   rename, migration, authority changes, and canonical-owner changes.
@@ -98,5 +98,4 @@ facts from this Skill repository into a target project.
   discovery mappings, installed Skill copies, or caches.
 - Do not modify Git history, commit, push, merge, or clean a worktree unless separately authorized.
 - Do not publish secrets, private paths, task identifiers, raw logs, hidden reasoning, or personal environment details.
-- Do not claim implementation or verification from prose alone.
 - Do not activate the large-task workflow merely because project documentation is being updated.

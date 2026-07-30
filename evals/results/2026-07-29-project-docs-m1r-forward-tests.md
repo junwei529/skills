@@ -2,6 +2,11 @@
 
 Date: 2026-07-29
 
+Superseded for current SOURCE identity by the
+[2026-07-30 official-manual alignment result](2026-07-30-project-docs-official-manual-alignment.md).
+This report remains the historical evidence owner for the earlier hashes and
+complete manifests recorded below.
+
 ## Evidence Boundary
 
 This report records two generations of synthetic, fresh-context development

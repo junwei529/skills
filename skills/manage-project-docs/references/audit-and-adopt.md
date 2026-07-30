@@ -40,14 +40,9 @@ sources cannot resolve it.
    canonical owners.
 2. Read declared precedence and ownership before choosing a winner.
 3. Identify stale duplicates, missing routes, and facts without a write locus.
-4. Use `REPORT` for findings that need no mutation.
-5. Use `UPDATE` only for an authorized repair to a known existing owner.
-6. Use `PROPOSE` when fixing the issue would create, split, merge, rename,
-   migrate, or change authority.
-7. Use `STOP` only when the requested action itself cannot continue safely
-   because scope, permission, writer ownership, or evidence is unsafe. A
-   completed read-only audit remains `REPORT` when only a later write is
-   blocked.
+4. Apply the primary outcome rules in `SKILL.md`. A completed read-only audit
+   remains `REPORT` when only a later write is blocked; any proposed structure
+   or authority change remains `PROPOSE`.
 
 Do not make a structural repair merely because it is obvious or reversible.
 
@@ -92,6 +87,3 @@ represent this as a maturity-level upgrade.
   avoid promoting subproject facts into a root owner.
 - Multilingual docs: preserve the established language and canonical owner;
   do not create translation/version publishing machinery.
-- No write permission: return `REPORT` or `PROPOSE`.
-- Concurrent writer: inspect safely, but return `STOP` before mutation until
-  ownership is resolved.

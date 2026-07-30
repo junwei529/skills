@@ -6,22 +6,22 @@ Last updated: 2026-07-30
 
 | Check | Purpose | Current Result |
 |---|---|---|
-| Bundled skill validator | Validate frontmatter and directory naming | pass for all three public Skills, 2026-07-29 |
+| Bundled skill validator | Validate frontmatter and directory naming | pass for revised `manage-project-docs` and `use-powershell-safely`, 2026-07-30 |
 | Scaffolding-marker scan | Ensure operative files contain no generated placeholder markers | pass, 2026-07-27 |
-| Repository checker | Check links, strict UTF-8, BOM, trailing whitespace, scaffolding, direct references, exact public Skill/package shape, exact eval sets, and publication patterns | pass across 140 text files, eleven cases, and ten fixtures after GitHub identity sync, 2026-07-30 |
-| Fixture preconditions | Confirm all ten synthetic repositories start in the intended state, including Project Docs M1R, isolated Git/manifest inspection, reparse-point containment, cold-resume drift, the shared Work Charter loop, and the Standard boundary | pass for fourteen precondition checks, 2026-07-29 |
+| Repository checker | Check links, strict UTF-8, BOM, trailing whitespace, scaffolding, direct references, exact public Skill/package shape, exact eval sets, and publication patterns | pass across 143 text files, eleven cases, and ten fixtures after the Project Docs official-manual alignment record, 2026-07-30 |
+| Fixture preconditions | Confirm all ten synthetic repositories start in the intended state, including Project Docs M1R, isolated Git/manifest inspection, reparse-point containment, cold-resume drift, the shared Work Charter loop, and the Standard boundary | pass for fourteen precondition checks, 2026-07-30 |
 | Direct-reference check | Ensure every reference is linked from its skill entry | pass for all Skills, including three revised PowerShell references, 2026-07-28 |
-| Publication-safety scan | Detect private paths, IDs, credentials, and copied host data | configured repository patterns pass, 2026-07-28 |
-| Gitleaks directory scan | Detect secret-like content independently | pass after GitHub identity sync, no leaks found, 2026-07-30 |
-| Native Codex candidate-diff review | Inspect candidate changes beyond deterministic checks | the first baseline used five reviews in cycle 1 and five after one user-approved reset, ending clean before root commit `624553b03c794bb8cbd24e6c454d251ac214e24f`; the separately authorized public-identity correction also received a clean staged review with material diff coverage, 2026-07-30 |
-| Fresh-context forward tests | Observe actual skill behavior | original baseline and revised PowerShell results retained; five Project Docs M1R explicit scenarios passed against current exact SOURCE; Work Charter M2R five SOURCE-assisted groups plus two controlled negative variants were independently accepted for their recorded hashes, 2026-07-29 |
-| Revised Project Docs contract | Prove the accepted minimum responsibilities, trigger surfaces, continuity, authorization, and safety boundaries | current exact-hash SOURCE-assisted matrix passed all five explicit scenarios; persistence-only continuity remains separately unattributed; explicit-only native selection, candidate, and release proof remain absent |
+| Publication-safety scan | Detect private paths, IDs, credentials, and copied host data | configured repository patterns pass after the Project Docs official-manual alignment record, 2026-07-30 |
+| Gitleaks directory scan | Detect secret-like content independently | pass after the Project Docs official-manual alignment record, no leaks found, 2026-07-30 |
+| Native Codex candidate-diff review | Inspect candidate changes beyond deterministic checks | the first baseline used five reviews in cycle 1 and five after one user-approved reset, ending clean before root commit `624553b03c794bb8cbd24e6c454d251ac214e24f`; the separately authorized public-identity correction received a clean staged review; the current coherent candidate's first completed review found one P1 premature-candidate-state claim and one P2 stale PowerShell evidence summary, both corrected, and its second completed staged review returned clean with material coverage, 2026-07-30 |
+| Fresh-context forward tests | Observe actual skill behavior | current Project Docs official-alignment SOURCE passed five explicit behavior groups, one persistence-only broken-routing variant, and controlled native DEV_DISCOVERY positive/negative selection; current PowerShell SOURCE passed seven boundary-sensitive scenarios, two catalog-assisted non-trigger canaries, and controlled native DEV_DISCOVERY implicit-selection/non-loading canaries; Work Charter M2R five SOURCE-assisted groups plus two controlled negative variants were independently accepted for their recorded hashes |
+| Revised Project Docs contract | Prove the accepted minimum responsibilities, trigger surfaces, continuity, authorization, and safety boundaries | current exact-hash SOURCE-assisted matrix and persistence-only broken-routing variant passed; controlled native explicit-only selection and DEV_DISCOVERY loaded-copy identity passed; candidate and release proof remain absent |
 | Revised Work Charter contract | Prove the accepted identity, proposal-only boundary, proportional coordination, compact recovery, assessment, correction, and Standard behavior | independent Planner accepted the exact-hash SOURCE-assisted matrix; separate P/E and O/P/E role delivery was observed in the evaluation environment; native implicit selection and loaded-copy proof remain absent |
 | Recovery and selection boundary | Check recovery drift and flat-task selection behavior | pass for one recovery run and one catalog-assisted smoke; native trigger telemetry unverified, 2026-07-27 |
 | PowerShell runtime probe | Validate the documented read-only 5.1-to-`pwsh` discovery and launch shape | pass on one development host with `pwsh` present; absent/install branches not exercised, 2026-07-28 |
-| Source/install identity | Prove canonical source, actual loaded copy, exact candidate commit with clean candidate source, and stable tag mapping | lifecycle specified; no development mapping, RC install, or stable install exercised |
+| Source/install identity | Prove canonical source, actual loaded copy, exact candidate commit with clean candidate source, and stable tag mapping | Project Docs and PowerShell user-scope DEV_DISCOVERY mappings resolved to and loaded canonical SOURCE in controlled native canaries; no materialized RC or stable install exercised |
 | Distribution contract | Confirm a supported v0.1 source, version, per-Skill path, and installer interface | `junwei529/skills`, immutable tag, per-Skill paths, and `$skill-installer` prompts accepted; the reviewed local root commit exists, but the new repository is not publicly reachable and no remote, tag, or installation evidence exists |
-| Git publication preflight | Check writer identity, intended source scope, derived-file exclusions, candidate identity, and remotes | baseline root commit `624553b03c794bb8cbd24e6c454d251ac214e24f` exists on `main`; the identity correction was staged against that baseline when checked, derived paths remain excluded, no remote exists, and any later lifecycle action must resolve current `HEAD` and confirm it contains Decision 0013; a read-only probe found `junwei529/skills` not publicly reachable, 2026-07-30 |
+| Git publication preflight | Check writer identity, intended source scope, derived-file exclusions, candidate identity, and remotes | the exact local candidate is the clean reviewed commit containing Decision 0014 and this record; staged or dirty files are insufficient, derived paths remain excluded, no remote exists, and no publication action is authorized |
 
 ## Claim Ledger
 
@@ -29,11 +29,12 @@ Last updated: 2026-07-30
 |---|---|
 | Three current source packages exist | verified structurally; `work-charter` is the sole current Work Charter package and the superseded `manage-large-tasks` path is retired without an alias |
 | Earlier Project Docs templates and workflow exist | verified structurally; passed one synthetic explicit behavior test for the superseded baseline |
-| Revised Project Docs progressive-governance contract works | passed five explicit synthetic behavior scenarios against the current six-file development SOURCE; historical persistence-only continuity remains separately unattributed; explicit-only native selection is unproved; not release-pinned |
+| Revised Project Docs progressive-governance contract works | current six-file SOURCE passed five explicit synthetic behavior groups plus a persistence-only broken-routing variant; controlled native explicit-only DEV_DISCOVERY selection passed; not candidate- or release-pinned |
 | Historical Large Tasks kept one small task flat | passed one explicit M2 behavior test and one catalog-assisted selection smoke; this does not prove current Work Charter native selection |
-| PowerShell applies explicit command-boundary checks | revised scope produced three synthetic behavior passes and one partial WSL result; not release-pinned |
+| PowerShell applies explicit command-boundary checks | seven boundary-sensitive scenarios passed against the 2026-07-30 development SOURCE identity; controlled native implicit selection and DEV_DISCOVERY loaded-copy identity also passed; candidate and release pinning remain absent |
+| PowerShell separates portable guidance, bounded inference, and private host delta | accepted in Decision 0014, structurally implemented, and exercised by legacy CJK, English valid-byte, WSL, version, sandbox, and destructive-operation scenarios; private-global retirement remains unverified |
 | PowerShell runtime readiness detects and launches an existing `pwsh` | command shape passed on one development host |
-| PowerShell conditionally recommends 7 without unauthorized installation | passed one synthetic answer-level recommendation/stop scenario; actual installation and post-install verification untested |
+| PowerShell conditionally recommends 7 without unauthorized installation | current exact-SOURCE matrix passed the materially-useful 7 recommendation and user-declined branches; actual installation and post-install verification remain untested |
 | Cold recovery stops on material workspace drift | passed one synthetic combined-skill behavior test |
 | Development, candidate, stable-install, and release identities are separated | specified in the accepted lifecycle and runbook; operational isolation unverified |
 | Public v0.1 license | root MIT `LICENSE` materialized with the current user-confirmed public attribution `Copyright (c) 2026 junwei529`; repository and Gitleaks checks pass |
@@ -64,13 +65,15 @@ Last updated: 2026-07-30
 - [PowerShell encoding and native-exit trap](../evals/cases/powershell-boundary.md).
 
 The five Project Docs M1R cases have passing development behavior evidence for
-the current six-file hashes recorded in the sanitized result. They cover mature
-`NOOP`, authorized minimal adoption, explicit maintenance, conflict handling
-without unauthorized structural writes, and no-write, concurrent-writer,
-generated, external, monorepo, and language boundaries. The historical
-persistence-only continuity result remains separately unattributed to Project
-Docs. Event-driven expansion is exercised by the conflict proposal and must
-gain a separately authorized mutation variant before release.
+the current six-file hashes recorded in the latest sanitized result. They cover
+mature `NOOP`, authorized minimal adoption, explicit maintenance, conflict
+handling without unauthorized structural writes, and no-write,
+concurrent-writer, generated, external, monorepo, and language boundaries. A
+new persistence-only broken-routing variant proves that a durable project rule
+asks for explicit Skill invocation without treating its own `$manage-project-docs`
+mention as invocation or structural authorization. Event-driven expansion is
+exercised by the conflict proposal and must gain a separately authorized
+mutation variant before release.
 
 Development behavior tests must prove the actual `SOURCE` or authorized
 `DEV_DISCOVERY` copy. Later candidate tests must repeat required cases against
@@ -85,6 +88,17 @@ Standard O/P/E. Two controlled variants also cover stricter standing-policy
 selection and unavailable or uncertain role delivery. This does not prove
 native implicit selection, loaded-copy identity, or real-Harness outage
 behavior.
+
+The PowerShell case now includes native error preferences, heredoc/stdin and
+nested parser boundaries, complete WSL identity and stream isolation,
+ambiguous destructive command resolution, and public-versus-private rule
+classification. The normalized current SOURCE hashes and deterministic checks
+are recorded in the
+[portable-guidance migration result](../evals/results/2026-07-30-powershell-portable-guidance-migration.md).
+Seven isolated contexts exercised those exact development SOURCE files, and
+two catalog-assisted canaries declined the documented exclusions without
+loading the Skill body. This is current-SOURCE acceptance, not native
+selection, loaded-copy, candidate, or release proof.
 
 ## Candidate And Release Evidence Template
 
@@ -153,7 +167,96 @@ fixtures; the diff check passed; and Gitleaks found no leaks. No Skill SOURCE
 file changed, so the Skill validators and behavior suites were not repeated.
 The first staged native review returned clean with material diff coverage.
 The subsequent current-state synchronization removed obsolete
-pre-authorization wording and re-entered the same commit gate before commit.
+pre-authorization wording, and the correction was committed locally as
+`24714788a4c489620643a58f5651a6a3888a8fd3`.
+
+### 2026-07-30 — PowerShell portable-guidance migration contract
+
+The user accepted Decision 0014 and authorized a source-only revision. The
+private global source was reviewed in place and classified without copying
+private values into the repository:
+
+- documented or reproduced mechanisms were eligible as portable rules;
+- host-derived lessons were published only as bounded diagnoses after
+  corroboration; and
+- exact paths, versions, accounts, environment values, distributions, package
+  state, sandbox identities, tool routes, and current host results remained
+  private.
+
+The Skill frontmatter now includes previously implicit high-signal Windows
+boundary terms. Its three references add native error-preference handling,
+UTF-8-safe truncation, complete WSL identity/stream sequencing, destructive
+parser disambiguation, and explicit limits on one-host generalization.
+Decision 0014, SPEC, architecture, provenance, runbook, status, handoff, and
+the public PowerShell case record the same ownership boundary.
+
+The exact normalized SOURCE hashes, classification summary, commands, and
+limitations are recorded in the
+[sanitized migration result](../evals/results/2026-07-30-powershell-portable-guidance-migration.md).
+The final deterministic source checks passed:
+
+```text
+python -B <skill-creator>/scripts/quick_validate.py skills/use-powershell-safely
+PowerShell metadata YAML parse and prompt assertion
+python -B scripts/check_repository.py
+pwsh -NoProfile -File evals/check-fixtures.ps1
+PowerShell parser check across evals/**/*.ps1
+git diff --check
+gitleaks dir . --no-banner --redact --no-color --exit-code 1
+```
+
+The repository checker covered 143 text files, eleven cases, and ten fixtures;
+all fourteen fixture preconditions passed; five PowerShell files parsed; and
+Gitleaks found no leaks. No private global file, discovery mapping,
+installation, user configuration, commit, remote, push, tag, or release was
+changed.
+
+Nine isolated contexts then evaluated the revised contract. Seven
+boundary-sensitive scenarios passed:
+
+- Windows PowerShell 5.1 arguments and UTF-8 JSON;
+- Windows PowerShell 5.1 `NativeCommandError` with different stdout/stderr
+  encodings and a declined PowerShell 7 installation;
+- PowerShell 7.3 native arguments and 7.4 binary redirection;
+- staged Windows-to-WSL identity, path, stream, exit, and stdin diagnosis;
+- legacy CJK exposure versus an English valid-byte control;
+- a materially useful but separately authorized PowerShell 7 recommendation;
+  and
+- sandbox process-start and destructive-target stop boundaries.
+
+The ordinary version-independent cmdlet and POSIX-only catalog canaries both
+returned `NO_TRIGGER` without reading the Skill body or probing the runtime.
+Five SOURCE-reading contexts independently reproduced all five hashes; two
+additional SOURCE-reading contexts reported that their own hash command was
+policy-blocked rather than claiming false identity. The canonical hashes were
+reverified around the matrix, and no SOURCE correction was required.
+
+After separate authorization, one user-scope DEV_DISCOVERY junction was mapped
+directly to canonical PowerShell SOURCE. A controller confirmed that it was the
+only same-named discoverable copy in the test scope and reproduced all five
+hashes through the junction.
+
+Two ephemeral native Codex CLI contexts then used a read-only sandbox,
+`gpt-5.6-sol`, and `xhigh` reasoning:
+
+- a positive prompt described the boundary but did not name or explicitly
+  invoke a Skill; Codex reported implicit catalog-metadata selection, resolved
+  the actual entry to canonical SOURCE, and reproduced the current entry,
+  native-reference, and text-reference hashes;
+- that context reproduced direct exit `0`, nested-wrapper exit `1`, and
+  split-argument Python exit `2`, correctly classifying parser transport,
+  stream merging, and exit propagation instead of JSON or UTF-8 corruption;
+  and
+- an ordinary `Get-Date` negative canary returned the minimal cmdlet and
+  reported that no Skill body or entry was read.
+
+The copied fixture remained byte-identical and the canary workspaces were
+removed. The development junction remains active as the sole same-named
+development discovery entry. This closes controlled native implicit selection
+and DEV_DISCOVERY loaded-copy identity for the then-current development
+SOURCE. Broad
+trigger telemetry, controlled-host execution of every version branch,
+candidate, stable-install, shadow-period, and release identity remain absent.
 
 ### 2026-07-29 — Project Docs M1R current-SOURCE rerun
 
@@ -223,6 +326,72 @@ No canonical Project Docs SOURCE correction was required. Verdict:
 SOURCE-assisted development behavior. This does not establish native
 explicit-only selection, trigger telemetry, loaded-copy identity,
 `RC_INSTALL`, candidate, stable installation, or release evidence.
+
+### 2026-07-30 — Project Docs official-manual alignment
+
+The
+[sanitized result](../evals/results/2026-07-30-project-docs-official-manual-alignment.md)
+records the alignment against current official Codex Skill, AGENTS, and
+approval documentation. The revision:
+
+- aligns the frontmatter with `policy.allow_implicit_invocation: false`;
+- treats a target-project `$manage-project-docs` mention as routing only;
+- follows project instructions already loaded by the Harness instead of
+  directing a redundant reread;
+- consolidates duplicate outcome, stop, and completion-report rules; and
+- adds the explicit reselection boundary to the continuity asset and fixture.
+
+Five fresh explicit behavior groups reproduced these six normalized UTF-8/LF
+SOURCE hashes and passed with the required outcomes:
+
+```text
+SKILL.md
+  0211fc4a93f1d3fb35d15abe502f0ecae26d25274e742d558dd189d82d7f5a06
+agents/openai.yaml
+  50fa3c3799caeca29ec6ba10151bd7c58e3c85d4e86d86b38ae9632306e31b17
+references/audit-and-adopt.md
+  abc04d3b9c616436da627fd7d0b9246c1849afae737db05d6b8e06240c213f33
+references/maintain-and-recover.md
+  ce712be1505f3b49dc3b8b76dc90afcaffc1d99cca1d5fcbaf5bed41e4293121
+assets/templates/project-doc-starter.md
+  d5d70f3c2b3422f51be420658bfe2198992ad95daaeac0aa28e5f1e4fe61ec8a
+assets/templates/continuity-anchor.md
+  258578585c4a9c69379afdfa9a872b41233885a11c6342a7458c7677aeb68ec5
+```
+
+Mature, adoption, explicit continuity, authority-conflict, and safety groups
+returned `NOOP`, `UPDATE`, `UPDATE`, `PROPOSE`, and `REPORT`. The
+persistence-only broken-routing variant returned `STOP`, made no run-time
+change, requested explicit Skill invocation, and still required separate
+structural authority.
+
+Two fresh native Codex canaries then exercised the user-scope development
+discovery entry. The explicit run selected and read canonical SOURCE, matched
+all six hashes, and did not use the private global Project Docs reference. The
+negative run did not name a Skill and did not receive or read a full Skill body.
+This proves controlled native explicit-only selection and DEV_DISCOVERY
+loaded-copy identity for the current development SOURCE. It does not prove
+broad trigger telemetry, a materialized candidate, stable installation, or
+release identity.
+
+Final deterministic checks passed:
+
+```text
+python -B <skill-creator>/scripts/quick_validate.py skills/manage-project-docs
+python -B scripts/check_repository.py
+pwsh -NoProfile -File evals/check-fixtures.ps1
+PowerShell parser check across evals/**/*.ps1
+git diff --check
+git diff --cached --check
+gitleaks dir . --no-banner --redact --no-color --exit-code 1
+```
+
+The repository checker covered 143 text files, eleven cases, and ten fixtures;
+all fourteen fixture preconditions passed; all five PowerShell files parsed;
+both whitespace checks passed; and Gitleaks found no leaks. The two
+task-specific ignored run roots were verified to contain no reparse points,
+removed after sanitized evidence capture, and confirmed absent. Historical run
+roots were not changed.
 
 ### 2026-07-29 — Work Charter M2R independent acceptance
 
