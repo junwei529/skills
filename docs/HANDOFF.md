@@ -13,15 +13,19 @@ Last updated: 2026-07-30
 - First public revision: the coherent PowerShell portable-guidance migration
   and Project Docs official-alignment revision at
   `c5d8e185ea9a9f32a4e98ac8ac364c4ebe915535`
+- Accepted PowerShell release-candidate identity:
+  `b0099c9d5ad986be5e893ceea13f1fc8b5aea384`; its exact-commit
+  `RC_INSTALL` and loaded-copy smoke pass
 - Public identity: `junwei529/skills`, selected by Decision 0013 and publicly
-  reachable; its first public `main` verification matched the revision above
-- Active gate: resolve the exact clean candidate commit and confirm that it is
-  publicly reachable; isolated `RC_INSTALL` remains a separate authorization
-  gate
-- Candidate boundary: staged or dirty SOURCE is not a candidate, and no
-  materialized `RC_INSTALL` or stable installation exists. Development
-  discovery mappings, installation, cache, private-global, ignored run, and
-  interpreter-cache paths remain excluded from repository source
+  reachable; its public `main` matched the accepted candidate during RC
+  preflight
+- Active gate: this local evidence revision records the four-file PowerShell
+  RC sync; publishing it to public `main` is not authorized
+- Candidate boundary: the materialized PowerShell `RC_INSTALL` is a derived
+  ignored copy from the exact commit above and is not editable source.
+  Development mappings, candidates, installations, caches, private-global
+  files, ignored runs, and interpreter caches remain excluded from repository
+  source. No stable installation or tag exists
 
 ## Authoritative Pointers
 
@@ -137,8 +141,29 @@ A user-scope DEV_DISCOVERY junction now resolves directly to canonical SOURCE.
 One native implicit-selection canary loaded and hashed the entry plus the two
 relevant references, reproduced the fixture diagnosis, and avoided the WSL
 reference. A second native canary completed an ordinary cmdlet without reading
-the Skill body. Candidate, stable-install, shadow-period, and release proof
-remain absent.
+the Skill body.
+
+The separately authorized RC gate selected exact public commit
+`b0099c9d5ad986be5e893ceea13f1fc8b5aea384` and installed
+`skills/use-powershell-safely` by exact SHA into an isolated test root. A first
+test-home attempt was rejected because the development copy remained
+discoverable and is not counted as RC evidence. The corrected repository-scoped
+test exposed only the five-file materialized candidate.
+
+All five candidate files matched the selected commit's Git blobs and recorded
+raw SHA-256 values, decoded as strict UTF-8 without BOM, and were not reached
+through a reparse point. The copied fixture remained byte-identical. The
+positive native canary implicitly selected the candidate, read only the entry
+plus native/process and text/encoding references, and diagnosed parser and
+argument transport. The negative ordinary-cmdlet canary did not load the
+Skill. Controller runs reproduced exit `0`, `1`, and `2` for the direct,
+broken-wrapper, and deliberately split-argument contracts.
+
+The installed validator, repository and fixture checks, whitespace check, and
+Gitleaks passed. This closes PowerShell `RC_INSTALL` and loaded-copy smoke only.
+Stable-install, shadow-period, private-global retirement, and release proof
+remain absent. The ignored RC evidence roots remain retained pending separately
+authorized cleanup.
 
 ## Resume Order
 
@@ -155,11 +180,14 @@ remain absent.
 
 ## Immediate Next Action
 
-Resolve the exact candidate commit from a clean source and confirm that the
-public GitHub repository contains it. If those checks pass, stop until the user
-separately authorizes an isolated PowerShell `RC_INSTALL` from that exact
-commit. Commit and publication authority do not propagate to installation,
-tag, stable installation, release, or global-rule migration.
+Confirm the local evidence-only revision and stop; push is not authorized. If
+the user later authorizes publication, push only this reviewed documentation
+sync without changing the accepted candidate identity.
+
+The next lifecycle decision after that evidence revision is public is whether
+to tag exact candidate `b0099c9d5ad986be5e893ceea13f1fc8b5aea384` as
+`v0.1.0` and run a tag-pinned `STABLE_INSTALL`. Selecting another candidate
+commit requires a new RC smoke.
 
 ## Material Risks
 
@@ -175,10 +203,15 @@ tag, stable installation, release, or global-rule migration.
   candidate, real-Harness outage, or release evidence.
 - Treating catalog-assisted PowerShell negative canaries as native Harness
   trigger telemetry.
+- Treating the discarded test-home canary as RC evidence even though a
+  development copy remained discoverable.
+- Treating the evidence-only working-tree diff as a new candidate or moving
+  the eventual release tag away from the commit-smoked candidate without a
+  new RC gate.
 - Copying private paths, accounts, environment values, installed state,
   distribution identity, or sandbox details into public source or evidence.
-- Removing the private fallback before candidate/stable loaded-copy and
-  shadow-use evidence pass.
+- Removing the private fallback before stable loaded-copy and shadow-use
+  evidence pass.
 - Disturbing inherited staged or unrelated dirty ownership.
 
 ## Prohibited Without Separate User Authorization
@@ -186,8 +219,8 @@ tag, stable installation, release, or global-rule migration.
 - Any further discovery-mapping change, installation, update, rollback, or
   user configuration.
 - Any further commit or amend without a new explicit authorization.
-- Any further remote change or push, `RC_INSTALL`, tag, stable installation,
-  release, or cleanup.
+- Any further remote change or push, new `RC_INSTALL`, tag, stable
+  installation, release, or cleanup.
 - Private global guidance or fallback edits.
 - Plugin, MCP, cross-Harness package, or other deferred product surface.
 - Native-selection or lifecycle progression not separately authorized.

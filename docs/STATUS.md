@@ -33,6 +33,31 @@ created without GitHub-generated initialization and received public `main` at
 GitHub's commit API resolved to that same SHA. This establishes public commit
 visibility, not `RC_INSTALL`, stable-install, tag, or release evidence.
 
+The exact PowerShell release candidate was later selected as clean public
+commit `b0099c9d5ad986be5e893ceea13f1fc8b5aea384`. During its separately
+authorized candidate gate, public `main` resolved to that SHA and
+`skills/use-powershell-safely` was downloaded by exact commit into an isolated
+`RC_INSTALL`. An initial test-home isolation attempt was rejected because a
+development discovery entry remained visible; it is not counted as candidate
+evidence.
+
+The corrected repository-scoped canary exposed only the materialized
+five-file candidate. All candidate Git blobs and raw SHA-256 values matched
+the selected commit; the directory was not a reparse point; strict UTF-8,
+no-BOM, fixture byte identity, and the single-same-name discovery boundary
+passed. A native positive canary implicitly loaded the candidate entry plus
+only the native/process and text/encoding references and correctly diagnosed
+the parser/argument boundary. An ordinary `Get-Date` canary did not load the
+Skill. Controller executions reproduced direct exit `0`, broken-wrapper exit
+`1`, and deliberately split-argument exit `2` with the expected separated
+streams.
+
+This closes the PowerShell exact-commit candidate installation and loaded-copy
+smoke only. No stable tag, stable installation, release, Project Docs or Work
+Charter candidate, private-global shadow migration, or cleanup is established.
+Exact sanitized evidence is owned by
+[`docs/VERIFICATION.md`](VERIFICATION.md).
+
 Nine isolated PowerShell contexts subsequently exercised the exact
 development SOURCE or its catalog description. Seven boundary-sensitive
 scenarios passed and the ordinary-cmdlet and POSIX-only canaries both declined
@@ -111,18 +136,28 @@ evidence, not candidate, stable-install, or release identity.
 - The public `junwei529/skills` repository exists, and the first public `main`
   push was verified at
   `c5d8e185ea9a9f32a4e98ac8ac364c4ebe915535`.
+- The exact public PowerShell candidate commit
+  `b0099c9d5ad986be5e893ceea13f1fc8b5aea384` passed isolated
+  `$skill-installer` download, five-file commit identity, native
+  implicit-selection, loaded-copy, boundary diagnosis, and ordinary-cmdlet
+  non-loading checks.
+- The candidate Skill validator, repository checker, all fourteen fixture
+  preconditions, whitespace check, Gitleaks scan, strict UTF-8/no-BOM checks,
+  and controller native fixture executions passed.
 
 Historical checks, findings, and behavior evidence remain only in
 [`docs/VERIFICATION.md`](VERIFICATION.md).
 
 ## In Progress
 
-- The PowerShell and Project Docs source/evidence writers have relinquished;
-  no source implementation tranche is active.
-- Before any release-candidate action, resolve the exact clean candidate
-  commit and prove that the public GitHub repository contains it.
-- Discovery change, installation, `RC_INSTALL`, tag, stable installation,
-  release, private-global migration, or cleanup remains separately gated.
+- No Skill SOURCE implementation tranche is active.
+- This revision synchronizes the sanitized PowerShell RC result into
+  `README.md`, `docs/VERIFICATION.md`, `docs/STATUS.md`, and
+  `docs/HANDOFF.md`. The documentation changes pass the repository checker,
+  all fourteen fixture preconditions, whitespace check, and Gitleaks.
+- The ignored candidate evidence roots remain retained locally. Cleanup,
+  push, tag, stable installation, release, and private-global migration remain
+  separately gated.
 
 ## Known Gaps
 
@@ -138,15 +173,17 @@ Historical checks, findings, and behavior evidence remain only in
 - The PowerShell portable-guidance migration has exact-SOURCE behavior evidence
   for seven boundary scenarios and catalog-assisted negative evidence for two
   exclusions. Controlled native DEV_DISCOVERY selection and loaded-copy
-  identity also pass. It still lacks controlled-host runtime execution of
-  every version branch, candidate, stable-install, shadow-period, and release
-  proof.
+  identity also pass. Exact-commit `RC_INSTALL`, candidate identity, native
+  candidate selection, and loaded-copy smoke now pass. It still lacks
+  controlled-host runtime execution of every version branch, stable-install,
+  shadow-period, and release proof.
 - No efficacy, token comparison, independent real-project adoption, or
   cross-Harness compatibility claim is established.
 - A local Project Docs DEV_DISCOVERY mapping was exercised; no isolated
   candidate installation, stable installation, tag, or release exists.
-- Public commit visibility now exists, but no `$skill-installer` candidate path
-  or actually loaded `RC_INSTALL` copy has been exercised.
+- The public exact-commit `$skill-installer` candidate path and actually loaded
+  PowerShell `RC_INSTALL` copy pass. Equivalent candidate proof for Project
+  Docs and Work Charter, and any tag-based stable-install proof, remain absent.
 
 ## Open Questions
 
@@ -156,12 +193,14 @@ evidence are workflow gates, not product decisions.
 
 ## Next Gate
 
-Resolve the exact clean candidate commit and verify that the public GitHub
-repository contains it. The next independent lifecycle gate is an isolated
-PowerShell `RC_INSTALL` from that exact public commit, with actually loaded-copy
-proof. It requires separate user authorization; publication approval does not
-authorize installation, stable-installation, tag, release, or private-global
-migration.
+This revision records the four-file PowerShell RC evidence sync without
+changing or relabeling the accepted candidate identity:
+`b0099c9d5ad986be5e893ceea13f1fc8b5aea384`. Publishing this revision to
+public `main` remains a separate authorization gate.
 
-Isolated `RC_INSTALL`, stable installation, and private-global shadow migration
-remain independent gates.
+After the evidence revision is public, the next independent PowerShell
+lifecycle decision is whether to create the immutable `v0.1.0` tag at that
+exact candidate commit and run a tag-pinned `STABLE_INSTALL`. Tag, push,
+release, stable installation, private-global shadow migration, and cleanup
+each retain their own authorization and evidence boundary. Selecting a
+different candidate commit requires repeating the exact-commit RC smoke.

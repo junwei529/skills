@@ -58,10 +58,14 @@ committed as
 [`c5d8e185ea9a9f32a4e98ac8ac364c4ebe915535`](https://github.com/junwei529/skills/commit/c5d8e185ea9a9f32a4e98ac8ac364c4ebe915535)
 and made publicly reachable on `main` in
 [`junwei529/skills`](https://github.com/junwei529/skills). This closes the
-remote-visibility gate only. No candidate installation, stable installation,
-tag, or release exists. Release progression still requires isolated candidate
-evidence and the remaining repository milestones. No generalized efficacy,
-portability, native-trigger, or token-saving claim has been established.
+initial remote-visibility gate. A later exact-commit PowerShell candidate at
+`b0099c9d5ad986be5e893ceea13f1fc8b5aea384` passed isolated
+`$skill-installer` download, five-file commit identity, native
+implicit-selection, loaded-copy, boundary-diagnosis, and ordinary-cmdlet
+non-loading checks. This closes the PowerShell `RC_INSTALL` gate only. No
+stable installation, `v0.1.0` tag, release, Project Docs candidate, or Work
+Charter candidate exists. No generalized efficacy, portability, broad
+trigger-telemetry, or token-saving claim has been established.
 
 The Work Charter M2R product contract is accepted in
 [Decision 0012](docs/decisions/0012-work-charter-v0-1-identity-and-minimum-sufficient-design.md).
@@ -163,10 +167,12 @@ $skill-installer Install `skills/manage-project-docs`, `skills/work-charter`, an
 
 These prompts are the intended stable-release contract, not currently working
 commands because the `v0.1.0` tag does not exist. The public repository is now
-reachable, so an exact-commit release-candidate installation smoke can be
-authorized separately before the tag is created. Before release, an isolated
-candidate must prove the installer source, destination, actually loaded copy,
-tag, and commit.
+reachable, and the exact-commit PowerShell release-candidate installation smoke
+at `b0099c9d5ad986be5e893ceea13f1fc8b5aea384` has passed. That does not make
+the tag-based prompts executable release evidence. Before release, the
+immutable tag must resolve to the commit-smoked candidate and a tag-pinned
+`STABLE_INSTALL` must prove its installer source, destination, actually loaded
+copy, tag, and commit.
 
 Current OpenAI guidance supports standalone local Skills and repository
 downloads through `$skill-installer`, while preferring Plugins for broader
