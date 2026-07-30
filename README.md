@@ -53,16 +53,15 @@ selected development SOURCE and non-loading without explicit invocation in the
 controlled canary, not candidate or release identity. Candidate identity is
 the clean reviewed commit containing this record; a staged or dirty working
 tree is not a candidate, and the development evidence above is not
-retroactively release-pinned by a later commit. Before downstream lifecycle
-work, verify that `HEAD` contains Decision 0014 and this record and that the
-working tree is clean. No remote, candidate installation, stable installation,
-tag, or release exists. The standalone GitHub distribution contract and current
-[`junwei529/skills`](https://github.com/junwei529/skills)
-repository identity are selected. The new repository is not yet publicly
-reachable. Release progression requires the reviewed identity correction, a
-separately authorized push, isolated candidate evidence, and the other
-repository milestones. No generalized efficacy, portability, native-trigger,
-or token-saving claim has been established.
+retroactively release-pinned by a later commit. The reviewed revision was
+committed as
+[`c5d8e185ea9a9f32a4e98ac8ac364c4ebe915535`](https://github.com/junwei529/skills/commit/c5d8e185ea9a9f32a4e98ac8ac364c4ebe915535)
+and made publicly reachable on `main` in
+[`junwei529/skills`](https://github.com/junwei529/skills). This closes the
+remote-visibility gate only. No candidate installation, stable installation,
+tag, or release exists. Release progression still requires isolated candidate
+evidence and the remaining repository milestones. No generalized efficacy,
+portability, native-trigger, or token-saving claim has been established.
 
 The Work Charter M2R product contract is accepted in
 [Decision 0012](docs/decisions/0012-work-charter-v0-1-identity-and-minimum-sufficient-design.md).
@@ -162,11 +161,12 @@ To install the complete set from the same tag as an optional convenience:
 $skill-installer Install `skills/manage-project-docs`, `skills/work-charter`, and `skills/use-powershell-safely` from https://github.com/junwei529/skills at tag `v0.1.0`.
 ```
 
-These prompts are the intended release contract, not currently working
-commands: the repository has not been configured as a remote and the tag does
-not exist.
-Before release, an isolated candidate must prove the installer source,
-destination, actually loaded copy, tag, and commit.
+These prompts are the intended stable-release contract, not currently working
+commands because the `v0.1.0` tag does not exist. The public repository is now
+reachable, so an exact-commit release-candidate installation smoke can be
+authorized separately before the tag is created. Before release, an isolated
+candidate must prove the installer source, destination, actually loaded copy,
+tag, and commit.
 
 Current OpenAI guidance supports standalone local Skills and repository
 downloads through `$skill-installer`, while preferring Plugins for broader

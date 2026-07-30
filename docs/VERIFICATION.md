@@ -20,8 +20,8 @@ Last updated: 2026-07-30
 | Recovery and selection boundary | Check recovery drift and flat-task selection behavior | pass for one recovery run and one catalog-assisted smoke; native trigger telemetry unverified, 2026-07-27 |
 | PowerShell runtime probe | Validate the documented read-only 5.1-to-`pwsh` discovery and launch shape | pass on one development host with `pwsh` present; absent/install branches not exercised, 2026-07-28 |
 | Source/install identity | Prove canonical source, actual loaded copy, exact candidate commit with clean candidate source, and stable tag mapping | Project Docs and PowerShell user-scope DEV_DISCOVERY mappings resolved to and loaded canonical SOURCE in controlled native canaries; no materialized RC or stable install exercised |
-| Distribution contract | Confirm a supported v0.1 source, version, per-Skill path, and installer interface | `junwei529/skills`, immutable tag, per-Skill paths, and `$skill-installer` prompts accepted; the reviewed local root commit exists, but the new repository is not publicly reachable and no remote, tag, or installation evidence exists |
-| Git publication preflight | Check writer identity, intended source scope, derived-file exclusions, candidate identity, and remotes | the exact local candidate is the clean reviewed commit containing Decision 0014 and this record; staged or dirty files are insufficient, derived paths remain excluded, no remote exists, and no publication action is authorized |
+| Distribution contract | Confirm a supported v0.1 source, version, per-Skill path, and installer interface | `junwei529/skills`, immutable tag, per-Skill paths, and `$skill-installer` prompts accepted; the repository is public and `main` first resolved to the reviewed commit `c5d8e185ea9a9f32a4e98ac8ac364c4ebe915535`; no tag or installation evidence exists |
+| Git publication preflight | Check writer identity, intended source scope, derived-file exclusions, candidate identity, and public reachability | the clean reviewed commit containing Decision 0014 and this record was pushed to public `main`; the public branch ref and GitHub's commit API resolved to `c5d8e185ea9a9f32a4e98ac8ac364c4ebe915535`; derived paths remained excluded |
 
 ## Claim Ledger
 
@@ -38,7 +38,7 @@ Last updated: 2026-07-30
 | Cold recovery stops on material workspace drift | passed one synthetic combined-skill behavior test |
 | Development, candidate, stable-install, and release identities are separated | specified in the accepted lifecycle and runbook; operational isolation unverified |
 | Public v0.1 license | root MIT `LICENSE` materialized with the current user-confirmed public attribution `Copyright (c) 2026 junwei529`; repository and Gitleaks checks pass |
-| v0.1 has a defined distribution form | verified as an accepted design: `junwei529/skills`, repository tag, per-Skill paths, `$skill-installer`, and pre-tag candidate visibility; Plugin deferred; public reachability remains absent |
+| v0.1 has a defined distribution form | verified as an accepted design: `junwei529/skills`, repository tag, per-Skill paths, `$skill-installer`, and pre-tag candidate visibility; Plugin deferred; the repository and first candidate commit are publicly reachable |
 | Each public Skill is an independent product and composition is optional | accepted project design; source packages are structurally separate, but standalone real-world adoption and composed-recipe behavior are unverified |
 | Work Charter is the unified product, contract, and `work-charter` package identity | accepted design, structurally implemented SOURCE, and independently accepted exact-hash SOURCE-assisted matrix; loaded-copy identity unverified |
 | Work Charter uses proportional symptom-based activation and internal coordination/readiness diagnostics | SOURCE-assisted small-task, midstream, correction, and controlled-negative behavior passed; native selection unverified |
@@ -125,6 +125,33 @@ Known gaps:
 ```
 
 ## Evidence Log
+
+### 2026-07-30 — Public repository creation and first `main` push
+
+At a separately authorized publication gate, an empty public
+[`junwei529/skills`](https://github.com/junwei529/skills) repository was
+created without a generated README, `.gitignore`, or license. The reviewed
+source revision
+`c5d8e185ea9a9f32a4e98ac8ac364c4ebe915535` was pushed to public `main`.
+
+The publication result was checked through an independent public Git ref lookup
+and GitHub's repository and commit APIs:
+
+```text
+git ls-remote --heads https://github.com/junwei529/skills.git refs/heads/main
+```
+
+The public branch resolved to
+`c5d8e185ea9a9f32a4e98ac8ac364c4ebe915535`. GitHub reported public
+visibility, default branch `main`, and returned the same commit through its
+commit API.
+
+This closes repository creation, remote configuration, first push, and public
+commit visibility only. No Skill SOURCE, discovery mapping, installation,
+`RC_INSTALL`, stable installation, tag, release, or private global guidance was
+changed by the publication gate. Before candidate testing, resolve the selected
+clean commit again and prove that the public remote contains it; the first
+public SHA is not automatically the selected RC identity.
 
 ### 2026-07-30 — Local baseline commit and GitHub identity correction
 

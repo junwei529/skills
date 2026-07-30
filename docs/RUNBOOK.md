@@ -20,7 +20,7 @@ Last updated: 2026-07-30
 This is the operational owner for developing, discovering, testing, installing,
 and releasing this repository's Skills. The v0.1 distribution mechanism,
 public repository identity, and pre-tag candidate visibility policy are
-selected. The remote and release tag do not yet exist.
+selected. The public repository and `main` exist; the release tag does not.
 
 See
 [Decision 0003](decisions/0003-source-install-release-boundaries.md) and
@@ -105,11 +105,11 @@ The intended complete-set prompt is:
 $skill-installer Install `skills/manage-project-docs`, `skills/work-charter`, and `skills/use-powershell-safely` from https://github.com/junwei529/skills at tag `v0.1.0`.
 ```
 
-These prompts are not executable release evidence until the remote and named
-revision exist. The development `skills/work-charter` SOURCE is not an
-installation or loaded-copy proof. For an RC smoke, replace the stable tag
-identity with the exact accepted candidate commit SHA and record that SHA in
-the evidence ledger.
+These stable-release prompts are not executable release evidence until the
+named tag exists. The public repository is reachable, but development
+`skills/work-charter` SOURCE is not installation or loaded-copy proof. For an
+RC smoke, replace the stable tag identity with the exact accepted candidate
+commit SHA and record that SHA in the evidence ledger.
 
 ## Preflight
 

@@ -10,16 +10,14 @@ Last updated: 2026-07-30
 - Historical baseline: identity-corrected local commit
   `24714788a4c489620643a58f5651a6a3888a8fd3`; resolve current identity with
   `git rev-parse HEAD`
-- Commit state: the coherent PowerShell portable-guidance migration and
-  Project Docs official-alignment revision is a local repository candidate
-  only when current `HEAD` contains Decision 0014 and this record and the
-  working tree is clean
-- Remote: none
-- Public identity: `junwei529/skills`, selected by Decision 0013; the
-  repository was not publicly reachable during the 2026-07-30 read-only check
-- Active gate: finish the authorized local commit gate if the candidate
-  condition above fails; otherwise obtain separate authorization for the
-  remote/publication transition
+- First public revision: the coherent PowerShell portable-guidance migration
+  and Project Docs official-alignment revision at
+  `c5d8e185ea9a9f32a4e98ac8ac364c4ebe915535`
+- Public identity: `junwei529/skills`, selected by Decision 0013 and publicly
+  reachable; its first public `main` verification matched the revision above
+- Active gate: resolve the exact clean candidate commit and confirm that it is
+  publicly reachable; isolated `RC_INSTALL` remains a separate authorization
+  gate
 - Candidate boundary: staged or dirty SOURCE is not a candidate, and no
   materialized `RC_INSTALL` or stable installation exists. Development
   discovery mappings, installation, cache, private-global, ignored run, and
@@ -157,12 +155,11 @@ remain absent.
 
 ## Immediate Next Action
 
-Verify that current `HEAD` contains Decision 0014 and this record and that the
-worktree is clean. If either check fails, finish the already authorized local
-commit gate. If both pass, obtain separate user authorization for the
-remote/publication transition. Local-commit authority does not propagate to
-remote configuration, push, `RC_INSTALL`, tag, stable installation, release,
-or global-rule migration.
+Resolve the exact candidate commit from a clean source and confirm that the
+public GitHub repository contains it. If those checks pass, stop until the user
+separately authorizes an isolated PowerShell `RC_INSTALL` from that exact
+commit. Commit and publication authority do not propagate to installation,
+tag, stable installation, release, or global-rule migration.
 
 ## Material Risks
 
@@ -188,8 +185,9 @@ or global-rule migration.
 
 - Any further discovery-mapping change, installation, update, rollback, or
   user configuration.
-- Any additional commit or amend without a new explicit authorization.
-- Remote, push, `RC_INSTALL`, tag, stable installation, release, or cleanup.
+- Any further commit or amend without a new explicit authorization.
+- Any further remote change or push, `RC_INSTALL`, tag, stable installation,
+  release, or cleanup.
 - Private global guidance or fallback edits.
 - Plugin, MCP, cross-Harness package, or other deferred product surface.
 - Native-selection or lifecycle progression not separately authorized.

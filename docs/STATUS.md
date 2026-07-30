@@ -13,19 +13,25 @@ The user subsequently changed the current public GitHub account identifier
 from `matsuri1987` to `junwei529`. Decision 0013 now owns the current
 `junwei529/skills` repository locator and MIT public-attribution
 identifier. Git resolves that governance-only correction at local commit
-`24714788a4c489620643a58f5651a6a3888a8fd3`. A read-only GitHub check found
-the new repository is not yet publicly reachable.
+`24714788a4c489620643a58f5651a6a3888a8fd3`. At that point, a read-only
+GitHub check found the new repository was not publicly reachable.
 
 The user then authorized a source-only PowerShell global-rule migration
 revision. Decision 0014 now separates documented portable guidance, bounded
 inference from observed failures, and private host delta. The resulting
 PowerShell and Project Docs SOURCE, eval, decision, and canonical-documentation
-changes form one coherent local commit-gate candidate. It becomes a local
-repository candidate only when a clean reviewed `HEAD` contains Decision 0014
-and this record; staged or dirty files are insufficient. No private global
-file, installation, user configuration, remote, push, tag, or release was
-changed by this work; the separately authorized development discovery mappings
-remain outside repository source.
+changes passed their local commit gate and were committed as
+`c5d8e185ea9a9f32a4e98ac8ac364c4ebe915535`. No private global file,
+installation, user configuration, tag, or release was changed by that work;
+the separately authorized development discovery mappings remain outside
+repository source.
+
+At a later separately authorized publication gate, the public
+[`junwei529/skills`](https://github.com/junwei529/skills) repository was
+created without GitHub-generated initialization and received public `main` at
+`c5d8e185ea9a9f32a4e98ac8ac364c4ebe915535`. The public branch ref and
+GitHub's commit API resolved to that same SHA. This establishes public commit
+visibility, not `RC_INSTALL`, stable-install, tag, or release evidence.
 
 Nine isolated PowerShell contexts subsequently exercised the exact
 development SOURCE or its catalog description. Seven boundary-sensitive
@@ -102,6 +108,9 @@ evidence, not candidate, stable-install, or release identity.
   implicit selection of canonical SOURCE and non-loading for an ordinary
   cmdlet; the user-scope junction remains the sole same-named development
   discovery entry in the tested scope.
+- The public `junwei529/skills` repository exists, and the first public `main`
+  push was verified at
+  `c5d8e185ea9a9f32a4e98ac8ac364c4ebe915535`.
 
 Historical checks, findings, and behavior evidence remain only in
 [`docs/VERIFICATION.md`](VERIFICATION.md).
@@ -110,11 +119,10 @@ Historical checks, findings, and behavior evidence remain only in
 
 - The PowerShell and Project Docs source/evidence writers have relinquished;
   no source implementation tranche is active.
-- The local commit gate must end at a clean reviewed `HEAD` containing
-  Decision 0014 and this record before any repository-candidate claim.
-- Any additional commit after that gate, remote, push, discovery change,
-  installation, `RC_INSTALL`, tag, stable installation, release,
-  private-global migration, or cleanup remains separately gated.
+- Before any release-candidate action, resolve the exact clean candidate
+  commit and prove that the public GitHub repository contains it.
+- Discovery change, installation, `RC_INSTALL`, tag, stable installation,
+  release, private-global migration, or cleanup remains separately gated.
 
 ## Known Gaps
 
@@ -136,10 +144,9 @@ Historical checks, findings, and behavior evidence remain only in
 - No efficacy, token comparison, independent real-project adoption, or
   cross-Harness compatibility claim is established.
 - A local Project Docs DEV_DISCOVERY mapping was exercised; no isolated
-  candidate installation, stable installation, remote, tag, or release exists.
-- The selected `junwei529/skills` URL is not yet publicly reachable, so
-  it cannot support commit-pinned installer evidence until a separately
-  authorized remote/push window succeeds.
+  candidate installation, stable installation, tag, or release exists.
+- Public commit visibility now exists, but no `$skill-installer` candidate path
+  or actually loaded `RC_INSTALL` copy has been exercised.
 
 ## Open Questions
 
@@ -149,12 +156,12 @@ evidence are workflow gates, not product decisions.
 
 ## Next Gate
 
-First verify whether current `HEAD` contains Decision 0014 and this record and
-whether the worktree is clean. If either check fails, finish the authorized
-local commit gate; if both pass, the next gate is separate authorization for
-the remote/publication transition for `junwei529/skills`. Neither branch may
-infer `RC_INSTALL`, stable-installation, tag, release, or private-global
-migration authority from local commit or push approval.
+Resolve the exact clean candidate commit and verify that the public GitHub
+repository contains it. The next independent lifecycle gate is an isolated
+PowerShell `RC_INSTALL` from that exact public commit, with actually loaded-copy
+proof. It requires separate user authorization; publication approval does not
+authorize installation, stable-installation, tag, release, or private-global
+migration.
 
-Remote/push, isolated `RC_INSTALL`, stable installation, and private-global
-shadow migration remain independent gates.
+Isolated `RC_INSTALL`, stable installation, and private-global shadow migration
+remain independent gates.
