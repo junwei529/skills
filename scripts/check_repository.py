@@ -37,12 +37,36 @@ EXPECTED_FIXTURES = {
     "work-charter-loop",
     "work-charter-standard",
 }
-EXPECTED_WORK_CHARTER_FILES = {
-    "SKILL.md",
-    "agents/openai.yaml",
-    "assets/work-charter.md",
-    "references/coordination-and-recovery.md",
-    "references/standard-ope.md",
+EXPECTED_SKILL_FILES = {
+    "manage-project-docs": {
+        "SKILL.md",
+        "agents/openai.yaml",
+        "assets/templates/continuity-anchor.md",
+        "assets/templates/project-doc-starter.md",
+        "references/audit-and-adopt.md",
+        "references/maintain-and-recover.md",
+    },
+    "work-charter": {
+        "SKILL.md",
+        "agents/openai.yaml",
+        "assets/work-charter.md",
+        "references/coordination-and-recovery.md",
+        "references/standard-ope.md",
+    },
+    "use-powershell-safely": {
+        "SKILL.md",
+        "agents/openai.yaml",
+        "references/native-process-boundaries.md",
+        "references/text-encoding-boundaries.md",
+        "references/windows-wsl-boundaries.md",
+    },
+}
+EXPECTED_SKILL_DOC_FILES = {
+    "DESIGN.md",
+    "README.md",
+    "README.zh-CN.md",
+    "STATE.md",
+    "VERIFICATION.md",
 }
 EXCLUDED_PARTS = {".codegraph", ".eval-runs", ".git", "__pycache__"}
 BINARY_SUFFIXES = {
@@ -266,6 +290,94 @@ def check_direct_references(failures: list[str]) -> None:
                 )
 
 
+def level_two_headings(text: str) -> list[str]:
+    return re.findall(r"(?m)^##[ \t]+(.+?)[ \t]*#*[ \t]*$", text)
+
+
+def check_federated_documentation(failures: list[str]) -> None:
+    docs_root = ROOT / "docs" / "skills"
+    skill_doc_names = {
+        path.name for path in docs_root.iterdir() if path.is_dir()
+    }
+    if skill_doc_names != EXPECTED_SKILLS:
+        failures.append(
+            "docs/skills: Skill documentation set mismatch; "
+            f"missing={sorted(EXPECTED_SKILLS - skill_doc_names)}, "
+            f"unexpected={sorted(skill_doc_names - EXPECTED_SKILLS)}"
+        )
+
+    index = ROOT / "docs" / "INDEX.md"
+    index_targets = linked_local_targets(
+        index, index.read_text(encoding="utf-8")
+    )
+
+    readme_pairs = [(ROOT / "README.md", ROOT / "README.zh-CN.md")]
+    for skill_name in sorted(EXPECTED_SKILLS):
+        skill_docs = docs_root / skill_name
+        actual_files = {
+            path.relative_to(skill_docs).as_posix()
+            for path in skill_docs.rglob("*")
+            if path.is_file()
+        }
+        if actual_files != EXPECTED_SKILL_DOC_FILES:
+            failures.append(
+                f"docs/skills/{skill_name}: documentation shape mismatch; "
+                f"missing={sorted(EXPECTED_SKILL_DOC_FILES - actual_files)}, "
+                f"unexpected={sorted(actual_files - EXPECTED_SKILL_DOC_FILES)}"
+            )
+
+        for name in sorted(EXPECTED_SKILL_DOC_FILES):
+            expected = (skill_docs / name).resolve()
+            if expected not in index_targets:
+                failures.append(
+                    f"docs/INDEX.md: does not link docs/skills/{skill_name}/{name}"
+                )
+
+        readme_pairs.append(
+            (skill_docs / "README.md", skill_docs / "README.zh-CN.md")
+        )
+
+    for english, chinese in readme_pairs:
+        if not english.exists() or not chinese.exists():
+            failures.append(
+                f"{english.relative_to(ROOT)}: missing English/Chinese README pair"
+            )
+            continue
+        english_text = english.read_text(encoding="utf-8")
+        chinese_text = chinese.read_text(encoding="utf-8")
+        if chinese.resolve() not in linked_local_targets(english, english_text):
+            failures.append(
+                f"{english.relative_to(ROOT)}: does not link its Chinese mirror"
+            )
+        if english.resolve() not in linked_local_targets(chinese, chinese_text):
+            failures.append(
+                f"{chinese.relative_to(ROOT)}: does not link its English canonical"
+            )
+
+        english_sections = level_two_headings(english_text)
+        chinese_sections = level_two_headings(chinese_text)
+        if len(english_sections) != len(chinese_sections):
+            failures.append(
+                f"{english.relative_to(ROOT)} and {chinese.relative_to(ROOT)}: "
+                "top-level public section counts differ"
+            )
+
+    forbidden_package_names = {
+        "changelog.md",
+        "install.md",
+        "installation.md",
+        "readme.md",
+    }
+    for skill_name in sorted(EXPECTED_SKILLS):
+        package = ROOT / "skills" / skill_name
+        for path in package.rglob("*"):
+            if path.is_file() and path.name.lower() in forbidden_package_names:
+                failures.append(
+                    f"{path.relative_to(ROOT)}: repository documentation "
+                    "must not be placed inside an installable Skill"
+                )
+
+
 def check_scanner_self_tests(failures: list[str]) -> None:
     backslash = chr(92)
     publication_probes = {
@@ -377,6 +489,7 @@ def main() -> int:
         check_publication_safety(path, text, failures)
 
     check_direct_references(failures)
+    check_federated_documentation(failures)
     check_scanner_self_tests(failures)
 
     skill_names = {
@@ -389,18 +502,19 @@ def main() -> int:
             f"unexpected={sorted(skill_names - EXPECTED_SKILLS)}"
         )
 
-    work_charter_root = ROOT / "skills" / "work-charter"
-    work_charter_files = {
-        path.relative_to(work_charter_root).as_posix()
-        for path in work_charter_root.rglob("*")
-        if path.is_file()
-    }
-    if work_charter_files != EXPECTED_WORK_CHARTER_FILES:
-        failures.append(
-            "skills/work-charter: package shape mismatch; "
-            f"missing={sorted(EXPECTED_WORK_CHARTER_FILES - work_charter_files)}, "
-            f"unexpected={sorted(work_charter_files - EXPECTED_WORK_CHARTER_FILES)}"
-        )
+    for skill_name, expected_files in EXPECTED_SKILL_FILES.items():
+        skill_root = ROOT / "skills" / skill_name
+        actual_files = {
+            path.relative_to(skill_root).as_posix()
+            for path in skill_root.rglob("*")
+            if path.is_file()
+        }
+        if actual_files != expected_files:
+            failures.append(
+                f"skills/{skill_name}: package shape mismatch; "
+                f"missing={sorted(expected_files - actual_files)}, "
+                f"unexpected={sorted(actual_files - expected_files)}"
+            )
 
     case_names = {
         path.name for path in (ROOT / "evals" / "cases").glob("*.md")

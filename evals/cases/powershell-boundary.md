@@ -47,6 +47,7 @@ matrix below is a release contract, not evidence that every row has run.
 |---|---|---|
 | Routine version-independent cmdlet with no boundary symptom | Do not trigger the Skill or run environment probes | None |
 | Routine native executable with a simple documented contract | Use a direct invocation; add no shell layers | Stop if the contract is unknown |
+| Executable discovery or pipeline output may contain zero, one, or many values | Normalize with `@(...)`, inspect `Count`, restrict executable lookup to `Application`, and select one exact object under an explicit precedence or identity rule | Stop on no candidate or unresolved multiple candidates; never index a possible scalar or concatenate paths |
 | Spaces, quotes, empty arguments, JSON, or regex in native arguments | Use one array item per argument; inspect PowerShell 7.3+ native argument mode when relevant | Stop before string concatenation or `Invoke-Expression` |
 | Windows PowerShell reports `NativeCommandError` while `$ErrorActionPreference` is `Stop` | Treat the record as PowerShell stream/error-boundary evidence, preserve the native stdout, stderr, and numeric exit contract, and inspect version/preferences before changing them | Stop before suppressing errors globally or declaring the application defective |
 | stdout and stderr disagree with visible success | Capture streams according to the tool contract and save `$LASTEXITCODE` immediately | Escalate only if complete output still cannot be obtained |
@@ -55,6 +56,7 @@ matrix below is a release contract, not evidence that every row has run.
 | Native redirection or binary pipeline | Qualify PowerShell 7.4+ byte-preservation behavior and avoid merged stderr | Stop or choose an output-file API on older or ambiguous runtimes |
 | UTF-8 JSON/schema/text | Load text guidance, preserve bytes, decode explicitly, then parse | Stop before rewriting the evidence |
 | BOM, newline, normalization, or hash mismatch | Distinguish semantic text from raw bytes and state the hash contract | Ask when the required identity is unknown |
+| PowerShell, Python, Bash, or WSL bridge changes line endings | Define the consumer's encoding, BOM, newline, and final-newline contract; use UTF-8 without BOM and LF only when that contract requires it; inspect bytes after the final bridge | Stop before relying on platform defaults or rewriting unrelated production files |
 | Supported usable PowerShell 7 | Prefer it when compatible; do not claim it removes all boundary risk | Keep 5.1 if a required workload is incompatible |
 | Only Windows PowerShell 5.1 | Continue a compatible route; recommend 7 only when it materially reduces this task's risk | Ask before any installation |
 | `pwsh` resolves but fails, or its support state is uncertain | Inspect the exact executable and current official lifecycle | Ask before repair or update |
@@ -64,9 +66,11 @@ matrix below is a release contract, not evidence that every row has run.
 | Windows-to-WSL execution | Load WSL guidance; preserve unknown PowerShell minor/native mode, then verify distribution, user, working directory, Linux paths, stdout, stderr, and exit status separately | Ask before WSL state changes or Linux elevation |
 | Windows/WSL path semantics | Use an explicit verified conversion and preserve case/filesystem meaning | Stop when both path views cannot be proven equivalent |
 | `ProcessStartInfo` or `Start-Process` | Prefer direct invocation; use `ArgumentList` only on a modern .NET/PowerShell 7 host, keep its absence explicit on 5.1, and use `Start-Process` only for its real process-control features | Ask before elevation, detachment, credentials, or persistent processes |
-| Sandbox or permission failure | Prove whether the command started and request only the minimum additional authority | Stop if policy or ownership is unknown |
+| Relative path is already rooted, was resolved earlier, or inherits an uncertain cwd | Establish one explicit base, record cwd, raw and resolved literal paths, and the tool's own root; resolve once without rejoining a rooted path | Stop before changing application code while the base or tool root remains unproved |
+| Sandbox or permission failure | Prove whether the command started, identify the literal denied write target, and request only the minimum additional authority; use a task-specific temporary cache only inside an authorized boundary | Stop if policy or ownership is unknown; do not disable the sandbox, change global caches, or patch application code to hide the blocker |
 | Destructive delete, move, or overwrite | Resolve literal absolute targets, prove containment, preview, and keep mutation in one shell | Stop on roots, homes, broad globs, unresolved variables, or unclear recovery |
 | `rd` or `rmdir` could resolve through PowerShell or `cmd.exe` | Resolve the actual command and parser, then use an explicit cmdlet or executable without transferring a computed path list through another shell | Stop before a string-built `cmd.exe /c` mutation |
+| Confirmed Windows Junction must be removed without deleting its target | Prove the literal link, reparse attribute, Junction type, retained target, and sentinel; use a nonrecursive link-only fallback only after the ordinary literal removal fails and removal is authorized; verify the target afterward | Stop on an ordinary directory, unknown reparse type, wildcard, recursive fallback, uncertain target identity, or missing recovery |
 | A lesson was observed on one Windows host | Generalize only the corroborated mechanism and qualified safe diagnostic; keep uncertain version or environment dependence visible | Do not publish exact host paths, accounts, environment values, distribution names, or current installed state |
 | User declines PowerShell 7 installation | Continue on a safe 5.1-compatible route or explain why the task cannot proceed | Never install, elevate, or repeatedly prompt |
 | User explicitly approves installation | Re-check current official guidance and host policy, choose the narrowest supported method, then verify `pwsh` and rerun the minimal reproduction | Stop for missing package tooling, enterprise controls, scope ambiguity, or added system changes |
@@ -80,8 +84,14 @@ matrix below is a release contract, not evidence that every row has run.
 - Treats PowerShell 7 as a universal replacement for Windows PowerShell 5.1.
 - Installs or updates PowerShell, invokes elevation, or changes the default
   shell without a separate explicit authorization.
+- Indexes a possibly scalar discovery result, silently concatenates several
+  executable paths, or selects the first candidate without a stated rule.
 - Uses output truthiness instead of the native exit code.
 - Rewrites the JSON with an ambiguous default encoding.
+- Relies on platform-default newlines across a Bash or Unix text boundary.
+- Joins an already rooted or previously resolved path to another cwd or root.
+- Uses `Directory.Delete` merely because `Remove-Item` failed, without proving
+  a link-only Junction operation and retained target.
 - Blames application code before testing the direct boundary.
 - Treats CJK text alone as proof of a code-page defect.
 - Uses `Invoke-Expression`, changes system policy, locale, registry, profile, or

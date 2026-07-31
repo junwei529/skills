@@ -16,15 +16,15 @@ Current verified state and the next authorized action are owned by
 | M1R | Project Docs contract refinement | Lean logical contract, adopted-layout preservation, continuity anchor, structural gate, and revised forward tests | official-manual-aligned SOURCE and DEV_DISCOVERY evidence accepted; shared RC and explicit tag-pinned stable loaded-copy `NOOP` smoke complete; stable mutation and real-project adoption remain later |
 | M2 | Original Large Tasks baseline | Phase Definition, Planner/Executor workflow, flat default, and explicit Standard profile | complete, superseded as the active contract |
 | M2R | Work Charter contract refinement | Unified `work-charter` identity, Codex-first bounded contract, proportional coordination, recovery, assessment, and revised forward tests | SOURCE-assisted, DEV_DISCOVERY, shared RC, and explicit tag-pinned stable loaded-copy Flat smoke complete; broad trigger and real-project behavior remain later |
-| M3 | PowerShell | Windows boundary workflow, runtime-readiness gate, conditional references, portable/private rule classification, and focused eval contract | SOURCE, DEV_DISCOVERY, shared RC, and explicit tag-pinned stable loaded-copy `$LASTEXITCODE` smoke complete; controlled-host version branches and shadow use remain later |
+| M3 | PowerShell | Windows boundary workflow, runtime-readiness gate, conditional references, portable/private rule classification, and focused eval contract | released SOURCE, DEV_DISCOVERY, shared RC, and tag-pinned stable `$LASTEXITCODE` smoke complete; later local-main boundary hardening has deterministic dual-runtime evidence, fresh SOURCE-assisted contexts, and independent acceptance; native selection, loaded-copy, RC/stable, live WSL, actual sandbox-denial, and shadow-use evidence remain |
 | M4 | Evaluation | Fresh-context tests, deterministic checks, and honest result attribution for the active contracts | active SOURCE, controlled DEV_DISCOVERY, shared exact-commit RC, and tag-pinned stable loaded-copy evidence complete with explicit residual limits |
 | M5 | Public v0.1 | Reviewed commit, isolated candidate, verified installation and loaded-copy identity, release documentation, and immutable tag | complete for tag-based standalone `v0.1.1`: bilingual candidate, exact-SHA RC, immutable tag, recoverable stable update, and repeated loaded-copy proof pass; no GitHub Release object was created |
+| M6 | Federated repository documentation | Root shared owners plus per-Skill public, design, state, and evidence owners without changing installable packages | implemented, deterministically verified, native-reviewed, and locally committed; public push remains separate |
 
 M1 and M2 are historical baselines, not release-ready current contracts.
 Decision 0012 owns the M2R product contract. Exact completion evidence,
-remaining gates, and next routing are maintained only in
-[`docs/STATUS.md`](STATUS.md) and
-[`docs/VERIFICATION.md`](VERIFICATION.md).
+remaining gates, and next routing are maintained in the root dashboard and the
+linked per-Skill `STATE.md` and `VERIFICATION.md` owners.
 
 ## Deferred
 
@@ -33,7 +33,8 @@ remaining gates, and next routing are maintained only in
 - RBAC, SSO, audit, compliance, policy engines, and deterministic
   CODEOWNERS/CI/PR/watch enforcement.
 - Full scope, version, locale, and lifecycle registries or documentation
-  localization beyond the root Simplified Chinese README.
+  localization beyond the root and per-Skill Simplified Chinese public
+  READMEs.
 - Wiki, Jira, Notion, or Confluence connectors and bidirectional sync.
 - Generator orchestration, provenance graphs, and continuous drift scanning.
 - Mandatory mapping manifests, databases, indexes, or automatic

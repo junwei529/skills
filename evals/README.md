@@ -92,6 +92,19 @@ Charter loop, the Standard starting boundary, the
 direct-versus-wrapper PowerShell boundary, and the UTF-8-without-BOM input. It
 does not score an agent.
 
+The PowerShell boundary case also has a deterministic Windows mechanism check:
+
+```powershell
+pwsh -NoProfile -File .\evals\check-powershell-boundaries.ps1
+powershell.exe -NoProfile -File .\evals\check-powershell-boundaries.ps1
+```
+
+It uses a task-specific temporary root to check multi-candidate application
+discovery, scalar normalization, UTF-8/LF bytes, one-base path resolution, and
+nonrecursive confirmed-Junction removal under PowerShell 7 and Windows
+PowerShell 5.1. It is not a fresh-context behavior test, live Bash/WSL test,
+sandbox-denial injection, or proof for other reparse-point types.
+
 ## Work Charter M2R Forward Matrix
 
 Run all five cases as SOURCE-assisted behavior tests: provide canonical
@@ -170,6 +183,16 @@ installed or cached same-named copy to working-tree source.
 
 ## Current Development Evidence
 
+Canonical per-Skill claim ledgers are:
+
+- [Project Docs Verification](../docs/skills/manage-project-docs/VERIFICATION.md);
+- [Work Charter Verification](../docs/skills/work-charter/VERIFICATION.md); and
+- [PowerShell Verification](../docs/skills/use-powershell-safely/VERIFICATION.md).
+
+The result files below retain sanitized run detail. Repository-level candidate,
+tag, stable-install, and release evidence belongs in
+[Repository Verification](../docs/VERIFICATION.md).
+
 The initial 2026-07-27 runs are summarized in
 [Development Forward Tests](results/2026-07-27-development-forward-tests.md).
 All five scenario runs produced the expected bounded outcome, with the
@@ -203,11 +226,14 @@ The
 [Revised PowerShell Development Forward Tests](results/2026-07-28-powershell-forward-tests.md)
 remain historical behavior evidence for older SOURCE. The
 [portable-guidance migration result](results/2026-07-30-powershell-portable-guidance-migration.md)
-records deterministic checks and normalized hashes for the current revision.
-Seven boundary-sensitive fresh contexts, two catalog-assisted non-trigger
-canaries, and controlled native DEV_DISCOVERY positive/negative canaries
-exercised that SOURCE identity. Candidate, stable-install, shadow-period, and
-release proof remain unverified.
+records deterministic checks, normalized hashes, seven boundary-sensitive
+fresh contexts, two catalog-assisted non-trigger canaries, and controlled
+native DEV_DISCOVERY positive/negative canaries for the revision later
+released as `v0.1.1`. The
+[boundary-hardening result](results/2026-07-31-powershell-boundary-hardening.md)
+records the current uncommitted SOURCE hashes and deterministic dual-runtime
+checks. That later revision still lacks fresh-context, loaded-copy, candidate,
+stable-install, and shadow-use proof.
 
 ## Evidence Policy
 

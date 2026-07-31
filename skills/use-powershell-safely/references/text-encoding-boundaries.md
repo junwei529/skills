@@ -11,6 +11,7 @@ model.
 - [Diagnose Before Rewriting](#diagnose-before-rewriting)
 - [PowerShell Version Differences](#powershell-version-differences)
 - [Files, JSON, Schema, And Hashes](#files-json-schema-and-hashes)
+- [Cross-Shell Text Contracts](#cross-shell-text-contracts)
 - [Native Text Streams](#native-text-streams)
 - [Legacy Locale And CJK Exposure](#legacy-locale-and-cjk-exposure)
 - [Stop Conditions](#stop-conditions)
@@ -83,6 +84,34 @@ encoding defaults. Use explicit call-site behavior or a byte-oriented writer.
 PowerShell's `$OutputEncoding` affects communication with external programs;
 it does not set the encoding used by every file-writing cmdlet or redirection
 path. Diagnose those boundaries separately.
+
+## Cross-Shell Text Contracts
+
+Treat a PowerShell, Python, Bash, WSL, or native bridge as a text protocol.
+Identify the producer, every bridge that decodes or re-emits text, and the
+consumer. Define encoding, BOM policy, newline sequence, final-newline
+behavior, and empty-line preservation at the consumer boundary.
+
+When a Unix or Bash consumer requires UTF-8 without BOM and LF, do not rely on
+the Windows platform newline or on a text cmdlet's version-dependent default.
+For a known line-oriented payload:
+
+```powershell
+$utf8NoBom = [System.Text.UTF8Encoding]::new($false)
+$payload = ($lines -join "`n") + "`n"
+[System.IO.File]::WriteAllBytes($path, $utf8NoBom.GetBytes($payload))
+```
+
+Use that shape only when the consumer contract requires one final LF. Do not
+normalize arbitrary text, signed content, or repository files without first
+establishing their contract.
+
+Inspect the bytes after the last bridge, not only the string displayed by the
+producer. When LF-only is required, assert that line terminators are `0A`,
+that no `0D` remains before them, and that the consumer does not receive a
+trailing carriage return as data. Apply the same check to temporary test
+bridges: a test adapter that rewrites LF to CRLF can invalidate an otherwise
+correct production path.
 
 ## Native Text Streams
 

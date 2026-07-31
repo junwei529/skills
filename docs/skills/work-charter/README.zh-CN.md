@@ -1,0 +1,61 @@
+# Work Charter
+
+[English](README.md)
+
+Work Charter 用显式 outcome、authority、evidence、recovery route，以及保护
+结果所需的最小 coordination，来约束有后果的 Codex 工作。
+
+## 何时使用
+
+- continuity、authorization、recovery、writer ownership 或 independent
+  assessment 使 flat execution 不再可靠；
+- 有后果的工作需要持久 Charter；
+- Planner/Executor 分离能够实质保护实现；或
+- 已批准 standing policy 和 active Charter 支持 Standard
+  Orchestrator/Planner/Executor。
+
+## 何时不使用
+
+- 工作是小型、有界、单 session 任务；
+- 唯一信号只是新任务、一次失败、耗时或文件数量；
+- 任务属于普通文档治理或 shell 诊断；或
+- 需要在其他 Harness 上冒充未经验证的 Codex 能力。
+
+## 独立安装
+
+```text
+$skill-installer Install the Skill from https://github.com/junwei529/skills/tree/v0.1.1/skills/work-charter.
+```
+
+Work Charter 不依赖 Project Docs。它可以消费可靠的既有项目路由，而不安装或
+调用另一个 Skill。
+
+## 调用
+
+```text
+$work-charter 约束此项有后果的工作、权限、证据、恢复和最小充分协调。
+```
+
+可观察的控制或恢复症状可以允许隐式识别和可见 proposal。首次持久采用、第一份
+Standard policy、角色交付、写入、Git 和外部影响仍需分别授权。
+
+## 安全边界
+
+Profile 选择不会扩大 action authority。active Charter 保持一条 execution
+lane、一个 repository writer，并至多有一个 Planner 和一个 Executor。合同、
+权限、workspace、writer、证据、交付或恢复存在实质歧义时停止。
+
+## 已验证能力与限制
+
+exact-source M2R 行为、受控开发 P/E 与 Standard 角色交付、exact-commit RC
+恢复 canary，以及基于 `v0.1.1` tag 的显式 Flat smoke 已通过。广泛隐式触发
+telemetry、candidate/stable 层 Standard 行为、独立真实项目效果、确定性 writer
+锁和跨 Harness 等价性均未得到证明。参见
+[验证](VERIFICATION.md)和[状态](STATE.md)。
+
+## 权威合同
+
+本页是面向人的入口。仓库[产品合同](../../SPEC.md)、
+[Work Charter 设计](DESIGN.md)、已接受 decisions 和 canonical
+[`SKILL.md`](../../../skills/work-charter/SKILL.md)拥有行为定义；发生冲突时，
+以这些英文 canonical 来源为准。

@@ -11,8 +11,10 @@ Before changing this repository, read:
 5. `docs/SPEC.md`
 6. `docs/ARCHITECTURE.md`
 7. `docs/VERIFICATION.md`
-8. `docs/HANDOFF.md` when resuming interrupted work
-9. `docs/RUNBOOK.md` before changing Skill discovery, installation, candidate,
+8. The relevant `docs/skills/<skill-name>/DESIGN.md`, `STATE.md`, and
+   `VERIFICATION.md` before changing one Skill or its claims
+9. `docs/HANDOFF.md` when resuming interrupted work
+10. `docs/RUNBOOK.md` before changing Skill discovery, installation, candidate,
    version, or release state
 
 ## Scope
@@ -57,17 +59,30 @@ Before changing this repository, read:
 
 ## Documentation
 
-- Stable product requirements belong in `docs/SPEC.md`.
-- Architecture and ownership boundaries belong in `docs/ARCHITECTURE.md`.
-- Current progress belongs in `docs/STATUS.md`.
+- Shared product requirements belong in `docs/SPEC.md`; per-Skill purpose,
+  trigger, non-goals, behavior contract, and internal package boundaries belong
+  in `docs/skills/<skill-name>/DESIGN.md`.
+- Cross-Skill architecture and ownership boundaries belong in
+  `docs/ARCHITECTURE.md`.
+- Per-Skill implementation, writer, next gate, and recovery belong in
+  `docs/skills/<skill-name>/STATE.md`; `docs/STATUS.md` is the short repository
+  dashboard.
 - Future milestones belong in `docs/ROADMAP.md`.
-- Verification evidence and claim status belong in `docs/VERIFICATION.md`.
+- Per-Skill SOURCE, forward-test, DEV, RC, and stable evidence belongs in
+  `docs/skills/<skill-name>/VERIFICATION.md`; repository checks, coherent
+  candidates, tags, stable installs, and release evidence belong in
+  `docs/VERIFICATION.md`.
 - Source transformation and publication boundaries belong in
   `docs/PROVENANCE.md`.
 - Development, discovery, installation, candidate, update, rollback, and
   release procedures belong in `docs/RUNBOOK.md`.
 - Recovery context belongs in `docs/HANDOFF.md`.
 - Durable choices belong in `docs/decisions/`.
+- Root and per-Skill `README.md` files are human entries, not runtime
+  specifications. English is canonical; update each `README.zh-CN.md` mirror in
+  the same change set and verify reciprocal navigation.
+- Do not duplicate a detailed per-Skill fact in a root dashboard; link to its
+  canonical owner and keep only the bounded repository-level summary.
 
 ## Verification And Git
 

@@ -1,335 +1,148 @@
 # Architecture
 
-Last updated: 2026-07-30
+Last updated: 2026-07-31
 
-## Overview
+## System Shape
 
-The repository separates four ownership layers:
+The repository contains three independent instruction products and one shared
+source, evidence, and release envelope:
 
-| Layer | Owner | Responsibility |
-|---|---|---|
-| Repository governance | Root docs and `AGENTS.md` | Define this project's scope, status, and evidence. |
-| Skill discovery | Frontmatter and `agents/openai.yaml` | Tell the Harness when and how to present a skill. |
-| Skill workflow | `SKILL.md`, references, and assets | Provide reusable procedures and output resources. |
-| Target-project truth | The target repository's code and documents | Remain authoritative for the project using a skill. |
+```text
+repository governance and lifecycle
+├── Project Docs: project-document semantics and routing
+├── Work Charter: consequential-work contract and coordination
+└── PowerShell: Windows shell-boundary diagnosis and execution
+```
 
-A skill never becomes more authoritative than the project into which it is
-introduced.
+There is no umbrella Skill, shared runtime, automatic composer, or product
+hierarchy. Each Skill remains usable alone.
 
-Target-project content produced by Project Docs remains part of target-project
-truth. An agent-instruction entry written there is not a Skill discovery
-mapping, installed copy, cache, candidate, or release identity.
+## Federated Documentation Ownership
 
-The repository is a family of independent Skill products, not a lead product
-with subordinate companions. Shared repository governance and release
-packaging do not create a runtime dependency between Skills.
+Documentation is federated by fact type:
 
-## Progressive Disclosure
-
-1. Skill name and description are available for discovery.
-2. `SKILL.md` loads only after the skill is selected.
-3. Detailed references load only for the relevant branch of work.
-4. Assets are copied or adapted as output resources rather than loaded as
-   general context.
-
-This structure is the repository's primary context-budget mechanism. Token
-savings are a measurement question, not an architectural claim.
-
-## Skill Boundaries
-
-### Project Docs
-
-`manage-project-docs` owns project-document semantics, canonical placement,
-governance repair, continuity routing, pause, and recovery. It is a standalone
-product intentionally thinner than a complete document platform.
-
-Its minimum model has five logical responsibilities:
-
-| Responsibility | Required result |
+| Fact | Canonical owner |
 |---|---|
-| Purpose and scope | A reader can tell what the project is and is not. |
-| Work and verification method | A writer can find how changes are made and proved. |
-| Authority and write routing | A writer can find the canonical owner for a durable fact. |
-| Current state and evidence | A reader can distinguish current fact from intention or history. |
-| Next action and recovery | A new session can resume from a bounded entry point. |
+| Repository product goals, shared audience, independent-product and release requirements | [`SPEC.md`](SPEC.md) |
+| Cross-Skill composition, source/install topology, release envelope, advisory boundaries | this file |
+| Repository integration and release dashboard | [`STATUS.md`](STATUS.md) |
+| Repository checks, coherent candidate, tag, stable-install, and release evidence | [`VERIFICATION.md`](VERIFICATION.md) |
+| Repository writer, dirty scope, next integration action, and recovery | [`HANDOFF.md`](HANDOFF.md) |
+| Project Docs contract, state, and evidence | [`docs/skills/manage-project-docs`](skills/manage-project-docs/README.md) |
+| Work Charter contract, state, and evidence | [`docs/skills/work-charter`](skills/work-charter/README.md) |
+| PowerShell contract, state, and evidence | [`docs/skills/use-powershell-safely`](skills/use-powershell-safely/README.md) |
+| Operational lifecycle procedure | [`RUNBOOK.md`](RUNBOOK.md) |
+| Accepted rationale | [`docs/decisions`](decisions/) |
+| Canonical executable Skill instructions | `skills/<skill-name>/` |
 
-These responsibilities do not imply five files. Existing documents may combine
-roles, and several locations may be valid reads. Within one scope and lifecycle,
-a normative durable fact has one canonical write locus.
+One durable fact has one canonical write owner. Root dashboards use bounded
+summaries and links rather than copying per-Skill ledgers. Detailed sanitized
+run evidence remains under `evals/results/` and is indexed by the owning
+verification document.
 
-Project Docs produces one primary outcome per run:
+English is canonical. Root and per-Skill public README files have Simplified
+Chinese mirrors. The English owner changes first and its mirror changes in the
+same change set; deterministic checks verify reciprocal navigation and
+corresponding section counts.
 
-| Outcome | Meaning |
-|---|---|
-| `NOOP` | The existing project contract is sufficient. |
-| `REPORT` | Findings are returned without target-project mutation. |
-| `UPDATE` | An authorized existing canonical owner is maintained. |
-| `PROPOSE` | A structural or authority change requires user approval. |
-| `STOP` | The requested action itself cannot continue safely because scope, ownership, permission, or evidence is insufficient. |
+## Skill Package Boundary
 
-A completed read-only audit remains `REPORT` when only a later write is
-blocked; `STOP` does not erase useful findings from an action that already
-completed safely.
+Each public package keeps:
 
-### Project Docs Trigger And Continuity Model
+- one concise `SKILL.md` with trigger behavior in frontmatter;
+- optional `agents/openai.yaml`;
+- directly linked conditional references; and
+- optional adaptable output assets.
 
-Project Docs has four distinct surfaces:
+The installable package does not contain repository README files,
+installation guides, changelogs, design histories, or development evidence.
+Those belong under `docs/skills/<skill-name>/`.
 
-1. Explicit Project Docs invocation inspects or repairs the project within the
-   user's request. Skill metadata disables implicit invocation.
-2. First adoption creates the minimum contract and continuity anchor only with
-   explicit structural-write authorization.
-3. Routine maintenance follows an already adopted target-project rule after a
-   material project event and updates the existing owner.
-4. Structural expansion proposes a new module, split, merge, rename, migration,
-   authority change, or owner change and waits for explicit authorization.
+Per-Skill internal boundaries are owned by:
 
-The continuity anchor is a small routing rule in the target project's existing
-agent-instruction or governance entry. It points to read order, document-impact
-events, the structural gate, and recovery entry without copying project facts.
-This makes ordinary later tasks independent of chat history and agent private
-memory. If the active Harness cannot load or verify the entry, the design
-degrades honestly to weak continuity.
-
-Routine maintenance can follow the durable rule without loading Project Docs.
-The Skill is explicitly re-invoked only when governance fails or structure
-changes; project duration alone is not a trigger. A target-project rule may ask
-the user to invoke `$manage-project-docs`, but the rule's mention is neither
-native Skill invocation nor authorization for a structural or authority
-change.
-
-Named maturity levels are not stored project state and do not trigger
-whole-layer upgrades. Modules expand only when concrete events make the
-existing responsibility routing insufficient.
-
-### Work Charter
-
-Work Charter is the accepted public product, Skill, and contract identity.
-`work-charter` is the v0.1 package and canonical SOURCE name. The superseded
-`skills/manage-large-tasks/` source is retired, with no compatibility alias or
-second discovery entry.
-
-The minimum package surface is one concise `SKILL.md`, `agents/openai.yaml`,
-two directly linked conditional references for coordination/recovery and
-Standard O/P/E, and one adaptable Work Charter asset. It has no scripts,
-adapter, profile schema, or Project Docs dependency.
-
-The product keeps three ownership layers:
-
-| Layer | Owner | Responsibility |
-|---|---|---|
-| Charter semantics | One approved Charter or logical locator | Outcome, boundaries, action authority, acceptance evidence, and stop or recovery conditions |
-| Codex carrier | `/plan`, `/goal`, the active context, or one durable source | Hold or point to the contract without redefining it |
-| Coordination behavior | The Work Charter Skill under the active contract | Choose the least sufficient role separation, recover state, route assessment, and stop on ambiguity |
-
-“Agent loop” may describe bounded progress in the third layer, but it is not a
-separate product, artifact, or state machine.
-
-A standing policy and active Charter are logical planes that normally share one
-durable carrier. Before approval, `/plan` or discussion may hold a proposal.
-After approval, one canonical Charter or locator owns normative state. `/goal`
-may track the active objective but does not replace verification, assessment,
-or authority. Multi-session, interruption-prone, or materially side-effecting
-work requires durable state; a bounded single-session Charter may remain in the
-active Codex context.
-
-### Coordination And Readiness
-
-Work Charter uses two internal questions rather than a user-facing profile
-matrix:
-
-1. What is the least coordination structure that protects the current work?
-2. Is durable state coherent enough to continue, or is recovery or a stop
-   required?
-
-The implementation may label coordination as Flat, bounded single-context,
-Planner/Executor, or Standard O/P/E for selection, debugging, and evaluation.
-Those codes are not durable user state. Document organization, authority,
-granularity, freshness, and evidence inform readiness but do not select a role
-count by themselves.
-
-Observable continuity or control symptoms may cause a midstream adoption or
-profile-change proposal. Initial persistent adoption and the first Standard
-standing policy require user approval. Later reuse may follow that policy and
-must remain visible. The policy cannot override applicable Harness or project
-instructions; when they require fresh explicit selection, Work Charter can
-only propose the transition. A new task, one failure, or a same-scope
-correction does not trigger escalation by itself, and no background polling is
-part of v0.1.
-
-Roles are responsibilities before they are sessions. Preserve a reliable
-current session and add only a missing responsibility; create a successor only
-when mixed roles, compaction, interruption, or drift makes the context
-unreliable. Standard formally supports:
-
-- Orchestrator ownership of project direction and transition;
-- Planner ownership of the active Charter and independent assessment;
-- Executor ownership of implementation and evidence.
-
-The Orchestrator normally remains dormant during execution. v0.1 has one active
-execution lane, at most one Planner and one Executor for the active Charter,
-and one repository writer. Parallel Executors, automatic multi-worktree
-routing, and automatic integration are deferred.
-
-### Recovery, Handoff, And Assessment
-
-Cold or recovery entry reads the canonical Charter, authoritative project
-state, actual workspace, evidence freshness, writer ownership, and last
-approved action. Material ambiguity stops for bounded recovery or a user
-decision. Warm handoff carries only the receiving role, changed facts, evidence
-pointers, bounded action, stop condition, and return route. Anchor, Delta, Role
-Capsule, Resume Gate, and profile codes may remain internal authoring or
-evaluation shorthand, but they are not mandatory persisted objects.
-
-Contract state uses `draft`, `proposed`, `approved`, and `superseded`; run
-disposition uses `active`, `paused`, and `closed`. A separate assessment exists
-only when the Charter requires independent assessment and returns exactly one
-of `ACCEPTED`, `CORRECTION_REQUIRED`, or `DECISION_REQUIRED`. Result and
-evidence remain notices and pointers rather than additional state machines.
-
-The same Planner and Executor may use at most three completed
-`CORRECTION_REQUIRED` rounds per assessment checkpoint by default. Repeated
-material findings, no net reduction, specification ambiguity, or unreliable
-context stop earlier. This budget is unrelated to native review ownership,
-counters, reset authority, evidence, or completion.
-
-Profile selection never grants role delivery, target writes, document or
-`AGENTS.md` changes, worktrees, Git, installation, or external-side-effect
-authority. Skills remain advisory and cannot guarantee delivery, role
-compliance, writer locking, correct assessment, or permissions.
-
-Project Docs and Work Charter are technical peers and remain independently
-installable and usable. Project Docs may provide canonical document routing;
-Work Charter alone owns coordination, role, action, and assessment semantics.
-Their combination is a recipe, not an umbrella Skill.
-
-[Decision 0012](decisions/0012-work-charter-v0-1-identity-and-minimum-sufficient-design.md)
-owns the current simplification and supersession map.
+- [Project Docs Design](skills/manage-project-docs/DESIGN.md);
+- [Work Charter Design](skills/work-charter/DESIGN.md); and
+- [PowerShell Design](skills/use-powershell-safely/DESIGN.md).
 
 ## Composition Recipes
 
-Composition exists only at the repository guidance layer:
+Composition exists only at repository guidance level:
 
 | Recipe | Handoff |
 |---|---|
-| Project Docs → Work Charter | Project Docs establishes or repairs document routing; Work Charter may consume those pointers for a consequential run. |
-| Work Charter + PowerShell | Work Charter retains work-control ownership; PowerShell is selected only for a material Windows, native-process, text, or WSL boundary. |
-| Project Docs + Work Charter + PowerShell | Each Skill keeps its own job, trigger, stop conditions, and evidence in a Windows project with both governance and execution risk. |
+| Project Docs → Work Charter | Project Docs establishes or repairs document routing; Work Charter may consume the resulting reliable locators for a consequential run |
+| Work Charter + PowerShell | Work Charter retains outcome, authority, writer, and assessment ownership; PowerShell is selected only for a material Windows boundary |
+| Project Docs + Work Charter + PowerShell | Each Skill keeps its own trigger, owner, stop condition, and evidence in a Windows project with both governance and execution risk |
 
-Every Skill must also work alone. A recipe does not install, discover, select,
-invoke, update, or authorize another Skill. Sharing a repository tag, task,
-role, branch, or worktree is not proof that the same or intended Skill copies
-were loaded.
+A recipe does not install, discover, select, invoke, adopt, update, or authorize
+another Skill. Sharing a tag, task, role, branch, worktree, or project document
+does not prove another Skill copy loaded.
 
-Installation or discovery, invocation or adoption, execution or maintenance,
-and packaging or release are separate authorization surfaces. Permission does
-not cross from one Skill, operation, or surface to another.
+Installation/discovery, invocation/adoption, execution/maintenance, and
+packaging/release remain separate authorization surfaces for each operation.
 
-## Project Docs Safety Boundaries
-
-- Audit does not authorize structural mutation.
-- Missing write access returns `REPORT` or `PROPOSE`.
-- An unowned concurrent writer or unresolved canonical owner returns `STOP`
-  before a requested mutation. A completed read-only audit still returns
-  `REPORT` when only the future mutation is blocked.
-- Generated output is not patched when an editable source owns it.
-- External sources may own facts, but unavailable evidence remains unverified.
-- The nearest target-project scope governs monorepo work.
-- Existing target-project document language is preserved; Project Docs does
-  not create translations. The repository's root Simplified Chinese README is
-  a distribution aid whose English counterpart remains canonical, not a
-  Project Docs localization capability.
-- Cross-Harness use shares one canonical project anchor. Thin adapters may
-  reuse it only when they already exist or are separately authorized.
-
-Organization catalogs, ownership portals, policy engines, connector sync,
-mapping databases, automatic invalidation, generator orchestration, and native
-multi-Harness packages are deferred architecture, not hidden v0.1 modules.
-
-### PowerShell
-
-`use-powershell-safely` owns Windows shell boundary diagnosis and safe execution
-guidance. It is independent of project governance and should not load for
-ordinary POSIX shell work or a routine version-independent cmdlet without a
-boundary symptom.
-
-Its progressive-disclosure layers are:
-
-| Layer | Owner | Load condition |
-|---|---|---|
-| Core workflow and authorization gate | `SKILL.md` | Skill is selected |
-| Runtime, native process, streams, paths, permissions, and installation recommendation | `references/native-process-boundaries.md` | Native/process/version/system boundary is material |
-| General text correctness plus conditional legacy locale/CJK guidance | `references/text-encoding-boundaries.md` | Text bytes, encoding, newline, hash, or legacy locale is material |
-| Windows-to-WSL execution, paths, streams, and state | `references/windows-wsl-boundaries.md` | The task crosses the WSL boundary |
-
-Runtime readiness is a conditional diagnostic branch, not a global startup
-probe. The skill may detect and recommend PowerShell 7 without mutation.
-Installation or update remains an external state change that requires explicit
-authorization and current official guidance. No deterministic installer is
-bundled in v0.1.
-
-PowerShell guidance crosses a private-to-public provenance boundary:
-
-| Category | Canonical owner | Public treatment |
-|---|---|---|
-| Documented or reproduced portable rule | `use-powershell-safely` | State the affected interface, prerequisite, and version boundary |
-| Failure-derived bounded inference | `use-powershell-safely` only after corroboration | Publish a conditional diagnostic and safe response; retain uncertainty |
-| Exact host path, version, account, env value, distribution, package, sandbox identity, or current state | Private host guidance | Do not copy the value into the repository |
-| Pre-selection trigger, hard authorization invariant, and unavailable-Skill fallback | Minimal private global bootstrap | Route to the Skill without duplicating its detailed procedure |
-
-The public Skill becomes the sole canonical owner for portable procedures only
-after selection and loaded-copy evidence supports migration. A private host
-reference can remain operationally necessary without becoming a second public
-product or source tree.
-
-## Source And Release Environments
-
-Skill lifecycle uses four distinct roles:
+## Canonical Source And Derived Environments
 
 | Role | Owner | Boundary |
 |---|---|---|
-| Canonical source | `skills/<skill-name>/` in an approved checkout | only editable Skill copy |
-| Development discovery | local link, junction, supported mapping, or explicit test path | resolves to canonical source and is never packaged |
-| Release candidate | isolated materialized copy produced from one exact commit through a clean candidate checkout or archive | does not resolve to the working tree |
-| Stable installation | generated copy from one accepted release tag and commit | updated or rolled back by reinstalling a release identity, never by editing |
+| `SOURCE` | `skills/<skill-name>/` in an approved checkout | only editable Skill copy |
+| `DEV_DISCOVERY` | local symlink, junction, supported mapping, or explicit controlled path | resolves to SOURCE; local and unpackageable |
+| `RC_INSTALL` | isolated materialized copy from one exact commit through a clean checkout or archive | does not resolve to editable SOURCE |
+| `STABLE_INSTALL` | generated snapshot from one accepted immutable tag and commit | updated or rolled back by reinstalling version identity |
 
-The actual Harness discovery scope is part of the test boundary. Behavioral
-evidence must prove which same-named Skill was loaded; release tests isolate the
-candidate from development and stable copies.
+The actual Harness discovery scope is part of the evidence boundary. Only one
+same-named Skill may be selectable in a counted scope, and controller evidence
+must prove the loaded logical locator and revision.
 
-Git branch or worktree selection controls source isolation. It does not create
-an installation environment. A chat or task is likewise not a version:
-development identity includes checkout, commit or unborn state, and dirty
-state; release identity uses a repository-level version tag and exact commit.
+A Git branch, worktree, task, or chat is not an installation or version.
+Development identity includes checkout, commit or unborn state, and dirty
+state. Candidate identity uses exact commit plus clean materialization.
+Release identity uses repository tag plus exact commit.
 
-v0.1 uses
-[`junwei529/skills`](https://github.com/junwei529/skills)
-as the standalone GitHub distribution envelope. The supported Codex
-installation interface is `$skill-installer` with that exact repository URL,
-an immutable repository tag, and one or more
-`skills/<skill-name>` paths. All Skills in one supported installed set resolve
-to the same repository tag, but that shared version identity does not imply
-that every Skill was installed, loaded, or adopted. GitHub-generated archives
-are transport derived from that tag rather than a second source tree.
+## Distribution And Version Envelope
 
-Plugin packaging remains a later alternative around the same lifecycle. It is
-not part of v0.1 and would require a separate accepted change in product and
-release scope.
+v0.1 uses the standalone public repository
+[`junwei529/skills`](https://github.com/junwei529/skills), one immutable
+repository-level semantic-version tag, and independent
+`skills/<skill-name>` install paths through `$skill-installer`.
+
+A user may install one Skill or several, but every Skill in one supported set
+uses the same repository tag. This shared version identity does not imply all
+Skills are installed, selected, or adopted. GitHub-generated archives are
+derived transport, not a second source tree.
+
+Plugin packaging remains deferred and requires a separate accepted decision.
 
 ## Advisory And Deterministic Boundaries
 
-Skills can advise an agent to stop, preserve a writer boundary, or verify a
-target. They cannot themselves provide an ACL, process lock, sandbox, or
-permission system. Deterministic guarantees require separate scripts, hooks, or
-Harness capabilities and must be described as such.
+Skills can instruct an agent to stop, preserve one writer, request approval,
+or verify evidence. They cannot provide ACLs, process locks, sandbox
+capabilities, deterministic role delivery, or permission enforcement.
 
-## Portability
+Deterministic guarantees belong to scripts, hooks, the Harness, or external
+systems and must be described separately. The repository checker validates
+file shape, navigation, encoding, and configured publication rules; it does
+not prove agent behavior.
 
-The initial implementation is Codex-first. Work Charter v0.1 explicitly maps
-to Codex Plan mode, Goal mode, threads, and durable project sources. Its five
-logical responsibilities may later be adapted to another Harness, but command
-names and Codex task capabilities are not part of that portable contract.
+## Private-To-Public Boundary
 
-Any later Harness adapter must map its real planning, persistence, approval,
-role, and recovery capabilities and gain separate behavior evidence. v0.1 does
-not claim identical triggering, tools, modes, or behavior elsewhere.
+Portable rules may be synthesized from documented interfaces or reproducible
+mechanisms. Exact host paths, installed versions, accounts, environment
+values, distributions, sandbox identities, tool routes, private global files,
+task identifiers, prompts, completions, and hidden reasoning remain outside
+public source.
+
+Project Docs target-project continuity is target-project content, not a Skill
+mapping or installation identity. PowerShell private host guidance may remain
+a fallback without becoming a second public source owner.
+
+## Deferred Architecture
+
+Deferred work includes organization catalogs, portals, RBAC, policy engines,
+Wiki/issue connectors, databases, mandatory mapping manifests, automatic
+invalidation, documentation generators, continuous drift scanners, parallel
+Executors, automatic worktree routing, native cross-Harness packages, Plugins,
+and MCP services.
+
+[Decision 0015](decisions/0015-federated-repository-documentation.md) owns the
+federated-document rationale.

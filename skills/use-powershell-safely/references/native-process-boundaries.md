@@ -9,11 +9,13 @@ destructive operations, and PowerShell 7 installation guidance.
 - [Runtime Readiness](#runtime-readiness)
 - [Installation Is A Separate Authorized Action](#installation-is-a-separate-authorized-action)
 - [Cmdlet Or Native Executable](#cmdlet-or-native-executable)
+- [Command Discovery And Result Shape](#command-discovery-and-result-shape)
 - [Native Errors And Preference Variables](#native-errors-and-preference-variables)
 - [Preserve Native Arguments](#preserve-native-arguments)
 - [Streams, Pipelines, And Redirection](#streams-pipelines-and-redirection)
 - [Process APIs](#process-apis)
 - [Paths, Permissions, And Destructive State](#paths-permissions-and-destructive-state)
+- [Junction And Reparse-Point Removal](#junction-and-reparse-point-removal)
 - [Official Sources](#official-sources)
 
 ## Runtime Readiness
@@ -28,8 +30,18 @@ $currentHost = [pscustomobject]@{
     Home = $PSHOME
 }
 
-$pwsh = Get-Command pwsh -CommandType Application -ErrorAction SilentlyContinue |
-    Select-Object -First 1
+$pwshCandidates = @(
+    Get-Command pwsh -CommandType Application -All -ErrorAction SilentlyContinue
+)
+
+$pwsh = $null
+if ($pwshCandidates.Count -eq 1) {
+    $pwsh = $pwshCandidates[0]
+}
+elseif ($pwshCandidates.Count -gt 1) {
+    $pwshCandidates | Select-Object Name, Path, CommandType
+    throw 'Multiple pwsh candidates require an explicit selection rule.'
+}
 ```
 
 If `pwsh` resolves, verify that exact executable rather than trusting `PATH`:
@@ -122,6 +134,44 @@ For routine cmdlets, prefer named parameters and literal filesystem paths:
 ```powershell
 Get-Content -LiteralPath $path -Encoding UTF8
 ```
+
+## Command Discovery And Result Shape
+
+PowerShell can expose zero, one, or many pipeline results with different
+runtime shapes. Normalize an uncertain result with `@(...)` before reading
+`.Count` or indexing it:
+
+```powershell
+$candidates = @(
+    Get-Command $commandName -CommandType Application -All `
+        -ErrorAction SilentlyContinue
+)
+
+switch ($candidates.Count) {
+    0 {
+        throw "No application candidate was found for $commandName."
+    }
+    1 {
+        $exe = $candidates[0]
+    }
+    default {
+        $candidates | Select-Object Name, Path, CommandType
+        throw "Multiple application candidates require an explicit selection rule."
+    }
+}
+```
+
+Do not index a possibly scalar string or pipeline result: `[0]` can select the
+first character instead of the first path. Do not coerce several
+`ApplicationInfo` objects or their paths into one command string. Select one
+object first, then invoke its exact path.
+
+`Get-Command -All` returns same-named commands in execution-precedence order.
+Choosing the first item is valid only when the explicit contract is “the
+command a bare name would invoke”; record that rule and the selected path.
+When provenance, architecture, environment ownership, or destructive impact
+matters, inspect every candidate and fail closed until the intended executable
+identity is established.
 
 ## Native Errors And Preference Variables
 
@@ -253,6 +303,12 @@ target executable rather than presenting it as structured transport.
 ## Paths, Permissions, And Destructive State
 
 - Use `-LiteralPath` unless wildcard expansion is intentional.
+- Give each relative path exactly one declared base: the observed working
+  directory, an explicit tool root, or a documented project root. Record the
+  raw path, `Get-Location`, the resolved literal path, and the tool's own
+  read-only root when available before changing application code.
+- Resolve a relative path once. If a value is already rooted or has already
+  been resolved, do not join it to the base again.
 - Resolve ambiguous command names before destructive work. For example,
   `rd`/`rmdir` may name a PowerShell alias or a `cmd.exe` built-in depending on
   the parser. Use `Get-Command <name> -All` for PowerShell resolution and name
@@ -268,13 +324,47 @@ target executable rather than presenting it as structured transport.
   literal target in the owning shell.
 - Treat success only with elevation as a permission boundary, not evidence for
   an application patch.
-- A sandbox process-creation failure can occur before the requested command
-  starts. Preserve the exact error and retry only the same narrow safe probe
-  before requesting additional authority.
+- Separate a sandbox process-creation denial, a program exit, and a write
+  denial. Prove whether the command started and identify the literal write
+  target and owning policy before requesting additional authority.
+- If the task permits derived caches or bytecode elsewhere, prefer a
+  task-specific temporary root inside an authorized boundary. Do not disable
+  the sandbox, change a global cache, or patch application code merely to hide
+  an environment failure. Retry outside the current boundary only after
+  explicit authorization, and retry the same narrow command.
 - Installing tools, changing profiles or policy, starting persistent
   processes, and modifying services, firewall, registry, networking, or WSL
   state require explicit authorization, verification, and a material rollback
   plan.
+
+## Junction And Reparse-Point Removal
+
+A failure from `Remove-Item` does not by itself justify a .NET fallback.
+Before removing a Windows directory link:
+
+1. resolve the proposed link path to an absolute literal path and reject roots,
+   homes, workspace-wide targets, wildcards, and unresolved input;
+2. inspect the exact item and prove that its reparse-point attribute and link
+   type identify the intended Junction rather than an ordinary directory,
+   symbolic link, mount point, or unknown reparse type;
+3. record the link path and target as separate roles, prove which one is the
+   disposable link and which one is retained source, and define a retained
+   sentinel to verify afterward;
+4. keep inspection and removal in the same PowerShell process; and
+5. stop if identity, containment, permission, or recovery remains uncertain.
+
+If `Remove-Item -LiteralPath` fails after those checks and removing only the
+confirmed Junction is authorized, a bounded fallback is:
+
+```powershell
+[System.IO.Directory]::Delete($junctionPath, $false)
+```
+
+Pass `false`; never broaden this fallback to recursive deletion or a wildcard.
+Afterward, prove that the link is absent and that the target plus its sentinel
+still exist. .NET documents that directory reparse points are removed without
+recursing through their targets, but this does not make every reparse-point
+type or every observed access error interchangeable.
 
 ## Official Sources
 
@@ -282,8 +372,12 @@ target executable rather than presenting it as structured transport.
 - [PowerShell support lifecycle](https://learn.microsoft.com/en-us/powershell/scripting/install/powershell-support-lifecycle)
 - [Migrate from Windows PowerShell 5.1 to PowerShell 7](https://learn.microsoft.com/en-us/powershell/scripting/whats-new/migrating-from-windows-powershell-51-to-powershell-7)
 - [about_Parsing](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_parsing)
+- [about_Arrays](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_arrays)
 - [about_Automatic_Variables](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_automatic_variables)
 - [about_Preference_Variables](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_preference_variables)
 - [about_Redirection](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_redirection)
+- [Get-Command](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/get-command)
+- [about_FileSystem_Provider](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_filesystem_provider)
 - [Start-Process](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.management/start-process)
 - [ProcessStartInfo.ArgumentList](https://learn.microsoft.com/en-us/dotnet/api/system.diagnostics.processstartinfo.argumentlist)
+- [Directory.Delete](https://learn.microsoft.com/en-us/dotnet/api/system.io.directory.delete)

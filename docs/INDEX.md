@@ -20,6 +20,18 @@ Last updated: 2026-07-31
 | [`docs/VERIFICATION.md`](VERIFICATION.md) | Checks, evidence, and claim ledger | active |
 | [`docs/PROVENANCE.md`](PROVENANCE.md) | Source transformation and publication boundary | active |
 
+## Per-Skill Product Documents
+
+| Skill | Human Entry | Design | State | Verification |
+|---|---|---|---|---|
+| Project Docs | [`README.md`](skills/manage-project-docs/README.md) / [`简体中文`](skills/manage-project-docs/README.zh-CN.md) | [`DESIGN.md`](skills/manage-project-docs/DESIGN.md) | [`STATE.md`](skills/manage-project-docs/STATE.md) | [`VERIFICATION.md`](skills/manage-project-docs/VERIFICATION.md) |
+| Work Charter | [`README.md`](skills/work-charter/README.md) / [`简体中文`](skills/work-charter/README.zh-CN.md) | [`DESIGN.md`](skills/work-charter/DESIGN.md) | [`STATE.md`](skills/work-charter/STATE.md) | [`VERIFICATION.md`](skills/work-charter/VERIFICATION.md) |
+| PowerShell | [`README.md`](skills/use-powershell-safely/README.md) / [`简体中文`](skills/use-powershell-safely/README.zh-CN.md) | [`DESIGN.md`](skills/use-powershell-safely/DESIGN.md) | [`STATE.md`](skills/use-powershell-safely/STATE.md) | [`VERIFICATION.md`](skills/use-powershell-safely/VERIFICATION.md) |
+
+These repository documents do not belong inside the installable Skill
+packages. English is canonical; each public README has a Simplified Chinese
+mirror.
+
 ## Decisions
 
 | File | Decision | Status |
@@ -38,6 +50,7 @@ Last updated: 2026-07-31
 | [`docs/decisions/0012-work-charter-v0-1-identity-and-minimum-sufficient-design.md`](decisions/0012-work-charter-v0-1-identity-and-minimum-sufficient-design.md) | Work Charter identity, proportional activation, simplified handoff and assessment, concurrency, and correction bounds | accepted |
 | [`docs/decisions/0013-github-public-identity-update.md`](decisions/0013-github-public-identity-update.md) | Current GitHub owner, repository slug, local-directory boundary, and MIT public-attribution identifier | accepted; supersedes only public-identity clauses in 0004 and 0005 |
 | [`docs/decisions/0014-powershell-portable-guidance-and-private-host-delta.md`](decisions/0014-powershell-portable-guidance-and-private-host-delta.md) | Public PowerShell rule classification, minimal global bootstrap, private host delta, and safe migration evidence | accepted |
+| [`docs/decisions/0015-federated-repository-documentation.md`](decisions/0015-federated-repository-documentation.md) | Root/per-Skill documentation ownership, bilingual public entries, and unchanged installable-package boundary | accepted |
 
 ## Skill Sources
 
@@ -64,17 +77,20 @@ Last updated: 2026-07-31
   [`docs/SPEC.md`](SPEC.md) → [`docs/ARCHITECTURE.md`](ARCHITECTURE.md).
 - Understand the Project Docs refinement:
   [`Decision 0006`](decisions/0006-project-docs-progressive-governance.md) →
-  [`docs/SPEC.md`](SPEC.md) → [`docs/ARCHITECTURE.md`](ARCHITECTURE.md).
+  [`Project Docs Design`](skills/manage-project-docs/DESIGN.md) →
+  [`Project Docs State`](skills/manage-project-docs/STATE.md).
 - Understand the Work Charter refinement:
   [`Decision 0012`](decisions/0012-work-charter-v0-1-identity-and-minimum-sufficient-design.md) →
-  [`docs/SPEC.md`](SPEC.md) → [`docs/ARCHITECTURE.md`](ARCHITECTURE.md).
+  [`Work Charter Design`](skills/work-charter/DESIGN.md) →
+  [`Work Charter State`](skills/work-charter/STATE.md).
 - Understand the PowerShell global-rule migration:
   [`Decision 0014`](decisions/0014-powershell-portable-guidance-and-private-host-delta.md) →
-  [`docs/PROVENANCE.md`](PROVENANCE.md) →
-  [`docs/RUNBOOK.md`](RUNBOOK.md).
+  [`PowerShell Design`](skills/use-powershell-safely/DESIGN.md) →
+  [`PowerShell State`](skills/use-powershell-safely/STATE.md).
 - Check reuse terms: [`LICENSE`](../LICENSE).
 - Check current progress: [`docs/STATUS.md`](STATUS.md) →
-  [`docs/VERIFICATION.md`](VERIFICATION.md).
+  the relevant per-Skill `STATE.md` →
+  the relevant per-Skill `VERIFICATION.md`.
 - Inspect behavior evidence: [`evals/README.md`](../evals/README.md) →
   [`evals/results/`](../evals/results).
 - Resume work: [`docs/HANDOFF.md`](HANDOFF.md) →

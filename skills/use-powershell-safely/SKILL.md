@@ -66,20 +66,23 @@ Get-Command pwsh -CommandType Application -ErrorAction SilentlyContinue
 
 1. Identify the current PowerShell edition and every parser, process, encoding,
    path, permission, and WSL boundary involved.
-2. Reproduce the failure with the smallest read-only command that preserves the
+2. Establish one explicit working-directory or tool-root base for each relative
+   path, and normalize uncertain pipeline or discovery output before indexing
+   it or selecting an executable.
+3. Reproduce the failure with the smallest read-only command that preserves the
    suspected boundary.
-3. Establish the command contract: PowerShell object/error semantics or native
+4. Establish the command contract: PowerShell object/error semantics or native
    arguments, stdout, stderr, and exit status.
-4. Prefer a direct cmdlet or `& $exe @args`; move complex multi-line logic into
+5. Prefer a direct cmdlet or `& $exe @args`; move complex multi-line logic into
    a script for the shell that owns it.
-5. Inspect exact bytes only when text encoding, BOM, newline, or byte identity
+6. Inspect exact bytes only when text encoding, BOM, newline, or byte identity
    is relevant.
-6. Capture `$LASTEXITCODE` immediately after a native program whose contract is
+7. Capture `$LASTEXITCODE` immediately after a native program whose contract is
    exit-status based.
-7. Classify the result as application defect, argument or parser transport,
+8. Classify the result as application defect, argument or parser transport,
    stream or exit handling, text encoding, WSL or path semantics, environment
    drift, sandbox or permission, cleanup noise, or still unknown.
-8. Change application code only when the direct, correctly transported
+9. Change application code only when the direct, correctly transported
    reproduction demonstrates an application defect.
 
 ## Stop And Ask

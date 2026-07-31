@@ -1,6 +1,6 @@
 # Provenance And Publication Boundary
 
-Last updated: 2026-07-30
+Last updated: 2026-07-31
 
 ## Purpose
 
@@ -77,9 +77,10 @@ Before public release:
 
 Current state:
 
-See [Current Status](STATUS.md) for implementation and writer state and
-[Verification](VERIFICATION.md) for evidence and remaining claim boundaries.
-The accepted source transformation and release rules above remain stable
-regardless of milestone progress.
+See [Repository Status](STATUS.md) for the integration dashboard, the linked
+per-Skill State and Verification owners for implementation evidence, and
+[Repository Verification](VERIFICATION.md) for coherent candidate, tag,
+stable-install, and release boundaries. The accepted source transformation and
+release rules above remain stable regardless of milestone progress.
 
 This record is not legal advice or a substitute for a license review.

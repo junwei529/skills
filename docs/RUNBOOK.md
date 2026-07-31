@@ -39,7 +39,9 @@ See
 the current account-specific locator in
 [Decision 0013](decisions/0013-github-public-identity-update.md),
 for the rationale. Product requirements remain in
-[`docs/SPEC.md`](SPEC.md), and evidence belongs in
+[`docs/SPEC.md`](SPEC.md). Per-Skill behavior and identity evidence belongs in
+the matching `docs/skills/<skill-name>/VERIFICATION.md`; coherent candidate,
+tag, stable-install, and release evidence belongs in
 [`docs/VERIFICATION.md`](VERIFICATION.md).
 
 ## Environment Roles
@@ -128,8 +130,9 @@ that SHA in the evidence ledger.
 
 Before changing or testing a Skill:
 
-1. Read `AGENTS.md`, `docs/INDEX.md`, and the current `STATUS`, `SPEC`,
-   `ARCHITECTURE`, and `VERIFICATION` sections relevant to the task.
+1. Read `AGENTS.md`, `docs/INDEX.md`, and the current root `STATUS`, `SPEC`,
+   and `ARCHITECTURE`. For one Skill, also read its `DESIGN.md`, `STATE.md`,
+   and `VERIFICATION.md`.
 2. Confirm the repository root, checkout, branch, commit or unborn state,
    worktree list, staged state, and dirty ownership.
 3. Name the target Skill and resolve its expected `SOURCE` directory.
@@ -176,8 +179,9 @@ required, classify it as an isolated candidate and pin its source revision.
    same-named Skill discoverable.
 6. Confirm the actually loaded entry resolves to `SOURCE`, not an installed or
    cached copy.
-7. Record development evidence with the commit or unborn state, dirty flag,
-   logical source locator, loaded-copy role, checks, and known gaps.
+7. Record development evidence in the matching per-Skill verification ledger
+   with the commit or unborn state, dirty flag, logical source locator,
+   loaded-copy role, checks, and known gaps.
 
 Dirty-working-tree evidence is useful development evidence, but it is not
 release-candidate or release evidence.
@@ -246,8 +250,9 @@ known.
    fresh-context and installed-copy smoke tests.
 9. Prove that the actually loaded files correspond to the candidate commit,
    allowing only explicitly documented packaging metadata differences.
-10. Record the complete release-candidate evidence in
-   `docs/VERIFICATION.md`.
+10. Record Skill-specific release-candidate identity and behavior in the
+    matching per-Skill verification ledger. Record coherent multi-Skill
+    candidate and release-lifecycle evidence in `docs/VERIFICATION.md`.
 
 If any candidate file is repaired in place, discard that candidate as evidence,
 apply the fix to `SOURCE`, create a new commit, and rebuild the candidate.
@@ -269,8 +274,8 @@ commit gate, and explicit GitHub publication authorization.
 4. Treat the resulting `STABLE_INSTALL` as a generated snapshot. Never edit it.
 5. Run the supported installation smoke and verify the actual loaded copy,
    version tag, and commit.
-6. Record the release mapping and residual gaps in
-   `docs/VERIFICATION.md`.
+6. Record the shared release mapping in `docs/VERIFICATION.md` and each
+   Skill's loaded-copy behavior and residual gaps in its verification ledger.
 
 If the tag-based smoke fails after publication, do not move or silently replace
 the tag. Record the failure and stop for an explicit patch-version or
