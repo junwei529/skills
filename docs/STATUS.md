@@ -255,10 +255,11 @@ Historical checks, findings, and behavior evidence remain only in
 
 ## In Progress
 
-- No Skill SOURCE implementation tranche is active. The authorized
-  `v0.1.1` patch-release candidate changes public and governance documentation,
-  including a complete Simplified Chinese README, while keeping all three
-  Skill packages unchanged.
+- No Skill SOURCE implementation tranche is active. Reviewed bilingual
+  `v0.1.1` candidate
+  `f7c07b5470f10ce09ecb704bb0fb6d01e1d52b42` is public and keeps all three
+  Skill packages unchanged. Its isolated exact-SHA install, identity,
+  validator, and representative fresh-process loaded-copy checks pass.
 - No discovery or installation mutation is active. The stable installed copies
   are derived from `v0.1.0` and remain non-editable; the prior Project Docs
   junction and PowerShell directory remain retained locally for rollback.
@@ -312,11 +313,13 @@ stable-installation evidence are complete at
 `78caaa6ecf6b86c1b7be26d03aa5dfde1ebbdf09`. Later evidence-only commits
 do not become a release identity and must not move `v0.1.0`.
 
-The user authorized a new immutable `v0.1.1` patch-version candidate containing
-self-consistent English and Simplified Chinese release documentation. The
-current gate is to review, commit, and push that candidate; materialize and
-smoke the exact candidate commit; create and push immutable tag `v0.1.1`; then
-repeat tag-pinned stable installation and loaded-copy proof. `v0.1.0` must not
-move. No GitHub Release object, retained-evidence cleanup, private-global edit,
-or broader release claim is authorized. Bounded real-project shadow use must
-still precede retirement of duplicated private-global semantics.
+Reviewed bilingual candidate
+`f7c07b5470f10ce09ecb704bb0fb6d01e1d52b42` is public and its isolated
+exact-commit RC proof passes. The current gate is to commit and push this
+sanitized RC record before creating immutable tag `v0.1.1` at that candidate.
+After public tag verification, repeat tag-pinned stable installation and
+loaded-copy proof, then append the stable evidence in a separate closeout
+commit. `v0.1.0` must not move. No GitHub Release object, retained-evidence
+cleanup, private-global edit, or broader release claim is authorized. Bounded
+real-project shadow use must still precede retirement of duplicated
+private-global semantics.

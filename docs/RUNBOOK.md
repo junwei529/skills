@@ -25,9 +25,11 @@ verified complete-set tag-pinned `STABLE_INSTALL` exist. The tag's embedded
 README predates publication and contradicts its current existence, so
 `v0.1.0` is retained installation evidence rather than the canonical public
 release identity. The authorized correction uses a new immutable `v0.1.1`
-candidate containing bilingual release documentation; it must repeat
-exact-commit candidate and exact-tag stable proof rather than moving
-`v0.1.0`. Current evidence and residual limits remain in
+candidate containing bilingual release documentation. Reviewed candidate
+`f7c07b5470f10ce09ecb704bb0fb6d01e1d52b42` has passed the repeated
+exact-commit candidate proof; its sanitized RC evidence must be committed
+before tag publication. Exact-tag stable proof remains pending and must not
+move `v0.1.0`. Current evidence and residual limits remain in
 `docs/VERIFICATION.md`.
 
 See

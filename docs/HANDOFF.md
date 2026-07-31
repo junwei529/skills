@@ -7,11 +7,11 @@ Last updated: 2026-07-31
 - Project: Agent Workflow Skills
 - Workspace: repository root
 - Branch: `main`
-- Accepted candidate basis:
-  `78caaa6ecf6b86c1b7be26d03aa5dfde1ebbdf09`; local `main` and its
-  `origin/main` tracking ref matched at the candidate gate. Resolve current
-  branch `HEAD` with Git because a later evidence-only commit is not a new
-  candidate identity
+- Accepted `v0.1.1` candidate basis:
+  `f7c07b5470f10ce09ecb704bb0fb6d01e1d52b42`; public `main` matched at the
+  candidate gate, and its exact-SHA `RC_INSTALL` identity plus representative
+  loaded-copy smoke pass for all three Skills. A later evidence-only commit is
+  not a new candidate identity
 - First public revision: the coherent PowerShell portable-guidance migration
   and Project Docs official-alignment revision at
   `c5d8e185ea9a9f32a4e98ac8ac364c4ebe915535`
@@ -29,11 +29,11 @@ Last updated: 2026-07-31
   identity, validator, single-discovery, and explicit fresh-process loaded-copy
   smoke for all three Skills; this is installation evidence, not a coherent
   public-release identity
-- Active gate: create a self-consistent bilingual `v0.1.1` candidate, pass its
-  native-review/commit and exact-commit RC gates, publish immutable tag
-  `v0.1.1`, then repeat tag-pinned stable-install and loaded-copy proof; GitHub
-  Release creation, cleanup, Skill SOURCE, and private-global changes are not
-  authorized
+- Active gate: commit and push the sanitized exact-commit RC record, publish
+  immutable tag `v0.1.1` at candidate
+  `f7c07b5470f10ce09ecb704bb0fb6d01e1d52b42`, then repeat tag-pinned
+  stable-install and loaded-copy proof; GitHub Release creation, cleanup, Skill
+  SOURCE, and private-global changes are not authorized
 - Candidate boundary: the materialized historical and shared `RC_INSTALL`
   roots are derived ignored copies from their exact commits and are not
   editable source.
@@ -307,14 +307,11 @@ must not be moved. No GitHub Release object exists.
 
 ## Immediate Next Action
 
-Complete the authorized `v0.1.1` sequence: add the root Simplified Chinese
-README with English-canonical routing; review, commit, and push the
-documentation candidate; materialize and smoke all three Skills from that
-exact commit; synchronize the sanitized RC result through the canonical owners;
-pass that evidence-only commit gate and push `main`; then publish immutable tag
-`v0.1.1` at the reviewed candidate commit. Replace the installed set only after
-isolated tag verification, prove the actually loaded tag copies, append the
-stable-install result through the canonical owners, pass the final
+Pass the evidence-only commit gate for this sanitized exact-commit RC record
+and push `main`; then publish immutable tag `v0.1.1` at reviewed candidate
+`f7c07b5470f10ce09ecb704bb0fb6d01e1d52b42`. Replace the installed set only
+after isolated tag verification, prove the actually loaded tag copies, append
+the stable-install result through the canonical owners, pass the final
 evidence-only commit gate, push `main`, and stop.
 
 Do not move `v0.1.0`, change Skill SOURCE, create a GitHub Release, delete
@@ -380,7 +377,7 @@ or editing derived installed copies.
 - Any discovery-mapping change, rollback, or user configuration outside the
   authorized recoverable `v0.1.1` stable-install replacement.
 - Any Skill SOURCE change, or any commit or amend beyond the authorized
-  bilingual candidate and final evidence-only closeout.
+  bilingual candidate, RC-evidence, and stable-evidence closeout commits.
 - Any remote change beyond the authorized candidate/evidence `main` pushes and
   new immutable `v0.1.1` tag; any tag movement, GitHub Release, or retained
   evidence/rollback cleanup.

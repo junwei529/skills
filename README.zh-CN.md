@@ -75,6 +75,13 @@ exact-tag installation 与 loaded-copy proof。这里的措辞在标签发布前
 都成立，不会把尚未验证的标签写成已经存在。当前 mapping 与 evidence
 由 [`docs/VERIFICATION.md`](docs/VERIFICATION.md) 统一维护。
 
+经过审查的双语 candidate 是
+`f7c07b5470f10ce09ecb704bb0fb6d01e1d52b42`。三个未变更的 Skill package
+都已从该公开 commit 通过 exact-SHA `$skill-installer`、Git blob、
+encoding、validator 和 fresh-process loaded-copy 检查。这是
+release-candidate evidence，不表示 `v0.1.1` tag 或其 stable installation
+已经存在。
+
 Work Charter M2R 产品合同已由
 [Decision 0012](docs/decisions/0012-work-charter-v0-1-identity-and-minimum-sufficient-design.md)
 接受。它使用一个最小充分的逻辑合同、observed-risk activation、已批准
