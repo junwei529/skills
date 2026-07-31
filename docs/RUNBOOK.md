@@ -24,7 +24,10 @@ selected. The public repository, `main`, immutable `v0.1.0` tag, and one
 verified complete-set tag-pinned `STABLE_INSTALL` exist. The tag's embedded
 README predates publication and contradicts its current existence, so
 `v0.1.0` is retained installation evidence rather than the canonical public
-release identity. Current evidence and residual limits remain in
+release identity. The authorized correction uses a new immutable `v0.1.1`
+candidate containing bilingual release documentation; it must repeat
+exact-commit candidate and exact-tag stable proof rather than moving
+`v0.1.0`. Current evidence and residual limits remain in
 `docs/VERIFICATION.md`.
 
 See
@@ -98,25 +101,22 @@ experimentation and prefers Plugins for broader installable distribution. v0.1
 accepts that narrower standalone scope. It does not claim Plugin-directory,
 workspace, connector, or one-click distribution.
 
-The PowerShell prompt validated during the `v0.1.0` installation smoke was:
+The corrected `v0.1.1` PowerShell release interface is:
 
 ```text
-$skill-installer Install the Skill from https://github.com/junwei529/skills/tree/v0.1.0/skills/use-powershell-safely.
+$skill-installer Install the Skill from https://github.com/junwei529/skills/tree/v0.1.1/skills/use-powershell-safely.
 ```
 
-The complete-set prompt validated during that smoke was:
+The corrected complete-set interface is:
 
 ```text
-$skill-installer Install `skills/manage-project-docs`, `skills/work-charter`, and `skills/use-powershell-safely` from https://github.com/junwei529/skills at tag `v0.1.0`.
+$skill-installer Install `skills/manage-project-docs`, `skills/work-charter`, and `skills/use-powershell-safely` from https://github.com/junwei529/skills at tag `v0.1.1`.
 ```
 
-These prompts are technically executable because public tag `v0.1.0` resolves
-to the accepted commit-smoked candidate and a tag-pinned complete-set
-installation passed identity and loaded-copy smoke. They are not yet the
-canonical stable-release interface because the immutable tag's own README says
-the tag does not exist. Keep `v0.1.0` immutable as evidence. A corrected public
-release requires a new authorized patch-version tag containing consistent
-documentation and a repeated tag-pinned installed-copy smoke. Development
+Use these prompts only after public tag `v0.1.1` resolves to the accepted,
+commit-smoked candidate. Keep `v0.1.0` immutable as historical evidence. The
+new tag must contain release documentation that remains valid before and after
+publication, then pass a repeated tag-pinned installed-copy smoke. Development
 SOURCE still is not installation or loaded-copy proof. For an RC smoke, replace
 the stable tag identity with the exact accepted candidate commit SHA and record
 that SHA in the evidence ledger.

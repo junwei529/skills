@@ -1,5 +1,7 @@
 # Agent Workflow Skills
 
+[**English**](README.md) | [简体中文](README.zh-CN.md)
+
 A small, composable family of Codex-first Skills for reliable project truth
 across agent sessions, bounded large-task coordination, and explicit
 PowerShell/native/WSL boundary checks.
@@ -70,6 +72,13 @@ README predates publication and still says the tag is absent. The tag remains
 retained evidence and must not be moved. No GitHub Release object, generalized
 efficacy, portability, broad trigger-telemetry, or token-saving claim has been
 established.
+
+The corrected patch-release interface is `v0.1.1`. That immutable tag must
+point to a reviewed revision containing this bilingual README and the accepted
+Skill SOURCE, then pass exact-tag installation and loaded-copy proof. This
+wording is intentionally valid both before and after tag publication: it does
+not claim that an unverified tag already exists. Current mapping and evidence
+remain owned by [`docs/VERIFICATION.md`](docs/VERIFICATION.md).
 
 The Work Charter M2R product contract is accepted in
 [Decision 0012](docs/decisions/0012-work-charter-v0-1-identity-and-minimum-sufficient-design.md).
@@ -149,45 +158,36 @@ Use $use-powershell-safely to diagnose this PowerShell-to-WSL quoting failure.
 These are the intended standalone v0.1 interfaces. The Work Charter package
 exists as canonical SOURCE and as a verified tag-pinned installation.
 Installation does not authorize adopting a Skill into a target project or any
-other external action. A corrected immutable release identity remains pending
-as described below.
+other external action. The corrected patch-release interface is described
+below; current availability and proof remain separate lifecycle facts.
 
 ## Installation And Distribution
 
-v0.1 uses one standalone GitHub repository and repository-level version tags.
-Public tag
-[`v0.1.0`](https://github.com/junwei529/skills/tree/v0.1.0) is retained as the
-first tag-pinned installation-evidence identity. Each Skill remains
-independently installable from its `skills/<skill-name>` directory.
-Installation uses `$skill-installer` with the exact public repository URL,
-immutable tag, and selected Skill path; it does not install from the moving
-`main` branch.
+v0.1 uses one standalone GitHub repository and repository-level immutable
+version tags. Each Skill remains independently installable from its
+`skills/<skill-name>` directory. Installation uses `$skill-installer` with the
+exact public repository URL, immutable tag, and selected Skill path; it does
+not install from the moving `main` branch.
 
-The PowerShell command validated during the `v0.1.0` installation smoke was:
+For the corrected `v0.1.1` patch release, install only after the public tag
+resolves to the reviewed candidate. The single-PowerShell interface is:
 
 ```text
-$skill-installer Install the Skill from https://github.com/junwei529/skills/tree/v0.1.0/skills/use-powershell-safely.
+$skill-installer Install the Skill from https://github.com/junwei529/skills/tree/v0.1.1/skills/use-powershell-safely.
 ```
 
 To install the complete set from the same tag as an optional convenience:
 
 ```text
-$skill-installer Install `skills/manage-project-docs`, `skills/work-charter`, and `skills/use-powershell-safely` from https://github.com/junwei529/skills at tag `v0.1.0`.
+$skill-installer Install `skills/manage-project-docs`, `skills/work-charter`, and `skills/use-powershell-safely` from https://github.com/junwei529/skills at tag `v0.1.1`.
 ```
 
-These commands are technically executable. The public tag resolves to the
-commit-smoked candidate
-`78caaa6ecf6b86c1b7be26d03aa5dfde1ebbdf09`, and one complete-set
-`STABLE_INSTALL` proved the tag and commit mapping, installer source, 6/5/5
-installed files, one discoverable copy per Skill, and the actually loaded
-entries in fresh Codex processes. However, the immutable tag snapshot's README
-still describes `v0.1.0` as nonexistent and the commands as not yet executable.
-Therefore `v0.1.0` is retained installation evidence, not the canonical public
-release identity. Do not move it. A new immutable patch-version tag must include
-the corrected documentation and repeat tag-pinned installed-copy proof before
-being advertised as the stable release. See
-[`docs/VERIFICATION.md`](docs/VERIFICATION.md) for evidence and remaining
-behavior limits.
+The tag must remain immutable once published. The earlier `v0.1.0` tag remains
+retained installation evidence and must not be moved; its embedded README is
+not the canonical release documentation. A `v0.1.1` release claim requires the
+public tag-to-commit mapping, exact installed files, one discoverable copy per
+Skill, validators, and fresh-process loaded-copy evidence recorded in
+[`docs/VERIFICATION.md`](docs/VERIFICATION.md).
 
 Current OpenAI guidance supports standalone local Skills and repository
 downloads through `$skill-installer`, while preferring Plugins for broader

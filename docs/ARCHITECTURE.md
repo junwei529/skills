@@ -235,8 +235,10 @@ not cross from one Skill, operation, or surface to another.
 - Generated output is not patched when an editable source owns it.
 - External sources may own facts, but unavailable evidence remains unverified.
 - The nearest target-project scope governs monorepo work.
-- Existing document language is preserved; translation publishing is not part
-  of v0.1.
+- Existing target-project document language is preserved; Project Docs does
+  not create translations. The repository's root Simplified Chinese README is
+  a distribution aid whose English counterpart remains canonical, not a
+  Project Docs localization capability.
 - Cross-Harness use shares one canonical project anchor. Thin adapters may
   reuse it only when they already exist or are separately authorized.
 

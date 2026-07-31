@@ -29,10 +29,11 @@ Last updated: 2026-07-31
   identity, validator, single-discovery, and explicit fresh-process loaded-copy
   smoke for all three Skills; this is installation evidence, not a coherent
   public-release identity
-- Active gate: synchronize the tag and stable-install evidence through the
-  public and canonical documents, pass the authorized native-review/commit
-  gate, and push that evidence-only commit to `main`; GitHub Release creation,
-  cleanup, and private-global changes are not authorized
+- Active gate: create a self-consistent bilingual `v0.1.1` candidate, pass its
+  native-review/commit and exact-commit RC gates, publish immutable tag
+  `v0.1.1`, then repeat tag-pinned stable-install and loaded-copy proof; GitHub
+  Release creation, cleanup, Skill SOURCE, and private-global changes are not
+  authorized
 - Candidate boundary: the materialized historical and shared `RC_INSTALL`
   roots are derived ignored copies from their exact commits and are not
   editable source.
@@ -306,21 +307,18 @@ must not be moved. No GitHub Release object exists.
 
 ## Immediate Next Action
 
-Complete the authorized evidence-only native-review/commit gate for the
-tag/STABLE_INSTALL documentation sync and push the resulting commit to `main`,
-then stop. Do not move `v0.1.0`, change Skill SOURCE or installed copies,
-create a GitHub Release, clean retained evidence or rollback material, or edit
-private global rules.
+Complete the authorized `v0.1.1` sequence: add the root Simplified Chinese
+README with English-canonical routing; review, commit, and push the
+documentation candidate; materialize and smoke all three Skills from that
+exact commit; synchronize the sanitized RC result through the canonical owners;
+pass that evidence-only commit gate and push `main`; then publish immutable tag
+`v0.1.1` at the reviewed candidate commit. Replace the installed set only after
+isolated tag verification, prove the actually loaded tag copies, append the
+stable-install result through the canonical owners, pass the final
+evidence-only commit gate, push `main`, and stop.
 
-Shared candidate alignment, immutable tag publication, and tag-pinned stable
-loaded-copy smoke are complete at
-`78caaa6ecf6b86c1b7be26d03aa5dfde1ebbdf09`. A later evidence-only
-commit is not a new candidate or release identity. After its publication, the
-next user decision is whether to authorize a new immutable patch-version
-candidate containing the corrected release documentation, then repeat
-tag-pinned installed-copy proof. Do not create a GitHub Release object for the
-inconsistent `v0.1.0` snapshot. Private-global semantic retirement must still
-wait for bounded real-project shadow use with rollback available.
+Do not move `v0.1.0`, change Skill SOURCE, create a GitHub Release, delete
+retained candidate or rollback material, or edit private global rules.
 
 ## Global Replacement Readiness
 
@@ -370,6 +368,8 @@ or editing derived installed copies.
   published tag `v0.1.0` away from the commit-smoked candidate.
 - Treating `v0.1.0` installation identity as coherent public-release identity
   even though its immutable README still describes the tag as absent.
+- Letting the Simplified Chinese README drift from the English canonical
+  product, authorization, installation, or evidence boundaries.
 - Copying private paths, accounts, environment values, installed state,
   distribution identity, or sandbox details into public source or evidence.
 - Removing the private fallback before bounded shadow-use evidence passes.
@@ -377,13 +377,13 @@ or editing derived installed copies.
 
 ## Prohibited Without Separate User Authorization
 
-- Any further discovery-mapping change, installation, update, rollback, or
-  user configuration.
-- Any further commit or amend beyond this evidence-only gate without a new
-  explicit authorization.
-- Any further remote change or push beyond this evidence-only publication,
-  new `RC_INSTALL`, tag movement, stable installation update, GitHub Release,
-  or cleanup.
+- Any discovery-mapping change, rollback, or user configuration outside the
+  authorized recoverable `v0.1.1` stable-install replacement.
+- Any Skill SOURCE change, or any commit or amend beyond the authorized
+  bilingual candidate and final evidence-only closeout.
+- Any remote change beyond the authorized candidate/evidence `main` pushes and
+  new immutable `v0.1.1` tag; any tag movement, GitHub Release, or retained
+  evidence/rollback cleanup.
 - Private global guidance or fallback edits.
 - Plugin, MCP, cross-Harness package, or other deferred product surface.
 - Native-selection or lifecycle progression not separately authorized.

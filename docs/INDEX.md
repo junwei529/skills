@@ -1,6 +1,6 @@
 # Documentation Index
 
-Last updated: 2026-07-30
+Last updated: 2026-07-31
 
 ## Core Documents
 
@@ -8,6 +8,7 @@ Last updated: 2026-07-30
 |---|---|---|
 | [`LICENSE`](../LICENSE) | Public MIT license terms and attribution | active |
 | [`README.md`](../README.md) | Public project entry point | active |
+| [`README.zh-CN.md`](../README.zh-CN.md) | Simplified Chinese mirror of the public project entry point; English remains canonical | active |
 | [`AGENTS.md`](../AGENTS.md) | Repository-specific agent rules | active |
 | [`docs/AUTHORITY.md`](AUTHORITY.md) | Fact ownership and conflict handling | active |
 | [`docs/SPEC.md`](SPEC.md) | Stable product scope and acceptance contract | active |

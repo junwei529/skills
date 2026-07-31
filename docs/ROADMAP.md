@@ -18,7 +18,7 @@ Current verified state and the next authorized action are owned by
 | M2R | Work Charter contract refinement | Unified `work-charter` identity, Codex-first bounded contract, proportional coordination, recovery, assessment, and revised forward tests | SOURCE-assisted, DEV_DISCOVERY, shared RC, and explicit tag-pinned stable loaded-copy Flat smoke complete; broad trigger and real-project behavior remain later |
 | M3 | PowerShell | Windows boundary workflow, runtime-readiness gate, conditional references, portable/private rule classification, and focused eval contract | SOURCE, DEV_DISCOVERY, shared RC, and explicit tag-pinned stable loaded-copy `$LASTEXITCODE` smoke complete; controlled-host version branches and shadow use remain later |
 | M4 | Evaluation | Fresh-context tests, deterministic checks, and honest result attribution for the active contracts | active SOURCE, controlled DEV_DISCOVERY, shared exact-commit RC, and tag-pinned stable loaded-copy evidence complete with explicit residual limits |
-| M5 | Public v0.1 | Reviewed commit, isolated candidate, verified installation and loaded-copy identity, release documentation, and immutable tag | `v0.1.0` tag-to-install identity passes, but its tagged README predates publication; a new immutable patch-version identity with corrected docs and repeated stable-install proof remains before public-release completion |
+| M5 | Public v0.1 | Reviewed commit, isolated candidate, verified installation and loaded-copy identity, release documentation, and immutable tag | `v0.1.0` remains retained install evidence; `v0.1.1` bilingual release documentation, candidate proof, immutable tag, and repeated stable-install proof are the authorized closeout |
 
 M1 and M2 are historical baselines, not release-ready current contracts.
 Decision 0012 owns the M2R product contract. Exact completion evidence,
@@ -32,8 +32,8 @@ remaining gates, and next routing are maintained only in
   maps, and Backstage-style portals.
 - RBAC, SSO, audit, compliance, policy engines, and deterministic
   CODEOWNERS/CI/PR/watch enforcement.
-- Full scope, version, locale, and lifecycle registries or translation
-  publishing.
+- Full scope, version, locale, and lifecycle registries or documentation
+  localization beyond the root Simplified Chinese README.
 - Wiki, Jira, Notion, or Confluence connectors and bidirectional sync.
 - Generator orchestration, provenance graphs, and continuous drift scanning.
 - Mandatory mapping manifests, databases, indexes, or automatic
