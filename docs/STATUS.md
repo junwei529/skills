@@ -261,8 +261,9 @@ Historical checks, findings, and behavior evidence remain only in
   Skill packages unchanged. Its isolated exact-SHA install, identity,
   validator, and representative fresh-process loaded-copy checks pass.
 - No discovery or installation mutation is active. The stable installed copies
-  are derived from `v0.1.0` and remain non-editable; the prior Project Docs
-  junction and PowerShell directory remain retained locally for rollback.
+  are derived from `v0.1.1`, match its Git blobs, and remain non-editable. The
+  displaced `v0.1.0` set and earlier development copies remain retained in
+  non-discoverable backup locations for rollback.
 - Historical and shared candidate evidence roots remain retained locally.
   Cleanup, update, rollback, GitHub Release creation, and private-global
   migration remain separately gated.
@@ -297,8 +298,8 @@ Historical checks, findings, and behavior evidence remain only in
   The stable canaries were explicit, narrow behavior checks rather than broad
   trigger or real-project evidence.
 - The immutable `v0.1.0` snapshot's README incorrectly describes that tag as
-  absent. Its tag-to-install evidence passes, but a documentation-consistent
-  public release identity has not yet been established.
+  absent, so it remains historical installation evidence. `v0.1.1` corrects
+  that contradiction and has a complete tag-to-stable installed-copy proof.
 
 ## Open Questions
 
@@ -313,13 +314,12 @@ stable-installation evidence are complete at
 `78caaa6ecf6b86c1b7be26d03aa5dfde1ebbdf09`. Later evidence-only commits
 do not become a release identity and must not move `v0.1.0`.
 
-Reviewed bilingual candidate
-`f7c07b5470f10ce09ecb704bb0fb6d01e1d52b42` is public and its isolated
-exact-commit RC proof passes. The current gate is to commit and push this
-sanitized RC record before creating immutable tag `v0.1.1` at that candidate.
-After public tag verification, repeat tag-pinned stable installation and
-loaded-copy proof, then append the stable evidence in a separate closeout
-commit. `v0.1.0` must not move. No GitHub Release object, retained-evidence
-cleanup, private-global edit, or broader release claim is authorized. Bounded
+The authorized `v0.1.1` lifecycle sequence is complete through immutable
+public tag, recoverable complete-set stable update, and fresh-process
+loaded-copy proof at candidate
+`f7c07b5470f10ce09ecb704bb0fb6d01e1d52b42`. The current gate is only to
+review, commit, and push this final sanitized evidence record, then stop.
+`v0.1.0` remains unmoved. No GitHub Release object, retained-evidence cleanup,
+private-global edit, or broader efficacy claim is authorized. Bounded
 real-project shadow use must still precede retirement of duplicated
 private-global semantics.

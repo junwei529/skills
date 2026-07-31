@@ -80,12 +80,13 @@ wording is intentionally valid both before and after tag publication: it does
 not claim that an unverified tag already exists. Current mapping and evidence
 remain owned by [`docs/VERIFICATION.md`](docs/VERIFICATION.md).
 
-The reviewed bilingual candidate is
+Immutable tag `v0.1.1` now resolves to reviewed bilingual candidate
 `f7c07b5470f10ce09ecb704bb0fb6d01e1d52b42`. All three unchanged Skill
-packages passed exact-SHA `$skill-installer`, Git-blob, encoding, validator,
-and fresh-process loaded-copy checks from that public commit. This is
-release-candidate evidence, not a claim that tag `v0.1.1` or its stable
-installation already exists.
+packages passed both exact-SHA RC and exact-tag stable `$skill-installer`,
+Git-blob, encoding, validator, single-discovery, and fresh-process loaded-copy
+checks. This establishes the coherent tag-based standalone v0.1 release
+identity. No GitHub Release object, broad trigger telemetry, generalized
+efficacy, cross-Harness portability, or token-saving claim is included.
 
 The Work Charter M2R product contract is accepted in
 [Decision 0012](docs/decisions/0012-work-charter-v0-1-identity-and-minimum-sufficient-design.md).

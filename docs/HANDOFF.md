@@ -23,17 +23,17 @@ Last updated: 2026-07-31
   `b0099c9d5ad986be5e893ceea13f1fc8b5aea384`; its earlier evidence
   remains valid at that gate but is not the shared v0.1 candidate
 - Public identity: `junwei529/skills`, selected by Decision 0013 and publicly
-  reachable; public tag `v0.1.0` resolves to the accepted candidate, but its
-  immutable README predates publication and still says the tag is absent
-- Stable installation: one complete-set tag-pinned install passed 6/5/5-file
-  identity, validator, single-discovery, and explicit fresh-process loaded-copy
-  smoke for all three Skills; this is installation evidence, not a coherent
-  public-release identity
-- Active gate: commit and push the sanitized exact-commit RC record, publish
-  immutable tag `v0.1.1` at candidate
-  `f7c07b5470f10ce09ecb704bb0fb6d01e1d52b42`, then repeat tag-pinned
-  stable-install and loaded-copy proof; GitHub Release creation, cleanup, Skill
-  SOURCE, and private-global changes are not authorized
+  reachable. Immutable tag `v0.1.1` resolves to bilingual candidate
+  `f7c07b5470f10ce09ecb704bb0fb6d01e1d52b42`. Earlier tag `v0.1.0` remains
+  unmoved historical installation evidence because its embedded README
+  predates publication
+- Stable installation: one complete-set `v0.1.1` tag-pinned install passed
+  6/5/5-file identity, validator, single-discovery, and explicit fresh-process
+  loaded-copy smoke for all three Skills. The displaced prior set remains in a
+  non-discoverable backup location
+- Active gate: review, commit, and push the final sanitized stable-install
+  record, then stop. GitHub Release creation, cleanup, Skill SOURCE, and
+  private-global changes are not authorized
 - Candidate boundary: the materialized historical and shared `RC_INSTALL`
   roots are derived ignored copies from their exact commits and are not
   editable source.
@@ -307,12 +307,9 @@ must not be moved. No GitHub Release object exists.
 
 ## Immediate Next Action
 
-Pass the evidence-only commit gate for this sanitized exact-commit RC record
-and push `main`; then publish immutable tag `v0.1.1` at reviewed candidate
-`f7c07b5470f10ce09ecb704bb0fb6d01e1d52b42`. Replace the installed set only
-after isolated tag verification, prove the actually loaded tag copies, append
-the stable-install result through the canonical owners, pass the final
-evidence-only commit gate, push `main`, and stop.
+Pass the evidence-only commit gate for this final sanitized `v0.1.1`
+stable-install record, push `main`, and stop. The tag, stable installed copies,
+and retained backups must not be changed by that documentation closeout.
 
 Do not move `v0.1.0`, change Skill SOURCE, create a GitHub Release, delete
 retained candidate or rollback material, or edit private global rules.
@@ -376,8 +373,8 @@ or editing derived installed copies.
 
 - Any discovery-mapping change, rollback, or user configuration outside the
   authorized recoverable `v0.1.1` stable-install replacement.
-- Any Skill SOURCE change, or any commit or amend beyond the authorized
-  bilingual candidate, RC-evidence, and stable-evidence closeout commits.
+- Any Skill SOURCE change, or any commit or amend beyond this authorized final
+  stable-evidence closeout.
 - Any remote change beyond the authorized candidate/evidence `main` pushes and
   new immutable `v0.1.1` tag; any tag movement, GitHub Release, or retained
   evidence/rollback cleanup.

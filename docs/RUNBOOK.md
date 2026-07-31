@@ -27,9 +27,10 @@ README predates publication and contradicts its current existence, so
 release identity. The authorized correction uses a new immutable `v0.1.1`
 candidate containing bilingual release documentation. Reviewed candidate
 `f7c07b5470f10ce09ecb704bb0fb6d01e1d52b42` has passed the repeated
-exact-commit candidate proof; its sanitized RC evidence must be committed
-before tag publication. Exact-tag stable proof remains pending and must not
-move `v0.1.0`. Current evidence and residual limits remain in
+exact-commit candidate proof, and immutable tag `v0.1.1` resolves to that
+candidate. A complete-set tag install and fresh-process loaded-copy proof now
+pass. `v0.1.0` remains unmoved historical evidence. No GitHub Release object
+was created; current evidence and residual limits remain in
 `docs/VERIFICATION.md`.
 
 See
