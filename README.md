@@ -61,9 +61,14 @@ and made publicly reachable on `main` in
 initial remote-visibility gate. A later shared exact-commit candidate at
 `78caaa6ecf6b86c1b7be26d03aa5dfde1ebbdf09` passed isolated
 `$skill-installer`, identity, loaded-copy, and representative positive/negative
-smoke for all three Skills. This closes the shared `RC_INSTALL` gate only. No
-stable installation, `v0.1.0` tag, or release exists. No generalized efficacy,
-portability, broad trigger-telemetry, or token-saving claim has been
+smoke for all three Skills. The public immutable `v0.1.0` tag now resolves to
+that same candidate, and a tag-pinned multi-Skill `STABLE_INSTALL` passed
+6/5/5-file identity, single-discovery, validator, and fresh-process
+loaded-copy smoke for all three Skills. This closes tag-to-install technical
+identity, but not a coherent public-release identity: the immutable tag's own
+README predates publication and still says the tag is absent. The tag remains
+retained evidence and must not be moved. No GitHub Release object, generalized
+efficacy, portability, broad trigger-telemetry, or token-saving claim has been
 established.
 
 The Work Charter M2R product contract is accepted in
@@ -75,8 +80,10 @@ Standard policy remain user-owned; later reuse does not propagate action
 authority. The canonical package is now `work-charter`; the superseded
 `manage-large-tasks` source was retired without an alias. Its SOURCE-assisted
 matrix now has five conforming behavior groups and two controlled negative
-variants with explicit canonical SOURCE identity. Native selection, installed
-copy identity, and release proof remain later gates.
+variants with explicit canonical SOURCE identity. Controlled development and
+candidate behavior plus tag-pinned stable loaded-copy identity now pass;
+broad trigger telemetry and independent real-project behavior remain later
+gates.
 
 See the sanitized
 [initial development report](evals/results/2026-07-27-development-forward-tests.md)
@@ -139,20 +146,24 @@ Use $work-charter to bound this consequential migration and its acceptance loop.
 Use $use-powershell-safely to diagnose this PowerShell-to-WSL quoting failure.
 ```
 
-These are the intended interfaces. The Work Charter package now exists as
-canonical development SOURCE. A supported public skill-package installation
-path and release-pinned checks remain release gates.
+These are the intended standalone v0.1 interfaces. The Work Charter package
+exists as canonical SOURCE and as a verified tag-pinned installation.
+Installation does not authorize adopting a Skill into a target project or any
+other external action. A corrected immutable release identity remains pending
+as described below.
 
 ## Installation And Distribution
 
-v0.1 uses one standalone GitHub repository and one repository-level release
-tag. Each Skill remains independently installable from its
-`skills/<skill-name>` directory. Stable installation instructions will invoke
-`$skill-installer` with the exact public repository URL, immutable tag, and
-selected Skill path; they will not install from the moving `main` branch.
+v0.1 uses one standalone GitHub repository and repository-level version tags.
+Public tag
+[`v0.1.0`](https://github.com/junwei529/skills/tree/v0.1.0) is retained as the
+first tag-pinned installation-evidence identity. Each Skill remains
+independently installable from its `skills/<skill-name>` directory.
+Installation uses `$skill-installer` with the exact public repository URL,
+immutable tag, and selected Skill path; it does not install from the moving
+`main` branch.
 
-The approved PowerShell installation prompt for the intended `v0.1.0` release
-is:
+The PowerShell command validated during the `v0.1.0` installation smoke was:
 
 ```text
 $skill-installer Install the Skill from https://github.com/junwei529/skills/tree/v0.1.0/skills/use-powershell-safely.
@@ -164,14 +175,19 @@ To install the complete set from the same tag as an optional convenience:
 $skill-installer Install `skills/manage-project-docs`, `skills/work-charter`, and `skills/use-powershell-safely` from https://github.com/junwei529/skills at tag `v0.1.0`.
 ```
 
-These prompts are the intended stable-release contract, not currently working
-commands because the `v0.1.0` tag does not exist. The public repository is now
-reachable, and all three Skills passed exact-commit candidate installation
-smoke at `78caaa6ecf6b86c1b7be26d03aa5dfde1ebbdf09`. That does not make the
-tag-based prompts executable release evidence. Before release, the immutable
-tag must resolve to the commit-smoked candidate and a tag-pinned
-`STABLE_INSTALL` must prove its installer source, destination, actually loaded
-copy, tag, and commit.
+These commands are technically executable. The public tag resolves to the
+commit-smoked candidate
+`78caaa6ecf6b86c1b7be26d03aa5dfde1ebbdf09`, and one complete-set
+`STABLE_INSTALL` proved the tag and commit mapping, installer source, 6/5/5
+installed files, one discoverable copy per Skill, and the actually loaded
+entries in fresh Codex processes. However, the immutable tag snapshot's README
+still describes `v0.1.0` as nonexistent and the commands as not yet executable.
+Therefore `v0.1.0` is retained installation evidence, not the canonical public
+release identity. Do not move it. A new immutable patch-version tag must include
+the corrected documentation and repeat tag-pinned installed-copy proof before
+being advertised as the stable release. See
+[`docs/VERIFICATION.md`](docs/VERIFICATION.md) for evidence and remaining
+behavior limits.
 
 Current OpenAI guidance supports standalone local Skills and repository
 downloads through `$skill-installer`, while preferring Plugins for broader

@@ -1,6 +1,6 @@
 # Roadmap
 
-Last updated: 2026-07-30
+Last updated: 2026-07-31
 
 ## Current Focus
 
@@ -13,12 +13,12 @@ Current verified state and the next authorized action are owned by
 |---|---|---|---|
 | M0 | Repository bootstrap | Git repository, governance docs, and three valid Skill skeletons | complete |
 | M1 | Original Project Docs baseline | Initial documentation workflow, references, templates, and one focused eval | complete, superseded as the active contract |
-| M1R | Project Docs contract refinement | Lean logical contract, adopted-layout preservation, continuity anchor, structural gate, and revised forward tests | official-manual-aligned exact-hash behavior and controlled native DEV_DISCOVERY explicit-only selection accepted; repository-candidate inclusion and public visibility complete; RC/stable proof remains later |
+| M1R | Project Docs contract refinement | Lean logical contract, adopted-layout preservation, continuity anchor, structural gate, and revised forward tests | official-manual-aligned SOURCE and DEV_DISCOVERY evidence accepted; shared RC and explicit tag-pinned stable loaded-copy `NOOP` smoke complete; stable mutation and real-project adoption remain later |
 | M2 | Original Large Tasks baseline | Phase Definition, Planner/Executor workflow, flat default, and explicit Standard profile | complete, superseded as the active contract |
-| M2R | Work Charter contract refinement | Unified `work-charter` identity, Codex-first bounded contract, proportional coordination, recovery, assessment, and revised forward tests | SOURCE-assisted development acceptance complete for exact hashes; native selection and loaded-copy proof remain later gates |
-| M3 | PowerShell | Windows boundary workflow, runtime-readiness gate, conditional references, portable/private rule classification, and focused eval contract | exact-SOURCE matrix plus native DEV_DISCOVERY implicit-selection and loaded-copy canaries accepted; repository-candidate inclusion and public visibility complete; RC, stable, and shadow evidence remain |
-| M4 | Evaluation | Fresh-context tests, deterministic checks, and honest result attribution for the active contracts | active development SOURCE behavior and controlled development selection accepted; first public candidate is reachable; isolated RC evidence remains |
-| M5 | Public v0.1 | Reviewed commit, isolated candidate, verified installation and loaded-copy identity, release documentation, and immutable tag | repository creation and first `main` push complete; blocked on isolated RC, stable-install, tag, and remaining release-readiness gates |
+| M2R | Work Charter contract refinement | Unified `work-charter` identity, Codex-first bounded contract, proportional coordination, recovery, assessment, and revised forward tests | SOURCE-assisted, DEV_DISCOVERY, shared RC, and explicit tag-pinned stable loaded-copy Flat smoke complete; broad trigger and real-project behavior remain later |
+| M3 | PowerShell | Windows boundary workflow, runtime-readiness gate, conditional references, portable/private rule classification, and focused eval contract | SOURCE, DEV_DISCOVERY, shared RC, and explicit tag-pinned stable loaded-copy `$LASTEXITCODE` smoke complete; controlled-host version branches and shadow use remain later |
+| M4 | Evaluation | Fresh-context tests, deterministic checks, and honest result attribution for the active contracts | active SOURCE, controlled DEV_DISCOVERY, shared exact-commit RC, and tag-pinned stable loaded-copy evidence complete with explicit residual limits |
+| M5 | Public v0.1 | Reviewed commit, isolated candidate, verified installation and loaded-copy identity, release documentation, and immutable tag | `v0.1.0` tag-to-install identity passes, but its tagged README predates publication; a new immutable patch-version identity with corrected docs and repeated stable-install proof remains before public-release completion |
 
 M1 and M2 are historical baselines, not release-ready current contracts.
 Decision 0012 owns the M2R product contract. Exact completion evidence,

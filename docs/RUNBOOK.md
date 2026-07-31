@@ -1,6 +1,6 @@
 # Development, Installation, And Release Runbook
 
-Last updated: 2026-07-30
+Last updated: 2026-07-31
 
 ## Quick Navigation
 
@@ -20,7 +20,12 @@ Last updated: 2026-07-30
 This is the operational owner for developing, discovering, testing, installing,
 and releasing this repository's Skills. The v0.1 distribution mechanism,
 public repository identity, and pre-tag candidate visibility policy are
-selected. The public repository and `main` exist; the release tag does not.
+selected. The public repository, `main`, immutable `v0.1.0` tag, and one
+verified complete-set tag-pinned `STABLE_INSTALL` exist. The tag's embedded
+README predates publication and contradicts its current existence, so
+`v0.1.0` is retained installation evidence rather than the canonical public
+release identity. Current evidence and residual limits remain in
+`docs/VERIFICATION.md`.
 
 See
 [Decision 0003](decisions/0003-source-install-release-boundaries.md) and
@@ -93,23 +98,28 @@ experimentation and prefers Plugins for broader installable distribution. v0.1
 accepts that narrower standalone scope. It does not claim Plugin-directory,
 workspace, connector, or one-click distribution.
 
-The intended stable PowerShell prompt is:
+The PowerShell prompt validated during the `v0.1.0` installation smoke was:
 
 ```text
 $skill-installer Install the Skill from https://github.com/junwei529/skills/tree/v0.1.0/skills/use-powershell-safely.
 ```
 
-The intended complete-set prompt is:
+The complete-set prompt validated during that smoke was:
 
 ```text
 $skill-installer Install `skills/manage-project-docs`, `skills/work-charter`, and `skills/use-powershell-safely` from https://github.com/junwei529/skills at tag `v0.1.0`.
 ```
 
-These stable-release prompts are not executable release evidence until the
-named tag exists. The public repository is reachable, but development
-`skills/work-charter` SOURCE is not installation or loaded-copy proof. For an
-RC smoke, replace the stable tag identity with the exact accepted candidate
-commit SHA and record that SHA in the evidence ledger.
+These prompts are technically executable because public tag `v0.1.0` resolves
+to the accepted commit-smoked candidate and a tag-pinned complete-set
+installation passed identity and loaded-copy smoke. They are not yet the
+canonical stable-release interface because the immutable tag's own README says
+the tag does not exist. Keep `v0.1.0` immutable as evidence. A corrected public
+release requires a new authorized patch-version tag containing consistent
+documentation and a repeated tag-pinned installed-copy smoke. Development
+SOURCE still is not installation or loaded-copy proof. For an RC smoke, replace
+the stable tag identity with the exact accepted candidate commit SHA and record
+that SHA in the evidence ledger.
 
 ## Preflight
 

@@ -1,6 +1,6 @@
 # Current Status
 
-Last updated: 2026-07-30
+Last updated: 2026-07-31
 
 ## Current Stage
 
@@ -158,6 +158,35 @@ positive/negative loaded-copy smoke for all three Skills. It does not establish
 a stable tag, `STABLE_INSTALL`, broad trigger telemetry, controlled token cost,
 real-project shadow behavior, private-global retirement, or release identity.
 
+The separately authorized tag and stable-install gates then published
+immutable tag
+`v0.1.0` at the same commit-smoked candidate
+`78caaa6ecf6b86c1b7be26d03aa5dfde1ebbdf09` and installed all three
+Skills from that public tag through the bundled `$skill-installer`. Before
+changing discovery state, the complete set was materialized in isolation and
+proved to contain exactly 6/5/5 files matching the tag's Git blobs, with strict
+UTF-8, no BOM, no reparse points, and three passing Skill validators.
+
+The authorized recoverable switch moved one Project Docs development junction
+and the previous byte-equivalent PowerShell directory into a non-discoverable
+local rollback area without deleting them. The resulting user-level Codex
+installation exposes exactly one known discoverable copy of each Skill.
+Three read-only ephemeral Codex processes then loaded those installed entries,
+recomputed their entry hashes, and returned the expected bounded behavior:
+Project Docs `NOOP`, Work Charter `Flat`, and the PowerShell requirement to
+capture `$LASTEXITCODE` immediately. This closes tag-pinned stable-install
+identity and explicit loaded-copy smoke. It does not establish stable mutation
+behavior, broad implicit trigger telemetry, real-project adoption, controlled
+cost, cross-Harness behavior, private-global retirement, or a GitHub Release
+object.
+
+Native review of the evidence sync found that the immutable tag snapshot's own
+README predates publication and still says `v0.1.0` is absent. The tag-to-install
+proof remains valid, but the contradictory tagged documentation means
+`v0.1.0` is not the coherent public-release identity. The tag must remain
+immutable as evidence; correction requires a new authorized patch-version
+identity and repeated tag-pinned installed-copy proof.
+
 ## Completed
 
 - The complete 139-file public baseline passed deterministic verification and
@@ -194,6 +223,10 @@ real-project shadow behavior, private-global retirement, or release identity.
   `$skill-installer` materialization, 6/5/5 file identity, strict-encoding,
   non-reparse, shared-scope, standalone Project Docs, repeated PowerShell, and
   retained same-commit Work Charter loaded-copy checks.
+- Public tag `v0.1.0` resolves to that accepted candidate, and one complete-set
+  tag-pinned `STABLE_INSTALL` passed 6/5/5-file identity, strict encoding,
+  no-reparse, single-discovery, validator, and explicit fresh-process
+  loaded-copy smoke for Project Docs, Work Charter, and PowerShell.
 - The PowerShell portable-guidance migration SOURCE passes its Skill validator,
   metadata assertion, repository and fixture checks, PowerShell parser check,
   whitespace check, and Gitleaks scan. Its normalized hashes and evidence
@@ -203,8 +236,8 @@ real-project shadow behavior, private-global retirement, or release identity.
   `NO_TRIGGER` without loading the Skill body.
 - PowerShell controlled native DEV_DISCOVERY positive/negative canaries proved
   implicit selection of canonical SOURCE and non-loading for an ordinary
-  cmdlet; the user-scope junction remains the sole same-named development
-  discovery entry in the tested scope.
+  cmdlet; that development discovery result remains historical and does not
+  describe the current stable discovery state.
 - The public `junwei529/skills` repository exists, and the first public `main`
   push was verified at
   `c5d8e185ea9a9f32a4e98ac8ac364c4ebe915535`.
@@ -223,43 +256,45 @@ Historical checks, findings, and behavior evidence remain only in
 ## In Progress
 
 - No Skill SOURCE implementation tranche is active.
-- The four-file evidence-only revision synchronizes Work Charter DEV/RC
-  evidence and the later three-Skill shared-candidate result into the public
-  `README.md` and three canonical evidence/state documents. It does not change
-  Skill SOURCE or private global rules, does not replace the accepted candidate
-  identity, and has no publication authorization.
-- The ignored historical and shared candidate evidence roots remain retained
-  locally. Cleanup, commit, push, tag, stable installation, release, and
-  private-global migration remain separately gated.
+- No discovery or installation mutation is active. The stable installed copies
+  are derived from `v0.1.0` and remain non-editable; the prior Project Docs
+  junction and PowerShell directory remain retained locally for rollback.
+- Historical and shared candidate evidence roots remain retained locally.
+  Cleanup, update, rollback, GitHub Release creation, and private-global
+  migration remain separately gated.
 
 ## Known Gaps
 
 - Project Docs has exact-hash SOURCE-assisted and DEV_DISCOVERY evidence plus
   one shared-candidate explicit standalone `NOOP` and ordinary-routing
-  non-loading pair. Stable identity, mutation behavior at the candidate layer,
-  broad trigger telemetry, and unrelated real-project adoption remain
-  unproved.
+  non-loading pair. Its tag-pinned stable entry and explicit `NOOP` smoke now
+  pass. Mutation behavior at the candidate or stable layer, broad trigger
+  telemetry, and unrelated real-project adoption remain unproved.
 - Work Charter has SOURCE-assisted synthetic evidence plus controlled native
   DEV_DISCOVERY explicit-selection, same-SOURCE loaded-copy, P/E, and Standard
   role-delivery evidence. Its exact-commit `RC_INSTALL` also passes one
   uncontaminated implicit P/E recovery canary and one flat non-loading canary.
-  Broad trigger telemetry, Standard candidate behavior, general Harness
-  routing, independent real-project behavior, stable installation, and release
-  identity remain unproved.
+  Its tag-pinned stable entry and explicit Flat smoke also pass. Broad trigger
+  telemetry, Standard candidate or stable behavior, general Harness routing,
+  and independent real-project behavior remain unproved.
 - The controlled capability variants are not real-Harness outage evidence.
 - The PowerShell portable-guidance migration has exact-SOURCE behavior evidence
   for seven boundary scenarios and catalog-assisted negative evidence for two
   exclusions. Controlled native DEV_DISCOVERY selection and loaded-copy
   identity also pass. Historical and shared exact-commit `RC_INSTALL`,
   candidate identity, native candidate selection, and loaded-copy smoke pass.
-  It still lacks
-  controlled-host runtime execution of every version branch, stable-install,
-  shadow-period, and release proof.
+  Its tag-pinned stable entry and explicit `$LASTEXITCODE` smoke pass. It still
+  lacks controlled-host runtime execution of every version branch, stable
+  implicit-selection telemetry, and the shadow period.
 - No efficacy, token comparison, independent real-project adoption, or
   cross-Harness compatibility claim is established.
-- Project Docs, PowerShell, and Work Charter now have actual loaded-copy proof
-  at one shared exact-commit `RC_INSTALL`. No tag-based stable-install proof
-  exists.
+- Project Docs, PowerShell, and Work Charter have actual loaded-copy proof at
+  one shared exact-commit `RC_INSTALL` and one tag-pinned `STABLE_INSTALL`.
+  The stable canaries were explicit, narrow behavior checks rather than broad
+  trigger or real-project evidence.
+- The immutable `v0.1.0` snapshot's README incorrectly describes that tag as
+  absent. Its tag-to-install evidence passes, but a documentation-consistent
+  public release identity has not yet been established.
 
 ## Open Questions
 
@@ -269,14 +304,18 @@ evidence are workflow gates, not product decisions.
 
 ## Next Gate
 
-Shared candidate alignment is complete at public exact commit
-`78caaa6ecf6b86c1b7be26d03aa5dfde1ebbdf09`. The four-file evidence-only
-follow-up is dispositioned separately from that candidate. Its local commit
-does not become the RC identity and must not move the eventual release tag
-away from the commit-smoked candidate without a new RC gate.
+Shared candidate alignment, immutable `v0.1.0` tag publication, and tag-pinned
+stable-installation evidence are complete at
+`78caaa6ecf6b86c1b7be26d03aa5dfde1ebbdf09`. Later evidence-only commits
+do not become a release identity and must not move `v0.1.0`.
 
-The next lifecycle decision is whether to authorize immutable tag creation at
-the accepted candidate and a tag-pinned `STABLE_INSTALL` for all three Skills.
-Bounded real-project shadow use must still precede retirement of duplicated
-private-global semantics. These RC results do not authorize global rule edits,
-push, tag, stable installation, release, or cleanup.
+The current authorized gate is to finish native review of this six-document
+evidence sync, commit it, and push that evidence-only commit to `main`. Only
+after that closeout does the next lifecycle decision become whether to
+authorize a new immutable patch-version candidate containing corrected release
+documentation and repeat tag-pinned installed-copy proof. Do not create a
+GitHub Release object for the inconsistent `v0.1.0` snapshot. Bounded
+real-project shadow use must still precede retirement of duplicated
+private-global semantics. These results do not authorize global-rule edits,
+installation updates, rollback, cleanup, tag movement, or broader release
+claims.

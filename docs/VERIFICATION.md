@@ -1,27 +1,27 @@
 # Verification
 
-Last updated: 2026-07-30
+Last updated: 2026-07-31
 
 ## Required Checks
 
 | Check | Purpose | Current Result |
 |---|---|---|
-| Bundled skill validator | Validate frontmatter and directory naming | pass for all three public Skills and for their exact-commit `RC_INSTALL` copies at shared candidate `78caaa6ecf6b86c1b7be26d03aa5dfde1ebbdf09`, 2026-07-30 |
+| Bundled skill validator | Validate frontmatter and directory naming | pass for all three public Skills, their exact-commit `RC_INSTALL` copies at shared candidate `78caaa6ecf6b86c1b7be26d03aa5dfde1ebbdf09`, and their tag-pinned `STABLE_INSTALL` copies, 2026-07-31 |
 | Scaffolding-marker scan | Ensure operative files contain no generated placeholder markers | pass, 2026-07-27 |
-| Repository checker | Check links, strict UTF-8, BOM, trailing whitespace, scaffolding, direct references, exact public Skill/package shape, exact eval sets, and publication patterns | pass across 143 text files, eleven cases, and ten fixtures after the shared-candidate public and canonical evidence sync, 2026-07-30 |
-| Fixture preconditions | Confirm all ten synthetic repositories start in the intended state, including Project Docs M1R, isolated Git/manifest inspection, reparse-point containment, cold-resume drift, the shared Work Charter loop, and the Standard boundary | pass for fourteen precondition checks after the shared-candidate public and canonical evidence sync, 2026-07-30 |
+| Repository checker | Check links, strict UTF-8, BOM, trailing whitespace, scaffolding, direct references, exact public Skill/package shape, exact eval sets, and publication patterns | pass across 143 text files, eleven cases, and ten fixtures after the tag and stable-install evidence sync, 2026-07-31 |
+| Fixture preconditions | Confirm all ten synthetic repositories start in the intended state, including Project Docs M1R, isolated Git/manifest inspection, reparse-point containment, cold-resume drift, the shared Work Charter loop, and the Standard boundary | pass for fourteen precondition checks after the tag and stable-install evidence sync, 2026-07-31 |
 | Direct-reference check | Ensure every reference is linked from its skill entry | pass for all Skills, including three revised PowerShell references, 2026-07-28 |
-| Publication-safety scan | Detect private paths, IDs, credentials, and copied host data | configured repository patterns pass after the shared-candidate public and canonical evidence sync, 2026-07-30 |
-| Gitleaks directory scan | Detect secret-like content independently | pass after the shared-candidate public and canonical evidence sync, no leaks found, 2026-07-30 |
-| Native Codex candidate-diff review | Inspect candidate changes beyond deterministic checks | the first baseline used five reviews in cycle 1 and five after one user-approved reset, ending clean before root commit `624553b03c794bb8cbd24e6c454d251ac214e24f`; the separately authorized public-identity correction received a clean staged review; the current coherent candidate's first completed review found one P1 premature-candidate-state claim and one P2 stale PowerShell evidence summary, both corrected, and its second completed staged review returned clean with material coverage, 2026-07-30 |
-| Fresh-context forward tests | Observe actual skill behavior | current Project Docs official-alignment SOURCE passed five explicit behavior groups, one persistence-only broken-routing variant, and controlled native DEV_DISCOVERY positive/negative selection; its shared-candidate `RC_INSTALL` passed one explicit standalone mature-project `NOOP` canary and one ordinary-routing non-loading canary; current PowerShell SOURCE passed seven boundary-sensitive scenarios, two catalog-assisted non-trigger canaries, and controlled native DEV_DISCOVERY implicit-selection/non-loading canaries; its shared-candidate `RC_INSTALL` passed one native implicit-selection boundary canary and one ordinary-cmdlet non-loading canary; Work Charter M2R five SOURCE-assisted groups plus two controlled negative variants were independently accepted, controlled native DEV_DISCOVERY P/E and Standard canaries passed, and its same-commit `RC_INSTALL` passed uncontaminated implicit recovery selection plus flat-task non-loading |
-| Revised Project Docs contract | Prove the accepted minimum responsibilities, trigger surfaces, continuity, authorization, and safety boundaries | current exact-hash SOURCE-assisted matrix and persistence-only broken-routing variant passed; controlled native explicit-only selection and DEV_DISCOVERY loaded-copy identity passed; the shared-candidate `RC_INSTALL` then explicitly selected the standalone Skill, returned mature-project `NOOP`, and stayed unloaded for an ordinary routing question; stable and real-project proof remain absent |
-| Revised Work Charter contract | Prove the accepted identity, proposal-only boundary, proportional coordination, compact recovery, assessment, correction, and Standard behavior | independent Planner accepted the exact-hash SOURCE-assisted matrix; controlled native DEV_DISCOVERY P/E and Standard delivery passed; the exact-commit `RC_INSTALL` then implicitly selected P/E cold recovery, remained proposal-only, and stayed unloaded for a flat task; real-project behavior remains absent |
+| Publication-safety scan | Detect private paths, IDs, credentials, and copied host data | configured repository patterns pass after the tag and stable-install evidence sync, 2026-07-31 |
+| Gitleaks directory scan | Detect secret-like content independently | pass after the tag and stable-install evidence sync, no leaks found, 2026-07-31 |
+| Native Codex candidate-diff review | Inspect candidate changes beyond deterministic checks | the first baseline used five reviews in cycle 1 and five after one user-approved reset, ending clean before root commit `624553b03c794bb8cbd24e6c454d251ac214e24f`; the separately authorized public-identity correction received a clean staged review; the coherent-candidate attempt needed two completed reviews and ended clean; the current tag/stable-install evidence attempt's first cycle used five reviews and found one P1 plus two P2 findings, all corrected; the user approved one review-budget reset, and cycle 2 review 1 returned clean with material coverage, 2026-07-31 |
+| Fresh-context forward tests | Observe actual skill behavior | current Project Docs official-alignment SOURCE passed five explicit behavior groups, one persistence-only broken-routing variant, and controlled native DEV_DISCOVERY positive/negative selection; its shared-candidate `RC_INSTALL` passed explicit standalone mature-project `NOOP` and ordinary-routing non-loading canaries; its tag-pinned stable entry passed an explicit fresh-process `NOOP` smoke; current PowerShell SOURCE passed seven boundary-sensitive scenarios, two catalog-assisted non-trigger canaries, and controlled native DEV_DISCOVERY implicit-selection/non-loading canaries; its shared-candidate `RC_INSTALL` passed implicit-selection and ordinary-cmdlet canaries; its tag-pinned stable entry passed an explicit `$LASTEXITCODE` smoke; Work Charter M2R five SOURCE-assisted groups plus two controlled negative variants were independently accepted, controlled native DEV_DISCOVERY P/E and Standard canaries passed, its same-commit `RC_INSTALL` passed implicit recovery selection plus flat-task non-loading, and its tag-pinned stable entry passed an explicit Flat smoke |
+| Revised Project Docs contract | Prove the accepted minimum responsibilities, trigger surfaces, continuity, authorization, and safety boundaries | current exact-hash SOURCE-assisted matrix and persistence-only broken-routing variant passed; controlled native explicit-only selection and DEV_DISCOVERY loaded-copy identity passed; shared-candidate and tag-pinned stable entries both returned explicit mature-project `NOOP`; stable mutation and real-project proof remain absent |
+| Revised Work Charter contract | Prove the accepted identity, proposal-only boundary, proportional coordination, compact recovery, assessment, correction, and Standard behavior | independent Planner accepted the exact-hash SOURCE-assisted matrix; controlled DEV_DISCOVERY P/E and Standard delivery passed; the exact-commit `RC_INSTALL` implicitly selected P/E cold recovery and stayed unloaded for a flat task; the tag-pinned stable entry explicitly chose Flat for a one-file task; broad stable trigger and real-project behavior remain absent |
 | Recovery and selection boundary | Check recovery drift and flat-task selection behavior | pass for one recovery run and one catalog-assisted smoke; native trigger telemetry unverified, 2026-07-27 |
 | PowerShell runtime probe | Validate the documented read-only 5.1-to-`pwsh` discovery and launch shape | pass on one development host with `pwsh` present; absent/install branches not exercised, 2026-07-28 |
-| Source/install identity | Prove canonical source, actual loaded copy, exact candidate commit with clean candidate source, and stable tag mapping | Project Docs, PowerShell, and Work Charter DEV_DISCOVERY mappings resolved to canonical SOURCE in controlled native canaries; all three isolated `RC_INSTALL` copies at shared exact public commit `78caaa6ecf6b86c1b7be26d03aa5dfde1ebbdf09` matched SOURCE and the selected commit, and counted canaries proved the actually loaded candidate copies; no stable installation exists |
-| Distribution contract | Confirm a supported v0.1 source, version, per-Skill path, and installer interface | `junwei529/skills`, immutable tag, per-Skill paths, and `$skill-installer` prompts accepted; one exact-commit multi-Skill download installed Project Docs and PowerShell at `78caaa6ecf6b86c1b7be26d03aa5dfde1ebbdf09`, aligning them with the already-smoked Work Charter candidate at that same commit; no stable tag or stable-install evidence exists |
-| Git publication preflight | Check writer identity, intended source scope, derived-file exclusions, candidate identity, and public reachability | public `main` resolved to shared candidate `78caaa6ecf6b86c1b7be26d03aa5dfde1ebbdf09`; all three SOURCE packages matched that commit, derived candidates and ignored runs remained outside tracked source, and no tag or release exists |
+| Source/install identity | Prove canonical source, actual loaded copy, exact candidate commit with clean candidate source, and stable tag mapping | Project Docs, PowerShell, and Work Charter DEV_DISCOVERY and shared exact-commit `RC_INSTALL` identities pass; public tag `v0.1.0` resolves to the same accepted candidate, and all three tag-installed stable entries matched the tag and were actually loaded by fresh read-only Codex processes with one known discoverable copy each |
+| Distribution contract | Confirm a supported v0.1 source, version, per-Skill path, and installer interface | the `junwei529/skills` tag-pinned installer path works technically at `v0.1.0`, but the immutable tag's README predates publication and contradicts that state; a coherent public-release identity remains unverified |
+| Git publication preflight | Check writer identity, intended source scope, derived-file exclusions, candidate identity, and public reachability | public `main` resolved to evidence commit `a3a927d1e7d5d1b1c11dd1d8bdf4f08367816725` before this sync, while public `v0.1.0` resolved separately to accepted candidate `78caaa6ecf6b86c1b7be26d03aa5dfde1ebbdf09`; installed, rollback, candidate, and cache paths remain outside repository source; no GitHub Release object exists, and the immutable tag must not be promoted as the coherent release identity |
 
 ## Claim Ledger
 
@@ -29,22 +29,22 @@ Last updated: 2026-07-30
 |---|---|
 | Three current source packages exist | verified structurally; `work-charter` is the sole current Work Charter package and the superseded `manage-large-tasks` path is retired without an alias |
 | Earlier Project Docs templates and workflow exist | verified structurally; passed one synthetic explicit behavior test for the superseded baseline |
-| Revised Project Docs progressive-governance contract works | current six-file SOURCE passed five explicit synthetic behavior groups plus a persistence-only broken-routing variant; controlled native explicit-only DEV_DISCOVERY selection passed; its shared exact-commit `RC_INSTALL` passed standalone explicit `NOOP` and ordinary-routing non-loading canaries; not stable- or release-pinned |
+| Revised Project Docs progressive-governance contract works | current six-file SOURCE passed five explicit synthetic behavior groups plus a persistence-only broken-routing variant; controlled native explicit-only DEV_DISCOVERY selection passed; shared exact-commit RC and tag-pinned stable entries passed standalone explicit `NOOP` smoke; stable mutation and real-project behavior remain unverified |
 | Historical Large Tasks kept one small task flat | passed one explicit M2 behavior test and one catalog-assisted selection smoke; this does not prove current Work Charter native selection |
-| PowerShell applies explicit command-boundary checks | seven boundary-sensitive scenarios passed against the 2026-07-30 development SOURCE identity; controlled native implicit selection and DEV_DISCOVERY loaded-copy identity passed; the exact-commit `RC_INSTALL` then repeated native implicit selection, loaded-copy identity, argument-transport diagnosis, and ordinary-cmdlet non-loading; stable-install and release pinning remain absent |
+| PowerShell applies explicit command-boundary checks | seven boundary-sensitive scenarios passed against the 2026-07-30 development SOURCE identity; controlled DEV_DISCOVERY and exact-commit RC selection, loaded-copy, argument-transport, and ordinary-cmdlet checks passed; the tag-pinned stable entry was then actually loaded and preserved the `$LASTEXITCODE` rule; broad stable implicit-selection telemetry remains absent |
 | PowerShell separates portable guidance, bounded inference, and private host delta | accepted in Decision 0014, structurally implemented, and exercised by legacy CJK, English valid-byte, WSL, version, sandbox, and destructive-operation scenarios; private-global retirement remains unverified |
 | PowerShell runtime readiness detects and launches an existing `pwsh` | command shape passed on one development host |
 | PowerShell conditionally recommends 7 without unauthorized installation | current exact-SOURCE matrix passed the materially-useful 7 recommendation and user-declined branches; actual installation and post-install verification remain untested |
 | Cold recovery stops on material workspace drift | passed one synthetic combined-skill behavior test |
-| Development, candidate, stable-install, and release identities are separated | specified in the accepted lifecycle and runbook; all three development and isolated exact-commit `RC_INSTALL` identities are operationally distinguished and proved at one shared candidate commit, while stable-install and release identity remain unverified |
+| Development, candidate, stable-install, and release identities are separated | verified operationally for all three Skills across canonical SOURCE, controlled DEV_DISCOVERY, shared exact-commit `RC_INSTALL`, public `v0.1.0` tag, and tag-pinned `STABLE_INSTALL`; the stable-install proof passes while coherent release identity remains unverified because the tagged documentation contradicts publication state |
 | Public v0.1 license | root MIT `LICENSE` materialized with the current user-confirmed public attribution `Copyright (c) 2026 junwei529`; repository and Gitleaks checks pass |
-| v0.1 has a defined distribution form | verified as an accepted design: `junwei529/skills`, repository tag, per-Skill paths, `$skill-installer`, and pre-tag candidate visibility; Plugin deferred; the repository and first candidate commit are publicly reachable |
+| v0.1 has a defined distribution form | repository tags, per-Skill paths, and `$skill-installer` are verified technically for `junwei529/skills`; `v0.1.0` remains installation evidence rather than the canonical release identity, and Plugin packaging remains deferred |
 | Each public Skill is an independent product and composition is optional | accepted project design; source packages are structurally separate, but standalone real-world adoption and composed-recipe behavior are unverified |
-| Work Charter is the unified product, contract, and `work-charter` package identity | accepted design, structurally implemented SOURCE, independently accepted exact-hash SOURCE-assisted matrix, controlled DEV_DISCOVERY proof, and exact-commit `RC_INSTALL` loaded-copy proof; stable identity remains unverified |
+| Work Charter is the unified product, contract, and `work-charter` package identity | accepted design, structurally implemented SOURCE, independently accepted exact-hash SOURCE-assisted matrix, controlled DEV_DISCOVERY proof, exact-commit RC proof, and tag-pinned stable loaded-copy identity all pass |
 | Work Charter uses proportional symptom-based activation and internal coordination/readiness diagnostics | SOURCE-assisted and DEV_DISCOVERY behavior passed; an uncontaminated RC canary implicitly selected P/E recovery from continuity symptoms while a flat arithmetic task did not load the Skill; broad trigger telemetry remains unverified |
 | Work Charter uses durable cold/recovery orientation and compact warm handoff | SOURCE-assisted recovery drift and same-session correction routing passed; token effect unmeasured |
 | Standard O/P/E is formally supported under an approved Work Charter standing policy | controlled native DEV_DISCOVERY O/P/E delivery passed with a dormant Orchestrator, independent Planner acceptance, and a stop before the unapproved next phase; independent real-project behavior remains unverified |
-| A supported public skill-package installation path works | verified for all three exact-commit release candidates from `junwei529/skills`, including one multi-Skill Project Docs and PowerShell install; the immutable-tag stable path remains unverified |
+| A supported public skill-package installation path works | verified for all three Skills from `junwei529/skills` by exact candidate commit and by one complete-set immutable-tag `v0.1.0` stable installation with loaded-copy proof |
 | The package improves task correctness | unverified |
 | The package saves tokens | unverified |
 | The package works across Harnesses | unverified |
@@ -116,7 +116,7 @@ Use this record for a material development run, release candidate, or release.
 Public evidence must use logical locators rather than private absolute paths.
 
 ```text
-Evidence level: DEV | RC | RELEASE
+Evidence level: DEV | RC | STABLE_INSTALL | RELEASE
 Skill or package:
 Source branch or checkout:
 Commit state: unborn | <SHA>
@@ -135,6 +135,89 @@ Known gaps:
 ```
 
 ## Evidence Log
+
+### 2026-07-31 — Immutable `v0.1.0` tag and stable installed-copy smoke
+
+The separately authorized release gates created and pushed lightweight
+repository tag `v0.1.0` at the exact shared candidate already covered by RC
+evidence:
+`78caaa6ecf6b86c1b7be26d03aa5dfde1ebbdf09`. Read-only local and public
+ref checks resolved the tag to that commit while public `main` remained on a
+later evidence-only commit. The tag was not moved to that later commit. A
+public GitHub release-by-tag lookup returned `404`, confirming that no GitHub
+Release object existed at this evidence gate.
+
+The bundled `$skill-installer` downloaded
+`skills/manage-project-docs`, `skills/work-charter`, and
+`skills/use-powershell-safely` from the public tag in one request to an
+isolated staging root. Before any persistent discovery change, controller
+checks proved:
+
+- exactly 6/5/5 installed files, all matching the selected commit's Git blobs;
+- strict UTF-8 without BOM and no reparse point in any staged package; and
+- `Skill is valid!` for all three staged packages.
+
+Preflight found one Project Docs development junction and one previous
+byte-equivalent PowerShell directory in user discovery state. A separately
+authorized recoverable switch moved both to a non-discoverable local rollback
+area without deletion, then activated the three verified tag-derived
+directories as user-level Codex Skills. Controller checks found exactly one
+known discoverable same-named copy per Skill across the user and repository
+Codex/Agents discovery roots. All final installed files still matched the tag,
+and all three final validators passed. No repository SOURCE, candidate, stable
+copy, private global rule, profile, policy, or system configuration was edited.
+
+Three independent ephemeral Codex processes used read-only sandboxes and
+explicitly selected one installed Skill each. Every process loaded the
+user-level stable entry and recomputed an entry SHA-256 matching the
+controller:
+
+- Project Docs:
+  `0211FC4A93F1D3FB35D15ABE502F0ECAE26D25274E742D558DD189D82D7F5A06`,
+  returning `NOOP` for a sufficient mature-layout audit;
+- Work Charter:
+  `CE6D65DCCEE281558154FEBFA18E8D1DBA83780D52CB1043BCB402AE60403D34`,
+  choosing `Flat` for a one-file hash task; and
+- PowerShell:
+  `5BBDC428FEBFEBEDE4144F98D25D7952A4DFE9E6BAFC90711B32A22DC17FA70F`,
+  preserving the requirement to capture `$LASTEXITCODE` immediately after a
+  native executable.
+
+Ambient plugin-manifest and unsupported PowerShell shell-snapshot warnings did
+not prevent Skill loading, installed-file reads, hash calculation, or semantic
+completion. They are not Skill findings or release claims. The canaries were
+explicit, narrow behavior checks; they do not establish broad implicit trigger
+telemetry, stable mutation behavior, independent real-project adoption,
+controlled token cost, cross-Harness compatibility, or private-global
+retirement.
+
+The later native review of this evidence sync found a release-identity defect:
+the immutable `v0.1.0` snapshot's README still says the tag does not exist and
+its installer prompts are not executable. That does not invalidate the
+tag-to-install or loaded-copy observations above, but it prevents treating
+`v0.1.0` as the coherent public-release identity. The tag remains immutable
+evidence. A corrected release requires a new authorized patch-version identity
+containing consistent documentation and a repeated tag-pinned installed-copy
+smoke.
+
+```text
+Evidence level: STABLE_INSTALL
+Skill or package: manage-project-docs, work-charter, use-powershell-safely
+Source branch or checkout: public repository tag
+Commit state: 78caaa6ecf6b86c1b7be26d03aa5dfde1ebbdf09
+Working tree clean: yes before tag, install, discovery switch, and canaries
+Canonical source locators: skills/manage-project-docs; skills/work-charter; skills/use-powershell-safely
+Actually loaded copy role: STABLE_INSTALL
+Actually loaded logical locators: user-level Codex skills/<skill-name> stable roots, one known same-named copy each
+Distribution form and package version: standalone GitHub Skills, v0.1.0
+Installer or package source ref/SHA: junwei529/skills at v0.1.0 -> 78caaa6ecf6b86c1b7be26d03aa5dfde1ebbdf09
+Structural validation: pass; 6/5/5 exact tag files, strict UTF-8 without BOM, ordinary directories, validators pass
+Repository and fixture checks: stable-install tag, file, discovery, rollback-presence, and no-source-delta controller checks pass; repository checker passes 143 text files / 11 cases / 10 fixtures; all 14 fixture checks, diff check, and Gitleaks pass
+Fresh-context behavior tests: explicit Project Docs NOOP, Work Charter Flat, and PowerShell native-exit rule pass
+Installed-copy smoke: pass for all three tag-pinned stable entries
+Stable tag-to-commit verification: local and public refs resolve v0.1.0 to 78caaa6ecf6b86c1b7be26d03aa5dfde1ebbdf09
+Known gaps: tagged README contradicts publication state; no coherent public-release identity; broad implicit trigger telemetry; stable mutation behavior; bounded real-project shadow use; controlled cost comparison; cross-Harness behavior; private-global retirement; no GitHub Release object
+```
 
 ### 2026-07-30 — Shared exact-commit candidate alignment
 

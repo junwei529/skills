@@ -1,6 +1,6 @@
 # Handoff
 
-Last updated: 2026-07-30
+Last updated: 2026-07-31
 
 ## Snapshot
 
@@ -23,19 +23,24 @@ Last updated: 2026-07-30
   `b0099c9d5ad986be5e893ceea13f1fc8b5aea384`; its earlier evidence
   remains valid at that gate but is not the shared v0.1 candidate
 - Public identity: `junwei529/skills`, selected by Decision 0013 and publicly
-  reachable; its public `main` matched the accepted candidate during RC
-  preflight
-- Active gate: this evidence-only revision records Work Charter native DEV/RC
-  canaries and the later three-Skill shared-candidate result in the public
-  README and three canonical documents. Its local commit gate is separately
-  authorized; push, tag, installation, release, cleanup, and private-global
-  changes are not
+  reachable; public tag `v0.1.0` resolves to the accepted candidate, but its
+  immutable README predates publication and still says the tag is absent
+- Stable installation: one complete-set tag-pinned install passed 6/5/5-file
+  identity, validator, single-discovery, and explicit fresh-process loaded-copy
+  smoke for all three Skills; this is installation evidence, not a coherent
+  public-release identity
+- Active gate: synchronize the tag and stable-install evidence through the
+  public and canonical documents, pass the authorized native-review/commit
+  gate, and push that evidence-only commit to `main`; GitHub Release creation,
+  cleanup, and private-global changes are not authorized
 - Candidate boundary: the materialized historical and shared `RC_INSTALL`
   roots are derived ignored copies from their exact commits and are not
   editable source.
-  Development mappings, candidates, installations, caches, private-global
-  files, ignored runs, and interpreter caches remain excluded from repository
-  source. No stable installation or tag exists
+  The tag-pinned stable installation is likewise a non-editable derived copy.
+  A displaced development junction and prior PowerShell directory remain in a
+  non-discoverable local rollback area. Development mappings, candidates,
+  installations, caches, private-global files, ignored runs, and interpreter
+  caches remain excluded from repository source
 
 ## Authoritative Pointers
 
@@ -119,12 +124,11 @@ tests, no correction, and a stop before unapproved Phase Two. Both
 task-specific discovery and fixture copies were removed, and repository SOURCE
 and Git state remained unchanged.
 
-This closes controlled native explicit selection, DEV_DISCOVERY loaded-copy
-identity, and positive P/E and Standard role delivery for the recorded hashes.
-It remains development evidence: the one-time legacy native route does not
-prove general Harness routing, and no implicit trigger telemetry,
-`RC_INSTALL`, stable installation, real-project shadow use, or release is
-established.
+At that development gate, this closed controlled native explicit selection,
+DEV_DISCOVERY loaded-copy identity, and positive P/E and Standard role delivery
+for the recorded hashes. It did not prove general Harness routing, implicit
+trigger telemetry, `RC_INSTALL`, stable installation, real-project shadow use,
+or release. Later RC and stable evidence is recorded separately below.
 
 The separately authorized Work Charter RC gate selected exact public commit
 `78caaa6ecf6b86c1b7be26d03aa5dfde1ebbdf09`. `$skill-installer`
@@ -166,9 +170,10 @@ also records controlled native DEV_DISCOVERY positive and negative canaries.
 The explicit run selected canonical SOURCE; the negative run did not load the
 full Skill body. This closes the development explicit-only selection and
 loaded-copy gate, but not broad trigger telemetry. The later shared-candidate
-gate separately closes representative `RC_INSTALL` loaded-copy behavior, but
-not stable installation, mutation behavior at the candidate layer, or release
-proof. The earlier
+gate separately closes representative `RC_INSTALL` loaded-copy behavior, and
+the stable section below closes tag-pinned entry identity plus explicit `NOOP`
+smoke. Mutation behavior at the candidate or stable layer and real-project
+proof remain absent. The earlier
 [M1R report](../evals/results/2026-07-29-project-docs-m1r-forward-tests.md)
 remains historical evidence for superseded hashes.
 
@@ -191,12 +196,12 @@ Seven isolated boundary-sensitive scenarios pass against the revised
 development SOURCE, including 5.1, 7.3/7.4, WSL, legacy CJK, PowerShell 7
 recommendation, sandbox, and destructive-operation boundaries. Two
 catalog-assisted canaries correctly declined an ordinary cmdlet and POSIX-only
-task without loading the Skill body. No SOURCE correction was required.
-A user-scope DEV_DISCOVERY junction now resolves directly to canonical SOURCE.
-One native implicit-selection canary loaded and hashed the entry plus the two
-relevant references, reproduced the fixture diagnosis, and avoided the WSL
-reference. A second native canary completed an ordinary cmdlet without reading
-the Skill body.
+task without loading the Skill body. No SOURCE correction was required. At
+that development gate, a user-scope DEV_DISCOVERY junction resolved directly
+to canonical SOURCE. One native implicit-selection canary loaded and hashed
+the entry plus the two relevant references, reproduced the fixture diagnosis,
+and avoided the WSL reference. A second native canary completed an ordinary
+cmdlet without reading the Skill body.
 
 The separately authorized RC gate selected exact public commit
 `b0099c9d5ad986be5e893ceea13f1fc8b5aea384` and installed
@@ -215,10 +220,11 @@ Skill. Controller runs reproduced exit `0`, `1`, and `2` for the direct,
 broken-wrapper, and deliberately split-argument contracts.
 
 The installed validator, repository and fixture checks, whitespace check, and
-Gitleaks passed. This closes PowerShell `RC_INSTALL` and loaded-copy smoke only.
-Stable-install, shadow-period, private-global retirement, and release proof
-remain absent. The ignored RC evidence roots remain retained pending separately
-authorized cleanup.
+Gitleaks passed. At that RC gate, this closed PowerShell `RC_INSTALL` and
+loaded-copy smoke only. The stable section below separately closes tag-pinned
+entry identity and explicit native-exit guidance smoke. The shadow period and
+private-global retirement remain absent. The ignored RC evidence roots remain
+retained pending separately authorized cleanup.
 
 ## Shared Candidate State
 
@@ -247,6 +253,44 @@ standalone Skill isolation, or semantic completion are excluded from behavior
 and cost claims. The counted canaries establish loaded candidate identity;
 role separation, source equivalence, or task names alone do not.
 
+## v0.1.0 Tag And Stable-Install Evidence
+
+The separately authorized tag and stable-install gates published repository tag
+`v0.1.0` at
+`78caaa6ecf6b86c1b7be26d03aa5dfde1ebbdf09`, the exact shared candidate
+already covered above. A complete-set `$skill-installer` request downloaded
+all three Skills from that public tag into an isolated staging root before any
+discovery change.
+
+Controller checks proved exactly 6/5/5 installed files, tag-blob equality,
+strict UTF-8 without BOM, ordinary non-reparse directories, and three passing
+Skill validators. A recoverable switch moved one Project Docs development
+junction and the prior byte-equivalent PowerShell directory into a
+non-discoverable local rollback area without deleting either. The resulting
+user-level Codex discovery state exposes exactly one known same-named copy for
+each Skill.
+
+Three read-only ephemeral Codex processes independently loaded the installed
+entries and recomputed their SHA-256 values:
+
+- Project Docs:
+  `0211FC4A93F1D3FB35D15ABE502F0ECAE26D25274E742D558DD189D82D7F5A06`,
+  returning `NOOP` for a sufficient mature-layout audit;
+- Work Charter:
+  `CE6D65DCCEE281558154FEBFA18E8D1DBA83780D52CB1043BCB402AE60403D34`,
+  choosing `Flat` for a one-file hash task; and
+- PowerShell:
+  `5BBDC428FEBFEBEDE4144F98D25D7952A4DFE9E6BAFC90711B32A22DC17FA70F`,
+  preserving the rule to capture `$LASTEXITCODE` immediately.
+
+This proves the tag-pinned installed entries and narrow explicit behavior. It
+does not prove stable mutation behavior, broad implicit trigger telemetry,
+real-project adoption, controlled cost, cross-Harness behavior, or private
+global-rule retirement. The immutable tag snapshot's own README predates
+publication and still says `v0.1.0` does not exist. Therefore the tag is
+retained stable-install evidence, not a coherent public-release identity. It
+must not be moved. No GitHub Release object exists.
+
 ## Resume Order
 
 1. Read `AGENTS.md`, `docs/INDEX.md`, Decisions 0002, 0003, 0007, 0012, and
@@ -262,23 +306,21 @@ role separation, source equivalence, or task names alone do not.
 
 ## Immediate Next Action
 
-Use the separately authorized local commit gate only to disposition the
-public-and-canonical shared-candidate evidence sync, then stop. No private
-global rule, Skill SOURCE, user discovery mapping, further installation, push,
-tag, release, or cleanup action is authorized by this handoff.
+Complete the authorized evidence-only native-review/commit gate for the
+tag/STABLE_INSTALL documentation sync and push the resulting commit to `main`,
+then stop. Do not move `v0.1.0`, change Skill SOURCE or installed copies,
+create a GitHub Release, clean retained evidence or rollback material, or edit
+private global rules.
 
-The shared-candidate evidence writer has completed its authorized writes and
-relinquished. Any later modification of this diff belongs to a separately
-authorized writer window.
-
-Shared candidate alignment is complete at
-`78caaa6ecf6b86c1b7be26d03aa5dfde1ebbdf09`. A later
-evidence-only commit is not automatically a new candidate. The next lifecycle
-decision, after separate disposition of this documentation diff, is whether to
-tag the accepted commit and run a tag-pinned `STABLE_INSTALL` for all three
-Skills. Private-global semantic retirement must still wait for stable
-loaded-copy evidence and a bounded real-project shadow period with rollback
-available.
+Shared candidate alignment, immutable tag publication, and tag-pinned stable
+loaded-copy smoke are complete at
+`78caaa6ecf6b86c1b7be26d03aa5dfde1ebbdf09`. A later evidence-only
+commit is not a new candidate or release identity. After its publication, the
+next user decision is whether to authorize a new immutable patch-version
+candidate containing the corrected release documentation, then repeat
+tag-pinned installed-copy proof. Do not create a GitHub Release object for the
+inconsistent `v0.1.0` snapshot. Private-global semantic retirement must still
+wait for bounded real-project shadow use with rollback available.
 
 ## Global Replacement Readiness
 
@@ -294,10 +336,11 @@ the Skill.
 | Separate global control planes | Native task delivery and exact workspace routing; Plan Mode durability and context telemetry; Git branch/worktree/integration/cleanup; native review and commit budgets; documentation authority; installation, release, permissions, and general safety |
 | Host-private state | Saved-project and task identifiers; local paths; installed or cached copies; supported model/tool schema; sandbox state; route exceptions and current-host observations; none belongs in the public Skill |
 
-All three shared-candidate `RC_INSTALL` gates now pass. Retire duplicated global
-P/E and Standard semantic guidance only after stable loaded-copy and shadow-use
-gates also pass. Retain a rollback that restores the former semantic fallback
-without deleting project Charters or editing derived installed copies.
+All three shared-candidate `RC_INSTALL` and tag-pinned `STABLE_INSTALL`
+loaded-copy gates now pass. Retire duplicated global P/E and Standard semantic
+guidance only after the bounded shadow-use gate also passes. Retain a rollback
+that restores the former semantic fallback without deleting project Charters
+or editing derived installed copies.
 
 ## Material Risks
 
@@ -305,8 +348,8 @@ without deleting project Charters or editing derived installed copies.
   or release proof.
 - Treating role names, separate tasks, source equivalence, or worktree
   separation as proof that every role loaded the expected Skill revision.
-- Treating Project Docs DEV_DISCOVERY or shared-candidate `NOOP` evidence as
-  stable-install, mutation, real-project, or release proof.
+- Treating Project Docs DEV_DISCOVERY or the stable explicit `NOOP` smoke as
+  stable mutation, real-project, or broad trigger proof.
 - Letting profile or standing-policy selection imply role delivery, write
   authority, execution, acceptance, or lifecycle authorization.
 - Recreating the retired `manage-large-tasks` path as an alias.
@@ -324,21 +367,23 @@ without deleting project Charters or editing derived installed copies.
 - Treating the discarded test-home canary as RC evidence even though a
   development copy remained discoverable.
 - Treating the evidence-only working-tree diff as a new candidate or moving
-  the eventual release tag away from the commit-smoked candidate without a
-  new RC gate.
+  published tag `v0.1.0` away from the commit-smoked candidate.
+- Treating `v0.1.0` installation identity as coherent public-release identity
+  even though its immutable README still describes the tag as absent.
 - Copying private paths, accounts, environment values, installed state,
   distribution identity, or sandbox details into public source or evidence.
-- Removing the private fallback before stable loaded-copy and shadow-use
-  evidence pass.
+- Removing the private fallback before bounded shadow-use evidence passes.
 - Disturbing inherited staged or unrelated dirty ownership.
 
 ## Prohibited Without Separate User Authorization
 
 - Any further discovery-mapping change, installation, update, rollback, or
   user configuration.
-- Any further commit or amend without a new explicit authorization.
-- Any further remote change or push, new `RC_INSTALL`, tag, stable
-  installation, release, or cleanup.
+- Any further commit or amend beyond this evidence-only gate without a new
+  explicit authorization.
+- Any further remote change or push beyond this evidence-only publication,
+  new `RC_INSTALL`, tag movement, stable installation update, GitHub Release,
+  or cleanup.
 - Private global guidance or fallback edits.
 - Plugin, MCP, cross-Harness package, or other deferred product surface.
 - Native-selection or lifecycle progression not separately authorized.
