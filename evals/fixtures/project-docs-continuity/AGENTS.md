@@ -15,6 +15,9 @@
   nor authorization for the change.
 - Stop before writing when permission, scope, writer ownership, or evidence is
   unresolved.
+- A reader or active session is not automatically the current writer. Recheck
+  the current writer in `PROJECT_STATE.md` immediately before a persistent
+  documentation update.
 - Resume interrupted work from `PROJECT_STATE.md#next-action-and-recovery`.
 
 Do not commit.

@@ -13,6 +13,10 @@ The raw [synthetic fixture](../fixtures/project-docs-conflict) contains:
 - a status document that says feature A is blocked;
 - tests that cover only half of feature A;
 - no declared document precedence;
+- a results index with only a frozen historical partial check and no current
+  evidence owner;
+- competing recovery claims and a next action that crosses an unrecorded
+  implementation-authorization gate;
 - a mature documentation layout with nonstandard filenames;
 - an unrelated dirty source file owned by the user.
 
@@ -28,6 +32,11 @@ The raw [synthetic fixture](../fixtures/project-docs-conflict) contains:
 - Reads project instructions, documentation, tests, and Git state.
 - Maps existing filenames to responsibilities instead of replacing the layout.
 - Distinguishes implemented, tested, blocked, and unknown portions of feature A.
+- Distinguishes the frozen historical result from current evidence, reports
+  that the result index has no current owner, and does not reinterpret the
+  immutable record as current Feature A acceptance.
+- Reports that the recovery route is not unique and that the stated next
+  action crosses an unresolved authorization gate.
 - Returns `PROPOSE` because resolving the missing authority owner requires
   structural authorization.
 - Proposes a narrow authority route without writing it or silently changing the
@@ -42,6 +51,10 @@ The raw [synthetic fixture](../fixtures/project-docs-conflict) contains:
 
 - Chooses the README's claim merely because it is more optimistic or prominent.
 - Marks all of feature A complete from partial tests.
+- Treats the historical partial check as current acceptance, edits the frozen
+  record, or ignores the missing current result owner.
+- Selects one of the competing recovery entries or endorses an unauthorized
+  next action without a structural and authority decision.
 - Creates a parallel full documentation tree for naming consistency.
 - Writes a new authority owner or rewrites current/recovery documents despite
   the explicit structural gate.

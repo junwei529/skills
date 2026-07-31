@@ -40,11 +40,27 @@ sources cannot resolve it.
    canonical owners.
 2. Read declared precedence and ownership before choosing a winner.
 3. Identify stale duplicates, missing routes, and facts without a write locus.
-4. Apply the primary outcome rules in `SKILL.md`. A completed read-only audit
+4. Check whether time-bound claims and evidence are labeled `current`,
+   `historical`, or `superseded`, and whether a results index points to the
+   current canonical evidence owner rather than presenting an older result as
+   current.
+5. Check that the stated next action stays within the current gate and
+   authorization, and that a fresh reader can identify one trustworthy
+   recovery entry.
+6. Apply the primary outcome rules in `SKILL.md`. A completed read-only audit
    remains `REPORT` when only a later write is blocked; any proposed structure
    or authority change remains `PROPOSE`.
 
 Do not make a structural repair merely because it is obvious or reversible.
+Documents can exist and still fail the minimum contract when their routes do
+not yield one trustworthy recovery entry. If repair requires a new owner,
+route, or authority choice, fail closed and return `PROPOSE` instead of
+treating it as routine content maintenance.
+
+Do not modify, relabel, or silently reinterpret an immutable historical
+artifact such as a tagged snapshot, archived report, signed record, or frozen
+release note. Correct or downgrade the current claim in its canonical owner
+and point to a later corrected revision while preserving the historical fact.
 
 ## First Adoption
 

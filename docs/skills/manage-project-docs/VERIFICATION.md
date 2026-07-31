@@ -12,6 +12,8 @@ Last updated: 2026-07-31
 | A sufficient mature layout is preserved | explicit SOURCE, RC, and stable `NOOP` smoke pass |
 | Authorized first adoption makes the minimum coherent change | exact-source synthetic behavior passes |
 | Broken authority or structure fails closed | conflict, safety, and broken-routing variants pass |
+| Reader/session/writer distinction and coherent recovery snapshot | current-SOURCE continuity correction passes; writer rechecked before write and exact recovery target preserved |
+| Current/history/index/authorization and immutable-history audit | current-SOURCE conflict and safety runs pass |
 | Candidate and stable loaded-copy identity | exact-commit shared RC and tag-pinned `v0.1.1` entry pass |
 | Stable mutation, broad trigger telemetry, causal efficacy, token savings, or cross-Harness parity | unverified |
 
@@ -22,18 +24,48 @@ normalized to LF with one final newline, and hashed with SHA-256:
 
 ```text
 SKILL.md
-  0211fc4a93f1d3fb35d15abe502f0ecae26d25274e742d558dd189d82d7f5a06
+  cc536a35c7bbba6f293193849b98db85923de8fe0d73c106feed405bfc4b448b
 agents/openai.yaml
   50fa3c3799caeca29ec6ba10151bd7c58e3c85d4e86d86b38ae9632306e31b17
 references/audit-and-adopt.md
-  abc04d3b9c616436da627fd7d0b9246c1849afae737db05d6b8e06240c213f33
+  b4af599f3838868db9479a6321a1f1aa82a8ff29cc492afa15b7e5de26078321
 references/maintain-and-recover.md
-  ce712be1505f3b49dc3b8b76dc90afcaffc1d99cca1d5fcbaf5bed41e4293121
+  5c774b699d832ce0f52f68e6ef0b355d9ca79bc6c3407064276bf3638c5fb9ba
 assets/templates/project-doc-starter.md
   d5d70f3c2b3422f51be420658bfe2198992ad95daaeac0aa28e5f1e4fe61ec8a
 assets/templates/continuity-anchor.md
   258578585c4a9c69379afdfa9a872b41233885a11c6342a7458c7677aeb68ec5
 ```
+
+## Current SOURCE Recovery-Coherence Hardening
+
+Three fresh medium-reasoning contexts exercised the existing continuity,
+conflict, and safety surfaces against the current dirty canonical SOURCE:
+
+| Scenario | Outcome | Continuity | Target effect |
+|---|---|---|---|
+| Routine continuity correction | `UPDATE` | `strong` | only the existing state owner changed; writer was rechecked; frozen history and `PROJECT_STATE.md#next-action-and-recovery` were preserved |
+| Authority and recovery conflict | `PROPOSE` | `weak` | zero manifest delta; current evidence owner and unique recovery entry remained unresolved; existing dirty work was preserved |
+| Read-only safety audit | `REPORT` | `weak` | zero manifest delta; nearest scope, generated source, unavailable external owner, language, active writer, and immutable history remained bounded |
+
+The first continuity attempt changed the recovery target while claiming the
+route was unchanged; an independent assessor returned `CORRECTION_REQUIRED`.
+The reference, fixture, and deterministic check were tightened, and a fresh
+correction run preserved the exact target. That later SOURCE change invalidated
+the first conflict run's reference identity, so a fresh current-SOURCE
+conflict run replaced it. Both excluded attempts remain recorded rather than
+being rewritten as passing evidence.
+
+The final independent assessor read the contract, current six-file SOURCE,
+raw artifacts, complete manifests, deterministic checks, and excluded-attempt
+boundaries, independently recomputed the identities, and returned `ACCEPTED`.
+The [sanitized result](../../../evals/results/2026-07-31-project-docs-recovery-coherence-hardening.md)
+owns the detailed scope and limits.
+
+This is dirty SOURCE-assisted development behavior. It does not establish
+native selection, a loaded current copy, `DEV_DISCOVERY`, a new exact-commit
+candidate, stable behavior, commit, push, tag, release, broad telemetry, or
+real-project efficacy.
 
 ## Development Behavior History
 

@@ -10,7 +10,10 @@ Maintain reliable project truth without imposing a fixed file suite.
 ## Workflow
 
 1. Establish the target scope, requested outcome, write permission, current
-   writer, and whether structural change is authorized.
+   writer, and whether structural change is authorized. Treat a reader, an
+   active session, and the current writer as separate facts. A read-only audit
+   may continue while other sessions are active, but re-confirm writer
+   ownership and authority immediately before any persistent write.
 2. Follow the applicable project instructions already loaded by the Harness
    and inspect the existing navigation, relevant code, tests, Git state, and
    external evidence. Do not infer current behavior from prose alone.

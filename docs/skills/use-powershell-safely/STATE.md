@@ -8,16 +8,18 @@ Canonical editable SOURCE is the five-file package under
 [`skills/use-powershell-safely`](../../../skills/use-powershell-safely) with
 one entry and three conditional references.
 
-Public and local `main` contain the reviewed boundary-hardening revision at
-`58fc52600df0e1dc3abd92ba31f031ee2b07db82`. It adds
+Public `main` contains the reviewed boundary-hardening revision at
+`58fc52600df0e1dc3abd92ba31f031ee2b07db82`. Local `main` advances to
+`a150a8652111ad7a04b4b8a048e861ee5c91fc93`, which contains the later
+native-example correction as a committed SOURCE revision. The hardening adds
 executable-discovery cardinality and identity, one-base path resolution,
 cross-shell newline contracts, task-specific sandbox remediation, and a
 strictly bounded confirmed-Junction fallback. It keeps frontmatter and the
 three-reference structure unchanged.
 
-The current dirty SOURCE adds a focused correction after that commit's
-exact-commit RC response omitted cardinality and stream handling from its
-user-runnable command. The entry and native reference now require complete
+The committed local correction follows the public exact-commit RC response
+that omitted cardinality and stream handling from its user-runnable command.
+The entry and native reference now require complete
 candidate identity, arguments, actual stream disposition, exit status,
 observed runtime/capability evidence, and any material text contract to survive
 into the emitted command. The eval case makes those transfer fields explicit.
@@ -29,10 +31,10 @@ described as containing it.
 
 ## Current Writer
 
-The native-example correction controller is the sole PowerShell writer for the
-currently authorized native-review/commit gate and relinquishes when it
-commits or stops. Another RC, stable update, private-global changes, push, tag,
-and release all require later separate authority.
+No PowerShell writer is active. The native-example correction was committed to
+local `main`, and its controller relinquished. Public push, another RC, stable
+update, private-global changes, tag, and release all require later separate
+authority.
 
 ## Evidence State
 
@@ -51,21 +53,22 @@ The loaded positive response omitted fail-closed executable cardinality and
 separate stream capture, so an independent RC assessor returned
 `CORRECTION_REQUIRED`.
 
-The current dirty SOURCE correction passes the Skill validator, repository
+The correction now contained in local commit `a150a865...` passed the Skill validator, repository
 checker, fifteen deterministic assertions under both PowerShell 7 and Windows
 PowerShell 5.1, an executed separate-stream process smoke, and a final fresh
 fixture run with an independent `ACCEPTED` verdict. This is SOURCE-assisted
-development evidence, not a new commit, loaded copy, RC, or stable result.
+development evidence later committed locally; it is not a loaded corrected
+copy, new RC, or stable result.
 Stable installation, live Bash/WSL, actual sandbox-denial, and bounded
 shadow-use evidence remain absent. See [Verification](VERIFICATION.md).
 
 ## Next Gate
 
-The current authorized gate is native review and commit of the complete staged
-candidate. After it succeeds, a later new exact-commit RC requires separate
-authority and must repeat loaded-copy behavior before any stable update.
-Stable update, private-global retirement, retained-evidence cleanup, tag, push,
-and release remain blocked later gates.
+The next independent lifecycle gates require new authorization: first make the
+local commit publicly reachable, then build and test a new exact-commit RC that
+repeats loaded-copy behavior before any stable update. Stable update,
+private-global retirement, retained-evidence cleanup, tag, and release remain
+blocked later gates.
 
 ## Recovery Entry
 
@@ -73,9 +76,8 @@ and release remain blocked later gates.
    [Authority Map](../../AUTHORITY.md), and [Decision 0014](../../decisions/0014-powershell-portable-guidance-and-private-host-delta.md).
 2. Read [Design](DESIGN.md), this state, and
    [Verification](VERIFICATION.md).
-3. Inspect local/public Git identities and the exact RC evidence-sync dirty
-   scope against
+3. Inspect local/public Git identities and current writer/dirty scope against
    [Repository Handoff](../../HANDOFF.md).
 4. Recompute the five SOURCE hashes before attributing any behavior.
-5. Do not confuse the dirty corrected SOURCE with public `main`, the installed
-   `v0.1.1` copy, or the earlier isolated RC.
+5. Do not confuse the locally committed corrected SOURCE with public `main`,
+   the installed `v0.1.1` copy, or the earlier isolated RC.

@@ -19,8 +19,8 @@ Sanitized detailed runs remain under [`evals/results`](../evals/results/README.m
 
 | Check | Purpose | Current result |
 |---|---|---|
-| Three Skill validators | Validate frontmatter and package names without changing packages | pass for Project Docs, Work Charter, and current dirty PowerShell SOURCE |
-| Repository checker | Validate strict UTF-8/no BOM, whitespace, local links/fragments, publication safety, exact Skill/eval sets, federated docs, and bilingual navigation | pass: 164 text files / 11 cases / 10 fixtures |
+| Three Skill validators | Validate frontmatter and package names without changing packages | pass for current Project Docs, Work Charter, and PowerShell SOURCE |
+| Repository checker | Validate strict UTF-8/no BOM, whitespace, local links/fragments, publication safety, exact Skill/eval sets, federated docs, and bilingual navigation | pass: 166 text files / 11 cases / 10 fixtures |
 | Fixture checker | Validate ten synthetic starting states and their Git/reparse boundaries | 14 checks pass |
 | PowerShell deterministic hardening | Validate cardinality, LF bytes, one-base paths, and Junction link-only removal | 15 assertions pass in PowerShell 7 and Windows PowerShell 5.1 |
 | PowerShell parser sweep | Parse all `evals/**/*.ps1` files | 6 files parse |
@@ -96,6 +96,12 @@ boundary checks, parser sweep, Git whitespace checks, and Gitleaks. This is
 local commit-gate evidence only. It does not prove current native selection,
 loaded-copy identity, RC or stable installation, live Bash/WSL, actual sandbox
 denial, shadow use, push, tag, or release.
+
+The reviewed correction became local commit
+`a150a8652111ad7a04b4b8a048e861ee5c91fc93`. Its writer relinquished and the
+index/worktree were clean immediately after commit. Public `main` remains at
+`58fc52600df0e1dc3abd92ba31f031ee2b07db82`; the local commit has no corrected
+loaded-copy, RC, stable, push, tag, or release proof.
 
 ### 2026-07-31 — Federated repository-document migration
 

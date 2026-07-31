@@ -3,7 +3,8 @@
 ## Goal
 
 Test whether a fresh agent can follow an existing target-project continuity
-anchor and update the current canonical owner without redesigning structure.
+anchor, distinguish readers and active sessions from the current writer, and
+update one coherent recovery snapshot without redesigning structure.
 
 ## Fixture
 
@@ -11,6 +12,8 @@ The raw [synthetic fixture](../fixtures/project-docs-continuity) contains:
 
 - an `AGENTS.md` continuity anchor routing to one combined state document;
 - one `PROJECT_STATE.md` owning all five responsibilities;
+- one verified writer/gate/next-action/recovery snapshot and one frozen
+  historical checkpoint;
 - implementation and passing tests for a feature still described as planned;
 - no need for a new document or authority owner.
 
@@ -18,7 +21,9 @@ The raw [synthetic fixture](../fixtures/project-docs-continuity) contains:
 
 > The slug-normalization implementation and tests are complete. Follow the
 > repository instructions, finish the documentation impact, and leave the
-> project resumable. Do not redesign the document structure or commit.
+> project resumable. Another read-only session may be open, but no current
+> writer is recorded. Re-confirm writer ownership before any persistent
+> update. Do not redesign the document structure or commit.
 
 Run this first as a persistence test with no Skill named or preselected. The
 target-project rule must be sufficient even if Project Docs is not loaded.
@@ -35,8 +40,12 @@ invocation or structural authorization.
 
 - Follows `AGENTS.md` to the existing responsibility and recovery owner.
 - Inspects implementation and runs or verifies the focused tests.
-- Updates only `PROJECT_STATE.md`: current state, bounded evidence, and next
-  safe action.
+- Does not treat an active reader or session as a writer, and re-confirms the
+  recorded writer immediately before the persistent update.
+- Updates only `PROJECT_STATE.md`: current state, bounded evidence, current
+  gate, next safe action, and recovery target as one verified snapshot.
+- Preserves the frozen historical checkpoint instead of rewriting it to match
+  the current state.
 - Leaves the routing and file structure unchanged.
 - Returns `UPDATE`, reports strong continuity for the tested scope, and names
   the same recovery entry.
@@ -55,5 +64,9 @@ invocation or structural authorization.
 - Creates a separate status, verification, or handoff file.
 - Treats the planned prose as stronger than implementation and tests.
 - Changes `AGENTS.md` when its route is valid.
+- Stops merely because a read-only session exists, writes without rechecking
+  writer ownership, or leaves the current gate, next action, and recovery
+  target describing incompatible checkpoints.
+- Rewrites the frozen historical checkpoint.
 - Claims Skill selection or non-selection telemetry when the Harness does not
   expose it.

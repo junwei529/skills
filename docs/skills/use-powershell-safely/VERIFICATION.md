@@ -13,7 +13,7 @@ Last updated: 2026-07-31
 | Current public hardening preserves cardinality, LF bytes, one-base paths, and confirmed-Junction link-only removal | fifteen assertions pass under PowerShell 7 and Windows PowerShell 5.1; SOURCE-assisted behavior independently accepted |
 | Current hardening exact-commit RC identity, native selection, and loaded copy | verified at `58fc52600df0e1dc3abd92ba31f031ee2b07db82` |
 | Current hardening RC behavior acceptance | `CORRECTION_REQUIRED`; the loaded response omitted fail-closed executable cardinality and separate stream capture |
-| Current dirty native-example correction behavior | final fresh SOURCE-assisted fixture run independently `ACCEPTED`; no commit, loaded copy, or new RC |
+| Current locally committed native-example correction behavior | final fresh SOURCE-assisted fixture run independently `ACCEPTED`; contained in local `a150a865...`, with no loaded corrected copy or new RC |
 | Current hardening stable, live Bash/WSL, actual sandbox denial, or shadow use | unverified |
 | General efficacy, token savings, or cross-Harness parity | unverified |
 
@@ -35,14 +35,15 @@ references/windows-wsl-boundaries.md
   5674d97ac52c6c8b05c8f57acae8ba5970afbdab3a1828ba62297038e450ffb7
 ```
 
-These hashes identify current dirty development SOURCE based on public
-`58fc52600df0e1dc3abd92ba31f031ee2b07db82`; they do not identify a commit,
-candidate, or stable installation.
+These hashes identify SOURCE in local commit
+`a150a8652111ad7a04b4b8a048e861ee5c91fc93`. Public `main` remains at
+`58fc52600df0e1dc3abd92ba31f031ee2b07db82`; no loaded corrected candidate or
+stable installation is implied.
 
 ## 2026-07-31 Native-Example Correction
 
 The public hardening's RC loaded the intended copy but omitted its diagnostic
-cardinality and stream rules from the final command. The dirty SOURCE
+cardinality and stream rules from the final command. The later SOURCE
 correction therefore adds one core native-example transfer contract and one
 detailed process pattern:
 
@@ -78,9 +79,10 @@ runtime plus capability before construction, and was executed against a child
 process with separate stdout, stderr, and exit status. A new fresh runner and
 independent assessor matched the corrected hashes and returned `ACCEPTED`.
 
-This is dirty-SOURCE-assisted behavior only. It does not supersede the earlier
-exact-commit RC verdict or establish native selection, a loaded corrected copy,
-another RC, stable, shadow-use, commit, tag, or release evidence. The
+This behavior was produced against then-dirty SOURCE and is now contained in
+local commit `a150a865...`. It does not supersede the earlier exact-commit RC
+verdict or establish native selection, a loaded corrected copy, another RC,
+stable, shadow-use, public push, tag, or release evidence. The
 [sanitized result](../../../evals/results/2026-07-31-powershell-native-example-correction.md)
 owns the detailed iterations and limits.
 

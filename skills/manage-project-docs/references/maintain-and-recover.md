@@ -6,6 +6,7 @@ pause, handoff, and recovery.
 ## Contents
 
 - [Maintain Existing Owners](#maintain-existing-owners)
+- [Keep Recovery State Coherent](#keep-recovery-state-coherent)
 - [Maintain The Continuity Anchor](#maintain-the-continuity-anchor)
 - [Pause And Handoff](#pause-and-handoff)
 - [Recover](#recover)
@@ -32,6 +33,26 @@ For a routine event:
 4. Replace stale duplicates with links or bounded summaries.
 5. Use `PROPOSE` instead of redesigning structure when routing is insufficient.
 6. Record actual verification and its limitations.
+
+## Keep Recovery State Coherent
+
+Treat current state, current writer, current gate, next safe action, and
+recovery target as one verified snapshot. Revalidate them together and make
+them describe the same checkpoint. If they disagree, report continuity as
+weak and first converge their existing canonical owners; do not preserve
+several incompatible current narratives.
+
+A reader or active session is not automatically the current writer. Read-only
+inspection may proceed alongside other sessions, but immediately before a
+persistent update, re-confirm the writer and authorization facts used by that
+update. If no single recovery target can be trusted, or convergence requires a
+new owner, route, or authority choice, return `PROPOSE` instead of redesigning
+the document structure as routine maintenance.
+
+When the durable anchor and its named recovery entry remain valid, preserve
+that exact recovery target during a routine update. Changing the named target
+is a routing change, not ordinary state maintenance; propose it first and
+require structural authorization before changing the target or its anchor.
 
 ## Maintain The Continuity Anchor
 

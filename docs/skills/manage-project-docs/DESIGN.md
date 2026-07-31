@@ -41,6 +41,10 @@ Every run ends in exactly one primary outcome: `NOOP`, `REPORT`, `UPDATE`,
 write is blocked; `STOP` applies when the requested action itself cannot safely
 continue.
 
+A reader, an active session, and the current writer are separate facts.
+Read-only audits may coexist with other sessions; persistent updates require a
+fresh writer and authorization check immediately before the write.
+
 ## Continuity
 
 An authorized first adoption may merge a lightweight continuity anchor into an
@@ -54,11 +58,23 @@ Persistence belongs to target-project sources, not chat history, memory,
 discovery mappings, installed copies, or caches. If the Harness cannot load or
 verify the route, continuity is reported as weak.
 
+Current state, current writer, current gate, next safe action, and recovery
+target form one verified snapshot. A valid durable anchor and recovery target
+remain stable during routine maintenance. Conflicting snapshots or competing
+recovery entries make continuity weak; a new owner or route requires
+`PROPOSE` and structural authorization.
+
 ## Safety And Non-Goals
 
 - Preserve sufficient mature and nonstandard layouts.
 - Preserve `UNKNOWN` when contract, implementation, state, evidence, and
   historical rationale do not resolve a conflict.
+- Label time-bound evidence as current, historical, or superseded; keep result
+  indexes pointed at the current owner and keep next actions behind their
+  current authorization gate.
+- Preserve immutable historical artifacts. Correct or downgrade a current
+  claim in its canonical owner and point to a later revision instead of
+  rewriting history.
 - Stop a requested mutation on unresolved writer or owner conflict.
 - Edit generated-document sources rather than generated output.
 - Preserve unavailable external owners as unverified.

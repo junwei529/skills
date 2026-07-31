@@ -41,15 +41,28 @@ finally {
     Pop-Location
 }
 $projectDocsText = $projectDocsOutput | Out-String
+$projectDocsChecks = Get-Content -Raw -Encoding UTF8 (
+    Join-Path $projectDocs 'docs\CHECKS.md'
+)
+$projectDocsNow = Get-Content -Raw -Encoding UTF8 (
+    Join-Path $projectDocs 'docs\NOW.md'
+)
+$projectDocsContinue = Get-Content -Raw -Encoding UTF8 (
+    Join-Path $projectDocs 'docs\CONTINUE.md'
+)
 Add-Check `
     -Name 'project-docs baseline' `
     -Passed (
         $projectDocsExit -eq 0 -and
         $projectDocsText -match 'test_normalizes_spacing_and_case' -and
         $projectDocsText -match 'Ran 1 test' -and
-        $projectDocsText -notmatch '(?m)^(?:FAILED|ERROR)'
+        $projectDocsText -notmatch '(?m)^(?:FAILED|ERROR)' -and
+        $projectDocsChecks -match 'Current evidence owner: `UNKNOWN`' -and
+        $projectDocsChecks -match 'frozen observation' -and
+        $projectDocsNow -match 'competing\s+recovery claim' -and
+        $projectDocsContinue -match 'No such\s+authorization is recorded'
     ) `
-    -Expectation 'existing label-normalization test passes'
+    -Expectation 'partial test passes while current evidence, recovery, and authorization remain unresolved'
 
 $matureDocs = Join-Path $repoRoot 'evals\fixtures\project-docs-mature-noop'
 Push-Location $matureDocs
@@ -124,6 +137,14 @@ $continuityState = Get-Content -Raw -Encoding UTF8 (
 $continuityRules = Get-Content -Raw -Encoding UTF8 (
     Join-Path $continuityDocs 'AGENTS.md'
 )
+$continuityAnchorRecovery = [regex]::Match(
+    $continuityRules,
+    'Resume interrupted work from `([^`]+)`\.'
+)
+$continuityStateRecovery = [regex]::Match(
+    $continuityState,
+    '(?m)^- Recovery target: `([^`]+)`$'
+)
 Add-Check `
     -Name 'project-docs continuity baseline' `
     -Passed (
@@ -132,6 +153,13 @@ Add-Check `
         $continuityText -match 'Ran 1 test' -and
         $continuityText -notmatch '(?m)^(?:FAILED|ERROR)' -and
         $continuityState -match 'planned but not implemented' -and
+        $continuityState -match 'Current writer: none recorded' -and
+        $continuityState -match 'Current gate:' -and
+        $continuityAnchorRecovery.Success -and
+        $continuityStateRecovery.Success -and
+        $continuityAnchorRecovery.Groups[1].Value -eq
+            $continuityStateRecovery.Groups[1].Value -and
+        $continuityState -match '## Frozen Historical Checkpoint' -and
         $continuityRules -match '## Project Documentation Continuity' -and
         $continuityRules -match 'PROJECT_STATE\.md#next-action-and-recovery' -and
         $continuityRules -match '\$manage-project-docs' -and
@@ -150,6 +178,9 @@ $writerState = Get-Content -Raw -Encoding UTF8 (
 $serviceProject = Get-Content -Raw -Encoding UTF8 (
     Join-Path $serviceDocs 'PROJECT.zh-CN.md'
 )
+$releaseSnapshot = Get-Content -Raw -Encoding UTF8 (
+    Join-Path $serviceDocs 'docs\RELEASE-0.0.1.md'
+)
 Add-Check `
     -Name 'project-docs safety boundaries baseline' `
     -Passed (
@@ -158,9 +189,11 @@ Add-Check `
         $generatedApi -match 'Generated from \.\./schema/openapi\.yaml' -and
         $writerState -match '(?m)^State: active$' -and
         $serviceProject -match '外部 Wiki' -and
-        $serviceProject -match '`UNKNOWN`'
+        $serviceProject -match '`UNKNOWN`' -and
+        $releaseSnapshot -match 'Immutable Historical Release Snapshot' -and
+        $releaseSnapshot -match 'Do not modify or reinterpret'
     ) `
-    -Expectation 'nearest scope exposes generated, external, language, and writer stops'
+    -Expectation 'nearest scope exposes generated, external, language, writer, and immutable-history boundaries'
 
 $projectDocsRunRoot = Join-Path $repoRoot '.eval-runs'
 $projectDocsRunRootFull = [System.IO.Path]::GetFullPath($projectDocsRunRoot)
