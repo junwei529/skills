@@ -19,13 +19,13 @@ Sanitized detailed runs remain under [`evals/results`](../evals/results/README.m
 
 | Check | Purpose | Current result |
 |---|---|---|
-| Three Skill validators | Validate frontmatter and package names without changing packages | pass for Project Docs, Work Charter, and current local PowerShell SOURCE |
-| Repository checker | Validate strict UTF-8/no BOM, whitespace, local links/fragments, publication safety, exact Skill/eval sets, federated docs, and bilingual navigation | pass: 162 text files / 11 cases / 10 fixtures |
+| Three Skill validators | Validate frontmatter and package names without changing packages | pass for Project Docs, Work Charter, and current dirty PowerShell SOURCE |
+| Repository checker | Validate strict UTF-8/no BOM, whitespace, local links/fragments, publication safety, exact Skill/eval sets, federated docs, and bilingual navigation | pass: 164 text files / 11 cases / 10 fixtures |
 | Fixture checker | Validate ten synthetic starting states and their Git/reparse boundaries | 14 checks pass |
 | PowerShell deterministic hardening | Validate cardinality, LF bytes, one-base paths, and Junction link-only removal | 15 assertions pass in PowerShell 7 and Windows PowerShell 5.1 |
 | PowerShell parser sweep | Parse all `evals/**/*.ps1` files | 6 files parse |
 | Markdown navigation and ownership | Verify local links/fragments, English/Chinese routes, expected per-Skill owners, and no orphan canonical owner | pass through repository checker |
-| `git diff --check` and cached diff check | Reject whitespace defects without staging | both pass; cached diff remains empty |
+| `git diff --check` and cached diff check | Reject whitespace defects in unstaged or staged candidates | both pass; the cached check makes no empty-index claim |
 | Gitleaks | Detect secret-like content independently | pass; no leaks |
 
 ## Repository Claim Ledger

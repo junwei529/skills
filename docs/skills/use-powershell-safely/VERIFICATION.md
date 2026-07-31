@@ -10,30 +10,79 @@ Last updated: 2026-07-31
 | Released portable guidance handles the recorded native, text, WSL, version, locale, sandbox, and destructive boundaries | seven fresh development scenarios pass |
 | Ordinary cmdlet and POSIX-only work remain outside the Skill | catalog-assisted and controlled native negatives pass |
 | Released DEV_DISCOVERY, exact-commit RC, and stable loaded-copy identity | verified |
-| Current local hardening preserves cardinality, LF bytes, one-base paths, and confirmed-Junction link-only removal | fifteen assertions pass under PowerShell 7 and Windows PowerShell 5.1; current SOURCE behavior independently accepted |
-| Current hardening native selection, loaded copy, RC, stable, live Bash/WSL, actual sandbox denial, or shadow use | unverified |
+| Current public hardening preserves cardinality, LF bytes, one-base paths, and confirmed-Junction link-only removal | fifteen assertions pass under PowerShell 7 and Windows PowerShell 5.1; SOURCE-assisted behavior independently accepted |
+| Current hardening exact-commit RC identity, native selection, and loaded copy | verified at `58fc52600df0e1dc3abd92ba31f031ee2b07db82` |
+| Current hardening RC behavior acceptance | `CORRECTION_REQUIRED`; the loaded response omitted fail-closed executable cardinality and separate stream capture |
+| Current dirty native-example correction behavior | final fresh SOURCE-assisted fixture run independently `ACCEPTED`; no commit, loaded copy, or new RC |
+| Current hardening stable, live Bash/WSL, actual sandbox denial, or shadow use | unverified |
 | General efficacy, token savings, or cross-Harness parity | unverified |
 
-## Current Local SOURCE Identity
+## Current SOURCE Identity
 
 The five current SOURCE files were decoded as strict UTF-8, normalized to LF
 with one final newline, and hashed with SHA-256:
 
 ```text
 SKILL.md
-  ec8c561d8ce1d34fa45c09fb13f28d7e699ff0512dc93dc3d2f866279dbf7dd2
+  fd487e0a073bfefcd714fc3d4ba97da96029d53f6e85db73a7f12691228f5714
 agents/openai.yaml
   87f47ad02d7a15ee309bfad896ea53eabfcff877ce51c7a8be149adc60b7bf68
 references/native-process-boundaries.md
-  9b6e264b43e08df510a2bb8388cd2bcb35c22985a4c5b3b6fe260f441f07a45b
+  49e0f18988f476702bf49d52433d28bcf3bb397c46d4c4172c209f0c0acd9a8a
 references/text-encoding-boundaries.md
   ca1fb4c3caea1c045ab06ebd348a9cfd39863e86faf12e4a7a2548f172a69f96
 references/windows-wsl-boundaries.md
   5674d97ac52c6c8b05c8f57acae8ba5970afbdab3a1828ba62297038e450ffb7
 ```
 
-These hashes identify the local SOURCE revision. Public `main`, candidate, and
-stable identities remain separate.
+These hashes identify current dirty development SOURCE based on public
+`58fc52600df0e1dc3abd92ba31f031ee2b07db82`; they do not identify a commit,
+candidate, or stable installation.
+
+## 2026-07-31 Native-Example Correction
+
+The public hardening's RC loaded the intended copy but omitted its diagnostic
+cardinality and stream rules from the final command. The dirty SOURCE
+correction therefore adds one core native-example transfer contract and one
+detailed process pattern:
+
+- every discovered executable example normalizes application candidates and
+  resolves zero/one/many or states one explicit precedence rule;
+- argument arrays, exact executable identity, actual stream disposition, and
+  numeric exit status remain visible;
+- version-specific commands require observed runtime and capability evidence,
+  not only a future guard; and
+- JSON, text, encoding, BOM, newline, and byte branches close against the
+  actual producer and consumer.
+
+The Skill validator, repository checker, Git whitespace check, and fifteen
+PowerShell boundary assertions under PowerShell 7 and Windows PowerShell 5.1
+passed after the correction. A separate process smoke obtained distinct
+stdout `out`, stderr `err`, and exit `7` through the documented
+`ProcessStartInfo.ArgumentList` shape.
+
+Fresh iterations did not receive the prior failure or expected answer. Earlier
+assessments returned `CORRECTION_REQUIRED` when responses omitted material
+stream capture, text closure, or an actually observed runtime. The final
+single-contract fixture run reported the current PowerShell runtime and
+capability, exact executable selection under stated bare-name precedence,
+spaced-path transport, separate streams, verifier exits `0` and `2`, wrapper
+exit `1`, and the verifier's real UTF-8/BOM/JSON contract. A final independent
+assessor matched all five current hashes and returned `ACCEPTED`.
+
+The first native review then found two P2 transfer defects in the
+`ProcessStartInfo` example: assigning an `ApplicationInfo` directly could
+re-resolve a same-named executable, and a successful capability guard did not
+emit its observed result. The example now passes the selected `.Path`, emits
+runtime plus capability before construction, and was executed against a child
+process with separate stdout, stderr, and exit status. A new fresh runner and
+independent assessor matched the corrected hashes and returned `ACCEPTED`.
+
+This is dirty-SOURCE-assisted behavior only. It does not supersede the earlier
+exact-commit RC verdict or establish native selection, a loaded corrected copy,
+another RC, stable, shadow-use, commit, tag, or release evidence. The
+[sanitized result](../../../evals/results/2026-07-31-powershell-native-example-correction.md)
+owns the detailed iterations and limits.
 
 ## 2026-07-31 Boundary-Hardening Evidence
 
@@ -90,6 +139,35 @@ This is SOURCE-assisted development behavior, not native selection,
 `DEV_DISCOVERY`, loaded-copy, candidate, stable, live Bash/WSL, actual
 sandbox-denial, shadow-use, commit, or release evidence. See the
 [sanitized result](../../../evals/results/2026-07-31-powershell-boundary-hardening.md).
+
+### Exact-commit RC and loaded-copy gate
+
+The supported installer materialized the five-file package from public exact
+commit `58fc52600df0e1dc3abd92ba31f031ee2b07db82` into one ignored,
+repository-scoped `RC_INSTALL`. Every installed file matched its public Git
+blob and raw plus normalized SHA-256, decoded as strict UTF-8 without BOM,
+used LF with one final newline, and was not a reparse point. The installed
+candidate passed the bundled Skill validator, and the existing `v0.1.1`
+stable copy remained unchanged.
+
+Fresh processes used a documented process-local per-path disable for the older
+stable entry without changing persistent configuration. Exactly one same-named
+candidate remained selectable in the test scope. The positive task implicitly
+loaded the RC entry and native/text references, but not its WSL reference,
+stable entry, or private fallback. The ordinary `Get-Date` negative loaded no
+Skill.
+
+The positive diagnosis correctly classified nested command-string argument
+transport, spaced-path handling, immediate native exit capture, and
+pre-process policy rejection. Its user-visible safe example nevertheless
+selected an executable without the required zero/one/many cardinality and
+fail-closed rule and did not separate stdout from stderr. A separate fresh
+assessor therefore returned `CORRECTION_REQUIRED`.
+
+This proves current exact-commit RC materialization, native selection, and
+loaded-copy identity, but not accepted RC behavior. The
+[sanitized RC result](../../../evals/results/2026-07-31-powershell-hardening-exact-commit-rc.md)
+owns the attempts, verdict, and limitations.
 
 ## Released Development Evidence
 
@@ -160,8 +238,10 @@ The coherent `v0.1.1` candidate
 `f7c07b5470f10ce09ecb704bb0fb6d01e1d52b42` repeated exact-commit proof.
 Immutable tag `v0.1.1` resolved to that commit, and the tag-pinned stable entry
 was actually loaded in a fresh read-only process and preserved the requirement
-to capture `$LASTEXITCODE` immediately. The current local hardening has
-none of this loaded-copy evidence.
+to capture `$LASTEXITCODE` immediately. The later public hardening now has its
+own exact-commit RC materialization and loaded-copy evidence, but its
+independent RC behavior verdict is `CORRECTION_REQUIRED` and it has no stable
+proof.
 
 Repository-level shared candidate, tag, installation, and release evidence is
 owned by [root Verification](../../VERIFICATION.md).

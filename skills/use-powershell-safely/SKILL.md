@@ -85,6 +85,51 @@ Get-Command pwsh -CommandType Application -ErrorAction SilentlyContinue
 9. Change application code only when the direct, correctly transported
    reproduction demonstrates an application defect.
 
+## Emit A Complete Native Shape
+
+When a user-runnable native example discovers an executable, carry candidate
+identity, argument structure, stream semantics, and exit status through the
+example instead of showing only the happy-path invocation:
+
+```powershell
+$candidates = @(
+    Get-Command $commandName -CommandType Application -All `
+        -ErrorAction SilentlyContinue
+)
+if ($candidates.Count -ne 1) {
+    $candidates | Select-Object Name, Path, CommandType
+    throw "Expected one application candidate; found $($candidates.Count)."
+}
+
+$exe = $candidates[0]
+$nativeArgs = @('--input', $inputPath)
+& $exe.Path @nativeArgs
+$exitCode = $LASTEXITCODE
+```
+
+Use a documented precedence or identity rule instead of the exact-one check
+only when the task actually provides one. The direct form above inherits the
+console streams; it does not capture stdout and stderr separately. When their
+distinction is material, including when the user asks what each stream
+contains, show the tool's independent output-file options or an explicitly
+redirected process API. Never claim separate capture unless the example and
+evidence actually preserve both streams.
+
+Before using a version-specific command or API, report the observed
+PowerShell edition/version and verify the required capability; a
+`PowerShell 7` label is not runtime evidence. When the current host is
+available, run the read-only runtime and capability probes and report their
+results before offering the version-specific command. Merely placing probes in
+a command the user could run later is not observed evidence. If execution is
+unavailable, keep the runtime unknown and present the command as a guarded
+option rather than a verified host-compatible shape.
+
+Keep every other material branch in the answer. If the task also raises JSON,
+encoding, BOM, newline, or byte identity, load the text reference and close
+that hypothesis with an explicit decode, parse, or byte check that matches the
+actual producer and consumer contract. Do not infer file validity from a
+transport fix or parse a plain-text status as JSON.
+
 ## Stop And Ask
 
 - Obtain explicit authorization before installing or updating PowerShell,

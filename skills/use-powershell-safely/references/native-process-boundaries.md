@@ -12,6 +12,7 @@ destructive operations, and PowerShell 7 installation guidance.
 - [Command Discovery And Result Shape](#command-discovery-and-result-shape)
 - [Native Errors And Preference Variables](#native-errors-and-preference-variables)
 - [Preserve Native Arguments](#preserve-native-arguments)
+- [Complete User-Runnable Examples](#complete-user-runnable-examples)
 - [Streams, Pipelines, And Redirection](#streams-pipelines-and-redirection)
 - [Process APIs](#process-apis)
 - [Paths, Permissions, And Destructive State](#paths-permissions-and-destructive-state)
@@ -243,6 +244,37 @@ Windows-only stop-parsing token `--%` only for a narrow native-command case
 that cannot be expressed safely with normal argument arrays; it is not a
 cross-platform or multi-line solution.
 
+## Complete User-Runnable Examples
+
+Do not let a diagnostic rule disappear when turning it into a command the user
+can run. A native example that discovers its executable must show or reuse:
+
+1. an application-only candidate collection normalized with `@(...)`;
+2. explicit handling for zero, one, and unresolved multiple candidates;
+3. the selected `ApplicationInfo` object or exact path;
+4. one array element per native argument;
+5. the actual stdout/stderr disposition; and
+6. immediate exit-code capture; and
+7. observed runtime and capability evidence for every version-specific API.
+
+The entry-point example uses an exact-one rule and inherited console streams.
+That is complete only when separate stream contents are not needed. A request
+to report or compare both streams makes independent capture material. If the
+tool contract permits bare-name execution precedence, selecting the first
+`Get-Command -All` result may replace exact-one selection, but state that rule
+and report the selected path. If stream distinction is material, use the
+tool's independent output files or the redirected process pattern below.
+
+Do not write “capture stdout and stderr separately” next to an invocation that
+inherits, merges, or discards them. State what the command actually does and
+what remains unobserved.
+
+When the current host is accessible, execute the read-only runtime and
+capability probes and report the observed values before relying on
+version-specific syntax. A probe embedded in a future user command is a guard,
+not evidence that the current host already passed it. When execution is
+unavailable, state that limitation and keep compatibility unknown.
+
 ## Streams, Pipelines, And Redirection
 
 - Capture stdout and stderr separately when their distinction matters.
@@ -281,8 +313,24 @@ regular expressions. `ProcessStartInfo.ArgumentList` is available on the modern
 pre-escaping:
 
 ```powershell
+$currentHost = [pscustomobject]@{
+    Edition = $PSVersionTable.PSEdition
+    Version = $PSVersionTable.PSVersion.ToString()
+}
+$argumentListAvailable = $null -ne (
+    [System.Diagnostics.ProcessStartInfo].GetProperty('ArgumentList')
+)
+[pscustomobject]@{
+    Runtime = $currentHost
+    ArgumentListAvailable = $argumentListAvailable
+}
+if (-not $argumentListAvailable) {
+    throw "ProcessStartInfo.ArgumentList is unavailable in $($currentHost.Edition) $($currentHost.Version)."
+}
+
+# $exe is the ApplicationInfo selected by the discovery rule above.
 $startInfo = [System.Diagnostics.ProcessStartInfo]::new()
-$startInfo.FileName = $exe
+$startInfo.FileName = $exe.Path
 $startInfo.UseShellExecute = $false
 
 foreach ($argument in $nativeArgs) {
@@ -290,15 +338,40 @@ foreach ($argument in $nativeArgs) {
 }
 ```
 
-Set stdout/stderr redirection, asynchronous reading, environment, working
-directory, wait behavior, and timeout deliberately. Validate untrusted input
-even when the API preserves argument boundaries.
+When separate text streams are required and the tool's encoding contract is
+known, redirect and drain both streams independently:
+
+```powershell
+$startInfo.RedirectStandardOutput = $true
+$startInfo.RedirectStandardError = $true
+
+$process = [System.Diagnostics.Process]::new()
+$process.StartInfo = $startInfo
+if (-not $process.Start()) {
+    throw 'The native process did not start.'
+}
+
+$stdoutTask = $process.StandardOutput.ReadToEndAsync()
+$stderrTask = $process.StandardError.ReadToEndAsync()
+$process.WaitForExit()
+
+$stdout = $stdoutTask.GetAwaiter().GetResult()
+$stderr = $stderrTask.GetAwaiter().GetResult()
+$exitCode = $process.ExitCode
+$process.Dispose()
+```
+
+Set `StandardOutputEncoding` and `StandardErrorEncoding` only when the native
+tool's documented text contract justifies those values. Set environment,
+working directory, wait behavior, and timeout deliberately. Validate
+untrusted input even when the API preserves argument boundaries.
 
 Windows PowerShell 5.1 runs on .NET Framework and does not provide
 `ProcessStartInfo.ArgumentList`. Prefer direct `& $exe @nativeArgs` or a script
 file there. If a separate 5.1 process is unavoidable, treat the string-based
 `Arguments` property as a new quoting boundary and test it against the exact
-target executable rather than presenting it as structured transport.
+target executable rather than presenting it as structured transport. Do not
+present the PowerShell 7 capture example as a 5.1-compatible command.
 
 ## Paths, Permissions, And Destructive State
 

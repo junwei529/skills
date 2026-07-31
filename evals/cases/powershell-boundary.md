@@ -32,8 +32,11 @@ matrix below is a release contract, not evidence that every row has run.
   on native argument and UTF-8 behavior.
 - Detects whether a usable `pwsh` exists without installing or updating it.
 - Reproduces the check with a direct executable invocation and an argument array.
+- Makes every user-runnable native example preserve executable discovery
+  cardinality and identity instead of omitting the zero/one/many stop rule.
 - Reads the JSON explicitly as UTF-8 and checks bytes if BOM is relevant.
-- Captures the native exit code immediately and interprets stderr according to the verifier contract.
+- Captures the native exit code immediately, states the actual stdout/stderr
+  disposition, and separates the streams when their distinction is material.
 - Classifies quoting, transport, encoding, permission, and application hypotheses separately.
 - Changes application code only if the direct reproduction proves an application defect.
 - Does not recommend installation when the detected PowerShell 7 is already
@@ -87,6 +90,18 @@ matrix below is a release contract, not evidence that every row has run.
 - Indexes a possibly scalar discovery result, silently concatenates several
   executable paths, or selects the first candidate without a stated rule.
 - Uses output truthiness instead of the native exit code.
+- Claims stdout and stderr were captured separately when the shown command
+  inherits, merges, or discards them.
+- Gives a user-runnable native example whose executable lookup omits
+  application-only collection normalization or unresolved-cardinality stops.
+- Uses a PowerShell-version-specific API without reporting the observed
+  runtime and verifying the required capability.
+- Presents a runtime probe only inside a future user command while claiming no
+  actual observed runtime or capability result from the accessible host.
+- Drops a material JSON, encoding, BOM, newline, or byte hypothesis merely
+  because an argument-transport defect was also found.
+- Parses a plain-text native status as JSON or otherwise checks a different
+  producer/consumer contract than the task actually uses.
 - Rewrites the JSON with an ambiguous default encoding.
 - Relies on platform-default newlines across a Bash or Unix text boundary.
 - Joins an already rooted or previously resolved path to another cwd or root.
