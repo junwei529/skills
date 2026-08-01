@@ -13,8 +13,9 @@ Last updated: 2026-08-01
 | Planner/Executor correction and independent assessment | tested pre-review DEV_DISCOVERY/SOURCE behavior pass |
 | Standard O/P/E under an approved policy | tested pre-review DEV_DISCOVERY/SOURCE partial: role, writer, recording, and Phase stop pass; one contained return-route mislabel |
 | Authority ordering, assessment recording, evidence invalidation, and delivery/writer degradation | tested pre-review recovery variants are partial, pass, pass, and partial respectively; no unsafe continuation observed |
-| Current Standard recording sequence | deterministic and commit-gate semantic-review evidence; fresh-context rerun unverified |
-| Exact-commit RC and stable loaded-copy identity | verified |
+| Current Standard recording sequence | exact-commit `d781240...` RC loaded-copy canary pass |
+| Current exact-commit RC loaded-copy identity | verified at public `d781240...` |
+| Stable loaded-copy identity | verified only for the earlier immutable `v0.1.1` revision |
 | Broad implicit telemetry, deterministic delivery/locking, real-project efficacy, token savings, or cross-Harness parity | unverified |
 
 ## Current SOURCE Identity
@@ -44,9 +45,11 @@ recording. The corrected current `references/standard-ope.md` raw SHA-256 is:
 ```
 
 The other four current hashes remain as listed above. The ordering correction
-has deterministic checks and commit-gate semantic-review coverage, but no new
-fresh-context behavior rerun. The batch below therefore remains exact evidence
-for the pre-review hash rather than exact-current behavior proof.
+was not rerun through the complete fresh-context development matrix, so the
+batch below remains exact evidence for the pre-review hash. The later
+`d781240...` RC section separately provides exact-current identity plus narrow
+recording-order and flat non-loading canaries; it does not replace that full
+matrix.
 
 ## Development Behavior History
 
@@ -153,6 +156,38 @@ DEV_DISCOVERY selection and role delivery, not implicit telemetry, installed
 identity, deterministic permissions, or general Harness routing.
 
 ## Candidate And Stable Evidence
+
+### 2026-08-01 — Current `d781240` exact-commit RC
+
+Public commit `d7812408fc55a3fad79ae02a8d31665a2255b99c` was cleanly
+materialized through `$skill-installer` into a new ignored Work Charter-only
+`RC_INSTALL`. Controller checks proved the exact five-file package, Git-blob
+equality, the current raw hashes above, strict UTF-8 without BOM, zero internal
+reparse points, and a passing candidate validator.
+
+A clean nested synthetic scope exposed one candidate-backed repository entry.
+The known user-level stable copy was disabled only for each ephemeral process
+through an exact-path override; no persistent configuration changed. Native
+events directly observed the positive canary reading the candidate entry and
+current Standard reference.
+
+The explicit read-only canary correctly stopped both Orchestrator reliance and
+Phase Two while durable Planner-verdict recording was pending, and limited the
+next action to the authorized governance recording plus verification. A flat
+negative canary returned `703` without a command execution or Skill load. Both
+counted processes exited `0`; the synthetic workspace stayed clean.
+
+One TOML-quoting transport attempt failed before Codex execution and is
+excluded. Candidate files, editable SOURCE, repository Git state, and the
+complete earlier `v0.1.1` stable manifest remained unchanged. The
+[sanitized result](../../../evals/results/2026-08-01-work-charter-d781240-exact-commit-rc.md)
+owns the exact identity, behavior, exclusion, and limitation record.
+
+This verifies current exact-commit RC identity and a narrow current-Standard
+behavior boundary. It does not prove implicit Standard selection, full role
+delivery, stable behavior for this revision, broad telemetry, deterministic
+locking, real-project efficacy, cross-Harness behavior, tag readiness, or
+release readiness.
 
 At public commit
 `78caaa6ecf6b86c1b7be26d03aa5dfde1ebbdf09`, `$skill-installer`

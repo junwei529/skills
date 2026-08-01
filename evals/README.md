@@ -240,7 +240,8 @@ The
 [Work Charter M2R report](results/2026-07-29-work-charter-m2r-forward-tests.md)
 records five SOURCE-assisted behavior groups and two controlled negative
 variants for its exact hashes. Native implicit selection, loaded-copy identity,
-real-project behavior, candidate, and release proof remain unverified.
+real-project behavior, candidate, and release proof remain unverified for that
+historical revision.
 
 The
 [authority, assessment, and evidence report](results/2026-08-01-work-charter-authority-assessment-evidence-forward-tests.md)
@@ -248,8 +249,13 @@ records one sole-`DEV_DISCOVERY` matrix for its exact pre-review SOURCE, four
 independent recovery-integrity variants, and a fresh independent `ACCEPTED`
 verdict for bounded development recording. Cold recovery, Standard routing,
 authority ordering, and delivery/writer reporting remain partial as recorded.
-The current Standard sequencing correction lacks a fresh-context rerun; current
-RC, stable, real-project, broad-trigger, and causal evidence remain unverified.
+The current Standard sequencing correction was not rerun through the complete
+fresh-context development matrix. The later
+[exact-commit RC report](results/2026-08-01-work-charter-d781240-exact-commit-rc.md)
+verifies exact-current five-file identity, one explicit current-Standard
+recording-order canary, and flat non-loading. Current stable, full Standard role
+delivery, implicit Standard selection, real-project, broad-trigger, and causal
+evidence remain unverified.
 
 The
 [Revised PowerShell Development Forward Tests](results/2026-07-28-powershell-forward-tests.md)

@@ -1,6 +1,6 @@
 # Project Docs State
 
-Last updated: 2026-07-31
+Last updated: 2026-08-01
 
 ## Current Implementation
 
@@ -10,25 +10,23 @@ explicit-only, preserves sufficient existing layouts, and implements the five
 logical responsibilities, four surfaces, five outcomes, continuity anchor, and
 structural authorization gate.
 
-The current candidate adds a bounded recovery-coherence hardening to the entry
-and both direct references. It distinguishes readers, active sessions,
+Public `main` at `d7812408fc55a3fad79ae02a8d31665a2255b99c` contains the
+bounded recovery-coherence hardening to the entry and both direct references.
+It distinguishes readers, active sessions,
 and writers; keeps current state, writer, gate, next action, and recovery target
 on one verified checkpoint; audits current/historical/superseded evidence and
 result indexes; fails closed when no unique recovery entry exists; and
 preserves immutable history while correcting current claims.
 
-The public `v0.1.1` tag and stable installed copy predate this hardening. The
-candidate is fully staged against local baseline `a150a865...` at the reviewed
-commit checkpoint and must not be attributed to that tag or stable copy. If
-live `HEAD` is a clean descendant containing this snapshot, the hardening is
-locally committed but remains absent from the public and stable identities.
+The public `v0.1.1` tag and stable installed copy predate this hardening and
+must not be described as containing it.
 
 ## Current Writer
 
-The SOURCE/eval/evidence writer relinquished after acceptance. The separately
-authorized commit-gate runner is the sole repository writer while the exact
-candidate remains staged; it relinquishes when the local commit succeeds or
-the gate stops. Installation and release remain separately gated.
+No Project Docs writer is active. Its SOURCE/eval/evidence and commit-gate
+writers relinquished after acceptance, commit, and public push. The current
+repository evidence-only gate does not authorize Project Docs SOURCE,
+discovery, installation, RC, stable, or release changes.
 
 ## Evidence State
 
@@ -44,11 +42,10 @@ See [Verification](VERIFICATION.md).
 
 ## Next Gate
 
-While live `HEAD` remains the baseline and the candidate is staged, the active
-gate is the separately authorized native review and local commit. After a clean
-commit, public push and a new exact-commit `RC_INSTALL` loaded-copy/behavior
-gate remain separate later actions. Stable update, private-global retirement,
-cleanup, tag, and release are not authorized.
+The next Project Docs lifecycle gate is a separately authorized exact-commit
+`RC_INSTALL` and loaded-current-copy behavior run for public `d781240...`.
+Stable update, private-global retirement, retained-evidence cleanup, tag, and
+release remain separate later decisions.
 
 ## Recovery Entry
 

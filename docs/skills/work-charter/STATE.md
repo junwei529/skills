@@ -9,23 +9,22 @@ Canonical editable SOURCE is the five-file package under
 `manage-large-tasks` path is retired without an alias or second discovery
 entry.
 
-The public `v0.1.1` tag and stable installed copy contain the earlier accepted
-package. The current candidate adds an authorized four-file SOURCE hardening
-inside the existing five-file package for authority finality, assessment
-recording, evidence integrity, uncertain delivery, and advisory writer
-recovery. It adds no package file, trigger, role, verdict, lock, script, or
-installation identity. The candidate is staged against local baseline
-`586d1c45...` at the reviewed commit checkpoint; if live `HEAD` is a clean
-descendant containing this snapshot, the hardening is locally committed but
-remains absent from the public and stable identities.
+Public `main` now contains the current five-file package at
+`d7812408fc55a3fad79ae02a8d31665a2255b99c`. It adds authority finality,
+assessment recording, evidence integrity, uncertain delivery, and advisory
+writer recovery without adding a package file, trigger, role, verdict, lock,
+script, or installation identity. The public `v0.1.1` tag and stable installed
+copy still contain the earlier accepted package.
 
 ## Current Writer
 
-The authorized Work Charter implementation task completed the bounded SOURCE,
-documentation, eval, forward-test, and cleanup scope and relinquished. The
-separately authorized Release & Git Custodian is the sole writer while the
-exact candidate remains staged; it relinquishes when the local commit succeeds
-or the gate stops.
+The implementation and RC writers relinquished. The separately authorized
+Release & Git Custodian owns the exact fifteen-path evidence-only native-review
+and local-commit window and is the sole repository writer until that commit
+succeeds or the gate stops.
+
+If live `HEAD` is a clean descendant containing this evidence delta, the local
+commit gate has completed and the Custodian has relinquished.
 
 ## Evidence State
 
@@ -43,20 +42,20 @@ ordering, and delivery/writer reporting were partial but safe; assessment
 recording and source/evidence drift passed. The assessor returned `ACCEPTED`
 for bounded development recording at that exact revision.
 
-Commit-gate native review then required the current Standard reference to move
-durable Planner-verdict recording before Orchestrator reliance. That narrow
-ordering correction has deterministic and semantic-review evidence but no new
-fresh-context rerun. The evidence therefore remains development-level and is
-not exact-current `RC_INSTALL`, current stable-install, real-project,
-broad-trigger, cross-Harness, or release proof.
+Commit-gate native review required the current Standard reference to move
+durable Planner-verdict recording before Orchestrator reliance. An isolated
+exact-commit `d781240...` RC now has five-file identity proof, a native explicit
+loaded-copy canary for that ordering, and a flat non-loading canary. This is not
+full Standard role delivery, current stable-install, real-project,
+broad-trigger, cross-Harness, tag, or release proof.
 
 ## Next Gate
 
-While live `HEAD` remains the baseline and the candidate is staged, the active
-gate is the separately authorized native review and local commit. After a clean
-commit, public push and a new exact-commit `RC_INSTALL` loaded-copy/behavior
-gate remain separate later actions. Stable update, private-global retirement,
-tag, and release are not authorized.
+At this reviewed checkpoint, the active repository gate is the authorized
+evidence-only native review and one local commit for the exact fifteen paths. If
+live `HEAD` is a clean descendant containing the delta, that gate has completed.
+Push, stable update, private-global retirement, tag, GitHub Release, and
+publication remain separate later decisions.
 
 ## Recovery Entry
 

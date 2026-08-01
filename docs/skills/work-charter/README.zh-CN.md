@@ -55,11 +55,11 @@ lane、一个 repository writer，并至多有一个 Planner 和一个 Executor�
 exact-commit RC 恢复 canary，以及基于 `v0.1.1` tag 的显式 Flat smoke，均对
 其精确 revision 通过。review 前的 authority、assessment 和 evidence revision
 已有结构、fixture 前置条件、sole-`DEV_DISCOVERY` fresh-context 证据，以及独立
-的 bounded `ACCEPTED`；partial 等级仍如实保留。当前 candidate 增加了一项
-窄范围 semantic-review 修订：先记录 Planner verdict，再允许 Orchestrator
-依赖它。该修订已有确定性检查与 review 证据，但尚无新的 fresh-context rerun。
-当前 exact-commit RC 与 stable 行为、广泛隐式触发 telemetry、独立真实项目
-效果、确定性 writer 锁和跨 Harness 等价性均未得到证明。参见
+的 bounded `ACCEPTED`；partial 等级仍如实保留。公开 commit `d781240...`
+增加了一项窄范围修订：先记录 Planner verdict，再允许 Orchestrator 依赖它。
+exact-commit RC 已实际加载当前 entry 与 Standard reference，通过该顺序 canary，
+并在 flat task 中保持未加载。当前 stable 行为、广泛隐式触发 telemetry、独立
+真实项目效果、确定性 writer 锁和跨 Harness 等价性均未得到证明。参见
 [验证](VERIFICATION.md)和[状态](STATE.md)。
 
 ## 权威合同

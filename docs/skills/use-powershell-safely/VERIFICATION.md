@@ -1,6 +1,6 @@
 # PowerShell Verification
 
-Last updated: 2026-07-31
+Last updated: 2026-08-01
 
 ## Claim Ledger
 
@@ -11,9 +11,9 @@ Last updated: 2026-07-31
 | Ordinary cmdlet and POSIX-only work remain outside the Skill | catalog-assisted and controlled native negatives pass |
 | Released DEV_DISCOVERY, exact-commit RC, and stable loaded-copy identity | verified |
 | Current public hardening preserves cardinality, LF bytes, one-base paths, and confirmed-Junction link-only removal | fifteen assertions pass under PowerShell 7 and Windows PowerShell 5.1; SOURCE-assisted behavior independently accepted |
-| Current hardening exact-commit RC identity, native selection, and loaded copy | verified at `58fc52600df0e1dc3abd92ba31f031ee2b07db82` |
-| Current hardening RC behavior acceptance | `CORRECTION_REQUIRED`; the loaded response omitted fail-closed executable cardinality and separate stream capture |
-| Current locally committed native-example correction behavior | final fresh SOURCE-assisted fixture run independently `ACCEPTED`; contained in local `a150a865...`, with no loaded corrected copy or new RC |
+| Boundary-hardening exact-commit RC identity, native selection, and loaded copy | verified at historical public `58fc52600df0e1dc3abd92ba31f031ee2b07db82` |
+| Boundary-hardening RC behavior acceptance | `CORRECTION_REQUIRED`; the loaded response omitted fail-closed executable cardinality and separate stream capture |
+| Current public native-example correction behavior | final fresh SOURCE-assisted fixture run independently `ACCEPTED`; introduced at `a150a865...` and contained in public `d781240...`, with no loaded corrected copy or new RC |
 | Current hardening stable, live Bash/WSL, actual sandbox denial, or shadow use | unverified |
 | General efficacy, token savings, or cross-Harness parity | unverified |
 
@@ -35,10 +35,10 @@ references/windows-wsl-boundaries.md
   5674d97ac52c6c8b05c8f57acae8ba5970afbdab3a1828ba62297038e450ffb7
 ```
 
-These hashes identify SOURCE in local commit
-`a150a8652111ad7a04b4b8a048e861ee5c91fc93`. Public `main` remains at
-`58fc52600df0e1dc3abd92ba31f031ee2b07db82`; no loaded corrected candidate or
-stable installation is implied.
+These hashes identify SOURCE introduced at
+`a150a8652111ad7a04b4b8a048e861ee5c91fc93` and contained in current public
+`d7812408fc55a3fad79ae02a8d31665a2255b99c`. No loaded corrected candidate,
+new RC, or stable installation is implied.
 
 ## 2026-07-31 Native-Example Correction
 
@@ -79,10 +79,10 @@ runtime plus capability before construction, and was executed against a child
 process with separate stdout, stderr, and exit status. A new fresh runner and
 independent assessor matched the corrected hashes and returned `ACCEPTED`.
 
-This behavior was produced against then-dirty SOURCE and is now contained in
-local commit `a150a865...`. It does not supersede the earlier exact-commit RC
-verdict or establish native selection, a loaded corrected copy, another RC,
-stable, shadow-use, public push, tag, or release evidence. The
+This behavior was produced against then-dirty SOURCE, introduced by commit
+`a150a865...`, and is now contained in public `d781240...`. It does not
+supersede the earlier exact-commit RC verdict or establish native selection, a
+loaded corrected copy, another RC, stable, shadow-use, tag, or release evidence. The
 [sanitized result](../../../evals/results/2026-07-31-powershell-native-example-correction.md)
 owns the detailed iterations and limits.
 
@@ -166,8 +166,9 @@ selected an executable without the required zero/one/many cardinality and
 fail-closed rule and did not separate stdout from stderr. A separate fresh
 assessor therefore returned `CORRECTION_REQUIRED`.
 
-This proves current exact-commit RC materialization, native selection, and
-loaded-copy identity, but not accepted RC behavior. The
+This proves boundary-hardening exact-commit RC materialization, native
+selection, and loaded-copy identity at `58fc526...`, but not accepted RC
+behavior or a loaded copy of the later correction. The
 [sanitized RC result](../../../evals/results/2026-07-31-powershell-hardening-exact-commit-rc.md)
 owns the attempts, verdict, and limitations.
 
@@ -240,10 +241,10 @@ The coherent `v0.1.1` candidate
 `f7c07b5470f10ce09ecb704bb0fb6d01e1d52b42` repeated exact-commit proof.
 Immutable tag `v0.1.1` resolved to that commit, and the tag-pinned stable entry
 was actually loaded in a fresh read-only process and preserved the requirement
-to capture `$LASTEXITCODE` immediately. The later public hardening now has its
-own exact-commit RC materialization and loaded-copy evidence, but its
-independent RC behavior verdict is `CORRECTION_REQUIRED` and it has no stable
-proof.
+to capture `$LASTEXITCODE` immediately. The boundary hardening has its own
+exact-commit RC materialization and loaded-copy evidence, but its independent
+RC behavior verdict is `CORRECTION_REQUIRED`. The later correction now in
+public `d781240...` has no loaded corrected copy, new RC, or stable proof.
 
 Repository-level shared candidate, tag, installation, and release evidence is
 owned by [root Verification](../../VERIFICATION.md).

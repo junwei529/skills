@@ -1,6 +1,6 @@
 # Repository Verification
 
-Last updated: 2026-07-31
+Last updated: 2026-08-01
 
 ## Scope
 
@@ -20,7 +20,7 @@ Sanitized detailed runs remain under [`evals/results`](../evals/results/README.m
 | Check | Purpose | Current result |
 |---|---|---|
 | Three Skill validators | Validate frontmatter and package names without changing packages | pass for current Project Docs, Work Charter, and PowerShell SOURCE after the Work Charter authority/evidence hardening |
-| Repository checker | Validate strict UTF-8/no BOM, whitespace, local links/fragments, publication safety, exact Skill/eval sets, federated docs, and bilingual navigation | pass: 176 text files / 12 cases / 11 fixtures |
+| Repository checker | Validate strict UTF-8/no BOM, whitespace, local links/fragments, publication safety, exact Skill/eval sets, federated docs, and bilingual navigation | pass: 177 text files / 12 cases / 11 fixtures |
 | Fixture checker | Validate eleven synthetic starting states and their Git/reparse/ignored-result boundaries | 15 checks pass |
 | PowerShell deterministic hardening | Validate cardinality, LF bytes, one-base paths, and Junction link-only removal | 15 assertions pass in PowerShell 7 and Windows PowerShell 5.1 |
 | PowerShell parser sweep | Parse all `evals/**/*.ps1` files | 6 files parse |

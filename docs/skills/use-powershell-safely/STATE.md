@@ -1,6 +1,6 @@
 # PowerShell State
 
-Last updated: 2026-07-31
+Last updated: 2026-08-01
 
 ## Current Implementation
 
@@ -8,10 +8,10 @@ Canonical editable SOURCE is the five-file package under
 [`skills/use-powershell-safely`](../../../skills/use-powershell-safely) with
 one entry and three conditional references.
 
-Public `main` contains the reviewed boundary-hardening revision at
-`58fc52600df0e1dc3abd92ba31f031ee2b07db82`. Local `main` advances to
-`a150a8652111ad7a04b4b8a048e861ee5c91fc93`, which contains the later
-native-example correction as a committed SOURCE revision. The hardening adds
+Public and local `main` at
+`d7812408fc55a3fad79ae02a8d31665a2255b99c` contain both the reviewed
+boundary-hardening revision and the later native-example correction introduced
+at `a150a8652111ad7a04b4b8a048e861ee5c91fc93`. The hardening adds
 executable-discovery cardinality and identity, one-base path resolution,
 cross-shell newline contracts, task-specific sandbox remediation, and a
 strictly bounded confirmed-Junction fallback. It keeps frontmatter and the
@@ -31,10 +31,10 @@ described as containing it.
 
 ## Current Writer
 
-No PowerShell writer is active. The native-example correction was committed to
-local `main`, and its controller relinquished. Public push, another RC, stable
-update, private-global changes, tag, and release all require later separate
-authority.
+No PowerShell writer is active. The native-example correction was committed and
+published on `main`, and its controller relinquished. A new corrected-copy RC,
+stable update, private-global changes, tag, and release all require later
+separate authority.
 
 ## Evidence State
 
@@ -53,22 +53,22 @@ The loaded positive response omitted fail-closed executable cardinality and
 separate stream capture, so an independent RC assessor returned
 `CORRECTION_REQUIRED`.
 
-The correction now contained in local commit `a150a865...` passed the Skill validator, repository
-checker, fifteen deterministic assertions under both PowerShell 7 and Windows
-PowerShell 5.1, an executed separate-stream process smoke, and a final fresh
-fixture run with an independent `ACCEPTED` verdict. This is SOURCE-assisted
-development evidence later committed locally; it is not a loaded corrected
-copy, new RC, or stable result.
+The correction introduced at `a150a865...` and now contained in public
+`d781240...` passed the Skill validator, repository checker, fifteen
+deterministic assertions under both PowerShell 7 and Windows PowerShell 5.1, an
+executed separate-stream process smoke, and a final fresh fixture run with an
+independent `ACCEPTED` verdict. This is SOURCE-assisted development evidence
+later committed and published; it is not a loaded corrected copy, new RC, or
+stable result.
 Stable installation, live Bash/WSL, actual sandbox-denial, and bounded
 shadow-use evidence remain absent. See [Verification](VERIFICATION.md).
 
 ## Next Gate
 
-The next independent lifecycle gates require new authorization: first make the
-local commit publicly reachable, then build and test a new exact-commit RC that
-repeats loaded-copy behavior before any stable update. Stable update,
-private-global retirement, retained-evidence cleanup, tag, and release remain
-blocked later gates.
+The next independent lifecycle gate requires new authorization to build and
+test a `d781240...` exact-commit RC that loads the corrected copy before any
+stable update. Stable update, private-global retirement, retained-evidence
+cleanup, tag, and release remain blocked later gates.
 
 ## Recovery Entry
 
@@ -79,5 +79,5 @@ blocked later gates.
 3. Inspect local/public Git identities and current writer/dirty scope against
    [Repository Handoff](../../HANDOFF.md).
 4. Recompute the five SOURCE hashes before attributing any behavior.
-5. Do not confuse the locally committed corrected SOURCE with public `main`,
-   the installed `v0.1.1` copy, or the earlier isolated RC.
+5. Do not confuse current public corrected SOURCE with the installed `v0.1.1`
+   copy or the earlier `58fc526...` isolated RC.

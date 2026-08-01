@@ -6,61 +6,60 @@ Last updated: 2026-08-01
 
 - Repository: Agent Workflow Skills
 - Branch: `main`
-- Development baseline `HEAD`:
-  `586d1c45d8630017675a4379a7c91be6ff1cc9d6`
-- Public `main`: `58fc52600df0e1dc3abd92ba31f031ee2b07db82`
+- Development baseline `HEAD` and public `main`:
+  `d7812408fc55a3fad79ae02a8d31665a2255b99c`
 - Public stable identity: immutable `v0.1.1` at
   `f7c07b5470f10ce09ecb704bb0fb6d01e1d52b42`
-- Index at this reviewed checkpoint: the exact 30-path Work Charter candidate
-  is staged
+- Index at this reviewed checkpoint: the exact fifteen-path Work Charter RC
+  evidence and canonical-state synchronization delta is staged
 - Worktree at this reviewed checkpoint: no unstaged or additional untracked
   path
-- Writer: the Work Charter implementation task relinquished; the authorized
+- Ignored evidence: retained isolated Work Charter `RC_INSTALL` and synthetic
+  native scope for exact commit `d781240...`
+- Writer: the RC evidence runner relinquished; the separately authorized
   Release & Git Custodian is the sole writer until the local commit succeeds or
   the gate stops
 
 If this snapshot is read from a clean descendant commit containing the staged
-candidate, the commit gate has completed and the Custodian has relinquished.
+evidence delta, the commit gate has completed and the Custodian has
+relinquished.
 
-Baseline `586d1c45...` contains the accepted local PowerShell and Project Docs
-hardening commits. Their writers relinquished. Public `main`, exact-commit RC,
-and installed `v0.1.1` predate both corrections and the current Work Charter
-delta. No push, new RC, stable update, tag, or release is implied.
+Public `main` contains the accepted PowerShell, Project Docs, and Work Charter
+hardening commits. Immutable `v0.1.1` and its stable installation predate those
+corrections. The current Work Charter-only RC does not imply a stable update,
+tag, GitHub Release, or publication.
 
-## Work Charter Writer Scope
+## Work Charter RC Evidence Scope
 
 ### Work Charter SOURCE
 
 - `skills/work-charter/SKILL.md`
+- `skills/work-charter/agents/openai.yaml`
 - `skills/work-charter/references/coordination-and-recovery.md`
 - `skills/work-charter/references/standard-ope.md`
 - `skills/work-charter/assets/work-charter.md`
 
-The entry adds one cross-session finality invariant. The coordination reference
-owns comparable authority, uncertain non-idempotent delivery, actual-result
-evidence, source invalidation, assessment recording, and advisory writer
-recovery. The Standard reference applies the recording boundary to read-only
-assessment; commit-gate review reordered Planner-verdict recording before
-Orchestrator reliance. The existing asset adds conditional prompts. Metadata,
-trigger, package shape, roles, verdicts, and correction budget remain
-unchanged.
+These files are unchanged at public `d781240...`. The RC evidence runner may
+read and validate them but must not edit SOURCE or any derived installed copy.
 
 ### Product, eval, and evidence
 
-- `docs/decisions/0016-work-charter-authority-assessment-and-evidence-integrity.md`;
-- Work Charter `README.md`, `README.zh-CN.md`, `DESIGN.md`, `STATE.md`, and
+- `docs/HANDOFF.md`;
+- `docs/ROADMAP.md`;
+- `docs/STATUS.md`;
+- root repository `docs/VERIFICATION.md`;
+- Project Docs `STATE.md` and `VERIFICATION.md`;
+- PowerShell `STATE.md` and `VERIFICATION.md`;
+- Work Charter `README.md`, `README.zh-CN.md`, `STATE.md`, and
   `VERIFICATION.md`;
-- `evals/cases/work-charter-recovery-integrity.md` and its four-variant
-  fixture;
-- focused Planner/Executor and Standard case corrections;
-- `evals/README.md`, `evals/check-fixtures.ps1`, and the repository checker's
-  expected case/fixture sets; and
-- minimum `INDEX`, `STATUS`, `HANDOFF`, `ROADMAP`, and repository verification
-  synchronization.
+- `evals/README.md`;
+- `evals/results/README.md`; and
+- `evals/results/2026-08-01-work-charter-d781240-exact-commit-rc.md`.
 
-No Project Docs or PowerShell SOURCE, installed copy, discovery mapping,
-private global rule, user configuration, remote, branch, worktree, tag, or
-retained evidence root belongs to this scope.
+The ignored RC root and its task-specific junction are retained evidence, not
+Git candidates. No Skill SOURCE, Project Docs or PowerShell owner, stable
+installation, persistent discovery/configuration, private global rule, remote,
+branch, worktree, tag, or release change belongs to this scope.
 
 ## Per-Skill Recovery
 
@@ -73,30 +72,33 @@ retained evidence root belongs to this scope.
 Repository candidate, tag, stable-install, and release history remains in
 [Repository Verification](VERIFICATION.md).
 
-## Verification At Handoff
+## RC Evidence At Handoff
 
-- current Work Charter raw SOURCE hashes are recorded in its
-  [Verification](skills/work-charter/VERIFICATION.md);
-- Work Charter validator: pass;
-- repository checker: pass for 175 text files, twelve cases, and eleven
-  fixtures before result recording, then pass for 176 public text files,
-  twelve cases, and eleven fixtures after result recording and private-run
-  cleanup;
-- all fifteen fixture checks: pass, including actual ignored-result omission
-  from ordinary temporary-repository Git status;
-- all three Skill validators, PowerShell parser sweep, and PowerShell 7 plus
-  Windows PowerShell 5.1 deterministic boundary checks: pass;
-- `git diff --check` and `git diff --cached --check`: pass for the recorded
-  delta;
-- Gitleaks: pass with no leaks;
-- a sole-`DEV_DISCOVERY` pre-review SOURCE matrix and independent assessment
-  exercised Decision 0016; the current Standard sequencing correction has
-  deterministic and commit-gate review evidence but no fresh-context rerun;
-  detailed pass/partial grades are in Work Charter Verification; current RC
-  and stable behavior remain untested.
-- the temporary development entry was removed, the pre-test stable installation
-  was restored byte-for-byte, and a fresh probe observed only the restored
-  stable identity; this does not transfer current-SOURCE behavior evidence.
+- public and local `main` resolve to exact commit `d781240...`;
+- `$skill-installer` materialized an isolated five-file Work Charter candidate;
+- all five files match the selected Git blobs and raw SHA-256, decode as strict
+  UTF-8 without BOM, contain no internal reparse point, and pass the Skill
+  validator;
+- an ephemeral explicit positive process directly read candidate `SKILL.md`
+  plus the current Standard reference and passed the Planner-recording order;
+- an ephemeral flat negative process returned `703` without loading the Skill;
+- one malformed process-local TOML transport failed before Codex execution and
+  is excluded; and
+- the synthetic workspace stayed clean, repository SOURCE remained unchanged,
+  and the complete earlier `v0.1.1` stable manifest remained byte-identical.
+
+- all three Skill validators pass;
+- repository checker passes for 177 text files, twelve cases, and eleven
+  fixtures;
+- all fifteen fixture checks pass;
+- PowerShell 7 and Windows PowerShell 5.1 each pass all fifteen boundary
+  checks;
+- all six tracked eval PowerShell files parse;
+- working and cached diff checks pass;
+- Gitleaks reports no leaks; and
+- the exact staged fifteen-path evidence scope, absence of unstaged or additional
+  untracked paths, five candidate Git blobs, clean synthetic workspace, and
+  ignored RC root are reverified.
 
 ## Resume Order
 
@@ -104,24 +106,22 @@ Repository candidate, tag, stable-install, and release history remains in
 2. Read [Repository Status](STATUS.md), this handoff, and Work Charter
    [State](skills/work-charter/STATE.md) plus
    [Verification](skills/work-charter/VERIFICATION.md).
-3. Confirm branch, baseline/public identities, the exact staged checkpoint or
-   its clean descendant, ignored scope, worktree list, and writer ownership.
-4. Recompute the five Work Charter SOURCE hashes and verify Project Docs and
-   PowerShell SOURCE remain outside the diff.
-5. Read the current sanitized Work Charter result and preserve its partial
-   grades and attribution limits; do not upgrade development evidence to RC or
-   stable proof.
+3. Confirm local/public `d781240...`, the exact staged fifteen-path evidence
+   delta or its clean descendant, retained ignored RC root, worktree list, and
+   writer ownership.
+4. Recompute the candidate's five Git-blob and SHA-256 identities and verify
+   all Skill SOURCE remains outside the diff.
+5. Read both 2026-08-01 Work Charter results. Preserve the earlier partial
+   development grades and the new RC's narrow behavior limits; do not upgrade
+   either to current stable or release proof.
 
 ## Immediate Next Action
 
-The exact 30-path Work Charter candidate is staged under a separately
-authorized native-review and local-commit gate. Finish the repository commit
-policy and create the local commit only if the staged scope and single-writer
-boundary remain intact.
-
-If live `HEAD` is a clean descendant containing this checkpoint, the local
-commit gate has completed. Public push and a new exact-commit Work Charter RC
-then remain separate lifecycle decisions.
+The exact fifteen-path evidence and canonical-state synchronization delta is
+staged under the separately authorized native-review/local-commit gate. Finish
+the repository commit policy
+and create one local commit only if the scope and single-writer boundary remain
+intact.
 
 ## Stop Conditions
 
@@ -140,9 +140,9 @@ Stop before write if:
 
 ## Unauthorized Actions
 
-This handoff does not itself grant action authority. A separate user
-instruction authorizes only staging, native review, same-scope finding repair,
-verification, and one local commit for the exact 30-path candidate. It does not
-authorize any additional role task, amend, branch/worktree change, remote
-change, push, tag, GitHub Release, `DEV_DISCOVERY`, `RC_INSTALL`, stable
-installation or update, user configuration, private-global edit, or cleanup.
+This handoff does not itself grant action authority. A separate user instruction
+authorizes only staging, native review, same-scope finding repair, verification,
+and one local commit for the exact fifteen-path evidence delta. It does not
+authorize amend, branch/worktree or remote change, push, tag, GitHub Release,
+stable installation/update, persistent configuration, private-global edit, or
+cleanup.

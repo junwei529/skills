@@ -1,6 +1,6 @@
 # Project Docs Verification
 
-Last updated: 2026-07-31
+Last updated: 2026-08-01
 
 ## Claim Ledger
 
@@ -37,10 +37,15 @@ assets/templates/continuity-anchor.md
   258578585c4a9c69379afdfa9a872b41233885a11c6342a7458c7677aeb68ec5
 ```
 
-## Current SOURCE Recovery-Coherence Hardening
+These exact hashes are contained in current public
+`d7812408fc55a3fad79ae02a8d31665a2255b99c`. The immutable `v0.1.1`
+stable copy predates the recovery-coherence hardening.
+
+## Recovery-Coherence Hardening
 
 Three fresh medium-reasoning contexts exercised the existing continuity,
-conflict, and safety surfaces against the current dirty canonical SOURCE:
+conflict, and safety surfaces against the then-dirty canonical SOURCE at the
+exact hashes above:
 
 | Scenario | Outcome | Continuity | Target effect |
 |---|---|---|---|
@@ -62,10 +67,11 @@ boundaries, independently recomputed the identities, and returned `ACCEPTED`.
 The [sanitized result](../../../evals/results/2026-07-31-project-docs-recovery-coherence-hardening.md)
 owns the detailed scope and limits.
 
-This is dirty SOURCE-assisted development behavior. It does not establish
-native selection, a loaded current copy, `DEV_DISCOVERY`, a new exact-commit
-candidate, stable behavior, commit, push, tag, release, broad telemetry, or
-real-project efficacy.
+These runs are historical dirty-SOURCE-assisted development behavior. Their
+exact hashes were later committed and are now public at `d781240...`; that
+current Git identity does not upgrade the runs to native selection, a loaded
+current copy, `DEV_DISCOVERY`, a new exact-commit candidate, stable behavior,
+broad telemetry, or real-project efficacy.
 
 ## Development Behavior History
 

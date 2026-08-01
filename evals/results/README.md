@@ -17,6 +17,7 @@ host paths, hidden reasoning, or ignored run workspaces.
 | 2026-07-31 | [PowerShell native-example correction](2026-07-31-powershell-native-example-correction.md) | Dirty-SOURCE correction, complete native command transfer, fresh fixture run, and independent `ACCEPTED` verdict |
 | 2026-07-31 | [Project Docs recovery-coherence hardening](2026-07-31-project-docs-recovery-coherence-hardening.md) | Current-SOURCE continuity/conflict/safety correction runs, two excluded attempts, and final independent `ACCEPTED` verdict |
 | 2026-08-01 | [Work Charter authority, assessment, and evidence forward tests](2026-08-01-work-charter-authority-assessment-evidence-forward-tests.md) | Exact pre-review five-file SOURCE under sole DEV_DISCOVERY, six behavior groups including four recovery variants, and independent bounded `ACCEPTED`; a later Standard sequencing correction is not covered |
+| 2026-08-01 | [Work Charter `d781240` exact-commit RC](2026-08-01-work-charter-d781240-exact-commit-rc.md) | Five-file Git-blob identity, explicit current-Standard loaded-copy canary, flat non-loading canary, stable preservation, and one excluded pre-execution transport failure |
 
 These results are useful for finding workflow defects. They are not a causal
 benchmark, a native Harness trigger evaluation, a token comparison, SHICE
