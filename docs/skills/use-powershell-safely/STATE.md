@@ -8,8 +8,8 @@ Canonical editable SOURCE is the five-file package under
 [`skills/use-powershell-safely`](../../../skills/use-powershell-safely) with
 one entry and three conditional references.
 
-Public and local `main` at
-`d7812408fc55a3fad79ae02a8d31665a2255b99c` contain both the reviewed
+Tested public candidate
+`c42eef392a5b9f58bbee64aa73ffb603a6fb6c29` contains both the reviewed
 boundary-hardening revision and the later native-example correction introduced
 at `a150a8652111ad7a04b4b8a048e861ee5c91fc93`. The hardening adds
 executable-discovery cardinality and identity, one-base path resolution,
@@ -53,22 +53,27 @@ The loaded positive response omitted fail-closed executable cardinality and
 separate stream capture, so an independent RC assessor returned
 `CORRECTION_REQUIRED`.
 
-The correction introduced at `a150a865...` and now contained in public
-`d781240...` passed the Skill validator, repository checker, fifteen
+The correction introduced at `a150a865...` and now contained in tested
+candidate `c42eef3...` passed the Skill validator, repository checker, fifteen
 deterministic assertions under both PowerShell 7 and Windows PowerShell 5.1, an
 executed separate-stream process smoke, and a final fresh fixture run with an
 independent `ACCEPTED` verdict. This is SOURCE-assisted development evidence
-later committed and published; it is not a loaded corrected copy, new RC, or
-stable result.
+later committed and published. A subsequent isolated exact-commit `c42eef3...`
+RC proved the corrected five-file loaded copy, two positive relevant-reference
+runs, ordinary-cmdlet and POSIX-only non-selection, complete safe command
+transfer, an executed controller boundary, dual-runtime deterministic checks,
+and an independent `READY_FOR_RELEASE_CANDIDATE` verdict.
 Stable installation, live Bash/WSL, actual sandbox-denial, and bounded
 shadow-use evidence remain absent. See [Verification](VERIFICATION.md).
 
 ## Next Gate
 
-The next independent lifecycle gate requires new authorization to build and
-test a `d781240...` exact-commit RC that loads the corrected copy before any
-stable update. Stable update, private-global retirement, retained-evidence
-cleanup, tag, and release remain blocked later gates.
+PowerShell is `READY_FOR_RELEASE_CANDIDATE` at exact commit `c42eef3...`.
+After the repository evidence-only commit and push gate, the next lifecycle
+decision is whether to map a new immutable repository tag to that tested
+commit and repeat tag-pinned stable installed-copy proof. Stable update,
+private-global retirement, retained-evidence cleanup, tag, and GitHub Release
+remain separate decisions.
 
 ## Recovery Entry
 
@@ -79,5 +84,5 @@ cleanup, tag, and release remain blocked later gates.
 3. Inspect local/public Git identities and current writer/dirty scope against
    [Repository Handoff](../../HANDOFF.md).
 4. Recompute the five SOURCE hashes before attributing any behavior.
-5. Do not confuse current public corrected SOURCE with the installed `v0.1.1`
-   copy or the earlier `58fc526...` isolated RC.
+5. Do not confuse the tested `c42eef3...` candidate with the installed
+   `v0.1.1` copy or the earlier `58fc526...` isolated RC.

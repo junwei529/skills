@@ -13,7 +13,8 @@ Last updated: 2026-08-01
 | Current public hardening preserves cardinality, LF bytes, one-base paths, and confirmed-Junction link-only removal | fifteen assertions pass under PowerShell 7 and Windows PowerShell 5.1; SOURCE-assisted behavior independently accepted |
 | Boundary-hardening exact-commit RC identity, native selection, and loaded copy | verified at historical public `58fc52600df0e1dc3abd92ba31f031ee2b07db82` |
 | Boundary-hardening RC behavior acceptance | `CORRECTION_REQUIRED`; the loaded response omitted fail-closed executable cardinality and separate stream capture |
-| Current public native-example correction behavior | final fresh SOURCE-assisted fixture run independently `ACCEPTED`; introduced at `a150a865...` and contained in public `d781240...`, with no loaded corrected copy or new RC |
+| Current public native-example correction behavior | final fresh SOURCE-assisted fixture run independently `ACCEPTED`; introduced at `a150a865...` and contained in tested `c42eef3...` |
+| Current corrected exact-commit RC identity and behavior | exact-commit `c42eef3...` loaded-copy positives/negatives, controller boundary, and independent readiness pass |
 | Current hardening stable, live Bash/WSL, actual sandbox denial, or shadow use | unverified |
 | General efficacy, token savings, or cross-Harness parity | unverified |
 
@@ -36,9 +37,10 @@ references/windows-wsl-boundaries.md
 ```
 
 These hashes identify SOURCE introduced at
-`a150a8652111ad7a04b4b8a048e861ee5c91fc93` and contained in current public
-`d7812408fc55a3fad79ae02a8d31665a2255b99c`. No loaded corrected candidate,
-new RC, or stable installation is implied.
+`a150a8652111ad7a04b4b8a048e861ee5c91fc93` and contained in tested public
+candidate `c42eef392a5b9f58bbee64aa73ffb603a6fb6c29`. The SOURCE identity alone
+does not imply a loaded candidate or stable installation; the current RC
+evidence is recorded separately below.
 
 ## 2026-07-31 Native-Example Correction
 
@@ -80,9 +82,9 @@ process with separate stdout, stderr, and exit status. A new fresh runner and
 independent assessor matched the corrected hashes and returned `ACCEPTED`.
 
 This behavior was produced against then-dirty SOURCE, introduced by commit
-`a150a865...`, and is now contained in public `d781240...`. It does not
-supersede the earlier exact-commit RC verdict or establish native selection, a
-loaded corrected copy, another RC, stable, shadow-use, tag, or release evidence. The
+`a150a865...`, and is now contained in tested candidate `c42eef3...`. It does
+not by itself supersede the earlier exact-commit RC verdict or establish native
+selection, a loaded corrected copy, another RC, stable, shadow-use, tag, or release evidence. The
 [sanitized result](../../../evals/results/2026-07-31-powershell-native-example-correction.md)
 owns the detailed iterations and limits.
 
@@ -218,6 +220,42 @@ acceptance. See the
 
 ## Candidate And Stable Evidence
 
+### 2026-08-01 — Current `c42eef3` corrected exact-commit RC
+
+`$skill-installer` materialized the five-file package from public exact commit
+`c42eef392a5b9f58bbee64aa73ffb603a6fb6c29` into one unique ignored
+`RC_INSTALL`. Every candidate file matched its Git blob and current raw hash,
+decoded as strict UTF-8 without BOM with LF-only text and one final LF, and was
+an ordinary non-reparse file. The candidate validator passed.
+
+Two fresh positives loaded the candidate entry plus native/process and
+text/encoding references, but not the WSL reference, stable entry, or private
+fallback. The response preserved executable zero/one/many cardinality, exact
+identity and argument boundaries, separate stdout/stderr, numeric exit,
+observed runtime/capability, and the UTF-8/BOM/newline/JSON contract. An
+ordinary cmdlet and a POSIX-only negative loaded no PowerShell Skill.
+
+A controller executed the synthetic boundary under PowerShell Core 7.6.3:
+`ArgumentList` was available, the direct invocation returned stdout `valid`,
+empty stderr, and exit `0`, while the broken wrapper emitted the split-argument
+error on stderr and exited `1`. PowerShell 7 and Windows PowerShell 5.1 each
+passed fifteen deterministic assertions. An independent assessor returned
+`READY_FOR_RELEASE_CANDIDATE`.
+
+Eight pre-behavior controller, launcher, transport, or parser failures and one
+later filename typo were excluded. Policy-blocked fresh-process commands were
+retained as Harness limits; controller execution was attributed separately.
+Stable `v0.1.1`, persistent configuration, SOURCE, and tracked repository state
+were unchanged during the run.
+
+This establishes corrected exact-commit RC identity, loaded-copy attribution,
+the safe native/text transfer, and applicable non-selection. It does not prove
+current stable behavior, live WSL/Bash, actual sandbox denial, real-project
+shadow use, broad trigger accuracy, causal efficacy, token savings,
+cross-Harness parity, tag, or release. The
+[sanitized result](../../../evals/results/2026-08-01-powershell-c42eef3-exact-commit-rc.md)
+owns the detailed attempts and limitations.
+
 At public exact commit
 `b0099c9d5ad986be5e893ceea13f1fc8b5aea384`, a first test-home attempt was
 invalid because a development copy remained discoverable and was actually
@@ -244,7 +282,8 @@ was actually loaded in a fresh read-only process and preserved the requirement
 to capture `$LASTEXITCODE` immediately. The boundary hardening has its own
 exact-commit RC materialization and loaded-copy evidence, but its independent
 RC behavior verdict is `CORRECTION_REQUIRED`. The later correction now in
-public `d781240...` has no loaded corrected copy, new RC, or stable proof.
+candidate `c42eef3...` has its own loaded corrected RC proof above, but still no
+current stable proof.
 
 Repository-level shared candidate, tag, installation, and release evidence is
 owned by [root Verification](../../VERIFICATION.md).

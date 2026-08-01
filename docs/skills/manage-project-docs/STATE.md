@@ -10,7 +10,8 @@ explicit-only, preserves sufficient existing layouts, and implements the five
 logical responsibilities, four surfaces, five outcomes, continuity anchor, and
 structural authorization gate.
 
-Public `main` at `d7812408fc55a3fad79ae02a8d31665a2255b99c` contains the
+Public candidate commit
+`c42eef392a5b9f58bbee64aa73ffb603a6fb6c29` contains the
 bounded recovery-coherence hardening to the entry and both direct references.
 It distinguishes readers, active sessions,
 and writers; keeps current state, writer, gate, next action, and recovery target
@@ -30,22 +31,27 @@ discovery, installation, RC, stable, or release changes.
 
 ## Evidence State
 
-Exact-source behavior, explicit-only DEV_DISCOVERY identity, shared
+Exact-source behavior, explicit-only DEV_DISCOVERY identity, historical shared
 exact-commit RC identity, and tag-pinned stable explicit `NOOP` smoke pass.
 Three current-SOURCE hardening contexts cover continuity, authority conflict,
 and safety boundaries. Two earlier attempts remain visible but excluded after
 one recovery-target behavior defect and one later SOURCE-identity invalidation;
 the correction runs and a new independent assessor returned `ACCEPTED`.
+An isolated exact-commit `c42eef3...` RC then proved current six-file Git-blob
+and loaded-copy identity, mature `NOOP`, fail-closed recovery, authority and
+safety boundaries, ordinary non-selection, and independent `ACCEPTED`.
 Stable mutation behavior, broad trigger telemetry, causal comparison,
 cross-Harness parity, and independent real-project efficacy remain unproved.
 See [Verification](VERIFICATION.md).
 
 ## Next Gate
 
-The next Project Docs lifecycle gate is a separately authorized exact-commit
-`RC_INSTALL` and loaded-current-copy behavior run for public `d781240...`.
-Stable update, private-global retirement, retained-evidence cleanup, tag, and
-release remain separate later decisions.
+Project Docs is `READY_FOR_RELEASE_CANDIDATE` at exact commit `c42eef3...`.
+After the repository evidence-only commit gate, the next lifecycle decision is
+whether to map a new immutable repository tag to that tested commit and repeat
+tag-pinned stable installed-copy proof. Stable update, private-global
+retirement, retained-evidence cleanup, tag, and GitHub Release remain separate
+decisions.
 
 ## Recovery Entry
 

@@ -19,14 +19,14 @@ Sanitized detailed runs remain under [`evals/results`](../evals/results/README.m
 
 | Check | Purpose | Current result |
 |---|---|---|
-| Three Skill validators | Validate frontmatter and package names without changing packages | pass for current Project Docs, Work Charter, and PowerShell SOURCE after the Work Charter authority/evidence hardening |
-| Repository checker | Validate strict UTF-8/no BOM, whitespace, local links/fragments, publication safety, exact Skill/eval sets, federated docs, and bilingual navigation | pass: 177 text files / 12 cases / 11 fixtures |
+| Three Skill validators | Validate frontmatter and package names without changing packages | pass for the three packages contained in tested candidate `c42eef3...` |
+| Repository checker | Validate strict UTF-8/no BOM, whitespace, local links/fragments, publication safety, exact Skill/eval sets, federated docs, and bilingual navigation | pass: 180 text files / 12 cases / 11 fixtures |
 | Fixture checker | Validate eleven synthetic starting states and their Git/reparse/ignored-result boundaries | 15 checks pass |
 | PowerShell deterministic hardening | Validate cardinality, LF bytes, one-base paths, and Junction link-only removal | 15 assertions pass in PowerShell 7 and Windows PowerShell 5.1 |
 | PowerShell parser sweep | Parse all `evals/**/*.ps1` files | 6 files parse |
 | Markdown navigation and ownership | Verify local links/fragments, English/Chinese routes, expected per-Skill owners, and no orphan canonical owner | pass through repository checker |
 | `git diff --check` and cached diff check | Reject whitespace defects in unstaged or staged candidates | both pass; the cached check makes no empty-index claim |
-| Gitleaks | Detect secret-like content independently | pass; no leaks |
+| Gitleaks | Detect secret-like content independently | publication scope passes with no leaks; directory scan has one excluded finding in an ignored official manual cache |
 
 ## Repository Claim Ledger
 
@@ -39,6 +39,7 @@ Sanitized detailed runs remain under [`evals/results`](../evals/results/README.m
 | Public source, development discovery, candidate, and stable roles are distinct | accepted and operationally verified |
 | Public standalone distribution works | verified for `junwei529/skills`, exact-SHA RC, immutable `v0.1.1`, and per-Skill `$skill-installer` paths |
 | One coherent multi-Skill candidate was loaded | verified at `78caaa6...` and repeated at `f7c07b5...` |
+| All three current packages independently reached release-candidate readiness at one commit | verified at exact public `c42eef3...`; Project Docs, PowerShell, and Work Charter each have isolated loaded-copy evidence and explicit residual limits |
 | Tag-pinned stable loaded-copy identity works for all three Skills | verified for immutable `v0.1.1` |
 | `v0.1.0` is the coherent public release | false; retained as immutable installation evidence only |
 | `v0.1.1` is the coherent tag-based standalone release | verified |
@@ -74,6 +75,49 @@ The [Runbook](RUNBOOK.md) owns procedure. This section alone owns the shared
 field schema.
 
 ## Shared Candidate And Release History
+
+### 2026-08-01 — All-Skill `c42eef3` release-candidate readiness
+
+Public and local `main` resolved to exact commit
+`c42eef392a5b9f58bbee64aa73ffb603a6fb6c29` before three independent
+release-readiness runs. `$skill-installer` materialized each exact Skill path
+from that public ref into an isolated RC environment. Controller checks proved
+the exact 6/5/5 Git-blob file sets, strict UTF-8 without BOM, no internal
+reparse point, candidate validators, only-candidate selection in counted
+scopes, and preservation of immutable stable `v0.1.1`.
+
+The Skill-specific outcomes were:
+
+- Project Docs: four explicit loaded-copy scenarios returned mature `NOOP`,
+  fail-closed recovery `STOP`, authority-conflict `PROPOSE`, and safety
+  `REPORT`; an ordinary negative did not load; independent assessment
+  `ACCEPTED`.
+- PowerShell: two candidate-loaded positives preserved executable cardinality,
+  argument, stream, exit, runtime, and text contracts; ordinary-cmdlet and
+  POSIX-only negatives did not load; the controller reproduced direct exit
+  `0` and broken-wrapper exit `1`; PowerShell 7 and Windows PowerShell 5.1 each
+  passed 15/15; independent readiness passed.
+- Work Charter: a flat negative did not load; one bounded synthetic Standard
+  Phase One used one Orchestrator, Planner, Executor, and writer, durably
+  recorded Planner acceptance before Orchestrator reliance, later durably
+  recorded Orchestrator acceptance, passed seven controller checks, and
+  stopped before Phase Two.
+
+Each runner retained or removed only its separately authorized ignored
+artifacts, left SOURCE and stable unchanged, and relinquished writer and cleanup
+ownership. Failed controller, launcher, transport, policy, and contaminated
+attempts remain excluded in the detailed records rather than being converted
+into behavior evidence:
+
+- [Project Docs `c42eef3` RC](../evals/results/2026-08-01-project-docs-c42eef3-exact-commit-rc.md)
+- [PowerShell `c42eef3` RC](../evals/results/2026-08-01-powershell-c42eef3-exact-commit-rc.md)
+- [Work Charter `c42eef3` full Standard RC](../evals/results/2026-08-01-work-charter-c42eef3-full-standard-rc.md)
+
+Verdict: all three Skills are independently
+`READY_FOR_RELEASE_CANDIDATE` at exact `c42eef3...`. This is not current stable
+behavior, a new immutable tag, or a GitHub Release. The later commit that
+records these results is evidence-only and must not be relabeled as the tested
+candidate or receive a tag without its own candidate proof.
 
 ### 2026-07-31 — Hardening and federated-document commit gate
 

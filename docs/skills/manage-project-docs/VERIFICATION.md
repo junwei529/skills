@@ -14,7 +14,8 @@ Last updated: 2026-08-01
 | Broken authority or structure fails closed | conflict, safety, and broken-routing variants pass |
 | Reader/session/writer distinction and coherent recovery snapshot | current-SOURCE continuity correction passes; writer rechecked before write and exact recovery target preserved |
 | Current/history/index/authorization and immutable-history audit | current-SOURCE conflict and safety runs pass |
-| Candidate and stable loaded-copy identity | exact-commit shared RC and tag-pinned `v0.1.1` entry pass |
+| Current candidate identity and loaded-copy behavior | exact-commit `c42eef3...` RC plus independent assessment pass |
+| Stable loaded-copy identity | verified only for the earlier immutable `v0.1.1` revision |
 | Stable mutation, broad trigger telemetry, causal efficacy, token savings, or cross-Harness parity | unverified |
 
 ## Current SOURCE Identity
@@ -37,8 +38,8 @@ assets/templates/continuity-anchor.md
   258578585c4a9c69379afdfa9a872b41233885a11c6342a7458c7677aeb68ec5
 ```
 
-These exact hashes are contained in current public
-`d7812408fc55a3fad79ae02a8d31665a2255b99c`. The immutable `v0.1.1`
+These exact hashes are contained in tested public candidate
+`c42eef392a5b9f58bbee64aa73ffb603a6fb6c29`. The immutable `v0.1.1`
 stable copy predates the recovery-coherence hardening.
 
 ## Recovery-Coherence Hardening
@@ -68,7 +69,7 @@ The [sanitized result](../../../evals/results/2026-07-31-project-docs-recovery-c
 owns the detailed scope and limits.
 
 These runs are historical dirty-SOURCE-assisted development behavior. Their
-exact hashes were later committed and are now public at `d781240...`; that
+exact hashes were later committed and are now public at `c42eef3...`; that
 current Git identity does not upgrade the runs to native selection, a loaded
 current copy, `DEV_DISCOVERY`, a new exact-commit candidate, stable behavior,
 broad telemetry, or real-project efficacy.
@@ -128,6 +129,34 @@ also preserves the earlier `EEDAC9...` entry identity and its source
 corrections; it is historical rather than current acceptance.
 
 ## Candidate And Stable Evidence
+
+### 2026-08-01 — Current `c42eef3` exact-commit RC
+
+`$skill-installer` materialized the six-file package from public exact commit
+`c42eef392a5b9f58bbee64aa73ffb603a6fb6c29` into one unique ignored
+`RC_INSTALL`. Every candidate file matched its Git blob and current raw hash,
+decoded as strict UTF-8 without BOM with LF-only text, and was an ordinary
+non-reparse file. The installed candidate passed the Skill validator.
+
+Four explicit fresh processes loaded the candidate entry and required current
+reference. They returned mature `NOOP`, fail-closed recovery `STOP`, authority
+conflict `PROPOSE`, and safety `REPORT`. The recovery run distinguished reader,
+session, and writer, rechecked the writer, preserved one recovery target, and
+stopped when native policy prevented persistence; it is not an RC `UPDATE`
+claim. A separate ordinary routing negative did not read Project Docs.
+
+One retry that could not read the disk candidate and one pre-model index-lock
+controller failure were excluded. Focused fixture tests and complete
+before/after manifests passed, synthetic HEAD/index identities were unchanged,
+and an independent assessor returned `ACCEPTED` with no Must finding. Stable
+`v0.1.1`, persistent configuration, SOURCE, and tracked repository state were
+unchanged during the run.
+
+Verdict: `READY_FOR_RELEASE_CANDIDATE` for exact commit `c42eef3...`, with no
+claim of persistent RC update, current stable behavior, broad trigger
+telemetry, real-project efficacy, cross-Harness parity, tag, or release. The
+[sanitized result](../../../evals/results/2026-08-01-project-docs-c42eef3-exact-commit-rc.md)
+owns the detailed attempts and limits.
 
 At shared public candidate
 `78caaa6ecf6b86c1b7be26d03aa5dfde1ebbdf09`, an isolated materialized

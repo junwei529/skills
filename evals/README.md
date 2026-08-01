@@ -36,10 +36,11 @@ Future evaluations should compare:
 
 Keep model, reasoning budget, repository fixture, starting Git state, and tool permissions fixed. Record the exact skill revision.
 
-The current development runs do not satisfy those comparison requirements
-because they test only the Skill-assisted condition and were produced from
-uncommitted working-tree revisions. A later candidate commit does not
-retroactively pin the executed source. See
+The historical development runs do not satisfy those comparison requirements
+because they test only the Skill-assisted condition. The current exact-commit
+RC canaries add loaded-copy and behavior evidence but still do not provide a
+matched native-versus-Skill causal comparison. A later candidate commit never
+retroactively pins an earlier executed source. See
 [the result limitations](results/2026-07-27-development-forward-tests.md#limitations).
 
 ## Shared Rubric
@@ -258,6 +259,14 @@ delivery, implicit Standard selection, real-project, broad-trigger, and causal
 evidence remain unverified.
 
 The
+[current full Standard RC report](results/2026-08-01-work-charter-c42eef3-full-standard-rc.md)
+adds exact-commit `c42eef3...` candidate identity, flat non-loading, and one
+complete bounded synthetic Standard Phase One with ordered durable Planner and
+Orchestrator assessment recording. Historical partial grades remain visible;
+current stable, deterministic delivery or locking, real-project,
+broad-trigger, causal, and cross-Harness evidence remain unverified.
+
+The
 [Revised PowerShell Development Forward Tests](results/2026-07-28-powershell-forward-tests.md)
 remain historical behavior evidence for older SOURCE. The
 [portable-guidance migration result](results/2026-07-30-powershell-portable-guidance-migration.md)
@@ -266,9 +275,22 @@ fresh contexts, two catalog-assisted non-trigger canaries, and controlled
 native DEV_DISCOVERY positive/negative canaries for the revision later
 released as `v0.1.1`. The
 [boundary-hardening result](results/2026-07-31-powershell-boundary-hardening.md)
-records the current uncommitted SOURCE hashes and deterministic dual-runtime
-checks. That later revision still lacks fresh-context, loaded-copy, candidate,
-stable-install, and shadow-use proof.
+and [native-example correction](results/2026-07-31-powershell-native-example-correction.md)
+record the current SOURCE hashes, deterministic dual-runtime checks, and
+accepted SOURCE-assisted behavior. The
+[current PowerShell RC report](results/2026-08-01-powershell-c42eef3-exact-commit-rc.md)
+adds exact-commit corrected loaded-copy positives and negatives, an executed
+native/text controller boundary, dual-runtime checks, and independent
+readiness. Current stable, live WSL/Bash, actual sandbox-denial, shadow-use,
+broad-trigger, causal, and cross-Harness evidence remain unverified.
+
+The
+[current Project Docs RC report](results/2026-08-01-project-docs-c42eef3-exact-commit-rc.md)
+adds exact-commit six-file identity, four explicit loaded-copy behavior
+canaries, ordinary non-selection, and independent `ACCEPTED`. Recovery was
+fail-closed because native policy prevented persistence; it is not an RC
+`UPDATE` claim. Current stable mutation, broad-trigger, causal, real-project,
+and cross-Harness evidence remain unverified.
 
 ## Evidence Policy
 

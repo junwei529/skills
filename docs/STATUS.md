@@ -6,44 +6,41 @@ Last updated: 2026-08-01
 
 | Area | Current state | Detail |
 |---|---|---|
-| Repository identity | local and public `main` resolve to `d7812408fc55a3fad79ae02a8d31665a2255b99c`; the exact fifteen-path Work Charter RC evidence and canonical-state synchronization delta is staged for an authorized local commit gate | [Handoff](HANDOFF.md) |
+| Tested candidate identity | public and local `main` resolved to `c42eef392a5b9f58bbee64aa73ffb603a6fb6c29` for all three exact-commit RC runs; a later evidence-only descendant must not replace that identity | [Verification](VERIFICATION.md) |
 | Stable release identity | immutable `v0.1.1` at `f7c07b5470f10ce09ecb704bb0fb6d01e1d52b42`; exact-SHA RC and tag-pinned loaded-copy proof pass for all three Skills | [Verification](VERIFICATION.md) |
-| Project Docs | public `main` contains recovery-coherence hardening accepted at SOURCE-assisted level; stable `v0.1.1` predates it | [State](skills/manage-project-docs/STATE.md) |
-| Work Charter | public `d781240...` has exact five-file RC identity, an explicit current-Standard loaded-copy canary, and a flat non-loading canary; stable `v0.1.1` predates it | [State](skills/work-charter/STATE.md) |
-| PowerShell | public `main` contains the accepted native-example correction; the earlier public RC behavior remains `CORRECTION_REQUIRED`, and stable `v0.1.1` predates the correction | [State](skills/use-powershell-safely/STATE.md) |
-| Documentation | federated root/per-Skill ownership is active; Decision 0016 and Work Charter per-Skill owners contain the current product delta | [Authority](AUTHORITY.md) |
+| Project Docs | `READY_FOR_RELEASE_CANDIDATE` at `c42eef3...`; exact six-file loaded copy plus four fail-closed explicit canaries and ordinary non-selection independently accepted | [State](skills/manage-project-docs/STATE.md) |
+| Work Charter | `READY_FOR_RELEASE_CANDIDATE` at `c42eef3...`; flat non-loading and one complete bounded synthetic Standard Phase One pass | [State](skills/work-charter/STATE.md) |
+| PowerShell | `READY_FOR_RELEASE_CANDIDATE` at `c42eef3...`; corrected loaded-copy positives/negatives, executed native/text boundary, and dual-runtime checks pass | [State](skills/use-powershell-safely/STATE.md) |
+| Documentation | federated root/per-Skill ownership is active; this evidence-only gate changes repository documents and sanitized results, not installable packages | [Authority](AUTHORITY.md) |
 
 ## Current Repository State
 
-Local and public `main` now resolve to
-`d7812408fc55a3fad79ae02a8d31665a2255b99c`, which contains the accepted
-PowerShell, Project Docs, and Work Charter hardening commits. Immutable
-`v0.1.1` remains the stable identity and predates all three corrections.
+Public and local `main` resolved to exact candidate
+`c42eef392a5b9f58bbee64aa73ffb603a6fb6c29` before the three current RC runs.
+Immutable `v0.1.1` remains the stable identity and predates all three current
+packages.
 
-At this reviewed checkpoint, the index contains exactly the fifteen-path Work
-Charter RC evidence and canonical-state synchronization delta, with no unstaged
-or additional untracked path.
-The ignored isolated RC root is retained evidence and is not a source or Git
-candidate. The RC evidence runner relinquished, and the separately authorized
-Release & Git Custodian is the sole writer until the local commit succeeds or
-the gate stops. If this snapshot is read from a clean descendant containing the
-delta, that commit gate has completed and the Custodian has relinquished.
+At a dirty or staged checkout, the bounded evidence-only delta containing the
+three current sanitized results and mapped canonical-state updates is the
+active commit/push gate. Only when local `HEAD` and public `main` resolve to the
+same clean pushed descendant containing those records has that gate completed
+and the Release & Git Custodian relinquished. A clean local-only descendant
+keeps the push gate active. In every state, `c42eef3...` remains the tested
+candidate; the evidence-only descendant is not a new candidate and must not
+silently receive a later tag.
 
 The exact scope and recovery order are owned by
 [Repository Handoff](HANDOFF.md).
 
 ## Current Verification Boundary
 
-Project Docs and PowerShell retain their recorded SOURCE/development evidence;
-their current public corrections still lack new exact-commit RC proof.
-
-Current Work Charter SOURCE and its isolated `d781240...` RC match all five Git
-blobs. The RC is strict UTF-8 without BOM, has no internal reparse point, and
-passes its validator. A fresh explicit process loaded the candidate entry plus
-current Standard reference and enforced Planner-verdict recording before
-Orchestrator reliance or Phase Two. A separate flat process did not load the
-Skill. One process-local TOML quoting attempt failed before Codex execution and
-is excluded. The earlier stable five-file manifest remained unchanged.
+All three current candidates were installed from exact public `c42eef3...`,
+matched their 6/5/5 Git blobs, passed strict UTF-8/no-BOM and non-reparse checks,
+and proved the actually loaded copy while keeping stable `v0.1.1` unchanged.
+Project Docs has a bounded fail-closed matrix, PowerShell has corrected
+positive/negative boundary evidence, and Work Charter has a complete bounded
+synthetic Standard Phase One. Counted and excluded attempts and all residual
+limits remain in the per-Skill ledgers and sanitized result files.
 
 Per-Skill evidence and gaps:
 
@@ -53,22 +50,25 @@ Per-Skill evidence and gaps:
 
 ## Next Gate
 
-The active repository gate is the authorized evidence-only native review and
-one local commit for the exact fifteen paths. Push, stable update, private-global
-retirement, tag, GitHub Release, cleanup, and publication remain separate
-decisions.
+At a dirty or staged checkout, finish the authorized evidence-only native
+review, local commit, and fast-forward push. At a clean pushed descendant
+containing the records, the next user-owned lifecycle decision is whether to
+create a new immutable repository tag that maps specifically to tested
+candidate `c42eef3...`; stable update and loaded-copy proof would follow only
+under their own authorization. Private-global retirement, retained-evidence
+cleanup, and GitHub Release remain separate decisions.
 
 ## Known Repository Gaps
 
-- Project Docs hardening acceptance remains SOURCE-assisted; no current native
-  selection, loaded copy, exact-commit RC, or stable mutation proof exists.
-- PowerShell's committed correction has no public loaded corrected copy, new
-  exact-commit RC, stable, live Bash/WSL, actual sandbox-denial, or shadow-use
-  evidence.
+- Project Docs current RC recovery is fail-closed, not a persistent RC
+  `UPDATE`; stable mutation, broad triggers, and real-project behavior remain
+  unproved.
+- PowerShell still lacks current stable, live Bash/WSL, actual sandbox-denial,
+  and shadow-use evidence.
 - No Skill has a causal correctness or token-saving comparison.
-- Work Charter now has a narrow exact-current RC canary, but no current stable,
-  full Standard role-delivery, implicit Standard selection, real-project,
-  broad-trigger, or standalone causal proof.
+- Work Charter's full Standard evidence remains one synthetic bounded path; it
+  does not prove deterministic role delivery or writer locking, current stable,
+  broad triggers, real-project efficacy, or standalone causality.
 - Cross-Harness parity and SHICE evaluation remain unproved.
 - No GitHub Release object exists; tag-based standalone `v0.1.1` remains the
   supported public identity.

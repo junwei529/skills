@@ -61,12 +61,12 @@ Standard delivery, exact-commit RC recovery canary, and tag-pinned `v0.1.1`
 explicit Flat smoke passed for their exact revisions. The pre-review authority,
 assessment, and evidence revision has structural, fixture-precondition, and
 sole-`DEV_DISCOVERY` fresh-context evidence plus an independent bounded
-`ACCEPTED`; its partial grades remain recorded. Public commit `d781240...`
-adds a narrow correction that records the Planner verdict before Orchestrator
-reliance. An exact-commit RC loaded that current entry and Standard reference,
-passed the recording-order canary, and stayed unloaded for a flat task. Current
-stable behavior, broad implicit telemetry, independent real-project efficacy,
-deterministic writer locks, and cross-Harness parity are not established. See
+`ACCEPTED`; its partial grades remain recorded. Public candidate `c42eef3...`
+has exact-commit loaded-copy proof, stays unloaded for a flat task, and passes
+one bounded synthetic Standard Phase One with durable Planner recording before
+Orchestrator reliance and later durable Orchestrator recording. Current stable
+behavior, broad implicit telemetry, independent real-project efficacy,
+deterministic role delivery or writer locks, and cross-Harness parity are not established. See
 [Verification](VERIFICATION.md) and [State](STATE.md).
 
 ## Authoritative Contract

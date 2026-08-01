@@ -28,7 +28,7 @@ a focused boundary workflow, not a general PowerShell tutorial or installer.
 $skill-installer Install the Skill from https://github.com/junwei529/skills/tree/v0.1.1/skills/use-powershell-safely.
 ```
 
-The stable `v0.1.1` package does not include the later local SOURCE hardening.
+The stable `v0.1.1` package does not include the later public candidate hardening.
 Installation, updates, PowerShell setup, and system changes remain separate
 authorized actions.
 
@@ -52,12 +52,13 @@ changes. Resolve destructive targets literally and prove containment.
 
 ## Verified Capability And Limits
 
-The `v0.1.1` SOURCE has fresh-context, controlled DEV_DISCOVERY, exact-commit
-RC, and tag-pinned stable loaded-copy evidence. A later local
-boundary-hardening revision passes fifteen deterministic assertions under
-PowerShell 7 and Windows PowerShell 5.1 plus fresh SOURCE-assisted behavior and
-independent acceptance, but lacks current native selection, loaded-copy,
-candidate, stable, live Bash/WSL, actual sandbox-denial, and shadow-use proof.
+The `v0.1.1` revision has fresh-context, controlled DEV_DISCOVERY,
+exact-commit RC, and tag-pinned stable loaded-copy evidence. Public candidate
+`c42eef3...` adds the later hardening and has exact-commit corrected-copy
+identity, native positive and negative loaded-copy canaries, dual-runtime
+deterministic checks, an executed native/text controller boundary, and an
+independent readiness verdict. It still lacks current stable, live Bash/WSL,
+actual sandbox-denial, and shadow-use proof.
 See [Verification](VERIFICATION.md) and [State](STATE.md).
 
 ## Authoritative Contract

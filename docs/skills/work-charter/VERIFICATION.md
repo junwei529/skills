@@ -13,8 +13,8 @@ Last updated: 2026-08-01
 | Planner/Executor correction and independent assessment | tested pre-review DEV_DISCOVERY/SOURCE behavior pass |
 | Standard O/P/E under an approved policy | tested pre-review DEV_DISCOVERY/SOURCE partial: role, writer, recording, and Phase stop pass; one contained return-route mislabel |
 | Authority ordering, assessment recording, evidence invalidation, and delivery/writer degradation | tested pre-review recovery variants are partial, pass, pass, and partial respectively; no unsafe continuation observed |
-| Current Standard recording sequence | exact-commit `d781240...` RC loaded-copy canary pass |
-| Current exact-commit RC loaded-copy identity | verified at public `d781240...` |
+| Current Standard recording sequence | exact-commit `c42eef3...` full synthetic Phase One pass |
+| Current exact-commit RC loaded-copy identity | verified at public `c42eef3...` |
 | Stable loaded-copy identity | verified only for the earlier immutable `v0.1.1` revision |
 | Broad implicit telemetry, deterministic delivery/locking, real-project efficacy, token savings, or cross-Harness parity | unverified |
 
@@ -47,7 +47,7 @@ recording. The corrected current `references/standard-ope.md` raw SHA-256 is:
 The other four current hashes remain as listed above. The ordering correction
 was not rerun through the complete fresh-context development matrix, so the
 batch below remains exact evidence for the pre-review hash. The later
-`d781240...` RC section separately provides exact-current identity plus narrow
+`d781240...` RC section separately provides exact identity for that revision plus narrow
 recording-order and flat non-loading canaries; it does not replace that full
 matrix.
 
@@ -157,6 +157,40 @@ identity, deterministic permissions, or general Harness routing.
 
 ## Candidate And Stable Evidence
 
+### 2026-08-01 — Current `c42eef3` full Standard RC
+
+`$skill-installer` materialized the five-file package from public exact commit
+`c42eef392a5b9f58bbee64aa73ffb603a6fb6c29`. Every candidate file matched its
+Git blob and current raw hash, decoded as strict UTF-8 without BOM, and was an
+ordinary non-reparse file. The candidate validator passed, and the only
+same-named entry in the counted native scope resolved to that RC.
+
+One flat negative did not load Work Charter. The positive path used one
+Orchestrator, one Planner, and one sole-writer Executor. The Executor changed
+exactly four authorized fixture files and passed seven focused tests. The
+Planner independently returned `ACCEPTED`; the Executor durably recorded and
+verified that verdict before the Orchestrator relied on it. The Orchestrator
+then returned `ACCEPTED`, and the Executor durably recorded and verified that
+assessment. Phase One closed and Phase Two did not start. The controller passed
+seven final assertions with no extra writer, role, file, Git, installation, or
+external action.
+
+Read-only capability stops, controller calibration probes, and several
+pre-behavior helper or transport errors were excluded. Temporary process trust
+blocks and the sole discovery Junction were removed under explicit cleanup
+authority, only the task-owned ignored root was removed, and sibling ignored
+roots remained unchanged. Stable `v0.1.1`, SOURCE, tracked repository state,
+and release refs did not change during the run.
+
+Verdict: `READY_FOR_RELEASE_CANDIDATE` for exact commit `c42eef3...`, bounded
+flat non-loading, and one complete synthetic Standard Phase One with ordered
+durable Planner and Orchestrator assessment recording. Earlier partial grades
+remain valid. This does not prove deterministic delivery or writer locks,
+current stable behavior, broad triggers, real-project efficacy, cost or token
+improvement, cross-Harness parity, tag, or release. The
+[sanitized result](../../../evals/results/2026-08-01-work-charter-c42eef3-full-standard-rc.md)
+owns the detailed attempts and limits.
+
 ### 2026-08-01 — Current `d781240` exact-commit RC
 
 Public commit `d7812408fc55a3fad79ae02a8d31665a2255b99c` was cleanly
@@ -183,7 +217,7 @@ complete earlier `v0.1.1` stable manifest remained unchanged. The
 [sanitized result](../../../evals/results/2026-08-01-work-charter-d781240-exact-commit-rc.md)
 owns the exact identity, behavior, exclusion, and limitation record.
 
-This verifies current exact-commit RC identity and a narrow current-Standard
+This verifies the then-current exact-commit RC identity and a narrow Standard
 behavior boundary. It does not prove implicit Standard selection, full role
 delivery, stable behavior for this revision, broad telemetry, deterministic
 locking, real-project efficacy, cross-Harness behavior, tag readiness, or

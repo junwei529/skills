@@ -27,7 +27,7 @@ PowerShell 用于诊断并安全处理 PowerShell、native executable、文本�
 $skill-installer Install the Skill from https://github.com/junwei529/skills/tree/v0.1.1/skills/use-powershell-safely.
 ```
 
-稳定 `v0.1.1` 包不包含后续本地 SOURCE hardening。Skill 安装、更新、
+稳定 `v0.1.1` 包不包含后续公开 candidate hardening。Skill 安装、更新、
 PowerShell 安装和系统变更仍是分别授权的动作。
 
 ## 调用
@@ -47,11 +47,11 @@ service、firewall、WSL state 或破坏性主机变更都需要显式授权。�
 
 ## 已验证能力与限制
 
-`v0.1.1` SOURCE 已有 fresh-context、受控 DEV_DISCOVERY、exact-commit RC
-和 tag-pinned stable loaded-copy 证据。后续本地 boundary-hardening
-revision 在 PowerShell 7 与 Windows PowerShell 5.1 下各通过十五项确定性断言，
-并有 fresh SOURCE-assisted 行为与独立 acceptance，但仍缺少当前 native
-selection、loaded-copy、candidate、stable、真实 Bash/WSL、实际 sandbox denial
+`v0.1.1` revision 已有 fresh-context、受控 DEV_DISCOVERY、exact-commit RC
+和 tag-pinned stable loaded-copy 证据。公开 candidate `c42eef3...` 加入后续
+hardening，并已有 exact-commit corrected-copy identity、native 正负 loaded-copy
+canary、双 runtime 确定性检查、实际执行的 native/text controller boundary 和
+独立 readiness verdict；仍缺少当前 stable、真实 Bash/WSL、实际 sandbox denial
 和 shadow-use 证据。参见[验证](VERIFICATION.md)和[状态](STATE.md)。
 
 ## 权威合同
