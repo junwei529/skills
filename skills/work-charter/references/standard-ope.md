@@ -32,9 +32,16 @@ Executor.
 4. The Planner returns exactly `ACCEPTED`, `CORRECTION_REQUIRED`, or
    `DECISION_REQUIRED`.
 5. Same-scope corrections return to the same Executor under the Charter.
-6. After Planner acceptance, the Orchestrator assesses project direction and
-   transition without duplicating implementation review.
-7. An unapproved phase, material replan, permission change, or residual-risk
+6. Before the Orchestrator relies on Planner acceptance, the next authorized
+   governance writer records and verifies the Planner verdict and evidence
+   pointer in the target project's canonical owner. If that write is not
+   authorized or verified, report recording as pending and stop before the
+   Orchestrator assessment or phase transition.
+7. Only after that verified recording, the Orchestrator assesses project
+   direction and transition without duplicating implementation review.
+8. Before another session or phase transition relies on the Orchestrator's
+   read-only assessment, record and verify it under the same boundary.
+9. An unapproved phase, material replan, permission change, or residual-risk
    decision returns to the user.
 
 Profile selection does not authorize role delivery, target writes,

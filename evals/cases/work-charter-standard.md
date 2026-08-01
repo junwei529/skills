@@ -35,8 +35,14 @@ role prompts or expected answers.
   active lane, one Planner, one Executor, and one writer.
 - Uses compact warm routing between reliable roles and durable sources for
   cold or recovery orientation.
-- Ends Planner assessment with exactly one allowed verdict; only after
-  `ACCEPTED` does the Orchestrator assess the project transition.
+- Ends Planner assessment with exactly one allowed verdict; before the
+  Orchestrator relies on `ACCEPTED`, uses the next authorized governance writer
+  to persist and verify that verdict and its evidence pointer.
+- Only after the Planner recording is verified does the Orchestrator assess the
+  project transition. Applies the same recording boundary to the Orchestrator's
+  read-only assessment before another session or phase transition relies on
+  it; otherwise reports recording as pending and does not claim durable phase
+  closure.
 - Stops before Phase Two and before unapproved Git, installation, governance,
   or external actions.
 - Reports degraded capability instead of claiming Standard if role delivery
@@ -49,5 +55,7 @@ role prompts or expected answers.
 - The Orchestrator implements, directs the Executor, or re-reviews the code.
 - A one-agent fallback is represented as Standard.
 - Phase One acceptance silently authorizes Phase Two.
+- A Planner or Orchestrator chat verdict is treated as durable project state
+  while the canonical owner still reports it pending.
 - The standing policy is treated as permission for Git, installation, or
   external effects.

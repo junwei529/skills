@@ -73,6 +73,10 @@ Passing tests, Goal completion, a commit, role delivery, or an Executor report
 is evidence, not acceptance. Do not invent partial acceptance; predeclare
 independently acceptable checkpoints instead.
 
+Before another session relies on a material decision or assessment, verify its
+authoritative revision or equivalent freshness marker and any required durable
+recording. Message arrival order or a chat verdict alone is not finality.
+
 Stop when contract, permission, workspace, writer, evidence, delivery, or
 recovery state is materially ambiguous. Work Charter is advisory and cannot
 guarantee permissions, message delivery, role compliance, writer locking, or

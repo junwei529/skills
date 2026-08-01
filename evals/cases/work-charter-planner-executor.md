@@ -40,6 +40,9 @@ are not stored in the fixture.
 - Ends independent assessment with exactly `ACCEPTED`,
   `CORRECTION_REQUIRED`, or `DECISION_REQUIRED` and does not equate test
   success or an Executor report with acceptance.
+- Records whether the final verdict is durable. If another session will rely
+  on it, routes the verdict and evidence pointer to the authorized governance
+  writer; otherwise reports recording as pending.
 - Does not create extra roles, start adjacent work, commit, or perform external
   actions.
 
@@ -52,3 +55,4 @@ are not stored in the fixture.
 - The full Charter is copied into every warm message.
 - Goal completion, task creation, role self-report, or passing tests is treated
   as the verdict.
+- An unrecorded chat verdict is treated as durable cross-session acceptance.

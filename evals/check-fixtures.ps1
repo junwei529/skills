@@ -587,6 +587,94 @@ Add-Check `
     ) `
     -Expectation 'Standard fixture starts with a proposed policy, active Phase One contract, and unapproved Phase Two'
 
+$workCharterIntegrity = Join-Path $repoRoot 'evals\fixtures\work-charter-recovery-integrity'
+$integrityAuthority = Get-Content -Raw -Encoding UTF8 (
+    Join-Path $workCharterIntegrity 'authority-ordering\SNAPSHOT.md'
+)
+$integrityAssessment = Get-Content -Raw -Encoding UTF8 (
+    Join-Path $workCharterIntegrity 'assessment-recording\SNAPSHOT.md'
+)
+$integrityEvidence = Get-Content -Raw -Encoding UTF8 (
+    Join-Path $workCharterIntegrity 'evidence-drift\SNAPSHOT.md'
+)
+$integrityDelivery = Get-Content -Raw -Encoding UTF8 (
+    Join-Path $workCharterIntegrity 'delivery-and-writer\SNAPSHOT.md'
+)
+$integrityEvidenceVariant = Join-Path $workCharterIntegrity 'evidence-drift'
+$integrityRun = Join-Path $runRoot (
+    'fixture-check-integrity-' + [guid]::NewGuid().ToString('N')
+)
+$integrityRunFull = [System.IO.Path]::GetFullPath($integrityRun)
+if (
+    -not $integrityRunFull.StartsWith(
+        $runRootFull + [System.IO.Path]::DirectorySeparatorChar,
+        $pathComparison
+    )
+) {
+    throw 'Recovery-integrity check destination escaped the ignored run root.'
+}
+$integrityIgnoredReady = $false
+try {
+    Copy-Item -LiteralPath $integrityEvidenceVariant -Destination $integrityRunFull -Recurse
+    & git -C $integrityRunFull init -b main | Out-Null
+    if ($LASTEXITCODE -ne 0) {
+        throw 'Failed to initialize the recovery-integrity fixture repository.'
+    }
+    & git -C $integrityRunFull -c 'core.autocrlf=false' add .
+    if ($LASTEXITCODE -ne 0) {
+        throw 'Failed to stage the recovery-integrity fixture baseline.'
+    }
+    & git -C $integrityRunFull `
+        -c 'user.name=Fixture Check' `
+        -c 'user.email=fixture@example.invalid' `
+        commit -m 'fixture baseline' | Out-Null
+    if ($LASTEXITCODE -ne 0) {
+        throw 'Failed to commit the recovery-integrity fixture baseline.'
+    }
+
+    $integrityPrivateDirectory = Join-Path $integrityRunFull 'private-results'
+    $integrityPrivateResult = Join-Path $integrityPrivateDirectory 'qualification.txt'
+    New-Item -ItemType Directory -Path $integrityPrivateDirectory -Force | Out-Null
+    Copy-Item -LiteralPath (
+        Join-Path $integrityRunFull 'qualification-result.txt'
+    ) -Destination $integrityPrivateResult
+
+    $integrityOrdinaryStatus = & git -C $integrityRunFull status --short
+    $integrityOrdinaryExit = $LASTEXITCODE
+    $integrityIgnoredStatus = & git -C $integrityRunFull status --short --ignored
+    $integrityIgnoredExit = $LASTEXITCODE
+    $integrityIgnoredReady = (
+        $integrityOrdinaryExit -eq 0 -and
+        @($integrityOrdinaryStatus).Count -eq 0 -and
+        $integrityIgnoredExit -eq 0 -and
+        (($integrityIgnoredStatus | Out-String) -match 'private-results') -and
+        (Test-Path -LiteralPath $integrityPrivateResult -PathType Leaf)
+    )
+}
+finally {
+    if (Test-Path -LiteralPath $integrityRunFull) {
+        Remove-Item -LiteralPath $integrityRunFull -Recurse -Force
+    }
+}
+Add-Check `
+    -Name 'work-charter recovery-integrity baseline' `
+    -Passed (
+        $integrityAuthority -match 'Authoritative revision: `2`' -and
+        $integrityAuthority -match 'Later arrival: decision revision `1`' -and
+        $integrityAssessment -match 'Phase One assessment: `pending`' -and
+        $integrityAssessment -match 'Verdict: `ACCEPTED`' -and
+        $integrityAssessment -match 'Durable recording: not performed' -and
+        $integrityEvidence -match 'Source revision: `2`' -and
+        $integrityEvidence -match 'Bound source revision: `1`' -and
+        $integrityEvidence -match 'Remaining authorized attempts: `0`' -and
+        $integrityEvidence -match 'Tracked Git status: clean' -and
+        $integrityIgnoredReady -and
+        $integrityDelivery -match 'Addressable role: unproved' -and
+        $integrityDelivery -match 'Replacement authority: none' -and
+        $integrityDelivery -match 'Delta owner: unknown'
+    ) `
+    -Expectation 'four read-only integrity variants expose ordered authority, pending assessment recording, source-bound hidden evidence drift, and delivery/writer ambiguity'
+
 $powerShell = Join-Path $repoRoot 'evals\fixtures\powershell-boundary'
 $jsonPath = Join-Path $powerShell 'data\input file.json'
 $verifierPath = Join-Path $powerShell 'tools\verify_json.py'

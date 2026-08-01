@@ -65,6 +65,29 @@ workspace, evidence freshness, writer, and last approved action. Warm handoff
 contains only role and authority, changed facts, evidence pointers, bounded
 action, stop condition, and return route.
 
+For a material cross-session decision, use a stable logical locator and a
+comparable authoritative revision or equivalent freshness marker. Message
+arrival order is not finality: an older observation cannot overwrite a newer
+verified revision, and incomparable observations stop before write or
+advancement.
+
+Keep an assessment's three-state verdict separate from its recording state.
+If another session, recovery, or transition will rely on the verdict, the next
+authorized governance writer records it in the target project's canonical
+owner. Until that write is verified, report recording as pending rather than
+durable acceptance.
+
+Bind material evidence to mutable subjects and invalidation conditions when
+applicable, and use a method that observes the actual result surface. Later
+material source drift invalidates bound evidence. Ignored, untracked, private,
+generated, or external results require evidence beyond tracked Git status.
+
+Uncertain non-idempotent role delivery stops without an automatic retry or
+replacement. Writer ownership remains advisory: a conflict pauses writing,
+inventories deltas, restores one authorized writer, and revalidates affected
+evidence. Harness routing and deterministic enforcement remain outside the
+public Skill.
+
 ## Internal Package Boundaries
 
 | Source | Owner |
@@ -74,7 +97,7 @@ action, stop condition, and return route.
 | [`standard-ope.md`](../../../skills/work-charter/references/standard-ope.md) | Formal Standard responsibilities and operating path |
 | [`work-charter.md`](../../../skills/work-charter/assets/work-charter.md) | Optional adaptable durable carrier |
 | [`openai.yaml`](../../../skills/work-charter/agents/openai.yaml) | Public metadata and bounded implicit-invocation policy |
-| [Work Charter eval cases](../../../evals/README.md#work-charter-m2r-forward-matrix) | Flat, proposal, recovery, P/E, Standard, and negative contracts |
+| [Work Charter eval cases](../../../evals/README.md#work-charter-forward-matrix) | Flat, proposal, recovery, P/E, Standard, and negative contracts |
 
 ## Independent-Skill Boundary
 
@@ -87,4 +110,5 @@ PowerShell remains separately selected for material Windows boundaries.
 
 - [Decision 0007](../../decisions/0007-independent-skills-and-optional-recipes.md)
 - [Decision 0012](../../decisions/0012-work-charter-v0-1-identity-and-minimum-sufficient-design.md)
+- [Decision 0016](../../decisions/0016-work-charter-authority-assessment-and-evidence-integrity.md)
 - [Decision 0015](../../decisions/0015-federated-repository-documentation.md)

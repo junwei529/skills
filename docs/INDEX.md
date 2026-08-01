@@ -51,6 +51,7 @@ mirror.
 | [`docs/decisions/0013-github-public-identity-update.md`](decisions/0013-github-public-identity-update.md) | Current GitHub owner, repository slug, local-directory boundary, and MIT public-attribution identifier | accepted; supersedes only public-identity clauses in 0004 and 0005 |
 | [`docs/decisions/0014-powershell-portable-guidance-and-private-host-delta.md`](decisions/0014-powershell-portable-guidance-and-private-host-delta.md) | Public PowerShell rule classification, minimal global bootstrap, private host delta, and safe migration evidence | accepted |
 | [`docs/decisions/0015-federated-repository-documentation.md`](decisions/0015-federated-repository-documentation.md) | Root/per-Skill documentation ownership, bilingual public entries, and unchanged installable-package boundary | accepted |
+| [`docs/decisions/0016-work-charter-authority-assessment-and-evidence-integrity.md`](decisions/0016-work-charter-authority-assessment-and-evidence-integrity.md) | Work Charter authority finality, assessment recording, evidence invalidation, delivery degradation, and advisory writer recovery | accepted |
 
 ## Skill Sources
 
@@ -81,6 +82,7 @@ mirror.
   [`Project Docs State`](skills/manage-project-docs/STATE.md).
 - Understand the Work Charter refinement:
   [`Decision 0012`](decisions/0012-work-charter-v0-1-identity-and-minimum-sufficient-design.md) →
+  [`Decision 0016`](decisions/0016-work-charter-authority-assessment-and-evidence-integrity.md) →
   [`Work Charter Design`](skills/work-charter/DESIGN.md) →
   [`Work Charter State`](skills/work-charter/STATE.md).
 - Understand the PowerShell global-rule migration:

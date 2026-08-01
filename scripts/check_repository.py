@@ -23,6 +23,7 @@ EXPECTED_CASES = {
     "small-task-stays-flat.md",
     "work-charter-midstream.md",
     "work-charter-planner-executor.md",
+    "work-charter-recovery-integrity.md",
     "work-charter-standard.md",
 }
 EXPECTED_FIXTURES = {
@@ -35,6 +36,7 @@ EXPECTED_FIXTURES = {
     "project-docs-safety-boundaries",
     "small-task-stays-flat",
     "work-charter-loop",
+    "work-charter-recovery-integrity",
     "work-charter-standard",
 }
 EXPECTED_SKILL_FILES = {

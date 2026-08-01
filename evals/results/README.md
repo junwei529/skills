@@ -16,6 +16,7 @@ host paths, hidden reasoning, or ignored run workspaces.
 | 2026-07-31 | [PowerShell hardening exact-commit RC](2026-07-31-powershell-hardening-exact-commit-rc.md) | Public exact-commit materialization and loaded-copy selection pass; independent behavior verdict `CORRECTION_REQUIRED` |
 | 2026-07-31 | [PowerShell native-example correction](2026-07-31-powershell-native-example-correction.md) | Dirty-SOURCE correction, complete native command transfer, fresh fixture run, and independent `ACCEPTED` verdict |
 | 2026-07-31 | [Project Docs recovery-coherence hardening](2026-07-31-project-docs-recovery-coherence-hardening.md) | Current-SOURCE continuity/conflict/safety correction runs, two excluded attempts, and final independent `ACCEPTED` verdict |
+| 2026-08-01 | [Work Charter authority, assessment, and evidence forward tests](2026-08-01-work-charter-authority-assessment-evidence-forward-tests.md) | Exact pre-review five-file SOURCE under sole DEV_DISCOVERY, six behavior groups including four recovery variants, and independent bounded `ACCEPTED`; a later Standard sequencing correction is not covered |
 
 These results are useful for finding workflow defects. They are not a causal
 benchmark, a native Harness trigger evaluation, a token comparison, SHICE

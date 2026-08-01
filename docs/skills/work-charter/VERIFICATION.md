@@ -1,38 +1,113 @@
 # Work Charter Verification
 
-Last updated: 2026-07-31
+Last updated: 2026-08-01
 
 ## Claim Ledger
 
 | Claim | Status |
 |---|---|
-| `work-charter` is the sole current five-file package | verified structurally |
-| Small bounded work stays flat | SOURCE-assisted and stable explicit smoke pass |
-| Midstream implicit behavior is proposal-only | SOURCE-assisted controlled variant passes |
-| Cold recovery reconciles durable and workspace state | SOURCE-assisted and RC canaries pass |
-| Planner/Executor correction and independent assessment | controlled SOURCE and DEV_DISCOVERY runs pass |
-| Standard O/P/E under an approved policy | controlled DEV_DISCOVERY run passes |
+| `work-charter` is the sole current five-file package | verified structurally for current SOURCE |
+| Small bounded work stays flat | tested pre-review DEV_DISCOVERY/SOURCE behavior pass |
+| Midstream implicit behavior is proposal-only | tested pre-review DEV_DISCOVERY/SOURCE behavior pass |
+| Cold recovery reconciles durable and workspace state | tested pre-review DEV_DISCOVERY/SOURCE safe stop, partial recovery-summary completeness |
+| Planner/Executor correction and independent assessment | tested pre-review DEV_DISCOVERY/SOURCE behavior pass |
+| Standard O/P/E under an approved policy | tested pre-review DEV_DISCOVERY/SOURCE partial: role, writer, recording, and Phase stop pass; one contained return-route mislabel |
+| Authority ordering, assessment recording, evidence invalidation, and delivery/writer degradation | tested pre-review recovery variants are partial, pass, pass, and partial respectively; no unsafe continuation observed |
+| Current Standard recording sequence | deterministic and commit-gate semantic-review evidence; fresh-context rerun unverified |
 | Exact-commit RC and stable loaded-copy identity | verified |
 | Broad implicit telemetry, deterministic delivery/locking, real-project efficacy, token savings, or cross-Harness parity | unverified |
 
 ## Current SOURCE Identity
 
-The accepted five files have these recorded raw SHA-256 identities:
+The five files exercised by the 2026-08-01 fresh-context batch had these raw
+SHA-256 identities:
 
 ```text
 SKILL.md
-  ce6d65dccee281558154febfa18e8d1dba83780d52cb1043bcb402ae60403d34
+  d0c86e80d6f8eec0d91c25f4f0c687d60b1e0821ac823e28cf62777bb1badda2
 agents/openai.yaml
   fbc47a69d6eab89492c40d2a9e37718f5c31a5d84f0bb207cdf606279d1efb89
 references/coordination-and-recovery.md
-  78f2f041c84dae57d7cfc9d811683ac9463c37ca855c876d6d3b3941ef6e1568
+  8c944b3434e14e70dea705a8b877b70b497c6f512db8681ff0000f418a270483
 references/standard-ope.md
-  f10be9f83bd8cbac1271ed49df0851d271861dcafc66147da28d4e9ca7f9fd3d
+  5a813ce43f334c7e06db69f4c1cdd676bbb8708850a052dbc46887ed0298e0cc
 assets/work-charter.md
-  bc3581e4138bc2dbd8b310fc20b8bf796c7ce8843c0c2dc4e62fd99d22536cab
+  1b61f20852a545fb1660a999622e9d85bfbb0521f91945867fd65a98021e5c95
 ```
 
+During the local commit gate, native semantic review found that the Standard
+operating path placed Orchestrator assessment before durable Planner-verdict
+recording. The corrected current `references/standard-ope.md` raw SHA-256 is:
+
+```text
+09882cbc00de9ace0691471f426eae6abb08e01238cfd36a356ce8d30d837597
+```
+
+The other four current hashes remain as listed above. The ordering correction
+has deterministic checks and commit-gate semantic-review coverage, but no new
+fresh-context behavior rerun. The batch below therefore remains exact evidence
+for the pre-review hash rather than exact-current behavior proof.
+
 ## Development Behavior History
+
+### 2026-08-01 — Authority, assessment, and evidence matrix
+
+One repository-scoped development entry exposed the tested five-file SOURCE
+as the only discoverable same-named Skill. A fresh identity probe and a later
+independent assessor each matched the presented entry and raw `SKILL.md` hash
+to the identities above. Preflights with a second same-named copy were excluded
+before behavior scoring.
+
+The six behavior groups produced three full passes and three partial results.
+Small work stayed Flat, midstream symptoms produced only a proposal, and the
+Planner/Executor loop passed. Cold recovery stopped safely but returned an
+incomplete recovery summary. Standard O/P/E preserved the three roles, sole
+writer, two acceptance layers, and the Phase Two stop, but one Planner
+mislabeled its return route; the controller revalidated and contained the
+error. The four recovery variants scored authority ordering partial,
+assessment recording pass, source/evidence drift pass, and uncertain
+delivery/writer recovery partial. No variant continued unsafely.
+
+A fresh read-only assessor independently rechecked the bounded artifacts and
+returned `ACCEPTED` for recording the tested batch without a SOURCE correction
+at that hash. The
+[sanitized result](../../../evals/results/2026-08-01-work-charter-authority-assessment-evidence-forward-tests.md)
+preserves every partial grade and the attribution limits.
+
+After the batch, the temporary development entry was removed, the pre-test
+stable installation was restored byte-for-byte, and a fresh probe observed
+only that ordinary stable entry with all five historical stable hashes. This
+is restoration evidence, not current-SOURCE stable behavior.
+
+This establishes tested `SOURCE` plus controlled `DEV_DISCOVERY` behavior
+evidence only. Repository/global rules and the Harness supplied task routing,
+permission, lifecycle, and controller enforcement, so the run is not
+standalone causal proof. It is not current `RC_INSTALL`, stable-install,
+real-project, cross-Harness, token, deterministic-lock, or release evidence.
+
+### 2026-07-31 — Authority, assessment, and evidence hardening
+
+[Decision 0016](../../decisions/0016-work-charter-authority-assessment-and-evidence-integrity.md)
+accepts portable rules for comparable authority revisions, uncertain
+non-idempotent delivery, assessment recording, actual-result-surface evidence,
+source-bound invalidation, and advisory writer-conflict recovery. Current
+SOURCE implements those rules without adding a package file, trigger, role,
+verdict, lock, or lifecycle identity.
+
+The new
+[recovery-integrity case](../../../evals/cases/work-charter-recovery-integrity.md)
+contains four independent read-only variants. Its deterministic precondition
+proves the intended stale/new authority pair, pending durable assessment,
+revision-bound one-shot evidence, an ignored result omitted from ordinary Git
+status but visible to controller inspection, uncertain delivery, and unknown
+writer delta. Existing Planner/Executor and Standard cases now require the
+assessment recording boundary.
+
+The current Skill validator, repository checker, and all fifteen fixture
+checks pass. This is implementation, structural, and fixture-precondition
+evidence only. No fresh-context agent has yet exercised the new behavior, so
+the earlier behavior, DEV, RC, and stable results remain historical evidence
+for their exact recorded revisions rather than proof for current SOURCE.
 
 ### 2026-07-29 — M2R SOURCE-assisted matrix and acceptance
 

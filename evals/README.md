@@ -18,11 +18,14 @@ invocation. Project Docs continuity begins as a persistence test: no Skill is
 named or preselected, and the target-project rule must be sufficient without
 loading Project Docs. Work Charter allows implicit invocation, but implicit
 selection may only recognize concrete symptoms and visibly propose a bounded
-transition. The current Work Charter M2R matrix is SOURCE-assisted: every fresh
-role receives canonical SOURCE explicitly. Small-task and midstream prompts do
-not name the Skill, which tests the supplied contract's negative and
-proposal-only boundaries but does not prove native injection, selection, or
-trigger telemetry. Native selection remains a separate later experiment.
+transition. The 2026-07-29 Work Charter M2R matrix was SOURCE-assisted. The
+2026-08-01 tested revision instead used one repository-scoped `DEV_DISCOVERY`
+entry and re-proved its identity in fresh contexts. Small-task and midstream
+prompts did not name the Skill. A later commit-gate correction reordered the
+Standard recording boundary and has not received a fresh-context rerun. The
+recorded matrix supports bounded native development selection observations for
+its exact hash, not broad trigger telemetry, candidate, stable, or release
+claims.
 
 ## Comparison Conditions
 
@@ -73,6 +76,7 @@ Token or context efficiency is a secondary measurement, not a pass condition. A 
 | [Work Charter midstream proposal](cases/work-charter-midstream.md) | `work-charter` | Recognize continuity symptoms and propose without mutation |
 | [Work Charter Planner/Executor](cases/work-charter-planner-executor.md) | `work-charter` | Run a one-writer loop with compact correction and independent assessment |
 | [Work Charter Standard O/P/E](cases/work-charter-standard.md) | `work-charter` | Exercise a user-approved first standing policy and one bounded phase |
+| [Work Charter recovery integrity](cases/work-charter-recovery-integrity.md) | `work-charter` | Fail closed on stale authority, unrecorded assessment, evidence drift, delivery uncertainty, and writer conflict |
 | [PowerShell boundary](cases/powershell-boundary.md) | `use-powershell-safely` | Classify encoding and native-command failures before code changes |
 
 ## Fixture Preconditions
@@ -105,28 +109,44 @@ nonrecursive confirmed-Junction removal under PowerShell 7 and Windows
 PowerShell 5.1. It is not a fresh-context behavior test, live Bash/WSL test,
 sandbox-denial injection, or proof for other reparse-point types.
 
-## Work Charter M2R Forward Matrix
+## Work Charter Forward Matrix
 
-Run all five cases as SOURCE-assisted behavior tests: provide canonical
-`skills/work-charter` SOURCE explicitly to each fresh role and record the exact
-files read. Small-task and midstream user prompts do not name the Skill; the
-supplied contract must still keep small work flat and limit midstream behavior
-to a visible proposal. Cold resume, Planner/Executor, and Standard explicitly
-invoke `$work-charter`. The Planner/Executor and midstream cases share
-`fixtures/work-charter-loop`; copy the fixture to a unique ignored run
-workspace before any mutation. The Standard case uses
-`fixtures/work-charter-standard`.
+Choose and record exactly one evidence lane before running the six cases; do
+not combine or relabel them:
+
+1. **SOURCE-assisted** — provide canonical `skills/work-charter` SOURCE
+   explicitly to each fresh role and record the exact files read. This can
+   establish development behavior and direct-read SOURCE identity only.
+2. **Sole `DEV_DISCOVERY`** — only after separate authorization for a local
+   discovery mapping, expose the canonical package through one
+   repository-scoped entry, prove that no second same-named copy is in scope,
+   and do not inject SOURCE text or an expected contract into role prompts.
+   Record the discovered entry plus the files and hashes actually loaded. This
+   can support bounded development selection and loaded-copy observations for
+   that exact mapping; it is not `RC_INSTALL` or stable evidence.
+
+The 2026-08-01 authority/evidence report used the sole-`DEV_DISCOVERY` lane. A
+future exact-current rerun intended to extend that evidence must use the same
+lane and receive its own mapping authorization. A SOURCE-assisted rerun must
+remain classified as SOURCE-assisted evidence.
+
+In either lane, small-task and midstream user prompts do not name the Skill;
+the available contract must still keep small work flat and limit midstream
+behavior to a visible proposal. Cold resume, Planner/Executor, and Standard
+explicitly invoke `$work-charter`. Run each recovery-integrity variant
+independently and do not expose its case file or another variant. The
+Planner/Executor and midstream cases share `fixtures/work-charter-loop`; copy
+the fixture to a unique ignored run workspace before any mutation. The Standard
+case uses `fixtures/work-charter-standard`; recovery integrity is read-only.
 
 Record files read and changed, exact role-delivery authority and evidence,
 writer transitions, commands and exit status, verdict, residual risks, and the
-exact canonical SOURCE explicitly read. Do not place expected answers,
-suspected diagnoses, or implementation instructions in the copied fixture or
-role prompts.
+declared lane's exact SOURCE or loaded-copy identity. Do not place expected
+answers, suspected diagnoses, or implementation instructions in the copied
+fixture or role prompts.
 
-These SOURCE tests can establish development behavior and exact direct-read
-SOURCE identity. They cannot establish native injection, selection, trigger
-telemetry, same-named loaded-copy identity, `RC_INSTALL`, stable installation,
-or release readiness. Those remain separately authorized gates.
+Neither lane establishes broad trigger telemetry, `RC_INSTALL`, stable
+installation, or release readiness. Those remain separately authorized gates.
 
 ## Project Docs M1R Forward Matrix
 
@@ -221,6 +241,15 @@ The
 records five SOURCE-assisted behavior groups and two controlled negative
 variants for its exact hashes. Native implicit selection, loaded-copy identity,
 real-project behavior, candidate, and release proof remain unverified.
+
+The
+[authority, assessment, and evidence report](results/2026-08-01-work-charter-authority-assessment-evidence-forward-tests.md)
+records one sole-`DEV_DISCOVERY` matrix for its exact pre-review SOURCE, four
+independent recovery-integrity variants, and a fresh independent `ACCEPTED`
+verdict for bounded development recording. Cold recovery, Standard routing,
+authority ordering, and delivery/writer reporting remain partial as recorded.
+The current Standard sequencing correction lacks a fresh-context rerun; current
+RC, stable, real-project, broad-trigger, and causal evidence remain unverified.
 
 The
 [Revised PowerShell Development Forward Tests](results/2026-07-28-powershell-forward-tests.md)

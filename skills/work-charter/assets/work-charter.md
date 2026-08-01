@@ -7,7 +7,8 @@ unused prompts and keep pointers instead of copied source content.
 - Run disposition: `<active | paused | closed>`
 - Canonical locator: `<portable project-relative locator>`
 - Current owner and writer: `<role and boundary>`
-- Last material checkpoint: `<freshness marker>`
+- Last material checkpoint: `<logical locator and comparable freshness marker;
+  include decision or assessment recording state when relied upon>`
 
 ## Outcome And Non-Goals
 
@@ -24,13 +25,16 @@ effects, or other actions are authorized or prohibited.>
 
 ## Acceptance Evidence
 
-<State the checks, evidence pointers, assessor when separate assessment is
-required, and independently acceptable checkpoints if any.>
+<State the checks, evidence pointers, mutable subject and invalidation
+condition when material, how ignored or external results are observed,
+assessor when separate assessment is required, recording owner or locator,
+and independently acceptable checkpoints if any.>
 
 ## Stop, Decision, And Recovery
 
 <State stop conditions, pending decisions, durable read order, next safe
-action, and return route.>
+action, and return route. Include incomparable authority, required unrecorded
+assessment, evidence drift, or writer conflict when applicable.>
 
 ## Coordination
 

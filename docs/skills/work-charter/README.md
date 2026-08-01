@@ -49,14 +49,25 @@ one repository writer, and at most one Planner and one Executor for the active
 Charter. Stop on material contract, permission, workspace, writer, evidence,
 delivery, or recovery ambiguity.
 
+For cross-session continuation, verify the authoritative revision of material
+decisions and any required durable assessment recording. Evidence must cover
+the actual result surface and becomes stale when its bound subject materially
+changes.
+
 ## Verified Capability And Limits
 
-Exact-source M2R behavior, controlled development P/E and Standard delivery,
-an exact-commit RC recovery canary, and tag-pinned `v0.1.1` explicit Flat smoke
-pass. Broad implicit telemetry, Standard candidate/stable behavior,
-independent real-project efficacy, deterministic writer locks, and
-cross-Harness parity are not established. See [Verification](VERIFICATION.md)
-and [State](STATE.md).
+The recorded pre-hardening M2R SOURCE behavior, controlled development P/E and
+Standard delivery, exact-commit RC recovery canary, and tag-pinned `v0.1.1`
+explicit Flat smoke passed for their exact revisions. The pre-review authority,
+assessment, and evidence revision has structural, fixture-precondition, and
+sole-`DEV_DISCOVERY` fresh-context evidence plus an independent bounded
+`ACCEPTED`; its partial grades remain recorded. The current candidate adds a
+narrow semantic-review correction that records the Planner verdict before
+Orchestrator reliance. That correction has deterministic and review evidence,
+but no fresh-context rerun. Current exact-commit RC and stable behavior, broad
+implicit telemetry, independent real-project efficacy, deterministic writer
+locks, and cross-Harness parity are not established. See
+[Verification](VERIFICATION.md) and [State](STATE.md).
 
 ## Authoritative Contract
 
