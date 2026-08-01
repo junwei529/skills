@@ -19,17 +19,17 @@ on one verified checkpoint; audits current/historical/superseded evidence and
 result indexes; fails closed when no unique recovery entry exists; and
 preserves immutable history while correcting current claims.
 
-The public `v0.1.1` tag and stable installed copy predate this hardening and
-must not be described as containing it.
+Immutable tag `v0.1.2` at
+`ceed607152849775b981c54add74bfa30d858e4d`, its GitHub Release, and the
+verified stable installed copy contain these exact six package files.
 
 ## Current Writer
 
-No Project Docs writer is active. Its SOURCE/eval/evidence and commit-gate
-writers relinquished after acceptance, commit, and public push. A separately
-authorized repository release-preparation window may change shared and
-per-Skill distribution documents and materialize an isolated exact-commit RC;
-it does not authorize Project Docs SOURCE, stable-install, tag, or release
-changes.
+No Project Docs SOURCE writer is active. Its implementation and candidate
+writers relinquished after acceptance and publication. The authorized
+repository release-evidence closeout may change only mapped documentation; it
+does not authorize Project Docs SOURCE changes or cleanup of retained evidence
+or rollback copies.
 
 ## Evidence State
 
@@ -39,22 +39,23 @@ Three current-SOURCE hardening contexts cover continuity, authority conflict,
 and safety boundaries. Two earlier attempts remain visible but excluded after
 one recovery-target behavior defect and one later SOURCE-identity invalidation;
 the correction runs and a new independent assessor returned `ACCEPTED`.
-An isolated exact-commit `c42eef3...` RC then proved current six-file Git-blob
+An isolated exact-commit `c42eef3...` RC proved current six-file Git-blob
 and loaded-copy identity, mature `NOOP`, fail-closed recovery, authority and
 safety boundaries, ordinary non-selection, and independent `ACCEPTED`.
-Stable mutation behavior, broad trigger telemetry, causal comparison,
-cross-Harness parity, and independent real-project efficacy remain unproved.
+The later tag-pinned `v0.1.2` stable copy matched the same six package blobs,
+was actually loaded in a fresh process, returned mature `NOOP` with strong
+continuity, and left the fixture unchanged. Stable mutation behavior, broad
+trigger telemetry, causal comparison, cross-Harness parity, and independent
+real-project efficacy remain unproved.
 See [Verification](VERIFICATION.md).
 
 ## Next Gate
 
-Project Docs package bytes are `READY_FOR_RELEASE_CANDIDATE` at exact commit
-`c42eef3...`. A later release-preparation descendant with unchanged package
-blobs becomes a tag candidate only after it is clean, public, installed by its
-own exact commit, and proven as the actually loaded copy. If that proof is
-absent, run it; if it passes, the next user-owned lifecycle decision is the
-immutable tag. Stable update, private-global retirement, retained-evidence
-cleanup, tag, and GitHub Release remain separate decisions.
+Project Docs is released and installed as part of repository release
+`v0.1.2`. No further release action is pending for this revision. Stable
+mutation behavior, broader trigger and real-project evidence, private-global
+retirement, retained-evidence cleanup, and rollback-copy cleanup remain
+separate future decisions.
 
 ## Recovery Entry
 

@@ -26,17 +26,17 @@ into the emitted command. The eval case makes those transfer fields explicit.
 Frontmatter, metadata, the text and WSL references, and the three-reference
 structure remain unchanged.
 
-The installed `v0.1.1` package predates this revision and must not be
-described as containing it.
+Immutable tag `v0.1.2` at
+`ceed607152849775b981c54add74bfa30d858e4d`, its GitHub Release, and the
+verified stable installed copy contain this current five-file revision.
 
 ## Current Writer
 
-No PowerShell writer is active. The native-example correction and its current
-RC evidence were committed and published, and their controllers relinquished.
-A separately authorized repository release-preparation window may change
-shared and per-Skill distribution documents and materialize an isolated
-exact-commit RC; it does not authorize PowerShell SOURCE, stable-install,
-private-global, tag, or release changes.
+No PowerShell SOURCE writer is active. The hardening, correction, and candidate
+writers relinquished after acceptance and publication. The authorized
+repository release-evidence closeout may change only mapped documentation; it
+does not authorize PowerShell SOURCE changes, private-global changes, or
+cleanup of retained evidence or rollback copies.
 
 ## Evidence State
 
@@ -65,18 +65,21 @@ RC proved the corrected five-file loaded copy, two positive relevant-reference
 runs, ordinary-cmdlet and POSIX-only non-selection, complete safe command
 transfer, an executed controller boundary, dual-runtime deterministic checks,
 and an independent `READY_FOR_RELEASE_CANDIDATE` verdict.
-Stable installation, live Bash/WSL, actual sandbox-denial, and bounded
+The later tag-pinned `v0.1.2` stable copy matched all five package blobs and a
+fresh canary actually loaded the entry plus native/process and text/encoding
+references. It diagnosed the nested-command argument boundary and emitted a
+guarded `ProcessStartInfo.ArgumentList` shape while keeping a policy-blocked
+runtime probe explicitly unverified. Live Bash/WSL, actual sandbox-denial
+injection, native execution inside that stable canary sandbox, and bounded
 shadow-use evidence remain absent. See [Verification](VERIFICATION.md).
 
 ## Next Gate
 
-PowerShell package bytes are `READY_FOR_RELEASE_CANDIDATE` at exact commit
-`c42eef3...`. A later release-preparation descendant with unchanged package
-blobs becomes a tag candidate only after it is clean, public, installed by its
-own exact commit, and proven as the actually loaded copy. If that proof is
-absent, run it; if it passes, the next user-owned lifecycle decision is the
-immutable tag. Stable update, private-global retirement, retained-evidence
-cleanup, tag, and GitHub Release remain separate decisions.
+PowerShell is released and installed as part of repository release `v0.1.2`.
+No further release action is pending for this revision. Live WSL/Bash,
+sandbox-denial injection, shadow use, private-global retirement,
+retained-evidence cleanup, and rollback-copy cleanup remain separate future
+decisions.
 
 ## Recovery Entry
 
@@ -87,5 +90,6 @@ cleanup, tag, and GitHub Release remain separate decisions.
 3. Inspect local/public Git identities and current writer/dirty scope against
    [Repository Handoff](../../HANDOFF.md).
 4. Recompute the five SOURCE hashes before attributing any behavior.
-5. Do not confuse the tested `c42eef3...` candidate with the installed
-   `v0.1.1` copy or the earlier `58fc526...` isolated RC.
+5. Keep the tested `c42eef3...` candidate, released `v0.1.2` stable copy, and
+   earlier `58fc526...` isolated RC distinct even though the current package
+   bytes match.

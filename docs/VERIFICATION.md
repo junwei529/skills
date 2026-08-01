@@ -19,7 +19,7 @@ Sanitized detailed runs remain under [`evals/results`](../evals/results/README.m
 
 | Check | Purpose | Current result |
 |---|---|---|
-| Three Skill validators | Validate frontmatter and package names without changing packages | pass for the three packages contained in tested candidate `c42eef3...` |
+| Three Skill validators | Validate frontmatter and package names without changing packages | pass for the three packages in tag and stable install `v0.1.2` |
 | Repository checker | Validate strict UTF-8/no BOM, whitespace, local links/fragments, publication safety, exact Skill/eval sets, federated docs, and bilingual navigation | pass: 180 text files / 12 cases / 11 fixtures |
 | Fixture checker | Validate eleven synthetic starting states and their Git/reparse/ignored-result boundaries | 15 checks pass |
 | PowerShell deterministic hardening | Validate cardinality, LF bytes, one-base paths, and Junction link-only removal | 15 assertions pass in PowerShell 7 and Windows PowerShell 5.1 |
@@ -37,13 +37,14 @@ Sanitized detailed runs remain under [`evals/results`](../evals/results/README.m
 | Federated repository documentation has one root and one per-Skill owner for each fact class | verified in the current working tree by the repository checker, including expected owners and no orphan canonical owner |
 | English-canonical public entries have Simplified Chinese mirrors | verified for the root and all three per-Skill pairs, including reciprocal navigation and corresponding section counts |
 | Public source, development discovery, candidate, and stable roles are distinct | accepted and operationally verified |
-| Public standalone distribution works | verified for `junwei529/skills`, exact-SHA RC, immutable `v0.1.1`, and per-Skill `$skill-installer` paths |
+| Public standalone distribution works | verified for `junwei529/skills`, exact-SHA RC, immutable `v0.1.2`, and per-Skill `$skill-installer` paths |
 | One coherent multi-Skill candidate was loaded | verified at `78caaa6...` and repeated at `f7c07b5...` |
 | All three current packages independently reached release-candidate readiness at one commit | verified at exact public `c42eef3...`; Project Docs, PowerShell, and Work Charter each have isolated loaded-copy evidence and explicit residual limits |
-| Tag-pinned stable loaded-copy identity works for all three Skills | verified for immutable `v0.1.1` |
+| Tag-pinned stable loaded-copy identity works for all three Skills | verified for immutable `v0.1.2` at `ceed607...` |
 | `v0.1.0` is the coherent public release | false; retained as immutable installation evidence only |
-| `v0.1.1` is the coherent tag-based standalone release | verified |
-| A GitHub Release object exists | no |
+| `v0.1.1` is an immutable coherent historical release | verified; retained as rollback identity |
+| `v0.1.2` is the current coherent stable release | verified: immutable tag, exact installed copy, loaded-copy canaries, and GitHub Release |
+| A GitHub Release object exists | yes: [`v0.1.2`](https://github.com/junwei529/skills/releases/tag/v0.1.2), marked Latest |
 | The repository improves correctness, saves tokens, works across Harnesses, or passed SHICE | unverified |
 
 ## Candidate And Release Evidence Template
@@ -75,6 +76,80 @@ The [Runbook](RUNBOOK.md) owns procedure. This section alone owns the shared
 field schema.
 
 ## Shared Candidate And Release History
+
+### 2026-08-01 — Immutable `v0.1.2`, stable installed-copy proof, and GitHub Release
+
+Local and public `main` plus immutable tag `v0.1.2` resolved to exact commit
+`ceed607152849775b981c54add74bfa30d858e4d`. The tag retained the exact
+6/5/5 Skill package blobs previously tested at `c42eef3...`; blob equivalence
+was used only as bounded behavior continuity, not as installed-copy identity.
+
+The official `$skill-installer` helper downloaded all three paths from public
+repository `junwei529/skills` at exact ref `v0.1.2` into one isolated staging
+root. Before replacement, the existing three-package stable set was proven
+byte-for-byte equal to immutable `v0.1.1`. Both the staged `v0.1.2` set and the
+retained rollback set contained the exact 6/5/5 tag Git-blob file sets, strict
+UTF-8 without BOM, LF-only text with one final newline, no internal reparse
+point, and three passing Skill validators. The approved switch moved the old
+set to a dedicated rollback root and moved the verified staged set into the
+stable install; it did not edit either generated copy in place.
+
+Fresh ephemeral read-only processes then proved the actually loaded stable
+copies through isolated repository-scoped discovery. Each positive scope
+contained exactly one `.agents/skills/<name>` entry resolving to the already
+verified stable target; user configuration and unrelated rules were excluded,
+and native events recorded reads from that target:
+
+- Project Docs resolved and read the stable entry and audit/adopt reference,
+  returned mature `NOOP` with strong continuity, and changed no fixture file.
+- Work Charter resolved and read the stable entry plus both references, kept
+  Orchestrator reliance and Phase Two blocked while durable Planner assessment
+  recording remained pending, and limited the next action to that record plus
+  verification.
+- PowerShell resolved and read the stable entry plus native/process and
+  text/encoding references, diagnosed nested-command argument splitting,
+  preserved the spaced path and stream/exit contracts, and closed the
+  UTF-8/BOM/LF/final-newline/JSON/non-ASCII branch. Runtime commands blocked by
+  the read-only sandbox remained explicitly unverified.
+- One shared ordinary arithmetic negative exposed all three stable discovery
+  entries, returned the expected result, and executed no command or Skill/
+  reference read.
+
+Controller-side discovery-target and Git-blob verification own exact revision
+identity; model self-reported hashes were not used. Earlier direct-read
+canaries did not prove discovery and are retained only as diagnostic evidence.
+One normal-user-context discovery attempt was also excluded after it loaded
+unrelated private global context; that unsafe shape was not reused. Combined-
+command policy denials, a Project Docs explicit disk-read stop, one controller
+parser error corrected before switching, and a JSONL path-inspection escape
+bug are likewise diagnostic or excluded, not converted into passing behavior.
+The user configuration hash, SOURCE, and tracked repository state remained
+unchanged throughout the install and canaries. The staging root ended empty,
+while the exact `v0.1.1` rollback copy and retained ignored evidence roots
+remain intentionally uncleaned.
+
+Final deterministic checks passed: all three stable validators, repository
+checker at 180 public text files / 12 cases / 11 fixtures, 15 fixture checks,
+15 PowerShell boundary assertions under both PowerShell 7 and Windows
+PowerShell 5.1, explicit Git diff checks, and a tracked-history Gitleaks scan
+across 17 commits. A whole-directory scan separately found one pre-existing
+generic-key heuristic in an unrelated retained ignored official-manual cache;
+the matched value stayed redacted and the tracked publication surface passed.
+
+The GitHub Release
+[`v0.1.2 — Stable three-Skill release`](https://github.com/junwei529/skills/releases/tag/v0.1.2)
+was published from the existing immutable tag, marked Latest, and verified to
+target `ceed607...`. Its notes provide standalone and complete-set installer
+commands, package scope, verification, authorization boundaries, and evidence
+limits. No tag moved, no new release asset beyond GitHub source archives was
+added, and no private-global retirement or cleanup action was inferred.
+
+Evidence level: `RELEASE` plus `STABLE_INSTALL`. This proves current public
+mapping and bounded stable loaded-copy behavior; it does not prove stable
+mutation for Project Docs, full stable Standard delivery for Work Charter,
+live WSL or native execution inside the PowerShell canary sandbox, broad
+trigger accuracy, causal efficacy, token savings, real-project generalization,
+SHICE, or cross-Harness parity.
 
 ### 2026-08-01 — All-Skill `c42eef3` release-candidate readiness
 
@@ -114,8 +189,8 @@ into behavior evidence:
 - [Work Charter `c42eef3` full Standard RC](../evals/results/2026-08-01-work-charter-c42eef3-full-standard-rc.md)
 
 Verdict: all three Skills are independently
-`READY_FOR_RELEASE_CANDIDATE` at exact `c42eef3...`. This is not current stable
-behavior, a new immutable tag, or a GitHub Release. The later commit that
+`READY_FOR_RELEASE_CANDIDATE` at exact `c42eef3...`. At that checkpoint this
+was not current stable behavior, a new immutable tag, or a GitHub Release. The later commit that
 records these results is evidence-only and must not be relabeled as the tested
 candidate or receive a tag without its own candidate proof.
 
@@ -267,7 +342,7 @@ Distribution form and package version: standalone GitHub Skills, v0.1.1
 Installer source: public junwei529/skills at v0.1.1
 Structural validation: pass; 6/5/5 exact tag files; strict UTF-8/no BOM; no reparse points
 Fresh-context behavior: three narrow explicit read-only canaries pass
-Known gaps: no GitHub Release; no cleanup; broad trigger, real-project, efficacy, token, or cross-Harness proof
+Known gaps at the `v0.1.1` checkpoint: no GitHub Release; no cleanup; broad trigger, real-project, efficacy, token, or cross-Harness proof
 ```
 
 The final sanitized stable record was committed and pushed as

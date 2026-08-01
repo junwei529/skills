@@ -63,8 +63,9 @@ evidence is unresolved.
 
 The current six-file package has exact-source behavior evidence, controlled
 development loaded-copy evidence, exact-commit candidate identity, and
-historical tag-pinned `v0.1.1` loaded-copy `NOOP` smoke. Its current accepted
-stable identity is owned by the live repository release ledger. Stable
+tag-pinned `v0.1.2` stable loaded-copy identity plus a mature-layout `NOOP`
+canary. The current accepted release is the repository-level
+[`v0.1.2`](https://github.com/junwei529/skills/releases/tag/v0.1.2). Stable
 mutation behavior, broad trigger telemetry, causal efficacy, token savings,
 and cross-Harness parity are not established. See
 [Verification](VERIFICATION.md) and [State](STATE.md).

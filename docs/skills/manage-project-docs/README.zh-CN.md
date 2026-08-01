@@ -53,11 +53,11 @@ $manage-project-docs 审计此仓库的项目文档治理。未经单独批准�
 ## 已验证能力与限制
 
 当前六文件包已有 exact-source 行为证据、受控开发 loaded-copy 证据、
-exact-commit candidate identity，以及历史 `v0.1.1` tag-pinned loaded-copy
-`NOOP` smoke。当前已接受的 stable identity 由 live repository release
-ledger 拥有。稳定安装层的变更行为、广泛触发 telemetry、因果效果、token 节省
-和跨 Harness 等价性均未得到证明。参见[验证](VERIFICATION.md)和
-[状态](STATE.md)。
+exact-commit candidate identity，以及 `v0.1.2` tag-pinned stable
+loaded-copy identity 与成熟布局 `NOOP` canary。当前已接受的 release 是仓库级
+[`v0.1.2`](https://github.com/junwei529/skills/releases/tag/v0.1.2)。稳定安装层的
+变更行为、广泛触发 telemetry、因果效果、token 节省和跨 Harness 等价性均未
+得到证明。参见[验证](VERIFICATION.md)和[状态](STATE.md)。
 
 ## 权威合同
 

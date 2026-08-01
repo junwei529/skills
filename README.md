@@ -70,10 +70,12 @@ Skill automatically.
 ## Release Status
 
 This repository uses one immutable repository-level tag for the three
-independent packages in a supported set. `v0.1.0` and `v0.1.1` remain recorded
-historical identities; the current accepted stable tag, candidate proof, and
-any GitHub Release object are owned by live refs and
-[Repository Verification](docs/VERIFICATION.md), not by this README snapshot.
+independent packages in a supported set. The current accepted stable release is
+[`v0.1.2`](https://github.com/junwei529/skills/releases/tag/v0.1.2) at
+`ceed607152849775b981c54add74bfa30d858e4d`. `v0.1.0` and `v0.1.1` remain
+recorded historical identities. Live refs and
+[Repository Verification](docs/VERIFICATION.md) own the exact release and
+installed-copy evidence.
 
 The working SOURCE may contain later development that is not in an installed
 release. See [Repository Status](docs/STATUS.md) and the per-Skill State pages

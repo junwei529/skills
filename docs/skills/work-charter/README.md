@@ -70,10 +70,13 @@ independent bounded `ACCEPTED`; its partial grades remain recorded. The current
 package bytes have exact-commit loaded-copy proof at `c42eef3...`, stay unloaded
 for a flat task, and pass one bounded synthetic Standard Phase One with durable
 Planner recording before Orchestrator reliance and later durable Orchestrator
-recording. Their current accepted stable identity is owned by the live
-repository release ledger. Current stable behavior, broad implicit telemetry,
-independent real-project efficacy, deterministic role delivery or writer
-locks, and cross-Harness parity are not established. See
+recording. The repository-level
+[`v0.1.2`](https://github.com/junwei529/skills/releases/tag/v0.1.2) stable copy
+has exact loaded-copy identity, a flat non-loading canary, and a narrow
+fail-closed recovery/assessment-order canary. Full Standard delivery at the
+stable layer, broad implicit telemetry, independent real-project efficacy,
+deterministic role delivery or writer locks, and cross-Harness parity are not
+established. See
 [Verification](VERIFICATION.md) and [State](STATE.md).
 
 ## Authoritative Contract

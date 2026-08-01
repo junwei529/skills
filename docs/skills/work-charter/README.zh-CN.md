@@ -61,11 +61,12 @@ revision 已有结构、fixture 前置条件、sole-`DEV_DISCOVERY` fresh-contex
 以及独立的 bounded `ACCEPTED`；partial 等级仍如实保留。当前 package bytes
 已在 `c42eef3...` 获得 exact-commit loaded-copy 证据，在 flat task 中保持未加载，
 并通过一条 bounded synthetic Standard Phase One：先持久记录 Planner verdict，
-再允许 Orchestrator 依赖，随后也持久记录 Orchestrator assessment。当前已接受的
-stable identity 由 live repository release ledger 拥有。当前 stable 行为、
+再允许 Orchestrator 依赖，随后也持久记录 Orchestrator assessment。仓库级
+[`v0.1.2`](https://github.com/junwei529/skills/releases/tag/v0.1.2) stable copy
+已有精确 loaded-copy identity、flat non-loading canary，以及一条窄范围的
+fail-closed recovery/assessment-order canary。stable 层完整 Standard delivery、
 广泛隐式触发 telemetry、独立真实项目效果、确定性角色交付或 writer 锁，以及
-跨 Harness 等价性均未得到证明。参见[验证](VERIFICATION.md)和
-[状态](STATE.md)。
+跨 Harness 等价性均未得到证明。参见[验证](VERIFICATION.md)和[状态](STATE.md)。
 
 ## 权威合同
 

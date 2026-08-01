@@ -15,7 +15,7 @@ Last updated: 2026-08-01
 | Reader/session/writer distinction and coherent recovery snapshot | current-SOURCE continuity correction passes; writer rechecked before write and exact recovery target preserved |
 | Current/history/index/authorization and immutable-history audit | current-SOURCE conflict and safety runs pass |
 | Current candidate identity and loaded-copy behavior | exact-commit `c42eef3...` RC plus independent assessment pass |
-| Stable loaded-copy identity | verified only for the earlier immutable `v0.1.1` revision |
+| Stable loaded-copy identity and mature-layout behavior | tag-pinned `v0.1.2` six-file identity and fresh `NOOP` canary pass |
 | Stable mutation, broad trigger telemetry, causal efficacy, token savings, or cross-Harness parity | unverified |
 
 ## Current SOURCE Identity
@@ -39,8 +39,8 @@ assets/templates/continuity-anchor.md
 ```
 
 These exact hashes are contained in tested public candidate
-`c42eef392a5b9f58bbee64aa73ffb603a6fb6c29`. The immutable `v0.1.1`
-stable copy predates the recovery-coherence hardening.
+`c42eef392a5b9f58bbee64aa73ffb603a6fb6c29` and immutable stable release
+`v0.1.2` at `ceed607152849775b981c54add74bfa30d858e4d`.
 
 ## Recovery-Coherence Hardening
 
@@ -130,6 +130,33 @@ corrections; it is historical rather than current acceptance.
 
 ## Candidate And Stable Evidence
 
+### 2026-08-01 — `v0.1.2` stable installed-copy proof
+
+The immutable repository tag `v0.1.2` resolved publicly to
+`ceed607152849775b981c54add74bfa30d858e4d`. `$skill-installer` materialized
+all three packages from that exact tag into an isolated staging root before
+the approved stable update. The Project Docs candidate contained exactly six
+ordinary non-reparse files; every file matched its tag Git blob, decoded as
+strict UTF-8 without BOM, and used LF with one final newline. The installed
+stable package repeated the same identity and passed the Skill validator.
+
+An isolated repository-scoped `.agents/skills/manage-project-docs` entry
+resolved to the verified stable target. A fresh ephemeral read-only process
+selected that sole same-named entry and native events recorded reads of the
+stable `SKILL.md` plus `references/audit-and-adopt.md`. Against the mature
+fixture it returned `NOOP`, strong continuity, and no file change. A shared
+ordinary-task negative exposed all three stable entries but executed no Skill
+or reference read. Controller-side discovery-target and Git-blob checks,
+rather than model-reported hashes, own revision identity.
+
+The prior `v0.1.1` stable package was preserved as an exact rollback copy.
+Persistent Codex configuration, SOURCE, and tracked repository state did not
+change during installation or canaries. This proves current stable identity
+and one mature-layout `NOOP`; it does not prove stable mutation, broad trigger
+telemetry, causal efficacy, real-project generalization, or cross-Harness
+parity. Repository tag, stable-set, and GitHub Release evidence is recorded in
+[root Verification](../../VERIFICATION.md).
+
 ### 2026-08-01 — Current `c42eef3` exact-commit RC
 
 `$skill-installer` materialized the six-file package from public exact commit
@@ -152,8 +179,8 @@ and an independent assessor returned `ACCEPTED` with no Must finding. Stable
 `v0.1.1`, persistent configuration, SOURCE, and tracked repository state were
 unchanged during the run.
 
-Verdict: `READY_FOR_RELEASE_CANDIDATE` for exact commit `c42eef3...`, with no
-claim of persistent RC update, current stable behavior, broad trigger
+Verdict: `READY_FOR_RELEASE_CANDIDATE` for exact commit `c42eef3...`. At that
+checkpoint there was no claim of persistent RC update, current stable behavior, broad trigger
 telemetry, real-project efficacy, cross-Harness parity, tag, or release. The
 [sanitized result](../../../evals/results/2026-08-01-project-docs-c42eef3-exact-commit-rc.md)
 owns the detailed attempts and limits.

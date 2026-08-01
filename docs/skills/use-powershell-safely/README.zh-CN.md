@@ -30,7 +30,7 @@ PowerShell 用于诊断并安全处理 PowerShell、native executable、文本�
 $skill-installer Install the Skill from https://github.com/junwei529/skills/tree/<version-tag>/skills/use-powershell-safely.
 ```
 
-历史 stable `v0.1.1` 包不包含后续 hardening。Skill 安装、更新、PowerShell
+当前 stable `v0.1.2` 包包含后续 hardening。Skill 安装、更新、PowerShell
 安装和系统变更仍是分别授权的动作。不要把持续移动的 `main` branch 当作
 stable identity。
 
@@ -55,9 +55,12 @@ service、firewall、WSL state 或破坏性主机变更都需要显式授权。�
 和 tag-pinned stable loaded-copy 证据。`c42eef3...` 的 package bytes 加入后续
 hardening，并已有 exact-commit corrected-copy identity、native 正负 loaded-copy
 canary、双 runtime 确定性检查、实际执行的 native/text controller boundary 和
-独立 readiness verdict。当前已接受的 stable identity 由 live repository
-release ledger 拥有；hardening 仍缺少当前 stable、真实 Bash/WSL、实际 sandbox
-denial 和 shadow-use 证据。参见[验证](VERIFICATION.md)和[状态](STATE.md)。
+独立 readiness verdict。仓库级
+[`v0.1.2`](https://github.com/junwei529/skills/releases/tag/v0.1.2) stable copy
+已有精确 loaded-copy identity 和一条带守卫的 native/text diagnosis canary；
+hardening 仍缺少真实 Bash/WSL、stable canary sandbox 内实际执行的 native probe、
+实际 sandbox-denial 注入和 shadow-use 证据。参见[验证](VERIFICATION.md)和
+[状态](STATE.md)。
 
 ## 权威合同
 

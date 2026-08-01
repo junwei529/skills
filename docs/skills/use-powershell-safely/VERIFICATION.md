@@ -15,7 +15,8 @@ Last updated: 2026-08-01
 | Boundary-hardening RC behavior acceptance | `CORRECTION_REQUIRED`; the loaded response omitted fail-closed executable cardinality and separate stream capture |
 | Current public native-example correction behavior | final fresh SOURCE-assisted fixture run independently `ACCEPTED`; introduced at `a150a865...` and contained in tested `c42eef3...` |
 | Current corrected exact-commit RC identity and behavior | exact-commit `c42eef3...` loaded-copy positives/negatives, controller boundary, and independent readiness pass |
-| Current hardening stable, live Bash/WSL, actual sandbox denial, or shadow use | unverified |
+| Current hardening stable identity and guarded native/text diagnosis | tag-pinned `v0.1.2` five-file identity and fresh loaded-copy canary pass |
+| Live Bash/WSL, native execution inside the stable canary sandbox, actual sandbox denial, or shadow use | unverified |
 | General efficacy, token savings, or cross-Harness parity | unverified |
 
 ## Current SOURCE Identity
@@ -38,9 +39,9 @@ references/windows-wsl-boundaries.md
 
 These hashes identify SOURCE introduced at
 `a150a8652111ad7a04b4b8a048e861ee5c91fc93` and contained in tested public
-candidate `c42eef392a5b9f58bbee64aa73ffb603a6fb6c29`. The SOURCE identity alone
-does not imply a loaded candidate or stable installation; the current RC
-evidence is recorded separately below.
+candidate `c42eef392a5b9f58bbee64aa73ffb603a6fb6c29` and immutable stable release
+`v0.1.2` at `ceed607152849775b981c54add74bfa30d858e4d`. Loaded-copy evidence is
+recorded separately below.
 
 ## 2026-07-31 Native-Example Correction
 
@@ -220,6 +221,38 @@ acceptance. See the
 
 ## Candidate And Stable Evidence
 
+### 2026-08-01 — `v0.1.2` stable installed-copy proof
+
+The immutable repository tag `v0.1.2` resolved publicly to
+`ceed607152849775b981c54add74bfa30d858e4d`. `$skill-installer` materialized
+all three packages from that exact tag into an isolated staging root before
+the approved stable update. The PowerShell candidate contained exactly five
+ordinary non-reparse files; every file matched its tag Git blob, decoded as
+strict UTF-8 without BOM, and used LF with one final newline. The installed
+stable package repeated the same identity and passed the Skill validator.
+
+An isolated repository-scoped `.agents/skills/use-powershell-safely` entry
+resolved to the verified stable target. A fresh read-only boundary process
+selected that sole same-named entry, and native events recorded reads of the
+stable `SKILL.md` plus native/process and text/encoding references. It diagnosed
+nested-command argument splitting, kept the spaced path as one
+`ProcessStartInfo.ArgumentList` element, preserved stdout/stderr/exit semantics,
+and checked the fixture as strict UTF-8 without BOM, LF-only with one final
+newline, valid JSON, and representative non-ASCII text. Native runtime probes
+denied by the read-only sandbox were explicitly left unverified rather than
+inferred. The shared ordinary-task negative exposed all three stable entries
+but executed no Skill or reference read. Controller-side discovery-target and
+Git-blob checks own revision identity.
+
+The prior `v0.1.1` stable package was preserved as an exact rollback copy.
+Persistent Codex configuration, SOURCE, and tracked repository state did not
+change during installation or canaries. This proves current stable identity
+and one guarded native/text diagnosis, not live Bash/WSL, native execution
+inside the stable canary sandbox, actual sandbox-denial injection, broad
+trigger accuracy, shadow use, causal efficacy, or cross-Harness parity.
+Repository tag, stable-set, and GitHub Release evidence is recorded in
+[root Verification](../../VERIFICATION.md).
+
 ### 2026-08-01 — Current `c42eef3` corrected exact-commit RC
 
 `$skill-installer` materialized the five-file package from public exact commit
@@ -249,8 +282,8 @@ Stable `v0.1.1`, persistent configuration, SOURCE, and tracked repository state
 were unchanged during the run.
 
 This establishes corrected exact-commit RC identity, loaded-copy attribution,
-the safe native/text transfer, and applicable non-selection. It does not prove
-current stable behavior, live WSL/Bash, actual sandbox denial, real-project
+the safe native/text transfer, and applicable non-selection. At that checkpoint
+it did not prove current stable behavior, live WSL/Bash, actual sandbox denial, real-project
 shadow use, broad trigger accuracy, causal efficacy, token savings,
 cross-Harness parity, tag, or release. The
 [sanitized result](../../../evals/results/2026-08-01-powershell-c42eef3-exact-commit-rc.md)
@@ -282,8 +315,8 @@ was actually loaded in a fresh read-only process and preserved the requirement
 to capture `$LASTEXITCODE` immediately. The boundary hardening has its own
 exact-commit RC materialization and loaded-copy evidence, but its independent
 RC behavior verdict is `CORRECTION_REQUIRED`. The later correction now in
-candidate `c42eef3...` has its own loaded corrected RC proof above, but still no
-current stable proof.
+candidate `c42eef3...` has its own loaded corrected RC proof and is now
+contained in the verified `v0.1.2` stable copy recorded above.
 
 Repository-level shared candidate, tag, installation, and release evidence is
 owned by [root Verification](../../VERIFICATION.md).

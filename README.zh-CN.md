@@ -65,9 +65,11 @@ Recipe 不会自动安装、调用、采用、写入或发布另一个 Skill。
 ## 发布状态
 
 本仓库对一个受支持的三 Skill 集合使用同一个不可变 repository-level tag。
-`v0.1.0` 与 `v0.1.1` 仍是已记录的历史 identity；当前已接受的 stable tag、
-candidate proof 和任何 GitHub Release object 由 live refs 与
-[仓库验证](docs/VERIFICATION.md)拥有，而不是由本 README 快照声明。
+当前已接受的 stable release 是
+[`v0.1.2`](https://github.com/junwei529/skills/releases/tag/v0.1.2)，对应
+`ceed607152849775b981c54add74bfa30d858e4d`。`v0.1.0` 与 `v0.1.1` 仍是
+已记录的历史 identity；精确 release 与 installed-copy 证据由 live refs 和
+[仓库验证](docs/VERIFICATION.md)拥有。
 
 工作区 SOURCE 可能包含不属于已安装 release 的后续开发内容。在归因行为前，
 请查看[仓库状态](docs/STATUS.md)和各 Skill State 页面。

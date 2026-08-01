@@ -15,7 +15,7 @@ Last updated: 2026-08-01
 | Authority ordering, assessment recording, evidence invalidation, and delivery/writer degradation | tested pre-review recovery variants are partial, pass, pass, and partial respectively; no unsafe continuation observed |
 | Current Standard recording sequence | exact-commit `c42eef3...` full synthetic Phase One pass |
 | Current exact-commit RC loaded-copy identity | verified at public `c42eef3...` |
-| Stable loaded-copy identity | verified only for the earlier immutable `v0.1.1` revision |
+| Stable loaded-copy identity and narrow recovery behavior | tag-pinned `v0.1.2` five-file identity, flat non-loading, and fail-closed recovery canary pass |
 | Broad implicit telemetry, deterministic delivery/locking, real-project efficacy, token savings, or cross-Harness parity | unverified |
 
 ## Current SOURCE Identity
@@ -157,6 +157,35 @@ identity, deterministic permissions, or general Harness routing.
 
 ## Candidate And Stable Evidence
 
+### 2026-08-01 — `v0.1.2` stable installed-copy proof
+
+The immutable repository tag `v0.1.2` resolved publicly to
+`ceed607152849775b981c54add74bfa30d858e4d`. `$skill-installer` materialized
+all three packages from that exact tag into an isolated staging root before
+the approved stable update. The Work Charter candidate contained exactly five
+ordinary non-reparse files; every file matched its tag Git blob, decoded as
+strict UTF-8 without BOM, and used LF with one final newline. The installed
+stable package repeated the same identity and passed the Skill validator.
+
+An isolated repository-scoped `.agents/skills/work-charter` entry resolved to
+the verified stable target. A fresh read-only recovery process selected that
+sole same-named entry, and native events recorded reads of the stable
+`SKILL.md`, `references/coordination-and-recovery.md`, and
+`references/standard-ope.md`. It allowed only durable Planner-verdict recording
+and verification, kept Orchestrator reliance blocked, and stopped before Phase
+Two. The shared flat negative exposed all three stable entries but executed no
+Skill or reference read. Controller-side discovery-target and Git-blob checks,
+rather than model-reported hashes, own revision identity.
+
+The prior `v0.1.1` stable package was preserved as an exact rollback copy.
+Persistent Codex configuration, SOURCE, and tracked repository state did not
+change during installation or canaries. This proves current stable identity,
+flat non-loading, and one narrow fail-closed recovery boundary; it does not
+rerun complete Standard role delivery at the stable layer or prove broad
+implicit telemetry, deterministic delivery or locking, real-project efficacy,
+or cross-Harness parity. Repository tag, stable-set, and GitHub Release
+evidence is recorded in [root Verification](../../VERIFICATION.md).
+
 ### 2026-08-01 — Current `c42eef3` full Standard RC
 
 `$skill-installer` materialized the five-file package from public exact commit
@@ -186,7 +215,8 @@ Verdict: `READY_FOR_RELEASE_CANDIDATE` for exact commit `c42eef3...`, bounded
 flat non-loading, and one complete synthetic Standard Phase One with ordered
 durable Planner and Orchestrator assessment recording. Earlier partial grades
 remain valid. This does not prove deterministic delivery or writer locks,
-current stable behavior, broad triggers, real-project efficacy, cost or token
+and at that checkpoint did not prove current stable behavior, broad triggers,
+real-project efficacy, cost or token
 improvement, cross-Harness parity, tag, or release. The
 [sanitized result](../../../evals/results/2026-08-01-work-charter-c42eef3-full-standard-rc.md)
 owns the detailed attempts and limits.

@@ -32,7 +32,7 @@ it for `<version-tag>`:
 $skill-installer Install the Skill from https://github.com/junwei529/skills/tree/<version-tag>/skills/use-powershell-safely.
 ```
 
-The historical stable `v0.1.1` package does not include the later hardening.
+The current stable `v0.1.2` package includes the later hardening.
 Installation, updates, PowerShell setup, and system changes remain separate
 authorized actions. Do not use the moving `main` branch as a stable identity.
 
@@ -61,9 +61,11 @@ exact-commit RC, and tag-pinned stable loaded-copy evidence. Package bytes at
 `c42eef3...` add the later hardening and have exact-commit corrected-copy
 identity, native positive and negative loaded-copy canaries, dual-runtime
 deterministic checks, an executed native/text controller boundary, and an
-independent readiness verdict. Their current accepted stable identity is owned
-by the live repository release ledger. The hardening still lacks current
-stable, live Bash/WSL, actual sandbox-denial, and shadow-use proof.
+independent readiness verdict. The repository-level
+[`v0.1.2`](https://github.com/junwei529/skills/releases/tag/v0.1.2) stable copy
+has exact loaded-copy identity plus a guarded native/text diagnosis canary.
+The hardening still lacks live Bash/WSL, an executed native probe inside the
+stable canary sandbox, actual sandbox-denial injection, and shadow-use proof.
 See [Verification](VERIFICATION.md) and [State](STATE.md).
 
 ## Authoritative Contract
