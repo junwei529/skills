@@ -23,12 +23,15 @@ Work Charter 用显式 outcome、authority、evidence、recovery route，以及�
 
 ## 独立安装
 
+从 live repository refs 和仓库[验证](../../VERIFICATION.md)中选择一个已接受的
+不可变 tag，并用它替换 `<version-tag>`：
+
 ```text
-$skill-installer Install the Skill from https://github.com/junwei529/skills/tree/v0.1.1/skills/work-charter.
+$skill-installer Install the Skill from https://github.com/junwei529/skills/tree/<version-tag>/skills/work-charter.
 ```
 
 Work Charter 不依赖 Project Docs。它可以消费可靠的既有项目路由，而不安装或
-调用另一个 Skill。
+调用另一个 Skill。不要把持续移动的 `main` branch 当作 stable identity。
 
 ## 调用
 
@@ -52,16 +55,17 @@ lane、一个 repository writer，并至多有一个 Planner 和一个 Executor�
 ## 已验证能力与限制
 
 已记录的 hardening 前 M2R SOURCE、受控开发 P/E 与 Standard 角色交付、
-exact-commit RC 恢复 canary，以及基于 `v0.1.1` tag 的显式 Flat smoke，均对
-其精确 revision 通过。review 前的 authority、assessment 和 evidence revision
-已有结构、fixture 前置条件、sole-`DEV_DISCOVERY` fresh-context 证据，以及独立
-的 bounded `ACCEPTED`；partial 等级仍如实保留。公开 candidate `c42eef3...`
-已有 exact-commit loaded-copy 证据，在 flat task 中保持未加载，并通过一条
-bounded synthetic Standard Phase One：先持久记录 Planner verdict，再允许
-Orchestrator 依赖，随后也持久记录 Orchestrator assessment。当前 stable 行为、
+exact-commit RC 恢复 canary，以及历史 `v0.1.1` tag-pinned 显式 Flat smoke，
+均对其精确 revision 通过。review 前的 authority、assessment 和 evidence
+revision 已有结构、fixture 前置条件、sole-`DEV_DISCOVERY` fresh-context 证据，
+以及独立的 bounded `ACCEPTED`；partial 等级仍如实保留。当前 package bytes
+已在 `c42eef3...` 获得 exact-commit loaded-copy 证据，在 flat task 中保持未加载，
+并通过一条 bounded synthetic Standard Phase One：先持久记录 Planner verdict，
+再允许 Orchestrator 依赖，随后也持久记录 Orchestrator assessment。当前已接受的
+stable identity 由 live repository release ledger 拥有。当前 stable 行为、
 广泛隐式触发 telemetry、独立真实项目效果、确定性角色交付或 writer 锁，以及
-跨 Harness 等价性均未得到证明。参见
-[验证](VERIFICATION.md)和[状态](STATE.md)。
+跨 Harness 等价性均未得到证明。参见[验证](VERIFICATION.md)和
+[状态](STATE.md)。
 
 ## 权威合同
 

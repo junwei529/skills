@@ -19,15 +19,11 @@ copy still contain the earlier accepted package.
 
 ## Current Writer
 
-The implementation, RC, and cleanup writers relinquished. The separately
-authorized Release & Git Custodian owns the bounded evidence-only native-review,
-commit, and push window and is the sole repository writer until that gate
-succeeds or stops.
-
-Only if local `HEAD` and public `main` resolve to the same clean pushed
-descendant containing this evidence delta has the combined commit/push gate
-completed and the Custodian relinquished. A clean local-only descendant keeps
-the push gate active.
+The implementation, RC, evidence, and cleanup writers relinquished after
+acceptance, commit, and public push. A separately authorized repository
+release-preparation window may change shared and per-Skill distribution
+documents and materialize an isolated exact-commit RC; it does not authorize
+Work Charter SOURCE, stable-install, tag, or release changes.
 
 ## Evidence State
 
@@ -58,12 +54,13 @@ broad-trigger, cross-Harness, tag, or release proof.
 
 ## Next Gate
 
-Work Charter is `READY_FOR_RELEASE_CANDIDATE` at exact commit `c42eef3...`.
-After the repository evidence-only commit and push gate, the next lifecycle
-decision is whether to map a new immutable repository tag to that tested
-commit and repeat tag-pinned stable installed-copy proof. Stable update,
-private-global retirement, retained-evidence cleanup, tag, and GitHub Release
-remain separate decisions.
+Work Charter package bytes are `READY_FOR_RELEASE_CANDIDATE` at exact commit
+`c42eef3...`. A later release-preparation descendant with unchanged package
+blobs becomes a tag candidate only after it is clean, public, installed by its
+own exact commit, and proven as the actually loaded copy. If that proof is
+absent, run it; if it passes, the next user-owned lifecycle decision is the
+immutable tag. Stable update, private-global retirement, retained-evidence
+cleanup, tag, and GitHub Release remain separate decisions.
 
 ## Recovery Entry
 

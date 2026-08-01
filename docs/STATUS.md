@@ -6,28 +6,27 @@ Last updated: 2026-08-01
 
 | Area | Current state | Detail |
 |---|---|---|
-| Tested candidate identity | public and local `main` resolved to `c42eef392a5b9f58bbee64aa73ffb603a6fb6c29` for all three exact-commit RC runs; a later evidence-only descendant must not replace that identity | [Verification](VERIFICATION.md) |
+| Tested package identity | all three package byte sets independently reached exact-commit RC readiness at `c42eef392a5b9f58bbee64aa73ffb603a6fb6c29`; the pushed evidence descendant is `801139eb36c99c393011e2328b839165e8a216a5` | [Verification](VERIFICATION.md) |
 | Stable release identity | immutable `v0.1.1` at `f7c07b5470f10ce09ecb704bb0fb6d01e1d52b42`; exact-SHA RC and tag-pinned loaded-copy proof pass for all three Skills | [Verification](VERIFICATION.md) |
 | Project Docs | `READY_FOR_RELEASE_CANDIDATE` at `c42eef3...`; exact six-file loaded copy plus four fail-closed explicit canaries and ordinary non-selection independently accepted | [State](skills/manage-project-docs/STATE.md) |
 | Work Charter | `READY_FOR_RELEASE_CANDIDATE` at `c42eef3...`; flat non-loading and one complete bounded synthetic Standard Phase One pass | [State](skills/work-charter/STATE.md) |
 | PowerShell | `READY_FOR_RELEASE_CANDIDATE` at `c42eef3...`; corrected loaded-copy positives/negatives, executed native/text boundary, and dual-runtime checks pass | [State](skills/use-powershell-safely/STATE.md) |
-| Documentation | federated root/per-Skill ownership is active; this evidence-only gate changes repository documents and sanitized results, not installable packages | [Authority](AUTHORITY.md) |
+| Release preparation | public READMEs use a version-neutral `<version-tag>` interface; any patch tag requires its own clean public exact-commit RC proof even when the 6/5/5 package blobs are unchanged | [Runbook](RUNBOOK.md) |
 
 ## Current Repository State
 
-Public and local `main` resolved to exact candidate
-`c42eef392a5b9f58bbee64aa73ffb603a6fb6c29` before the three current RC runs.
-Immutable `v0.1.1` remains the stable identity and predates all three current
-packages.
+Exact package behavior was tested at public commit
+`c42eef392a5b9f58bbee64aa73ffb603a6fb6c29`; its sanitized evidence was later
+committed and pushed in descendant
+`801139eb36c99c393011e2328b839165e8a216a5`. Immutable `v0.1.1` remains the
+recorded stable identity and predates all three current package revisions.
 
-At a dirty or staged checkout, the bounded evidence-only delta containing the
-three current sanitized results and mapped canonical-state updates is the
-active commit/push gate. Only when local `HEAD` and public `main` resolve to the
-same clean pushed descendant containing those records has that gate completed
-and the Release & Git Custodian relinquished. A clean local-only descendant
-keeps the push gate active. In every state, `c42eef3...` remains the tested
-candidate; the evidence-only descendant is not a new candidate and must not
-silently receive a later tag.
+A release-preparation descendant may change only the mapped distribution and
+lifecycle documents while preserving all 6/5/5 package blobs. It is not a tag
+candidate merely because those blobs match `c42eef3...`: its own exact commit
+must be clean, public, installed through `$skill-installer`, and proven as the
+actually loaded copy. The version-neutral README interface remains valid both
+before and after a later immutable tag is created.
 
 The exact scope and recovery order are owned by
 [Repository Handoff](HANDOFF.md).
@@ -50,12 +49,11 @@ Per-Skill evidence and gaps:
 
 ## Next Gate
 
-At a dirty or staged checkout, finish the authorized evidence-only native
-review, local commit, and fast-forward push. At a clean pushed descendant
-containing the records, the next user-owned lifecycle decision is whether to
-create a new immutable repository tag that maps specifically to tested
-candidate `c42eef3...`; stable update and loaded-copy proof would follow only
-under their own authorization. Private-global retirement, retained-evidence
+Use the release-preparation state machine: if the version-neutral descendant
+does not yet have clean public exact-commit RC and loaded-copy proof, complete
+that gate; if it does, the next user-owned lifecycle decision is whether to
+create immutable patch tag `v0.1.2` at that exact commit. Stable update,
+tag-pinned loaded-copy proof, private-global retirement, retained-evidence
 cleanup, and GitHub Release remain separate decisions.
 
 ## Known Repository Gaps

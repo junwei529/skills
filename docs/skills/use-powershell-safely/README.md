@@ -24,13 +24,17 @@ a focused boundary workflow, not a general PowerShell tutorial or installer.
 
 ## Install Independently
 
+Choose an accepted immutable repository tag from the live repository refs and
+the repository [Verification](../../VERIFICATION.md) ledger, then substitute
+it for `<version-tag>`:
+
 ```text
-$skill-installer Install the Skill from https://github.com/junwei529/skills/tree/v0.1.1/skills/use-powershell-safely.
+$skill-installer Install the Skill from https://github.com/junwei529/skills/tree/<version-tag>/skills/use-powershell-safely.
 ```
 
-The stable `v0.1.1` package does not include the later public candidate hardening.
+The historical stable `v0.1.1` package does not include the later hardening.
 Installation, updates, PowerShell setup, and system changes remain separate
-authorized actions.
+authorized actions. Do not use the moving `main` branch as a stable identity.
 
 ## Invoke
 
@@ -52,13 +56,14 @@ changes. Resolve destructive targets literally and prove containment.
 
 ## Verified Capability And Limits
 
-The `v0.1.1` revision has fresh-context, controlled DEV_DISCOVERY,
-exact-commit RC, and tag-pinned stable loaded-copy evidence. Public candidate
-`c42eef3...` adds the later hardening and has exact-commit corrected-copy
+The historical `v0.1.1` revision has fresh-context, controlled DEV_DISCOVERY,
+exact-commit RC, and tag-pinned stable loaded-copy evidence. Package bytes at
+`c42eef3...` add the later hardening and have exact-commit corrected-copy
 identity, native positive and negative loaded-copy canaries, dual-runtime
 deterministic checks, an executed native/text controller boundary, and an
-independent readiness verdict. It still lacks current stable, live Bash/WSL,
-actual sandbox-denial, and shadow-use proof.
+independent readiness verdict. Their current accepted stable identity is owned
+by the live repository release ledger. The hardening still lacks current
+stable, live Bash/WSL, actual sandbox-denial, and shadow-use proof.
 See [Verification](VERIFICATION.md) and [State](STATE.md).
 
 ## Authoritative Contract

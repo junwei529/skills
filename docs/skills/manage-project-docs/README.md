@@ -27,14 +27,16 @@ file suite.
 
 ## Install Independently
 
-Use the supported Codex installer with the immutable repository tag:
+Choose an accepted immutable repository tag from the live repository refs and
+the repository [Verification](../../VERIFICATION.md) ledger, then substitute
+it for `<version-tag>`:
 
 ```text
-$skill-installer Install the Skill from https://github.com/junwei529/skills/tree/v0.1.1/skills/manage-project-docs.
+$skill-installer Install the Skill from https://github.com/junwei529/skills/tree/<version-tag>/skills/manage-project-docs.
 ```
 
 Installation is separate from invocation, target-project adoption, writes, and
-release authority.
+release authority. Do not use the moving `main` branch as a stable identity.
 
 ## Invoke
 
@@ -61,9 +63,11 @@ evidence is unresolved.
 
 The current six-file package has exact-source behavior evidence, controlled
 development loaded-copy evidence, exact-commit candidate identity, and
-tag-pinned `v0.1.1` loaded-copy `NOOP` smoke. Stable mutation behavior, broad
-trigger telemetry, causal efficacy, token savings, and cross-Harness parity are
-not established. See [Verification](VERIFICATION.md) and [State](STATE.md).
+historical tag-pinned `v0.1.1` loaded-copy `NOOP` smoke. Its current accepted
+stable identity is owned by the live repository release ledger. Stable
+mutation behavior, broad trigger telemetry, causal efficacy, token savings,
+and cross-Harness parity are not established. See
+[Verification](VERIFICATION.md) and [State](STATE.md).
 
 ## Authoritative Contract
 

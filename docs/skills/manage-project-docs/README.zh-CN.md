@@ -23,13 +23,15 @@ Project Docs 帮助 programmer 和技术型独立开发者，让项目事实、�
 
 ## 独立安装
 
-使用 Codex 支持的 installer 和不可变仓库 tag：
+从 live repository refs 和仓库[验证](../../VERIFICATION.md)中选择一个已接受的
+不可变 tag，并用它替换 `<version-tag>`：
 
 ```text
-$skill-installer Install the Skill from https://github.com/junwei529/skills/tree/v0.1.1/skills/manage-project-docs.
+$skill-installer Install the Skill from https://github.com/junwei529/skills/tree/<version-tag>/skills/manage-project-docs.
 ```
 
-安装不等于调用、目标项目采用、写入或发布授权。
+安装不等于调用、目标项目采用、写入或发布授权。不要把持续移动的 `main`
+branch 当作 stable identity。
 
 ## 调用
 
@@ -51,10 +53,11 @@ $manage-project-docs 审计此仓库的项目文档治理。未经单独批准�
 ## 已验证能力与限制
 
 当前六文件包已有 exact-source 行为证据、受控开发 loaded-copy 证据、
-exact-commit candidate identity，以及基于 `v0.1.1` tag 的 loaded-copy
-`NOOP` smoke。稳定安装层的变更行为、广泛触发 telemetry、因果效果、
-token 节省和跨 Harness 等价性均未得到证明。参见
-[验证](VERIFICATION.md)和[状态](STATE.md)。
+exact-commit candidate identity，以及历史 `v0.1.1` tag-pinned loaded-copy
+`NOOP` smoke。当前已接受的 stable identity 由 live repository release
+ledger 拥有。稳定安装层的变更行为、广泛触发 telemetry、因果效果、token 节省
+和跨 Harness 等价性均未得到证明。参见[验证](VERIFICATION.md)和
+[状态](STATE.md)。
 
 ## 权威合同
 

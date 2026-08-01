@@ -18,10 +18,12 @@ alone. Repository membership is not a trigger.
 
 ## Install
 
-Install one Skill from the immutable stable tag:
+Choose an accepted immutable repository tag from the live repository refs and
+the [Repository Verification](docs/VERIFICATION.md) ledger, then substitute it
+for `<version-tag>`:
 
 ```text
-$skill-installer Install the Skill from https://github.com/junwei529/skills/tree/v0.1.1/skills/manage-project-docs.
+$skill-installer Install the Skill from https://github.com/junwei529/skills/tree/<version-tag>/skills/manage-project-docs.
 ```
 
 Replace the final path with `skills/work-charter` or
@@ -30,11 +32,12 @@ Replace the final path with `skills/work-charter` or
 Install the complete set from one repository identity:
 
 ```text
-$skill-installer Install `skills/manage-project-docs`, `skills/work-charter`, and `skills/use-powershell-safely` from https://github.com/junwei529/skills at tag `v0.1.1`.
+$skill-installer Install `skills/manage-project-docs`, `skills/work-charter`, and `skills/use-powershell-safely` from https://github.com/junwei529/skills at tag `<version-tag>`.
 ```
 
 Installation, invocation/adoption, execution/writes, and packaging/release are
-separate authorization surfaces.
+separate authorization surfaces. Do not use the moving `main` branch as a
+stable installation identity.
 
 ## Invoke
 
@@ -66,14 +69,15 @@ Skill automatically.
 
 ## Release Status
 
-Immutable tag `v0.1.1` maps to the accepted multi-Skill candidate and has
-exact-commit RC plus tag-pinned loaded-copy proof for all three Skills.
-`v0.1.0` remains immutable historical installation evidence because its
-embedded README predates publication. No GitHub Release object is claimed.
+This repository uses one immutable repository-level tag for the three
+independent packages in a supported set. `v0.1.0` and `v0.1.1` remain recorded
+historical identities; the current accepted stable tag, candidate proof, and
+any GitHub Release object are owned by live refs and
+[Repository Verification](docs/VERIFICATION.md), not by this README snapshot.
 
-The working SOURCE may contain later uncommitted development that is not in
-the stable installation. See [Repository Status](docs/STATUS.md) and the
-per-Skill State pages before attributing behavior.
+The working SOURCE may contain later development that is not in an installed
+release. See [Repository Status](docs/STATUS.md) and the per-Skill State pages
+before attributing behavior.
 
 ## Repository Documentation
 

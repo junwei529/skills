@@ -24,12 +24,17 @@ protect the result.
 
 ## Install Independently
 
+Choose an accepted immutable repository tag from the live repository refs and
+the repository [Verification](../../VERIFICATION.md) ledger, then substitute
+it for `<version-tag>`:
+
 ```text
-$skill-installer Install the Skill from https://github.com/junwei529/skills/tree/v0.1.1/skills/work-charter.
+$skill-installer Install the Skill from https://github.com/junwei529/skills/tree/<version-tag>/skills/work-charter.
 ```
 
 Work Charter does not require Project Docs. It can consume a reliable existing
-project route without installing or invoking another Skill.
+project route without installing or invoking another Skill. Do not use the
+moving `main` branch as a stable identity.
 
 ## Invoke
 
@@ -57,16 +62,18 @@ changes.
 ## Verified Capability And Limits
 
 The recorded pre-hardening M2R SOURCE behavior, controlled development P/E and
-Standard delivery, exact-commit RC recovery canary, and tag-pinned `v0.1.1`
-explicit Flat smoke passed for their exact revisions. The pre-review authority,
-assessment, and evidence revision has structural, fixture-precondition, and
-sole-`DEV_DISCOVERY` fresh-context evidence plus an independent bounded
-`ACCEPTED`; its partial grades remain recorded. Public candidate `c42eef3...`
-has exact-commit loaded-copy proof, stays unloaded for a flat task, and passes
-one bounded synthetic Standard Phase One with durable Planner recording before
-Orchestrator reliance and later durable Orchestrator recording. Current stable
-behavior, broad implicit telemetry, independent real-project efficacy,
-deterministic role delivery or writer locks, and cross-Harness parity are not established. See
+Standard delivery, exact-commit RC recovery canary, and historical tag-pinned
+`v0.1.1` explicit Flat smoke passed for their exact revisions. The pre-review
+authority, assessment, and evidence revision has structural,
+fixture-precondition, and sole-`DEV_DISCOVERY` fresh-context evidence plus an
+independent bounded `ACCEPTED`; its partial grades remain recorded. The current
+package bytes have exact-commit loaded-copy proof at `c42eef3...`, stay unloaded
+for a flat task, and pass one bounded synthetic Standard Phase One with durable
+Planner recording before Orchestrator reliance and later durable Orchestrator
+recording. Their current accepted stable identity is owned by the live
+repository release ledger. Current stable behavior, broad implicit telemetry,
+independent real-project efficacy, deterministic role delivery or writer
+locks, and cross-Harness parity are not established. See
 [Verification](VERIFICATION.md) and [State](STATE.md).
 
 ## Authoritative Contract

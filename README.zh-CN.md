@@ -18,10 +18,11 @@
 
 ## 安装
 
-从不可变 stable tag 安装一个 Skill：
+从 live repository refs 和[仓库验证](docs/VERIFICATION.md)中选择一个已接受的
+不可变 tag，并用它替换 `<version-tag>`：
 
 ```text
-$skill-installer Install the Skill from https://github.com/junwei529/skills/tree/v0.1.1/skills/manage-project-docs.
+$skill-installer Install the Skill from https://github.com/junwei529/skills/tree/<version-tag>/skills/manage-project-docs.
 ```
 
 如需另一个 Skill，把末尾路径替换为 `skills/work-charter` 或
@@ -30,10 +31,11 @@ $skill-installer Install the Skill from https://github.com/junwei529/skills/tree
 从同一个仓库版本安装完整集合：
 
 ```text
-$skill-installer Install `skills/manage-project-docs`, `skills/work-charter`, and `skills/use-powershell-safely` from https://github.com/junwei529/skills at tag `v0.1.1`.
+$skill-installer Install `skills/manage-project-docs`, `skills/work-charter`, and `skills/use-powershell-safely` from https://github.com/junwei529/skills at tag `<version-tag>`.
 ```
 
-安装、调用/采用、执行/写入和打包/发布是彼此独立的授权面。
+安装、调用/采用、执行/写入和打包/发布是彼此独立的授权面。不要把持续移动的
+`main` branch 当作 stable installation identity。
 
 ## 调用
 
@@ -62,11 +64,12 @@ Recipe 不会自动安装、调用、采用、写入或发布另一个 Skill。
 
 ## 发布状态
 
-不可变 tag `v0.1.1` 映射到已接受的 multi-Skill candidate，三个 Skill 均已有
-exact-commit RC 和 tag-pinned loaded-copy 证据。`v0.1.0` 因其内置 README
-早于发布而仅保留为不可变历史安装证据。仓库不宣称存在 GitHub Release object。
+本仓库对一个受支持的三 Skill 集合使用同一个不可变 repository-level tag。
+`v0.1.0` 与 `v0.1.1` 仍是已记录的历史 identity；当前已接受的 stable tag、
+candidate proof 和任何 GitHub Release object 由 live refs 与
+[仓库验证](docs/VERIFICATION.md)拥有，而不是由本 README 快照声明。
 
-工作区 SOURCE 可能包含不属于稳定安装版的后续未提交开发内容。在归因行为前，
+工作区 SOURCE 可能包含不属于已安装 release 的后续开发内容。在归因行为前，
 请查看[仓库状态](docs/STATUS.md)和各 Skill State 页面。
 
 ## 仓库文档

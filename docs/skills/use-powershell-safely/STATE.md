@@ -31,10 +31,12 @@ described as containing it.
 
 ## Current Writer
 
-No PowerShell writer is active. The native-example correction was committed and
-published on `main`, and its controller relinquished. A new corrected-copy RC,
-stable update, private-global changes, tag, and release all require later
-separate authority.
+No PowerShell writer is active. The native-example correction and its current
+RC evidence were committed and published, and their controllers relinquished.
+A separately authorized repository release-preparation window may change
+shared and per-Skill distribution documents and materialize an isolated
+exact-commit RC; it does not authorize PowerShell SOURCE, stable-install,
+private-global, tag, or release changes.
 
 ## Evidence State
 
@@ -68,12 +70,13 @@ shadow-use evidence remain absent. See [Verification](VERIFICATION.md).
 
 ## Next Gate
 
-PowerShell is `READY_FOR_RELEASE_CANDIDATE` at exact commit `c42eef3...`.
-After the repository evidence-only commit and push gate, the next lifecycle
-decision is whether to map a new immutable repository tag to that tested
-commit and repeat tag-pinned stable installed-copy proof. Stable update,
-private-global retirement, retained-evidence cleanup, tag, and GitHub Release
-remain separate decisions.
+PowerShell package bytes are `READY_FOR_RELEASE_CANDIDATE` at exact commit
+`c42eef3...`. A later release-preparation descendant with unchanged package
+blobs becomes a tag candidate only after it is clean, public, installed by its
+own exact commit, and proven as the actually loaded copy. If that proof is
+absent, run it; if it passes, the next user-owned lifecycle decision is the
+immutable tag. Stable update, private-global retirement, retained-evidence
+cleanup, tag, and GitHub Release remain separate decisions.
 
 ## Recovery Entry
 

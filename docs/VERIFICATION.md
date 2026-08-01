@@ -119,6 +119,22 @@ behavior, a new immutable tag, or a GitHub Release. The later commit that
 records these results is evidence-only and must not be relabeled as the tested
 candidate or receive a tag without its own candidate proof.
 
+The sanitized records above were committed and pushed in evidence-only
+descendant `801139eb36c99c393011e2328b839165e8a216a5`. A later
+release-preparation descendant may preserve the exact 6/5/5 package blobs and
+therefore retain the bounded relevance of the `c42eef3...` behavior results.
+Blob equivalence does not prove that the later commit was fetched, installed,
+or loaded. Before any immutable patch tag maps to that descendant, one public
+exact-commit `$skill-installer` run must independently prove Git-blob identity,
+isolated same-name discovery, the actually loaded copy for all three packages,
+and proportional critical canaries.
+
+Public install documentation uses `<version-tag>` rather than embedding an
+unpublished tag as if it already existed. A controlled pre-tag RC record may be
+committed in a later separately authorized evidence update; creating a new
+candidate commit solely to embed its own RC result would recurse without adding
+package assurance.
+
 ### 2026-07-31 — Hardening and federated-document commit gate
 
 The complete 38-path local candidate integrated the accepted federated

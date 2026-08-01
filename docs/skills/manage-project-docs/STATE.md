@@ -25,9 +25,11 @@ must not be described as containing it.
 ## Current Writer
 
 No Project Docs writer is active. Its SOURCE/eval/evidence and commit-gate
-writers relinquished after acceptance, commit, and public push. The current
-repository evidence-only gate does not authorize Project Docs SOURCE,
-discovery, installation, RC, stable, or release changes.
+writers relinquished after acceptance, commit, and public push. A separately
+authorized repository release-preparation window may change shared and
+per-Skill distribution documents and materialize an isolated exact-commit RC;
+it does not authorize Project Docs SOURCE, stable-install, tag, or release
+changes.
 
 ## Evidence State
 
@@ -46,12 +48,13 @@ See [Verification](VERIFICATION.md).
 
 ## Next Gate
 
-Project Docs is `READY_FOR_RELEASE_CANDIDATE` at exact commit `c42eef3...`.
-After the repository evidence-only commit gate, the next lifecycle decision is
-whether to map a new immutable repository tag to that tested commit and repeat
-tag-pinned stable installed-copy proof. Stable update, private-global
-retirement, retained-evidence cleanup, tag, and GitHub Release remain separate
-decisions.
+Project Docs package bytes are `READY_FOR_RELEASE_CANDIDATE` at exact commit
+`c42eef3...`. A later release-preparation descendant with unchanged package
+blobs becomes a tag candidate only after it is clean, public, installed by its
+own exact commit, and proven as the actually loaded copy. If that proof is
+absent, run it; if it passes, the next user-owned lifecycle decision is the
+immutable tag. Stable update, private-global retirement, retained-evidence
+cleanup, tag, and GitHub Release remain separate decisions.
 
 ## Recovery Entry
 

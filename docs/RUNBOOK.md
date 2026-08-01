@@ -1,6 +1,6 @@
 # Development, Installation, And Release Runbook
 
-Last updated: 2026-07-31
+Last updated: 2026-08-01
 
 ## Quick Navigation
 
@@ -20,18 +20,11 @@ Last updated: 2026-07-31
 This is the operational owner for developing, discovering, testing, installing,
 and releasing this repository's Skills. The v0.1 distribution mechanism,
 public repository identity, and pre-tag candidate visibility policy are
-selected. The public repository, `main`, immutable `v0.1.0` tag, and one
-verified complete-set tag-pinned `STABLE_INSTALL` exist. The tag's embedded
-README predates publication and contradicts its current existence, so
-`v0.1.0` is retained installation evidence rather than the canonical public
-release identity. The authorized correction uses a new immutable `v0.1.1`
-candidate containing bilingual release documentation. Reviewed candidate
-`f7c07b5470f10ce09ecb704bb0fb6d01e1d52b42` has passed the repeated
-exact-commit candidate proof, and immutable tag `v0.1.1` resolves to that
-candidate. A complete-set tag install and fresh-process loaded-copy proof now
-pass. `v0.1.0` remains unmoved historical evidence. No GitHub Release object
-was created; current evidence and residual limits remain in
-`docs/VERIFICATION.md`.
+selected. Immutable `v0.1.0` and `v0.1.1` history, exact candidates, stable
+installs, GitHub Release state, and residual limits remain in
+`docs/VERIFICATION.md`; this procedure does not duplicate their live status.
+Public install examples use a version-neutral placeholder so the same source
+snapshot remains truthful before and after an immutable tag is created.
 
 See
 [Decision 0003](decisions/0003-source-install-release-boundaries.md) and
@@ -106,25 +99,25 @@ experimentation and prefers Plugins for broader installable distribution. v0.1
 accepts that narrower standalone scope. It does not claim Plugin-directory,
 workspace, connector, or one-click distribution.
 
-The corrected `v0.1.1` PowerShell release interface is:
+The version-neutral single-Skill release interface is:
 
 ```text
-$skill-installer Install the Skill from https://github.com/junwei529/skills/tree/v0.1.1/skills/use-powershell-safely.
+$skill-installer Install the Skill from https://github.com/junwei529/skills/tree/<version-tag>/skills/use-powershell-safely.
 ```
 
-The corrected complete-set interface is:
+The version-neutral complete-set interface is:
 
 ```text
-$skill-installer Install `skills/manage-project-docs`, `skills/work-charter`, and `skills/use-powershell-safely` from https://github.com/junwei529/skills at tag `v0.1.1`.
+$skill-installer Install `skills/manage-project-docs`, `skills/work-charter`, and `skills/use-powershell-safely` from https://github.com/junwei529/skills at tag `<version-tag>`.
 ```
 
-Use these prompts only after public tag `v0.1.1` resolves to the accepted,
-commit-smoked candidate. Keep `v0.1.0` immutable as historical evidence. The
-new tag must contain release documentation that remains valid before and after
-publication, then pass a repeated tag-pinned installed-copy smoke. Development
-SOURCE still is not installation or loaded-copy proof. For an RC smoke, replace
-the stable tag identity with the exact accepted candidate commit SHA and record
-that SHA in the evidence ledger.
+Replace `<version-tag>` only with an accepted immutable tag whose exact commit,
+RC, and stable evidence appear in the live release ledger. Do not substitute
+`main`. A new tag must contain release documentation that remains valid before
+and after publication, then pass a repeated tag-pinned installed-copy smoke.
+Development SOURCE still is not installation or loaded-copy proof. For an RC
+smoke, replace the stable tag identity with the exact accepted candidate commit
+SHA and record that SHA in the evidence ledger.
 
 ## Preflight
 
@@ -253,6 +246,14 @@ known.
 10. Record Skill-specific release-candidate identity and behavior in the
     matching per-Skill verification ledger. Record coherent multi-Skill
     candidate and release-lifecycle evidence in `docs/VERIFICATION.md`.
+
+When the candidate itself is a release-documentation snapshot, retain the
+pre-tag RC record in a controlled non-source artifact and make it available to
+the tag decision. Commit its sanitized ledger entry only in a later authorized
+evidence update; do not create a new candidate commit merely to embed evidence
+about the candidate being tested. Package-byte equivalence with an earlier
+candidate may preserve bounded behavior relevance, but it does not replace the
+new commit's installer, Git-blob, and actually-loaded-copy proof.
 
 If any candidate file is repaired in place, discard that candidate as evidence,
 apply the fix to `SOURCE`, create a new commit, and rebuild the candidate.
