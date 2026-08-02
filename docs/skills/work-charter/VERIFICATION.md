@@ -9,14 +9,14 @@ Last updated: 2026-08-02
 | `work-charter` is the sole current five-file package | verified structurally for current SOURCE |
 | Gate 1 natural-language entry, first-turn read authorization, L0-L4 recommendation, one-carrier, managed re-entry, and four-route contract | implemented in current SOURCE; structural and fixture-precondition checks pass, fresh behavior unverified |
 | Gate 1 evaluation definitions | 14 exact cases and 12 exact fixtures pass repository-shape checks; 19/23/27-run matrix not executed |
-| Small bounded work stays flat | tested pre-review DEV_DISCOVERY/SOURCE behavior pass |
-| Midstream implicit behavior is proposal-only | tested pre-review DEV_DISCOVERY/SOURCE behavior pass |
-| Cold recovery reconciles durable and workspace state | tested pre-review DEV_DISCOVERY/SOURCE safe stop, partial recovery-summary completeness |
-| Planner/Executor correction and independent assessment | tested pre-review DEV_DISCOVERY/SOURCE behavior pass |
-| Standard O/P/E under an approved policy | tested pre-review DEV_DISCOVERY/SOURCE partial: role, writer, recording, and Phase stop pass; one contained return-route mislabel |
-| Authority ordering, assessment recording, evidence invalidation, and delivery/writer degradation | tested pre-review recovery variants are partial, pass, pass, and partial respectively; no unsafe continuation observed |
-| Current Standard recording sequence | exact-commit `c42eef3...` full synthetic Phase One pass |
-| Current exact-commit RC loaded-copy identity | verified at public `c42eef3...` |
+| Small bounded work stays flat | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
+| Midstream implicit behavior is proposal-only | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
+| Cold recovery reconciles durable and workspace state | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE safe stop, partial recovery-summary completeness |
+| Planner/Executor correction and independent assessment | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
+| Standard O/P/E under an approved policy | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE partial: role, writer, recording, and Phase stop pass; one contained return-route mislabel |
+| Authority ordering, assessment recording, evidence invalidation, and delivery/writer degradation | historical exact pre-Gate-1 recovery variants are partial, pass, pass, and partial respectively; no unsafe continuation observed |
+| Released-control Standard recording sequence | historical exact-commit `c42eef3...` full synthetic Phase One pass |
+| Released-control exact-commit RC loaded-copy identity | verified historically at public `c42eef3...` |
 | Stable loaded-copy identity and narrow recovery behavior | tag-pinned `v0.1.2` five-file identity, flat non-loading, and fail-closed recovery canary pass |
 | Broad implicit telemetry, deterministic delivery/locking, real-project efficacy, token savings, or cross-Harness parity | unverified |
 

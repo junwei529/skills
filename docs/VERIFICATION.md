@@ -486,6 +486,17 @@ Gate 1 deterministic checks pass:
 - `gitleaks dir . --no-banner --redact --no-color --exit-code 1` reports no
   leaks.
 
+The effective local native commit gate used Terra with `high` reasoning. In the
+original Gate 1 implementation cycle, review 1 found one P2: the newly added
+cold-resume synthetic commit could inherit a user signing policy. That setup
+was fixed before the implementation commit with command-local
+`commit.gpgSign=false`, and review 2 completed clean. This correction round
+applies the same isolation to the recovery-integrity synthetic commit. Two
+startup failures before semantic review—one unsupported CLI prompt/selector
+combination and one sandbox network block—were excluded from the completed-
+review count. This is local commit-gate evidence, not behavior, candidate, or
+loaded-copy proof.
+
 This proves local implementation structure, text bytes, links, publication
 safety, case/fixture identity, and synthetic fixture preconditions only. Gate 1
 does not run the 19/23/27 model matrix, create a candidate or `RC_INSTALL`,

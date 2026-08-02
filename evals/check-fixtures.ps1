@@ -662,6 +662,7 @@ try {
     & git -C $integrityRunFull `
         -c 'user.name=Fixture Check' `
         -c 'user.email=fixture@example.invalid' `
+        -c 'commit.gpgSign=false' `
         commit -m 'fixture baseline' | Out-Null
     if ($LASTEXITCODE -ne 0) {
         throw 'Failed to commit the recovery-integrity fixture baseline.'

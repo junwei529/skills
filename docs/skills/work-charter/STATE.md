@@ -9,21 +9,19 @@ Canonical editable SOURCE is the five-file package under
 `manage-large-tasks` path is retired without an alias or second discovery
 entry.
 
-Tested public candidate
-`c42eef392a5b9f58bbee64aa73ffb603a6fb6c29` contains the current five-file
-package. It adds authority finality,
-assessment recording, evidence integrity, uncertain delivery, and advisory
-writer recovery without adding a package file, trigger, role, verdict, lock,
-script, or installation identity. Immutable tag `v0.1.2` at
+Historical public control candidate
+`c42eef392a5b9f58bbee64aa73ffb603a6fb6c29` contains the five-file package
+that added authority finality, assessment recording, evidence integrity,
+uncertain delivery, and advisory writer recovery. Immutable tag `v0.1.2` at
 `ceed607152849775b981c54add74bfa30d858e4d`, its GitHub Release, and the
-verified stable installed copy contain the current five-file package.
+verified stable installed copy preserve those released control bytes.
 
 [Decision 0018](../../decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md)
 is the accepted rationale for target `v0.2.0`. Gate 1 implements its natural-
 language selection, first-turn read authorization, L0-L4 recommendations,
 L1/L2 durability split, managed-workstream reconciliation, one-carrier rule,
 four re-entry routes, visible Standard reuse, and staged eval definitions in
-the current five-file SOURCE branch. No Gate 2 model run, candidate, installed
+the later five-file Gate 1 SOURCE branch. No Gate 2 model run, candidate, installed
 copy, or behavior claim exists for these new bytes.
 
 ## Current Writer

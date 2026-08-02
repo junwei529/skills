@@ -165,8 +165,8 @@ Token or context efficiency is a secondary measurement, not a pass condition. A 
 | [Cold resume](cases/cold-resume.md) | `work-charter` | Recover from durable state without Project Docs |
 | [Work Charter midstream proposal](cases/work-charter-midstream.md) | `work-charter` | Recognize continuity symptoms and propose without mutation |
 | [Work Charter Planner/Executor](cases/work-charter-planner-executor.md) | `work-charter` | Run a one-writer loop with compact correction and independent assessment |
-| [Work Charter Standard O/P/E](cases/work-charter-standard.md) | `work-charter` | Exercise a user-approved first standing policy and one bounded phase |
-| [Work Charter recovery integrity](cases/work-charter-recovery-integrity.md) | `work-charter` | Fail closed on stale authority, unrecorded assessment, evidence drift, delivery uncertainty, and writer conflict |
+| [Work Charter Standard O/P/E](cases/work-charter-standard.md) | `work-charter` | Exercise visible reuse of an already approved standing policy and one bounded phase |
+| [Work Charter recovery integrity](cases/work-charter-recovery-integrity.md) | `work-charter` | Exercise resume, Charter revision, and fail-closed authority, assessment, evidence, delivery, writer, dirty-state, and multi-worktree boundaries across six variants |
 | [PowerShell boundary](cases/powershell-boundary.md) | `use-powershell-safely` | Classify encoding and native-command failures before code changes |
 
 ## Fixture Preconditions
