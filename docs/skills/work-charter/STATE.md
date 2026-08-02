@@ -19,19 +19,21 @@ script, or installation identity. Immutable tag `v0.1.2` at
 verified stable installed copy contain the current five-file package.
 
 [Decision 0018](../../decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md)
-is the accepted documentation-only rationale for a possible future `v0.2.0`
-revision covering natural-language entry, L0-L4 recommendations, durable
-re-entry, live-state reconciliation, and proportional evaluation. It does not
-describe the current executable contract and has not changed SOURCE, eval
-definitions, installed behavior, or evidence.
+is the accepted rationale for target `v0.2.0`. Gate 1 implements its natural-
+language selection, first-turn read authorization, L0-L4 recommendations,
+L1/L2 durability split, managed-workstream reconciliation, one-carrier rule,
+four re-entry routes, visible Standard reuse, and staged eval definitions in
+the current five-file SOURCE branch. No Gate 2 model run, candidate, installed
+copy, or behavior claim exists for these new bytes.
 
 ## Current Writer
 
-No Work Charter SOURCE writer is active. Its `v0.1.2` implementation and
-candidate writers relinquished after acceptance and publication. Decision
-0018's separately authorized Gate 0 documentation integration does not create
-a SOURCE writer or authorize SOURCE/eval changes, an implementation workspace,
-or any later lifecycle effect. Gate 1 remains unapproved.
+Gate 1 used one task-dedicated worktree and branch
+`codex/work-charter-v0.2` with one Executor writer from clean baseline
+`763a15ee76bc71dd5e16fc22f32966cb0c8c3488`. After the local implementation
+commit, that branch is assessment-only until the source-task contract owner
+returns a verdict or one of the two authorized same-contract corrections. The
+main checkout remains integration-only.
 
 ## Evidence State
 
@@ -66,15 +68,12 @@ recording remained pending. This is not a stable full Standard-delivery claim.
 
 ## Next Gate
 
-Work Charter is released and installed as part of repository release
-`v0.1.2`. No further release action is pending for this revision. After the
-Decision 0018 documentation baseline, the next possible lifecycle action is
-Gate 1 — Local implementation of the proposed `v0.2.0` SOURCE and eval
-definitions in a separately approved isolated checkout with one named writer.
-Gate 1 is not authorized. Model-matrix evaluation, candidate handling,
-integration, release, stable update, private-global retirement, retained-
-evidence cleanup, and rollback-copy cleanup remain later independent gates or
-future decisions.
+Work Charter `v0.1.2` remains the released and installed stable revision. Gate
+1 local implementation now awaits the source-task assessor's exact-contract
+verdict. A correction may return to the same branch and writer only within the
+two authorized rounds. Gate 2 exact-candidate evaluation, any push or RC,
+integration, release, stable update, retained-evidence cleanup, and rollback-
+copy cleanup remain unapproved independent gates.
 
 ## Recovery Entry
 
@@ -84,6 +83,6 @@ future decisions.
    [Decision 0018](../../decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md),
    this state, and [Verification](VERIFICATION.md).
 3. Confirm live workspace, writer, and action authority.
-4. Read canonical SOURCE and the exact eval result before changing behavior or
-   claims.
+4. Read canonical SOURCE, Gate 1 definitions, and only evidence matching the
+   exact revision before changing behavior or claims.
 5. Preserve the independent-Skill and non-propagating-authorization boundary.

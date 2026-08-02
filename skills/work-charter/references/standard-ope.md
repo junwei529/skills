@@ -1,14 +1,21 @@
-# Standard Orchestrator/Planner/Executor
+# Standard Orchestrator/Planner/Executor (`L4`)
 
-Use Standard O/P/E for consequential project-level, multi-phase governance
-only when an applicable approved standing policy and active Charter support
-it. Initial persistent adoption and the first Standard standing policy are
-user-owned decisions. Later reuse must be visible and remains subordinate to
-Harness and project instructions.
+Use Standard O/P/E for consequential multi-phase project governance only when
+an applicable approved standing policy, active Charter, and discoverable
+durable control location support it. `L4` is internal shorthand; Standard
+O/P/E is the public name.
 
-If governing instructions require fresh explicit selection, or separate role
-delivery is unavailable or uncertain, propose the transition and stop. Do not
-represent a one-agent fallback as Standard.
+Initial persistent adoption and the first Standard standing policy are
+user-owned decisions. Later reuse must name the policy and exact bounded read
+scope being reused, remain visible to the user, and stay subordinate to
+Harness and project instructions. Policy or level selection does not authorize
+role delivery, writes, project-document or `AGENTS.md` changes, worktrees,
+Git, integration, installation, cleanup, publication, or external effects.
+
+If governing instructions require fresh selection, the control location or
+revision cannot be reconciled, or separate role delivery is unavailable or
+uncertain, propose the smallest transition and stop. Do not represent a
+one-agent fallback as Standard.
 
 ## Responsibilities
 
@@ -24,32 +31,27 @@ Executor.
 
 ## Operating Path
 
-1. The Orchestrator bounds the project direction and current phase outcome.
-2. The Planner makes the active Charter implementation-ready and identifies
-   the authorized work, writer, evidence, and stop conditions.
-3. The Executor implements only that bounded work and returns evidence to the
-   Planner.
-4. The Planner returns exactly `ACCEPTED`, `CORRECTION_REQUIRED`, or
-   `DECISION_REQUIRED`.
-5. Same-scope corrections return to the same Executor under the Charter.
+1. Reconcile the one authoritative control location, its standing-policy and
+   Charter revisions, managed workstream, workspace/writer boundary, and named
+   evidence using [Coordination And Recovery](coordination-and-recovery.md).
+2. The Orchestrator bounds project direction and the current phase outcome.
+3. The Planner makes the active Charter implementation-ready and identifies
+   authorized work, writer, evidence, and stop conditions.
+4. The Executor implements only that work and returns evidence to the Planner.
+5. The Planner returns exactly `ACCEPTED`, `CORRECTION_REQUIRED`, or
+   `DECISION_REQUIRED`; same-scope corrections may return to the same Executor.
 6. Before the Orchestrator relies on Planner acceptance, the next authorized
-   governance writer records and verifies the Planner verdict and evidence
-   pointer in the target project's canonical owner. If that write is not
-   authorized or verified, report recording as pending and stop before the
-   Orchestrator assessment or phase transition.
-7. Only after that verified recording, the Orchestrator assesses project
-   direction and transition without duplicating implementation review.
-8. Before another session or phase transition relies on the Orchestrator's
-   read-only assessment, record and verify it under the same boundary.
-9. An unapproved phase, material replan, permission change, or residual-risk
+   governance writer records and verifies the verdict and evidence pointer in
+   the target project's canonical owner. Otherwise report recording as pending
+   and stop.
+7. The Orchestrator then assesses project direction and transition without
+   duplicating implementation review. Record and verify that read-only
+   assessment before another session or phase transition relies on it.
+8. An unapproved phase, material replan, permission change, or residual-risk
    decision returns to the user.
 
-Profile selection does not authorize role delivery, target writes,
-project-document or `AGENTS.md` changes, worktrees, Git, installation,
-integration, cleanup, publication, or external effects. Verify each action
-against the Charter and governing instructions.
-
-Use durable state for cold or recovery entry. Use the compact warm-handoff
-fields in [Coordination And Recovery](coordination-and-recovery.md) while role
-sessions remain reliable. Stop for material state, writer, delivery, or
-evidence ambiguity.
+Use durable state for cold or recovery entry and compact warm handoffs while
+role sessions remain reliable. Work Charter cannot guarantee role delivery,
+writer locking, message finality, or compliance; report capability degradation
+honestly and stop for material control, delivery, writer, or evidence
+ambiguity.

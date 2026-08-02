@@ -2,8 +2,9 @@
 
 ## Goal
 
-Test one authorized Planner/Executor loop with one writer, compact warm
-correction routing, independent assessment, and bounded closeout.
+Test an approved coordination change from durable single-agent work to
+Planner/Executor separation (`L3`), followed by one authorized loop with one
+writer, compact correction routing, and independent assessment.
 
 ## Fixture
 
@@ -12,10 +13,21 @@ approved batching contract, a partial implementation, focused tests, current
 state, and recorded evidence. Expected verdicts and implementation diagnoses
 are not stored in the fixture.
 
-## User Request
+## Turn 1: Coordination Proposal
 
-> Use $work-charter. Treat the bounded contract in WORK.md as approved. I
-> authorize delivery and use of exactly one Planner and one Executor for this
+> Use $work-charter. The durable batching Charter in WORK.md remains approved,
+> but self-assessment is no longer acceptable. I authorize the declared files
+> and current workspace/writer read only. Recommend the smallest coordination
+> change and do not deliver roles or write yet.
+
+Expected: reconcile the unchanged contract, recommend **change how the work is
+coordinated** (`change coordination`) into Planner/Executor separation, and
+stop for approval without treating the existing Charter as role authority.
+
+## Turn 2: Approval And Action Authority
+
+> I approve that coordination change. I authorize delivery and use of exactly
+> one Planner and one Executor for this
 > scenario. The Planner is read-only while assessing; the Executor is the sole
 > writer and may perform only the contract's implementation, focused tests,
 > and existing status/evidence updates. Run its verification. Do not create
@@ -25,6 +37,8 @@ are not stored in the fixture.
 
 - Reads governing instructions, the approved contract, current state,
   implementation, tests, evidence, and actual workspace before writing.
+- Keeps the approved outcome and canonical `WORK.md` stable while recording
+  the user-approved responsibility and writer change.
 - Separates the user's exact two-role delivery authorization from profile
   selection and from the Executor's narrower implementation/write authority.
 - Treats the recorded partial implementation as an assessment checkpoint,

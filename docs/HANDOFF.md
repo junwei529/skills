@@ -62,11 +62,12 @@ architecture, development Runbook, evaluation contract, provenance/data
 boundary, authority map, index, repository verification, and this handoff.
 
 [Decision 0018](decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md)
-then applies that capability-delta method to a future Work Charter `v0.2.0`
-revision. It records accepted natural-language entry, proportional protection,
-durable re-entry, evaluation, workspace, and lifecycle-gate design while
-leaving the current Work Charter Design, SOURCE, State, stable behavior, and
-release identity unchanged.
+then applies that capability-delta method to target Work Charter `v0.2.0`.
+Gate 1 now implements its natural-language entry, first-read authorization,
+proportional protection, durable re-entry, managed-workstream and multi-
+worktree reconciliation, four routes, and staged eval definitions in the
+existing five-file package. Stable behavior and release identity remain
+unchanged at `v0.1.2`.
 
 The accepted documentation change set comprises:
 
@@ -89,12 +90,13 @@ The accepted documentation change set comprises:
 - `docs/skills/work-charter/STATE.md`;
 - `evals/README.md`.
 
-The repository checker passes at 182 text files / 12 cases / 11 fixtures, and
-`git diff --check` passes. No installable Skill, eval case, fixture, script,
-discovery mapping, installation, tag, or release identity changed. Gate 0
-authorizes review, same-scope documentation corrections, deterministic checks,
-native review, staging, and one local commit for this exact set. It grants no
-continuing writer authority and does not authorize push or publication.
+Gate 0 is committed at clean baseline
+`763a15ee76bc71dd5e16fc22f32966cb0c8c3488`. Gate 1 uses branch
+`codex/work-charter-v0.2` and one task-dedicated Executor. It changes canonical
+SOURCE, eval definitions, fixtures/checkers, and mapped documentation only;
+discovery, installation, candidate, tag, and release identities remain
+untouched. Exact Gate 1 check results and local commit identity belong in the
+Executor Result Notice and matching verification ledgers.
 
 Retained ignored evaluation workspaces contain descendant discovery roots from
 earlier tests. They are not active merely because a task starts at the
@@ -148,14 +150,17 @@ is owned by [Repository Verification](VERIFICATION.md).
 
 ## Immediate Next Action
 
-No release action remains pending for `v0.1.2`. Resolve live Git state first:
-if this exact documentation set remains uncommitted, complete only the
-authorized Gate 0 review and local commit; if it is already integrated, do not
-repeat it. After that commit, Work Charter Gate 1 local implementation remains
-unapproved. The next user-owned choices are:
+No release action remains pending for `v0.1.2`. Resolve the Gate 1 branch,
+exact local commit, clean state, deterministic verification, and native-review
+record, then return them to the source-task assessor. The immediate next action
+is one exact-contract verdict: accept, request one bounded correction, or
+request a user decision. Only after acceptance may the user separately choose
+whether to authorize Gate 2.
 
-- authorize the bounded Work Charter Gate 1 implementation from the clean
-  documentation baseline;
+Later user-owned choices include:
+
+- authorize the bounded Work Charter Gate 2 exact-candidate matrix and RC
+  effects for one exact accepted commit;
 - begin another separately scoped development or evaluation cycle;
 - authorize a bounded external-optimizer feasibility experiment only after its
   data, isolation, provider, cost, and artifact-write contract is approved;
@@ -170,8 +175,8 @@ Stop before write or publication if:
 
 - live local/public identity, worktree, dirty scope, or writer ownership differs
   from the expected state;
-- a documentation-only evidence update would enter `skills/`, eval cases,
-  fixtures, deterministic scripts, discovery, installation, or user config;
+- a Gate 1 correction would expand beyond the accepted five-file SOURCE,
+  eval-definition, fixture/checker, or mapped-document scope;
 - a root summary would duplicate or contradict a per-Skill canonical owner;
 - a proposed action would move immutable tag `v0.1.2` or edit a generated
   installed or rollback copy;
@@ -189,11 +194,10 @@ not authorize amend, tag movement, branch/worktree or remote reconfiguration,
 private-global edits, retained-evidence cleanup, rollback-copy cleanup, or a
 future release.
 
-The 2026-08-02 content authorization covers the capability-delta workflow and
-Work Charter design documentation listed above. The subsequent Gate 0
-authorization additionally covers same-scope corrections, deterministic
-checks, native review, staging, and one local commit of that exact set. Neither
-authorization covers push, installation, release, Skill SOURCE or eval-case
-changes, branch/worktree creation, private-global mutation, external optimizer
-installation or execution, provider/data disclosure, cleanup, or automatic
-adoption.
+The 2026-08-02 Gate 1 authorization covers the named task-dedicated branch and
+worktree, one writer, accepted five-file SOURCE and eval-definition changes,
+mapped documentation, deterministic checks, native review, and local commits.
+It also permits two bounded same-contract correction rounds after assessment.
+It does not authorize push, model runs, RC or discovery changes, installation,
+integration, tag, release, stable update, private-global mutation, external
+optimizer execution, provider/data disclosure, or cleanup.

@@ -1,12 +1,14 @@
 # Work Charter Verification
 
-Last updated: 2026-08-01
+Last updated: 2026-08-02
 
 ## Claim Ledger
 
 | Claim | Status |
 |---|---|
 | `work-charter` is the sole current five-file package | verified structurally for current SOURCE |
+| Gate 1 natural-language entry, first-turn read authorization, L0-L4 recommendation, one-carrier, managed re-entry, and four-route contract | implemented in current SOURCE; structural and fixture-precondition checks pass, fresh behavior unverified |
+| Gate 1 evaluation definitions | 14 exact cases and 12 exact fixtures pass repository-shape checks; 19/23/27-run matrix not executed |
 | Small bounded work stays flat | tested pre-review DEV_DISCOVERY/SOURCE behavior pass |
 | Midstream implicit behavior is proposal-only | tested pre-review DEV_DISCOVERY/SOURCE behavior pass |
 | Cold recovery reconciles durable and workspace state | tested pre-review DEV_DISCOVERY/SOURCE safe stop, partial recovery-summary completeness |
@@ -18,7 +20,39 @@ Last updated: 2026-08-01
 | Stable loaded-copy identity and narrow recovery behavior | tag-pinned `v0.1.2` five-file identity, flat non-loading, and fail-closed recovery canary pass |
 | Broad implicit telemetry, deterministic delivery/locking, real-project efficacy, token savings, or cross-Harness parity | unverified |
 
-## Current SOURCE Identity
+## Gate 1 SOURCE And Definition Evidence
+
+The local `codex/work-charter-v0.2` implementation retains exactly five public
+files. Before native review, their raw SHA-256 identities are:
+
+```text
+SKILL.md
+  f9b79c2dfb910d45d114aece1f14d0c983bfe6c2d754a6702691239e67fef560
+agents/openai.yaml
+  f0032475e213d75ed17eb41c3424007ebc46c0ddb6739138c9908185beefdad6
+assets/work-charter.md
+  4420e9faa5a6090e5fc54680e26b2dedddbb8c60c7c3891aa88da824dd881b72
+references/coordination-and-recovery.md
+  338e462b2412d221c89e17c195f3f0ebf44370ace34384c277a71a180c29f760
+references/standard-ope.md
+  a85f03815313beaf3b399c8cf712904a402ae197518d8a5489281cff389698df
+```
+
+The Skill validator passes. The repository checker reports 191 text files,
+14 exact cases, and 12 exact fixtures. The fixture checker passes all 16
+preconditions, including two entry variants, the committed managed cold-resume
+branch, visible Standard-policy reuse, and six recovery-integrity variants.
+PowerShell parser checks, `git diff --check`, the exact five-file strict UTF-8/
+LF/no-BOM/final-newline/non-reparse audit, and the required gitleaks scan pass.
+
+These are Gate 1 implementation, structural, byte-format, definition, and
+fixture-precondition observations only. No native baseline, catalog-selection,
+exact-candidate behavior, exact-control comparison, Sol/Terra run, reasoning
+contrast, independent behavior assessment, `RC_INSTALL`, or stable update was
+performed. The accepted 19/23/27 staged matrix remains Gate 2 work and all new
+behavior claims are `UNVERIFIED`.
+
+## v0.1.2 Stable And Control SOURCE Identity
 
 The five files exercised by the 2026-08-01 fresh-context batch had these raw
 SHA-256 identities:
@@ -44,7 +78,7 @@ recording. The corrected current `references/standard-ope.md` raw SHA-256 is:
 09882cbc00de9ace0691471f426eae6abb08e01238cfd36a356ce8d30d837597
 ```
 
-The other four current hashes remain as listed above. The ordering correction
+The other four v0.1.2 control hashes remain as listed above. The ordering correction
 was not rerun through the complete fresh-context development matrix, so the
 batch below remains exact evidence for the pre-review hash. The later
 `d781240...` RC section separately provides exact identity for that revision plus narrow

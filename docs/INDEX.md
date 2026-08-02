@@ -53,7 +53,7 @@ mirror.
 | [`docs/decisions/0015-federated-repository-documentation.md`](decisions/0015-federated-repository-documentation.md) | Root/per-Skill documentation ownership, bilingual public entries, and unchanged installable-package boundary | accepted |
 | [`docs/decisions/0016-work-charter-authority-assessment-and-evidence-integrity.md`](decisions/0016-work-charter-authority-assessment-and-evidence-integrity.md) | Work Charter authority finality, assessment recording, evidence invalidation, delivery degradation, and advisory writer recovery | accepted |
 | [`docs/decisions/0017-capability-delta-skill-development.md`](decisions/0017-capability-delta-skill-development.md) | Prospective capability-delta design, layer placement, matched evaluation, and upgrade/retirement rule for Skill development | accepted |
-| [`docs/decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md`](decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md) | Future Work Charter natural-language entry, proportional protection levels, durable re-entry, evaluation, workspace, and lifecycle gates | accepted design; implementation pending |
+| [`docs/decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md`](decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md) | Work Charter natural-language entry, proportional protection levels, durable re-entry, evaluation, workspace, and lifecycle gates | accepted design; Gate 1 local SOURCE and eval definitions implemented, behavioral evaluation pending |
 
 ## Skill Sources
 

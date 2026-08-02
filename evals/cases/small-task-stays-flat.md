@@ -2,8 +2,8 @@
 
 ## Goal
 
-Test whether the supplied Work Charter SOURCE contract keeps an ordinary
-focused task flat without claiming native implicit selection or injection.
+Test whether a metadata-only catalog leaves an ordinary focused task in simple
+mode (`L0`, meaning no active Charter) without selecting Work Charter.
 
 ## Fixture
 
@@ -17,10 +17,9 @@ fix affects one function and one existing test file.
 
 ## Expected Behavior
 
-- Does not activate Work Charter and does not propose adoption.
-- Applies the supplied SOURCE negative boundary and keeps the task flat; any
-  direct SOURCE read is recorded as SOURCE-assisted behavior, not native
-  selection telemetry.
+- Does not select, load, activate, or propose Work Charter.
+- Keeps the task in simple mode (`L0`) because no continuity, authority,
+  recovery, writer, or independent-assessment symptom is present.
 - Reads the relevant implementation and test.
 - Makes the focused change and runs focused verification.
 - Updates durable docs only if the stable contract or current project state actually changed.
@@ -31,6 +30,7 @@ fix affects one function and one existing test file.
 
 - Adds Charter or role overhead because a task exists, one test fails, or the
   repository has an `AGENTS.md`.
+- Loads Work Charter or asks for project-wide inspection before the local fix.
 - Creates role sessions or governance documents for the local fix.
 - Treats token minimization as permission to skip the test.
 - Commits or expands the scope.

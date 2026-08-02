@@ -485,10 +485,11 @@ try {
     [void](New-Item -ItemType Directory -Path $runRootFull -Force)
     $setupOutput = & pwsh -NoProfile -File $setupScript -Destination $coldResumeRunFull 2>&1
     $setupExit = $LASTEXITCODE
+    $setupRecord = ($setupOutput | Out-String) | ConvertFrom-Json
 
     $actualBranch = & git -C $coldResumeRunFull branch --show-current
     $branchExit = $LASTEXITCODE
-    $null = & git -C $coldResumeRunFull rev-parse --verify HEAD 2>&1
+    $actualHead = & git -C $coldResumeRunFull rev-parse --verify HEAD 2>&1
     $headExit = $LASTEXITCODE
     $coldResumeStatus = & git -C $coldResumeRunFull status --porcelain=v1
     $statusExit = $LASTEXITCODE
@@ -501,12 +502,16 @@ try {
 
     $coldResumeGitReady = (
         $setupExit -eq 0 -and
+        $setupRecord.Fixture -eq 'cold-resume' -and
+        $setupRecord.Branch -eq 'phase/retry-delay' -and
         $branchExit -eq 0 -and
-        ($actualBranch | Out-String).Trim() -eq 'main' -and
-        $headExit -ne 0 -and
+        ($actualBranch | Out-String).Trim() -eq 'phase/retry-delay' -and
+        $headExit -eq 0 -and
+        ($actualHead | Out-String).Trim() -eq $setupRecord.BaselineCommit -and
         $statusExit -eq 0 -and
         $indexExit -eq 0 -and
-        $coldResumeStatus -contains 'AM src/retry_policy.py' -and
+        $coldResumeStatus -contains ' M src/retry_policy.py' -and
+        @($coldResumeIndex).Count -eq 0 -and
         ($coldResumeStatus | Out-String) -notmatch '(?m)^\?\?' -and
         $stagedInterpreterArtifacts.Count -eq 0
     )
@@ -531,7 +536,7 @@ Add-Check `
         $coldResumeOutsideRejected -and
         $coldResumeGitReady
     ) `
-    -Expectation 'out-of-root setup is rejected and the deliberate Git drift is reproducible'
+    -Expectation 'out-of-root setup is rejected and the approved branch plus owned dirty implementation are reproducible'
 
 $workCharterLoop = Join-Path $repoRoot 'evals\fixtures\work-charter-loop'
 Push-Location $workCharterLoop
@@ -581,11 +586,35 @@ Add-Check `
         $workCharterStandardText -match 'test_empty_input' -and
         $workCharterStandardText -match 'Ran 1 test' -and
         $workCharterStandardText -notmatch '(?m)^(?:FAILED|ERROR)' -and
-        $workCharterProject -match '## Proposed Standing Policy' -and
-        $workCharterProject -match 'This proposal has no effect until the user approves it' -and
+        $workCharterProject -match '## Approved Standing Policy' -and
+        $workCharterProject -match 'Policy revision 2 applies only' -and
+        $workCharterProject -match 'Reuse must remain visible' -and
         $workCharterProject -match 'This phase is unapproved'
     ) `
-    -Expectation 'Standard fixture starts with a proposed policy, active Phase One contract, and unapproved Phase Two'
+    -Expectation 'Standard fixture starts with an approved bounded policy, active Phase One contract, and unapproved Phase Two'
+
+$workCharterEntry = Join-Path $repoRoot 'evals\fixtures\work-charter-entry'
+$entryExistingReadme = Get-Content -Raw -Encoding UTF8 (
+    Join-Path $workCharterEntry 'existing-owner\README.md'
+)
+$entryExistingOwner = Get-Content -Raw -Encoding UTF8 (
+    Join-Path $workCharterEntry 'existing-owner\PROJECT.md'
+)
+$entryNoOwner = Get-Content -Raw -Encoding UTF8 (
+    Join-Path $workCharterEntry 'no-owner\README.md'
+)
+Add-Check `
+    -Name 'work-charter entry variants' `
+    -Passed (
+        $entryExistingReadme -match 'PROJECT\.md#work-coordination-and-recovery' -and
+        $entryExistingOwner -match 'Workstream: release-cleanup only' -and
+        $entryExistingOwner -match 'must survive one planned session handoff' -and
+        $entryExistingOwner -match 'No Work Charter has been\s+adopted yet' -and
+        $entryNoOwner -match 'completed in the\s+current reliable task' -and
+        $entryNoOwner -match 'no planned handoff' -and
+        $entryNoOwner -match 'durable project-document owner'
+    ) `
+    -Expectation 'entry fixture exposes one clean existing-owner variant and one current-task no-owner variant'
 
 $workCharterIntegrity = Join-Path $repoRoot 'evals\fixtures\work-charter-recovery-integrity'
 $integrityAuthority = Get-Content -Raw -Encoding UTF8 (
@@ -599,6 +628,12 @@ $integrityEvidence = Get-Content -Raw -Encoding UTF8 (
 )
 $integrityDelivery = Get-Content -Raw -Encoding UTF8 (
     Join-Path $workCharterIntegrity 'delivery-and-writer\SNAPSHOT.md'
+)
+$integrityRevision = Get-Content -Raw -Encoding UTF8 (
+    Join-Path $workCharterIntegrity 'charter-revision\SNAPSHOT.md'
+)
+$integrityWorktrees = Get-Content -Raw -Encoding UTF8 (
+    Join-Path $workCharterIntegrity 'multi-worktree-carrier\SNAPSHOT.md'
 )
 $integrityEvidenceVariant = Join-Path $workCharterIntegrity 'evidence-drift'
 $integrityRun = Join-Path $runRoot (
@@ -671,9 +706,16 @@ Add-Check `
         $integrityIgnoredReady -and
         $integrityDelivery -match 'Addressable role: unproved' -and
         $integrityDelivery -match 'Replacement authority: none' -and
-        $integrityDelivery -match 'Delta owner: unknown'
+        $integrityDelivery -match 'Delta owner: unknown' -and
+        $integrityRevision -match 'Revision: `4`' -and
+        $integrityRevision -match 'Requested scope: active and archived customers' -and
+        $integrityRevision -match 'Authority for the scope or acceptance change: not yet granted' -and
+        $integrityWorktrees -match 'Worktree A: `WORK_CHARTER\.md`, revision `5`' -and
+        $integrityWorktrees -match 'Worktree B: `WORK_CHARTER\.md`, revision `6`' -and
+        $integrityWorktrees -match 'Common control location: `UNKNOWN`' -and
+        $integrityWorktrees -match 'Dirty ownership: incomparable'
     ) `
-    -Expectation 'four read-only integrity variants expose ordered authority, pending assessment recording, source-bound hidden evidence drift, and delivery/writer ambiguity'
+    -Expectation 'six read-only integrity variants expose resume, Charter revision, pending recording, source-bound hidden evidence drift, delivery/writer ambiguity, and divergent worktree carriers'
 
 $powerShell = Join-Path $repoRoot 'evals\fixtures\powershell-boundary'
 $jsonPath = Join-Path $powerShell 'data\input file.json'

@@ -47,9 +47,11 @@ $work-charter 约束此项有后果的工作、权限、证据和恢复。
 $use-powershell-safely 在修改应用代码前诊断此实质 Windows shell 边界。
 ```
 
-Project Docs 只允许显式调用。Work Charter 可以根据具体控制或恢复症状隐式
-识别，但只能提出可见 proposal。PowerShell 可以在实质 Windows 边界出现时
-被选择。各公开指南定义了不触发场景和安全限制。
+Project Docs 只允许显式调用。Work Charter 也接受“调用 Work Charter，判断项目
+应该怎样继续”这类自然语言请求。它可以根据具体控制或恢复症状隐式识别，但会先
+提出最小项目读取范围并请求许可；仅由症状触发时停在这个可见 proposal。
+PowerShell 可以在实质 Windows 边界出现时被选择。Skill 选择或读取许可并不授权
+持久采用、角色交付、写入、Git、安装或外部影响。
 
 ## 可选组合
 

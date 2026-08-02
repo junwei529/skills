@@ -160,6 +160,8 @@ Token or context efficiency is a secondary measurement, not a pass condition. A 
 | [Project Docs authority conflict](cases/project-docs-conflict.md) | `manage-project-docs` | Preserve unknowns and propose rather than make an unauthorized structural repair |
 | [Project Docs safety boundaries](cases/project-docs-safety-boundaries.md) | `manage-project-docs` | Respect scope, permissions, writer, generated, external, and language boundaries |
 | [Small task stays flat](cases/small-task-stays-flat.md) | `work-charter` | Keep an ordinary focused fix flat without Charter or role overhead |
+| [Work Charter selection](cases/work-charter-selection.md) | `work-charter` | Exercise natural-language positives, a symptom-only proposal, and ordinary or peer-Skill negatives through metadata only |
+| [Work Charter entry](cases/work-charter-entry.md) | `work-charter` | Enforce two-turn read authorization and recommend current-task or durable single-agent protection |
 | [Cold resume](cases/cold-resume.md) | `work-charter` | Recover from durable state without Project Docs |
 | [Work Charter midstream proposal](cases/work-charter-midstream.md) | `work-charter` | Recognize continuity symptoms and propose without mutation |
 | [Work Charter Planner/Executor](cases/work-charter-planner-executor.md) | `work-charter` | Run a one-writer loop with compact correction and independent assessment |
@@ -178,9 +180,11 @@ pwsh -NoProfile -File .\evals\check-fixtures.ps1
 
 The checker confirms only fixture preconditions: the five Project Docs starting
 states, their isolated Git setup and manifest inspection, the expected passing
-and failing unit baselines, the reproducible cold-resume Git drift, the
+and failing unit baselines, the reproducible cold-resume managed branch and
+owned dirty boundary, both Work Charter entry variants, the
 reparse-point containment of setup and inspection helpers, the shared Work
-Charter loop, the Standard starting boundary, the
+Charter loop, the visible-reuse Standard starting boundary, six recovery-
+integrity variants, the
 direct-versus-wrapper PowerShell boundary, and the UTF-8-without-BOM input. It
 does not score an agent.
 
@@ -197,44 +201,48 @@ nonrecursive confirmed-Junction removal under PowerShell 7 and Windows
 PowerShell 5.1. It is not a fresh-context behavior test, live Bash/WSL test,
 sandbox-denial injection, or proof for other reparse-point types.
 
-## Work Charter Forward Matrix
+## Work Charter v0.2 Staged Matrix Definition
 
-Choose and record exactly one evidence lane before running the six cases; do
-not combine or relabel them:
+The v0.2 cases define a future 19-run minimum reference matrix. Gate 1 adds the
+definitions and deterministic precondition checks only; it does not execute a
+model run or create behavior evidence.
 
-1. **SOURCE-assisted** — provide canonical `skills/work-charter` SOURCE
-   explicitly to each fresh role and record the exact files read. This can
-   establish development behavior and direct-read SOURCE identity only.
-2. **Sole `DEV_DISCOVERY`** — only after separate authorization for a local
-   discovery mapping, expose the canonical package through one
-   repository-scoped entry, prove that no second same-named copy is in scope,
-   and do not inject SOURCE text or an expected contract into role prompts.
-   Record the discovered entry plus the files and hashes actually loaded. This
-   can support bounded development selection and loaded-copy observations for
-   that exact mapping; it is not `RC_INSTALL` or stable evidence.
+| Lane | Fresh runs | Cases |
+|---|---:|---|
+| Native baseline without Work Charter | 2 | One ordinary task and one consequential continuation request with target-derived guidance absent |
+| Realistic catalog selection | 6 | The six independent prompts in `work-charter-selection.md` |
+| Exact candidate behavior | 7 | Existing-project entry, new-project entry, resume/evidence refresh, revise Charter, change coordination into L3, fail closed, and visible-policy L4 reuse |
+| Exact accepted control | 4 | Matched positive selection, ordinary negative, first-turn read boundary, and ambiguous fail-closed behavior |
 
-The 2026-08-01 authority/evidence report used the sole-`DEV_DISCOVERY` lane. A
-future exact-current rerun intended to extend that evidence must use the same
-lane and receive its own mapping authorization. A SOURCE-assisted rerun must
-remain classified as SOURCE-assisted evidence.
+Use one exact reference model/reasoning cell for all 19 runs. A separately
+authorized evaluation may add at most one same-model reasoning contrast and
+one alternate intended-model contrast, four sentinels each: natural-language
+positive, ordinary negative, normal resume, and ambiguous fail closed. Record
+the Harness-exposed model and reasoning identities or `UNKNOWN`; do not place
+model names in the Skill behavior or infer broad model independence.
 
-In either lane, small-task and midstream user prompts do not name the Skill;
-the available contract must still keep small work flat and limit midstream
-behavior to a visible proposal. Cold resume, Planner/Executor, and Standard
-explicitly invoke `$work-charter`. Run each recovery-integrity variant
-independently and do not expose its case file or another variant. The
-Planner/Executor and midstream cases share `fixtures/work-charter-loop`; copy
-the fixture to a unique ignored run workspace before any mutation. The Standard
-case uses `fixtures/work-charter-standard`; recovery integrity is read-only.
+For catalog selection, name or preselect no Skill and surface metadata only.
+For selected behavior, explicitly invoke the exact candidate after selection
+is no longer being scored. The entry case is two-turn: controller observation
+must prove no project read before approval, then prove the bounded reads after
+approval. Run each recovery-integrity variant independently without exposing
+another variant or expected result.
 
-Record files read and changed, exact role-delivery authority and evidence,
-writer transitions, commands and exit status, verdict, residual risks, and the
-declared lane's exact SOURCE or loaded-copy identity. Do not place expected
-answers, suspected diagnoses, or implementation instructions in the copied
-fixture or role prompts.
+Copy mutating fixtures into a unique ignored run workspace. The
+Planner/Executor and midstream cases share `fixtures/work-charter-loop`; the
+Standard case uses `fixtures/work-charter-standard`; entry and recovery-
+integrity variants are read-only. Record files read and changed, exact
+installed/catalog/loaded identities, authority, writer transitions, commands
+and exit status, verdict, residual risks, tokens, latency, and user
+interruptions. Keep expected answers and diagnoses out of prompts and
+fixtures.
 
-Neither lane establishes broad trigger telemetry, `RC_INSTALL`, stable
-installation, or release readiness. Those remain separately authorized gates.
+Stop the matrix on an unauthorized read or action, material selection error,
+proposal-to-adoption escalation, unsafe continuation, project-wide scope
+confusion, or unproved candidate identity. Those failures are not offset by an
+aggregate score. The matrix establishes no broad trigger telemetry, causal or
+token-saving claim, stable installation, real-project efficacy, cross-Harness
+behavior, or release readiness.
 
 ## Project Docs M1R Forward Matrix
 

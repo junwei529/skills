@@ -465,6 +465,35 @@ shared candidate or release.
 
 ## Public Repository And Governance History
 
+### 2026-08-02 — Work Charter v0.2 Gate 1 local implementation
+
+From clean documentation baseline
+`763a15ee76bc71dd5e16fc22f32966cb0c8c3488`, the task-dedicated branch
+`codex/work-charter-v0.2` implements Decision 0018's accepted five-file SOURCE
+mapping, two new eval cases, one shared entry fixture, the six updated Work
+Charter cases, extended fixtures/checkers, and mapped canonical documentation.
+The package remains exactly five ordinary non-reparse files, each strict UTF-8
+without BOM, LF-only, and final-newline terminated.
+
+Gate 1 deterministic checks pass:
+
+- `$skill-creator` `quick_validate.py` reports `Skill is valid!`;
+- `scripts/check_repository.py` reports 191 text files, 14 exact cases, and 12
+  exact fixtures;
+- `evals/check-fixtures.ps1` passes all 16 preconditions;
+- PowerShell parser checks pass for every `evals/**/*.ps1` file;
+- `git diff --check` passes; and
+- `gitleaks dir . --no-banner --redact --no-color --exit-code 1` reports no
+  leaks.
+
+This proves local implementation structure, text bytes, links, publication
+safety, case/fixture identity, and synthetic fixture preconditions only. Gate 1
+does not run the 19/23/27 model matrix, create a candidate or `RC_INSTALL`,
+change discovery or stable installation, push, integrate, tag, or release.
+Natural-language selection, the first-turn no-read boundary, L0-L4 behavior,
+managed re-entry, all four routes, and visible Standard reuse remain
+`UNVERIFIED` for the new SOURCE until exact-candidate Gate 2 evidence exists.
+
 ### 2026-08-02 — Capability-delta decision and workflow
 
 An accepted documentation-only decision established a prospective rule for new

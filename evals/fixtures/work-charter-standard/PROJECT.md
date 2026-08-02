@@ -4,13 +4,19 @@
 
 Provide deterministic event summaries before adding any command-line surface.
 
-## Proposed Standing Policy
+## Approved Standing Policy
 
-For an explicitly approved multi-phase run, use Standard O/P/E with
+Policy revision 2 applies only to Event Tally implementation phases declared
+in this file. Its bounded recovery read scope is this file, `STATUS.md`,
+`EVIDENCE.md`, the current phase workspace/branch/worktree/dirty state, and the
+observable writer.
+
+For an explicitly authorized phase, use Standard O/P/E with
 Orchestrator direction and transition ownership, Planner Charter and
 independent-assessment ownership, Executor implementation ownership, one active
-lane, and one writer. This proposal has no effect until the user approves it.
-It does not authorize writes, Git, installation, or external effects.
+lane, and one writer. The user approved this standing policy before the
+scenario. Reuse must remain visible and does not authorize role delivery,
+writes, Git, installation, or external effects.
 
 ## Phase One Charter
 
