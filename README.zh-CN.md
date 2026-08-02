@@ -71,6 +71,9 @@ Recipe 不会自动安装、调用、采用、写入或发布另一个 Skill。
 已记录的历史 identity；精确 release 与 installed-copy 证据由 live refs 和
 [仓库验证](docs/VERIFICATION.md)拥有。
 
+这个共享 tag 是 release-set identity；它不表示每个 Skill 都在该 release
+发生了变化，也不表示它们具有相同成熟度。
+
 工作区 SOURCE 可能包含不属于已安装 release 的后续开发内容。在归因行为前，
 请查看[仓库状态](docs/STATUS.md)和各 Skill State 页面。
 

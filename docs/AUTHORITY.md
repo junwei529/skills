@@ -1,6 +1,6 @@
 # Documentation Authority
 
-Last updated: 2026-07-31
+Last updated: 2026-08-02
 
 ## Instruction Precedence
 
@@ -22,12 +22,12 @@ Use one canonical owner for each fact class:
 | Per-Skill SOURCE, forward-test, DEV, RC, stable evidence and limits | `docs/skills/<skill-name>/VERIFICATION.md` |
 | Repository integration and release dashboard | `docs/STATUS.md` |
 | Repository checks, coherent candidate, tag, stable-install, and release evidence | `docs/VERIFICATION.md` |
-| Development, discovery, installation, candidate, update, rollback, and release procedure | `docs/RUNBOOK.md` |
+| Development intake, external optimizer experiment, discovery, installation, candidate, update, rollback, and release procedure | `docs/RUNBOOK.md` |
 | Repository writer custody, dirty scope, next integration action, and recovery order | `docs/HANDOFF.md` |
 | Future milestone direction | `docs/ROADMAP.md` |
-| Source transformation and publication claims | `docs/PROVENANCE.md` |
-| Accepted rationale | `docs/decisions/` |
-| Evaluation definitions and sanitized detailed results | `evals/` |
+| Source transformation, external reference and data handling, and publication claims | `docs/PROVENANCE.md` |
+| Accepted rationale, including capability-delta and external framework or optimizer disposition | `docs/decisions/`; specifically `docs/decisions/0017-capability-delta-skill-development.md` for that disposition |
+| Native/control/candidate and optimizer evaluation definitions plus sanitized detailed results | `evals/` |
 
 Root and per-Skill README files are human navigation and distribution entries,
 not second runtime specifications. English is canonical; Simplified Chinese

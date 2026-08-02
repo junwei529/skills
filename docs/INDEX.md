@@ -1,6 +1,6 @@
 # Documentation Index
 
-Last updated: 2026-07-31
+Last updated: 2026-08-02
 
 ## Core Documents
 
@@ -16,9 +16,9 @@ Last updated: 2026-07-31
 | [`docs/ROADMAP.md`](ROADMAP.md) | Planned milestones | active |
 | [`docs/STATUS.md`](STATUS.md) | Current verified progress | active |
 | [`docs/HANDOFF.md`](HANDOFF.md) | Recovery entry point | active |
-| [`docs/RUNBOOK.md`](RUNBOOK.md) | Development, discovery, installation, candidate, and release procedure | active |
+| [`docs/RUNBOOK.md`](RUNBOOK.md) | Capability-delta intake, optional optimizer experiment, development, discovery, installation, candidate, and release procedure | active |
 | [`docs/VERIFICATION.md`](VERIFICATION.md) | Checks, evidence, and claim ledger | active |
-| [`docs/PROVENANCE.md`](PROVENANCE.md) | Source transformation and publication boundary | active |
+| [`docs/PROVENANCE.md`](PROVENANCE.md) | Source transformation, external reference/data handling, and publication boundary | active |
 
 ## Per-Skill Product Documents
 
@@ -52,6 +52,8 @@ mirror.
 | [`docs/decisions/0014-powershell-portable-guidance-and-private-host-delta.md`](decisions/0014-powershell-portable-guidance-and-private-host-delta.md) | Public PowerShell rule classification, minimal global bootstrap, private host delta, and safe migration evidence | accepted |
 | [`docs/decisions/0015-federated-repository-documentation.md`](decisions/0015-federated-repository-documentation.md) | Root/per-Skill documentation ownership, bilingual public entries, and unchanged installable-package boundary | accepted |
 | [`docs/decisions/0016-work-charter-authority-assessment-and-evidence-integrity.md`](decisions/0016-work-charter-authority-assessment-and-evidence-integrity.md) | Work Charter authority finality, assessment recording, evidence invalidation, delivery degradation, and advisory writer recovery | accepted |
+| [`docs/decisions/0017-capability-delta-skill-development.md`](decisions/0017-capability-delta-skill-development.md) | Prospective capability-delta design, layer placement, matched evaluation, and upgrade/retirement rule for Skill development | accepted |
+| [`docs/decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md`](decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md) | Future Work Charter natural-language entry, proportional protection levels, durable re-entry, evaluation, workspace, and lifecycle gates | accepted design; implementation pending |
 
 ## Skill Sources
 
@@ -76,6 +78,16 @@ mirror.
 - Understand the product: [`README.md`](../README.md) →
   [`Decision 0007`](decisions/0007-independent-skills-and-optional-recipes.md) →
   [`docs/SPEC.md`](SPEC.md) → [`docs/ARCHITECTURE.md`](ARCHITECTURE.md).
+- Develop or materially revise a Skill:
+  [`Decision 0017`](decisions/0017-capability-delta-skill-development.md) →
+  [`docs/SPEC.md`](SPEC.md) → [`docs/ARCHITECTURE.md`](ARCHITECTURE.md) →
+  [`docs/RUNBOOK.md`](RUNBOOK.md#capability-delta-intake) →
+  [`evals/README.md`](../evals/README.md).
+- Evaluate an external Skill optimizer:
+  [`Decision 0017`](decisions/0017-capability-delta-skill-development.md#external-frameworks-and-optimizers) →
+  [`docs/RUNBOOK.md`](RUNBOOK.md#external-optimizer-experiment) →
+  [`docs/PROVENANCE.md`](PROVENANCE.md#external-optimization-data) →
+  [`evals/README.md`](../evals/README.md#external-optimizer-experiment-contract).
 - Understand the Project Docs refinement:
   [`Decision 0006`](decisions/0006-project-docs-progressive-governance.md) →
   [`Project Docs Design`](skills/manage-project-docs/DESIGN.md) →
@@ -83,6 +95,7 @@ mirror.
 - Understand the Work Charter refinement:
   [`Decision 0012`](decisions/0012-work-charter-v0-1-identity-and-minimum-sufficient-design.md) →
   [`Decision 0016`](decisions/0016-work-charter-authority-assessment-and-evidence-integrity.md) →
+  [`Decision 0018`](decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md) →
   [`Work Charter Design`](skills/work-charter/DESIGN.md) →
   [`Work Charter State`](skills/work-charter/STATE.md).
 - Understand the PowerShell global-rule migration:

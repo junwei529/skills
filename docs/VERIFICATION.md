@@ -1,6 +1,6 @@
 # Repository Verification
 
-Last updated: 2026-08-01
+Last updated: 2026-08-02
 
 ## Scope
 
@@ -20,7 +20,7 @@ Sanitized detailed runs remain under [`evals/results`](../evals/results/README.m
 | Check | Purpose | Current result |
 |---|---|---|
 | Three Skill validators | Validate frontmatter and package names without changing packages | pass for the three packages in tag and stable install `v0.1.2` |
-| Repository checker | Validate strict UTF-8/no BOM, whitespace, local links/fragments, publication safety, exact Skill/eval sets, federated docs, and bilingual navigation | pass: 180 text files / 12 cases / 11 fixtures |
+| Repository checker | Validate strict UTF-8/no BOM, whitespace, local links/fragments, publication safety, exact Skill/eval sets, federated docs, and bilingual navigation | pass: 182 text files / 12 cases / 11 fixtures |
 | Fixture checker | Validate eleven synthetic starting states and their Git/reparse/ignored-result boundaries | 15 checks pass |
 | PowerShell deterministic hardening | Validate cardinality, LF bytes, one-base paths, and Junction link-only removal | 15 assertions pass in PowerShell 7 and Windows PowerShell 5.1 |
 | PowerShell parser sweep | Parse all `evals/**/*.ps1` files | 6 files parse |
@@ -56,6 +56,7 @@ absolute paths.
 ```text
 Evidence level: DEV | RC | STABLE_INSTALL | RELEASE
 Skill or package:
+Previous accepted release tag: not applicable (DEV) | none (first release) | <tag>
 Source branch or checkout:
 Commit state: unborn | <SHA>
 Working tree clean: yes | no
@@ -64,13 +65,32 @@ Actually loaded copy role: DEV_DISCOVERY | RC_INSTALL | STABLE_INSTALL
 Actually loaded logical locator or resolved-source proof:
 Distribution form and package version:
 Installer or package source ref/SHA:
+Candidate release-set manifest (RC or RELEASE only):
+Approved target installed subset (STABLE_INSTALL only):
+Prior and rollback installed manifest (update only):
 Structural validation:
 Repository and fixture checks:
 Fresh-context behavior tests:
 Installed-copy smoke:
+Post-switch active manifest and discovery proof:
 Stable tag-to-commit verification:
 Known gaps:
 ```
+
+For a repository release candidate or release, append this comparison:
+
+| Skill | Prior package identity | Candidate package identity | Delta | Required evidence |
+|---|---|---|---|---|
+| `<skill-name>` | tag plus tree/blob identity or `not present` | commit/tag plus tree/blob identity or `not present` | `added`, `changed`, `unchanged`, or `removed` | identity, behavior, loaded-copy, or absence proof required by the delta |
+
+`Unchanged` means exact package tree or blob equality with the previous accepted
+tag. It does not mean equal maturity, a new behavior result, or proof that the
+candidate or stable copy was actually loaded. For a first release, record every
+package as `added`; always record a rename as one `removed` path plus one
+`added` path. An accepted continuity decision may support bounded evidence reuse
+but does not alter those delta labels or their absence, update, and rollback
+duties. `Removed` requires absence evidence and does not authorize deletion of
+an existing installation.
 
 The [Runbook](RUNBOOK.md) owns procedure. This section alone owns the shared
 field schema.
@@ -444,6 +464,56 @@ This gate established PowerShell-only RC identity at that date, not the later
 shared candidate or release.
 
 ## Public Repository And Governance History
+
+### 2026-08-02 — Capability-delta decision and workflow
+
+An accepted documentation-only decision established a prospective rule for new
+Skills and material selection or behavior revisions: compare against the
+current model/Harness baseline, place each responsibility in its native layer,
+retain only a justified residual Skill workflow, and re-evaluate retention,
+simplification, delegation, or retirement after reproducible production
+feedback or material substrate changes.
+
+The rule was operationalized in the repository instructions, development
+Runbook, evaluation schema, provenance/data boundary, authority map, and
+documentation routes. The Runbook now distinguishes production feedback from
+Skill defects, separates installed, surfaced-metadata, and loaded-copy
+evidence, fails closed on descendant same-name discovery, and keeps external
+optimization isolated, suggestion-only, and outside SOURCE authority.
+
+The YAO design reference was pinned to
+`e15472e1f5dc96f79ea0259bf9fdf67598cea356`, and the SkillOpt reference to
+`e7014cd18a18e11e6f6c10b897f7a009960d2e1b`; both reviewed snapshots carry MIT
+licenses. No external framework code, optimizer output, dependency, Plugin,
+MCP service, Skill SOURCE, eval case, fixture, script, discovery mapping,
+installation, tag, or release identity changed.
+
+The repository checker passed at 182 text files / 12 cases / 11 fixtures, and
+`git diff --check` passed. No Skill validator or behavior matrix was rerun
+because no Skill package or behavior case changed. Fresh-process instruction
+loading was not established in this batch, so no runtime AGENTS-loading claim
+follows. This establishes coherent documentation and local structural evidence
+only; it does not prove causal efficacy, token savings, trigger accuracy,
+portability, or net benefit.
+
+The same Gate 0 documentation baseline includes
+[Decision 0018](decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md),
+which applies the capability-delta method to a future Work Charter `v0.2.0`
+revision. It records accepted entry, re-entry, protection-level, evaluation,
+workspace, and lifecycle-gate design only. No Work Charter SOURCE, eval case,
+fixture, current stable behavior, candidate, installation, or release evidence
+changed, and none of Decision 0018's later lifecycle gates ran in this batch.
+
+The same documentation change set clarifies that a shared v0.1 tag identifies
+a coherent repository release set; it does not assert that every Skill changed
+in that release or has the same maturity. Future release evidence must classify
+the union of current and previously released Skills as `added`, `changed`,
+`unchanged`, or `removed`. Because no public Skill package or Skill selection or
+behavior contract changed, and no user-visible repository identity,
+distribution form, installer request, Skill name or path, supported-set
+membership, release or installation interface, or license term changed, this
+documentation change does not itself require `v0.1.3`. This evidence entry
+authorizes no Git, tag, installation, or release action.
 
 ### 2026-07-30 — Public repository and first push
 

@@ -1,6 +1,6 @@
 # Product Specification
 
-Last updated: 2026-07-31
+Last updated: 2026-08-02
 
 ## Product Goal
 
@@ -61,6 +61,35 @@ Per-Skill accepted contracts and current evidence are owned by:
   [state](skills/use-powershell-safely/STATE.md), and
   [verification](skills/use-powershell-safely/VERIFICATION.md).
 
+## Capability-Delta Development
+
+New public Skills and material selection or behavior revisions use
+[capability-delta development](decisions/0017-capability-delta-skill-development.md).
+They treat the current model and Agent Harness as a moving substrate and add
+only a demonstrated gap, a user-approved product requirement, or a hard
+boundary with explicit ownership.
+
+For that future development:
+
+1. establish the strongest practical no-target-Skill baseline for the intended
+   model, Harness, task, rules, and tools;
+2. place generic reasoning with the model, native lifecycle and permission
+   surfaces with the Harness, durable facts with canonical project owners, and
+   deterministic guarantees with scripts, hooks, tools, or external systems;
+3. keep the Skill focused on the on-demand residual workflow, selection
+   boundary, non-obvious knowledge, evidence, approval, failure, and recovery;
+4. compare native, realistic catalog/selection, and exact-revision selected
+   behavior under controlled conditions; and
+5. after a material model, Harness, tool, permission, or catalog change, retain,
+   simplify, delegate, or retire behavior according to the newly observed
+   delta.
+
+This requirement is prospective and proportional. It does not invalidate the
+accepted `v0.1.2` release, require a causal benchmark for a documentation-only
+correction, or permit a safety, authorization, or recovery failure to be
+offset by an aggregate score. No efficacy, token, or portability claim follows
+without pinned reproducible evidence.
+
 ## Composition And Authorization
 
 Cross-Skill combinations are optional repository-level recipes. A recipe may
@@ -88,7 +117,20 @@ Permission on one surface, Skill, or operation does not propagate to another.
 - `STABLE_INSTALL` is a generated snapshot from an accepted immutable release
   tag and commit.
 - Candidate and stable evidence must prove the actually loaded same-named copy.
-- v0.1 uses repository-level semantic versioning, not per-Skill release lines.
+- v0.1 uses repository-level release-set semantic versioning, not per-Skill
+  release lines. A shared tag identifies one coherent repository release set;
+  it does not assert that every Skill changed in that release or has the same
+  maturity.
+- Tracked development, governance, and reference documentation may advance
+  without a stable version change when public Skill packages, their selection
+  and behavior contracts, and the accepted distribution and publication
+  contract remain unchanged.
+- A v0.1 patch keeps public Skill names, paths, supported set membership, and
+  installation interface compatible and contains only backward-compatible
+  corrections. New public functionality, addition, removal, rename, an
+  incompatible Skill contract change, or a user-visible distribution-interface
+  change requires a separate accepted version decision and normally a new
+  pre-1.0 minor line; `v1.0.0` requires its own stability decision.
 - The public distribution source is
   [`junwei529/skills`](https://github.com/junwei529/skills).
 - The supported standalone Codex interface is `$skill-installer` with the
@@ -146,6 +188,9 @@ A repository candidate is acceptable only when:
 - behavior evidence is attributed to the exact SOURCE or loaded copy;
 - release candidates are built from exact clean commits and stable installs
   from immutable accepted tags;
+- every release candidate compares the union of current and previously released
+  public Skills, records each as `added`, `changed`, `unchanged`, or `removed`,
+  and scopes its evidence accordingly;
 - publication-safety, strict UTF-8/no-BOM, whitespace, local-link, fragment,
   parser, and secret scans pass;
 - unresolved claims remain explicitly unverified; and
@@ -162,5 +207,6 @@ The current contract is grounded in:
 - [Decision 0007](decisions/0007-independent-skills-and-optional-recipes.md);
 - [Decision 0012](decisions/0012-work-charter-v0-1-identity-and-minimum-sufficient-design.md);
 - [Decision 0013](decisions/0013-github-public-identity-update.md);
-- [Decision 0014](decisions/0014-powershell-portable-guidance-and-private-host-delta.md); and
-- [Decision 0015](decisions/0015-federated-repository-documentation.md).
+- [Decision 0014](decisions/0014-powershell-portable-guidance-and-private-host-delta.md);
+- [Decision 0015](decisions/0015-federated-repository-documentation.md); and
+- [Decision 0017](decisions/0017-capability-delta-skill-development.md).

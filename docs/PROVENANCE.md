@@ -1,10 +1,15 @@
 # Provenance And Publication Boundary
 
-Last updated: 2026-07-31
+Last updated: 2026-08-02
 
 ## Purpose
 
 This repository extracts portable workflow ideas from a private Codex working environment without publishing that environment itself. This document records source categories, transformations, and release exclusions.
+
+Decision records own their rationale-specific bibliographies. The table below
+records sources that materially affect reusable transformation, tooling, or
+publication boundaries; it is not a duplicate index of every citation in a
+decision.
 
 ## Source Categories
 
@@ -16,6 +21,8 @@ This repository extracts portable workflow ideas from a private Codex working en
 | [OpenAI Build skills guidance](https://learn.chatgpt.com/docs/build-skills) | Primary source for current standalone Skill discovery, `$skill-installer`, and Skill-versus-Plugin distribution boundaries | The v0.1 standalone GitHub choice is documented as a narrower early distribution path; the repository does not claim Plugin-directory availability |
 | [OpenAI AGENTS.md guidance](https://learn.chatgpt.com/docs/agent-configuration/agents-md) | Primary source for native global-to-project instruction loading and nearest-scope precedence | Project Docs follows the instruction chain already loaded by Codex; its separate responsibility map and canonical-write rules remain product semantics |
 | [OpenAI approval and security guidance](https://learn.chatgpt.com/docs/agent-approvals-security) | Primary source for native sandbox capability and approval-policy behavior | Project Docs structural and authority gates are semantic user-authorization boundaries and are not replaced by workspace write capability |
+| [YAO Meta Skill at `e15472e`](https://github.com/yaojingang/yao-meta-skill/tree/e15472e1f5dc96f79ea0259bf9fdf67598cea356) | 2026-08-02 design reference for duplicate-install diagnostics, baseline/candidate comparison, and claim/evidence review; the reviewed commit is MIT-licensed | Patterns were independently summarized; no code, text, Skill OS, compiler, UI, registry, telemetry, Plugin, or MCP dependency was imported |
+| [Microsoft SkillOpt at `e7014cd`](https://github.com/microsoft/SkillOpt/tree/e7014cd18a18e11e6f6c10b897f7a009960d2e1b) | 2026-08-02 research reference for an isolated suggestion-only optimizer experiment; the reviewed commit is MIT-licensed | No code, dependency, output, dataset, or provider-supplied artifact entered the repository; no optimizer run or automatic adoption occurred |
 | [Microsoft PowerShell documentation](https://learn.microsoft.com/en-us/powershell/) | Primary source for version, parsing, encoding, stream, process, lifecycle, migration, and Windows installation behavior | Technical facts and command interfaces were independently summarized; version-sensitive claims point back to current official guidance |
 | [Microsoft WSL documentation](https://learn.microsoft.com/en-us/windows/wsl/) | Primary source for Windows/Linux command, path, working-directory, permission, and state boundaries | Portable boundary rules were summarized without host-specific distribution or path data |
 | [multica-ai/andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills) | Public example of packaging agent guidance as a repository artifact | Packaging inspiration only; no text or code copied |
@@ -51,12 +58,28 @@ general efficacy, prevalence, compatibility, or a universal platform rule.
 - Describe advisory behavior as guidance, not deterministic enforcement.
 - Keep efficacy, token, portability, and SHICE claims unverified until pinned evaluations support them.
 
+## External Optimization Data
+
+- Use only synthetic or explicitly reviewed and redacted inputs. Never submit
+  production sessions, private prompts or completions, memory, rollout data,
+  secrets, environment dumps, private repositories, or hidden reasoning.
+- Before any provider or telemetry call, record the exact approved payload
+  category, destination, retention policy, cost boundary, and tool identity.
+  Unknown outbound content or retention is a stop condition.
+- Pin input and target hashes and keep optimizer artifacts outside canonical
+  `skills/` SOURCE. Treat every output as an untrusted proposal; disable
+  automatic source writes, adoption, installation, and release.
+- Review imported language or code for license and provenance, rewrite selected
+  ideas into this repository's own contract, and route the delta through the
+  normal authoring, evaluation, and release gates.
+
 ## Third-Party Material
 
-No third-party code, templates, images, or long-form text are intentionally
-included in the current repository. Public repositories listed above influenced
-packaging decisions only. Microsoft documentation supplies technical facts and
-public command/API shapes; the Skill text is a concise independent synthesis.
+No third-party code, templates, images, optimizer output, datasets, or
+long-form text are intentionally included in the current repository. Public
+repositories listed above influenced packaging or process decisions only.
+Microsoft documentation supplies technical facts and public command/API
+shapes; the Skill text is a concise independent synthesis.
 
 ## Release Gate
 

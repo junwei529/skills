@@ -1,6 +1,6 @@
 # Architecture
 
-Last updated: 2026-07-31
+Last updated: 2026-08-02
 
 ## System Shape
 
@@ -64,6 +64,32 @@ Per-Skill internal boundaries are owned by:
 - [Work Charter Design](skills/work-charter/DESIGN.md); and
 - [PowerShell Design](skills/use-powershell-safely/DESIGN.md).
 
+## Capability Allocation
+
+The repository applies the
+[capability-delta principle](decisions/0017-capability-delta-skill-development.md)
+to new Skills and material selection or behavior revisions. The layers
+cooperate, but each retains a distinct default owner:
+
+| Layer | Default responsibility |
+|---|---|
+| Model | Generic interpretation, synthesis, adaptable reasoning, and planning |
+| Agent Harness | Skill discovery and loading, context, tools, permissions, sandbox, sessions, delivery, and supported workspace surfaces |
+| Project instructions and documents | Always-applicable local policy plus canonical durable facts, decisions, state, and recovery locators |
+| Scripts, hooks, tools, and external systems | Deterministic checks or enforcement, live state, and side-effect execution under their own authority |
+| Skill | On-demand selection boundary, non-obvious domain or procedural delta, evidence and approval gates, failure routing, recovery, and user-visible workflow |
+
+A Skill may coordinate these layers but does not absorb their authority or
+claim their guarantees. It should use native Harness capabilities when they
+exist, preserve a stable outcome contract when tactics change, and delete or
+delegate content that a later model, Harness, or deterministic layer handles
+reliably. Model-name-specific branches are a last resort; capability checks
+and exact evaluation identities are preferred.
+
+This allocation is an engineering boundary, not a new user-facing taxonomy or
+mandatory runtime. It does not add an umbrella Skill or make composition
+implicit.
+
 ## Composition Recipes
 
 Composition exists only at repository guidance level:
@@ -107,9 +133,16 @@ repository-level semantic-version tag, and independent
 `skills/<skill-name>` install paths through `$skill-installer`.
 
 A user may install one Skill or several, but every Skill in one supported set
-uses the same repository tag. This shared version identity does not imply all
-Skills are installed, selected, or adopted. GitHub-generated archives are
-derived transport, not a second source tree.
+uses the same repository tag. This shared release-set identity does not imply
+that every Skill changed in that release, has the same maturity, or is
+installed, selected, or adopted. Per-Skill package deltas and behavior evidence
+remain independent. GitHub-generated archives are derived transport, not a
+second source tree.
+
+Tracked repository documentation can advance between release tags. A new
+stable tag is not required when every public Skill package, its selection and
+behavior contract, and the accepted distribution and publication contract
+remain unchanged.
 
 Plugin packaging remains deferred and requires a separate accepted decision.
 

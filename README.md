@@ -77,6 +77,9 @@ recorded historical identities. Live refs and
 [Repository Verification](docs/VERIFICATION.md) own the exact release and
 installed-copy evidence.
 
+The shared tag is a release-set identity. It does not assert that every Skill
+changed in that release or has the same maturity.
+
 The working SOURCE may contain later development that is not in an installed
 release. See [Repository Status](docs/STATUS.md) and the per-Skill State pages
 before attributing behavior.

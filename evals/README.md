@@ -8,7 +8,10 @@ skills. It does not contain a causal benchmark or release certification.
 
 Use two distinct experiment types:
 
-1. **Selection tests** — all three skill descriptions are available, but no skill is named or preselected. Measure the expected positive or negative selection under each Skill's metadata and whether unrelated skills remain unloaded.
+1. **Selection tests** — configure the realistic Skill catalog, but name or
+   preselect no Skill. Record the installed manifest and metadata actually
+   surfaced, then measure the expected positive or negative selection and
+   whether unrelated Skills remain unloaded.
 2. **Behavior tests** — explicitly invoke one `$skill-name`. Measure whether the agent follows that skill's workflow and boundaries; do not score skill selection.
 
 Project Docs has
@@ -31,8 +34,18 @@ claims.
 
 Future evaluations should compare:
 
-1. **Native** — the agent receives only the scenario and repository instructions.
-2. **Skill-assisted** — the matching skill is available under the experiment type above.
+1. **Native** — the agent receives the scenario, repository instructions, and
+   the realistic non-target catalog when that catalog is part of the product
+   condition. The target Skill and target-derived duplicate guidance are
+   absent from every applicable discovery and instruction surface.
+2. **Skill-assisted** — the same condition plus the exact matching Skill
+   revision under the experiment type above.
+
+Record the complete instruction and discovery context. If target-derived
+guidance cannot be removed, label the result an **ambient-guidance baseline**;
+it is not a clean causal native condition. A catalog-free native experiment is
+a separately named condition and must not be pooled with a realistic-catalog
+baseline.
 
 Keep model, reasoning budget, repository fixture, starting Git state, and tool permissions fixed. Record the exact skill revision.
 
@@ -42,6 +55,80 @@ RC canaries add loaded-copy and behavior evidence but still do not provide a
 matched native-versus-Skill causal comparison. A later candidate commit never
 retroactively pins an earlier executed source. See
 [the result limitations](results/2026-07-27-development-forward-tests.md#limitations).
+
+## Capability-Delta Evaluations
+
+For a new public Skill or a material selection or behavior revision after
+[Decision 0017](../docs/decisions/0017-capability-delta-skill-development.md),
+extend the Native and Skill-assisted comparison only as far as the product
+decision requires:
+
+1. **Native baseline** — remove the target Skill and target-derived duplicate
+   guidance from every applicable discovery and instruction scope while
+   retaining the same task, non-target catalog, repository rules, tools,
+   permissions, and reasoning budget. Otherwise use the ambient-guidance label.
+2. **Catalog/selection boundary** — configure the realistic installed catalog,
+   record which descriptions are actually surfaced, and run positive, ordinary
+   negative, and near-neighbor prompts without naming or preselecting the
+   target Skill.
+3. **Selected behavior** — explicitly invoke the exact target revision and do
+   not score selection. Keep implicit discovery or proposal behavior in the
+   catalog/selection condition.
+4. **Upgrade regression** — repeat the affected conditions after a material
+   model, Harness, tool, permission, or installed-catalog change.
+
+Record the model and Harness identity as far as the runtime exposes them,
+preserving `UNKNOWN` rather than inventing precision. Compare outcome,
+authorization, evidence, recovery, and hard failure boundaries before
+secondary token/context, latency, user-interruption, and maintenance cost.
+
+For catalog/selection evidence, record three identities separately: the
+installed manifest, the metadata actually surfaced in the fresh task including
+any omission or truncation signal, and the loaded path/revision after selection
+or explicit invocation. Installation does not prove initial-list visibility,
+and visibility does not prove loaded-copy identity. If a correctly installed
+entry is not surfaced, classify catalog exposure before blaming its
+description.
+
+The result may support retaining, simplifying, delegating, or retiring Skill
+behavior. An average improvement cannot compensate for an applicable safety,
+authorization, or recovery failure. These comparisons remain separate from
+loaded-copy, candidate, installation, tag, and release proof.
+
+When a material revision has an exact accepted stable or development control,
+compare that control and the exact candidate. For a selection revision, use
+matched catalog/selection conditions; for a behavior revision, use matched
+selected-behavior conditions; when both change, use both. Do not treat a dirty
+moving working tree, an earlier unpinned run, or a later commit as the executed
+control. Native, exact-control, and exact-candidate evidence answer different
+questions and remain separately labelled.
+
+### External Optimizer Experiment Contract
+
+An optimizer experiment is suggestion-only and does not replace the comparison
+above. Before running it:
+
+- pin the target revision and complete package manifest, optimizer identity,
+  model and Harness conditions, tools, permissions, reasoning budget, seed when
+  exposed, scorer, and cost budget;
+- separate optimization/training tasks, candidate-selection tasks, and hidden
+  holdout tasks, and keep expected answers and holdout content outside the
+  optimizer's readable boundary under an independent evaluator;
+- fix the scoring rubric before the run and report evaluator changes as a new
+  experiment rather than tuning the judge to the output;
+- score applicable safety, authorization, evidence, and recovery boundaries as
+  independent pass/fail gates rather than components of an average;
+- when a tool reads or emits one document for a multi-file Skill, freeze, hash,
+  and assess the rest of the package and its cross-file references; and
+- compare the retained proposal with the exact control and native baseline,
+  report negative and inconclusive results, and keep the output outside
+  canonical SOURCE until review selects a specific proposal and the current
+  request or a separate approval authorizes that exact SOURCE change.
+
+Optimizer ranking, a file named `best`, or an improved development score is not
+behavioral acceptance, causal proof, loaded-copy proof, candidate evidence, or
+release readiness. Any adopted change re-enters `$skill-creator`, provenance
+review, fresh-context evaluation, and the normal repository lifecycle.
 
 ## Shared Rubric
 

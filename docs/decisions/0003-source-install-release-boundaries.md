@@ -42,8 +42,33 @@ uses a standalone Skill installation or a later accepted Plugin package.
   state; identify release-candidate evidence by exact commit and clean
   candidate source; identify a release by repository-level version tag and
   commit.
-- Use repository-level versioning for v0.1. Defer independent per-Skill version
-  lines until a separate decision establishes a need.
+- Use repository-level release-set versioning for v0.1. One immutable tag
+  identifies one coherent repository candidate; it does not assert that every
+  public Skill changed in that release or shares one maturity level. Defer
+  independent per-Skill version lines until a separate decision establishes a
+  need.
+- For each release candidate, compare the union of public Skill packages in the
+  candidate and previous accepted tag. Record each as `added`, `changed`,
+  `unchanged`, or `removed`; a first release records every package as `added`,
+  and a rename is always one `removed` path plus one `added` path. A separate
+  accepted continuity decision may support bounded evidence reuse, but it does
+  not change those physical deltas or their absence, update, and rollback
+  duties. Scope evidence to the delta; exact package equality can support
+  bounded continuity for an unchanged Skill but does not create a new behavior
+  or maturity claim.
+- Keep development, governance, and reference documentation in Git, but do not
+  advance the stable release tag solely for changes that leave every public
+  Skill package, its selection and behavior contract, and the accepted
+  distribution and publication contract unchanged.
+- For the pre-1.0 line, use a patch increment only for backward-compatible
+  corrections that preserve public Skill names, paths, supported set
+  membership, and installation interface. New public functionality, addition,
+  removal, rename, an incompatible behavior or selection change, or a
+  user-visible distribution or publication-interface change stops for an
+  accepted version decision; while the product remains pre-1.0, the normal
+  direction is the next minor line. Reaching `v1.0.0` requires its own stability
+  decision. Never infer the release-set increment from one Skill's maturity
+  alone.
 - Require release evidence to record both the intended revision and proof of
   which copy was actually loaded.
 - Use a worktree only for ordinary Git isolation needs, not as a substitute for
@@ -62,15 +87,21 @@ uses a standalone Skill installation or a later accepted Plugin package.
 - Candidate and release claims require more provenance evidence.
 - A working tree may be useful for development while dirty, but it cannot serve
   as a release candidate.
+- Internal development procedure and evidence-schema changes are not by
+  themselves public distribution-interface changes. The public interface
+  includes repository identity, distribution form, installer request, public
+  Skill names and paths, supported set membership, user-visible release or
+  installation behavior, and license terms.
 - The exact public installation commands remain blocked on the M5 distribution
   decision.
 
 ## Re-evaluation Conditions
 
 Reconsider this decision if the project adopts independent Skill release
-cadences, the selected packaging system provides a stronger immutable source
-mapping, or repeated supported workflows cannot isolate same-named
-development, candidate, and stable copies.
+cadences, users repeatedly need independent upgrade or rollback identities,
+the selected packaging system provides a stronger immutable source mapping, or
+repeated supported workflows cannot isolate same-named development, candidate,
+and stable copies.
 
 ## Related Documents
 

@@ -1,6 +1,6 @@
 # Development, Installation, And Release Runbook
 
-Last updated: 2026-08-01
+Last updated: 2026-08-02
 
 ## Quick Navigation
 
@@ -9,7 +9,9 @@ Last updated: 2026-08-01
 | RUN-BOUNDARIES | Environment roles | Decide which copy may be edited or tested |
 | RUN-DISTRIBUTION | v0.1 distribution | Select the public source, version, and Skill path |
 | RUN-PREFLIGHT | Preflight | Confirm source, Git, discovery, and authorization state |
+| RUN-DELTA | Capability-delta intake | Decide whether a Skill residual should exist or change |
 | RUN-DEV | Development loop | Edit and forward-test a working revision |
+| RUN-OPT | External optimizer experiment | Isolate an authorized suggestion-only optimization run |
 | RUN-RC | Release candidate | Test an isolated copy produced from an exact commit |
 | RUN-RELEASE | Release and stable install | Map a tag, package, install, update, or roll back |
 | RUN-EVIDENCE | Evidence record | Prove which revision and copy actually ran |
@@ -20,7 +22,7 @@ Last updated: 2026-08-01
 This is the operational owner for developing, discovering, testing, installing,
 and releasing this repository's Skills. The v0.1 distribution mechanism,
 public repository identity, and pre-tag candidate visibility policy are
-selected. Immutable `v0.1.0` and `v0.1.1` history, exact candidates, stable
+selected. Immutable `v0.1.0` through `v0.1.2` history, exact candidates, stable
 installs, GitHub Release state, and residual limits remain in
 `docs/VERIFICATION.md`; this procedure does not duplicate their live status.
 Public install examples use a version-neutral placeholder so the same source
@@ -31,7 +33,10 @@ See
 [Decision 0005](decisions/0005-v0-1-standalone-github-distribution.md), with
 the current account-specific locator in
 [Decision 0013](decisions/0013-github-public-identity-update.md),
-for the rationale. Product requirements remain in
+for distribution rationale. The development intake and external-tool boundary
+follow
+[Decision 0017](decisions/0017-capability-delta-skill-development.md).
+Product requirements remain in
 [`docs/SPEC.md`](SPEC.md). Per-Skill behavior and identity evidence belongs in
 the matching `docs/skills/<skill-name>/VERIFICATION.md`; coherent candidate,
 tag, stable-install, and release evidence belongs in
@@ -67,8 +72,20 @@ commit state, and, for a release, tag:
 | Release | repository-level version tag plus the exact commit it resolves to |
 | Stable installation | release tag and commit plus the actually loaded installed copy |
 
-Use repository-level release tags for v0.1, for example `v0.1.0`. Do not create
-independent per-Skill version lines without a later accepted decision.
+Use repository-level release-set tags for v0.1, for example `v0.1.0`. A tag
+identifies one coherent repository candidate; it does not mean that every Skill
+changed in that release or has the same maturity. Do not create independent
+per-Skill version lines without a later accepted decision.
+
+Within the pre-1.0 line, increment the patch only for backward-compatible
+corrections that preserve public Skill names, paths, supported set membership,
+and installation interface. New public functionality, addition, removal,
+rename, an incompatible selection or behavior change, or a user-visible
+distribution or publication-interface change stops for an accepted version
+decision; while the product remains pre-1.0, the normal direction is the next
+minor line. `v1.0.0` requires its own stability decision. Select the exact tag
+from the release-set delta and accepted release decision, never from one Skill's
+maturity alone.
 
 ## v0.1 Distribution Contract
 
@@ -85,6 +102,41 @@ that identifies:
 One request may install one Skill or all three. A supported multi-Skill install
 must use the same repository tag for every Skill. Do not mix tags and call the
 result a verified v0.1 package.
+
+Before treating a candidate as a supported release set, compare the union of
+public `skills/<skill-name>/` subtrees in the candidate and previous accepted
+tag, then record this matrix in `docs/VERIFICATION.md`:
+
+| Skill | Package delta | Contract or selection change | Required evidence |
+|---|---|---|---|
+| `<skill-name>` | `added`, `changed`, `unchanged`, or `removed` | bounded summary or `none` | exact checks required for this delta |
+
+For a changed Skill, run the validator and the focused selection, behavior, and
+installed-copy checks required by the change. For an unchanged Skill, prove
+exact Git tree or blob equality and retain proportional candidate and stable-set
+installation and loaded-copy regression evidence. Treat every package in a
+first release as `added`. Always record a rename as one `removed` path plus one
+`added` path. An accepted continuity decision and exact evidence may support
+bounded behavior or maturity-evidence reuse, but they do not change those
+physical deltas or their absence, update, and rollback duties. Addition or
+removal also requires its own accepted product scope. An added Skill follows
+the full new-Skill acceptance route. A removed Skill requires absence and
+near-neighbor selection checks plus explicit update, rollback, and cleanup
+treatment; release exclusion does not authorize deletion of an existing
+installation. Equality supports bounded continuity only; it does not prove new
+behavior, equal maturity, or a newly loaded copy.
+
+Do not cut a new stable tag solely because tracked development, governance, or
+reference documentation changed. A release requires at least one public Skill
+package delta, public Skill selection or behavior-contract change, or accepted
+distribution or publication-contract change. Keep the documentation in Git and
+leave the current stable tag fixed when none applies.
+
+For this gate, a user-visible distribution or publication interface means the
+repository identity, distribution form, supported installer request, public
+Skill name or path, supported set membership, release or installation behavior,
+or license terms. An internal development procedure, decision rationale, or
+evidence schema is not such a change unless it alters one of those surfaces.
 
 Do not publish `main` as a stable source, expose a bundled helper script path as
 the permanent user interface, or treat manual directory copying as the
@@ -129,8 +181,12 @@ Before changing or testing a Skill:
 2. Confirm the repository root, checkout, branch, commit or unborn state,
    worktree list, staged state, and dirty ownership.
 3. Name the target Skill and resolve its expected `SOURCE` directory.
-4. Identify every discoverable same-named Skill in the intended test
-   environment. Resolve links or mappings to their final targets.
+4. Record the exact test working directory and every discovery scope it
+   activates from that directory to the repository root, then identify every
+   discoverable same-named Skill and resolve links or mappings to their final
+   targets. Include retained eval or worktree directories when the test starts
+   inside them; a clean repository-root scope does not prove a descendant scope
+   is clean.
 5. Select exactly one mode: source-only editing, development discovery,
    release-candidate smoke, or stable-install verification.
 6. Confirm that any mapping, install, update, download, elevation, user-level
@@ -139,6 +195,76 @@ Before changing or testing a Skill:
 Do not configure Git trust, change user configuration, or mutate an
 installation merely to make a preflight pass. Classify ownership, permission,
 sandbox, and discovery failures before proceeding.
+
+## Capability-Delta Intake
+
+Complete this intake before creating a public Skill or materially changing its
+selection or behavior. First classify the proposed change:
+
+| Class | Minimum route |
+|---|---|
+| Editorial | No claimed trigger, workflow, boundary, or outcome change; use the normal documentation and validation route |
+| Selection | Name, frontmatter, description, catalog interaction, or implicit/explicit invocation changes; run the affected catalog and negative cases |
+| Material behavior | Instructions, references, assets, scripts, authority, evidence, recovery, or user workflow changes; run the full proportional intake |
+| New public Skill | New selection surface or installable package; run the full intake and require an accepted product scope |
+
+Calling a change editorial does not waive validation. If it changes what the
+Skill can select, do, require, claim, or recover from, reclassify it.
+
+When intake starts from production feedback, bind the observation to the exact
+stable tag, installed-copy identity, test working directory, catalog, and
+loaded-copy evidence that are actually known. Classify it first as Skill
+behavior, selection/discovery/cache, model or Harness, permission or
+environment, project rule or documentation, installation/version identity,
+outside the accepted contract, or `UNKNOWN`. Reproduce an in-contract Skill
+case against the exact stable baseline and reduce it to a sanitized minimum
+case before proposing SOURCE changes. Keep raw production evidence only in its
+authorized private owner; do not copy it into this repository or an external
+optimizer. Do not convert an unclassified or unreproduced observation into a
+Skill defect.
+
+For Selection, Material behavior, and New public Skill work:
+
+1. Freeze the intended task, success and hard-failure criteria, repository
+   state, model and Harness identity, tools, permissions, reasoning budget, and
+   realistic installed catalog. Preserve `UNKNOWN` where the runtime does not
+   expose an identity.
+2. Identify every discoverable same-named Skill and the exact current control
+   revision, if one exists. Do not compare against an ambiguous or moving copy.
+3. Run the strongest practical native baseline with the target Skill and
+   target-derived duplicate guidance absent from every applicable discovery and
+   instruction scope. Default to a synthetic, isolated, read-only case. Any
+   write, production access, provider or network call, external effect, or
+   cost-bearing action needs its own authority. If a clean safe baseline cannot
+   run, record `UNKNOWN` and why; an ambient-guidance condition must be labelled
+   as such and cannot support a causal claim.
+4. Allocate each proposed responsibility to the model, Harness, project rules
+   or durable documents, deterministic scripts/hooks/tools, external systems,
+   or the residual Skill. Do not reproduce an already-owned layer in prose.
+5. For every material Skill concept, record the observed gap, accepted product
+   requirement, or hard boundary that justifies it and the case that can
+   falsify it.
+6. Stop the Skill path when no material residual remains. Simplify, delegate,
+   or retire existing behavior instead of manufacturing a package-shaped need.
+7. Only after the target scope is authorized, invoke `$skill-creator` for
+   authoring or revision and package validation. It does not accept the product
+   decision or authorize source, installation, or release actions, and its
+   invocation does not itself authorize a write.
+8. Route the resulting revision through the proportional conditions in
+   [`evals/README.md`](../evals/README.md) and then the ordinary development,
+   candidate, and release gates below.
+
+After reproducible production feedback or a material model, Harness, tool,
+permission, or catalog change, repeat the affected baseline and
+selection/behavior conditions. Record one explicit disposition: retain,
+simplify, delegate, or retire. Safety, authorization, evidence, and recovery
+cases remain independent hard gates.
+
+Reuse an existing baseline only when its exact identity and all relevant
+conditions remain unchanged. Mark genuinely irrelevant dimensions as not
+applicable and rerun only affected conditions; proportional evaluation does
+not require an unrelated full matrix or a net-benefit claim for a bounded
+safety correction.
 
 ## Development Discovery Setup
 
@@ -164,7 +290,8 @@ required, classify it as an isolated candidate and pin its source revision.
 
 ## Daily Development Loop
 
-1. Edit only `SOURCE`.
+1. Confirm the capability-delta intake and target edit are in scope, then edit
+   only `SOURCE`.
 2. Keep unrelated user changes intact and record the current dirty boundary.
 3. Run the bundled `skill-creator` validator for every changed Skill.
 4. Run the repository checker and the relevant deterministic fixtures.
@@ -178,6 +305,52 @@ required, classify it as an isolated candidate and pin its source revision.
 
 Dirty-working-tree evidence is useful development evidence, but it is not
 release-candidate or release evidence.
+
+## External Optimizer Experiment
+
+An optimizer is optional research tooling, not part of the default development
+loop. Before a run, separately authorize every required download or install,
+provider or network call, data disclosure, cost-bearing action, persistent
+configuration change, and task-owned experiment-artifact write. This does not
+authorize a canonical SOURCE write. A dry-run label alone does not prove that
+no provider call, retention, or cost occurs.
+
+For an authorized experiment:
+
+1. Pin the optimizer version or commit, license, dependency environment, target
+   Skill revision, and complete input manifest. Materialize only the reviewed
+   inputs into a dedicated disposable root outside the canonical checkout,
+   without `.git`, credentials, writable remotes, user configuration, private
+   files, or hidden holdout data. Run untrusted tooling under a least-privilege
+   sandbox whose read/write allowlist and network policy are verified. A clone,
+   worktree, or ignored directory alone is not containment.
+2. Use only synthetic or explicitly reviewed and redacted tasks and artifacts.
+   Do not provide production sessions, private prompts, memory, rollout data,
+   secrets, private repositories, environment dumps, or hidden reasoning. If a
+   provider receives any content, record the authorized payload category,
+   destination, and retention policy; stop when any is unknown.
+3. Freeze disjoint optimization, selection, and hidden holdout sets; the
+   scoring rubric and evaluator; model, Harness, tools, permissions, reasoning
+   budget, seed when exposed, and experiment budget. Keep expected answers and
+   hidden cases outside the optimizer's readable boundary and expose them only
+   to the independent evaluator.
+4. Preserve hard safety, authorization, evidence, and recovery checks as
+   independent gates. Do not let an aggregate score trade them away.
+5. Compare the exact accepted control, exact proposed candidate, and native
+   baseline where applicable. For a multi-file Skill, hash and evaluate every
+   package file even when the tool optimizes a single document.
+6. Retain the output outside canonical SOURCE as an untrusted proposal. Disable
+   auto-adoption and automatic release. A tool-generated `best` result is not
+   product acceptance or promotion evidence.
+7. After review selects a specific proposal, confirm that the current request
+   or a separate approval authorizes that exact SOURCE change. Then manually
+   translate only that delta through `$skill-creator`, provenance and license
+   review, the repository checker, relevant fixtures, fresh-context evaluation,
+   and the normal candidate/release procedure.
+
+The external reference identities and data-publication boundary are recorded
+in [`docs/PROVENANCE.md`](PROVENANCE.md). Results belong in `evals/results/`
+only after sanitization and must state negative and inconclusive outcomes.
 
 ## Private Global-Guidance Migration
 
@@ -264,18 +437,41 @@ Before release, all M5 gates must be closed: license, distribution form,
 supported installation path, current behavior evidence, publication checks,
 commit gate, and explicit GitHub publication authorization.
 
-1. Assign one repository-level version tag to the accepted, commit-smoked
+1. Compare the union of public Skill packages in the candidate and previous
+   accepted tag and record the release-set change matrix in
+   `docs/VERIFICATION.md`.
+2. Use the matrix to close the required identity, behavior, loaded-copy, and
+   absence evidence for `added`, `changed`, `unchanged`, and `removed` entries
+   without weakening the shared acceptance gates.
+3. Select the exact patch or minor tag under the pre-1.0 compatibility rules
+   above, or stop for a separately accepted `v1.0.0` stability decision.
+4. Assign that repository-level version tag to the accepted, commit-smoked
    candidate only after the tag and publication action are authorized.
-2. Treat a published version tag as immutable; never move it to a different
+5. Treat a published version tag as immutable; never move it to a different
    commit.
-3. Push the tag to the confirmed GitHub repository, then invoke the public
-   `$skill-installer` workflow with the exact GitHub
-   repository URL, accepted tag, and requested Skill path or paths, not an
-   ambient checkout or moving branch.
-4. Treat the resulting `STABLE_INSTALL` as a generated snapshot. Never edit it.
-5. Run the supported installation smoke and verify the actual loaded copy,
+6. Push the tag to the confirmed GitHub repository, then materialize the full
+   target manifest for the release smoke in an empty isolated staging root
+   through `$skill-installer`, using the exact repository, tag, and public Skill
+   paths rather than an ambient checkout or moving branch. Prove that the staged
+   manifest contains exactly the requested candidate paths and no prior-only or
+   old rename path.
+7. For an environment update, derive the target installed subset as the
+   intersection of its approved current subset and the candidate release set,
+   plus only explicitly selected additions. Record the complete current
+   manifest and preserve its verified tag and copies outside active discovery
+   as the rollback manifest.
+   Obtain explicit authority for every install, replacement, move, quarantine,
+   or removal needed to reach the target. If a previously installed removed or
+   renamed entry has no approved disposition, stop before switching and do not
+   call a partial result a coherent update.
+8. Switch only after the target subset is completely staged. Prove afterward
+   that the governed release-set entries in active discovery equal the target
+   manifest, every entry resolves to the accepted tag, and every removed or old
+   rename path is no longer discoverable. Treat the resulting `STABLE_INSTALL`
+   as a generated snapshot; never edit it.
+9. Run the supported installation smoke and verify each actual loaded copy,
    version tag, and commit.
-6. Record the shared release mapping in `docs/VERIFICATION.md` and each
+10. Record the shared release mapping in `docs/VERIFICATION.md` and each
    Skill's loaded-copy behavior and residual gaps in its verification ledger.
 
 If the tag-based smoke fails after publication, do not move or silently replace
@@ -283,9 +479,11 @@ the tag. Record the failure and stop for an explicit patch-version or
 distribution decision.
 
 An update installs a newer accepted release identity; it does not patch the
-stable copy. A rollback reinstalls the previously recorded release identity.
-Installation, update, rollback, elevation, downloads, user configuration, and
-removal remain explicit external actions and require authorization.
+stable copy. A rollback restores the complete recorded prior manifest, including
+the reverse disposition of entries added, removed, or renamed by the update.
+Installation, update, rollback, elevation, downloads, user configuration, move,
+quarantine, and removal remain explicit external actions and require
+authorization.
 
 Do not overwrite an existing same-named stable directory blindly. First
 materialize and verify the replacement in isolation, record the currently

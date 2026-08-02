@@ -1,6 +1,6 @@
 # Work Charter State
 
-Last updated: 2026-08-01
+Last updated: 2026-08-02
 
 ## Current Implementation
 
@@ -18,13 +18,20 @@ script, or installation identity. Immutable tag `v0.1.2` at
 `ceed607152849775b981c54add74bfa30d858e4d`, its GitHub Release, and the
 verified stable installed copy contain the current five-file package.
 
+[Decision 0018](../../decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md)
+is the accepted documentation-only rationale for a possible future `v0.2.0`
+revision covering natural-language entry, L0-L4 recommendations, durable
+re-entry, live-state reconciliation, and proportional evaluation. It does not
+describe the current executable contract and has not changed SOURCE, eval
+definitions, installed behavior, or evidence.
+
 ## Current Writer
 
-No Work Charter SOURCE writer is active. Its implementation and candidate
-writers relinquished after acceptance and publication. The authorized
-repository release-evidence closeout may change only mapped documentation; it
-does not authorize Work Charter SOURCE changes or cleanup of retained evidence
-or rollback copies.
+No Work Charter SOURCE writer is active. Its `v0.1.2` implementation and
+candidate writers relinquished after acceptance and publication. Decision
+0018's separately authorized Gate 0 documentation integration does not create
+a SOURCE writer or authorize SOURCE/eval changes, an implementation workspace,
+or any later lifecycle effect. Gate 1 remains unapproved.
 
 ## Evidence State
 
@@ -60,17 +67,22 @@ recording remained pending. This is not a stable full Standard-delivery claim.
 ## Next Gate
 
 Work Charter is released and installed as part of repository release
-`v0.1.2`. No further release action is pending for this revision. A stable full
-Standard-delivery path, broad implicit telemetry, real-project evidence,
-private-global retirement, retained-evidence cleanup, and rollback-copy cleanup
-remain separate future decisions.
+`v0.1.2`. No further release action is pending for this revision. After the
+Decision 0018 documentation baseline, the next possible lifecycle action is
+Gate 1 — Local implementation of the proposed `v0.2.0` SOURCE and eval
+definitions in a separately approved isolated checkout with one named writer.
+Gate 1 is not authorized. Model-matrix evaluation, candidate handling,
+integration, release, stable update, private-global retirement, retained-
+evidence cleanup, and rollback-copy cleanup remain later independent gates or
+future decisions.
 
 ## Recovery Entry
 
 1. Read [`AGENTS.md`](../../../AGENTS.md) and the repository
    [Authority Map](../../AUTHORITY.md).
-2. Read [Design](DESIGN.md), this state, and
-   [Verification](VERIFICATION.md).
+2. Read current [Design](DESIGN.md), the future rationale in
+   [Decision 0018](../../decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md),
+   this state, and [Verification](VERIFICATION.md).
 3. Confirm live workspace, writer, and action authority.
 4. Read canonical SOURCE and the exact eval result before changing behavior or
    claims.
