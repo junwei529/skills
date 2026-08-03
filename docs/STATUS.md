@@ -1,6 +1,6 @@
 # Repository Status
 
-Last updated: 2026-08-02
+Last updated: 2026-08-03
 
 ## Dashboard
 
@@ -9,7 +9,7 @@ Last updated: 2026-08-02
 | Tested package identity | all three package byte sets independently reached exact-commit RC readiness at `c42eef392a5b9f58bbee64aa73ffb603a6fb6c29` and were re-proved at tag/stable identity `v0.1.2` | [Verification](VERIFICATION.md) |
 | Stable release identity | immutable [`v0.1.2`](https://github.com/junwei529/skills/releases/tag/v0.1.2) at `ceed607152849775b981c54add74bfa30d858e4d`; exact tag, stable loaded-copy, and GitHub Release proof pass for all three Skills | [Verification](VERIFICATION.md) |
 | Project Docs | released six-file `v0.1.2` stable copy; exact loaded identity and mature `NOOP` canary pass | [State](skills/manage-project-docs/STATE.md) |
-| Work Charter | released five-file `v0.1.2` stable copy remains active; target `v0.2.0` Gate 1 has a five-file local SOURCE and eval-definition implementation on `codex/work-charter-v0.2`, with behavior and candidate evidence pending | [State](skills/work-charter/STATE.md) |
+| Work Charter | released five-file `v0.1.2` stable copy remains active; exact `v0.2.0` candidate `206c497...` returned from incomplete Gate 2 for an accepted release-blocking convergence correction, now dirty and offline-verified on `codex/work-charter-v0.2`; one bounded native-review/local-commit transition is authorized | [State](skills/work-charter/STATE.md) |
 | PowerShell | released five-file `v0.1.2` stable copy; corrected loaded identity and guarded native/text diagnosis pass; live WSL remains unproved | [State](skills/use-powershell-safely/STATE.md) |
 | Release lifecycle | `v0.1.2` tag, stable update, tag-pinned canaries, and Latest GitHub Release complete; `v0.1.1` retained as rollback identity | [Runbook](RUNBOOK.md) |
 
@@ -25,9 +25,12 @@ immutable `v0.1.2` tag, verified stable installation, and Latest GitHub
 Release. Immutable `v0.1.1` remains retained as rollback identity.
 
 The Gate 1 branch contains a later five-file Work Charter SOURCE revision and
-eval definitions only. Version-neutral README installer commands remain the
-supported interface; the live release ledger still selects `v0.1.2` as the
-current accepted tag and installed identity.
+eval definitions. Candidate `206c497...` began but did not complete Gate 2 and
+is retained only as a superseded, non-accepted evidence subject. The current
+dirty branch adds the accepted task-convergence correction without changing
+the five-file package shape or stable installation. Version-neutral README
+installer commands remain the supported interface; the live release ledger
+still selects `v0.1.2` as the current accepted tag and installed identity.
 
 [Decision 0018](decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md)
 records the accepted rationale, level model, adoption and re-entry behavior,
@@ -61,12 +64,14 @@ Per-Skill evidence and gaps:
 
 ## Next Gate
 
-No release action remains pending for `v0.1.2`. Gate 1 local implementation is
-bounded to branch `codex/work-charter-v0.2` from baseline `763a15ee...` and
-awaits source-task assessment. The separately authorized correction loop may
-return to that writer at most twice. Gate 2 model/candidate evaluation, push,
-installation, integration, release, stable update, and cleanup remain
-unapproved.
+No release action remains pending for `v0.1.2`. The approved convergence
+correction and offline verification are complete in the existing
+`codex/work-charter-v0.2` worktree. A separately approved commit-gate writer
+may run native review, make same-contract finding fixes, repeat affected checks,
+and create one local successor-candidate commit. That authority ends at the
+first successful commit or a blocking stop. A successor-candidate push, RC
+materialization, the new Gate 2 model matrix, integration, release, stable
+update, and cleanup remain unapproved.
 
 ## Known Repository Gaps
 
@@ -79,9 +84,10 @@ unapproved.
 - Work Charter's full Standard evidence remains one synthetic bounded RC path;
   its stable proof is narrower and does not prove deterministic role delivery
   or writer locking, broad triggers, real-project efficacy, or standalone
-  causality. Decision 0018's entry, level, and re-entry behavior is implemented
-  in local SOURCE but remains behavior-untested; its model matrix is definition-
-  only and unrun.
+  causality. Decision 0018's entry, level, re-entry, and convergence behavior is
+  implemented in dirty local SOURCE but remains behavior-unaccepted; the first
+  candidate matrix stopped incomplete and cannot be relabeled for the corrected
+  bytes.
 - Cross-Harness parity and SHICE evaluation remain unproved.
 - Private-global retirement and retained rollback/evidence cleanup remain
   separately authorized lifecycle work.

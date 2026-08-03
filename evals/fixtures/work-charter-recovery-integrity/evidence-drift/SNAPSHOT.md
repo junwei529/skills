@@ -17,6 +17,21 @@ ignored `private-results/qualification.txt` before the run.
 - Attempt policy: one-shot
 - Remaining authorized attempts: `0`
 
+## Convergence History
+
+- Logical Charter subject: retry-classification qualification
+- Stable assessed checkpoint: `source-r1-ready`
+- Independent assessor: completed `CORRECTION_REQUIRED` round `1`
+- Verifiable correction delta: prove one unique result locator before
+  qualification
+- Declared evidence consumption point: `qualification/start`
+- Transport qualification `q0`: failed before `qualification/start`
+- Qualification `q1`: emitted `qualification/start`, then produced the passing
+  result for source revision `1`
+- Later recovery labels: new task, root, and epoch names only
+- Delivery/transport retries consumed: `1`
+- Native-review rounds consumed: `2`
+
 ## Controller Observations
 
 - Tracked Git status: clean

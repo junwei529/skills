@@ -50,7 +50,19 @@ stop for approval without treating the existing Charter as role authority.
   used, only carries a proposal, objective, or pointers.
 - Routes any same-scope unmet clause through a compact warm correction naming
   the receiving role, writer/authority boundary, changed facts, evidence
-  pointers, bounded action, stop condition, and return route.
+  pointers, one concrete verifiable delta, bounded action, stop condition, and
+  return route.
+- Counts only a completed independent `CORRECTION_REQUIRED` assessment against
+  the stable checkpoint as a Work Charter correction round. Executor-internal
+  qualification, preflight, transport, verification, and same-scope repair do
+  not create extra correction rounds, while a later proof that scarce
+  execution did not start does not erase the completed assessment round.
+- Preserves correction, evidence-consumption, and open-finding history across
+  task, Session, root, epoch, attempt, or internal-slice labels and keeps Work
+  Charter correction, delivery/transport, and native-review budgets separate.
+- Returns `DECISION_REQUIRED` instead of continuing the loop for a repeated
+  material finding, no net reduction, unreliable context, or material contract
+  change.
 - Ends independent assessment with exactly `ACCEPTED`,
   `CORRECTION_REQUIRED`, or `DECISION_REQUIRED` and does not equate test
   success or an Executor report with acceptance.
@@ -66,6 +78,11 @@ stop for approval without treating the existing Charter as role authority.
 - More than one writer or execution lane becomes active.
 - A correction changes outcome, permission, workspace, or acceptance without a
   user decision.
+- Qualification or an Executor-internal repair consumes an extra Work Charter
+  correction, or a new container label resets a completed round or consumed
+  evidence.
+- A repeated material finding or no-net-reduction loop continues under a fresh
+  attempt name instead of returning `DECISION_REQUIRED`.
 - The full Charter is copied into every warm message.
 - Goal completion, task creation, role self-report, or passing tests is treated
   as the verdict.

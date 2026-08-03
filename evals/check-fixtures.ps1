@@ -703,6 +703,12 @@ Add-Check `
         $integrityEvidence -match 'Source revision: `2`' -and
         $integrityEvidence -match 'Bound source revision: `1`' -and
         $integrityEvidence -match 'Remaining authorized attempts: `0`' -and
+        $integrityEvidence -match 'completed `CORRECTION_REQUIRED` round `1`' -and
+        $integrityEvidence -match 'Declared evidence consumption point: `qualification/start`' -and
+        $integrityEvidence -match 'failed before `qualification/start`' -and
+        $integrityEvidence -match 'Qualification `q1`: emitted `qualification/start`' -and
+        $integrityEvidence -match 'Delivery/transport retries consumed: `1`' -and
+        $integrityEvidence -match 'Native-review rounds consumed: `2`' -and
         $integrityEvidence -match 'Tracked Git status: clean' -and
         $integrityIgnoredReady -and
         $integrityDelivery -match 'Addressable role: unproved' -and
@@ -711,12 +717,15 @@ Add-Check `
         $integrityRevision -match 'Revision: `4`' -and
         $integrityRevision -match 'Requested scope: active and archived customers' -and
         $integrityRevision -match 'Authority for the scope or acceptance change: not yet granted' -and
+        $integrityRevision -match 'Completed Work Charter corrections: `1`' -and
+        $integrityRevision -match 'Consumed one-shot evidence: `archive-write-04`' -and
+        $integrityRevision -match 'Current task, root, and attempt labels are not identity fields' -and
         $integrityWorktrees -match 'Worktree A: `WORK_CHARTER\.md`, revision `5`' -and
         $integrityWorktrees -match 'Worktree B: `WORK_CHARTER\.md`, revision `6`' -and
         $integrityWorktrees -match 'Common control location: `UNKNOWN`' -and
         $integrityWorktrees -match 'Dirty ownership: incomparable'
     ) `
-    -Expectation 'six read-only integrity variants expose resume, Charter revision, pending recording, source-bound hidden evidence drift, delivery/writer ambiguity, and divergent worktree carriers'
+    -Expectation 'six read-only integrity variants expose resume, successor history, pending recording, consumption-aware hidden evidence drift, delivery/writer ambiguity, and divergent worktree carriers'
 
 $powerShell = Join-Path $repoRoot 'evals\fixtures\powershell-boundary'
 $jsonPath = Join-Path $powerShell 'data\input file.json'

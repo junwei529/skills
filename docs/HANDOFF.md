@@ -1,6 +1,6 @@
 # Repository Handoff
 
-Last updated: 2026-08-02
+Last updated: 2026-08-03
 
 ## Snapshot
 
@@ -15,9 +15,14 @@ Last updated: 2026-08-02
   5 files, each matching the `v0.1.2` Git blobs
 - Rollback identity: immutable `v0.1.1` retained as a separately verified
   three-package backup
-- Writer: no Skill SOURCE writer is active. The bounded Gate 0 documentation
-  integrator owns only the listed Markdown set through one successful local
-  commit; that commit relinquishes the writer, and no push authority follows
+- Writer: the Work Charter correction writer completed the accepted task-
+  convergence SOURCE, mapped-document, existing-eval, and offline-verification
+  scope in `codex/work-charter-v0.2`, then relinquished. A separately approved
+  writer now owns only native review, same-contract finding fixes, affected
+  checks, and one local successor-candidate commit in that same worktree. It
+  relinquishes on the first successful commit or a blocking stop. The main
+  checkout remains integration-only; no Gate 2 model matrix, push, RC,
+  installation, or release authority follows
 
 The `v0.1.2` tag remains fixed at the release-preparation commit. The later
 documentation commit records already-completed tag, stable-install, canary, and
@@ -68,6 +73,17 @@ proportional protection, durable re-entry, managed-workstream and multi-
 worktree reconciliation, four routes, and staged eval definitions in the
 existing five-file package. Stable behavior and release identity remain
 unchanged at `v0.1.2`.
+
+On 2026-08-03, exact candidate `206c497...` returned from incomplete Gate 2
+without acceptance after exposing a task-convergence ambiguity. The user
+accepted a release-blocking correction that binds history to the logical
+Charter subject and stable checkpoint, separates pre-consumption qualification
+from evidence execution, preserves consumed events across container labels,
+retains predecessor history for material successors, and keeps Work Charter,
+delivery/transport, and native-review budgets independent. One writer completed
+and offline-verified that bounded correction in the existing worktree, then
+relinquished. The old candidate and its consumed events remain historical; no
+new candidate or Gate 2 authority follows.
 
 The accepted documentation change set comprises:
 
@@ -150,12 +166,12 @@ is owned by [Repository Verification](VERIFICATION.md).
 
 ## Immediate Next Action
 
-No release action remains pending for `v0.1.2`. Resolve the Gate 1 branch,
-exact local commit, clean state, deterministic verification, and native-review
-record, then return them to the source-task assessor. The immediate next action
-is one exact-contract verdict: accept, request one bounded correction, or
-request a user decision. Only after acceptance may the user separately choose
-whether to authorize Gate 2.
+No release action remains pending for `v0.1.2`. The approved dirty
+SOURCE/eval/document correction and offline checks are complete. Complete the
+separately authorized native review, same-contract finding handling, affected
+checks, and one local successor-candidate commit. On success, relinquish the
+writer and stop. Only a later approval naming the new exact SHA may authorize
+push, RC materialization, or another Gate 2 matrix.
 
 Later user-owned choices include:
 
@@ -177,6 +193,8 @@ Stop before write or publication if:
   from the expected state;
 - a Gate 1 correction would expand beyond the accepted five-file SOURCE,
   eval-definition, fixture/checker, or mapped-document scope;
+- correction history or consumed evidence would be reset through a new task,
+  root, epoch, attempt, or candidate label;
 - a root summary would duplicate or contradict a per-Skill canonical owner;
 - a proposed action would move immutable tag `v0.1.2` or edit a generated
   installed or rollback copy;
@@ -201,3 +219,10 @@ It also permits two bounded same-contract correction rounds after assessment.
 It does not authorize push, model runs, RC or discovery changes, installation,
 integration, tag, release, stable update, private-global mutation, external
 optimizer execution, provider/data disclosure, or cleanup.
+
+The narrower 2026-08-03 correction authorization reopens that same worktree for
+one writer to change only the existing Work Charter SOURCE reference, mapped
+design/state/evidence owners, and existing eval definitions/fixtures/checker,
+then run offline verification. It does not authorize a model call, native
+review, commit, push, RC or discovery change, installation, integration, tag,
+release, stable update, private-global mutation, external effect, or cleanup.

@@ -63,6 +63,11 @@ Charter locator/revision, named workstream, and expected workspace/writer
 boundary. Task IDs, branches, and worktrees are live evidence, not durable
 identity.
 
+Use the expected workspace/writer boundary to detect routing drift, not to
+erase history. An authorized route change does not create a fresh logical work
+subject or reset its approvals, corrections, evidence consumption, or open
+findings.
+
 - Reconcile several Work Charter roles or tasks for one workstream against the
   same anchor; another task is not itself a conflict.
 - Ignore an older non-Chartered task unless it changed the protected baseline,
@@ -152,14 +157,35 @@ a replacement.
 
 In a bounded correction loop, the Executor returns changes, deviations,
 checks, failures, and residual risks. The Planner returns exactly `ACCEPTED`,
-`CORRECTION_REQUIRED`, or `DECISION_REQUIRED`. Default to at most three
-completed correction rounds and stop earlier for repeated material findings,
-no net reduction, specification ambiguity, unreliable context, or a material
-contract change. This budget is separate from native review.
+`CORRECTION_REQUIRED`, or `DECISION_REQUIRED`. Bind correction history to the
+same logical Charter subject and material contract/acceptance revision, and
+bind each verdict to the stable checkpoint it assessed. Task, Session, root,
+branch, worktree, delivery epoch, attempt name, or internal slice is a carrier
+or observation; changing one does not reset approvals, completed corrections,
+consumed evidence opportunities, or open findings. An authorized material
+successor or split keeps a predecessor pointer and the applicable history.
+
+Only a completed independent `CORRECTION_REQUIRED` assessment against a stable
+checkpoint consumes a Work Charter correction round. Qualification, preflight,
+transport, or same-scope Executor repair does not by itself consume one. Do not
+erase a completed correction merely because later evidence shows that a scarce
+execution did not start. Each correction names a concrete, verifiable
+same-scope delta. Default to at most three completed correction rounds and use
+`DECISION_REQUIRED` earlier for a repeated material finding, no net reduction,
+specification ambiguity, unreliable context, or a material contract change.
+Keep this budget separate from delivery/transport retry limits and native
+review.
+
+Before scarce, one-shot, or time-bound evidence, identify the consumption
+point. A mechanical qualification, preflight, or transport failure before that
+point does not consume the evidence opportunity. After the point, preserve the
+consumption event even when execution is incomplete or later invalidated; a
+new task, root, epoch, or attempt label does not make it fresh.
 
 Bind material evidence to its mutable subject, revision, and invalidation
 condition. Observe ignored, untracked, private, generated, or external results
-beyond tracked Git status. A material subject change invalidates the evidence.
-Keep an assessment verdict separate from durable recording; until an
-authorized governance writer records and verifies a verdict another session
-will rely on, report recording as pending.
+beyond tracked Git status. A material subject change invalidates the evidence
+for reuse but does not erase its historical consumption. Keep an assessment
+verdict separate from durable recording; until an authorized governance writer
+records and verifies a verdict another session will rely on, report recording
+as pending.

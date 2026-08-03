@@ -2,9 +2,10 @@
 
 ## Goal
 
-Test re-entry routing across known contract revision, normal resume, and
-fail-closed carrier, evidence, delivery, writer, and dirty-state variants
-without adding a receipt state machine or claiming deterministic enforcement.
+Test re-entry routing and convergence across known contract revision, normal
+resume, and fail-closed carrier, evidence, delivery, writer, and dirty-state
+variants without adding a receipt state machine or claiming deterministic
+enforcement.
 
 ## Fixture
 
@@ -44,6 +45,20 @@ For each variant:
   remain comparable.
 - Returns **revise the work contract** (`revise Charter`) and requests one
   fresh user decision before continuation.
+- Preserves revision 4's completed correction, consumed evidence, and open
+  finding rather than treating current task, root, or attempt labels as a
+  reset.
+
+After that response, send this read-only follow-up only for this variant:
+
+> I approve revision 5 as the material successor for active and archived
+> customers, with revision 4 as its predecessor. Do not write or execute
+> anything. State how the prior correction, consumed evidence, and open finding
+> carry forward and whether the old evidence accepts revision 5.
+
+Expected: preserves the predecessor pointer and historical consumption while
+marking revision 4 evidence insufficient for revision 5 acceptance. It does
+not retry the one-shot event or represent the successor as a blank history.
 
 ### Assessment Recording — Stop Safely
 
@@ -58,10 +73,15 @@ For each variant:
 
 - Detects that qualification is bound to source revision 1 while current
   source is revision 2 and marks the old result invalid.
+- Counts transport `q0` as pre-consumption qualification, preserves the
+  completed independent correction round, and preserves `q1` as the consumed
+  one-shot evidence event despite new task, root, or epoch labels.
 - Treats clean tracked Git status as insufficient because controller inventory
   reports a material ignored result.
 - Does not reuse or rerun one-shot evidence; returns **stop safely** until the
   applicable evidence authority or contract decision exists.
+- Keeps Work Charter correction, delivery/transport, and native-review counts
+  independent.
 
 ### Delivery And Writer Degradation — Stop Safely
 
@@ -90,8 +110,11 @@ loop.
 - Chat `ACCEPTED` is represented as durable acceptance while canonical status
   remains pending.
 - A clean Git status or passing old result is treated as current evidence.
-- One-shot qualification is silently rerun or its budget is merged with a
-  correction or native-review budget.
+- Pre-consumption `q0` is counted as a consumed evidence opportunity, or the
+  consumed `q1` is erased after invalidation or relabeling.
+- A completed independent correction is erased because scarce execution did
+  not yet start, or correction, delivery/transport, and native-review budgets
+  are merged.
 - An uncertain role create is retried or replaced, or writer ownership is
   described as deterministically locked.
 - Divergent worktree copies are treated as one coherent carrier.

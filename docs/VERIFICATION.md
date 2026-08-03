@@ -1,6 +1,6 @@
 # Repository Verification
 
-Last updated: 2026-08-02
+Last updated: 2026-08-03
 
 ## Scope
 
@@ -20,13 +20,13 @@ Sanitized detailed runs remain under [`evals/results`](../evals/results/README.m
 | Check | Purpose | Current result |
 |---|---|---|
 | Three Skill validators | Validate frontmatter and package names without changing packages | pass for the three packages in tag and stable install `v0.1.2` |
-| Repository checker | Validate strict UTF-8/no BOM, whitespace, local links/fragments, publication safety, exact Skill/eval sets, federated docs, and bilingual navigation | pass: 182 text files / 12 cases / 11 fixtures |
-| Fixture checker | Validate eleven synthetic starting states and their Git/reparse/ignored-result boundaries | 15 checks pass |
+| Repository checker | Validate strict UTF-8/no BOM, whitespace, local links/fragments, publication safety, exact Skill/eval sets, federated docs, and bilingual navigation | current dirty Work Charter correction passes: 191 text files / 14 cases / 12 fixtures |
+| Fixture checker | Validate synthetic starting states and their Git/reparse/ignored-result boundaries | current dirty Work Charter correction passes all 16 checks |
 | PowerShell deterministic hardening | Validate cardinality, LF bytes, one-base paths, and Junction link-only removal | 15 assertions pass in PowerShell 7 and Windows PowerShell 5.1 |
 | PowerShell parser sweep | Parse all `evals/**/*.ps1` files | 6 files parse |
 | Markdown navigation and ownership | Verify local links/fragments, English/Chinese routes, expected per-Skill owners, and no orphan canonical owner | pass through repository checker |
 | `git diff --check` and cached diff check | Reject whitespace defects in unstaged or staged candidates | both pass; the cached check makes no empty-index claim |
-| Gitleaks | Detect secret-like content independently | publication scope passes with no leaks; directory scan has one excluded finding in an ignored official manual cache |
+| Gitleaks | Detect secret-like content independently | every changed tracked publication file passes; whole-worktree directory scan is blocked by 17 findings in retained ignored Gate 2 runtime artifacts, with no cleanup authority or printed values |
 
 ## Repository Claim Ledger
 
@@ -504,6 +504,38 @@ change discovery or stable installation, push, integrate, tag, or release.
 Natural-language selection, the first-turn no-read boundary, L0-L4 behavior,
 managed re-entry, all four routes, and visible Standard reuse remain
 `UNVERIFIED` for the new SOURCE until exact-candidate Gate 2 evidence exists.
+
+### 2026-08-03 — Work Charter Gate 2 convergence stop and local correction
+
+Exact candidate `206c497cfbd096aee90e0609446b038fee58973a` began the
+approved Work Charter Gate 2 matrix but stopped without acceptance after one
+completed independent correction round and four reference cells crossed their
+declared consumption points. Pre-consumption controller activity remains
+qualification rather than model evidence. The correction and consumed events
+remain bound to the old candidate and cannot be reset through a new task, root,
+epoch, attempt, or candidate label.
+
+The user accepted a release-blocking same-contract convergence correction. The
+current dirty branch changes only the existing public
+`references/coordination-and-recovery.md` package file, mapped documents, and
+existing eval definitions, snapshots, and checker assertions. It adds no
+package file, case, fixture type, matrix lane, state machine, or Codex-specific
+task API.
+
+Offline checks pass for current dirty SOURCE: Work Charter validation; the
+repository checker at 191 text files, 14 cases, and 12 fixtures; all 16 fixture
+preconditions; six PowerShell parser checks; `git diff --check`; and the exact
+five-file strict UTF-8/LF/no-BOM/final-newline/non-reparse audit. A changed-
+tracked-file Gitleaks publication scan passes. A separate whole-worktree
+directory scan reports 17 findings inside retained ignored Gate 2 runtime
+artifacts; no value was printed, no tracked changed file is implicated, and no
+cleanup is authorized.
+
+This is dirty SOURCE, definition, and offline verification evidence only. No
+native review, commit, successor candidate, model run, RC, installation,
+integration, release, stable update, or cleanup followed. The superseded
+candidate provides no acceptance or behavior evidence for current bytes; a new
+exact SHA and new Gate 2 authorization are required.
 
 ### 2026-08-02 — Capability-delta decision and workflow
 

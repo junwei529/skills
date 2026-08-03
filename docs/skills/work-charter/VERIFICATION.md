@@ -1,14 +1,15 @@
 # Work Charter Verification
 
-Last updated: 2026-08-02
+Last updated: 2026-08-03
 
 ## Claim Ledger
 
 | Claim | Status |
 |---|---|
 | `work-charter` is the sole current five-file package | verified structurally for current SOURCE |
-| Gate 1 natural-language entry, first-turn read authorization, L0-L4 recommendation, one-carrier, managed re-entry, and four-route contract | implemented in current SOURCE; structural and fixture-precondition checks pass, fresh behavior unverified |
-| Gate 1 evaluation definitions | 14 exact cases and 12 exact fixtures pass repository-shape checks; 19/23/27-run matrix not executed |
+| Gate 1 natural-language entry, first-turn read authorization, L0-L4 recommendation, one-carrier, managed re-entry, four-route, and convergence contract | implemented in dirty current SOURCE; offline structural and fixture-precondition checks pass, fresh behavior unverified |
+| Gate 1 evaluation definitions | 14 exact cases and 12 exact fixtures pass repository-shape checks; existing recovery variants add consumption and successor assertions without a new matrix lane |
+| First `v0.2.0` exact candidate Gate 2 | `206c497...` stopped incomplete and is superseded for acceptance; its completed correction and consumed events remain historical, not evidence for current dirty SOURCE |
 | Small bounded work stays flat | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
 | Midstream implicit behavior is proposal-only | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
 | Cold recovery reconciles durable and workspace state | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE safe stop, partial recovery-summary completeness |
@@ -22,8 +23,8 @@ Last updated: 2026-08-02
 
 ## Gate 1 SOURCE And Definition Evidence
 
-The local `codex/work-charter-v0.2` implementation retains exactly five public
-files. Before native review, their raw SHA-256 identities are:
+The superseded exact candidate `206c497...` retained exactly five public files
+with these raw SHA-256 identities:
 
 ```text
 SKILL.md
@@ -38,19 +39,59 @@ references/standard-ope.md
   a85f03815313beaf3b399c8cf712904a402ae197518d8a5489281cff389698df
 ```
 
+The current dirty convergence correction changes only the existing
+`coordination-and-recovery.md` package file. Its five raw SHA-256 identities
+are:
+
+```text
+SKILL.md
+  f9b79c2dfb910d45d114aece1f14d0c983bfe6c2d754a6702691239e67fef560
+agents/openai.yaml
+  f0032475e213d75ed17eb41c3424007ebc46c0ddb6739138c9908185beefdad6
+assets/work-charter.md
+  4420e9faa5a6090e5fc54680e26b2dedddbb8c60c7c3891aa88da824dd881b72
+references/coordination-and-recovery.md
+  436d6ada3288fb7374445ce2a7bfd51501fd218def8f50755f7cbbdae3bd65f7
+references/standard-ope.md
+  a85f03815313beaf3b399c8cf712904a402ae197518d8a5489281cff389698df
+```
+
 The Skill validator passes. The repository checker reports 191 text files,
 14 exact cases, and 12 exact fixtures. The fixture checker passes all 16
-preconditions, including two entry variants, the committed managed cold-resume
-branch, visible Standard-policy reuse, and six recovery-integrity variants.
-PowerShell parser checks, `git diff --check`, the exact five-file strict UTF-8/
-LF/no-BOM/final-newline/non-reparse audit, and the required gitleaks scan pass.
+preconditions, including consumption-aware evidence drift and retained
+successor history inside the existing six recovery-integrity variants.
+PowerShell 7.6.3 parses all six eval scripts, `git diff --check` passes, and the
+exact five-file strict UTF-8/LF/no-BOM/final-newline/non-reparse audit passes.
+A Gitleaks scan of every changed tracked publication file passes. A separate
+whole-worktree directory scan is not green: it reports 17 findings inside
+retained ignored Gate 2 runtime artifacts, which are outside the tracked diff
+and lack cleanup authority. No finding value was printed or copied into the
+repository.
 
 These are Gate 1 implementation, structural, byte-format, definition, and
-fixture-precondition observations only. No native baseline, catalog-selection,
-exact-candidate behavior, exact-control comparison, Sol/Terra run, reasoning
-contrast, independent behavior assessment, `RC_INSTALL`, or stable update was
-performed. The accepted 19/23/27 staged matrix remains Gate 2 work and all new
-behavior claims are `UNVERIFIED`.
+fixture-precondition observations for dirty current SOURCE only. No native
+review, commit, native baseline, catalog-selection, exact-candidate behavior,
+exact-control comparison, model/reasoning cell, independent behavior
+assessment, `RC_INSTALL`, or stable update was performed for these bytes. The
+accepted 19/23/27 staged matrix remains future Gate 2 work for a new exact
+candidate and all convergence behavior claims are `UNVERIFIED`.
+
+### 2026-08-03 — Incomplete Gate 2 And Convergence Correction
+
+Exact candidate `206c497...` completed controller qualification and crossed
+four declared reference-cell consumption points before a convergence ambiguity
+stopped the batch. One completed independent `CORRECTION_REQUIRED` round and
+those four consumption events remain historical. Pre-consumption controller
+activity remains qualification rather than model evidence, and no task, root,
+epoch, attempt, or candidate label resets either history.
+
+The user accepted a release-blocking same-contract correction instead of
+candidate acceptance. The old candidate, incomplete batch, and historical
+events cannot be relabeled for the current dirty bytes. No model cell was
+retried, no new candidate was created, and no current behavior acceptance,
+push, RC, installation, integration, or release follows. A future successor
+candidate requires native review and commit authority first, then a separately
+approved Gate 2 for its exact SHA.
 
 ## v0.1.2 Stable And Control SOURCE Identity
 

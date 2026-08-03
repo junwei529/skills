@@ -164,9 +164,9 @@ Token or context efficiency is a secondary measurement, not a pass condition. A 
 | [Work Charter entry](cases/work-charter-entry.md) | `work-charter` | Enforce two-turn read authorization and recommend current-task or durable single-agent protection |
 | [Cold resume](cases/cold-resume.md) | `work-charter` | Recover from durable state without Project Docs |
 | [Work Charter midstream proposal](cases/work-charter-midstream.md) | `work-charter` | Recognize continuity symptoms and propose without mutation |
-| [Work Charter Planner/Executor](cases/work-charter-planner-executor.md) | `work-charter` | Run a one-writer loop with compact correction and independent assessment |
+| [Work Charter Planner/Executor](cases/work-charter-planner-executor.md) | `work-charter` | Run a one-writer loop with convergent correction accounting and independent assessment |
 | [Work Charter Standard O/P/E](cases/work-charter-standard.md) | `work-charter` | Exercise visible reuse of an already approved standing policy and one bounded phase |
-| [Work Charter recovery integrity](cases/work-charter-recovery-integrity.md) | `work-charter` | Exercise resume, Charter revision, and fail-closed authority, assessment, evidence, delivery, writer, dirty-state, and multi-worktree boundaries across six variants |
+| [Work Charter recovery integrity](cases/work-charter-recovery-integrity.md) | `work-charter` | Exercise resume, successor history, qualification/consumption separation, and fail-closed authority, assessment, delivery, writer, dirty-state, and multi-worktree boundaries across six variants |
 | [PowerShell boundary](cases/powershell-boundary.md) | `use-powershell-safely` | Classify encoding and native-command failures before code changes |
 
 ## Fixture Preconditions
@@ -226,7 +226,11 @@ For selected behavior, explicitly invoke the exact candidate after selection
 is no longer being scored. The entry case is two-turn: controller observation
 must prove no project read before approval, then prove the bounded reads after
 approval. Run each recovery-integrity variant independently without exposing
-another variant or expected result.
+another variant or expected result. The Charter-revision variant adds one
+read-only successor follow-up in the same context; it does not add a new matrix
+lane. Preserve pre-consumption qualification, completed Work Charter
+corrections, consumed evidence, and delivery/native-review counters as distinct
+histories.
 
 Copy mutating fixtures into a unique ignored run workspace. The
 Planner/Executor and midstream cases share `fixtures/work-charter-loop`; the

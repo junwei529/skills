@@ -1,14 +1,16 @@
 # 0018: Work Charter Adoption, Protection Levels, And Re-entry Checkpoint
 
 Date: 2026-08-02
-Status: accepted design; implementation and lifecycle effects are pending
+Amended: 2026-08-03
+Status: accepted design; convergence correction is locally implemented and lifecycle effects are pending
 
-- Planning checkpoint: 11 (final)
-- Last incorporated decision: `WC-AR-D23`
+- Planning checkpoint: 12 (task-convergence amendment)
+- Last incorporated decision: `WC-AR-D24`
 - Open decision IDs: none
 - Lifecycle authority: this Decision grants none; consult `docs/HANDOFF.md` for
   the live next gate
-- Checkpoint reason: completed product-design decision set
+- Checkpoint reason: completed product-design decision set plus the accepted
+  release-blocking convergence correction
 
 ## Status And Evidence Boundary
 
@@ -841,6 +843,41 @@ does not start Gate 5. Cleanup is also optional and never follows from release
 or installation success. Canonical sanitized evidence, immutable tags, the
 immediate `v0.1.2` rollback manifest, and the retained historical `v0.1.1`
 identity are not cleanup candidates under this decision.
+
+### WC-AR-D24 — Stable Subject, Consumption, And Convergence
+
+**Confirmed.** Bind correction and assessment history to one logical Charter
+subject and material contract/acceptance revision, with each verdict bound to
+the stable checkpoint it assessed. Task, Session, root, branch, worktree,
+delivery epoch, attempt name, and internal slice are carriers or observations,
+not reset keys. An authorized workspace or writer route change may require a
+coordination decision but preserves approvals, completed corrections, evidence
+consumption, and open findings. An authorized material successor or split must
+retain a predecessor pointer and the applicable prior history.
+
+Declare the consumption point before scarce, one-shot, or time-bound evidence.
+A qualification, preflight, transport, or Executor-internal same-scope repair
+before that point does not by itself consume the evidence opportunity or a Work
+Charter correction round. Only a completed independent
+`CORRECTION_REQUIRED` assessment against a stable checkpoint consumes the Work
+Charter correction budget; that round remains consumed even if later proof
+shows the scarce execution did not start. Once the consumption point is
+crossed, preserve the event even when incomplete or invalidated, and do not
+reset it through a new container or label.
+
+Every `CORRECTION_REQUIRED` must name a concrete, verifiable same-scope delta.
+A repeated material finding, no net reduction, unreliable context, or material
+contract change returns `DECISION_REQUIRED`. Work Charter correction rounds,
+delivery/transport automation limits, and native-review budgets remain
+independent.
+
+Implement this behavior by clarifying the existing coordination/recovery
+reference and targeted existing evals. Do not add a required file, ledger,
+schema, state machine, user-facing term, or Codex task API procedure. Under
+WC-AR-D23, a material SOURCE correction after exact-candidate evaluation
+creates a successor candidate: retain the prior candidate and consumed events
+as historical evidence, but require a new exact SHA and new Gate 2 authority
+before candidate evaluation resumes.
 
 ## Important Rejected Alternatives
 

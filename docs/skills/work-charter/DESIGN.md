@@ -79,6 +79,9 @@ the whole repository. Durable identity combines its Charter locator/revision,
 named feature or phase, and expected workspace/writer boundary; task IDs,
 branches, and worktrees are live evidence. An old non-Chartered task or a
 separate exploratory worktree matters only when it changes protected state.
+The workspace/writer boundary detects routing drift; an authorized route
+change does not erase the workstream's approval, correction, evidence-
+consumption, or finding history.
 
 After bounded read approval, reconcile the carrier and applicability before
 minimum live workspace/writer facts and named evidence. Do not scan the whole
@@ -107,6 +110,17 @@ and one Executor, and a normally dormant Orchestrator. Planner assessment ends
 in exactly `ACCEPTED`, `CORRECTION_REQUIRED`, or `DECISION_REQUIRED`. Keep the
 verdict separate from durable recording and bind material evidence to its
 mutable subject and invalidation condition.
+
+Bind correction history to the logical Charter subject and material contract
+revision, with each verdict tied to a stable checkpoint rather than a task,
+Session, root, epoch, attempt, or internal slice. An authorized material
+successor or split preserves a predecessor pointer and applicable history.
+Declare the consumption point before scarce, one-shot, or time-bound evidence:
+pre-consumption qualification does not consume that evidence opportunity, but
+a completed independent `CORRECTION_REQUIRED` still consumes its Work Charter
+round. Preserve a post-consumption event even when its evidence is later
+invalidated. Keep Work Charter correction, delivery/transport, and native-
+review budgets independent.
 
 Work Charter may stop its own work, request one-writer restoration, and propose
 a new route. It cannot deterministically stop, lock, or reroute another Codex
