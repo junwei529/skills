@@ -17,33 +17,40 @@ uncertain delivery, and advisory writer recovery. Immutable tag `v0.1.2` at
 verified stable installed copy preserve those released control bytes.
 
 [Decision 0018](../../decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md)
-is the accepted rationale for target `v0.2.0`. Gate 1 implements its natural-
-language selection, first-turn read authorization, L0-L4 recommendations,
-L1/L2 durability split, managed-workstream reconciliation, one-carrier rule,
-four re-entry routes, visible Standard reuse, and staged eval definitions in
-the later five-file Gate 1 SOURCE branch. Exact candidate `206c497...` began
-Gate 2 but did not receive acceptance. The user then accepted Decision 0018's
-release-blocking task-convergence amendment: stable correction history,
-qualification/evidence-consumption separation, successor mapping, and
-independent correction, delivery/transport, and native-review budgets. The
-current dirty SOURCE is a successor-candidate correction, not candidate or
-behavior evidence.
+is the accepted rationale for target `v0.2.0`. Gate 1 implements its
+proportional protection, durable re-entry, convergence, and staged evaluation
+contract. Commit `92a8c04554e4021ad3c998c97fd733f6554e048f` is the pushed
+successor candidate that preserved the earlier correction and evidence-
+consumption history. Its Gate 2 matrix stopped at the fourth reference turn:
+an indirect installed-Skills request produced a safe metadata proposal but
+claimed Work Charter was selected without loading its `SKILL.md`.
+
+The user accepted the resulting two-stage lazy-entry correction as Decision
+0018 `WC-AR-D25`. The current dirty SOURCE changes only `SKILL.md` inside the
+five-file package: direct ordinary-language intent activates and loads Work
+Charter; indirect installed-Skills or symptom-only intent produces an honest
+metadata proposal until confirmation. Mapped design and existing eval
+definitions are revised with it, and the offline gate passes. These dirty bytes
+are development SOURCE, not a candidate or behavior evidence identity.
 
 ## Current Writer
 
-Gate 1 used one task-dedicated worktree and branch
-`codex/work-charter-v0.2` with one Executor writer from clean baseline
-`763a15ee76bc71dd5e16fc22f32966cb0c8c3488`. The source-task contract owner
-returned the exact candidate for one release-blocking, same-contract
-convergence correction and authorized one writer in the existing worktree for
-SOURCE, mapped documents, existing evals, and offline verification only. That
-bounded correction and its offline checks are complete, and that writer was
-relinquished. The user then separately authorized one writer in the same
-worktree to run the native commit gate, make only same-contract finding fixes,
-repeat affected checks, and create one local successor-candidate commit. This
-authority ends at the first successful commit or a blocking stop; it does not
-authorize the Gate 2 model matrix, push, RC materialization, installation, or
-release. The main checkout remains integration-only.
+Gate 1 uses one task-dedicated worktree and branch
+`codex/work-charter-v0.2`, originally created from clean baseline
+`763a15ee76bc71dd5e16fc22f32966cb0c8c3488`. Starting from clean pushed commit
+`92a8c04554e4021ad3c998c97fd733f6554e048f`, the authorized writer completed
+the agreed `SKILL.md`, mapped Work Charter design/public/state/evidence owners,
+three existing entry/selection case definitions, and offline verification,
+then relinquished. No new file or package component was added. Native review 1
+then identified the stale activation wording in the root bilingual entry
+guides; the approved fix expands the dirty scope to exactly the 18 paths
+recorded in the handoff. The main checkout remains integration-only.
+
+One scoped repository writer now owns only native review, same-scope finding
+handling, affected checks, and one local commit over that exact 18-path dirty
+boundary. It relinquishes on the first successful commit or a blocking stop.
+No push, model run, new `RC_INSTALL`, discovery, installation, integration,
+release, private-global mutation, or cleanup authority follows.
 
 ## Evidence State
 
@@ -76,33 +83,45 @@ behavior processes. Its flat negative stayed unloaded; its narrow recovery
 canary stopped Orchestrator reliance and Phase Two while durable assessment
 recording remained pending. This is not a stable full Standard-delivery claim.
 
-The first `v0.2.0` exact candidate completed qualification and crossed four
-declared reference-cell consumption points before a convergence ambiguity
-stopped the batch. One completed independent correction round and those four
-consumption events remain historical; pre-consumption controller activity is
-qualification rather than model evidence. The batch is incomplete and provides
-no candidate acceptance or reusable behavior claim for the current corrected
-SOURCE.
+The first `v0.2.0` exact candidate `206c497...` stopped on convergence and
+retains its completed correction and consumed events. Successor
+`92a8c045...` then passed isolated controller qualification, exact candidate
+and control catalog identity, full offline checks, freeze, and two prestart
+probes. The `Sol/high` reference began and consumed exactly four turns:
+
+- A01 and A02 completed without a hard failure;
+- A03 directly named Work Charter in ordinary language and controller events
+  observed the exact candidate `SKILL.md` load; and
+- A04 used an indirect installed-Skills request, executed no command or
+  project read, and returned a bounded proposal, but no candidate `SKILL.md`
+  read occurred while the response claimed selection.
+
+A04 therefore hard-stopped on unproved selected/loaded identity. A05 through
+C04, all contrasts, and the independent assessor did not start. The four
+successor turns and the predecessor's separate correction/consumption history
+remain retained; neither batch provides candidate acceptance or reusable
+behavior evidence for the current dirty SOURCE.
 
 ## Next Gate
 
 Work Charter `v0.1.2` remains the released and installed stable revision. The
-approved convergence correction is dirty and offline-verified. Its current
-bounded gate is native review, same-contract finding handling, affected
-verification, and one local successor-candidate commit. A successful commit
-automatically relinquishes this writer; the next user gate would then be any
-push, RC materialization, or model matrix approval naming the new exact SHA.
-Integration, release, stable update, retained-evidence cleanup, and rollback-
-copy cleanup remain unapproved independent gates.
+two-stage lazy-entry SOURCE/eval/mapped-document revision and offline
+verification are complete in dirty development SOURCE. Native review, same-
+scope finding handling, affected checks, and one local commit for a new exact
+candidate are authorized and active. Push, new RC materialization, another
+model matrix, integration, release, stable update, retained-evidence cleanup,
+and rollback-copy cleanup remain unapproved independent gates.
 
 ## Recovery Entry
 
 1. Read [`AGENTS.md`](../../../AGENTS.md) and the repository
    [Authority Map](../../AUTHORITY.md).
-2. Read current [Design](DESIGN.md), the future rationale in
+2. Read current [Design](DESIGN.md), the accepted rationale in
    [Decision 0018](../../decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md),
    this state, and [Verification](VERIFICATION.md).
 3. Confirm live workspace, writer, and action authority.
-4. Read canonical SOURCE, Gate 1 definitions, and only evidence matching the
-   exact revision before changing behavior or claims.
-5. Preserve the independent-Skill and non-propagating-authorization boundary.
+4. Confirm branch `codex/work-charter-v0.2`, starting commit `92a8c045...`,
+   current dirty ownership, and the exact live authority before writing.
+5. Read canonical SOURCE, current eval definitions, and only evidence matching
+   the exact revision before changing behavior or claims.
+6. Preserve the independent-Skill and non-propagating-authorization boundary.

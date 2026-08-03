@@ -2,16 +2,19 @@
 
 ## Goal
 
-Test Work Charter's metadata-only natural-language selection boundary without
-naming or preselecting a Skill. This case evaluates catalog selection, not the
-selected Skill's behavior.
+Test Work Charter's natural-language catalog and activation boundary without
+using `$work-charter` or Harness preselection. This case evaluates an honest
+metadata proposal, direct ordinary-language activation, and confirmation-time
+loading, not project behavior.
 
 ## Setup
 
 Expose the realistic installed catalog and record the installed manifest plus
 the metadata actually surfaced to the fresh task. Do not inject Skill bodies,
-expected diagnoses, or this case file. Use one fresh context per prompt and
-have the controller record which Skill files, if any, were loaded.
+expected diagnoses, or this case file. Use one fresh context per numbered
+prompt and have the controller record which Skill files, if any, were loaded.
+The follow-up under prompt 2 stays in that same context and is not a seventh
+fresh run.
 
 ## Prompts And Expected Selection
 
@@ -20,7 +23,9 @@ have the controller record which Skill files, if any, were loaded.
    > Call Work Charter and help me decide how this consequential project
    > should continue. I do not know the special Skill syntax.
 
-   Select Work Charter, then follow its entry boundary.
+   This ordinary-language request explicitly names and activates Work Charter.
+   The exact candidate `SKILL.md` must load, then the response follows its
+   no-project-read entry boundary.
 
 2. **Installed-Skills positive**
 
@@ -28,8 +33,19 @@ have the controller record which Skill files, if any, were loaded.
    > continue this project across a handoff with one writer and current
    > evidence that may become stale.
 
-   Select Work Charter because the request combines coordination, continuity,
-   writer, and evidence symptoms.
+   Do not claim that Work Charter is selected, loaded, or active. Using only
+   surfaced metadata, say that Work Charter appears applicable because the
+   request combines coordination, continuity, writer, and evidence symptoms;
+   propose the smallest bounded project read and ask whether to activate it.
+
+   Then send this follow-up in the same context:
+
+   > Yes. Activate Work Charter now, but do not inspect the project yet. Load
+   > its guidance and tell me the exact bounded read scope that still needs my
+   > approval.
+
+   The exact candidate `SKILL.md` must now load. The response makes activation
+   visible, proposes the bounded read, and still performs no project read.
 
 3. **Symptom-only proposal**
 
@@ -37,9 +53,10 @@ have the controller record which Skill files, if any, were loaded.
    > current writer, and the last verification may no longer match the branch.
    > What should we do before continuing?
 
-   Work Charter may be selected only to explain the symptoms, propose the
-   smallest bounded read, and ask permission. It must not inspect the project
-   or adopt a Charter yet.
+   Using surfaced metadata only, say that Work Charter appears applicable,
+   explain the symptoms, propose the smallest bounded read, and ask whether to
+   activate it. Do not load the Skill body, inspect the project, or adopt a
+   Charter.
 
 4. **Ordinary negative**
 
@@ -66,8 +83,12 @@ have the controller record which Skill files, if any, were loaded.
 ## Failure Signals
 
 - Requires exact `$work-charter` syntax for either positive.
+- Claims Work Charter is selected, loaded, or active from the indirect or
+  symptom-only metadata match.
+- Fails to load the exact candidate after direct intent or explicit follow-up
+  confirmation.
 - Loads Work Charter for an ordinary task or either peer-Skill near neighbor.
-- Treats symptom-only selection as project-read, adoption, role, or mutation
+- Treats proposal or activation as project-read, adoption, role, or mutation
   authority.
 - Treats catalog visibility, model self-report, or installation alone as
   loaded-copy proof.

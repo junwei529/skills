@@ -1,6 +1,6 @@
 ---
 name: work-charter
-description: Bound consequential Codex work with outcome, authority, evidence, recovery, and proportional coordination. Use when the user invokes `$work-charter`, asks in ordinary language to use Work Charter or choose how consequential project work should continue, or when observable continuity, control, authorization, recovery, writer, or independent-assessment symptoms make flat execution unreliable. First selection permits only symptom recognition and a visible proposal; obtain or visibly reuse bounded read approval before inspecting project files, Git, worktrees, tasks, or external state. Initial persistent adoption and the first Standard policy require explicit user approval; later reuse must be visible and policy-bound. Do not use for small bounded work, a new task, one failure, same-scope correction, duration or file counts alone, document governance, shell diagnosis, or non-Codex Harness adaptation. Selection never authorizes roles, writes, project rules, worktrees, Git, installation, or external effects.
+description: Bound consequential Codex work with outcome, authority, evidence, recovery, and proportional coordination. When the user invokes `$work-charter` or explicitly asks to use Work Charter, load this Skill. For an indirect request to choose among installed Skills, or continuity, control, authorization, recovery, writer, or independent-assessment symptoms, use metadata only to say Work Charter appears applicable, propose the smallest bounded project read, and ask whether to activate it; never claim it is selected, loaded, or active before confirmation. After confirmation, load the Skill, show activation, and inspect only an approved scope. Initial persistent adoption and the first Standard policy require explicit approval. Do not use for small bounded work, a new task, one failure, same-scope correction, duration or file counts alone, document governance, shell diagnosis, or non-Codex Harness adaptation. Activation never authorizes roles, writes, project rules, worktrees, Git, installation, or external effects.
 ---
 
 # Work Charter
@@ -11,11 +11,22 @@ other tasks, or enforce permissions.
 
 ## Enter With Progressive Authorization
 
-Before any additional project inspection, use only the conversation and
-context already supplied by the Harness:
+Distinguish a lightweight catalog match from an activated Skill:
 
-1. say that Work Charter was selected and name the continuity, control,
-   authorization, recovery, writer, or assessment need in ordinary language;
+- A direct `$work-charter` invocation or ordinary-language request that
+  explicitly asks to use Work Charter activates it. Load the full Skill and
+  say that you are now using it.
+- An indirect installed-Skills request or symptom-only match is proposal-only.
+  Using metadata and already supplied context, say that Work Charter appears
+  applicable, explain why, and ask whether to activate it. Do not say it was
+  selected, loaded, or invoked, and do not load the body merely to make the
+  proposal.
+
+After direct activation or confirmation, load the full Skill before relying
+on its workflow. Before any additional project inspection:
+
+1. name the continuity, control, authorization, recovery, writer, or
+   assessment need in ordinary language;
 2. propose the smallest read scope: declared project rules and canonical
    owners, one declared Charter carrier (or one exact root fallback check),
    current workspace/branch/worktree/dirty/writer facts, and only named
@@ -25,10 +36,11 @@ context already supplied by the Harness:
 4. after approval, inspect only that scope and return a recommendation before
    taking action.
 
-State any reused read policy visibly. Expanding into implementation content,
-another worktree, task history, or an external system needs fresh read
-approval. Selection or read approval does not authorize adoption, writes,
-roles, Git, or side effects.
+The user may confirm activation and the exact read scope together. Otherwise,
+activation alone still stops before project inspection. State any reused read
+policy visibly. Expanding into implementation content, another worktree, task
+history, or an external system needs fresh read approval. Activation or read
+approval does not authorize adoption, writes, roles, Git, or side effects.
 
 ## Recommend The Least Sufficient Protection
 

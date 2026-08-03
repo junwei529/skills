@@ -50,12 +50,16 @@ Use Work Charter to decide how this project should continue.
 Based on the Skills already installed, recommend the safest way to continue this work.
 ```
 
-On first selection, Work Charter explains why it matched, proposes the smallest
-read of project rules, one canonical owner, current workspace/writer facts, and
-named evidence, then asks permission before inspecting those details. Symptom-
-only implicit selection stops at that visible proposal. Initial persistent
-adoption, the first Standard policy, role delivery, writes, Git, and external
-effects remain separately authorized.
+An ordinary-language request that explicitly names Work Charter activates it
+without requiring the `$work-charter` syntax. A generic installed-Skills
+request or symptom-only match first receives a metadata-level proposal (a
+lightweight catalog match): Work Charter appears applicable, why it may help,
+the smallest proposed project read, and a question asking whether to activate
+it. That proposal must not claim the Skill is selected or loaded. After the
+user confirms, the full Skill loads and only the separately approved project
+scope may be inspected. Initial persistent adoption, the first Standard
+policy, role delivery, writes, Git, and external effects remain separately
+authorized.
 
 It recommends the least sufficient shape in ordinary language: an ordinary
 flat task (`L0`, no active Charter), a current-task Charter (`L1`), a durable
@@ -85,13 +89,15 @@ passed for their exact historical revisions. The repository-level
 [`v0.1.2`](https://github.com/junwei529/skills/releases/tag/v0.1.2) stable copy
 has exact loaded-copy identity, a flat non-loading canary, and a narrow
 fail-closed recovery/assessment-order canary; its exact pre-release control also
-passed one bounded synthetic Standard Phase One. The later Gate 1 SOURCE has
-only structural and fixture-precondition evidence. Its natural-language
-selection, first-turn read boundary, level recommendations, re-entry routes,
-and visible Standard reuse have not run the staged model matrix. Full Standard
-delivery at the stable layer, broad implicit telemetry, independent real-
-project efficacy, deterministic role delivery or writer locks, and cross-
-Harness parity remain unproved. See
+passed one bounded synthetic Standard Phase One. The `v0.2.0` line has no
+accepted candidate: `206c497...` stopped on convergence, and successor
+`92a8c045...` stopped at A04 after a safe indirect proposal claimed selection
+without loading the Skill. The current dirty two-stage entry revision has only
+offline structural and fixture-precondition evidence. Full staged selection,
+entry, level, re-entry, and visible Standard behavior, full Standard delivery
+at the stable layer, broad implicit telemetry, independent real-project
+efficacy, deterministic role delivery or writer locks, and cross-Harness parity
+remain unproved. See
 [Verification](VERIFICATION.md) and [State](STATE.md).
 
 ## Authoritative Contract

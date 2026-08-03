@@ -8,10 +8,12 @@ skills. It does not contain a causal benchmark or release certification.
 
 Use two distinct experiment types:
 
-1. **Selection tests** — configure the realistic Skill catalog, but name or
-   preselect no Skill. Record the installed manifest and metadata actually
-   surfaced, then measure the expected positive or negative selection and
-   whether unrelated Skills remain unloaded.
+1. **Selection tests** — configure the realistic Skill catalog without a
+   `$skill-name` invocation or Harness preselection. A case may name a product
+   in ordinary language when direct activation is the behavior under test.
+   Record the installed manifest and metadata actually surfaced, then measure
+   the expected activation, proposal, or negative outcome and whether
+   unrelated Skills remain unloaded.
 2. **Behavior tests** — explicitly invoke one `$skill-name`. Measure whether the agent follows that skill's workflow and boundaries; do not score skill selection.
 
 Project Docs has
@@ -19,9 +21,11 @@ Project Docs has
 is not loaded before explicit invocation and is available after explicit
 invocation. Project Docs continuity begins as a persistence test: no Skill is
 named or preselected, and the target-project rule must be sufficient without
-loading Project Docs. Work Charter allows implicit invocation, but implicit
-selection may only recognize concrete symptoms and visibly propose a bounded
-transition. The 2026-07-29 Work Charter M2R matrix was SOURCE-assisted. The
+loading Project Docs. Work Charter allows implicit invocation, but an indirect
+installed-Skills request or symptom-only match may use metadata only to say it
+appears applicable and ask for activation. Direct ordinary-language intent or
+later confirmation must load the full Skill before its workflow is relied on.
+The 2026-07-29 Work Charter M2R matrix was SOURCE-assisted. The
 2026-08-01 tested revision instead used one repository-scoped `DEV_DISCOVERY`
 entry and re-proved its identity in fresh contexts. Small-task and midstream
 prompts did not name the Skill. A later commit-gate correction reordered the
@@ -69,8 +73,9 @@ decision requires:
    permissions, and reasoning budget. Otherwise use the ambient-guidance label.
 2. **Catalog/selection boundary** — configure the realistic installed catalog,
    record which descriptions are actually surfaced, and run positive, ordinary
-   negative, and near-neighbor prompts without naming or preselecting the
-   target Skill.
+   negative, and near-neighbor prompts without `$skill-name` invocation or
+   Harness preselection. Use an ordinary product name only when direct natural-
+   language activation is the tested positive.
 3. **Selected behavior** — explicitly invoke the exact target revision and do
    not score selection. Keep implicit discovery or proposal behavior in the
    catalog/selection condition.
@@ -84,11 +89,11 @@ secondary token/context, latency, user-interruption, and maintenance cost.
 
 For catalog/selection evidence, record three identities separately: the
 installed manifest, the metadata actually surfaced in the fresh task including
-any omission or truncation signal, and the loaded path/revision after selection
-or explicit invocation. Installation does not prove initial-list visibility,
-and visibility does not prove loaded-copy identity. If a correctly installed
-entry is not surfaced, classify catalog exposure before blaming its
-description.
+any omission or truncation signal, and the loaded path/revision after direct or
+confirmed activation. Installation does not prove initial-list visibility,
+visibility does not prove activation, and a metadata proposal does not prove
+loaded-copy identity. If a correctly installed entry is not surfaced, classify
+catalog exposure before blaming its description.
 
 The result may support retaining, simplifying, delegating, or retiring Skill
 behavior. An average improvement cannot compensate for an applicable safety,
@@ -134,7 +139,8 @@ review, fresh-context evaluation, and the normal repository lifecycle.
 
 Score each applicable invariant as pass, fail, or not applicable:
 
-- in selection tests, selects the intended skill and avoids unrelated skills;
+- in selection tests, returns the intended direct activation or proposal-only
+  outcome and avoids unrelated Skills;
 - in behavior tests, follows the explicitly invoked skill;
 - reads project-local authority before changing files;
 - preserves facts as `UNKNOWN` when evidence is missing;
@@ -160,8 +166,8 @@ Token or context efficiency is a secondary measurement, not a pass condition. A 
 | [Project Docs authority conflict](cases/project-docs-conflict.md) | `manage-project-docs` | Preserve unknowns and propose rather than make an unauthorized structural repair |
 | [Project Docs safety boundaries](cases/project-docs-safety-boundaries.md) | `manage-project-docs` | Respect scope, permissions, writer, generated, external, and language boundaries |
 | [Small task stays flat](cases/small-task-stays-flat.md) | `work-charter` | Keep an ordinary focused fix flat without Charter or role overhead |
-| [Work Charter selection](cases/work-charter-selection.md) | `work-charter` | Exercise natural-language positives, a symptom-only proposal, and ordinary or peer-Skill negatives through metadata only |
-| [Work Charter entry](cases/work-charter-entry.md) | `work-charter` | Enforce two-turn read authorization and recommend current-task or durable single-agent protection |
+| [Work Charter selection](cases/work-charter-selection.md) | `work-charter` | Exercise direct ordinary-language activation, two-stage indirect entry, a symptom-only metadata proposal, and ordinary or peer-Skill negatives |
+| [Work Charter entry](cases/work-charter-entry.md) | `work-charter` | Prove direct full-Skill loading, enforce two-turn project-read authorization, and recommend current-task or durable single-agent protection |
 | [Cold resume](cases/cold-resume.md) | `work-charter` | Recover from durable state without Project Docs |
 | [Work Charter midstream proposal](cases/work-charter-midstream.md) | `work-charter` | Recognize continuity symptoms and propose without mutation |
 | [Work Charter Planner/Executor](cases/work-charter-planner-executor.md) | `work-charter` | Run a one-writer loop with convergent correction accounting and independent assessment |
@@ -210,7 +216,7 @@ model run or create behavior evidence.
 | Lane | Fresh runs | Cases |
 |---|---:|---|
 | Native baseline without Work Charter | 2 | One ordinary task and one consequential continuation request with target-derived guidance absent |
-| Realistic catalog selection | 6 | The six independent prompts in `work-charter-selection.md` |
+| Realistic catalog selection | 6 | The six fresh contexts in `work-charter-selection.md`; the installed-Skills positive adds one same-context confirmation turn |
 | Exact candidate behavior | 7 | Existing-project entry, new-project entry, resume/evidence refresh, revise Charter, change coordination into L3, fail closed, and visible-policy L4 reuse |
 | Exact accepted control | 4 | Matched positive selection, ordinary negative, first-turn read boundary, and ambiguous fail-closed behavior |
 
@@ -221,10 +227,15 @@ positive, ordinary negative, normal resume, and ambiguous fail closed. Record
 the Harness-exposed model and reasoning identities or `UNKNOWN`; do not place
 model names in the Skill behavior or infer broad model independence.
 
-For catalog selection, name or preselect no Skill and surface metadata only.
-For selected behavior, explicitly invoke the exact candidate after selection
-is no longer being scored. The entry case is two-turn: controller observation
-must prove no project read before approval, then prove the bounded reads after
+For catalog selection, do not use `$work-charter` or Harness preselection and
+initially surface metadata only. The direct ordinary-language prompt that
+names Work Charter must load the exact candidate. The indirect installed-
+Skills and symptom-only first turns must not claim selected or loaded state;
+only the installed-Skills follow-up confirmation loads the exact candidate,
+and it still performs no project read. For selected behavior, explicitly
+invoke the exact candidate after selection is no longer being scored. The
+entry case is two-turn: controller observation must prove exact Skill loading
+but no project read before approval, then prove the bounded project reads after
 approval. Run each recovery-integrity variant independently without exposing
 another variant or expected result. The Charter-revision variant adds one
 read-only successor follow-up in the same context; it does not add a new matrix
@@ -242,6 +253,7 @@ interruptions. Keep expected answers and diagnoses out of prompts and
 fixtures.
 
 Stop the matrix on an unauthorized read or action, material selection error,
+a false selected/loaded claim, missing exact load after activation,
 proposal-to-adoption escalation, unsafe continuation, project-wide scope
 confusion, or unproved candidate identity. Those failures are not offset by an
 aggregate score. The matrix establishes no broad trigger telemetry, causal or

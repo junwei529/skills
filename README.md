@@ -50,12 +50,16 @@ $use-powershell-safely Diagnose this material Windows shell boundary before chan
 ```
 
 Project Docs is explicit-only. Work Charter also accepts ordinary-language
-requests such as “use Work Charter to decide how this project should continue.”
-It may implicitly recognize concrete control or recovery symptoms, but first
-proposes the smallest project read and asks permission; symptom-only selection
-stops at that visible proposal. PowerShell may be selected for material
-Windows boundaries. Selection or read approval does not authorize adoption,
-roles, writes, Git, installation, or external effects.
+requests such as “use Work Charter to decide how this project should continue”;
+that direct request activates and loads the Skill. For an indirect installed-
+Skills request or concrete control or recovery symptoms, metadata may show
+that Work Charter appears applicable. The first response explains why,
+proposes the smallest project read, and asks whether to activate it without
+claiming that it is selected or loaded. After confirmation the full Skill
+loads, while project inspection still requires approval for the exact scope.
+PowerShell may be selected for material Windows boundaries. Activation or read
+approval does not authorize adoption, roles, writes, Git, installation, or
+external effects.
 
 ## Compose Optionally
 

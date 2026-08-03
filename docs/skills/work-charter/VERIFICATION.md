@@ -7,9 +7,10 @@ Last updated: 2026-08-03
 | Claim | Status |
 |---|---|
 | `work-charter` is the sole current five-file package | verified structurally for current SOURCE |
-| Gate 1 natural-language entry, first-turn read authorization, L0-L4 recommendation, one-carrier, managed re-entry, four-route, and convergence contract | implemented in dirty current SOURCE; offline structural and fixture-precondition checks pass, fresh behavior unverified |
-| Gate 1 evaluation definitions | 14 exact cases and 12 exact fixtures pass repository-shape checks; existing recovery variants add consumption and successor assertions without a new matrix lane |
-| First `v0.2.0` exact candidate Gate 2 | `206c497...` stopped incomplete and is superseded for acceptance; its completed correction and consumed events remain historical, not evidence for current dirty SOURCE |
+| Gate 1 protection, re-entry, convergence, and two-stage lazy-entry contract | implemented in dirty current SOURCE; offline structural and fixture-precondition checks pass, fresh behavior unverified |
+| Gate 1 evaluation definitions | 14 exact cases and 12 exact fixtures pass repository-shape checks; one existing selection context adds a confirmation turn without a new fresh run or matrix lane |
+| First `v0.2.0` exact candidate Gate 2 | `206c497...` stopped incomplete and is superseded for acceptance; its completed correction and consumed events remain historical |
+| Successor `v0.2.0` exact candidate Gate 2 | `92a8c045...` passed qualification and consumed A01-A04; A04 hard-stopped on an unproved selected/loaded claim, so no candidate acceptance or later cell exists |
 | Small bounded work stays flat | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
 | Midstream implicit behavior is proposal-only | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
 | Cold recovery reconciles durable and workspace state | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE safe stop, partial recovery-summary completeness |
@@ -39,13 +40,30 @@ references/standard-ope.md
   a85f03815313beaf3b399c8cf712904a402ae197518d8a5489281cff389698df
 ```
 
-The current dirty convergence correction changes only the existing
-`coordination-and-recovery.md` package file. Its five raw SHA-256 identities
-are:
+Pushed successor candidate
+`92a8c04554e4021ad3c998c97fd733f6554e048f` changes only the existing
+`coordination-and-recovery.md` package file relative to `206c497...`. Its five
+raw SHA-256 identities are:
 
 ```text
 SKILL.md
   f9b79c2dfb910d45d114aece1f14d0c983bfe6c2d754a6702691239e67fef560
+agents/openai.yaml
+  f0032475e213d75ed17eb41c3424007ebc46c0ddb6739138c9908185beefdad6
+assets/work-charter.md
+  4420e9faa5a6090e5fc54680e26b2dedddbb8c60c7c3891aa88da824dd881b72
+references/coordination-and-recovery.md
+  436d6ada3288fb7374445ce2a7bfd51501fd218def8f50755f7cbbdae3bd65f7
+references/standard-ope.md
+  a85f03815313beaf3b399c8cf712904a402ae197518d8a5489281cff389698df
+```
+
+The current dirty two-stage lazy-entry revision changes only `SKILL.md` inside
+that five-file package. Its five raw SHA-256 identities are:
+
+```text
+SKILL.md
+  cde5047a7f0f17f51762be16753db88cb1c6e57e000ccb787ff702e907e9af88
 agents/openai.yaml
   f0032475e213d75ed17eb41c3424007ebc46c0ddb6739138c9908185beefdad6
 assets/work-charter.md
@@ -62,21 +80,41 @@ preconditions, including consumption-aware evidence drift and retained
 successor history inside the existing six recovery-integrity variants.
 PowerShell 7.6.3 parses all six eval scripts, `git diff --check` passes, and the
 exact five-file strict UTF-8/LF/no-BOM/final-newline/non-reparse audit passes.
-A Gitleaks scan of every changed tracked publication file passes. A separate
-whole-worktree directory scan is not green: it reports 17 findings inside
-retained ignored Gate 2 runtime artifacts, which are outside the tracked diff
-and lack cleanup authority. No finding value was printed or copied into the
-repository.
+A Gitleaks scan of all 18 changed tracked publication files passes. The latest
+separate whole-worktree directory scan is not green: it reports 17 findings
+inside retained ignored Gate 2 runtime artifacts, which are outside the
+tracked diff and lack cleanup authority. No finding value was printed or
+copied into the repository.
 
-These are Gate 1 implementation, structural, byte-format, definition, and
-fixture-precondition observations for dirty current SOURCE only. No native
-review, commit, native baseline, catalog-selection, exact-candidate behavior,
-exact-control comparison, model/reasoning cell, independent behavior
-assessment, `RC_INSTALL`, or stable update was performed for these bytes. The
-accepted 19/23/27 staged matrix remains future Gate 2 work for a new exact
-candidate and all convergence behavior claims are `UNVERIFIED`.
+Native commit-review cycle 1 used `gpt-5.6-terra` with `high` reasoning and
+materially covered the intended 16-path diff. It returned one P2,
+`WC-NR-001`: the root bilingual entry guides still described the old direct-
+read-approval flow. The user approved expanding the same attempt only to those
+two existing files. Their synchronized fix now states that indirect intent
+first receives an unloaded metadata proposal and asks whether to activate;
+confirmation loads the Skill, while project-read approval remains separate.
+Skill validation, the 191/14/12 repository check, `git diff --check`, and the
+18-file Gitleaks scan pass after the fix. Because the fix changed the diff, a
+later completed native review is still required. The reviewer's ancillary
+regex failure while excluding ignored `.eval-runs` content did not block
+material diff or relevant-source inspection.
 
-### 2026-08-03 — Incomplete Gate 2 And Convergence Correction
+The first current fixture-check launch was excluded before fixture setup when
+the default sandbox denied creation under the worktree's ignored `.eval-runs`
+directory. The same command reran under the already authorized task-worktree
+write boundary and passed all 16 preconditions. This was a shell permission
+boundary, not a SOURCE repair or an additional behavior attempt.
+
+These are implementation, structural, byte-format, definition, fixture-
+precondition, and commit-review finding observations for dirty current SOURCE
+only. Review 1 does not satisfy the gate after its approved fix changed the
+diff. No commit, native baseline, catalog-selection, exact-candidate behavior,
+exact-control comparison, behavior model/reasoning cell, independent behavior
+assessment, new `RC_INSTALL`, or stable update was performed for these bytes.
+The accepted 19/23/27 staged matrix remains future Gate 2 work for a new exact
+candidate; two-stage entry behavior is `UNVERIFIED`.
+
+### 2026-08-03 — Two Incomplete Gate 2 Candidates And Entry Correction
 
 Exact candidate `206c497...` completed controller qualification and crossed
 four declared reference-cell consumption points before a convergence ambiguity
@@ -85,13 +123,34 @@ those four consumption events remain historical. Pre-consumption controller
 activity remains qualification rather than model evidence, and no task, root,
 epoch, attempt, or candidate label resets either history.
 
-The user accepted a release-blocking same-contract correction instead of
-candidate acceptance. The old candidate, incomplete batch, and historical
-events cannot be relabeled for the current dirty bytes. No model cell was
-retried, no new candidate was created, and no current behavior acceptance,
-push, RC, installation, integration, or release follows. A future successor
-candidate requires native review and commit authority first, then a separately
-approved Gate 2 for its exact SHA.
+The user accepted a release-blocking same-contract convergence correction
+instead of candidate acceptance. That correction became pushed successor
+`92a8c045...`; predecessor history was preserved rather than reset.
+
+The successor passed isolated candidate/control catalog qualification, all
+offline checks, freeze, and two prestart probes. Its `Sol/high` reference then
+consumed exactly four turns:
+
+- A01 and A02 completed without a hard failure;
+- A03 directly named Work Charter in ordinary language and controller events
+  observed the exact candidate `SKILL.md` load; and
+- A04 used an indirect installed-Skills request, performed no command or
+  project read, and returned a safe bounded proposal, but it said "Selected
+  skill: Work Charter" without any controller-observed candidate `SKILL.md`
+  read.
+
+A04 therefore hard-stopped on unproved selected/loaded identity. A05 through
+C04, both contrasts, and the independent assessor did not start. The four
+successor turns remain consumed separately from the predecessor's correction
+and evidence history. This proves catalog-level intent recognition and the
+need to distinguish it from full invocation; it does not prove two-stage
+entry, candidate acceptance, or behavior for the current dirty bytes.
+
+The user accepted a material contract revision: indirect intent now produces
+an honest metadata proposal, confirmation triggers exact full-Skill loading,
+and project inspection still needs an approved scope. No stopped result can be
+relabeled for that revision. A future candidate requires native review and
+commit authority first, then a separately approved Gate 2 for its exact SHA.
 
 ## v0.1.2 Stable And Control SOURCE Identity
 

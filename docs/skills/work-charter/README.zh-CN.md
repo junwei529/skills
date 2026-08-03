@@ -46,11 +46,13 @@ $work-charter 约束此项有后果的工作、权限、证据、恢复和最小
 根据已经安装的 Skills，建议这项工作怎样继续最安全。
 ```
 
-首次选中后，Work Charter 会解释为什么匹配，并提出最小读取范围，例如项目规则、
-一个 canonical owner（权威状态载体）、当前 workspace/writer 状态和已命名证据；
-取得许可后才检查这些项目详情。仅由症状触发的隐式选择会停在这一可见 proposal。
-首次持久采用、第一份 Standard policy、角色交付、写入、Git 和外部影响仍需分别
-授权。
+用自然语言明确说“使用 Work Charter”即可激活它，不必记住 `$work-charter`
+语法。泛化的“根据已安装 Skills 判断”请求或仅由症状触发的匹配，首先只得到
+元数据级 proposal（即根据 Skill 简介做轻量候选判断）：说明 Work Charter 看起来
+可能适用、原因、建议的最小项目读取范围，并询问是否激活。此时不能声称 Skill
+已经 selected 或 loaded。用户确认后才加载完整 Skill，并且只能检查另行批准的
+项目范围。首次持久采用、第一份 Standard policy、角色交付、写入、Git 和外部
+影响仍需分别授权。
 
 它会用通用语言推荐最小充分形式：普通简单任务（`L0`，无 active Charter）、
 当前任务 Charter（`L1`）、持久单 Agent Charter（`L2`，有一个便于冷恢复的小型
@@ -77,11 +79,14 @@ lane、一个 repository writer，并至多有一个 Planner 和一个 Executor�
 [`v0.1.2`](https://github.com/junwei529/skills/releases/tag/v0.1.2) stable copy
 已有精确 loaded-copy identity、flat non-loading canary，以及一条窄范围的
 fail-closed recovery/assessment-order canary；其精确的 release 前 control 还通过
-一条 bounded synthetic Standard Phase One。后续 Gate 1 SOURCE 目前只有结构和
-fixture 前置条件证据；自然语言选择、首轮读取边界、等级建议、重新接入路由和
-可见 Standard 复用尚未运行分阶段模型矩阵。stable 层完整 Standard delivery、
-广泛隐式触发 telemetry、独立真实项目效果、确定性角色交付或 writer 锁，以及
-跨 Harness 等价性仍未得到证明。参见[验证](VERIFICATION.md)和[状态](STATE.md)。
+一条 bounded synthetic Standard Phase One。`v0.2.0` 目前没有 accepted
+candidate：`206c497...` 因 convergence 停止；successor `92a8c045...` 在 A04
+停止，因为它虽然安全地提出了间接入口 proposal，却在没有加载 Skill 时声称已经
+selected。当前 dirty 的两阶段入口修订只有离线结构与 fixture 前置条件证据。
+完整分阶段 selection、entry、等级、重新接入和可见 Standard 行为，stable 层完整
+Standard delivery、广泛隐式触发 telemetry、独立真实项目效果、确定性角色交付或
+writer 锁，以及跨 Harness 等价性仍未得到证明。参见[验证](VERIFICATION.md)和
+[状态](STATE.md)。
 
 ## 权威合同
 

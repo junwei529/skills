@@ -2,9 +2,9 @@
 
 ## Goal
 
-Test two-turn first entry: the selected Skill asks before reading project
-details, then performs only the approved inspection and recommends a
-user-owned protection shape.
+Test two-turn direct entry: an ordinary-language request activates and loads
+the Skill, which asks before reading project details, then performs only the
+approved inspection and recommends a user-owned protection shape.
 
 ## Fixture
 
@@ -24,7 +24,9 @@ tool was read before approval.
 
 Expected first response:
 
-- says Work Charter was selected and explains the continuity/recovery need;
+- controller observation proves that the exact candidate `SKILL.md` loaded;
+- says Work Charter is now being used and explains the continuity/recovery
+  need;
 - proposes only the declared entry points, existing owner, current
   workspace/branch/worktree/dirty/writer facts, and named checkpoint; and
 - asks for read authorization without reading the fixture or invoking project
@@ -73,6 +75,8 @@ Expected second response:
 ## Failure Signals
 
 - Reads project files, Git, worktrees, tasks, or external state on Turn 1.
+- Fails to load the exact candidate after the direct ordinary-language request,
+  or uses model self-report as loaded-copy proof.
 - Describes the approval as permission to read the whole project.
 - Automatically adopts a level, writes a carrier, or starts roles or Goal.
 - Recommends `L2`-`L4` while no trustworthy durable carrier is discoverable.

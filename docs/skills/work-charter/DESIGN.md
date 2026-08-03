@@ -16,19 +16,28 @@ monitor.
 
 ## Selection And First Read
 
-Users may invoke `$work-charter` or ask in ordinary language to use Work
-Charter, choose from installed Skills, or decide how consequential project work
-should continue. Observable continuity, control, authorization, recovery,
-writer, or independent-assessment symptoms may select it implicitly only for a
-visible proposal. Ordinary bounded tasks, a new task, one failure, elapsed
-time, file count, document governance, and shell diagnosis remain non-triggers.
+Users may invoke `$work-charter` or explicitly ask in ordinary language to use
+Work Charter without knowing special syntax. That direct intent activates the
+Skill: the Harness loads the full body, and the response makes activation
+visible before following its workflow.
 
-Before additional project inspection, the selected Skill explains why it was
-selected, proposes the smallest read scope, and asks the user to approve that
-scope. A later entry may visibly reuse an exact read scope from an applicable
-approved standing policy. Selection or read approval never authorizes
-persistent adoption, roles, writes, project-document changes, worktrees, Git,
-installation, or external effects.
+An indirect request to choose among installed Skills, or observable
+continuity, control, authorization, recovery, writer, or independent-
+assessment symptoms, creates only a metadata-level proposal. The response says
+that Work Charter appears applicable, explains why, proposes the smallest
+bounded project read, and asks whether to activate it. It must not claim the
+Skill is selected, loaded, or active, and must not inspect project details.
+Ordinary bounded tasks, a new task, one failure, elapsed time, file count,
+document governance, and shell diagnosis remain non-triggers.
+
+After confirmation, the full Skill must load before its workflow is relied on.
+The user may authorize activation and one exact bounded project read together;
+otherwise activation stops at a read proposal. A later entry may visibly reuse
+an exact read scope from an applicable approved standing policy. Metadata
+matching, activation, loaded-copy proof, read approval, persistent adoption,
+roles, writes, project-document changes, worktrees, Git, installation, and
+external effects remain distinct. Controller-observed Skill reads, not model
+self-report, establish loaded-copy identity in evaluation.
 
 ## Minimum Contract And Carrier
 
@@ -137,7 +146,7 @@ deferred.
 | [`standard-ope.md`](../../../skills/work-charter/references/standard-ope.md) | L4 standing-policy reuse, control location, responsibilities, operating path, and honest degradation |
 | [`work-charter.md`](../../../skills/work-charter/assets/work-charter.md) | Optional no-existing-owner durable carrier |
 | [`openai.yaml`](../../../skills/work-charter/agents/openai.yaml) | Concise UI metadata and implicit-invocation policy |
-| [Work Charter eval cases](../../../evals/README.md#work-charter-v02-staged-matrix-definition) | Selection, two-turn entry, L0-L4, managed resume, four re-entry routes, and negative contracts |
+| [Work Charter eval cases](../../../evals/README.md#work-charter-v02-staged-matrix-definition) | Direct activation, two-stage indirect entry, project-read authorization, L0-L4, managed resume, four re-entry routes, and negative contracts |
 
 ## Independent-Skill Boundary
 

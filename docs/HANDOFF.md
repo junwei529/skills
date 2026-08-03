@@ -5,7 +5,8 @@ Last updated: 2026-08-03
 ## Snapshot
 
 - Repository: Agent Workflow Skills
-- Branch: `main`
+- Integration checkout: branch `main`; active development branch
+  `codex/work-charter-v0.2`
 - Released package identity: immutable `v0.1.2` at
   `ceed607152849775b981c54add74bfa30d858e4d`
 - GitHub Release:
@@ -15,14 +16,13 @@ Last updated: 2026-08-03
   5 files, each matching the `v0.1.2` Git blobs
 - Rollback identity: immutable `v0.1.1` retained as a separately verified
   three-package backup
-- Writer: the Work Charter correction writer completed the accepted task-
-  convergence SOURCE, mapped-document, existing-eval, and offline-verification
-  scope in `codex/work-charter-v0.2`, then relinquished. A separately approved
-  writer now owns only native review, same-contract finding fixes, affected
-  checks, and one local successor-candidate commit in that same worktree. It
-  relinquishes on the first successful commit or a blocking stop. The main
-  checkout remains integration-only; no Gate 2 model matrix, push, RC,
-  installation, or release authority follows
+- Writer: one scoped writer in `codex/work-charter-v0.2` owns only native
+  review, approved finding handling, affected checks, and one local commit
+  over the 18-path dirty boundary that starts from clean pushed
+  `92a8c04554e4021ad3c998c97fd733f6554e048f`. It relinquishes on the first
+  successful commit or a blocking stop. The main checkout remains integration-
+  only; no push, new model matrix or RC, installation, release, private-global
+  mutation, or cleanup authority follows
 
 The `v0.1.2` tag remains fixed at the release-preparation commit. The later
 documentation commit records already-completed tag, stable-install, canary, and
@@ -75,15 +75,23 @@ existing five-file package. Stable behavior and release identity remain
 unchanged at `v0.1.2`.
 
 On 2026-08-03, exact candidate `206c497...` returned from incomplete Gate 2
-without acceptance after exposing a task-convergence ambiguity. The user
-accepted a release-blocking correction that binds history to the logical
-Charter subject and stable checkpoint, separates pre-consumption qualification
-from evidence execution, preserves consumed events across container labels,
-retains predecessor history for material successors, and keeps Work Charter,
-delivery/transport, and native-review budgets independent. One writer completed
-and offline-verified that bounded correction in the existing worktree, then
-relinquished. The old candidate and its consumed events remain historical; no
-new candidate or Gate 2 authority follows.
+without acceptance after exposing a task-convergence ambiguity. The accepted
+correction binds history to the logical Charter subject and stable checkpoint,
+separates qualification from evidence consumption, preserves predecessor
+history, and keeps Work Charter, delivery/transport, and native-review budgets
+independent. That correction became pushed successor
+`92a8c04554e4021ad3c998c97fd733f6554e048f`; the old candidate and its events
+remain historical.
+
+The successor passed isolated qualification and began its `Sol/high` reference
+matrix. A01-A04 consumed four turns. A03 directly named Work Charter and loaded
+the exact candidate. A04 used an indirect installed-Skills request, performed
+no command or project read, and proposed a bounded scope, but claimed Work
+Charter was selected without loading its `SKILL.md`. Gate 2 hard-stopped; A05-
+C04, contrasts, and independent assessment never started. The user then
+accepted `WC-AR-D25`: indirect intent must remain an honest metadata proposal,
+confirmation loads the full Skill, and project inspection still requires an
+approved scope. No prior behavior result transfers to the current dirty bytes.
 
 The accepted documentation change set comprises:
 
@@ -108,11 +116,12 @@ The accepted documentation change set comprises:
 
 Gate 0 is committed at clean baseline
 `763a15ee76bc71dd5e16fc22f32966cb0c8c3488`. Gate 1 uses branch
-`codex/work-charter-v0.2` and one task-dedicated Executor. It changes canonical
-SOURCE, eval definitions, fixtures/checkers, and mapped documentation only;
-discovery, installation, candidate, tag, and release identities remain
-untouched. Exact Gate 1 check results and local commit identity belong in the
-Executor Result Notice and matching verification ledgers.
+`codex/work-charter-v0.2` and one task-dedicated writer. Its committed
+implementation and convergence history culminates in pushed candidate
+`92a8c045...`. The current authorized revision changes only one package file
+plus mapped documentation and existing eval definitions; it creates no new
+package, case, fixture, or checker. Discovery, installation, stable tag, and
+release identities remain untouched.
 
 Retained ignored evaluation workspaces contain descendant discovery roots from
 earlier tests. They are not active merely because a task starts at the
@@ -166,12 +175,11 @@ is owned by [Repository Verification](VERIFICATION.md).
 
 ## Immediate Next Action
 
-No release action remains pending for `v0.1.2`. The approved dirty
-SOURCE/eval/document correction and offline checks are complete. Complete the
-separately authorized native review, same-contract finding handling, affected
-checks, and one local successor-candidate commit. On success, relinquish the
-writer and stop. Only a later approval naming the new exact SHA may authorize
-push, RC materialization, or another Gate 2 matrix.
+No release action remains pending for `v0.1.2`. Complete the authorized native
+review, same-scope finding handling, affected checks, and one local commit for
+the existing two-stage lazy-entry dirty boundary. On success, relinquish the
+writer and stop. Only a later approval naming the resulting exact SHA may
+authorize push, RC materialization, or another Gate 2 matrix.
 
 Later user-owned choices include:
 
@@ -191,8 +199,8 @@ Stop before write or publication if:
 
 - live local/public identity, worktree, dirty scope, or writer ownership differs
   from the expected state;
-- a Gate 1 correction would expand beyond the accepted five-file SOURCE,
-  eval-definition, fixture/checker, or mapped-document scope;
+- the current correction would add a package file, case, fixture, checker,
+  result file, or document outside the predeclared scope;
 - correction history or consumed evidence would be reset through a new task,
   root, epoch, attempt, or candidate label;
 - a root summary would duplicate or contradict a per-Skill canonical owner;
@@ -226,3 +234,19 @@ design/state/evidence owners, and existing eval definitions/fixtures/checker,
 then run offline verification. It does not authorize a model call, native
 review, commit, push, RC or discovery change, installation, integration, tag,
 release, stable update, private-global mutation, external effect, or cleanup.
+
+The current `WC-AR-D25` authorization supersedes only that writer's immediate
+action: starting from clean pushed `92a8c045...`, one writer may change
+`skills/work-charter/SKILL.md`, the predeclared mapped Work Charter owners, and
+the three existing selection/entry case definitions, then run offline
+verification. It authorizes no new file, native review, commit, push, model
+call, RC/discovery/install change, integration, release, private-global
+mutation, external effect, or cleanup.
+
+That immediate action is complete. A later explicit approval opened native
+review, finding handling, affected checks, and one local commit. After review 1
+found a stale activation description, the user approved adding only the root
+English/Chinese README pair, expanding the same attempt from 16 to 18 paths.
+It does not authorize any other file, push, behavior model calls, RC/discovery/
+install changes, integration, release, private-global mutation, external
+effects, or cleanup.
