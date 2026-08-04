@@ -1,6 +1,6 @@
 ---
 name: work-charter
-description: Bound consequential Codex work with outcome, authority, evidence, recovery, and proportional coordination. When the user invokes `$work-charter` or explicitly asks to use Work Charter, load this Skill. For an indirect request to choose among installed Skills, or continuity, control, authorization, recovery, writer, or independent-assessment symptoms, use metadata only to say Work Charter appears applicable, propose the smallest bounded project read, and ask whether to activate it; never claim it is selected, loaded, or active before confirmation. After confirmation, load the Skill, show activation, and inspect only an approved scope. Initial persistent adoption and the first Standard policy require explicit approval. Do not use for small bounded work, a new task, one failure, same-scope correction, duration or file counts alone, document governance, shell diagnosis, or non-Codex Harness adaptation. Activation never authorizes roles, writes, project rules, worktrees, Git, installation, or external effects.
+description: Bound consequential Codex work with outcome, authority, evidence, recovery, and proportional coordination. Use for `$work-charter` or direct request to use it. Direct intent or confirmation requests activation; load the full Skill before claiming active. If the body is unavailable, report degradation and stop. If exact copy identity is not exposed, keep it `UNKNOWN` and make no revision claim; that alone does not block activation. For an indirect installed-Skills choice or continuity/control, authority, recovery, writer, or assessment symptom, use metadata only to propose applicability, a minimal project read, and activation. Inspect only approved scope. Initial adoption and first Standard policy need explicit approval. Do not use for small bounded work, a new task, one failure, same-scope correction, duration/file counts alone, document governance, shell diagnosis, or non-Codex Harness adaptation. Activation never authorizes roles, writes, project rules, worktrees, Git, installation, or external effects.
 ---
 
 # Work Charter
@@ -14,16 +14,21 @@ other tasks, or enforce permissions.
 Distinguish a lightweight catalog match from an activated Skill:
 
 - A direct `$work-charter` invocation or ordinary-language request that
-  explicitly asks to use Work Charter activates it. Load the full Skill and
-  say that you are now using it.
+  explicitly asks to use Work Charter requests activation without another
+  confirmation. Load the full Skill first; only then say that you are now using
+  it.
 - An indirect installed-Skills request or symptom-only match is proposal-only.
   Using metadata and already supplied context, say that Work Charter appears
   applicable, explain why, and ask whether to activate it. Do not say it was
   selected, loaded, or invoked, and do not load the body merely to make the
   proposal.
 
-After direct activation or confirmation, load the full Skill before relying
-on its workflow. Before any additional project inspection:
+For direct intent or confirmation, the activation boundary is the full Skill
+body being available in the current context. If only metadata is available or
+the body cannot load, report degraded loading and stop without claiming
+activation. If the Harness does not expose the exact loaded path or revision,
+preserve that identity as `UNKNOWN` and make no exact-copy claim; that alone
+does not block ordinary activation. Before any additional project inspection:
 
 1. name the continuity, control, authorization, recovery, writer, or
    assessment need in ordinary language;
@@ -88,13 +93,22 @@ authority, verification, or acceptance.
 
 ## Reconcile Before Continuing
 
-For first adoption, re-entry, interruption, a material baseline change, or
-suspected overlap, read
-[Coordination And Recovery](references/coordination-and-recovery.md). Match the
-named managed workstream, not the whole repository, and compare the carrier
-revision with live workspace, writer, dirty ownership, evidence freshness, and
-the latest applicable authority. An old task, marker, branch, or elapsed time
-is not proof of conflict or adoption.
+For first adoption, re-entry, interruption, a material baseline change,
+suspected overlap, or any `L3`/`L4` role applying Work Charter responsibilities,
+read [Coordination And Recovery](references/coordination-and-recovery.md). Each
+fresh `L4` role must also read
+[Standard O/P/E](references/standard-ope.md) before applying any `L4`
+responsibility, including implementation. Each fresh role that claims to apply
+Work Charter must first load the full Skill, then complete its own conditional
+reference reads; a handoff summary is not loaded-copy proof. Leave the Standard
+reference unloaded for `L0`-`L3` by default. An explicit evaluation of a
+transition to `L4` may read it within the approved scope; that read does not
+authorize the transition or any `L4` responsibility.
+
+Match the named managed workstream, not the whole repository, and compare the
+carrier revision with live workspace, writer, dirty ownership, evidence
+freshness, and the latest applicable authority. An old task, marker, branch,
+or elapsed time is not proof of conflict or adoption.
 
 Return exactly one user-facing route, using this precedence:
 
@@ -112,10 +126,8 @@ Evidence refresh is a prerequisite to `resume`, not a fifth route. Request its
 own authority when it writes, costs, uses sensitive data, crosses an external
 boundary, consumes a budget, or repeats a one-shot operation.
 
-Read [Standard O/P/E](references/standard-ope.md) only when formal `L4`
-multi-phase governance is under consideration. Project Docs is an optional
-independent peer: consume reliable locators when present, but do not require or
-automatically invoke it.
+Project Docs is an optional independent peer: consume reliable locators when
+present, but do not require or automatically invoke it.
 
 ## Assess And Stop
 

@@ -1,6 +1,6 @@
 # Repository Status
 
-Last updated: 2026-08-03
+Last updated: 2026-08-04
 
 ## Dashboard
 
@@ -9,7 +9,7 @@ Last updated: 2026-08-03
 | Tested package identity | all three package byte sets independently reached exact-commit RC readiness at `c42eef392a5b9f58bbee64aa73ffb603a6fb6c29` and were re-proved at tag/stable identity `v0.1.2` | [Verification](VERIFICATION.md) |
 | Stable release identity | immutable [`v0.1.2`](https://github.com/junwei529/skills/releases/tag/v0.1.2) at `ceed607152849775b981c54add74bfa30d858e4d`; exact tag, stable loaded-copy, and GitHub Release proof pass for all three Skills | [Verification](VERIFICATION.md) |
 | Project Docs | released six-file `v0.1.2` stable copy; exact loaded identity and mature `NOOP` canary pass | [State](skills/manage-project-docs/STATE.md) |
-| Work Charter | released five-file `v0.1.2` stable copy remains active; pushed `v0.2.0` successor `92a8c045...` stopped Gate 2 at A04 on an unproved selected/loaded claim; the dirty two-stage lazy-entry revision is offline-verified, and its bounded native-review/local-commit gate is authorized and active | [State](skills/work-charter/STATE.md) |
+| Work Charter | released five-file `v0.1.2` stable copy remains active; exact `72db7e9...` sealed a fixed-turn Standard `VIOLATION`; the conditional-load correction and mapped consumers pass offline checks, candidate and behavior acceptance remain absent, and Git disposition belongs to the live commit-attempt record | [State](skills/work-charter/STATE.md) |
 | PowerShell | released five-file `v0.1.2` stable copy; corrected loaded identity and guarded native/text diagnosis pass; live WSL remains unproved | [State](skills/use-powershell-safely/STATE.md) |
 | Release lifecycle | `v0.1.2` tag, stable update, tag-pinned canaries, and Latest GitHub Release complete; `v0.1.1` retained as rollback identity | [Runbook](RUNBOOK.md) |
 
@@ -26,26 +26,31 @@ Release. Immutable `v0.1.1` remains retained as rollback identity.
 
 The Gate 1 branch contains the later five-file Work Charter SOURCE and eval
 definitions. Candidate `206c497...` stopped incomplete on convergence; pushed
-successor `92a8c045...` preserved that history, passed qualification, and then
-stopped its `Sol/high` reference at A04. The indirect installed-Skills request
-performed no project read and proposed a safe bounded scope, but claimed Work
-Charter was selected without loading its `SKILL.md`. A01-A04 remain consumed;
-no later reference, contrast, or assessment cell ran.
+successor `92a8c045...` preserved that history and stopped its reference matrix
+at an unproved selected/loaded claim. Exact descendant `72db7e9...` implements
+the accepted two-stage lazy entry and then received one fixed-turn Standard
+probe. Its four fresh primary sessions sealed `VIOLATION`, created no subagent
+activity, left A16 unexecuted, and permit no retry or retrospective rescore.
 
-The current dirty branch implements the accepted two-stage lazy entry without
-changing the five-file package shape or stable installation. Direct ordinary-
-language intent activates and loads Work Charter; indirect or symptom-only
-intent produces an honest metadata proposal until confirmation. Version-
-neutral README installer commands remain the supported interface; the live
-release ledger still selects `v0.1.2` as the current accepted tag and installed
-identity.
+The material finding was conditional package loading: the top level did not
+prove full-Skill loading, and the Standard components missed one or both
+required references. The conditional correction stops an unproved activation
+claim when the full Skill body is unavailable, preserves unexposed exact copy
+identity as `UNKNOWN` without blocking ordinary activation, makes L3/L4
+reference routing role-local, and leaves the Standard reference unloaded for
+L0-L3 by default while permitting an approved explicit L4-transition evaluation
+to read it without authorizing the transition. Exact-phrase semantic checks,
+shell-string fragment classification, and repeated static inventories are
+separately corrected as future controller methodology. Version-neutral README
+installer commands remain the supported interface; the live release ledger
+still selects `v0.1.2` as the current accepted tag and installed identity.
 
 [Decision 0018](decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md)
 records the accepted rationale, two-stage entry, level model, adoption and re-
-entry behavior, evaluation design, and separately authorized lifecycle gates
-for target Work Charter `v0.2.0`. The current revision is dirty development
-SOURCE; it does not change the stable installation or release identity and
-inherits no candidate evidence.
+entry behavior, conditional role reads, evaluation design, and separately
+authorized lifecycle gates for target Work Charter `v0.2.0`. The correction has
+development SOURCE and offline evidence only; it does not change the stable
+installation or release identity and inherits no candidate evidence.
 
 The exact scope and recovery order are owned by
 [Repository Handoff](HANDOFF.md).
@@ -64,11 +69,10 @@ positive/negative boundary evidence, and Work Charter has a complete bounded
 synthetic Standard Phase One. Counted and excluded attempts and all residual
 limits remain in the per-Skill ledgers and sanitized result files.
 
-For target `v0.2.0`, exact `92a8c045...` has qualification and four consumed
-reference turns only. A03 proves direct ordinary-language loading for that
-candidate; A04 proves metadata intent recognition but failed loaded identity.
-Neither observation transfers to the current dirty bytes, and the matrix has
-no acceptance.
+For target `v0.2.0`, exact `92a8c045...` retains qualification and four
+consumed reference turns only. Exact `72db7e9...` separately retains one sealed
+four-session fixed-turn `VIOLATION`. Neither observation transfers to the
+conditional correction, and neither supplies candidate acceptance.
 
 Per-Skill evidence and gaps:
 
@@ -78,15 +82,14 @@ Per-Skill evidence and gaps:
 
 ## Next Gate
 
-No release action remains pending for `v0.1.2`. The scoped two-stage lazy-
-entry SOURCE/eval/mapped-document revision and offline verification are
-complete in `codex/work-charter-v0.2`. The user has authorized one writer to
-run native review, handle same-scope findings, rerun affected checks, and
-create one local commit over the approved 18-path boundary, including the root
-English/Chinese entry guides added for native-review finding handling. That writer
-relinquishes on the first successful commit or a blocking stop. Push, new RC
-materialization, another Gate 2 model matrix, integration, release, stable
-update, and cleanup remain unapproved.
+No release action remains pending for `v0.1.2`. Documentation-impact closure
+and deterministic offline verification for the current correction in
+`codex/work-charter-v0.2` are complete, and no repository writer is active.
+Native-review disposition and commit eligibility are recovered from the
+cumulative attempt record against the exact final bytes rather than echoed in
+this tracked dashboard. Commit remains separately user-authorized. No behavior-
+evaluation model call, A16, push, RC materialization, integration, release,
+stable update, or cleanup is authorized.
 
 ## Known Repository Gaps
 
@@ -96,13 +99,13 @@ update, and cleanup remain unapproved.
 - PowerShell still lacks live Bash/WSL, native execution inside the stable
   canary sandbox, actual sandbox-denial injection, and shadow-use evidence.
 - No Skill has a causal correctness or token-saving comparison.
-- Work Charter's full Standard evidence remains one synthetic bounded RC path;
-  its stable proof is narrower and does not prove deterministic role delivery
-  or writer locking, broad triggers, real-project efficacy, or standalone
-  causality. Decision 0018's entry, level, re-entry, convergence, and two-stage
-  activation behavior is implemented in dirty local SOURCE but remains
-  behavior-unaccepted; both stopped candidate batches remain historical and
-  cannot be relabeled for the current bytes.
+- Work Charter's full Standard evidence remains one historical synthetic
+  bounded RC path; its stable proof is narrower and does not prove deterministic
+  role delivery or writer locking, broad triggers, real-project efficacy, or
+  standalone causality. Decision 0018's entry, level, re-entry, convergence,
+  two-stage activation, and conditional role-read behavior remains unaccepted
+  for the conditional correction. The stopped matrices and sealed fixed-turn
+  bundle remain historical and cannot be relabeled for that SOURCE revision.
 - Cross-Harness parity and SHICE evaluation remain unproved.
 - Private-global retirement and retained rollback/evidence cleanup remain
   separately authorized lifecycle work.

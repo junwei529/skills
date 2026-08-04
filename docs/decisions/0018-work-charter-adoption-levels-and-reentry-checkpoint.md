@@ -1,11 +1,11 @@
 # 0018: Work Charter Adoption, Protection Levels, And Re-entry Checkpoint
 
 Date: 2026-08-02
-Amended: 2026-08-03
-Status: accepted design; exact-candidate Gate 2 stopped at the indirect-entry identity boundary and the two-stage lazy-entry revision is locally implemented and offline-verified
+Amended: 2026-08-04
+Status: accepted design; exact `72db7e9...` sealed a fixed-turn Standard `VIOLATION`, and the conditional-role-read correction is implemented and offline-verified without candidate or behavior evidence; Git disposition belongs to the live commit-attempt record
 
-- Planning checkpoint: 13 (two-stage lazy entry)
-- Last incorporated decision: `WC-AR-D25`
+- Planning checkpoint: 14 (conditional role reads and evidence attribution)
+- Last incorporated decision: `WC-AR-D26`
 - Open decision IDs: none
 - Lifecycle authority: this Decision grants none; consult `docs/HANDOFF.md` for
   the live next gate
@@ -73,8 +73,12 @@ Natural-language requests such as the following remain valid entry signals:
 
 The frontmatter description remains the primary Harness-visible selection
 surface. A direct ordinary-language request that explicitly names or asks to
-use Work Charter activates it and loads the full Skill. An indirect request to
-choose among installed Skills, or observable continuity, control,
+use Work Charter requests activation without another confirmation. The full
+Skill body must be available in the current context before the response may
+claim it is active. If the runtime does not expose the exact loaded path or
+revision, preserve that identity as `UNKNOWN` and make no exact-copy claim; the
+missing identity signal alone does not block ordinary activation. An indirect
+request to choose among installed Skills, or observable continuity, control,
 authorization, recovery, writer, or independent-assessment symptoms, permits
 only a metadata-level proposal. That response says Work Charter appears
 applicable and asks whether to activate it; it does not claim the Skill is
@@ -89,12 +93,14 @@ environment details.
 
 **Confirmed.** Entry uses progressive authorization:
 
-1. for direct intent, load the full Skill and say that Work Charter is now
-   being used; for an indirect match, say only that it appears applicable and
-   ask whether to activate it;
-2. after direct activation or confirmation, rely on the full Skill to describe
-   the smallest proposed read scope, such as project rules, declared canonical
-   owners, and the current branch/worktree/writer boundary;
+1. for direct intent, load the full Skill and only then say that Work Charter is
+   now being used; for an indirect match, say only that it appears applicable
+   and ask whether to activate it. Preserve exact copy identity as `UNKNOWN`
+   when the runtime does not expose it, without claiming a revision or blocking
+   ordinary activation;
+2. after the direct load or the load following confirmation, rely on the full
+   Skill to describe the smallest proposed read scope, such as project rules,
+   declared canonical owners, and the current branch/worktree/writer boundary;
 3. ask whether the user authorizes that bounded inspection, unless the same
    response explicitly confirms activation and that exact scope; and
 4. only after approval, perform the reads and return a recommendation or the
@@ -906,10 +912,13 @@ remain discoverable without taking over every matching conversation.
    the Skill is selected, loaded, invoked, or active, and do not inspect the
    project.
 2. **Confirmed activation.** After the user confirms, load the full
-   `SKILL.md`, make activation visible, and follow its entry workflow. An
-   explicit `$work-charter` invocation or ordinary-language request that
-   directly names and asks to use Work Charter enters at this stage without
-   requiring a separate activation question.
+   `SKILL.md` and only then make activation visible and follow its entry
+   workflow. An explicit `$work-charter` invocation or ordinary-language
+   request that directly names and asks to use Work Charter enters at this stage
+   without requiring a separate activation question, but keeps the same
+   load-before-claim order. If the runtime does not expose exact copy identity,
+   preserve it as `UNKNOWN` and do not claim a revision; this alone does not
+   block activation.
 3. **Bounded project read.** Activation is not read authority. Inspect only an
    exact scope the user approves or an exact scope visibly reused from an
    applicable standing policy. The user may bundle activation and that scope
@@ -930,6 +939,46 @@ not a new lane or a reset of prior evidence consumption. The stopped batch and
 its four consumed reference turns remain historical; the material SOURCE
 revision requires a new exact candidate and separately authorized evidence
 window.
+
+### WC-AR-D26 — Conditional Role Reads And Evidence Attribution
+
+**Confirmed.** The sealed fixed-turn Standard probe at exact candidate
+`72db7e9...` remains a `VIOLATION` and is not retried or rescored. It exposed
+one product gap and two controller-calibration gaps without changing the
+stable logical subject or erasing earlier correction and consumption history.
+
+The product correction is conditional and role-local:
+
+1. direct or confirmed activation requires the full `SKILL.md` body to be
+   available in the current context; metadata-only or unavailable body loading
+   is reported as degraded and stops without an activation claim. Exact copy
+   identity remains `UNKNOWN` when the runtime does not expose it and blocks an
+   exact-copy claim, not ordinary activation;
+2. every fresh role that claims to apply `L3` or `L4` Work Charter
+   responsibilities first loads the full `SKILL.md`, then loads the
+   coordination/recovery reference before relying on those responsibilities;
+3. every fresh `L4` role additionally loads the Standard O/P/E reference before
+   applying any `L4` responsibility, including implementation. An `L3` run may
+   conditionally read it while evaluating an explicit transition to `L4`
+   within the approved read scope, but the read does not authorize the
+   transition or any `L4` responsibility; and
+4. a handoff summary supports orientation but does not substitute for the
+   receiving role's own full-body and conditional-reference reads. Exact
+   loaded-copy identity remains separate evaluation or release evidence. The
+   Standard reference remains unloaded for `L0`-`L3` merely by default.
+
+Evaluation keeps semantic judgment separate from observable action evidence.
+Role boundaries are scored by meaning, not the presence of one expected phrase.
+Command and file-read attribution uses structured tool events and resolved
+accesses; punctuation inside a shell string does not create pseudo-commands.
+A policy-declined compound read can still leave required files unread, but its
+fragments are not independently relabeled as executed unauthorized actions.
+
+For a one-shot bundle, freeze immutable inputs at the declared consumption
+point and then recheck the mutable or explicitly invalidating surfaces. Do not
+repeat a full static inventory after every turn without an identified mutation
+channel. These controller corrections apply prospectively and never alter the
+sealed probe, authorize a model call, or create a fresh evidence window.
 
 ## Important Rejected Alternatives
 

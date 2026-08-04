@@ -48,13 +48,16 @@ $use-powershell-safely 在修改应用代码前诊断此实质 Windows shell 边
 ```
 
 Project Docs 只允许显式调用。Work Charter 也接受“调用 Work Charter，判断项目
-应该怎样继续”这类自然语言请求；这种直接请求会激活并加载 Skill。对于泛化的
+应该怎样继续”这类自然语言请求；这种直接请求会要求 Codex 加载完整 Skill，只有
+完整正文已经进入当前上下文后才能声称已经激活。如果正文无法加载，Codex 会说明
+加载降级并停止，不会声称已激活。若 runtime 不暴露精确加载路径或 revision，该
+身份保留为 `UNKNOWN`，Codex 不声称具体副本；这本身不阻止普通激活。对于泛化的
 “根据已安装 Skills 判断”请求，或具体控制与恢复症状，系统首先只根据 metadata
-（Skill 简介）判断 Work Charter 看起来可能适用：说明原因、提出最小项目读取
-范围，并询问是否激活，但不能声称它已经 selected 或 loaded。用户确认后才加载
-完整 Skill，而项目检查仍需批准精确范围。PowerShell 可以在实质 Windows 边界
-出现时被选择。激活或读取许可并不授权持久采用、角色交付、写入、Git、安装或
-外部影响。
+（Skill 简介）判断 Work Charter 看起来可能适用：说明原因、提出最小项目读取范围，
+并询问是否激活，但不能声称它已经 selected 或 loaded。用户确认后同样遵循“加载
+成功，否则停止”的边界，而项目检查仍需批准精确范围。PowerShell 可以在实质
+Windows 边界出现时被选择。
+激活或读取许可并不授权持久采用、角色交付、写入、Git、安装或外部影响。
 
 ## 可选组合
 

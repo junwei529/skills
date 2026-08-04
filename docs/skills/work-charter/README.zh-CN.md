@@ -46,13 +46,16 @@ $work-charter 约束此项有后果的工作、权限、证据、恢复和最小
 根据已经安装的 Skills，建议这项工作怎样继续最安全。
 ```
 
-用自然语言明确说“使用 Work Charter”即可激活它，不必记住 `$work-charter`
-语法。泛化的“根据已安装 Skills 判断”请求或仅由症状触发的匹配，首先只得到
-元数据级 proposal（即根据 Skill 简介做轻量候选判断）：说明 Work Charter 看起来
-可能适用、原因、建议的最小项目读取范围，并询问是否激活。此时不能声称 Skill
-已经 selected 或 loaded。用户确认后才加载完整 Skill，并且只能检查另行批准的
-项目范围。首次持久采用、第一份 Standard policy、角色交付、写入、Git 和外部
-影响仍需分别授权。
+用自然语言明确说“使用 Work Charter”就是直接激活意图，不必记住
+`$work-charter` 语法。Codex 只有在完整 Skill 正文已经进入当前上下文后才声称已经
+激活；否则会说明加载降级并停止，不作激活声明。若 runtime 不暴露精确加载路径或
+revision，该身份保留为 `UNKNOWN`，Codex 不声称具体副本；这本身不阻止普通激活。
+泛化的“根据已安装 Skills 判断”请求或仅由症状触发的匹配，首先只得到元数据级
+proposal（即根据 Skill 简介做轻量候选判断）：说明 Work Charter 看起来可能适用、
+原因、建议的最小项目读取范围，并询问是否激活。此时不能声称 Skill 已经 selected
+或 loaded。用户确认后同样遵循“加载成功，否则停止”的边界，并且只能检查另行
+批准的项目范围。首次持久采用、第一份 Standard policy、角色交付、写入、Git 和
+外部影响仍需分别授权。
 
 它会用通用语言推荐最小充分形式：普通简单任务（`L0`，无 active Charter）、
 当前任务 Charter（`L1`）、持久单 Agent Charter（`L2`，有一个便于冷恢复的小型
@@ -82,10 +85,15 @@ fail-closed recovery/assessment-order canary；其精确的 release 前 control 
 一条 bounded synthetic Standard Phase One。`v0.2.0` 目前没有 accepted
 candidate：`206c497...` 因 convergence 停止；successor `92a8c045...` 在 A04
 停止，因为它虽然安全地提出了间接入口 proposal，却在没有加载 Skill 时声称已经
-selected。当前 dirty 的两阶段入口修订只有离线结构与 fixture 前置条件证据。
-完整分阶段 selection、entry、等级、重新接入和可见 Standard 行为，stable 层完整
-Standard delivery、广泛隐式触发 telemetry、独立真实项目效果、确定性角色交付或
-writer 锁，以及跨 Harness 等价性仍未得到证明。参见[验证](VERIFICATION.md)和
+selected。精确 `72db7e9...` 实现了两阶段入口，但其固定轮次 Standard probe 已封存
+`VIOLATION`，且没有运行 A16。条件式角色读取修订会在完整 Skill 正文不可用时
+停止，并把未暴露的精确副本身份保留为 `UNKNOWN`；每个 fresh `L3`/`L4` 角色都
+必须加载完整 Skill 和 coordination reference，`L4` 还必须在履行职责前加载
+Standard reference。它只有离线定义证据，不是 candidate 或已接受的行为 identity，
+之前封存的结果也不会转移。完整分阶段
+selection、entry、等级、重新接入和可见 Standard 行为，stable 层完整 Standard
+delivery、广泛隐式触发 telemetry、独立真实项目效果、确定性角色交付或 writer
+锁，以及跨 Harness 等价性仍未得到证明。参见[验证](VERIFICATION.md)和
 [状态](STATE.md)。
 
 ## 权威合同

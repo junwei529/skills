@@ -20,8 +20,8 @@ Sanitized detailed runs remain under [`evals/results`](../evals/results/README.m
 | Check | Purpose | Current result |
 |---|---|---|
 | Three Skill validators | Validate frontmatter and package names without changing packages | pass for the three packages in tag and stable install `v0.1.2` |
-| Repository checker | Validate strict UTF-8/no BOM, whitespace, local links/fragments, publication safety, exact Skill/eval sets, federated docs, and bilingual navigation | current dirty Work Charter correction passes: 191 text files / 14 cases / 12 fixtures |
-| Fixture checker | Validate synthetic starting states and their Git/reparse/ignored-result boundaries | current dirty Work Charter correction passes all 16 checks |
+| Repository checker | Validate strict UTF-8/no BOM, whitespace, local links/fragments, publication safety, exact Skill/eval sets, federated docs, and bilingual navigation | current Work Charter correction passes: 191 text files / 14 cases / 12 fixtures |
+| Fixture checker | Validate synthetic starting states and their Git/reparse/ignored-result boundaries | current Work Charter correction passes all 16 checks |
 | PowerShell deterministic hardening | Validate cardinality, LF bytes, one-base paths, and Junction link-only removal | 15 assertions pass in PowerShell 7 and Windows PowerShell 5.1 |
 | PowerShell parser sweep | Parse all `evals/**/*.ps1` files | 6 files parse |
 | Markdown navigation and ownership | Verify local links/fragments, English/Chinese routes, expected per-Skill owners, and no orphan canonical owner | pass through repository checker |
@@ -505,76 +505,80 @@ Natural-language selection, the first-turn no-read boundary, L0-L4 behavior,
 managed re-entry, all four routes, and visible Standard reuse remain
 `UNVERIFIED` for the new SOURCE until exact-candidate Gate 2 evidence exists.
 
-### 2026-08-03 — Work Charter Gate 2 stops and two-stage entry correction
+### 2026-08-04 — Work Charter sealed Standard evidence and offline correction
 
 Exact candidate `206c497cfbd096aee90e0609446b038fee58973a` began the
 approved Work Charter Gate 2 matrix but stopped without acceptance after one
 completed independent correction round and four reference cells crossed their
 declared consumption points. Pre-consumption controller activity remains
 qualification rather than model evidence. The correction and consumed events
-remain bound to the old candidate and cannot be reset through a new task, root,
-epoch, attempt, or candidate label.
+remain bound to that logical subject and checkpoint; a new task, root, epoch,
+attempt, or candidate label cannot reset them.
 
-The user accepted a release-blocking same-contract convergence correction.
-That correction became pushed successor
-`92a8c04554e4021ad3c998c97fd733f6554e048f`; predecessor history remained
-separate and was not reset. The successor passed isolated controller
-qualification, exact candidate/control catalog identity, offline checks,
-freeze, and two prestart probes.
+The accepted same-contract convergence correction became pushed successor
+`92a8c04554e4021ad3c998c97fd733f6554e048f`, preserving predecessor history.
+Its `Sol/high` reference consumed A01-A04. A03 observed exact direct full-Skill
+loading. A04 made a safe indirect metadata proposal and no project read, but
+claimed selection without a controller-observed candidate `SKILL.md` read, so
+the run hard-stopped. A05-C04, the contrasts, and independent assessment did not
+start; the observations provide no candidate acceptance.
 
-The successor `Sol/high` reference consumed exactly four turns. A01 and A02
-completed without a hard failure. A03 directly named Work Charter in ordinary
-language and controller events observed the exact candidate `SKILL.md` load.
-A04 used an indirect installed-Skills request, executed no command or project
-read, and returned a bounded proposal, but said "Selected skill: Work Charter"
-without any controller-observed candidate `SKILL.md` read. It therefore hard-
-stopped on unproved selected/loaded identity. A05-C04, all contrast cells, and
-the independent assessor did not start. These observations prove neither
-candidate acceptance nor two-stage entry.
+Exact committed SOURCE `72db7e9dfe920de5e2017421b22446cf5c8c75e6`
+implements the accepted two-stage entry revision. One separately authorized
+fixed-turn Standard probe crossed its declared one-shot consumption point once,
+completed four primary turns in four fresh sessions, created no subagent or
+collaboration-agent activity, and left A16 unexecuted. Its top-level,
+Orchestrator, Planner, and Executor verdicts are sealed `VIOLATION`; no retry or
+retrospective rescore is permitted.
 
-The user accepted a material two-stage lazy-entry revision. The current dirty
-branch changes only `skills/work-charter/SKILL.md` inside the package, mapped
-documents, and three existing selection/entry case definitions plus their
-evaluation owner. Native-review finding handling also synchronizes the existing
-root English/Chinese entry guides. It adds no package file, case, fixture,
-checker, matrix lane, state machine, or Codex-specific task API. Direct
-ordinary-language intent now activates and loads Work Charter; indirect or
-symptom-only intent remains an honest metadata proposal until confirmation;
-project reads still need an approved scope.
+The material product finding is conditional package loading. The top-level
+response did not prove full-Skill loading, and every Standard component missed
+one or both required references before claiming Work Charter responsibilities.
+The same-contract correction stops without an activation claim when the full
+Skill body is unavailable, and permits a direct or confirmed activation claim
+only after that body is available in the current context. When the runtime does
+not expose exact copy identity, the response preserves `UNKNOWN` and makes no
+revision claim without blocking ordinary activation. Every fresh L3/L4 role
+loads the full Skill and coordination/recovery reference, and each fresh L4
+role loads the Standard reference before applying any L4 responsibility. L0-L3
+leave the Standard reference unloaded by default; an approved explicit
+evaluation of a transition to L4 may read it without authorizing the transition
+or any L4 responsibility. A handoff summary remains orientation, not exact
+loaded-copy proof.
 
-Offline checks pass for current dirty SOURCE: Work Charter validation; the
+The correction changes only `skills/work-charter/SKILL.md` inside the five-file
+package and mapped existing product, evaluation, public-entry, repository-state,
+evidence, and recovery consumers. The exact update set is recorded in
+[Repository Handoff](HANDOFF.md). It adds no file, package component, case,
+fixture, checker, matrix lane, state machine, Codex task API, fact class,
+product contract, evidence target, or acceptance boundary. Other inspected
+owners and consumers remain explicitly `CHECKED_NO_CHANGE` or
+`NOT_APPLICABLE`.
+
+The fixed-turn evidence also exposed controller-calibration issues rather than
+additional Skill defects: role boundaries require meaning-based scoring;
+structured actions and resolved reads, not shell punctuation, own attribution;
+and a one-shot bundle freezes immutable inputs at consumption while rechecking
+only named mutable or invalidating surfaces. These prospective rules do not
+edit, retry, replace, or rescore the sealed result.
+
+Offline checks pass for the conditional correction: Work Charter validation; the
 repository checker at 191 text files, 14 cases, and 12 fixtures; all 16 fixture
-preconditions; six PowerShell parser checks; `git diff --check`; and the exact
-five-file strict UTF-8/LF/no-BOM/final-newline/non-reparse audit. A changed-
-tracked-file Gitleaks publication scan passes across all 18 changed files. The
-latest separate whole-worktree directory scan reports 17 findings inside
-retained ignored Gate 2 runtime artifacts; no value was printed, no tracked
-changed file is implicated, and no cleanup is authorized.
+preconditions; six PowerShell parser checks; `git diff --check`; the exact
+five-file strict UTF-8/LF/no-BOM/final-newline/non-reparse audit; and a Gitleaks
+scan of every changed tracked publication file. Retained ignored Gate 2 runtime
+artifacts remain outside that changed-file scan; no cleanup or result rewrite is
+authorized.
 
-Native commit-review cycle 1 used `gpt-5.6-terra` with `high` reasoning and
-materially inspected the intended 16-path diff. It returned one P2,
-`WC-NR-001`: the root bilingual entry guides still described the old direct-
-read-approval flow. The user approved adding only those two existing guides to
-the same commit attempt. Their corrected wording now distinguishes direct
-activation from an indirect metadata proposal and preserves separate project-
-read approval. Skill validation, the 191/14/12 repository check, the Git diff
-whitespace check, and an exact 18-file Gitleaks scan pass after the fix. The mutation
-requires a later completed native review before commit. An ancillary reviewer
-regex failure while excluding ignored `.eval-runs` content did not block
-material diff or relevant-source inspection.
-
-The first current fixture-check launch was excluded before fixture creation
-because the default sandbox denied writes to the worktree's ignored
-`.eval-runs` directory. The same command under the authorized task-worktree
-write boundary passed all 16 preconditions. No SOURCE change or behavior
-attempt followed from that shell-permission boundary.
-
-This remains dirty SOURCE, definition, offline-verification, and commit-review
-finding evidence only. Review 1 does not satisfy the gate after its approved
-fix changed the diff. No commit, new candidate, behavior-model run, new RC,
-installation, integration, release, stable update, or cleanup followed.
-Neither stopped candidate provides acceptance or behavior evidence for current
-bytes; a new exact SHA and new Gate 2 authorization are required.
+Detailed native-review findings, fixes, cycle consumption, and coverage remain
+in the cumulative attempt record rather than this tracked evidence snapshot.
+The correction has offline implementation, definition, and finding-handling
+evidence only; native-review and Git disposition are resolved against the exact
+bytes from that live record. It has no candidate, behavior-model, RC,
+installation, integration, release, or stable-update evidence. Neither stopped
+candidate nor the sealed probe transfers acceptance to the conditional
+correction; a future exact candidate and behavior gate require their own
+authority.
 
 ### 2026-08-02 — Capability-delta decision and workflow
 

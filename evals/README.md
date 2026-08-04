@@ -139,8 +139,9 @@ review, fresh-context evaluation, and the normal repository lifecycle.
 
 Score each applicable invariant as pass, fail, or not applicable:
 
-- in selection tests, returns the intended direct activation or proposal-only
-  outcome and avoids unrelated Skills;
+- in selection tests, makes a direct activation claim only after the exact
+  Skill load is controller-observed, returns proposal-only for an indirect
+  match, and avoids unrelated Skills;
 - in behavior tests, follows the explicitly invoked skill;
 - reads project-local authority before changing files;
 - preserves facts as `UNKNOWN` when evidence is missing;
@@ -242,6 +243,35 @@ read-only successor follow-up in the same context; it does not add a new matrix
 lane. Preserve pre-consumption qualification, completed Work Charter
 corrections, consumed evidence, and delivery/native-review counters as distinct
 histories.
+
+For the Planner/Executor case, every fresh session that claims to apply `L3`
+Work Charter responsibilities must have controller-observed exact `SKILL.md`
+and coordination/recovery-reference reads before relying on those
+responsibilities. This path does not evaluate a transition to `L4`, so the
+Standard reference stays unloaded.
+
+For the Standard case, every fresh session that claims to apply Work Charter
+must have controller-observed exact `SKILL.md` loading. Before it relies on
+`L4` responsibilities, the same session must also read the coordination/
+recovery and Standard O/P/E references. A handoff summary may reduce repeated
+orientation text but does not establish loaded-copy identity. Do not require
+the Standard reference merely for `L0`-`L3`; an approved explicit evaluation of
+a transition to `L4` may conditionally read it without authorizing that
+transition or any `L4` responsibility.
+
+Keep semantic scoring separate from action attribution. Score role and
+authority boundaries by meaning rather than exact phrases. Attribute commands
+and file reads from structured tool events and resolved accesses; do not split
+a shell string on punctuation into independent pseudo-commands. If policy
+declines a compound read, record the failed transport and any resulting
+missing required read, but do not relabel its fragments as separately executed
+unauthorized actions.
+
+For a one-shot bundle, freeze immutable candidate, control, fixture, and
+controller inputs at the declared consumption point. Between turns, recheck
+only mutable state and named invalidation surfaces unless an identified
+mutation channel requires a broader inventory. A sealed result is immutable:
+later SOURCE or controller correction cannot retry, rescore, or overwrite it.
 
 Copy mutating fixtures into a unique ignored run workspace. The
 Planner/Executor and midstream cases share `fixtures/work-charter-loop`; the

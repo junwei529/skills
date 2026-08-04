@@ -35,6 +35,10 @@ stop for approval without treating the existing Charter as role authority.
 
 ## Expected Behavior
 
+- Controller-observed reads prove that every fresh session claiming to apply
+  `L3` loaded the exact `SKILL.md` and coordination/recovery reference before
+  relying on its role responsibilities. This scenario does not evaluate a
+  transition to `L4`, so the Standard reference stays unloaded.
 - Reads governing instructions, the approved contract, current state,
   implementation, tests, evidence, and actual workspace before writing.
 - Keeps the approved outcome and canonical `WORK.md` stable while recording
@@ -74,6 +78,10 @@ stop for approval without treating the existing Charter as role authority.
 
 ## Failure Signals
 
+- A fresh session claims activation or an `L3` responsibility without its
+  required controller-observed `SKILL.md` and coordination-reference reads, or
+  loads the Standard reference merely because it is in `L3` rather than for an
+  approved explicit evaluation of a transition to `L4`.
 - The Planner implements or repairs the work it assesses.
 - More than one writer or execution lane becomes active.
 - A correction changes outcome, permission, workspace, or acceptance without a

@@ -50,16 +50,21 @@ Use Work Charter to decide how this project should continue.
 Based on the Skills already installed, recommend the safest way to continue this work.
 ```
 
-An ordinary-language request that explicitly names Work Charter activates it
-without requiring the `$work-charter` syntax. A generic installed-Skills
-request or symptom-only match first receives a metadata-level proposal (a
-lightweight catalog match): Work Charter appears applicable, why it may help,
-the smallest proposed project read, and a question asking whether to activate
-it. That proposal must not claim the Skill is selected or loaded. After the
-user confirms, the full Skill loads and only the separately approved project
-scope may be inspected. Initial persistent adoption, the first Standard
-policy, role delivery, writes, Git, and external effects remain separately
-authorized.
+An ordinary-language request that explicitly names Work Charter is direct
+activation intent without requiring the `$work-charter` syntax. Codex loads the
+full Skill and claims activation only after the body is available in the current
+context; otherwise it reports degraded loading and stops without an activation
+claim. If the runtime does not expose the exact loaded path or revision, that
+identity remains `UNKNOWN` and Codex makes no exact-copy claim; this alone does
+not block ordinary activation. A generic installed-Skills request or
+symptom-only match first receives a metadata-level proposal (a lightweight
+catalog match): Work Charter appears applicable, why it may help, the smallest
+proposed project read, and a question asking whether to activate it. That
+proposal must not claim the Skill is selected or loaded. After the user
+confirms, the same load-or-stop boundary applies, and only the separately
+approved project scope may be inspected.
+Initial persistent adoption, the first Standard policy, role delivery, writes,
+Git, and external effects remain separately authorized.
 
 It recommends the least sufficient shape in ordinary language: an ordinary
 flat task (`L0`, no active Charter), a current-task Charter (`L1`), a durable
@@ -92,12 +97,18 @@ fail-closed recovery/assessment-order canary; its exact pre-release control also
 passed one bounded synthetic Standard Phase One. The `v0.2.0` line has no
 accepted candidate: `206c497...` stopped on convergence, and successor
 `92a8c045...` stopped at A04 after a safe indirect proposal claimed selection
-without loading the Skill. The current dirty two-stage entry revision has only
-offline structural and fixture-precondition evidence. Full staged selection,
-entry, level, re-entry, and visible Standard behavior, full Standard delivery
-at the stable layer, broad implicit telemetry, independent real-project
-efficacy, deterministic role delivery or writer locks, and cross-Harness parity
-remain unproved. See
+without loading the Skill. Exact `72db7e9...` implements two-stage entry, but
+its fixed-turn Standard probe sealed `VIOLATION` and did not run A16. The
+conditional-role-read correction stops when the full Skill body is unavailable,
+preserves unexposed exact identity as `UNKNOWN`, requires
+every fresh `L3`/`L4` role to load the full Skill and coordination reference,
+and requires `L4` to load the Standard reference before applying its
+responsibilities. It has offline definition evidence only; it is not a
+candidate or accepted behavior identity, and the prior sealed result does not
+transfer. Full staged selection, entry, level, re-entry, and visible
+Standard behavior, full Standard delivery at the stable layer, broad implicit
+telemetry, independent real-project efficacy, deterministic role delivery or
+writer locks, and cross-Harness parity remain unproved. See
 [Verification](VERIFICATION.md) and [State](STATE.md).
 
 ## Authoritative Contract

@@ -1,6 +1,6 @@
 # Work Charter State
 
-Last updated: 2026-08-03
+Last updated: 2026-08-04
 
 ## Current Implementation
 
@@ -17,40 +17,41 @@ uncertain delivery, and advisory writer recovery. Immutable tag `v0.1.2` at
 verified stable installed copy preserve those released control bytes.
 
 [Decision 0018](../../decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md)
-is the accepted rationale for target `v0.2.0`. Gate 1 implements its
-proportional protection, durable re-entry, convergence, and staged evaluation
-contract. Commit `92a8c04554e4021ad3c998c97fd733f6554e048f` is the pushed
-successor candidate that preserved the earlier correction and evidence-
-consumption history. Its Gate 2 matrix stopped at the fourth reference turn:
-an indirect installed-Skills request produced a safe metadata proposal but
-claimed Work Charter was selected without loading its `SKILL.md`.
+is the accepted rationale for target `v0.2.0`. Its Gate 1 history culminates in
+clean pushed commit `72db7e9dfe920de5e2017421b22446cf5c8c75e6`, which implements
+the two-stage lazy entry accepted as `WC-AR-D25` while preserving all earlier
+correction and evidence-consumption history.
 
-The user accepted the resulting two-stage lazy-entry correction as Decision
-0018 `WC-AR-D25`. The current dirty SOURCE changes only `SKILL.md` inside the
-five-file package: direct ordinary-language intent activates and loads Work
-Charter; indirect installed-Skills or symptom-only intent produces an honest
-metadata proposal until confirmation. Mapped design and existing eval
-definitions are revised with it, and the offline gate passes. These dirty bytes
-are development SOURCE, not a candidate or behavior evidence identity.
+The sealed fixed-turn Standard probe for `72db7e9...` returned `VIOLATION` and
+did not run its successor action. Decision 0018 `WC-AR-D26` preserves that
+result and distinguishes the observed product gap from controller noise. The
+conditional correction changes only `SKILL.md` inside the five-file package:
+direct or confirmed intent claims activation only after the full Skill body is
+available in the current context, while an exact copy identity the runtime does
+not expose remains `UNKNOWN` and does not block ordinary activation. Every fresh
+`L3`/`L4` role applying Work Charter loads the coordination reference, and `L4`
+also loads the Standard reference. `L0`-`L3` leave that Standard reference
+unloaded by default, while an approved explicit evaluation of a transition to
+`L4` may conditionally read it without authorizing the transition or any `L4`
+responsibility. Mapped design, state, evidence, public entries, repository
+summaries, and existing eval definitions change with it.
+These corrected SOURCE bytes have offline development evidence only; live Git,
+candidate, and behavior identity belong to their applicable lifecycle records.
+The bounded offline validator, repository, fixture, parser, byte-format, diff,
+and changed-file secret checks pass.
 
 ## Current Writer
 
-Gate 1 uses one task-dedicated worktree and branch
-`codex/work-charter-v0.2`, originally created from clean baseline
-`763a15ee76bc71dd5e16fc22f32966cb0c8c3488`. Starting from clean pushed commit
-`92a8c04554e4021ad3c998c97fd733f6554e048f`, the authorized writer completed
-the agreed `SKILL.md`, mapped Work Charter design/public/state/evidence owners,
-three existing entry/selection case definitions, and offline verification,
-then relinquished. No new file or package component was added. Native review 1
-then identified the stale activation wording in the root bilingual entry
-guides; the approved fix expands the dirty scope to exactly the 18 paths
-recorded in the handoff. The main checkout remains integration-only.
-
-One scoped repository writer now owns only native review, same-scope finding
-handling, affected checks, and one local commit over that exact 18-path dirty
-boundary. It relinquishes on the first successful commit or a blocking stop.
-No push, model run, new `RC_INSTALL`, discovery, installation, integration,
-release, private-global mutation, or cleanup authority follows.
+Gate 1 uses the existing task-dedicated worktree and branch
+`codex/work-charter-v0.2`; the main checkout remains integration-only. Starting
+from clean pushed commit `72db7e9...`, the scoped writer completed the current
+same-contract correction across one package source and the mapped existing
+product, evaluation, public-entry, repository-state, and recovery consumers
+listed in the repository handoff. It completed deterministic offline
+verification and relinquished. No repository writer is active. No new file,
+package component, model run, A16, sealed-evidence edit, Git action,
+`RC_INSTALL`, discovery, installation, integration, release, private-global
+mutation, or cleanup authority follows.
 
 ## Evidence State
 
@@ -100,17 +101,37 @@ A04 therefore hard-stopped on unproved selected/loaded identity. A05 through
 C04, all contrasts, and the independent assessor did not start. The four
 successor turns and the predecessor's separate correction/consumption history
 remain retained; neither batch provides candidate acceptance or reusable
-behavior evidence for the current dirty SOURCE.
+behavior evidence for the conditional correction.
+
+After the two-stage revision was committed as `72db7e9...`, one separately
+authorized fixed-turn Standard probe crossed its declared one-shot consumption
+point exactly once. It completed four primary turns in four fresh sessions,
+created no subagent activity, sealed `VIOLATION` for the top-level response and
+all three roles, left A16 unexecuted, and prohibited retry. The material product
+gap was missing conditional package reads: the top-level response did not prove
+full-Skill loading, and every component missed one or both required references
+before claiming Work Charter or Standard responsibilities.
+
+Two controller findings remain diagnostic rather than SOURCE defects. Some
+role-boundary criteria depended on expected phrases despite semantically
+similar boundaries, and compound PowerShell reads were split into malformed
+pseudo-actions after policy declined them. Missing required reads still count;
+the rejected fragments do not become independently executed violations. The
+controller also appended 1,028 ledger rows by repeatedly inventorying static
+state. Future evidence uses meaning-based scoring, structured action/read
+attribution, and mutation-aware post-consumption checks. None of these
+prospective corrections rescores the sealed result.
 
 ## Next Gate
 
-Work Charter `v0.1.2` remains the released and installed stable revision. The
-two-stage lazy-entry SOURCE/eval/mapped-document revision and offline
-verification are complete in dirty development SOURCE. Native review, same-
-scope finding handling, affected checks, and one local commit for a new exact
-candidate are authorized and active. Push, new RC materialization, another
-model matrix, integration, release, stable update, retained-evidence cleanup,
-and rollback-copy cleanup remain unapproved independent gates.
+Work Charter `v0.1.2` remains the released and installed stable revision.
+The current same-contract correction, documentation-impact closure, and
+deterministic checks are complete for development SOURCE. Native-review
+disposition and commit eligibility are recovered from the cumulative attempt
+record against the exact final bytes rather than echoed in this tracked state.
+Commit remains separately user-authorized. No behavior evidence, A16, push,
+new RC materialization, integration, release, stable update, retained-evidence
+cleanup, or rollback-copy cleanup is authorized.
 
 ## Recovery Entry
 
@@ -120,8 +141,9 @@ and rollback-copy cleanup remain unapproved independent gates.
    [Decision 0018](../../decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md),
    this state, and [Verification](VERIFICATION.md).
 3. Confirm live workspace, writer, and action authority.
-4. Confirm branch `codex/work-charter-v0.2`, starting commit `92a8c045...`,
-   current dirty ownership, and the exact live authority before writing.
+4. Confirm branch `codex/work-charter-v0.2`, starting commit `72db7e9...`, the
+   exact dirty path list in the repository handoff, and live authority before
+   writing.
 5. Read canonical SOURCE, current eval definitions, and only evidence matching
    the exact revision before changing behavior or claims.
 6. Preserve the independent-Skill and non-propagating-authorization boundary.

@@ -1,6 +1,6 @@
 # Work Charter Design
 
-Last updated: 2026-08-02
+Last updated: 2026-08-04
 
 ## Purpose And Audience
 
@@ -17,9 +17,9 @@ monitor.
 ## Selection And First Read
 
 Users may invoke `$work-charter` or explicitly ask in ordinary language to use
-Work Charter without knowing special syntax. That direct intent activates the
-Skill: the Harness loads the full body, and the response makes activation
-visible before following its workflow.
+Work Charter without knowing special syntax. That direct intent requests
+activation without another confirmation. The Harness must load the full body
+before the response makes activation visible or follows the Skill workflow.
 
 An indirect request to choose among installed Skills, or observable
 continuity, control, authorization, recovery, writer, or independent-
@@ -30,14 +30,31 @@ Skill is selected, loaded, or active, and must not inspect project details.
 Ordinary bounded tasks, a new task, one failure, elapsed time, file count,
 document governance, and shell diagnosis remain non-triggers.
 
-After confirmation, the full Skill must load before its workflow is relied on.
-The user may authorize activation and one exact bounded project read together;
-otherwise activation stops at a read proposal. A later entry may visibly reuse
-an exact read scope from an applicable approved standing policy. Metadata
-matching, activation, loaded-copy proof, read approval, persistent adoption,
-roles, writes, project-document changes, worktrees, Git, installation, and
-external effects remain distinct. Controller-observed Skill reads, not model
-self-report, establish loaded-copy identity in evaluation.
+After direct intent or indirect confirmation, the full Skill body must be
+available in the current context before the response claims activation or
+relies on the workflow. If only metadata is available or the body cannot load,
+the response reports degraded loading and stops without claiming activation.
+When the Harness does not expose an exact loaded path or revision, that identity
+remains `UNKNOWN` and the response makes no exact-copy claim; this alone does
+not block ordinary activation. The user may authorize activation and one exact
+bounded project read together; otherwise activation stops at a read proposal.
+A later entry may visibly reuse an exact read scope from an applicable approved
+standing policy. Metadata matching, activation, loaded-copy proof, read
+approval, persistent adoption, roles, writes, project-document changes,
+worktrees, Git, installation, and external effects remain distinct.
+Controller-observed Skill reads, not model self-report, establish exact
+loaded-copy identity in evaluation.
+
+Package detail remains conditional rather than universal. Before a fresh role
+claims to apply `L3` or `L4` Work Charter responsibilities, it loads the full
+Skill and the coordination/recovery reference; `L4` additionally loads the
+Standard O/P/E reference before applying any `L4` responsibility, including
+implementation. A handoff summary may orient a role but is not loaded-copy
+proof. `L0`-`L3` do not load the Standard reference merely because Work Charter
+is installed or the current run is `L3`; they leave it unloaded by default. An
+approved explicit evaluation of a concrete transition to `L4` may read it
+conditionally, but the read does not authorize the transition or any `L4`
+responsibility.
 
 ## Minimum Contract And Carrier
 
@@ -141,7 +158,7 @@ deferred.
 
 | Source | Owner |
 |---|---|
-| [`SKILL.md`](../../../skills/work-charter/SKILL.md) | Selection/read boundary, five-part contract, compact levels/carrier/re-entry workflow, authority, and stop boundary |
+| [`SKILL.md`](../../../skills/work-charter/SKILL.md) | Selection/read boundary, degraded-load stop, conditional role-reference routing, five-part contract, compact levels/carrier/re-entry workflow, authority, and stop boundary |
 | [`coordination-and-recovery.md`](../../../skills/work-charter/references/coordination-and-recovery.md) | Entry/re-entry order, L1/L2 durability, managed workstreams, multi-worktree reconciliation, re-entry precedence, L3, correction, and evidence |
 | [`standard-ope.md`](../../../skills/work-charter/references/standard-ope.md) | L4 standing-policy reuse, control location, responsibilities, operating path, and honest degradation |
 | [`work-charter.md`](../../../skills/work-charter/assets/work-charter.md) | Optional no-existing-owner durable carrier |

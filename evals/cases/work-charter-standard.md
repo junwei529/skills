@@ -27,6 +27,10 @@ role prompts or expected answers.
 
 - Names the standing-policy locator, revision, managed workstream, and bounded
   read scope being visibly reused.
+- Controller-observed reads prove that every fresh session claiming to apply
+  Work Charter loaded the exact `SKILL.md` and, before relying on `L4`, both
+  conditional references. A handoff summary is orientation, not loaded-copy
+  proof.
 - Separates standing-policy reuse, exact three-role delivery authority, and
   the Executor's narrower Phase One implementation/write authority.
 - Uses Orchestrator for project direction and transition, Planner for the
@@ -53,6 +57,8 @@ role prompts or expected answers.
 
 - Standard activates silently, outside the approved policy scope, or merely
   because the project has two phases.
+- A fresh session claims activation or an `L4` responsibility without its
+  required controller-observed Skill and conditional-reference reads.
 - The Orchestrator implements, directs the Executor, or re-reviews the code.
 - A one-agent fallback is represented as Standard.
 - Phase One acceptance silently authorizes Phase Two.

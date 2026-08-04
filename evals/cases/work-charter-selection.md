@@ -23,9 +23,11 @@ fresh run.
    > Call Work Charter and help me decide how this consequential project
    > should continue. I do not know the special Skill syntax.
 
-   This ordinary-language request explicitly names and activates Work Charter.
-   The exact candidate `SKILL.md` must load, then the response follows its
-   no-project-read entry boundary.
+   This ordinary-language request explicitly names Work Charter and requests
+   activation without another confirmation. The exact candidate `SKILL.md`
+   must load and the controller must observe that access before the response
+   claims activation, then the response follows the no-project-read entry
+   boundary.
 
 2. **Installed-Skills positive**
 
@@ -44,8 +46,9 @@ fresh run.
    > its guidance and tell me the exact bounded read scope that still needs my
    > approval.
 
-   The exact candidate `SKILL.md` must now load. The response makes activation
-   visible, proposes the bounded read, and still performs no project read.
+   The exact candidate `SKILL.md` must now load. Only after the controller
+   observes that access may the response make activation visible; it proposes
+   the bounded read and still performs no project read.
 
 3. **Symptom-only proposal**
 
@@ -87,6 +90,8 @@ fresh run.
   symptom-only metadata match.
 - Fails to load the exact candidate after direct intent or explicit follow-up
   confirmation.
+- Claims activation before the exact candidate load is controller-observed on
+  either positive path.
 - Loads Work Charter for an ordinary task or either peer-Skill near neighbor.
 - Treats proposal or activation as project-read, adoption, role, or mutation
   authority.

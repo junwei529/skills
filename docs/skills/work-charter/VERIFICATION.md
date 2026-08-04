@@ -1,16 +1,17 @@
 # Work Charter Verification
 
-Last updated: 2026-08-03
+Last updated: 2026-08-04
 
 ## Claim Ledger
 
 | Claim | Status |
 |---|---|
 | `work-charter` is the sole current five-file package | verified structurally for current SOURCE |
-| Gate 1 protection, re-entry, convergence, and two-stage lazy-entry contract | implemented in dirty current SOURCE; offline structural and fixture-precondition checks pass, fresh behavior unverified |
+| Gate 1 protection, re-entry, convergence, and two-stage lazy-entry contract | implemented at exact `72db7e9...`; its sealed fixed-turn Standard probe is `VIOLATION`, and the conditional-role-read correction has no behavior evidence |
 | Gate 1 evaluation definitions | 14 exact cases and 12 exact fixtures pass repository-shape checks; one existing selection context adds a confirmation turn without a new fresh run or matrix lane |
 | First `v0.2.0` exact candidate Gate 2 | `206c497...` stopped incomplete and is superseded for acceptance; its completed correction and consumed events remain historical |
 | Successor `v0.2.0` exact candidate Gate 2 | `92a8c045...` passed qualification and consumed A01-A04; A04 hard-stopped on an unproved selected/loaded claim, so no candidate acceptance or later cell exists |
+| Exact `72db7e9...` fixed-turn Standard probe | one one-shot bundle completed four fresh primary sessions, sealed `VIOLATION`, created no subagent activity, left A16 unexecuted, and permits no retry or retrospective rescore |
 | Small bounded work stays flat | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
 | Midstream implicit behavior is proposal-only | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
 | Cold recovery reconciles durable and workspace state | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE safe stop, partial recovery-summary completeness |
@@ -58,8 +59,8 @@ references/standard-ope.md
   a85f03815313beaf3b399c8cf712904a402ae197518d8a5489281cff389698df
 ```
 
-The current dirty two-stage lazy-entry revision changes only `SKILL.md` inside
-that five-file package. Its five raw SHA-256 identities are:
+Exact committed two-stage lazy-entry revision `72db7e9...` changes only
+`SKILL.md` inside that five-file package. Its five raw SHA-256 identities are:
 
 ```text
 SKILL.md
@@ -74,45 +75,116 @@ references/standard-ope.md
   a85f03815313beaf3b399c8cf712904a402ae197518d8a5489281cff389698df
 ```
 
-The Skill validator passes. The repository checker reports 191 text files,
-14 exact cases, and 12 exact fixtures. The fixture checker passes all 16
-preconditions, including consumption-aware evidence drift and retained
-successor history inside the existing six recovery-integrity variants.
-PowerShell 7.6.3 parses all six eval scripts, `git diff --check` passes, and the
-exact five-file strict UTF-8/LF/no-BOM/final-newline/non-reparse audit passes.
-A Gitleaks scan of all 18 changed tracked publication files passes. The latest
-separate whole-worktree directory scan is not green: it reports 17 findings
-inside retained ignored Gate 2 runtime artifacts, which are outside the
-tracked diff and lack cleanup authority. No finding value was printed or
-copied into the repository.
+Before `72db7e9...` was committed, its Skill validator, 191-file/14-case/
+12-fixture repository check, all 16 fixture preconditions, six-script parser
+sweep, byte-format audit, `git diff --check`, and changed-publication Gitleaks
+scan passed. Native review found and corrected stale root bilingual entry
+wording before the exact commit was created and pushed. Those observations
+establish implementation and offline definition quality for `72db7e9...`, not
+candidate acceptance or broad behavior.
 
-Native commit-review cycle 1 used `gpt-5.6-terra` with `high` reasoning and
-materially covered the intended 16-path diff. It returned one P2,
-`WC-NR-001`: the root bilingual entry guides still described the old direct-
-read-approval flow. The user approved expanding the same attempt only to those
-two existing files. Their synchronized fix now states that indirect intent
-first receives an unloaded metadata proposal and asks whether to activate;
-confirmation loads the Skill, while project-read approval remains separate.
-Skill validation, the 191/14/12 repository check, `git diff --check`, and the
-18-file Gitleaks scan pass after the fix. Because the fix changed the diff, a
-later completed native review is still required. The reviewer's ancillary
-regex failure while excluding ignored `.eval-runs` content did not block
-material diff or relevant-source inspection.
+The conditional-role-read correction still changes only
+`SKILL.md` inside the five-file package. Its package hashes after correction
+are:
 
-The first current fixture-check launch was excluded before fixture setup when
-the default sandbox denied creation under the worktree's ignored `.eval-runs`
-directory. The same command reran under the already authorized task-worktree
-write boundary and passed all 16 preconditions. This was a shell permission
-boundary, not a SOURCE repair or an additional behavior attempt.
+```text
+SKILL.md
+  19cddc580668f11e9aec4ad6b96c4f90996022d08d99a05b60cd32a0767a16a7
+agents/openai.yaml
+  f0032475e213d75ed17eb41c3424007ebc46c0ddb6739138c9908185beefdad6
+assets/work-charter.md
+  4420e9faa5a6090e5fc54680e26b2dedddbb8c60c7c3891aa88da824dd881b72
+references/coordination-and-recovery.md
+  436d6ada3288fb7374445ce2a7bfd51501fd218def8f50755f7cbbdae3bd65f7
+references/standard-ope.md
+  a85f03815313beaf3b399c8cf712904a402ae197518d8a5489281cff389698df
+```
 
-These are implementation, structural, byte-format, definition, fixture-
-precondition, and commit-review finding observations for dirty current SOURCE
-only. Review 1 does not satisfy the gate after its approved fix changed the
-diff. No commit, native baseline, catalog-selection, exact-candidate behavior,
-exact-control comparison, behavior model/reasoning cell, independent behavior
-assessment, new `RC_INSTALL`, or stable update was performed for these bytes.
-The accepted 19/23/27 staged matrix remains future Gate 2 work for a new exact
-candidate; two-stage entry behavior is `UNVERIFIED`.
+The Skill validator passes. The repository checker passes with 191 text files,
+14 exact cases, and 12 exact fixtures. All 16 fixture preconditions pass; the
+first launch was excluded before setup when the default sandbox denied its
+task-owned ignored directory, and the explicitly authorized rerun passed and
+left no fixture-check directory. PowerShell parses all six eval scripts. The
+five-file strict UTF-8/no-BOM/LF/final-newline/non-reparse audit,
+`git diff --check`, and a Gitleaks scan of all changed tracked publication files
+pass.
+
+Native review cycle 1 review 1 used `gpt-5.6-terra` with `high` reasoning and
+materially covered the nine-file pre-fix diff. It returned two clear findings:
+P1 required the Standard reference before every fresh `L4` role applies any
+`L4` responsibility, including Executor implementation; P2 required
+controller-observed L3 loading coverage in the existing Planner/Executor case.
+The then-current ten-file diff fixed both findings and added no new case, fixture,
+checker, package component, or user-facing concept. A later completed review is
+required because the diff changed.
+
+Review 2 materially covered the ten-file correction and found two remaining
+same-scope gaps. P1 required each fresh role to load the full `SKILL.md` before
+its conditional references, rather than relying on the activating session's
+load. P2 found one stale nine-file phrase in the repository dashboard. Both are
+fixed in the then-current ten-file diff. Because these fixes mutated the reviewed
+diff, a later completed native review is still required.
+
+Review 3 materially covered that ten-file diff and found one remaining P2: the
+recovery checklist in `STATE.md` retained the obsolete nine-file boundary. The
+then-current diff corrected it to the user-approved ten-file boundary. Because this
+fix mutates the reviewed diff, a later completed native review is still
+required.
+
+Review 4 materially covered the resulting ten-file diff and returned no
+actionable finding. Transport fallback and unrelated plugin warnings were
+diagnostic; the completed semantic result retained material diff coverage.
+This bounded closeout record is the only later tracked mutation. Commit
+eligibility for the exact final bytes is therefore conditional on one later
+completed material review. If that review is clean and no tracked byte changes,
+the cumulative attempt record retains its result; do not mutate tracked files
+solely to echo the final review and create a self-requiring review loop.
+
+Review 5 materially covered that closeout-record diff and completed cycle 1 at
+five reviews. It found three P2 documentation inconsistencies: Decision 0018's
+header did not incorporate D26, the Roadmap retained superseded lifecycle and
+commit language, and the public Work Charter README mirrors described the
+pre-`72db7e9...` development state. A bounded consumer audit also found the same
+stale lifecycle summary in `docs/INDEX.md`. The user approved expanding the
+same commit attempt from ten to fourteen existing files, fixing those exact
+consumers, and resetting the native-review cycle. This closes a pre-existing
+documentation-impact boundary; it does not change the product contract,
+package, eval behavior, evidence target, or acceptance universe.
+
+Reset cycle review 1 materially covered the fourteen-file correction and found
+one P2: the active recovery instruction and matching repository-status wording
+still named the superseded ten-file boundary. The current bytes correct both
+locations within the approved fourteen files. Because this correction mutates
+the reviewed diff, a later completed reset-cycle review is required before
+commit eligibility can be established.
+
+A later documentation-impact closure inspected every mapped owner and bounded
+consumer before review resumed. It identified three omitted existing consumers
+of the same facts: the repository verification ledger and the root bilingual
+README entry. The user approved the broader existing-consumer envelope and the
+exact current update set recorded in the repository handoff. The resulting
+correction adds no file, package component, eval lane, fixture, checker, fact
+class, product contract, evidence target, or acceptance boundary. Any later
+native-review disposition belongs to the cumulative attempt record rather than
+this tracked evidence snapshot.
+
+A subsequent same-scope finding clarified that direct or confirmed intent must
+not produce an activation claim until the full Skill body is available in the
+current context, and that the default `L0`-`L3` Standard-reference non-read is
+not an absolute ban while an approved explicit `L4` transition is being
+evaluated. Exact copy identity remains a separate evidence claim: preserve
+`UNKNOWN` when the runtime does not expose it rather than blocking ordinary
+activation. The existing selection and two-turn entry cases check the
+load-before-claim ordering, and the existing `L3` case makes the transition-
+evaluation exception explicit. This changes no case inventory, matrix lane,
+contract, or acceptance target.
+
+These are offline implementation, definition, and historical finding-handling
+checks. No behavior-model run, RC, installation, or stable action is authorized
+for the correction, and fresh behavior remains `UNVERIFIED`. Native-review and
+Git disposition are retained in the cumulative attempt record against the exact
+bytes; do not change tracked files solely to echo a review ordinal or clean
+result.
 
 ### 2026-08-03 — Two Incomplete Gate 2 Candidates And Entry Correction
 
@@ -144,13 +216,38 @@ C04, both contrasts, and the independent assessor did not start. The four
 successor turns remain consumed separately from the predecessor's correction
 and evidence history. This proves catalog-level intent recognition and the
 need to distinguish it from full invocation; it does not prove two-stage
-entry, candidate acceptance, or behavior for the current dirty bytes.
+entry, candidate acceptance, or behavior for the later conditional correction.
 
 The user accepted a material contract revision: indirect intent now produces
 an honest metadata proposal, confirmation triggers exact full-Skill loading,
 and project inspection still needs an approved scope. No stopped result can be
 relabeled for that revision. A future candidate requires native review and
 commit authority first, then a separately approved Gate 2 for its exact SHA.
+
+### 2026-08-04 — Sealed Fixed-Turn Standard Probe And Offline Correction
+
+Exact committed SOURCE `72db7e9...` received one separately authorized
+fixed-turn Standard probe. The declared one-shot consumption point was crossed
+once. Four primary turns completed in four fresh sessions, with no subagent or
+collaboration-agent activity. The sealed top-level, Orchestrator, Planner, and
+Executor verdicts are all `VIOLATION`; A16 did not run, retry is prohibited,
+and no candidate acceptance follows.
+
+The material product finding is missing conditional package loading. The
+top-level response did not prove full-Skill loading, and every component missed
+one or both conditional references before claiming Work Charter or Standard
+responsibilities. This is corrected prospectively in SOURCE by stopping
+on unproved loading and making the L3/L4 reference reads explicit and role-
+local.
+
+Two additional findings calibrate a future controller rather than the Skill:
+meaning-equivalent role boundaries must not fail only for missing exact marker
+phrases, and a declined compound PowerShell read must not be split into
+malformed executed pseudo-commands. Required files left unread remain a real
+failure. The live ledger remained internally consistent but appended 1,028
+rows because static inventories were repeated; future one-shot controllers
+freeze immutable inputs once and recheck named mutable/invalidation surfaces.
+None of these changes edits, retries, or rescales the sealed evidence.
 
 ## v0.1.2 Stable And Control SOURCE Identity
 
