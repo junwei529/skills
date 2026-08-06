@@ -761,6 +761,89 @@ Add-Check `
     -Passed (-not $hasBom) `
     -Expectation 'fixture input is UTF-8 without BOM'
 
+$controllerCheck = Join-Path $repoRoot 'evals\check-codex-evidence-controller.ps1'
+$controllerOutput = & pwsh -NoProfile -File $controllerCheck 2>&1
+$controllerExit = $LASTEXITCODE
+$controllerRecord = $null
+if ($controllerExit -eq 0) {
+    try {
+        $controllerRecord = ($controllerOutput | Out-String) | ConvertFrom-Json
+    }
+    catch {
+        $controllerRecord = $null
+    }
+}
+$realReparseGuard = @(
+    $controllerRecord.sealed_locator_guards.identities |
+        Where-Object { [string]$_.id -ceq 'real-reparse-component' }
+)
+$expectedReparsePrimitive = if ($IsWindows) { 'Junction' } else { 'SymbolicLink' }
+$expectedUnexecutedBranch = if ($IsWindows) {
+    'non-Windows/SymbolicLink:UNKNOWN'
+}
+else {
+    'Windows/Junction:UNKNOWN'
+}
+Add-Check `
+    -Name 'Codex evidence controller regression' `
+    -Passed (
+        $controllerExit -eq 0 -and
+        $null -ne $controllerRecord -and
+        $controllerRecord.verdict -eq 'PASS' -and
+        $controllerRecord.historical.passed -eq 11 -and
+        $controllerRecord.historical.total -eq 11 -and
+        @($controllerRecord.historical.generated_contracts).Count -eq 11 -and
+        $controllerRecord.negative.passed -eq 30 -and
+        $controllerRecord.negative.total -eq 30 -and
+        $controllerRecord.metamorphic.passed -eq 4 -and
+        $controllerRecord.metamorphic.total -eq 4 -and
+        $controllerRecord.historical_source_bindings.passed -eq 11 -and
+        $controllerRecord.historical_source_bindings.total -eq 11 -and
+        $controllerRecord.historical_binding_guards.passed -eq 4 -and
+        $controllerRecord.historical_binding_guards.total -eq 4 -and
+        $controllerRecord.historical_generated_contract_guards.passed -eq 3 -and
+        $controllerRecord.historical_generated_contract_guards.total -eq 3 -and
+        $controllerRecord.package_manifests.passed -eq 2 -and
+        $controllerRecord.package_manifests.total -eq 2 -and
+        $controllerRecord.package_manifest_hash_guards.passed -eq 2 -and
+        $controllerRecord.package_manifest_hash_guards.total -eq 2 -and
+        $controllerRecord.sealed_locator_guards.passed -eq 4 -and
+        $controllerRecord.sealed_locator_guards.total -eq 4 -and
+        $realReparseGuard.Count -eq 1 -and
+        $realReparseGuard[0].selected_primitive -ceq $expectedReparsePrimitive -and
+        $realReparseGuard[0].selected_link_type -ceq $expectedReparsePrimitive -and
+        $realReparseGuard[0].target_retained -eq $true -and
+        $realReparseGuard[0].unexecuted_platform_branch -ceq $expectedUnexecutedBranch -and
+        $controllerRecord.sealed_byte_capture_guards.passed -eq 1 -and
+        $controllerRecord.sealed_byte_capture_guards.total -eq 1 -and
+        $controllerRecord.scratch_topology_guards.passed -eq 2 -and
+        $controllerRecord.scratch_topology_guards.total -eq 2 -and
+        $controllerRecord.threat_model.id -ceq 'quiescent-offline-single-writer/v1' -and
+        $controllerRecord.threat_model.concurrent_path_swap_resistance -ceq 'UNSUPPORTED' -and
+        $controllerRecord.threat_model.observable_pre_post_topology_drift -ceq 'fail_closed' -and
+        $controllerRecord.scratch_lifecycle.pre_cleanup -ceq 'validated' -and
+        $controllerRecord.scratch_lifecycle.scratch_absent -eq $true -and
+        $controllerRecord.scratch_lifecycle.run_root_post_cleanup -ceq 'ordinary_non_reparse' -and
+        $controllerRecord.scratch_lifecycle.residue -ceq 'none' -and
+        $controllerRecord.external_input_type_guards.passed -eq 3 -and
+        $controllerRecord.external_input_type_guards.total -eq 3 -and
+        $controllerRecord.git_read_safety_guards.passed -eq 8 -and
+        $controllerRecord.git_read_safety_guards.total -eq 8 -and
+        $controllerRecord.canonical_ordinal_guards.passed -eq 1 -and
+        $controllerRecord.canonical_ordinal_guards.total -eq 1 -and
+        $controllerRecord.command_resolution_guards.passed -eq 8 -and
+        $controllerRecord.command_resolution_guards.total -eq 8 -and
+        $controllerRecord.content_proof_identity_guards.passed -eq 6 -and
+        $controllerRecord.content_proof_identity_guards.total -eq 6 -and
+        $controllerRecord.record_cardinality_and_exit_guards.passed -eq 3 -and
+        $controllerRecord.record_cardinality_and_exit_guards.total -eq 3 -and
+        $controllerRecord.output_no_clobber_guards.passed -eq 1 -and
+        $controllerRecord.output_no_clobber_guards.total -eq 1 -and
+        $controllerRecord.narrow_git_context_check -eq $true -and
+        $controllerRecord.canonical_repeat.equal -eq $true
+    ) `
+    -Expectation 'tracked controller binds generated historical contracts, captures sealed bytes once, rejects real reparse and scratch-topology drift, safely cleans validated scratch, and passes historical, negative, metamorphic, and repeatability checks without recursive self-invocation'
+
 $checks | Format-Table -AutoSize
 
 $failed = @($checks | Where-Object { -not $_.Passed })

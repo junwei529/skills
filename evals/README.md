@@ -192,8 +192,22 @@ owned dirty boundary, both Work Charter entry variants, the
 reparse-point containment of setup and inspection helpers, the shared Work
 Charter loop, the visible-reuse Standard starting boundary, six recovery-
 integrity variants, the
-direct-versus-wrapper PowerShell boundary, and the UTF-8-without-BOM input. It
-does not score an agent.
+direct-versus-wrapper PowerShell boundary, the UTF-8-without-BOM input, and the
+tracked Codex evidence-controller regression. It does not score an agent.
+
+Run the controller regression directly when changing its contract or fixtures:
+
+```powershell
+pwsh -NoProfile -File .\evals\check-codex-evidence-controller.ps1
+```
+
+The direct check exercises the same normalizer/adjudicator through preflight,
+runtime, historical-import, and terminal-stage entry modes. It structurally
+parses PowerShell commands, separates completed, declined, and failed actions,
+classifies read-only and mutating Git subcommands, resolves paths from the
+observed command working directory, compares inventories without depending on
+row order, and emits canonical JSON. It does not invoke Codex, app-server, a
+behavior model, a semantic assessor, or native review.
 
 The PowerShell boundary case also has a deterministic Windows mechanism check:
 
@@ -289,6 +303,160 @@ confusion, or unproved candidate identity. Those failures are not offset by an
 aggregate score. The matrix establishes no broad trigger telemetry, causal or
 token-saving claim, stable installation, real-project efficacy, cross-Harness
 behavior, or release readiness.
+
+### Tracked Codex Evidence Controller
+
+[`codex-evidence-controller.psm1`](codex-evidence-controller.psm1) owns the
+normalization and deterministic admissibility boundary for future Codex
+evidence. All four entry modes call one core function. Its result is exactly
+one of `ADMISSIBLE`, `CONTROLLER_VIOLATION`, or `CONTROLLER_UNKNOWN`; only
+`ADMISSIBLE` may be handed to a separately authorized semantic assessment.
+Free-form natural-language equivalence is never decided by marker phrases: an
+otherwise admissible response is labelled `SEMANTIC_ASSESSMENT_REQUIRED`,
+while an explicitly exact-response protocol may be checked byte-for-byte.
+
+The tracked cases derive sanitized structural regressions from bounded sealed
+summaries and adjudication records. Each historical case consumes one
+versioned binding that couples a public logical source key, a hash-only
+redacted JSON-selector projection, generated input specification, and the
+canonical hash of the complete sanitized generated controller input plus its
+expected verdict, semantic disposition, and violation set. Only run-specific
+fixture roots normalize to stable root roles. The checker verifies that
+generated contract before controller invocation and includes it in the source-
+binding hash. Physical locators, lengths, and hashes are absent from tracked
+cases. With `-VerifyLocalSealedEvidence -LocalSealedEvidenceManifestPath
+<ignored-relative-private-manifest>`, the checker loads a non-public manifest,
+requires its key set to match the tracked logical keys, resolves every locator
+beneath the authorized ignored evidence root, rejects rooted, traversal,
+alternate-root, or real reparse-routed paths before reading, and opens each
+ordinary file once with write/delete replacement denied. Length, SHA-256,
+strict UTF-8 decode, JSON parse, and selector projection all derive from that
+one captured byte buffer. Physical successor or run paths remain lineage
+locators. Logical candidate identity is the stable work subject, candidate SHA,
+package-manifest hash, relative package path, and normalized content/output
+hash. The package-manifest hash is recomputed from the actual Git blobs as
+canonical JSON over exactly five path-sorted `path`/`length`/`sha256` rows.
+The real directory-link guard selects `Junction` on Windows and
+`SymbolicLink` otherwise, validates the selected link type and exact contained
+target before use and nonrecursive removal, then proves the target sentinel
+remains. Current recorded execution proves only the Windows branch; non-Windows
+runtime evidence remains `UNKNOWN` until that branch executes.
+The checker runs only under the approved quiescent offline single-writer
+precondition: no other task or process may mutate the repository, `.eval-runs`,
+sealed inputs, or path topology while it runs. Before creating its GUID scratch
+directory, it proves `.eval-runs` is the exact direct repository child and an
+ordinary non-reparse directory. Before recursive cleanup it revalidates that
+root, the contained ordinary scratch directory, and all scratch descendants;
+failure retains the residue for manual disposition. Successful cleanup proves
+the scratch is absent and `.eval-runs` is still ordinary and non-reparse. Two
+scratch-owned guards cover a pre-existing reparse root and cleanup-time
+root/scratch drift without recursively deleting through either link.
+This is not no-follow protection against a malicious concurrent rename or
+reparse swap entirely between validations; that broader threat remains
+unsupported and `UNKNOWN`.
+Failed execution is diagnostic but never admissible. Git reads admit only
+structurally bounded arguments: output files, unauthorized relocation,
+configuration injection, repository overrides, and external-execution shapes
+fail closed. Signature-verification options such as `--show-signature` also
+fail closed because they can launch an external verifier. `git cat-file
+--filters` and `--filters=...` likewise fail closed because configured content
+filters are external execution. Formal negative N16 covers that boundary.
+Every admitted Git
+read must use the global `--no-pager` option so repository or environment pager
+configuration cannot launch another process. Admitted `git log` and `git show`
+must additionally use command-local `-c log.showSignature=false` so configured
+signature display cannot launch an external verifier. `git branch` is admitted
+only as the exact `--show-current` or `--list` shape, not as a mixed read/delete
+form. `git status` must additionally
+use global `--no-optional-locks` so an index refresh cannot turn a read-only
+record into a write, and command-local `-c core.fsmonitor=false` so configured
+fsmonitor hooks cannot execute. `git remote` is admitted only as the exact
+one-argument `remote -v` or `remote --verbose` listing form; extra subcommands
+fail closed even when `-v` is present. Seven focused guards cover missing
+safeguards, remote-shape ambiguity, and the complete supported bounded-read
+matrix. A `Get-Content`
+proof represents a full-file read; partial forms such as `-TotalCount` cannot
+satisfy it.
+Completed command records also require one resolved-command identity. Its
+family must equal the single AST-classified command family, and its kind plus
+SHA-256 must match one policy-pinned trusted identity. Missing, shadowed, mixed,
+or untrusted identities fail closed. The synthetic checker proves this record
+contract with 3/3 guards; it does not claim a live Harness collector already
+provides the identity. An empty or mixed AST command-family classification
+reaches the explicit ambiguous-family unknown rather than terminating at
+parameter binding.
+External record types also fail closed. Role authorization must be an actual
+Boolean; string values such as `"false"` produce `CONTROLLER_UNKNOWN` rather
+than PowerShell truthiness. `assessor_requested` follows the same strict
+Boolean rule, so a string `"false"` cannot escalate an unknown to a violation.
+Nested-turn count and budget fields must be
+nonnegative integral values; invalid types, negative values, or overflow
+produce explicit unknowns instead of terminating the controller. The focused
+checker covers these paths with 3/3 external-input type guards.
+Allowed-file policy rows and observed file proofs fail closed unless they have
+a nonempty root, structurally relative path, nonnegative integral length, and a
+64-hex SHA-256. Both sides are validated independently before comparison, so
+missing fields, scalar rows, matching malformed values, and malformed lengths
+cannot become evidence or terminate the controller. Inventory comparison rows
+apply the same relative-path/length/SHA-256 identity boundary before equality.
+Six focused guards cover malformed policy/proof content identities, matching-
+malformed identities, malformed allowed/proof row shapes, and matching-invalid
+inventory rows.
+Duplicate allowed-file or observed-proof root/path keys are contradictory input,
+not last-row-wins data: both map builders retain one row but report an explicit
+controller unknown, preventing admission. A completed command's `exit_code`
+must be an actual integral numeric type, and only zero proves success; string
+`"0"` and numeric nonzero values fail closed. Three focused guards cover these
+cardinality and exit-code boundaries.
+Construction events require exactly one `directory-created`,
+`manifest-written`, `reconciliation-complete`, then `sealed` event in that
+order. Formal negative N17 covers reconciliation before manifest creation;
+N20 covers a manifest rewrite after sealing.
+When an observed command is wrapped in `pwsh` or `powershell`, the wrapper may
+contain only the inert `-NoProfile`, `-NoLogo`, or `-NonInteractive` switches
+before one final constant `-Command`/`-c` script. Execution-affecting options,
+duplicate switches, other positional arguments, and trailing arguments fail
+closed. N18 and N19 cover `-WorkingDirectory` and `-File`, while the trusted
+command-resolution positive proves the safe `pwsh -NoProfile -Command` shape.
+Independent PowerShell command expressions and member expressions/invocations
+are not admissible beside a classified command, because their side effects are
+outside the command-effect model. Formal negative N21 combines an allowed
+`Get-Content` proof with a static .NET `WriteAllText` invocation and requires
+`CONTROLLER_UNKNOWN`.
+PowerShell wrapper redirections are validated on the outer AST before the
+inner script is extracted. Formal negative N22 preserves an otherwise allowed
+inner read/proof but adds `> redirected.txt` to the wrapper and requires
+`CONTROLLER_UNKNOWN`.
+Diff-capable Git reads can execute repository-configured textconv drivers even
+without an explicit `--textconv`. Admitted `log`, `show`, and `diff` forms must
+therefore include `--no-textconv`. Formal negative N23 omits it from an
+otherwise bounded `diff` and requires `CONTROLLER_UNKNOWN`; the Git-read safety
+guard covers all three subcommands. Canonical dictionary and object keys use
+ordinal ordering, with a process-local `en-US`/`sv-SE`/`tr-TR` regression so
+sealed hashes do not depend on the host culture.
+PowerShell wrapper recognition does not transfer trust from the extracted
+inner command. A valid wrapper record must separately bind the outer
+`powershell-wrapper` native-application identity and the inner command family
+to policy-pinned identities. Formal negative N24 uses a path-qualified
+`pwsh.exe` lookalike with an untrusted outer identity; focused guards also cover
+missing and shadowed wrapper identities.
+Logical candidate identity is also shape-validated before comparison: the
+stable subject and relative package path must be nonempty and structurally
+relative, the candidate SHA must be 40 hexadecimal characters, and both
+content hashes must be 64 hexadecimal characters. Invalid expected or observed
+identity returns `CONTROLLER_UNKNOWN`; 3/3 focused identity-shape guards cover
+blank, malformed-observed, and malformed-expected inputs. The regression's
+historical violation fields remain arrays even when empty, with one output-
+shape guard proving `[]` rather than `[null]`.
+The terminal `failures` array enumerates every group and scalar gate used by the
+aggregate verdict, including command resolution, canonical repeat, baseline and
+package identities, candidate output identity, and sealed-input verification.
+Recomputing a generated-contract or binding hash after changing a command,
+effect, or expected result is not authorization for that change; the tracked
+case contract still requires its normal scoped review.
+The controller regression neither retries nor rescores sealed model evidence,
+and its passing result is controller-infrastructure evidence rather than Work
+Charter behavior acceptance.
 
 ## Project Docs M1R Forward Matrix
 
@@ -406,6 +574,40 @@ complete bounded synthetic Standard Phase One with ordered durable Planner and
 Orchestrator assessment recording. Historical partial grades remain visible;
 current stable, deterministic delivery or locking, real-project,
 broad-trigger, causal, and cross-Harness evidence remain unverified.
+
+The
+[Work Charter controller-stabilization report](results/2026-08-05-work-charter-controller-stabilization.md)
+records the tracked deterministic controller contract and its sanitized
+source/generated-contract-bound historical, negative, metamorphic, single-
+capture, real-reparse, repeatability, and preservation checks. It also records
+one separately authorized private canary as a retained sealed `CANARY_PASS`:
+the bounded exact-response check reported no command execution, while its
+locator, artifact identities, detailed runtime state, task/thread identifiers,
+prompts, and completions remain non-public. Physical backend request count
+remains `UNKNOWN`. The canary ran before native review 4, a recorded sequence
+deviation; it is sealed and must not be rerun, while review remains required.
+Exact product candidate `b965102...` remains distinct from this later
+controller revision. The current public offline gate passes 30/30 fail-closed
+negatives, including rejection of an outer static side effect before an
+otherwise valid PowerShell wrapper plus missing policy roots and malformed
+required-read, inventory-comparison, and construction-event rows. N24/N30 bind
+trusted native resolved paths to observed AST invocations so copied tuples on
+shadow PowerShell or Git paths fail closed. `-OutputPath` uses atomic
+`CreateNew`; the 1/1 no-clobber guard proves an existing file remains unchanged.
+Native-application evidence must invoke that exact rooted path rather than a
+bare PATH-resolved name. Eight command-resolution guards cover bare `git`,
+`git.cmd`, and `pwsh`, identity and shadow-path failures, and one trusted path-
+bound positive.
+Every supplied allowed-file row and file proof is content-identity validated
+when its map is built, including unused or extra entries; malformed rows cannot
+remain dormant in otherwise admissible evidence. Completed action-command
+parser errors are propagated independently of effect-fingerprint equality.
+Local sealed
+verification uses an ignored private manifest; its 8/8 result belongs to the
+immediately preceding full checkpoint because that manifest was not reread
+after the public schema-label and malformed-input corrections. Tracked cases
+and results contain no physical locator or artifact fingerprint. The canary proves neither natural-language Skill
+selection nor semantic behavior, and Gate 2 remains unaccepted.
 
 The
 [Revised PowerShell Development Forward Tests](results/2026-07-28-powershell-forward-tests.md)

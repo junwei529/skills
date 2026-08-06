@@ -1,6 +1,6 @@
 # Work Charter State
 
-Last updated: 2026-08-04
+Last updated: 2026-08-06
 
 ## Current Implementation
 
@@ -35,23 +35,41 @@ unloaded by default, while an approved explicit evaluation of a transition to
 `L4` may conditionally read it without authorizing the transition or any `L4`
 responsibility. Mapped design, state, evidence, public entries, repository
 summaries, and existing eval definitions change with it.
-These corrected SOURCE bytes have offline development evidence only; live Git,
-candidate, and behavior identity belong to their applicable lifecycle records.
-The bounded offline validator, repository, fixture, parser, byte-format, diff,
-and changed-file secret checks pass.
+Those corrected SOURCE bytes became exact clean product candidate
+`b965102ea58f9cc1ef3c73e8dea515731fec12a6`. The five package blobs remain
+unchanged by the later controller-stabilization work. Gate 2 for that candidate
+is sealed `DECISION_REQUIRED` / `NO_RETRY`; it did not achieve behavior
+acceptance. The tracked controller revision is evaluation infrastructure after
+the product candidate, not a new Work Charter package identity.
 
 ## Current Writer
 
-Gate 1 uses the existing task-dedicated worktree and branch
-`codex/work-charter-v0.2`; the main checkout remains integration-only. Starting
-from clean pushed commit `72db7e9...`, the scoped writer completed the current
-same-contract correction across one package source and the mapped existing
-product, evaluation, public-entry, repository-state, and recovery consumers
-listed in the repository handoff. It completed deterministic offline
-verification and relinquished. No repository writer is active. No new file,
-package component, model run, A16, sealed-evidence edit, Git action,
-`RC_INSTALL`, discovery, installation, integration, release, private-global
-mutation, or cleanup authority follows.
+The current bounded Executor is the sole writer in the existing task-dedicated
+worktree and branch `codex/work-charter-v0.2`; the integration checkout remains
+untouched and integration-only. Starting from clean `b965102...`, this writer
+owns exactly the twelve controller, evaluation, result, state, verification,
+status, and handoff paths listed in the repository handoff. The work stops at
+`IMPLEMENTED_UNCOMMITTED`. The first native-review cycle completed 5/5 with
+cumulative same-scope findings. The user reset that budget for the same commit
+attempt; the first reset-cycle reviews 1 through 5 are complete. The user
+approved a second reset; its reviews 1 through 5 are complete and that cycle is exhausted. The
+user approved a third reset; its reviews 1 through 5 are complete and that cycle is exhausted. The
+user approved a fourth reset; its reviews 1 through 5 are complete and that
+cycle is exhausted. The user approved a fifth reset; review 1/5 is complete,
+its same-scope bare-native-name finding is fixed, and review 2/5 is complete.
+Review 2's two unused-malformed-row findings are fixed; its action-parser
+finding is disproved by direct `CONTROLLER_UNKNOWN` evidence. Three review
+slots remain.
+The user approved quiescent offline single-writer operation for review 3's
+filesystem threat-model disposition. One later separately authorized isolated
+path-bound controller canary passed before review 4; this sequence deviation is
+recorded in the evidence ledger, and the sealed canary must not be rerun.
+Native review 4 later found two external-input type gaps; both are fixed and
+covered by focused guards. Final review disposition is owned by the cumulative
+attempt record against the exact final bytes. No package edit, sealed-evidence
+edit, further behavior model or app-server call, assessor, Git action, candidate
+materialization, discovery, installation, integration, release, private-global mutation, or
+cleanup authority follows.
 
 ## Evidence State
 
@@ -122,16 +140,265 @@ state. Future evidence uses meaning-based scoring, structured action/read
 attribution, and mutation-aware post-consumption checks. None of these
 prospective corrections rescores the sealed result.
 
+Later `b965102...` Gate 2 and its two same-subject successors also remain
+sealed historical evidence. Their terminal state is
+`SEALED_DECISION_REQUIRED`; product acceptance is `NOT_ACHIEVED`, retry is not
+permitted, and a successor-root locator was incorrectly treated as logical
+candidate identity. The bounded controller-stabilization gate converts only
+the already-sanitized structural findings into a tracked deterministic
+regression. It preserves the real A15 unauthorized Orchestrator delivery and
+unbudgeted nested turn as violations, and it does not retry, relabel, or
+semantically score any sealed model result. The same tracked gate now fails
+closed on failed execution, Git output/relocation/config injection/signature
+verification, and partial `Get-Content` evidence. It derives both package-
+manifest hashes from the actual five revision blobs, binds every historical
+input and its expected result to a redacted projection of its pinned sealed
+source, verifies that generated contract before controller invocation, and
+proves locator containment before reading sealed evidence. Hash, strict UTF-8
+JSON, and projection now come from one held byte stream, while a real scratch
+directory link exercises the resolver's reparse rejection and safe link-only
+cleanup. Source selects Junction on Windows and SymbolicLink otherwise. The
+current host proves only the Windows branch; non-Windows runtime remains
+`UNKNOWN`. The checker now requires quiescent offline single-writer ownership,
+proves the exact ordinary `.eval-runs` root before scratch creation, revalidates
+run root, ordinary contained scratch, and descendants before recursive cleanup,
+and verifies cleanup postconditions. Two scratch-topology guards pass. A
+hostile rename/reparse swap wholly between validations is not covered and
+remains unsupported/`UNKNOWN`.
+
+Native review 4 proved that external JSON type coercion could weaken or break
+that boundary. The correction now requires actual Boolean role authorization;
+a string such as `"false"` produces `CONTROLLER_UNKNOWN` instead of becoming
+truthy. Nested-turn count and budget values must be nonnegative integral
+numbers; invalid types or overflow likewise produce explicit unknowns rather
+than throwing. The existing checker adds 2/2 focused external-input type guards
+without changing any historical case, sealed input, or product package blob.
+
+Native review 5 found two further same-contract defects. Blank or malformed
+expected/observed candidate identities could compare equal and reach
+`ADMISSIBLE`; they now return explicit unknowns before comparison, with 3/3
+identity-shape guards. Empty historical violation arrays could serialize as
+`[null]`; the checker now preserves `[]`, with 1/1 output-shape guard. These
+corrections change no package blob, sealed input, case, or fixture.
+
+Reset-cycle review 1 found that the read-only Git classifier could admit
+`status` despite optional index writes and could permit configured pager
+execution. Every admitted Git read now requires global `--no-pager`, while
+`status` also requires global `--no-optional-locks`. Missing flags fail closed,
+all supported bounded read forms remain admissible, and 3/3 focused safety
+guards pass. R02/R04 generated contracts and bindings were re-hashed without
+changing historical verdicts, sealed evidence, SOURCE, or inventory counts.
+
+Reset-cycle review 2 found malformed content identity inputs could bypass or
+break the read-proof boundary. Allowed-file policy rows and observed file
+proofs now independently require nonnegative integral length and 64-hex
+SHA-256 before comparison. Three focused guards cover malformed policy,
+malformed proof, and matching-malformed identities; each fails closed as
+`CONTROLLER_UNKNOWN` without changing historical or sealed evidence.
+
+Reset-cycle review 3 found duplicate allowed-file/proof keys could silently
+overwrite contradictory evidence and string `"0"` could be coerced into a
+successful completed exit. Duplicate keys now add explicit unknowns without
+overwriting, while completed exit codes must be actual integral numbers and
+equal zero. Three focused guards cover the two duplicate families and strict
+exit typing/value behavior.
+
+Reset-cycle review 4 found `git cat-file --filters` and `--filters=...` could
+execute configured content filters. The classifier now rejects both option
+forms as external execution. Formal negative N16 passes and raises the
+fail-closed aggregate to 16/16 without changing historical or sealed evidence,
+SOURCE, product blobs, cases, or fixtures.
+
+Reset-cycle review 5 found a configured `core.fsmonitor` hook could execute
+during admitted `git status`. Status now requires command-local `-c
+core.fsmonitor=false` in addition to `--no-pager` and `--no-optional-locks`.
+Four Git-read safety guards pass. R02/R04 generated contracts and bindings were
+re-hashed for the safer commands without changing verdicts or sealed sources.
+The full sealed controller gate passes with canonical SHA-256
+`1befde8abc22fd2b059bca1fb971320fd63d56fc4e91e06f9533bbca19fc1e90`.
+
+Second-reset review 1 found `git remote -v set-url ...` could be mistaken for a
+read-only remote listing. The classifier now admits only the exact one-argument
+`remote -v` or `remote --verbose` shape and rejects all other remote forms.
+Five Git-read safety guards pass; historical verdicts, sealed inputs, SOURCE,
+cases, fixtures, and product package blobs remain unchanged.
+
+Second-reset review 2 found reconciliation could precede manifest creation and
+raw command leaf names could conceal a shadowed resolver target. N17 now
+enforces manifest-before-reconciliation. Completed command records also require
+one policy-pinned resolved identity matching the AST command family; 3/3 guards
+cover missing, shadowed, and trusted records. This is controller evidence-
+record validation, not live resolver-collector proof. All 11 historical
+generated contracts/bindings were re-hashed without verdict changes. The full
+sealed gate passes with canonical SHA-256
+`2c083cf2c40ec86e2eb7688e5edc3ae18408539f9f71f7c424233263f2c7c834`.
+
+Second-reset review 3 found that branch read flags could coexist with a delete,
+configured signature display could launch an external verifier during admitted
+`log`/`show`, string `assessor_requested` values could be coerced, and the
+terminal failure list did not cover every aggregate gate. The controller now
+requires exact branch shapes and `-c log.showSignature=false`, treats empty
+command-family classification and non-Boolean assessor requests as explicit
+unknowns, and derives complete failure diagnostics for all group and scalar
+gates. Focused guards pass 7/7 for Git reads, 3/3 for external-input types, and
+3/3 for command resolution. The current terminal JSON SHA-256 is
+`9e94d7b0313be99b275dbefd1c6a4cea43d2314a746daf23b7e0fb34502a69b1`.
+
+Second-reset review 4 found that `pwsh` wrapper options such as
+`-WorkingDirectory` or `-File` could alter execution while a later
+`-Command` was treated as authoritative, and that repeated construction events
+could rewrite a manifest after sealing. Wrapper admission now permits only
+inert switches before one final constant command, and construction requires
+exactly one occurrence of its four stages in exact order. N18-N20 pass, raising
+the fail-closed aggregate to 20/20; the safe wrapper is also exercised by the
+trusted command-resolution positive. The canonical and terminal hashes are
+`7a1d272797402b24a35cd7c6cb54641a459e1f1b26e0d9834e8fd69d2cf590d3`
+and `7d0c6d76e736518c8b6db8f2108ea86c570c09fb95deab27167c1a845bfd8934`.
+
+Second-reset review 5 found that malformed allowed-file rows could throw and
+matching malformed inventory rows could be accepted. Allowed-file and file-
+proof row shapes now fail closed, and inventory comparison validates relative
+path, nonnegative integral length, and 64-hex SHA-256 before equality. Six
+content/proof/inventory guards pass. The canonical hash remains
+`7a1d272797402b24a35cd7c6cb54641a459e1f1b26e0d9834e8fd69d2cf590d3`;
+the terminal hash is
+`81250a270414779a245031517951898f1faeee296db0464412d81a2cc2d8844a`.
+The corrected bytes require another explicit native-review budget reset.
+
+Third-reset review 1 found that a classified allowed command could be combined
+with an unclassified PowerShell/.NET expression whose side effect was absent
+from the effect set. Command-expression and member-expression/invocation AST
+nodes now fail closed. N21 covers an allowed read followed by `WriteAllText`;
+21/21 negatives pass. The canonical and terminal hashes are
+`a056c1cd376ba8b26128a0252257fe6eb01213346976a580684c7959fee05536`
+and `ebfc6acd2a61e30abea1ce039021163427a31d9faa753ef31e1d36e51892d680`.
+
+Third-reset review 2 found that outer redirection on a PowerShell wrapper was
+discarded when extracting the inner command. Wrapper extraction now rejects
+outer redirection; N22 covers an allowed inner read plus `> redirected.txt`.
+Twenty-two negatives pass. The canonical and terminal hashes are
+`8d25dceec7dfbece7d5830c373bf3fcc9f5e6f13d9e5dae1a4a0b6bcea430152`
+and `af40309f14c28d8f1ca8c8fd2bd688fb9016735c9f2a8c26faa9db6aed98b1d9`.
+
+Third-reset review 3 found that diff-capable Git reads could invoke configured
+textconv and canonical JSON key order could vary by current culture. Admitted
+`log`, `show`, and `diff` now require `--no-textconv`; canonical dictionary and
+object keys use ordinal order. N23, 8/8 Git-read safety guards, and one three-
+culture ordinal guard pass. The full gate passes 23/23 negatives and 8/8 sealed
+inputs. The canonical and terminal hashes are
+`cded4de887713a3c0424b59d9aea490e05af159e547d49c781b7b22cd90a97b6`
+and `89f0d8af2a12e431376ba7fd5d79a0fabef7fed3084e9d39a350cecd6ce59938`.
+
+Third-reset review 4 found that wrapper recognition by a `pwsh.exe` leaf name
+did not prove the outer executable. Valid wrappers now carry an independently
+policy-pinned native-application identity as well as the existing inner command
+identity. N24 and two focused wrapper-identity guards cover path-qualified,
+missing, and shadowed outer identities. The full gate passes 24/24 negatives,
+5/5 command-resolution guards, and 8/8 sealed inputs. Five wrapper-bearing
+historical contracts and their declarations were re-bound without changing
+their sealed sources, projections, or verdicts. The canonical and terminal
+hashes are
+`105280a155c49604c0ec0ea4af2a069a5d5e2d3d3992196f98caf9ba6ed1a267`
+and `19e2d7783ff6e867ed773d91823a9697223b66a17e3b7f68d3514f3d7954e2e0`.
+
+Third-reset review 5 found that tracked evidence published a private ignored-
+workspace locator and canary artifact identities. The locator, hashes, and
+detailed private runtime state are now omitted from public docs; only a non-
+identifying bounded `CANARY_PASS` disposition and its limitations remain. The
+third reset cycle is exhausted. Because this correction changes reviewed
+bytes, any additional native review requires a new explicit budget reset.
+
+The user approved a fourth reset for the same commit attempt. One 900-second
+qualification timeout and one CLI selector/prompt validation failure produced
+no semantic review and consumed no completed-review slot. Fourth-reset review
+1/5 found that a static outer expression could execute before an otherwise
+valid PowerShell wrapper and then disappear during inner-command extraction.
+Wrapper extraction now requires the wrapper command extent to equal the full
+outer script extent. N25 proves an outer `WriteAllText` plus a valid read
+wrapper returns `CONTROLLER_UNKNOWN`. The full gate passes 25/25 negatives,
+11/11 historical cases, and 8/8 sealed inputs with zero failures. The canonical
+and terminal hashes are
+`a324cb8e77c1120afd33899ced4b56b5f410a0f16fa79447f7905d3b3374877f`
+and `cbd86ca3f5bbf6e0848e59df6e74bef9ca896d711e78b12010b10b50bf8523b3`.
+Four completed review slots remained at that checkpoint.
+
+Fourth-reset review 2/5 found two publication-safety P1s. Tracked cases still
+contained private sealed-evidence locators, lengths, and hashes, while the
+public result repeated the physical fingerprints. Tracked cases now declare
+only eight logical source keys. Explicit local sealed verification requires a
+separate ignored private manifest whose key set and contained ordinary files
+are validated before use; the report retains only the aggregate 8/8 result.
+All 11 public binding declarations were re-bound to logical keys without
+changing historical verdicts, selectors, generated contracts, or private
+sealed bytes. The full gate at that checkpoint passed 25/25 negatives, 11/11
+historical cases, 11/11 bindings, and 8/8 local sealed inputs with zero
+failures. Its canonical and terminal hashes were
+`eaa62861c22a0bde8efbd6ffe20a024d770859ca2e3621ff8ab48eacfa8b65ae`
+and `f90aeaf48c55f2897442cd7550394ddb634669aa3aa363b1b49859d5b042037d`.
+Post-review verification renamed the public hash field from
+`sealed_input_keys_sha256` to `sealed_input_names_sha256` to remove a Gitleaks
+`generic-api-key` false positive. Before review 4, public mode remained `PASS`
+with the same canonical repeat and then-current no-newline terminal hash
+`a4067b4eb83530bc0efd03203738966f7cf2600e1ffcf59178a0ef6fccc19665`.
+The private manifest was not reread after this schema-label-only change, so its
+8/8 result remains evidence from the immediately preceding full checkpoint.
+Fourth-reset review 3/5 then completed on Terra/high with no definite,
+actionable defect. The reviewer independently ran the controller and fixture
+checks; both passed. This clean review supplied material diff coverage and
+satisfied the native-review gate. Two cycle slots remained at that checkpoint
+and were not required to establish the gate.
+Review 4/5 assessed the post-sync bytes and found two P1 fail-closed gaps.
+Missing or malformed policy roots and malformed required-read,
+inventory-comparison, or construction-event rows could throw instead of
+returning unknown. One roots normalizer and safe nested-row extraction now
+cover those paths, including missing role-delivery authorization. N26-N29 and
+six direct malformed-input probes return `CONTROLLER_UNKNOWN` without
+exception. Current public mode passes 29/29 negatives and 11/11 historical
+cases with zero failures; canonical/terminal hashes are
+`ebf302e2627d3b8c06c7fd2359932f9707a1976327ee9c3955856d686e9c1464`
+and `76c84ea675b601df55eaa513b7d88c07a4bea51c60b2efd6ff004fd8bdb57622`.
+Review 5/5 then found that path-qualified shadow Git/PowerShell executables
+could copy trusted tuples without invocation binding, and `-OutputPath` could
+overwrite an existing private manifest or sealed input. Native identities now
+bind resolved paths to AST invocations; PowerShell modules bind source and
+allowed commands. N24/N30 reject shadow paths. Atomic `CreateNew` and a 1/1
+sentinel guard reject existing outputs without byte change. All 11 generated
+contracts and bindings were re-hashed without verdict changes. Current public
+mode passes 30/30 negatives and 11/11 historical cases with zero failures at
+`691974ffcf78dc76026560bbd07763d2b81d296340587ed9485770018df42ccd` /
+`da3de46776c27c129e7181a0e545b3b2fd00d5c55d225af43efeab3c40ab0df3`.
+The fourth cycle is exhausted; reviewed bytes changed, so the commit gate is
+unsatisfied until the user explicitly resets the review budget.
+
+The separately authorized private one-shot canary returned a sealed
+`CANARY_PASS`; the bounded exact-response check reported no command execution.
+Tracked docs omit its locator, artifact identities, detailed runtime state,
+task/thread identifiers, prompts, and completions. The physical backend
+sampling-request count remains `UNKNOWN`. This is narrow infrastructure
+evidence only and proves neither natural-language Skill selection nor semantic
+or Gate 2 behavior acceptance. The canary ran before native review 4; its
+consumed private evidence remains sealed but does not replace review or
+authorize advancement.
+
 ## Next Gate
 
-Work Charter `v0.1.2` remains the released and installed stable revision.
-The current same-contract correction, documentation-impact closure, and
-deterministic checks are complete for development SOURCE. Native-review
-disposition and commit eligibility are recovered from the cumulative attempt
-record against the exact final bytes rather than echoed in this tracked state.
-Commit remains separately user-authorized. No behavior evidence, A16, push,
-new RC materialization, integration, release, stable update, retained-evidence
-cleanup, or rollback-copy cleanup is authorized.
+Work Charter `v0.1.2` remains the released and installed stable revision, while
+`b965102...` remains the unaccepted exact product candidate. The first four
+reset cycles retain their cumulative history. The user approved a fifth reset;
+review 1/5 found and fixed the same-scope bare-native-name trust gap. Current
+public controller and fixture checks pass with 8/8 command-resolution guards,
+and review 2/5's unused malformed allowed/proof rows are now globally validated
+within the existing 6/6 identity guards. Review 2's action-parser finding is a
+false positive under direct reproduction. The corrections changed reviewed
+bytes. Another native review is required and three cycle slots remain. Commit
+eligibility remains blocked. The cumulative
+attempt record owns a future clean review disposition rather than another post-
+review edit to this state. The isolated
+canary has already passed out of the intended order and must not be rerun. Any
+successor or live-matrix proposal remains a separate user decision. No further
+behavior evidence, A16, semantic assessment, commit, push, new candidate
+materialization, integration, release, stable update, retained-evidence
+cleanup, or rollback-copy cleanup is authorized by this tranche.
 
 ## Recovery Entry
 
@@ -141,9 +408,9 @@ cleanup, or rollback-copy cleanup is authorized.
    [Decision 0018](../../decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md),
    this state, and [Verification](VERIFICATION.md).
 3. Confirm live workspace, writer, and action authority.
-4. Confirm branch `codex/work-charter-v0.2`, starting commit `72db7e9...`, the
-   exact dirty path list in the repository handoff, and live authority before
-   writing.
+4. Confirm branch `codex/work-charter-v0.2`, starting commit `b965102...`, the
+   exact twelve-path controller-stabilization boundary in the repository
+   handoff, and live authority before writing.
 5. Read canonical SOURCE, current eval definitions, and only evidence matching
    the exact revision before changing behavior or claims.
 6. Preserve the independent-Skill and non-propagating-authorization boundary.
