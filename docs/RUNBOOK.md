@@ -1,6 +1,6 @@
 # Development, Installation, And Release Runbook
 
-Last updated: 2026-08-02
+Last updated: 2026-08-04
 
 ## Quick Navigation
 
@@ -10,6 +10,7 @@ Last updated: 2026-08-02
 | RUN-DISTRIBUTION | v0.1 distribution | Select the public source, version, and Skill path |
 | RUN-PREFLIGHT | Preflight | Confirm source, Git, discovery, and authorization state |
 | RUN-DELTA | Capability-delta intake | Decide whether a Skill residual should exist or change |
+| RUN-DOCS | Documentation impact closure | Close mapped owners and consumers before review |
 | RUN-DEV | Development loop | Edit and forward-test a working revision |
 | RUN-OPT | External optimizer experiment | Isolate an authorized suggestion-only optimization run |
 | RUN-RC | Release candidate | Test an isolated copy produced from an exact commit |
@@ -266,6 +267,65 @@ applicable and rerun only affected conditions; proportional evaluation does
 not require an unrelated full matrix or a net-benefit claim for a bounded
 safety correction.
 
+## Documentation Impact Closure
+
+Complete this closure before the first native review for a new Skill or a
+material Skill selection, behavior, package, evaluation, or lifecycle change.
+Use it as well for a repository-governance change that can affect more than one
+existing owner. The purpose is to find all existing consumers of the changed
+facts once, without forcing unrelated documents into the diff.
+
+Keep three sets distinct:
+
+- **Authorized change envelope**: the existing paths or fact classes the user
+  has permitted the writer to modify if the closure shows they need an update.
+  Membership permits a change; it does not require an edit, staging, or commit.
+- **Intended change set**: the files currently classified `UPDATE` because
+  their owned or bounded public facts actually change.
+- **Review target**: the exact stable diff presented to native review. It may
+  be smaller than the authorized envelope and must match the bytes actually
+  reviewed.
+
+Start from the changed facts and inspect this existing-owner matrix:
+
+| Changed fact | Inspect | Update only when |
+|---|---|---|
+| Installable instructions, metadata, references, assets, or scripts | affected `skills/<skill-name>/` files and the Skill `DESIGN`, `STATE`, and `VERIFICATION` owners | executable behavior, package boundary, implementation state, or evidence changes |
+| User-visible purpose, invocation, workflow, safety, or evidence limit | the matching per-Skill English README and Simplified Chinese mirror | the public user surface changes |
+| Selection, behavior, acceptance, or reproducible evidence contract | applicable decisions, `evals/README.md`, affected cases, fixtures, and sanitized results | the accepted rationale, test contract, starting state, or recorded evidence changes |
+| Repository writer, dirty scope, gate, recovery, checks, candidate, or release state | `docs/HANDOFF.md`, `docs/STATUS.md`, and `docs/VERIFICATION.md` according to their fact ownership | the corresponding repository-level fact changes |
+| Navigation or milestone direction | `docs/INDEX.md` and `docs/ROADMAP.md` | a route, document identity, milestone, or future direction changes |
+| Shared product, architecture, authority, development procedure, provenance, distribution, or public repository surface | root README pair, `SPEC`, `ARCHITECTURE`, `AUTHORITY`, `RUNBOOK`, `PROVENANCE`, and applicable decisions | that shared fact class changes |
+
+For every matrix entry, record one disposition in the active task, Phase
+definition, or existing handoff owner; do not create a new required file:
+
+- `UPDATE`: the file owns or intentionally publishes a changed fact;
+- `CHECKED_NO_CHANGE`: it was inspected and remains truthful, with a short
+  reason; or
+- `NOT_APPLICABLE`: the fact class is outside the change.
+
+Then:
+
+1. Obtain one authorization for the proposed envelope before writing. An exact
+   file list may be used when genuinely complete, but do not derive it only
+   from the first finding or implementation slice.
+2. Edit only `UPDATE` files and preserve one canonical owner per durable fact.
+   When a public English README changes, update its Chinese mirror in the same
+   change set.
+3. Before native review, rescan the mapped consumers for stale terminology,
+   identities, counts, lifecycle state, and authorization language. Run the
+   applicable deterministic checks, then freeze the actual review target.
+4. Treat an omitted existing consumer of the same changed facts inside the
+   approved envelope as a same-scope correction. Return to the user for a new
+   file, fact class, product or acceptance change, authority expansion,
+   workspace change, or external effect.
+5. Prefer stable semantic lifecycle wording. Do not mutate tracked files only
+   to echo a native-review ordinal, a clean-review result, or a future commit
+   identity. Record an exact dirty path list in `HANDOFF.md` only at a material
+   recovery checkpoint; keep detailed review accounting in the applicable
+   completion record.
+
 ## Development Discovery Setup
 
 `DEV_DISCOVERY` is optional. An explicit Skill path supplied to a controlled
@@ -290,16 +350,22 @@ required, classify it as an isolated candidate and pin its source revision.
 
 ## Daily Development Loop
 
-1. Confirm the capability-delta intake and target edit are in scope, then edit
-   only `SOURCE`.
-2. Keep unrelated user changes intact and record the current dirty boundary.
-3. Run the bundled `skill-creator` validator for every changed Skill.
-4. Run the repository checker and the relevant deterministic fixtures.
-5. For behavior changes, run a fresh-context test with only the intended
+1. Confirm the capability-delta intake, target edit, documentation-impact
+   closure, and authorized change envelope are in scope.
+2. Edit only canonical `SOURCE` for installable package bytes and only the
+   documentation classified `UPDATE`. The canonical-SOURCE rule excludes
+   derived copies; it does not exclude mapped repository documentation.
+3. Keep unrelated user changes intact and record the current dirty boundary.
+4. Run the bundled `skill-creator` validator for every changed Skill.
+5. Run the repository checker and the relevant deterministic fixtures.
+6. For behavior changes, run a fresh-context test with only the intended
    same-named Skill discoverable.
-6. Confirm the actually loaded entry resolves to `SOURCE`, not an installed or
+7. Confirm the actually loaded entry resolves to `SOURCE`, not an installed or
    cached copy.
-7. Record development evidence in the matching per-Skill verification ledger
+8. Reconcile the impact dispositions after implementation and assessment
+   findings, scan all mapped consumers, and freeze the actual diff before
+   native review.
+9. Record development evidence in the matching per-Skill verification ledger
    with the commit or unborn state, dirty flag, logical source locator,
    loaded-copy role, checks, and known gaps.
 
@@ -537,5 +603,7 @@ Stop and resolve or escalate when:
   profile, policy, user configuration, remote, or publication mutation;
 - Git ownership, sandbox, permission, or filesystem behavior makes provenance
   uncertain;
+- documentation-impact closure reveals an unapproved new file, fact class,
+  contract, authority, acceptance boundary, workspace change, or side effect;
 - verification unexpectedly changes source files or creates publication
   artifacts.

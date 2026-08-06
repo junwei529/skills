@@ -77,6 +77,17 @@ Before changing this repository, read:
 
 ## Documentation
 
+- Before the first native review for a material Skill, package, evaluation, or
+  lifecycle revision, complete the documentation-impact closure in
+  `docs/RUNBOOK.md`. Start from changed fact classes, not an early guessed file
+  list. Keep the authorized change envelope, intended change set, and actual
+  review target distinct; a broad envelope permits a relevant existing file to
+  change but does not require editing or committing it.
+- Mark every mapped canonical owner and bounded consumer as `UPDATE`,
+  `CHECKED_NO_CHANGE`, or `NOT_APPLICABLE` before freezing the diff. An omitted
+  existing consumer of the same facts may be corrected inside an approved
+  envelope; a new file, fact class, product contract, permission, side effect,
+  or acceptance boundary requires an explicit replan or user decision.
 - Shared product requirements belong in `docs/SPEC.md`; per-Skill purpose,
   trigger, non-goals, behavior contract, and internal package boundaries belong
   in `docs/skills/<skill-name>/DESIGN.md`.

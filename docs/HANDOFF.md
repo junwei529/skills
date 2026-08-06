@@ -1,6 +1,6 @@
 # Repository Handoff
 
-Last updated: 2026-08-02
+Last updated: 2026-08-06
 
 ## Snapshot
 
@@ -15,9 +15,10 @@ Last updated: 2026-08-02
   5 files, each matching the `v0.1.2` Git blobs
 - Rollback identity: immutable `v0.1.1` retained as a separately verified
   three-package backup
-- Writer: no Skill SOURCE writer is active. The bounded Gate 0 documentation
-  integrator owns only the listed Markdown set through one successful local
-  commit; that commit relinquishes the writer, and no push authority follows
+- Writer: no Skill SOURCE writer is active. One bounded repository writer owns
+  the four-file governance/checker correction on `main`, then the authorized
+  semantic integration of `codex/work-charter-v0.2`; the final local merge
+  commit relinquishes the writer, and no push authority follows
 
 The `v0.1.2` tag remains fixed at the release-preparation commit. The later
 documentation commit records already-completed tag, stable-install, canary, and
@@ -103,6 +104,42 @@ same-named copies. Re-enumerate the exact working-directory-to-root discovery
 chain and fail closed before reusing any retained workspace; do not rely on
 this snapshot's contents or counts.
 
+## 2026-08-04 Documentation-Impact Closure Rule
+
+After repeated native-review corrections added existing documentation
+consumers that an early file list had omitted, the user authorized a separate
+project-governance correction before resuming the paused Work Charter change.
+The correction distinguishes the authorized change envelope, intended change
+set, and actual review target, and requires a fact-first documentation-impact
+closure before the first native review.
+
+The governance correction started with three existing documentation files.
+Current pre-review qualification also found that the repository checker was
+incorrectly treating the ignored `.code-review-graph` cache as publication
+source. The complete intended change set is therefore four existing files:
+
+- `AGENTS.md` for the short mandatory repository rule;
+- `docs/RUNBOOK.md` for the owner/consumer matrix, closure procedure, and the
+  clarified canonical-SOURCE development step;
+- this handoff for writer, dirty-scope, and recovery continuity; and
+- `scripts/check_repository.py` for the minimal generated-cache exclusion.
+
+The impact audit classified `AUTHORITY`, Decisions 0015 and 0017, `INDEX`,
+`SPEC`, `ARCHITECTURE`, `STATUS`, `VERIFICATION`, `ROADMAP`, the root README
+pair, per-Skill documents, and `evals` as `CHECKED_NO_CHANGE` or
+`NOT_APPLICABLE`: this correction changes development procedure and the
+checker's non-source traversal boundary, not a public Skill, product contract,
+navigation route, milestone, evaluation contract, evidence claim, candidate,
+installation, or release state. It adds no file or product behavior.
+
+The current task owns only this uncommitted four-file governance/checker delta
+on `main`. The clean `codex/work-charter-v0.2` branch remains at `119aa27...`
+and is an integration input, not an active writer. The user authorized one
+local governance/checker commit followed by one local semantic merge commit,
+including deterministic checks and native review for each attempt. No push,
+new Work Charter product delta, behavior-model call, installation, tag,
+release, or cleanup is authorized.
+
 ## Per-Skill Recovery
 
 | Skill | Current state | Evidence |
@@ -148,11 +185,12 @@ is owned by [Repository Verification](VERIFICATION.md).
 
 ## Immediate Next Action
 
-No release action remains pending for `v0.1.2`. Resolve live Git state first:
-if this exact documentation set remains uncommitted, complete only the
-authorized Gate 0 review and local commit; if it is already integrated, do not
-repeat it. After that commit, Work Charter Gate 1 local implementation remains
-unapproved. The next user-owned choices are:
+No release action remains pending for `v0.1.2`. Complete and locally commit the
+four-file governance/checker correction, then merge
+`codex/work-charter-v0.2` into `main` with semantic reconciliation of current
+state and recovery owners. Verify and native-review both stable diffs. Stop
+immediately after the clean local merge, before any new Work Charter product
+delta. Other later user-owned choices remain:
 
 - authorize the bounded Work Charter Gate 1 implementation from the clean
   documentation baseline;
@@ -197,3 +235,12 @@ authorization covers push, installation, release, Skill SOURCE or eval-case
 changes, branch/worktree creation, private-global mutation, external optimizer
 installation or execution, provider/data disclosure, cleanup, or automatic
 adoption.
+
+The current closeout authorization supersedes the earlier 2026-08-04
+three-file stop only for this bounded sequence: the four-file
+governance/checker correction, its deterministic checks and native review, one
+local commit, semantic integration of the existing
+`codex/work-charter-v0.2` branch, its deterministic checks and native review,
+and one local merge commit. It does not authorize push, a new Work Charter
+product or eval delta, behavior-model calls, installation, release, global-rule
+mutation, external effects, or cleanup.

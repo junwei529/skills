@@ -70,7 +70,13 @@ EXPECTED_SKILL_DOC_FILES = {
     "STATE.md",
     "VERIFICATION.md",
 }
-EXCLUDED_PARTS = {".codegraph", ".eval-runs", ".git", "__pycache__"}
+EXCLUDED_PARTS = {
+    ".code-review-graph",
+    ".codegraph",
+    ".eval-runs",
+    ".git",
+    "__pycache__",
+}
 BINARY_SUFFIXES = {
     ".7z",
     ".dll",
