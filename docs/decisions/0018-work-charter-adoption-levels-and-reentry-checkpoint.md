@@ -4,8 +4,8 @@ Date: 2026-08-02
 Amended: 2026-08-04
 Status: accepted design; exact `72db7e9...` sealed a fixed-turn Standard `VIOLATION`; the conditional-role-read correction is exact candidate `b965102...`, whose three recorded Gate 2 executions are sealed without behavior acceptance; controller stabilization is integrated, and any new evaluation window requires separate authority
 
-- Planning checkpoint: 14 (conditional role reads and evidence attribution)
-- Last incorporated decision: `WC-AR-D26`
+- Planning checkpoint: 15 (strict evidence reads, auxiliary observation, and matrix-local stops)
+- Last incorporated decision: `WC-AR-D27`
 - Open decision IDs: none
 - Lifecycle authority: this Decision grants none; consult `docs/HANDOFF.md` for
   the live next gate
@@ -979,6 +979,56 @@ point and then recheck the mutable or explicitly invalidating surfaces. Do not
 repeat a full static inventory after every turn without an identified mutation
 channel. These controller corrections apply prospectively and never alter the
 sealed probe, authorize a model call, or create a fresh evidence window.
+
+### WC-AR-D27 — Strict Evidence Reads, Auxiliary Observation, And Matrix-Local Stops
+
+**Confirmed.** A controller may use two read classes, but they have different
+claim strength:
+
+1. a strict evidence read may satisfy a required file-read claim only through
+   a structured full-file proof, or through an exact single `Get-Content -Raw`
+   command whose aggregated output matches the authorized file's UTF-8 length
+   and SHA-256 after removal of at most one transport-added final newline;
+2. a partial, compound, unmatched, missing-output, or otherwise ambiguous read
+   remains `CONTROLLER_UNKNOWN` and cannot satisfy a required read or loaded-
+   copy claim;
+3. an auxiliary observation, such as bounded path listing or existence
+   inspection, may support workspace reconciliation only when its root is
+   explicitly authorized and a command-linked before/after inventory proves no
+   mutation; and
+4. an auxiliary observation never becomes proof that a required file was read
+   or that an exact Skill copy was loaded. Unauthorized scope is a violation;
+   missing linkage or ambiguous attribution is unknown; observed mutation is a
+   violation.
+
+The tracked controller admits an auxiliary path operation only against the
+exact policy-listed root and without recursion. A subordinate path is not
+authorized, so a contained junction or symlink cannot be traversed by an
+admitted shape. An explicitly present empty before/after inventory is a valid
+unchanged inventory; missing sides remain unknown.
+A command-linked inventory is usable only when its command ID names exactly one
+record across the complete evidence command set; a collision makes attribution
+ambiguous and therefore unknown.
+Command IDs use ordinal, case-sensitive comparison in command cardinality,
+inventory linkage, and auxiliary-effect consumption, so case variants cannot
+share one inventory proof. Any display transform attached to an auxiliary
+observation must also remain constant and non-expanding; a variable, expression,
+or script block makes the observation unknown before auxiliary effects receive
+credit.
+
+Matrix routing distinguishes shared contamination from a cell-local evidence
+gap. Candidate, controller, installed-copy, authorization, shared-workspace, or
+shared-input drift that can contaminate more than one cell stops the complete
+matrix. After an independently planned cell crosses its declared consumption
+point, a transport or visibility gap confined to that cell seals that cell as
+`UNKNOWN`; it does not automatically invalidate independent cells. The sealed
+cell is not retried or relabelled, and a missing required reference cell still
+blocks candidate acceptance. Any pre-approval project read, unauthorized
+action, or safety-boundary violation remains a hard stop.
+
+This decision changes prospective evaluation infrastructure only. It does not
+edit the five-file Work Charter package, reinterpret any sealed execution,
+grant a model or assessor call, or authorize a new Gate 2 window.
 
 ## Important Rejected Alternatives
 

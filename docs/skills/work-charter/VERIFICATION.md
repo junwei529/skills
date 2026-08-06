@@ -13,7 +13,7 @@ Last updated: 2026-08-06
 | Successor `v0.2.0` exact candidate Gate 2 | `92a8c045...` passed qualification and consumed A01-A04; A04 hard-stopped on an unproved selected/loaded claim, so no candidate acceptance or later cell exists |
 | Exact `72db7e9...` fixed-turn Standard probe | one one-shot bundle completed four fresh primary sessions, sealed `VIOLATION`, created no subagent activity, left A16 unexecuted, and permits no retry or retrospective rescore |
 | Exact `b965102...` product candidate | five package blobs are fixed; three recorded Gate 2 executions are individually sealed `SEALED_DECISION_REQUIRED` and non-retriable, behavior acceptance was not achieved, the candidate is not permanently retired, and the later tracked controller revision is a distinct evidence-infrastructure identity |
-| Tracked Codex evidence controller | offline source/generated-contract-bound historical 11/11, negative 31/31, metamorphic 4/4, generated-drift guards 3/3, exact five-file manifests 2/2, logical-identity guards 3/3, content/proof/inventory identity guards 6/6, record-cardinality/exit guards 3/3, command-resolution guards 8/8 including bare native-name rejection plus N24/N30 invocation-path binding, historical-output shape guard 1/1, output-no-clobber guard 1/1, per-key capture-reuse guard 1/1, scratch-topology guards 2/2, external-input type guards 3/3, Git-read safety guards 9/9, canonical ordinal guard 1/1, immediately preceding full-checkpoint contained sealed inputs 8/8, real-reparse rejection, and canonical repeatability pass under quiescent single-writer use; PowerShell wrappers require `-NoProfile`, and this remains controller qualification only, not candidate behavior acceptance |
+| Tracked Codex evidence controller | offline source/generated-contract-bound historical 11/11, evidence-surface 19/19, negative 31/31, metamorphic 4/4, generated-drift guards 3/3, exact five-file manifests 2/2, logical-identity guards 3/3, content/proof/inventory identity guards 6/6, record-cardinality/exit guards 3/3, command-resolution guards 8/8 including bare native-name rejection plus N24/N30 invocation-path binding, historical-output shape guard 1/1, output-no-clobber guard 1/1, per-key capture-reuse guard 1/1, scratch-topology guards 2/2, external-input type guards 3/3, Git-read safety guards 9/9, canonical ordinal guard 1/1, immediately preceding full-checkpoint contained sealed inputs 8/8, real-reparse rejection, and canonical repeatability pass under quiescent single-writer use; strict required reads are separate from bounded auxiliary observations, PowerShell wrappers require `-NoProfile`, and this remains controller qualification only, not candidate behavior acceptance |
 | Isolated path-bound controller canary | private retained sealed `CANARY_PASS`; the public summary reports an exact-response pass and no command execution, omits locator/artifact/runtime details, leaves physical backend request count `UNKNOWN`, and proves neither natural-language selection nor candidate acceptance |
 | Small bounded work stays flat | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
 | Midstream implicit behavior is proposal-only | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
@@ -910,6 +910,77 @@ task. Standard behavior was not rerun at RC or stable layers.
 
 Repository-level shared candidate, tag, installation, and release evidence is
 owned by [root Verification](../../VERIFICATION.md).
+
+### 2026-08-06 — Strict Read And Auxiliary Observation Regression
+
+An uncommitted offline controller delta on
+`codex/work-charter-controller-evidence-boundary` adds a strict fallback for
+the live record shape where one completed action is `unknown`: only an exact
+single `Get-Content -Raw` can use aggregated output as evidence, and only when
+its UTF-8 length/SHA-256 matches the authorized file after removal of at most
+one transport-added final newline. Compound, partial, missing-output, and
+content-mismatched reads receive no required-read credit.
+
+Read-only path listing/existence operations are a separate auxiliary class.
+They require a policy-listed root and command-linked unchanged inventory, never
+populate the required-read set, and fail closed on unauthorized scope or
+observed drift. Auxiliary path operations target only the exact policy-listed
+root, recursive listing is rejected, and explicit empty before/after inventories
+compare equal. Inventory-linked command IDs must name exactly one record across
+the complete command set and use ordinal, case-sensitive linkage throughout.
+Variable-bearing display transforms remain unknown. The 19/19 evidence-surface
+suite covers both paths, conflicting and matching duplicate aliases,
+inventory-link ambiguity,
+outer/action command disagreement, root/recursion/empty-inventory handling,
+plus a pre-approval read
+violation. Existing historical 11/11, negative 31/31, and
+metamorphic 4/4 suites remain unchanged and pass; the repository fixture gate
+passes 17/17, and two public-mode runs have canonical SHA-256
+`a4b1de1b5430e7d239c057175ada81db8f32336bbddfd63d30a14ff0fd8aa75d`.
+
+Native review cycle 1 review 1/5 used `gpt-5.6-terra` at `high` reasoning over
+the uncommitted diff. An earlier unsupported CLI argument combination was
+rejected before semantic review and is not counted. The completed review found
+two P1 gaps: contradictory snake/camel aliases could be silently selected, and
+the exact-raw-read fallback checked only the action command rather than the
+executed outer command as well. The controller now accepts duplicate aliases
+only when their canonical values agree and requires both command forms to prove
+the same exact raw read. E10-E13 lock the corrections. Review 2/5 found two more
+P1 gaps: recursive auxiliary listing could cross a contained reparse point, and
+empty inventory arrays aborted parameter binding. The controller now rejects
+recursion and accepts explicit empty/empty inventories; E14-E15 lock both. A
+sandboxed launch before review 2 failed on blocked network and is excluded as
+transport qualification. Review 3/5 found one further P1: a direct subordinate
+path could traverse a contained reparse point. The controller now authorizes
+only the exact root path; E16 proves a subordinate path is rejected as a
+violation. Since this fix changed the reviewed bytes, the current authorized
+cycle must inspect the corrected diff before the native-review gate can close.
+
+Review 4/5 materially covered staged, unstaged, and untracked changes and
+returned no actionable correctness issue. It reran the controller regression
+and fixture suite successfully. This review-history synchronization was the only
+later tracked mutation. Review 5/5 found one P1: an inventory-linked auxiliary
+command ID could collide with a non-auxiliary record. Global command-ID
+cardinality and E17 now reject that ambiguity. The user approved one reset for
+the same commit attempt. Reset-cycle review 1/5 found two P1 gaps: a transform
+could expose an environment variable, and case-distinct command IDs could share
+one case-insensitive inventory entry. Variable-bearing script shapes now remain
+unknown, ordinal inventory linkage plus E18-E19 lock both corrections, and
+focused verification passes 19/19. The fixes changed reviewed bytes, so a later
+completed review in the authorized reset cycle had to inspect the corrected
+diff. Reset-cycle review 2/5 materially covered staged, unstaged, and untracked
+changes, independently reran the controller and fixture suites, and returned no
+actionable correctness issue. This review-history synchronization is the only
+later tracked mutation; native-review gate satisfaction is determined by a
+completed semantic review over these final bytes.
+
+The evaluation contract also distinguishes matrix-wide shared contamination
+from a cell-local transport/visibility gap. The latter seals only that
+independently planned cell `UNKNOWN` after consumption, without retry or
+relabel; required reference-cell absence still blocks acceptance. The delta
+called no Gate 2 behavior model or assessor, read no private manifest, and
+changed no Work Charter package blob or sealed execution. Native review remains
+code-review evidence only.
 
 ## Required Checks
 

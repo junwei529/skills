@@ -47,16 +47,28 @@ candidate requires new explicit Gate 2 authority and must preserve all prior
 history. The tracked controller revision is evaluation infrastructure after the
 product candidate, not a new Work Charter package identity.
 
+Decision 0018 `WC-AR-D27` now adds a prospective controller/evaluation
+boundary without changing that product candidate: strict full-file evidence is
+separate from bounded auxiliary observation, and shared matrix contamination
+is separate from a cell-local visibility gap. The implementation is currently
+an uncommitted offline delta on
+`codex/work-charter-controller-evidence-boundary` from `79806bf...`.
+
 ## Current Writer
 
 The phase Executor relinquished at clean local controller-stabilization commit
 `119aa27...`, and the integration writer completed local merge commit
-`c05cb99...` over governance baseline `f55b15a...`. The only later write
-authority is the current bounded documentation correction on `main`, limited to
-the mapped existing status, evidence, public-summary, and recovery consumers
-listed in [Repository Handoff](../../HANDOFF.md). It ends after deterministic
-documentation checks. No Skill SOURCE or eval edit, sealed-evidence edit,
-behavior-model or app-server call, assessor, Git action, push, candidate
+`c05cb99...` over governance baseline `f55b15a...`. The current bounded writer
+owns only the controller/evaluation evidence-boundary delta on branch
+`codex/work-charter-controller-evidence-boundary`, plus mapped existing
+documentation consumers and one sanitized result. The user later opened this
+exact 14-path attempt to native review. Clear same-scope findings, affected
+offline checks, and all five completed reviews were handled under the commit
+gate. The user explicitly reset that count once for the same commit attempt;
+the reset remains bounded to five completed reviews and unused budget is not a
+reason to continue after a clean final-byte result. No Skill
+SOURCE or sealed-evidence edit, Gate 2
+behavior-model or app-server call, assessor, staging, commit, push, candidate
 materialization, discovery, installation, release, private-global mutation, or
 cleanup authority follows.
 
@@ -372,14 +384,76 @@ or Gate 2 behavior acceptance. The canary ran before native review 4; its
 consumed private evidence remains sealed but does not replace review or
 authorize advancement.
 
+### 2026-08-06 — Controller Evidence Boundary
+
+The current offline delta accepts an exact single `Get-Content -Raw` result as
+required-read evidence only when the sole unknown action completed successfully
+and its aggregated output matches the authorized file's UTF-8 length and
+SHA-256, allowing removal of at most one transport-added final newline.
+Structured full-file proofs remain valid. Compound, partial, unmatched, or
+missing-output reads remain `CONTROLLER_UNKNOWN` and receive no required-read
+credit.
+
+Bounded path listing and existence checks are classified as auxiliary
+observations. They require an explicitly authorized root and a command-linked
+unchanged inventory, support reconciliation only, and never prove a required
+file read or loaded copy. Auxiliary path operations target only the exact
+policy-listed root, recursive listing is rejected, and explicit empty before/
+after inventories compare equal. Inventory-linked command IDs must name exactly
+one record across the complete command set with ordinal, case-sensitive
+linkage. Variable-bearing display transforms remain unknown. Nineteen focused
+evidence-surface cases pass alongside the unchanged 11 historical, 31 negative, and 4
+metamorphic cases; the 17-item repository fixture gate also passes. Public-mode
+canonical repeat is exact at
+`a4b1de1b5430e7d239c057175ada81db8f32336bbddfd63d30a14ff0fd8aa75d`.
+No private manifest or sealed execution was read, changed, retried, or
+rescored.
+
+Native review cycle 1 review 1/5 found two P1 fail-closed gaps. Conflicting
+snake/camel command or inventory-link aliases are now rejected unless their
+canonical values agree, and aggregated-output fallback now requires both the
+executed outer command and action command to prove the same exact raw read.
+Cases E10-E13 cover those corrections. Review 2/5 then found that recursive
+auxiliary listing could cross a contained reparse point and that empty inventory
+arrays aborted parameter binding. Both P1 findings are fixed by rejecting
+recursion, accepting explicit empty/empty inventories, and adding E14-E15. One
+sandboxed network failure before review 2 is transport qualification and not a
+completed review. Review 3/5 found one further P1: a direct subordinate path
+could traverse a contained reparse point. The controller now authorizes only
+the exact root path, and E16 proves a subordinate path is a violation. The fix
+changed the reviewed bytes, so the same authorized review cycle continues
+against the corrected diff.
+
+Review 4/5 materially covered staged, unstaged, and untracked changes and
+returned no actionable correctness finding. The only later mutation is this
+review-history synchronization. Review 5/5 found one P1: an inventory-linked
+auxiliary command ID could collide with a non-auxiliary record. Global command-
+ID cardinality and E17 now reject that ambiguity. The user approved one reset
+for the same commit attempt. Reset-cycle review 1/5 found two P1 gaps: a
+variable-bearing display transform could expose environment data, and
+case-distinct command IDs could share one case-insensitive inventory entry.
+Variable script shapes now remain unknown, ordinal inventory linkage and
+E18-E19 correct both gaps, and focused verification passes 19/19. The fixes
+changed reviewed bytes. Reset-cycle review 2/5 materially covered staged,
+unstaged, and untracked changes, independently reran the controller and fixture
+suites, and returned no actionable correctness issue. This review-history
+synchronization is the only later tracked mutation; native-review gate
+satisfaction is determined by a completed semantic review over these final
+bytes. No Git closeout is authorized.
+
 ## Next Gate
 
 Work Charter `v0.1.2` remains the released and installed stable revision, while
 `b965102...` remains the unaccepted exact product candidate. Local commit
 `119aa27...` records controller infrastructure after that candidate, and local
 merge `c05cb99...` integrates it without changing the five package blobs or
-establishing behavior acceptance. The current documentation correction stops
-before any new Work Charter product or evaluation delta.
+establishing behavior acceptance. The current evidence-boundary delta is
+implemented but uncommitted. The initial cycle exhausted 5/5 reviews; the user
+approved one reset, and reset-cycle review 1/5 produced the two corrections
+above. Reset-cycle review 2/5 returned clean over that corrected diff. This
+review-history synchronization is the only later mutation; native-review gate
+satisfaction is determined by a completed semantic review over the final bytes.
+No staging, commit, push, or other Git closeout is currently authorized.
 
 The next possible product gate is a newly authorized Gate 2 evaluation window,
 not a SOURCE correction and not Gate 3. Before any new model consumption, that
@@ -402,8 +476,9 @@ consumed and non-retriable and does not satisfy that boundary.
    this state, and [Verification](VERIFICATION.md).
 3. Confirm live workspace, writer, and action authority.
 4. Confirm the live integration result includes merge `c05cb99...`, controller
-   commit `119aa27...`, and governance baseline `f55b15a...`, then revalidate
-   writer and action authority before writing.
+   commit `119aa27...`, and governance baseline `f55b15a...`; then confirm the
+   current branch descends from `79806bf...` and revalidate writer and action
+   authority before writing.
 5. Distinguish the three sealed execution records from the unchanged
    `b965102...` candidate: preserve their terminal results and consumption, but
    do not infer that the candidate is permanently ineligible for a separately

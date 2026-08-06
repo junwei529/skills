@@ -22,7 +22,7 @@ Sanitized detailed runs remain under [`evals/results`](../evals/results/README.m
 | Three Skill validators | Validate frontmatter and package names without changing packages | pass for the three packages in tag and stable install `v0.1.2` |
 | Repository checker | Validate strict UTF-8/no BOM, whitespace, local links/fragments, publication safety, exact Skill/eval sets, federated docs, and bilingual navigation | current controller-stabilization revision passes with the unchanged 14 cases / 12 fixtures |
 | Fixture checker | Validate synthetic starting states and their Git/reparse/ignored-result boundaries plus the tracked controller regression | current controller-stabilization revision passes all 17 checks |
-| Codex evidence controller | Validate one shared core across four entry modes, structural PowerShell/Git/path classification, source-and-generated-contract-bound historical regressions, exact package manifests, candidate-identity and content-proof shape, record cardinality, completed exit typing, output-array shape, per-key single-capture sealed parsing and reuse, real-reparse rejection, fail-closed negatives, external-input types, independently resolved inner/wrapper command identity, Git-read and external-filter safety, profile-free PowerShell wrappers, culture-independent canonical ordering, metamorphic equivalence, output no-clobber, and canonical repeatability | 11/11 historical, 31/31 negative, and 4/4 metamorphic checks pass twice with identical canonical JSON/hash; 11/11 source projections, 3/3 generated-contract drift guards, 2/2 five-file manifests, 3/3 candidate-identity guards, 6/6 content/proof/inventory identity guards, 3/3 record-cardinality/exit guards, 8/8 command-resolution guards including bare native-name rejection plus N24/N30 invocation-path binding, 1/1 output-shape guard, 1/1 output-no-clobber guard, 1/1 per-key capture-reuse guard, 3/3 external-input type guards, 9/9 Git-read safety guards, 1/1 ordinal-order guard, and the immediately preceding full checkpoint matched 8/8 contained sealed inputs |
+| Codex evidence controller | Validate one shared core across four entry modes, strict required-read versus bounded auxiliary-observation attribution, structural PowerShell/Git/path classification, source-and-generated-contract-bound historical regressions, exact package manifests, candidate-identity and content-proof shape, record cardinality, completed exit typing, output-array shape, per-key single-capture sealed parsing and reuse, real-reparse rejection, fail-closed negatives, external-input types, independently resolved inner/wrapper command identity, Git-read and external-filter safety, profile-free PowerShell wrappers, culture-independent canonical ordering, metamorphic equivalence, output no-clobber, and canonical repeatability | 11/11 historical, 19/19 evidence-surface, 31/31 negative, and 4/4 metamorphic checks pass twice with identical canonical JSON/hash; 11/11 source projections, 3/3 generated-contract drift guards, 2/2 five-file manifests, 3/3 candidate-identity guards, 6/6 content/proof/inventory identity guards, 3/3 record-cardinality/exit guards, 8/8 command-resolution guards including bare native-name rejection plus N24/N30 invocation-path binding, 1/1 output-shape guard, 1/1 output-no-clobber guard, 1/1 per-key capture-reuse guard, 3/3 external-input type guards, 9/9 Git-read safety guards, 1/1 ordinal-order guard, and the immediately preceding full checkpoint matched 8/8 contained sealed inputs |
 | Isolated controller canary | Record the bounded disposition of one private path-bound infrastructure check without broadening behavior claims | retained sealed `CANARY_PASS`; the public summary reports an exact-response pass and no command execution, omits private locator/artifact/runtime details, and leaves physical backend request count `UNKNOWN` |
 | PowerShell deterministic hardening | Validate cardinality, LF bytes, one-base paths, and Junction link-only removal | 15 assertions pass in PowerShell 7 and Windows PowerShell 5.1 |
 | PowerShell parser sweep | Parse all `evals/**/*.ps1` files and the tracked controller module | all scripts plus `codex-evidence-controller.psm1` parse |
@@ -1037,6 +1037,84 @@ retained observations whose exact identity and continued admissibility are
 proved without changing their sealed terminal records; missing, invalidated,
 or incomparable evidence remains `UNKNOWN`. This documentation clarification
 creates no candidate acceptance, model evidence, or Gate 3 authority.
+
+### 2026-08-06 — Controller evidence-boundary correction
+
+Starting from `79806bf...`, the uncommitted
+`codex/work-charter-controller-evidence-boundary` delta adds prospective
+evidence attribution without changing any `skills/work-charter` blob. One
+completed `unknown` action may prove a required read only when it is an exact
+single `Get-Content -Raw` and its aggregated string output matches the
+authorized file's UTF-8 length/SHA-256 after removal of at most one final
+transport newline. Structured full-file proof remains supported; partial,
+compound, missing-output, and mismatched reads remain unknown.
+
+Bounded path listing and existence checks now have an auxiliary-observation
+class. An explicit auxiliary root and command-linked unchanged inventory are
+required; these observations never satisfy required reads or loaded-copy
+claims. Unauthorized roots and inventory drift fail closed. Auxiliary path
+operations target only the exact policy-listed root, recursive directory
+listing is rejected, and explicit empty before/after inventories compare equal.
+Inventory-linked command IDs must name exactly one record across the complete
+command set and use ordinal, case-sensitive linkage throughout. Display
+transforms containing variables or expressions remain unknown. Nineteen
+evidence-surface cases pass, while the pre-existing 11
+historical, 31 negative, and 4
+metamorphic cases retain their inventories and verdicts. The controller's two
+public-mode runs are canonically identical at
+`a4b1de1b5430e7d239c057175ada81db8f32336bbddfd63d30a14ff0fd8aa75d`,
+and the fixture checker passes all 17 checks.
+
+Native review cycle 1 review 1/5 used `gpt-5.6-terra` with `high` reasoning and
+the uncommitted-diff selector. A rejected incompatible CLI argument form ended
+before semantic review and is excluded from the count. The completed review
+found two P1 gaps: conflicting snake/camel aliases could be silently selected,
+and aggregated-output fallback checked only the action command rather than both
+the executed outer command and action command. The corrected controller fails
+closed on conflicting aliases, accepts matching duplicates, and requires both
+command representations to prove one exact `Get-Content -Raw`. Cases E10-E13
+cover those boundaries. Review 2/5 used the same Terra/high selector. A
+sandboxed launch failed on blocked network before any semantic result and is
+excluded as transport qualification. The completed review found two more P1
+gaps: recursive auxiliary listing could cross a contained reparse point, and
+empty inventory arrays aborted parameter binding. The controller now rejects
+recursive listing and accepts explicit empty/empty inventories; E14-E15 cover
+both. Review 3/5 found one further P1: a direct subordinate auxiliary path could
+traverse a contained reparse point. The controller now authorizes only the exact
+root path; E16 proves a subordinate path is rejected as a violation. Since this
+fix changed the reviewed bytes, a later completed review must inspect the
+corrected diff within the same authorized cycle.
+
+Review 4/5 materially covered staged, unstaged, and untracked changes and found
+no actionable correctness issue. It independently reran the controller
+regression and fixture suite successfully. This review-history synchronization
+was the only later tracked mutation. Review 5/5 found one P1: an auxiliary
+command ID could collide with a non-auxiliary record while inventory attribution
+still credited the auxiliary read. Global command-ID cardinality and E17 now
+reject that ambiguity. Focused verification passes 17/17, but the fixes changed
+reviewed bytes after the cycle was exhausted; another native review requires an
+explicit user-approved reset.
+
+The user approved one reset for the same commit attempt. Reset-cycle review 1/5
+found two P1 gaps: a display transform could expose an environment variable,
+and a case-insensitive inventory map could let case-distinct command IDs share
+one proof. Variable-bearing script shapes now remain unknown, all inventory-link
+ID structures use ordinal comparison, and E18-E19 lock both boundaries. Focused
+verification passes 19/19 at the canonical hash above. These fixes changed the
+reviewed bytes. Reset-cycle review 2/5 materially covered staged, unstaged, and
+untracked changes, independently reran the controller and fixture suites, and
+returned no actionable correctness issue. This review-history synchronization
+is the only later tracked mutation; native-review gate satisfaction is
+determined by a completed semantic review over these final bytes.
+
+Decision 0018 and the evaluation contract now stop the full matrix for shared
+identity, authorization, safety, workspace/input, or provenance contamination,
+but seal a transport/visibility gap confined to an independently planned cell
+as cell-local `UNKNOWN` after consumption. No sealed cell may be retried or
+relabelled, and absence of a required reference cell still blocks acceptance.
+This offline correction invoked no Gate 2 behavior model, app-server turn, or
+assessor; the separate native review is code-review evidence only. It read no
+private manifest and changed no sealed execution.
 
 ### 2026-08-02 — Capability-delta decision and workflow
 

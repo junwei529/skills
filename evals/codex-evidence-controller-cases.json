@@ -239,6 +239,27 @@
       "generated_contract_sha256": "8f4e1892b64a74637942ca514373009f937353ebb9fa9e75a8d82788127251f1"
     }
   ],
+  "evidence_surface_cases": [
+    {"id": "E01", "scenario": "unknown-action-exact-output", "expected_verdict": "ADMISSIBLE"},
+    {"id": "E02", "scenario": "unknown-action-output-mismatch", "expected_verdict": "CONTROLLER_UNKNOWN"},
+    {"id": "E03", "scenario": "unknown-action-compound-read", "expected_verdict": "CONTROLLER_UNKNOWN"},
+    {"id": "E04", "scenario": "auxiliary-get-childitem-unchanged", "expected_verdict": "ADMISSIBLE"},
+    {"id": "E05", "scenario": "auxiliary-does-not-satisfy-required-read", "expected_verdict": "CONTROLLER_UNKNOWN"},
+    {"id": "E06", "scenario": "auxiliary-root-not-authorized", "expected_verdict": "CONTROLLER_VIOLATION"},
+    {"id": "E07", "scenario": "auxiliary-inventory-drift", "expected_verdict": "CONTROLLER_VIOLATION"},
+    {"id": "E08", "scenario": "preapproval-project-read", "expected_verdict": "CONTROLLER_VIOLATION"},
+    {"id": "E09", "scenario": "partial-read-with-aggregated-output", "expected_verdict": "CONTROLLER_UNKNOWN"},
+    {"id": "E10", "scenario": "conflicting-command-aliases", "expected_verdict": "CONTROLLER_UNKNOWN"},
+    {"id": "E11", "scenario": "conflicting-inventory-link-aliases", "expected_verdict": "CONTROLLER_UNKNOWN"},
+    {"id": "E12", "scenario": "outer-command-missing-raw", "expected_verdict": "CONTROLLER_UNKNOWN"},
+    {"id": "E13", "scenario": "matching-command-aliases", "expected_verdict": "ADMISSIBLE"},
+    {"id": "E14", "scenario": "recursive-auxiliary-listing", "expected_verdict": "CONTROLLER_UNKNOWN"},
+    {"id": "E15", "scenario": "empty-auxiliary-inventory", "expected_verdict": "ADMISSIBLE"},
+    {"id": "E16", "scenario": "auxiliary-subpath-not-authorized", "expected_verdict": "CONTROLLER_VIOLATION"},
+    {"id": "E17", "scenario": "auxiliary-command-id-collision", "expected_verdict": "CONTROLLER_UNKNOWN"},
+    {"id": "E18", "scenario": "auxiliary-transform-variable", "expected_verdict": "CONTROLLER_UNKNOWN"},
+    {"id": "E19", "scenario": "auxiliary-command-id-case-distinct", "expected_verdict": "CONTROLLER_UNKNOWN"}
+  ],
   "negative_cases": [
     {"id": "N01", "scenario": "wrong-candidate-sha", "expected_verdict": "CONTROLLER_VIOLATION"},
     {"id": "N02", "scenario": "wrong-content-hash", "expected_verdict": "CONTROLLER_VIOLATION"},
@@ -283,6 +304,7 @@
     "The sealed A15 role-delivery and nested-turn violations remain structural failures even when the surrounding wording is semantically assessable.",
     "Absolute run roots are local evidence locators and are intentionally excluded from logical candidate identity.",
     "Historical source projections retain JSON pointers and canonical hashes only; they do not copy selected private values into the tracked fixture.",
-    "Package-manifest SHA-256 is the canonical JSON hash of exactly five path-sorted path, length, and blob-content SHA-256 rows."
+    "Package-manifest SHA-256 is the canonical JSON hash of exactly five path-sorted path, length, and blob-content SHA-256 rows.",
+    "Auxiliary read-only observations can establish bounded reconciliation only; they never satisfy a required file read or loaded-copy claim."
   ]
 }

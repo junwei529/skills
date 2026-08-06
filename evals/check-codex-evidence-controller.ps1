@@ -387,6 +387,79 @@ function Add-RequiredRead {
     )
 }
 
+function Set-SyntheticAllowedFileContent {
+    param(
+        [Parameter(Mandatory)][object]$InputObject,
+        [Parameter(Mandatory)][string]$Root,
+        [Parameter(Mandatory)][string]$Path,
+        [Parameter(Mandatory)][AllowEmptyString()][string]$Content
+    )
+
+    $allowed = Get-AllowedFile -InputObject $InputObject -Root $Root -Path $Path
+    if ($null -eq $allowed) {
+        throw "Synthetic allowed file missing: $Root/$Path"
+    }
+    $bytes = [System.Text.UTF8Encoding]::new($false, $true).GetBytes($Content)
+    $allowed.length = [int64]$bytes.Length
+    $allowed.sha256 = [Convert]::ToHexString(
+        [System.Security.Cryptography.SHA256]::HashData($bytes)
+    ).ToLowerInvariant()
+    return $allowed
+}
+
+function New-RawUnknownReadRecord {
+    param(
+        [Parameter(Mandatory)][object]$InputObject,
+        [Parameter(Mandatory)][string]$CommandId,
+        [Parameter(Mandatory)][string]$Script,
+        [Parameter(Mandatory)][AllowEmptyString()][string]$AggregatedOutput,
+        [string]$CwdRoot = 'workspace'
+    )
+
+    return [pscustomobject]@{
+        id = $CommandId
+        status = 'completed'
+        exitCode = 0
+        cwd = [string]$InputObject.policy.roots.$CwdRoot
+        command = $Script
+        resolved_command_identity = Get-SyntheticResolvedCommandIdentity `
+            -InputObject $InputObject `
+            -Family 'powershell-management'
+        commandActions = @([pscustomobject]@{
+            type = 'unknown'
+            command = $Script
+        })
+        aggregatedOutput = $AggregatedOutput
+    }
+}
+
+function Add-AuxiliaryInventoryComparison {
+    param(
+        [Parameter(Mandatory)][object]$InputObject,
+        [Parameter(Mandatory)][string]$CommandId,
+        [Parameter(Mandatory)][string]$Root,
+        [switch]$Drift
+    )
+
+    $allowed = Get-AllowedFile -InputObject $InputObject -Root $Root -Path 'WORK.md'
+    $left = [pscustomobject]@{
+        path = 'WORK.md'
+        length = [int64]$allowed.length
+        sha256 = [string]$allowed.sha256
+    }
+    $right = Copy-ControllerValue -Value $left
+    if ($Drift) {
+        $right.sha256 = ('f' * 64)
+    }
+    $InputObject.evidence.inventory_comparisons = @([pscustomobject]@{
+        name = "auxiliary-$CommandId"
+        commandId = $CommandId
+        root = $Root
+        left = @($left)
+        right = @($right)
+    })
+}
+
 function Get-DeclaredSealedInputKey {
     param([Parameter(Mandatory)][string]$Key)
     $matches = @($cases.sealed_input_keys | Where-Object { [string]$_ -ceq $Key })
@@ -1712,6 +1785,337 @@ function New-NegativeInput {
     return $inputObject
 }
 
+function Get-EvidenceSurfaceInput {
+    param(
+        [Parameter(Mandatory)][object]$Case,
+        [Parameter(Mandatory)][string]$CaseRoot
+    )
+
+    $inputObject = New-BaseControllerInput -Candidate b965102 -CaseRoot $CaseRoot
+    $content = "alpha`nbeta`n"
+    [void](Set-SyntheticAllowedFileContent `
+        -InputObject $inputObject `
+        -Root workspace `
+        -Path 'WORK.md' `
+        -Content $content)
+    $workspaceRoot = [string]$inputObject.policy.roots.workspace
+    $workPath = Join-Path $workspaceRoot 'WORK.md'
+    $statusPath = Join-Path $workspaceRoot 'STATUS.md'
+    $fullRead = "Get-Content -Raw -LiteralPath '$workPath'"
+
+    switch ($Case.scenario) {
+        'unknown-action-exact-output' {
+            Add-RequiredRead -InputObject $inputObject -Root workspace -Path 'WORK.md'
+            $inputObject.evidence.commands = @(
+                (New-RawUnknownReadRecord `
+                    -InputObject $inputObject `
+                    -CommandId 'strict-exact' `
+                    -Script $fullRead `
+                    -AggregatedOutput ($content + "`r`n"))
+            )
+        }
+        'unknown-action-output-mismatch' {
+            Add-RequiredRead -InputObject $inputObject -Root workspace -Path 'WORK.md'
+            $inputObject.evidence.commands = @(
+                (New-RawUnknownReadRecord `
+                    -InputObject $inputObject `
+                    -CommandId 'strict-mismatch' `
+                    -Script $fullRead `
+                    -AggregatedOutput "different`r`n")
+            )
+        }
+        'unknown-action-compound-read' {
+            Add-RequiredRead -InputObject $inputObject -Root workspace -Path 'WORK.md'
+            $compound = "$fullRead; Get-Content -Raw -LiteralPath '$statusPath'"
+            $inputObject.evidence.commands = @(
+                (New-RawUnknownReadRecord `
+                    -InputObject $inputObject `
+                    -CommandId 'strict-compound' `
+                    -Script $compound `
+                    -AggregatedOutput ($content + "status`r`n"))
+            )
+        }
+        'auxiliary-get-childitem-unchanged' {
+            $inputObject.policy | Add-Member `
+                -NotePropertyName auxiliary_read_roots `
+                -NotePropertyValue @('workspace')
+            $script = "Get-ChildItem -LiteralPath '$workspaceRoot' -Force"
+            $inputObject.evidence.commands = @(
+                (New-RawUnknownReadRecord `
+                    -InputObject $inputObject `
+                    -CommandId 'aux-unchanged' `
+                    -Script $script `
+                    -AggregatedOutput '')
+            )
+            Add-AuxiliaryInventoryComparison `
+                -InputObject $inputObject `
+                -CommandId 'aux-unchanged' `
+                -Root workspace
+        }
+        'auxiliary-does-not-satisfy-required-read' {
+            Add-RequiredRead -InputObject $inputObject -Root workspace -Path 'WORK.md'
+            $inputObject.policy | Add-Member `
+                -NotePropertyName auxiliary_read_roots `
+                -NotePropertyValue @('workspace')
+            $script = "Get-ChildItem -LiteralPath '$workspaceRoot' -Force"
+            $inputObject.evidence.commands = @(
+                (New-RawUnknownReadRecord `
+                    -InputObject $inputObject `
+                    -CommandId 'aux-not-evidence' `
+                    -Script $script `
+                    -AggregatedOutput '')
+            )
+            Add-AuxiliaryInventoryComparison `
+                -InputObject $inputObject `
+                -CommandId 'aux-not-evidence' `
+                -Root workspace
+        }
+        'auxiliary-root-not-authorized' {
+            $inputObject.policy | Add-Member `
+                -NotePropertyName auxiliary_read_roots `
+                -NotePropertyValue @('candidate')
+            $script = "Get-ChildItem -LiteralPath '$workspaceRoot' -Force"
+            $inputObject.evidence.commands = @(
+                (New-RawUnknownReadRecord `
+                    -InputObject $inputObject `
+                    -CommandId 'aux-wrong-root' `
+                    -Script $script `
+                    -AggregatedOutput '')
+            )
+            Add-AuxiliaryInventoryComparison `
+                -InputObject $inputObject `
+                -CommandId 'aux-wrong-root' `
+                -Root workspace
+        }
+        'auxiliary-inventory-drift' {
+            $inputObject.policy | Add-Member `
+                -NotePropertyName auxiliary_read_roots `
+                -NotePropertyValue @('workspace')
+            $script = "Get-ChildItem -LiteralPath '$workspaceRoot' -Force"
+            $inputObject.evidence.commands = @(
+                (New-RawUnknownReadRecord `
+                    -InputObject $inputObject `
+                    -CommandId 'aux-drift' `
+                    -Script $script `
+                    -AggregatedOutput '')
+            )
+            Add-AuxiliaryInventoryComparison `
+                -InputObject $inputObject `
+                -CommandId 'aux-drift' `
+                -Root workspace `
+                -Drift
+        }
+        'preapproval-project-read' {
+            $inputObject.policy.allowed_files = @($inputObject.policy.allowed_files | Where-Object {
+                -not ([string]$_.root -ceq 'workspace' -and [string]$_.path -ceq 'WORK.md')
+            })
+            $inputObject.evidence.commands = @(
+                (New-RawUnknownReadRecord `
+                    -InputObject $inputObject `
+                    -CommandId 'preapproval-read' `
+                    -Script $fullRead `
+                    -AggregatedOutput ($content + "`r`n"))
+            )
+        }
+        'partial-read-with-aggregated-output' {
+            Add-RequiredRead -InputObject $inputObject -Root workspace -Path 'WORK.md'
+            $partial = "Get-Content -LiteralPath '$workPath' -TotalCount 1"
+            $inputObject.evidence.commands = @(
+                (New-RawUnknownReadRecord `
+                    -InputObject $inputObject `
+                    -CommandId 'strict-partial' `
+                    -Script $partial `
+                    -AggregatedOutput "alpha`r`n")
+            )
+        }
+        'conflicting-command-aliases' {
+            Add-RequiredRead -InputObject $inputObject -Root workspace -Path 'WORK.md'
+            $record = New-RawUnknownReadRecord `
+                -InputObject $inputObject `
+                -CommandId 'strict-conflicting-aliases' `
+                -Script $fullRead `
+                -AggregatedOutput ($content + "`r`n")
+            $record | Add-Member -NotePropertyName exit_code -NotePropertyValue 1
+            $record | Add-Member `
+                -NotePropertyName command_actions `
+                -NotePropertyValue @([pscustomobject]@{
+                    type = 'unknown'
+                    command = "Get-Content -Raw -LiteralPath '$statusPath'"
+                })
+            $record | Add-Member `
+                -NotePropertyName aggregated_output `
+                -NotePropertyValue 'conflicting-output'
+            $inputObject.evidence.commands = @($record)
+        }
+        'conflicting-inventory-link-aliases' {
+            $inputObject.policy | Add-Member `
+                -NotePropertyName auxiliary_read_roots `
+                -NotePropertyValue @('workspace')
+            $script = "Get-ChildItem -LiteralPath '$workspaceRoot' -Force"
+            $inputObject.evidence.commands = @(
+                (New-RawUnknownReadRecord `
+                    -InputObject $inputObject `
+                    -CommandId 'aux-conflicting-link' `
+                    -Script $script `
+                    -AggregatedOutput '')
+            )
+            Add-AuxiliaryInventoryComparison `
+                -InputObject $inputObject `
+                -CommandId 'aux-conflicting-link' `
+                -Root workspace
+            $inputObject.evidence.inventory_comparisons[0] | Add-Member `
+                -NotePropertyName command_id `
+                -NotePropertyValue 'different-command'
+        }
+        'outer-command-missing-raw' {
+            Add-RequiredRead -InputObject $inputObject -Root workspace -Path 'WORK.md'
+            $outerRead = "Get-Content -LiteralPath '$workPath'"
+            $record = New-RawUnknownReadRecord `
+                -InputObject $inputObject `
+                -CommandId 'strict-outer-not-raw' `
+                -Script $outerRead `
+                -AggregatedOutput ($content + "`r`n")
+            $record.commandActions[0].command = $fullRead
+            $inputObject.evidence.commands = @($record)
+        }
+        'matching-command-aliases' {
+            Add-RequiredRead -InputObject $inputObject -Root workspace -Path 'WORK.md'
+            $record = New-RawUnknownReadRecord `
+                -InputObject $inputObject `
+                -CommandId 'strict-matching-aliases' `
+                -Script $fullRead `
+                -AggregatedOutput ($content + "`r`n")
+            $record | Add-Member -NotePropertyName exit_code -NotePropertyValue 0
+            $record | Add-Member `
+                -NotePropertyName command_actions `
+                -NotePropertyValue (Copy-ControllerValue -Value $record.commandActions)
+            $record | Add-Member `
+                -NotePropertyName aggregated_output `
+                -NotePropertyValue ([string]$record.aggregatedOutput)
+            $inputObject.evidence.commands = @($record)
+        }
+        'recursive-auxiliary-listing' {
+            $inputObject.policy | Add-Member `
+                -NotePropertyName auxiliary_read_roots `
+                -NotePropertyValue @('workspace')
+            $script = "Get-ChildItem -LiteralPath '$workspaceRoot' -Force -Recurse"
+            $inputObject.evidence.commands = @(
+                (New-RawUnknownReadRecord `
+                    -InputObject $inputObject `
+                    -CommandId 'aux-recursive' `
+                    -Script $script `
+                    -AggregatedOutput '')
+            )
+            Add-AuxiliaryInventoryComparison `
+                -InputObject $inputObject `
+                -CommandId 'aux-recursive' `
+                -Root workspace
+        }
+        'empty-auxiliary-inventory' {
+            $inputObject.policy | Add-Member `
+                -NotePropertyName auxiliary_read_roots `
+                -NotePropertyValue @('workspace')
+            $script = "Get-ChildItem -LiteralPath '$workspaceRoot' -Force"
+            $inputObject.evidence.commands = @(
+                (New-RawUnknownReadRecord `
+                    -InputObject $inputObject `
+                    -CommandId 'aux-empty' `
+                    -Script $script `
+                    -AggregatedOutput '')
+            )
+            $inputObject.evidence.inventory_comparisons = @([pscustomobject]@{
+                name = 'auxiliary-empty'
+                commandId = 'aux-empty'
+                root = 'workspace'
+                left = [object[]]@()
+                right = [object[]]@()
+            })
+        }
+        'auxiliary-subpath-not-authorized' {
+            $inputObject.policy | Add-Member `
+                -NotePropertyName auxiliary_read_roots `
+                -NotePropertyValue @('workspace')
+            $subpath = Join-Path $workspaceRoot 'nested'
+            $script = "Get-ChildItem -LiteralPath '$subpath' -Force"
+            $inputObject.evidence.commands = @(
+                (New-RawUnknownReadRecord `
+                    -InputObject $inputObject `
+                    -CommandId 'aux-subpath' `
+                    -Script $script `
+                    -AggregatedOutput '')
+            )
+            Add-AuxiliaryInventoryComparison `
+                -InputObject $inputObject `
+                -CommandId 'aux-subpath' `
+                -Root workspace
+        }
+        'auxiliary-command-id-collision' {
+            $inputObject.policy | Add-Member `
+                -NotePropertyName auxiliary_read_roots `
+                -NotePropertyValue @('workspace')
+            $auxiliaryScript = "Get-ChildItem -LiteralPath '$workspaceRoot' -Force"
+            $inputObject.evidence.commands = @(
+                (New-RawUnknownReadRecord `
+                    -InputObject $inputObject `
+                    -CommandId 'shared-command-id' `
+                    -Script $auxiliaryScript `
+                    -AggregatedOutput ''),
+                (New-RawUnknownReadRecord `
+                    -InputObject $inputObject `
+                    -CommandId 'shared-command-id' `
+                    -Script $fullRead `
+                    -AggregatedOutput ($content + "`r`n"))
+            )
+            Add-AuxiliaryInventoryComparison `
+                -InputObject $inputObject `
+                -CommandId 'shared-command-id' `
+                -Root workspace
+        }
+        'auxiliary-transform-variable' {
+            $inputObject.policy | Add-Member `
+                -NotePropertyName auxiliary_read_roots `
+                -NotePropertyValue @('workspace')
+            $script = "Get-ChildItem -LiteralPath '$workspaceRoot' -Force; " +
+                'Write-Output $env:SECRET'
+            $inputObject.evidence.commands = @(
+                (New-RawUnknownReadRecord `
+                    -InputObject $inputObject `
+                    -CommandId 'aux-variable-transform' `
+                    -Script $script `
+                    -AggregatedOutput '')
+            )
+            Add-AuxiliaryInventoryComparison `
+                -InputObject $inputObject `
+                -CommandId 'aux-variable-transform' `
+                -Root workspace
+        }
+        'auxiliary-command-id-case-distinct' {
+            $inputObject.policy | Add-Member `
+                -NotePropertyName auxiliary_read_roots `
+                -NotePropertyValue @('workspace')
+            $script = "Get-ChildItem -LiteralPath '$workspaceRoot' -Force"
+            $inputObject.evidence.commands = @(
+                (New-RawUnknownReadRecord `
+                    -InputObject $inputObject `
+                    -CommandId 'aux-case' `
+                    -Script $script `
+                    -AggregatedOutput ''),
+                (New-RawUnknownReadRecord `
+                    -InputObject $inputObject `
+                    -CommandId 'AUX-CASE' `
+                    -Script $script `
+                    -AggregatedOutput '')
+            )
+            Add-AuxiliaryInventoryComparison `
+                -InputObject $inputObject `
+                -CommandId 'aux-case' `
+                -Root workspace
+        }
+        default { throw "Unhandled evidence-surface scenario: $($Case.scenario)" }
+    }
+    return $inputObject
+}
+
 function Get-MetamorphicInputs {
     param(
         [Parameter(Mandatory)][object]$Case,
@@ -1812,6 +2216,168 @@ function Invoke-Suite {
             else {
                 Get-CodexCanonicalHash -InputObject $generatedContract.material
             }
+        })
+    }
+
+    $evidenceSurface = [System.Collections.Generic.List[object]]::new()
+    foreach ($case in @($cases.evidence_surface_cases)) {
+        $inputObject = Get-EvidenceSurfaceInput `
+            -Case $case `
+            -CaseRoot (Join-Path $SuiteRoot $case.id)
+        $result = Invoke-CodexEvidenceController -Mode runtime -InputObject $inputObject
+        $passed = ($result.adjudication.verdict -eq $case.expected_verdict)
+        switch ([string]$case.id) {
+            'E01' {
+                $passed = $passed -and
+                    @($result.adjudication.completed_effects | Where-Object {
+                        [string]$_.kind -ceq 'read' -and
+                        [string]$_.operation -ceq 'get-content' -and
+                        [string]$_.proof_source -ceq 'aggregated-output-identity' -and
+                        [string]$_.transport_suffix_removed -ceq 'crlf'
+                    }).Count -eq 1 -and
+                    @($result.adjudication.unknowns).Count -eq 0
+            }
+            'E02' {
+                $passed = $passed -and
+                    @($result.adjudication.unknowns) -contains
+                        'aggregated_output_content_identity_not_proven' -and
+                    @($result.adjudication.unknowns) -contains 'required_read_not_proven'
+            }
+            'E03' {
+                $passed = $passed -and
+                    @($result.adjudication.unknowns) -contains 'read_content_proof_missing' -and
+                    @($result.adjudication.unknowns) -contains 'required_read_not_proven'
+            }
+            'E04' {
+                $passed = $passed -and
+                    @($result.adjudication.completed_effects | Where-Object {
+                        [string]$_.kind -ceq 'auxiliary-read' -and
+                        [string]$_.operation -ceq 'get-childitem'
+                    }).Count -eq 1 -and
+                    @($result.adjudication.completed_effects | Where-Object {
+                        [string]$_.kind -ceq 'read' -and
+                        [string]$_.operation -ceq 'get-content'
+                    }).Count -eq 0
+            }
+            'E05' {
+                $passed = $passed -and
+                    @($result.adjudication.unknowns) -contains 'required_read_not_proven' -and
+                    @($result.adjudication.completed_effects | Where-Object {
+                        [string]$_.kind -ceq 'auxiliary-read'
+                    }).Count -eq 1
+            }
+            'E06' {
+                $passed = $passed -and
+                    @($result.adjudication.violations) -contains
+                        'auxiliary_read_root_not_authorized'
+            }
+            'E07' {
+                $passed = $passed -and
+                    @($result.adjudication.violations) -contains 'inventory_mismatch'
+            }
+            'E08' {
+                $passed = $passed -and
+                    @($result.adjudication.violations) -contains 'unauthorized_file_read'
+            }
+            'E09' {
+                $passed = $passed -and
+                    @($result.adjudication.unknowns) -contains
+                        'unsupported_get_content_parameter' -and
+                    @($result.adjudication.unknowns) -contains 'required_read_not_proven'
+            }
+            'E10' {
+                $passed = $passed -and
+                    @($result.adjudication.unknowns) -contains
+                        'command_exit_code_alias_conflict' -and
+                    @($result.adjudication.unknowns) -contains
+                        'command_actions_alias_conflict' -and
+                    @($result.adjudication.unknowns) -contains
+                        'aggregated_output_alias_conflict' -and
+                    @($result.adjudication.unknowns) -contains 'required_read_not_proven'
+            }
+            'E11' {
+                $passed = $passed -and
+                    @($result.adjudication.unknowns) -contains
+                        'inventory_command_id_alias_conflict' -and
+                    @($result.adjudication.unknowns) -contains
+                        'auxiliary_read_inventory_not_proven' -and
+                    @($result.adjudication.completed_effects | Where-Object {
+                        [string]$_.kind -ceq 'auxiliary-read'
+                    }).Count -eq 0
+            }
+            'E12' {
+                $passed = $passed -and
+                    @($result.adjudication.unknowns) -contains
+                        'read_content_proof_missing' -and
+                    @($result.adjudication.unknowns) -contains 'required_read_not_proven'
+            }
+            'E13' {
+                $passed = $passed -and
+                    @($result.adjudication.completed_effects | Where-Object {
+                        [string]$_.kind -ceq 'read' -and
+                        [string]$_.proof_source -ceq 'aggregated-output-identity'
+                    }).Count -eq 1 -and
+                    @($result.adjudication.unknowns).Count -eq 0
+            }
+            'E14' {
+                $passed = $passed -and
+                    @($result.adjudication.unknowns) -contains
+                        'unsupported_auxiliary_read_parameter' -and
+                    @($result.adjudication.completed_effects | Where-Object {
+                        [string]$_.kind -ceq 'auxiliary-read'
+                    }).Count -eq 0
+            }
+            'E15' {
+                $passed = $passed -and
+                    @($result.adjudication.inventory_results | Where-Object {
+                        [string]$_.name -ceq 'auxiliary-empty' -and $_.equal
+                    }).Count -eq 1 -and
+                    @($result.adjudication.completed_effects | Where-Object {
+                        [string]$_.kind -ceq 'auxiliary-read'
+                    }).Count -eq 1 -and
+                    @($result.adjudication.unknowns).Count -eq 0
+            }
+            'E16' {
+                $passed = $passed -and
+                    @($result.adjudication.violations) -contains
+                        'auxiliary_read_path_not_authorized' -and
+                    @($result.adjudication.completed_effects | Where-Object {
+                        [string]$_.kind -ceq 'auxiliary-read'
+                    }).Count -eq 0
+            }
+            'E17' {
+                $passed = $passed -and
+                    @($result.adjudication.unknowns) -contains
+                        'auxiliary_read_command_id_ambiguous' -and
+                    @($result.adjudication.completed_effects | Where-Object {
+                        [string]$_.kind -ceq 'auxiliary-read'
+                    }).Count -eq 0 -and
+                    @($result.adjudication.completed_effects | Where-Object {
+                        [string]$_.kind -ceq 'read'
+                    }).Count -eq 1
+            }
+            'E18' {
+                $passed = $passed -and
+                    @($result.adjudication.unknowns) -contains
+                        'unsupported_control_or_expansion_shape' -and
+                    @($result.adjudication.completed_effects | Where-Object {
+                        [string]$_.kind -ceq 'auxiliary-read'
+                    }).Count -eq 0
+            }
+            'E19' {
+                $passed = $passed -and
+                    @($result.adjudication.unknowns) -contains
+                        'auxiliary_read_inventory_not_proven' -and
+                    @($result.adjudication.completed_effects | Where-Object {
+                        [string]$_.kind -ceq 'auxiliary-read'
+                    }).Count -eq 1
+            }
+        }
+        $evidenceSurface.Add([ordered]@{
+            id = [string]$case.id
+            passed = $passed
+            verdict = [string]$result.adjudication.verdict
+            hash = Get-CodexCanonicalHash -InputObject $result.adjudication
         })
     }
 
@@ -1937,6 +2503,7 @@ function Invoke-Suite {
     return [ordered]@{
         schema_version = 'codex-evidence-controller-regression/v1'
         historical = @($historical)
+        evidence_surface = @($evidenceSurface)
         negative = @($negative)
         metamorphic = @($metamorphic)
         all_entry_modes_share_core = (@($modeHashes | Select-Object -Unique).Count -eq 1)
@@ -3076,6 +3643,9 @@ try {
     })
     $sealed = if ($VerifyLocalSealedEvidence) { Test-SealedInputs } else { @() }
     $allHistorical = @($runOne.historical | Where-Object { -not $_.passed }).Count -eq 0
+    $allEvidenceSurface = @(
+        $runOne.evidence_surface | Where-Object { -not $_.passed }
+    ).Count -eq 0
     $allNegative = @($runOne.negative | Where-Object { -not $_.passed }).Count -eq 0
     $allMetamorphic = @($runOne.metamorphic | Where-Object { -not $_.passed }).Count -eq 0
     $allHistoricalBindings = @($historicalBindings | Where-Object { -not $_.passed }).Count -eq 0
@@ -3123,6 +3693,7 @@ try {
     $packageIdentityPass = Test-PackageIdentity
     $passed = (
         $allHistorical -and
+        $allEvidenceSurface -and
         $allNegative -and
         $allMetamorphic -and
         $allHistoricalBindings -and
@@ -3153,6 +3724,7 @@ try {
     )
     $failures = @(
         @($runOne.historical | Where-Object { -not $_.passed } | ForEach-Object { $_.id }) +
+        @($runOne.evidence_surface | Where-Object { -not $_.passed } | ForEach-Object { $_.id }) +
         @($runOne.negative | Where-Object { -not $_.passed } | ForEach-Object { $_.id }) +
         @($runOne.metamorphic | Where-Object { -not $_.passed } | ForEach-Object { $_.id }) +
         @($historicalBindings | Where-Object { -not $_.passed } | ForEach-Object { "binding:$($_.id)" }) +
@@ -3206,6 +3778,11 @@ try {
                 }
             })
             results = @($runOne.historical)
+        }
+        evidence_surface = [ordered]@{
+            passed = @($runOne.evidence_surface | Where-Object passed).Count
+            total = @($runOne.evidence_surface).Count
+            identities = @($runOne.evidence_surface)
         }
         negative = [ordered]@{
             passed = @($runOne.negative | Where-Object passed).Count

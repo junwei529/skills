@@ -793,6 +793,8 @@ Add-Check `
         $controllerRecord.historical.passed -eq 11 -and
         $controllerRecord.historical.total -eq 11 -and
         @($controllerRecord.historical.generated_contracts).Count -eq 11 -and
+        $controllerRecord.evidence_surface.passed -eq 19 -and
+        $controllerRecord.evidence_surface.total -eq 19 -and
         $controllerRecord.negative.passed -eq 31 -and
         $controllerRecord.negative.total -eq 31 -and
         $controllerRecord.metamorphic.passed -eq 4 -and
@@ -842,7 +844,7 @@ Add-Check `
         $controllerRecord.narrow_git_context_check -eq $true -and
         $controllerRecord.canonical_repeat.equal -eq $true
     ) `
-    -Expectation 'tracked controller binds generated historical contracts, captures sealed bytes once, rejects real reparse and scratch-topology drift, safely cleans validated scratch, and passes historical, negative, metamorphic, and repeatability checks without recursive self-invocation'
+    -Expectation 'tracked controller binds generated historical contracts, separates strict evidence reads from bounded auxiliary observations, captures sealed bytes once, rejects real reparse and scratch-topology drift, safely cleans validated scratch, and passes historical, negative, metamorphic, and repeatability checks without recursive self-invocation'
 
 $checks | Format-Table -AutoSize
 

@@ -5,8 +5,9 @@ Last updated: 2026-08-06
 ## Snapshot
 
 - Repository: Agent Workflow Skills
-- Integration checkout: branch `main` at local merge `c05cb99...`; attached
-  development branch `codex/work-charter-v0.2` remains at `119aa27...`
+- Integration baseline: `main` at `79806bf...`, which descends from local merge
+  `c05cb99...`; attached development branch `codex/work-charter-v0.2` remains
+  at `119aa27...`
 - Released package identity: immutable `v0.1.2` at
   `ceed607152849775b981c54add74bfa30d858e4d`
 - GitHub Release:
@@ -17,9 +18,10 @@ Last updated: 2026-08-06
 - Rollback identity: immutable `v0.1.1` retained as a separately verified
   three-package backup
 - Writer: the phase Executor and integration writer have relinquished. The
-  current bounded writer owns only the ten mapped existing documentation
-  consumers listed under Immediate Next Action, on `main`; no Skill SOURCE,
-  eval, sealed-evidence, Git, push, or release authority follows
+  current bounded writer owns the controller evidence-boundary delta on
+  `codex/work-charter-controller-evidence-boundary`, mapped existing consumers,
+  and one sanitized result; no Skill SOURCE, sealed-evidence, model, native-
+  review, commit, push, or release authority follows
 
 The `v0.1.2` tag remains fixed at the release-preparation commit. The later
 documentation commit records already-completed tag, stable-install, canary, and
@@ -479,10 +481,11 @@ is owned by [Repository Verification](VERIFICATION.md).
 1. Read `AGENTS.md`, `docs/INDEX.md`, and `docs/AUTHORITY.md`.
 2. Read [Repository Status](STATUS.md), this handoff, and the relevant per-Skill
    State and Verification owners.
-3. Resolve `main` at or after merge `c05cb99...`, attached branch
-   `codex/work-charter-v0.2` at `119aa27...`, exact product candidate
-   `b965102...`, upstreams, the current ten-document dirty scope, and writer
-   ownership rather than assuming this snapshot is still current.
+3. Resolve `main` at or after `79806bf...`, attached branch
+   `codex/work-charter-v0.2` at `119aa27...`, current branch
+   `codex/work-charter-controller-evidence-boundary`, exact product candidate
+   `b965102...`, upstreams, the current dirty scope, and writer ownership rather
+   than assuming this snapshot is still current.
 4. Keep `c42eef3...` RC behavior, `ceed607...` release identity, the later
    evidence descendant, and the generated stable/rollback copies distinct.
 5. Before any future SOURCE, installation, cleanup, tag, or release action,
@@ -491,28 +494,59 @@ is owned by [Repository Verification](VERIFICATION.md).
 
 ## Immediate Next Action
 
-No release action remains pending for `v0.1.2`. Local merge `c05cb99...`
-already integrates controller commit `119aa27...` over governance baseline
-`f55b15a...`. The current writer may correct only these ten existing consumers
-of the candidate/evidence/recovery facts and run deterministic documentation
-checks:
+No release action remains pending for `v0.1.2`. Baseline `79806bf...` already
+contains local controller integration `c05cb99...`/`119aa27...`. The current
+writer may change only the following controller/evaluation paths, mapped
+existing consumers, and one sanitized result, then run offline checks:
 
-- `docs/HANDOFF.md`;
-- `docs/INDEX.md`;
-- `docs/ROADMAP.md`;
+- `evals/codex-evidence-controller.psm1`;
+- `evals/check-codex-evidence-controller.ps1`;
+- `evals/codex-evidence-controller-cases.json`;
+- `evals/check-fixtures.ps1`;
+- `evals/README.md`;
+- `evals/results/README.md`;
+- `evals/results/2026-08-06-work-charter-controller-evidence-boundary.md`;
+- `docs/decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md`;
+- `docs/skills/work-charter/STATE.md`;
+- `docs/skills/work-charter/VERIFICATION.md`;
 - `docs/STATUS.md`;
 - `docs/VERIFICATION.md`;
-- `docs/decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md`;
-- `docs/skills/work-charter/README.md`;
-- `docs/skills/work-charter/README.zh-CN.md`;
-- `docs/skills/work-charter/STATE.md`; and
-- `docs/skills/work-charter/VERIFICATION.md`.
+- `docs/ROADMAP.md`; and
+- this handoff.
 
-This correction distinguishes the three sealed execution records from the
-unchanged unaccepted `b965102...` candidate and records the optional recovery
-boundary. It creates no new product or evaluation contract and stops without a
-Skill/eval edit, model or assessor call, Git action, RC, installation, release,
-or cleanup.
+The correction separates strict required-read proof from bounded auxiliary
+observation and distinguishes shared matrix contamination from a cell-local
+visibility gap. It preserves every Work Charter package blob and sealed
+execution. It called no Gate 2 behavior model or assessor. The user later
+authorized native review for this exact 14-path attempt. Cycle 1 review 1/5
+found two P1 fail-closed gaps in duplicate-alias handling and outer/action
+command provenance; both are corrected with E10-E13. Review 2/5 found two more
+P1 gaps: recursive auxiliary listing could cross a contained reparse point, and
+empty inventories aborted parameter binding. Both are corrected with E14-E15.
+A sandboxed launch before review 2 failed on blocked network without a semantic
+result and is excluded as transport qualification. Review 3/5 found one further
+P1: a direct subordinate auxiliary path could traverse a contained reparse
+point. Auxiliary operations are now exact-root-only, and E16 proves the
+subordinate path is rejected. Review 4/5 materially covered staged, unstaged,
+and untracked changes and returned no actionable correctness finding. This
+review-history synchronization was the only later mutation. Review 5/5 found
+one P1: an inventory-linked auxiliary command ID could collide with a non-
+auxiliary record. Global command-ID cardinality and E17 now reject that
+ambiguity. The user approved one reset for the same commit attempt. Reset-cycle
+review 1/5 found two P1 gaps: an auxiliary transform could expose an environment
+variable, and case-distinct command IDs could share one case-insensitive
+inventory entry. Variable-bearing script shapes now remain unknown, inventory
+linkage uses ordinal comparison, and E18-E19 lock both corrections. Focused
+verification passes 19/19 at
+`a4b1de1b5430e7d239c057175ada81db8f32336bbddfd63d30a14ff0fd8aa75d`.
+The fixes changed reviewed bytes, so a later completed review in the authorized
+reset cycle had to inspect the corrected diff. Reset-cycle review 2/5 materially
+covered staged, unstaged, and untracked changes, independently reran the
+controller and fixture suites, and returned no actionable correctness issue.
+This review-history synchronization is the only later tracked mutation;
+native-review gate satisfaction is determined by a completed semantic review
+over these final bytes. Staging, commit, push, RC, installation, release, and
+cleanup remain unauthorized.
 
 The next possible product gate is a user-owned decision on a newly authorized
 Gate 2 evidence window. Before model consumption, that window must bind the
@@ -541,13 +575,12 @@ Stop before write or publication if:
 
 - live local/public identity, worktree, dirty scope, or writer ownership differs
   from the expected state;
-- the current documentation correction escapes the ten paths listed under
-  Immediate Next Action, changes a `skills/work-charter` blob, or changes an
-  eval/controller file;
+- the current controller/evaluation correction escapes the paths listed under
+  Immediate Next Action or changes a `skills/work-charter` blob;
 - any named sealed evidence input changes length or SHA-256;
-- the current correction would add a new file, case, fixture, checker, result,
-  fact class, contract, permission, side effect, or existing consumer outside
-  the approved same-fact envelope;
+- the current correction would add any file other than the listed sanitized
+  result, add a model behavior case or fixture, or introduce a product contract,
+  permission, side effect, or consumer outside the approved same-fact envelope;
 - correction history or consumed evidence would be reset through a new task,
   root, epoch, attempt, or candidate label;
 - a root summary would duplicate or contradict a per-Skill canonical owner;
@@ -560,12 +593,17 @@ Stop before write or publication if:
 
 ## Authorization Boundary
 
-The current user authorization covers only the ten-file documentation
-correction above and its deterministic documentation checks. It does not
-authorize a Skill or eval change, native review, staging, commit, push, branch
-or worktree change, RC materialization, model or assessor call, installation,
-release, global change, or cleanup. After checks, the writer stops with the
-exact dirty scope and verification results reported.
+The current user authorization covers only the listed controller/evaluation
+correction, mapped documentation, one sanitized result, the already-created
+branch, offline checks, and the native-review cycle for this exact 14-path
+attempt. The user explicitly reset the completed-review count once for this
+same commit attempt, authorizing up to five completed reviews in that reset
+cycle. Only reviews needed for same-scope finding handling or final-byte gate
+coverage may proceed; unused budget is not a reason to continue. It does not
+authorize another reset after that budget or a Skill SOURCE or
+sealed-evidence change, staging, commit, push,
+another branch or worktree change, RC materialization, Gate 2 behavior-model or
+assessor call, installation, release, global change, or cleanup.
 
 The completed user authorization covers the `v0.1.2` stable update, GitHub
 Release, this mapped evidence synchronization, deterministic verification,

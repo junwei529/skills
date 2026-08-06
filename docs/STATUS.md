@@ -9,7 +9,7 @@ Last updated: 2026-08-06
 | Tested package identity | all three package byte sets independently reached exact-commit RC readiness at `c42eef392a5b9f58bbee64aa73ffb603a6fb6c29` and were re-proved at tag/stable identity `v0.1.2` | [Verification](VERIFICATION.md) |
 | Stable release identity | immutable [`v0.1.2`](https://github.com/junwei529/skills/releases/tag/v0.1.2) at `ceed607152849775b981c54add74bfa30d858e4d`; exact tag, stable loaded-copy, and GitHub Release proof pass for all three Skills | [Verification](VERIFICATION.md) |
 | Project Docs | released six-file `v0.1.2` stable copy; exact loaded identity and mature `NOOP` canary pass | [State](skills/manage-project-docs/STATE.md) |
-| Work Charter | released five-file `v0.1.2` stable copy remains active; exact product candidate `b965102...` remains unaccepted, while its three recorded Gate 2 executions are individually sealed and non-retriable; a later tracked controller revision passes offline regression and one isolated path-bound app-server canary, but is not a new product candidate or behavior acceptance | [State](skills/work-charter/STATE.md) |
+| Work Charter | released five-file `v0.1.2` stable copy remains active; exact product candidate `b965102...` remains unaccepted, while its three recorded Gate 2 executions are individually sealed and non-retriable; the tracked controller plus an uncommitted strict-read/auxiliary-observation delta pass offline regression, but neither is a new product candidate or behavior acceptance | [State](skills/work-charter/STATE.md) |
 | PowerShell | released five-file `v0.1.2` stable copy; corrected loaded identity and guarded native/text diagnosis pass; live WSL remains unproved | [State](skills/use-powershell-safely/STATE.md) |
 | Release lifecycle | `v0.1.2` tag, stable update, tag-pinned canaries, and Latest GitHub Release complete; `v0.1.1` retained as rollback identity | [Runbook](RUNBOOK.md) |
 
@@ -55,6 +55,9 @@ behavior acceptance follows. Tracked controller commit `119aa27...` adds
 deterministic evaluation infrastructure only, and local merge `c05cb99...`
 integrates it over governance baseline `f55b15a...`. Neither edits the package,
 retries or rescores sealed evidence, or creates a new candidate identity.
+The current uncommitted controller delta starts from `79806bf...`, keeps all
+five package blobs and sealed executions unchanged, and separates strict file-
+read evidence from bounded auxiliary observation.
 
 [Decision 0018](decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md)
 records the accepted rationale, two-stage entry, level model, adoption and re-
@@ -86,9 +89,20 @@ four-session fixed-turn `VIOLATION`. Exact `b965102...` retains three
 individually sealed execution records and their consumed history without
 acceptance; those executions are non-retriable, while the candidate remains
 eligible only for a newly authorized Gate 2 window. The tracked controller regression
-passes 11 source-and-generated-contract-bound historical, 17 negative, and 4 metamorphic cases twice
-with identical canonical output. Failed execution, effect-changing or
-signature-verifying Git arguments, and partial file reads fail closed; exact
+passes 11 source-and-generated-contract-bound historical, 19 evidence-surface,
+31 negative, and 4 metamorphic cases twice with identical canonical output.
+The evidence-surface group proves exact-output strict reads and bounded
+auxiliary observations remain separate. Conflicting snake/camel command or
+inventory-link aliases fail closed, matching duplicates remain admissible, and
+both outer and action command representations must prove an exact raw read.
+Auxiliary path operations target only the exact policy-listed root, recursive
+listing is rejected, and explicitly present empty before/after inventories
+compare equal without aborting adjudication. Inventory-linked command IDs must
+name exactly one record across the complete command set and use ordinal,
+case-sensitive linkage throughout. Auxiliary display transforms containing
+variables or expressions remain unknown rather than receiving evidence credit.
+Failed execution, effect-changing or signature-verifying Git arguments, and
+partial file reads fail closed; exact
 revision blobs own both five-file manifest hashes, and sealed locators are
 contained before read. Each historical generated input plus expected result is
 hash-bound before controller invocation; each sealed projection derives hash
@@ -99,21 +113,21 @@ Junction on Windows and SymbolicLink otherwise; non-Windows execution remains
 model, the checker also validates the exact ordinary `.eval-runs` root before
 scratch creation, revalidates root/scratch/descendants before recursive
 cleanup, and verifies post-cleanup shape; two scratch-topology guards pass.
-Two external-input type guards also pass: non-Boolean role authorization and
-non-integral nested-turn counts fail closed as `CONTROLLER_UNKNOWN` rather than
-being coerced or throwing.
-Five Git-read safety guards require `--no-pager` on every admitted Git read and
+Three external-input type guards also pass: non-Boolean role or assessor
+authorization and non-integral nested-turn counts fail closed as
+`CONTROLLER_UNKNOWN` rather than being coerced or throwing.
+Nine Git-read safety guards require `--no-pager` on every admitted Git read and
 additionally require `--no-optional-locks` plus `-c core.fsmonitor=false` for
 `git status`; missing safeguards fail closed, while all supported bounded read
 shapes remain admissible. Only exact `git remote -v` or `remote --verbose`
 listing forms are admitted; extra remote subcommands fail closed.
-Three command-resolution guards additionally require one policy-pinned resolved
+Eight command-resolution guards additionally require one policy-pinned resolved
 identity for every completed command family; missing, shadowed, or untrusted
 identities fail closed. This validates the evidence record contract, not a live
 resolver collector.
 Git `cat-file --filters` and `--filters=...` also fail closed because they can
 invoke configured content filters despite an otherwise read-shaped command.
-Three content-proof identity guards require nonnegative integral lengths and
+Six content/proof/inventory identity guards require nonnegative integral lengths and
 64-hex SHA-256 values on both policy and evidence sides before comparison;
 malformed or matching-malformed identities return `CONTROLLER_UNKNOWN` rather
 than being admitted or throwing.
@@ -285,8 +299,31 @@ decision.
 
 No release action remains pending for `v0.1.2`. Local merge `c05cb99...`
 already integrates controller-stabilization commit `119aa27...` over governance
-baseline `f55b15a...`. The current bounded documentation correction stops
-before any Work Charter SOURCE, eval, RC, or model action.
+baseline `f55b15a...`. The current evidence-boundary delta is implemented but
+uncommitted on `codex/work-charter-controller-evidence-boundary`. Native review
+cycle 1 review 1/5 found two P1 fail-closed gaps in duplicate-alias handling and
+outer/action command provenance; both are corrected with four added evidence-
+surface regressions. Review 2/5 found two further P1 gaps in recursive auxiliary
+listing and empty-inventory handling; both are corrected with E14-E15. A
+sandboxed network failure before that semantic result is excluded as transport
+qualification. Review 3/5 found that a direct subordinate path could still
+traverse a contained reparse point; the root-only restriction and E16 correct
+that P1. Review 4/5 then materially covered staged, unstaged, and untracked
+changes and returned no actionable correctness finding. This review-history
+synchronization was the only later mutation. Review 5/5 found one P1: a linked
+auxiliary command ID could collide with a non-auxiliary record. Global command-
+ID cardinality and E17 now correct that ambiguity. The user approved one reset
+for the same commit attempt. Reset-cycle review 1/5 found two more P1 gaps:
+variable-bearing auxiliary transforms could expose environment data, and a
+case-insensitive inventory map could let case-distinct command IDs share one
+proof. Variable expressions now fail closed, ordinal inventory linkage plus
+E18-E19 correct both gaps, and focused verification passes 19/19. The fixes
+changed reviewed bytes. Reset-cycle review 2/5 materially covered staged,
+unstaged, and untracked changes, independently reran the controller and fixture
+suites, and returned no actionable correctness issue. This review-history
+synchronization is the only later tracked mutation; native-review gate
+satisfaction is determined by a completed semantic review over these final
+bytes. No staging, commit, push, or other Git closeout is authorized.
 
 The next possible Work Charter product gate is a separately authorized Gate 2
 recovery window for exact candidate `b965102...`, not Gate 3. Its pre-consumption

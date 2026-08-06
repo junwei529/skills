@@ -53,6 +53,56 @@ function Get-ControllerPropertyState {
     return [pscustomobject]@{ Present = $true; Value = $property.Value }
 }
 
+function Get-ControllerAliasedPropertyState {
+    param(
+        [AllowNull()]
+        [object]$Object,
+        [Parameter(Mandatory)]
+        [string[]]$Names
+    )
+
+    $present = [System.Collections.Generic.List[object]]::new()
+    foreach ($name in $Names) {
+        $state = Get-ControllerPropertyState -Object $Object -Name $name
+        if ($state.Present) {
+            $present.Add([pscustomobject]@{ Name = $name; Value = $state.Value })
+        }
+    }
+    if ($present.Count -eq 0) {
+        return [pscustomobject]@{
+            Present = $false
+            Name = $null
+            Value = $null
+            Conflicting = $false
+            Names = @()
+        }
+    }
+
+    $conflicting = $false
+    if ($present.Count -gt 1) {
+        try {
+            $firstCanonical = ConvertTo-CodexCanonicalJson -InputObject $present[0].Value
+            foreach ($entry in @($present | Select-Object -Skip 1)) {
+                if ((ConvertTo-CodexCanonicalJson -InputObject $entry.Value) -cne
+                    $firstCanonical) {
+                    $conflicting = $true
+                    break
+                }
+            }
+        }
+        catch {
+            $conflicting = $true
+        }
+    }
+    return [pscustomobject]@{
+        Present = $true
+        Name = [string]$present[0].Name
+        Value = $present[0].Value
+        Conflicting = $conflicting
+        Names = @($present | ForEach-Object { [string]$_.Name })
+    }
+}
+
 function ConvertTo-ControllerInteger {
     param([AllowNull()][object]$Value)
 
@@ -117,6 +167,93 @@ function ConvertTo-ControllerContentIdentity {
             length = $length.Value
             sha256 = $sha256
         }
+    }
+}
+
+function Compare-AggregatedOutputContentIdentity {
+    param(
+        [AllowNull()][object]$Output,
+        [Parameter(Mandatory)][object]$ExpectedIdentity
+    )
+
+    $expected = ConvertTo-ControllerContentIdentity -Value $ExpectedIdentity
+    if (-not $expected.Valid) {
+        return [pscustomobject]@{
+            Matched = $false
+            Error = 'allowed_file_content_identity_invalid'
+            Normalized = $null
+            TransportSuffix = $null
+        }
+    }
+    if ($Output -isnot [string]) {
+        return [pscustomobject]@{
+            Matched = $false
+            Error = 'aggregated_output_missing_or_invalid'
+            Normalized = $null
+            TransportSuffix = $null
+        }
+    }
+
+    $candidates = [System.Collections.Generic.List[object]]::new()
+    $candidates.Add([pscustomobject]@{ Text = [string]$Output; Suffix = 'none' })
+    if ([string]$Output -and ([string]$Output).EndsWith(
+        "`r`n",
+        [System.StringComparison]::Ordinal
+    )) {
+        $candidates.Add([pscustomobject]@{
+            Text = ([string]$Output).Substring(0, ([string]$Output).Length - 2)
+            Suffix = 'crlf'
+        })
+    }
+    elseif ([string]$Output -and ([string]$Output).EndsWith(
+        "`n",
+        [System.StringComparison]::Ordinal
+    )) {
+        $candidates.Add([pscustomobject]@{
+            Text = ([string]$Output).Substring(0, ([string]$Output).Length - 1)
+            Suffix = 'lf'
+        })
+    }
+
+    $encoder = [System.Text.UTF8Encoding]::new($false, $true)
+    $seen = [System.Collections.Generic.HashSet[string]]::new(
+        [System.StringComparer]::Ordinal
+    )
+    foreach ($candidate in $candidates) {
+        try {
+            $bytes = $encoder.GetBytes([string]$candidate.Text)
+        }
+        catch {
+            return [pscustomobject]@{
+                Matched = $false
+                Error = 'aggregated_output_utf8_encoding_failed'
+                Normalized = $null
+                TransportSuffix = $null
+            }
+        }
+        $sha256 = [Convert]::ToHexString(
+            [System.Security.Cryptography.SHA256]::HashData($bytes)
+        ).ToLowerInvariant()
+        $key = '{0}|{1}' -f $bytes.Length, $sha256
+        if (-not $seen.Add($key)) {
+            continue
+        }
+        if ($bytes.Length -eq $expected.Normalized.length -and
+            $sha256 -ceq $expected.Normalized.sha256) {
+            return [pscustomobject]@{
+                Matched = $true
+                Error = $null
+                Normalized = $expected.Normalized
+                TransportSuffix = [string]$candidate.Suffix
+            }
+        }
+    }
+
+    return [pscustomobject]@{
+        Matched = $false
+        Error = 'aggregated_output_content_identity_not_proven'
+        Normalized = $null
+        TransportSuffix = $null
     }
 }
 
@@ -418,6 +555,7 @@ function Test-UnsafeScriptShape {
         $node -is [System.Management.Automation.Language.SubExpressionAst] -or
         $node -is [System.Management.Automation.Language.ScriptBlockExpressionAst] -or
         $node -is [System.Management.Automation.Language.CommandExpressionAst] -or
+        $node -is [System.Management.Automation.Language.VariableExpressionAst] -or
         $node -is [System.Management.Automation.Language.MemberExpressionAst] -or
         $node -is [System.Management.Automation.Language.InvokeMemberExpressionAst]
     }, $true))
@@ -491,6 +629,127 @@ function Get-GetContentEffect {
         Effects = @([ordered]@{
             kind = 'read'
             operation = 'get-content'
+            path = $path
+        })
+        Errors = @()
+    }
+}
+
+function Test-SingleRawGetContentCommand {
+    param([Parameter(Mandatory)][string]$ObservedCommand)
+
+    $inner = Get-InnerPowerShellScript -ObservedCommand $ObservedCommand
+    if ($null -ne $inner.Error) {
+        return $false
+    }
+    $parsed = Get-ParsedScript -Script $inner.Script
+    if ($parsed.Errors.Count -gt 0 -or (Test-UnsafeScriptShape -Ast $parsed.Ast)) {
+        return $false
+    }
+    $commands = @($parsed.Ast.FindAll({
+        param($node)
+        $node -is [System.Management.Automation.Language.CommandAst]
+    }, $true))
+    if ($commands.Count -ne 1 -or
+        [System.IO.Path]::GetFileName($commands[0].GetCommandName()).ToLowerInvariant() -cne
+            'get-content') {
+        return $false
+    }
+    $rawParameters = @($commands[0].CommandElements | Where-Object {
+        $_ -is [System.Management.Automation.Language.CommandParameterAst] -and
+        $_.ParameterName -ieq 'Raw'
+    })
+    if ($rawParameters.Count -ne 1 -or $null -ne $rawParameters[0].Argument) {
+        return $false
+    }
+    $semantics = Get-GetContentEffect -Command $commands[0]
+    return (
+        @($semantics.Errors).Count -eq 0 -and
+        @($semantics.Effects).Count -eq 1
+    )
+}
+
+function Get-AuxiliaryPathReadEffect {
+    param([Parameter(Mandatory)][System.Management.Automation.Language.CommandAst]$Command)
+
+    $operation = [System.IO.Path]::GetFileName(
+        $Command.GetCommandName()
+    ).ToLowerInvariant()
+    $allowedSwitches = switch ($operation) {
+        'get-childitem' { @('force', 'file', 'directory', 'name') }
+        'get-item' { @('force') }
+        'resolve-path' { @('relative') }
+        default { @() }
+    }
+    $path = $null
+    $positionals = [System.Collections.Generic.List[string]]::new()
+    $errors = [System.Collections.Generic.List[string]]::new()
+    $elements = @($Command.CommandElements)
+    for ($index = 1; $index -lt $elements.Count; $index++) {
+        $element = $elements[$index]
+        if ($element -is [System.Management.Automation.Language.CommandParameterAst]) {
+            $name = $element.ParameterName.ToLowerInvariant()
+            if ($name -in $allowedSwitches) {
+                if ($null -ne $element.Argument) {
+                    $errors.Add('auxiliary_read_switch_argument_not_admissible')
+                }
+                continue
+            }
+            if ($name -notin @('literalpath', 'path')) {
+                $errors.Add('unsupported_auxiliary_read_parameter')
+                continue
+            }
+            $value = $null
+            if ($null -ne $element.Argument) {
+                $value = Get-ConstantAstText -Ast $element.Argument
+            }
+            elseif (($index + 1) -lt $elements.Count) {
+                $value = Get-ConstantAstText -Ast $elements[$index + 1]
+                $index++
+            }
+            if ([string]::IsNullOrWhiteSpace($value)) {
+                $errors.Add('auxiliary_read_path_is_not_constant')
+            }
+            elseif ($null -ne $path) {
+                $errors.Add('multiple_auxiliary_read_paths')
+            }
+            else {
+                $path = $value
+            }
+            continue
+        }
+
+        $value = Get-ConstantAstText -Ast $element
+        if ($null -eq $value) {
+            $errors.Add('auxiliary_read_argument_is_not_constant')
+        }
+        else {
+            $positionals.Add($value)
+        }
+    }
+
+    if ($null -eq $path) {
+        if ($positionals.Count -eq 1) {
+            $path = $positionals[0]
+        }
+        elseif ($positionals.Count -eq 0 -and $operation -eq 'get-childitem') {
+            $path = '.'
+        }
+        else {
+            $errors.Add('auxiliary_read_requires_one_path')
+        }
+    }
+    elseif ($positionals.Count -gt 0) {
+        $errors.Add('unexpected_auxiliary_read_positional_argument')
+    }
+
+    if ($errors.Count -gt 0) {
+        return [pscustomobject]@{ Effects = @(); Errors = @($errors) }
+    }
+    return [pscustomobject]@{
+        Effects = @([ordered]@{
+            kind = 'auxiliary-read'
+            operation = $operation
             path = $path
         })
         Errors = @()
@@ -796,12 +1055,18 @@ function Get-ScriptSemantics {
             $commandNames.Add($name)
         }
         elseif ($leaf -in @(
-            'get-childitem', 'get-item', 'test-path', 'resolve-path',
+            'get-childitem', 'get-item', 'test-path', 'resolve-path'
+        )) {
+            $classified = Get-AuxiliaryPathReadEffect -Command $command
+            $commandFamilies.Add('powershell-management')
+            $commandNames.Add($name)
+        }
+        elseif ($leaf -in @(
             'select-object', 'sort-object', 'format-table', 'format-list',
             'write-output', 'out-string'
         )) {
             $classified = [pscustomobject]@{
-                Effects = @([ordered]@{ kind = 'read'; operation = $leaf })
+                Effects = @([ordered]@{ kind = 'auxiliary-transform'; operation = $leaf })
                 Errors = @()
             }
             $commandFamilies.Add('powershell-management')
@@ -1063,6 +1328,48 @@ function ConvertTo-ControllerRoots {
     return [pscustomobject]@{ Valid = $true; Normalized = [pscustomobject]$normalized }
 }
 
+function Get-AuxiliaryReadRootSet {
+    param(
+        [AllowNull()][object]$Policy,
+        [AllowNull()][object]$Roots
+    )
+
+    $set = [System.Collections.Generic.HashSet[string]]::new(
+        [System.StringComparer]::OrdinalIgnoreCase
+    )
+    $errors = [System.Collections.Generic.List[string]]::new()
+    $state = Get-ControllerPropertyState -Object $Policy -Name 'auxiliary_read_roots'
+    if (-not $state.Present) {
+        return [pscustomobject]@{ Set = $set; Errors = @() }
+    }
+    if ($null -eq $Roots) {
+        return [pscustomobject]@{
+            Set = $set
+            Errors = @('auxiliary_read_roots_require_valid_policy_roots')
+        }
+    }
+    $available = [System.Collections.Generic.HashSet[string]]::new(
+        [System.StringComparer]::OrdinalIgnoreCase
+    )
+    foreach ($property in @($Roots.PSObject.Properties)) {
+        [void]$available.Add([string]$property.Name)
+    }
+    foreach ($value in @($state.Value)) {
+        if ($value -isnot [string] -or [string]::IsNullOrWhiteSpace([string]$value) -or
+            -not $available.Contains([string]$value)) {
+            $errors.Add('auxiliary_read_root_invalid')
+            continue
+        }
+        if (-not $set.Add([string]$value)) {
+            $errors.Add('duplicate_auxiliary_read_root')
+        }
+    }
+    return [pscustomobject]@{
+        Set = $set
+        Errors = @($errors | Sort-Object -Unique)
+    }
+}
+
 function Resolve-ControllerPath {
     param(
         [Parameter(Mandatory)][string]$Path,
@@ -1284,8 +1591,12 @@ function Get-ActionProofMap {
 
 function Compare-InventoryRows {
     param(
-        [Parameter(Mandatory)][object[]]$Left,
-        [Parameter(Mandatory)][object[]]$Right
+        [Parameter(Mandatory)]
+        [AllowEmptyCollection()]
+        [object[]]$Left,
+        [Parameter(Mandatory)]
+        [AllowEmptyCollection()]
+        [object[]]$Right
     )
 
     $leftMap = @{}
@@ -1342,6 +1653,7 @@ function Invoke-ControllerCore {
     $completedEffects = [System.Collections.Generic.List[object]]::new()
     $declinedDiagnostics = [System.Collections.Generic.List[object]]::new()
     $failedDiagnostics = [System.Collections.Generic.List[object]]::new()
+    $pendingAuxiliaryReads = [System.Collections.Generic.List[object]]::new()
 
     if ($null -eq $policy -or $null -eq $evidence) {
         Add-UniqueText -List $unknowns -Value 'policy_or_evidence_missing'
@@ -1406,13 +1718,56 @@ function Invoke-ControllerCore {
     foreach ($error in @($trustedCommandIdentityResult.Errors)) {
         Add-UniqueText -List $unknowns -Value ([string]$error)
     }
+    $auxiliaryReadRootResult = Get-AuxiliaryReadRootSet -Policy $policy -Roots $roots
+    foreach ($error in @($auxiliaryReadRootResult.Errors)) {
+        Add-UniqueText -List $unknowns -Value ([string]$error)
+    }
     $completedReadKeys = [System.Collections.Generic.HashSet[string]]::new([System.StringComparer]::Ordinal)
-    foreach ($commandRecord in @(Get-ObjectValue -Object $evidence -Name 'commands' -Default @())) {
+    $commandRecords = @(Get-ObjectValue -Object $evidence -Name 'commands' -Default @())
+    $commandIdCounts = [System.Collections.Generic.Dictionary[string, int]]::new(
+        [System.StringComparer]::Ordinal
+    )
+    foreach ($commandRecord in $commandRecords) {
+        $recordCommandId = [string](Get-ObjectValue -Object $commandRecord -Name 'id' -Default '')
+        if ([string]::IsNullOrWhiteSpace($recordCommandId)) {
+            continue
+        }
+        if ($commandIdCounts.ContainsKey($recordCommandId)) {
+            $commandIdCounts[$recordCommandId]++
+        }
+        else {
+            $commandIdCounts[$recordCommandId] = 1
+        }
+    }
+    foreach ($commandRecord in $commandRecords) {
         $status = ([string](Get-ObjectValue -Object $commandRecord -Name 'status' -Default '')).ToLowerInvariant()
-        $exitCode = Get-ObjectValue -Object $commandRecord -Name 'exit_code'
+        $exitCodeState = Get-ControllerAliasedPropertyState `
+            -Object $commandRecord `
+            -Names @('exit_code', 'exitCode')
+        $exitCode = $exitCodeState.Value
+        if ($exitCodeState.Conflicting) {
+            Add-UniqueText -List $unknowns -Value 'command_exit_code_alias_conflict'
+            $exitCode = $null
+        }
         $cwd = [string](Get-ObjectValue -Object $commandRecord -Name 'cwd' -Default '')
         $rawCommand = [string](Get-ObjectValue -Object $commandRecord -Name 'command' -Default '')
-        $actions = @(Get-ObjectValue -Object $commandRecord -Name 'command_actions' -Default @())
+        $actionsState = Get-ControllerAliasedPropertyState `
+            -Object $commandRecord `
+            -Names @('command_actions', 'commandActions')
+        $actions = @()
+        if ($actionsState.Conflicting) {
+            Add-UniqueText -List $unknowns -Value 'command_actions_alias_conflict'
+        }
+        elseif ($actionsState.Present -and $null -ne $actionsState.Value) {
+            $actions = @($actionsState.Value)
+        }
+        $aggregatedOutputState = Get-ControllerAliasedPropertyState `
+            -Object $commandRecord `
+            -Names @('aggregated_output', 'aggregatedOutput')
+        if ($aggregatedOutputState.Conflicting) {
+            Add-UniqueText -List $unknowns -Value 'aggregated_output_alias_conflict'
+        }
+        $commandId = [string](Get-ObjectValue -Object $commandRecord -Name 'id' -Default '')
         if ($status -notin @('completed', 'declined', 'failed')) {
             Add-UniqueText -List $unknowns -Value 'command_status_unknown'
             continue
@@ -1560,6 +1915,64 @@ function Invoke-ControllerCore {
         foreach ($error in @($proofMapResult.Errors)) {
             Add-UniqueText -List $unknowns -Value ([string]$error)
         }
+        $outputFallbackMap = @{}
+        $outputFallbackAttempted = [System.Collections.Generic.HashSet[string]]::new(
+            [System.StringComparer]::Ordinal
+        )
+        if ($actions.Count -eq 1 -and $completedExitCode.Valid -and
+            $completedExitCode.Value -eq 0 -and
+            @($normalizedActionEffects).Count -eq 1 -and
+            @($outerNormalized.Effects).Count -eq 1) {
+            $action = $actions[0]
+            $actionType = ([string](Get-ObjectValue -Object $action -Name 'type' -Default '')).ToLowerInvariant()
+            $actionCommand = [string](Get-ObjectValue -Object $action -Name 'command' -Default '')
+            $fallbackEffect = $normalizedActionEffects[0]
+            if (-not $aggregatedOutputState.Conflicting -and
+                $actionType -eq 'unknown' -and
+                [string]$fallbackEffect.kind -eq 'read' -and
+                [string]$fallbackEffect.operation -eq 'get-content' -and
+                (Test-SingleRawGetContentCommand -ObservedCommand $rawCommand) -and
+                (Test-SingleRawGetContentCommand -ObservedCommand $actionCommand)) {
+                $fallbackKey = '{0}|{1}' -f (
+                    [string]$fallbackEffect.root
+                ).ToLowerInvariant(), [string]$fallbackEffect.relative_path
+                if (-not $proofMap.ContainsKey($fallbackKey)) {
+                    [void]$outputFallbackAttempted.Add($fallbackKey)
+                    if ($allowedFiles.ContainsKey($fallbackKey)) {
+                        $outputMatch = Compare-AggregatedOutputContentIdentity `
+                            -Output $aggregatedOutputState.Value `
+                            -ExpectedIdentity $allowedFiles[$fallbackKey]
+                        if ($outputMatch.Matched) {
+                            $outputFallbackMap[$fallbackKey] = $outputMatch
+                        }
+                        else {
+                            Add-UniqueText -List $unknowns -Value ([string]$outputMatch.Error)
+                        }
+                    }
+                }
+            }
+        }
+
+        $auxiliaryEffects = @($normalizedActionEffects | Where-Object {
+            [string]$_.kind -in @('auxiliary-read', 'auxiliary-transform')
+        })
+        if ($auxiliaryEffects.Count -gt 0) {
+            $nonAuxiliaryEffects = @($normalizedActionEffects | Where-Object {
+                [string]$_.kind -notin @('auxiliary-read', 'auxiliary-transform')
+            })
+            if ($nonAuxiliaryEffects.Count -gt 0) {
+                Add-UniqueText -List $unknowns -Value 'auxiliary_read_mixed_effects_not_supported'
+            }
+            elseif ([string]::IsNullOrWhiteSpace($commandId)) {
+                Add-UniqueText -List $unknowns -Value 'auxiliary_read_command_id_missing'
+            }
+            else {
+                $pendingAuxiliaryReads.Add([ordered]@{
+                    command_id = $commandId
+                    effects = @($auxiliaryEffects)
+                })
+            }
+        }
         foreach ($effect in $normalizedActionEffects) {
             $kind = [string]$effect.kind
             if ($kind -eq 'write') {
@@ -1579,6 +1992,9 @@ function Invoke-ControllerCore {
                 }
                 continue
             }
+            if ($kind -in @('auxiliary-read', 'auxiliary-transform')) {
+                continue
+            }
             if ($kind -ne 'read') {
                 Add-UniqueText -List $unknowns -Value 'completed_effect_kind_unknown'
                 continue
@@ -1593,37 +2009,59 @@ function Invoke-ControllerCore {
                 Add-UniqueText -List $violations -Value 'unauthorized_file_read'
                 continue
             }
-            if (-not $proofMap.ContainsKey($key)) {
-                Add-UniqueText -List $unknowns -Value 'read_content_proof_missing'
-                continue
-            }
             $allowed = $allowedFiles[$key]
-            $proof = $proofMap[$key]
             $allowedIdentity = ConvertTo-ControllerContentIdentity -Value $allowed
-            $proofIdentity = ConvertTo-ControllerContentIdentity -Value $proof
             if (-not $allowedIdentity.Valid) {
                 Add-UniqueText -List $unknowns -Value 'allowed_file_content_identity_invalid'
             }
-            if (-not $proofIdentity.Valid) {
-                Add-UniqueText -List $unknowns -Value 'read_content_proof_identity_invalid'
-            }
-            if (-not $allowedIdentity.Valid -or -not $proofIdentity.Valid) {
+            if (-not $allowedIdentity.Valid) {
                 continue
             }
-            if ($allowedIdentity.Normalized.length -ne $proofIdentity.Normalized.length -or
-                $allowedIdentity.Normalized.sha256 -cne $proofIdentity.Normalized.sha256) {
-                Add-UniqueText -List $violations -Value 'read_content_identity_mismatch'
+
+            $proofIdentity = $null
+            $proofSource = $null
+            $transportSuffix = $null
+            if ($proofMap.ContainsKey($key)) {
+                $proofIdentity = ConvertTo-ControllerContentIdentity -Value $proofMap[$key]
+                $proofSource = 'structured-file-proof'
+                if (-not $proofIdentity.Valid) {
+                    Add-UniqueText -List $unknowns -Value 'read_content_proof_identity_invalid'
+                    continue
+                }
+                if ($allowedIdentity.Normalized.length -ne $proofIdentity.Normalized.length -or
+                    $allowedIdentity.Normalized.sha256 -cne $proofIdentity.Normalized.sha256) {
+                    Add-UniqueText -List $violations -Value 'read_content_identity_mismatch'
+                    continue
+                }
+            }
+            elseif ($outputFallbackMap.ContainsKey($key)) {
+                $proofIdentity = [pscustomobject]@{
+                    Valid = $true
+                    Normalized = $outputFallbackMap[$key].Normalized
+                }
+                $proofSource = 'aggregated-output-identity'
+                $transportSuffix = [string]$outputFallbackMap[$key].TransportSuffix
+            }
+            else {
+                if (-not $outputFallbackAttempted.Contains($key)) {
+                    Add-UniqueText -List $unknowns -Value 'read_content_proof_missing'
+                }
                 continue
             }
             $completedReadKeys.Add($key) | Out-Null
-            $completedEffects.Add([ordered]@{
+            $completedEffect = [ordered]@{
                 kind = 'read'
                 operation = 'get-content'
                 root = $effect.root
                 relative_path = $effect.relative_path
                 length = $proofIdentity.Normalized.length
                 sha256 = $proofIdentity.Normalized.sha256
-            })
+            }
+            if ($proofSource -eq 'aggregated-output-identity') {
+                $completedEffect.proof_source = $proofSource
+                $completedEffect.transport_suffix_removed = $transportSuffix
+            }
+            $completedEffects.Add($completedEffect)
         }
     }
 
@@ -1642,10 +2080,28 @@ function Invoke-ControllerCore {
     }
 
     $inventoryResults = [System.Collections.Generic.List[object]]::new()
+    $auxiliaryInventoryByCommand =
+        [System.Collections.Generic.Dictionary[string, object]]::new(
+            [System.StringComparer]::Ordinal
+        )
     foreach ($comparison in @(Get-ObjectValue -Object $evidence -Name 'inventory_comparisons' -Default @())) {
         $leftState = Get-ControllerPropertyState -Object $comparison -Name 'left'
         $rightState = Get-ControllerPropertyState -Object $comparison -Name 'right'
         $comparisonName = [string](Get-ObjectValue -Object $comparison -Name 'name' -Default '')
+        $comparisonCommandState = Get-ControllerAliasedPropertyState `
+            -Object $comparison `
+            -Names @('command_id', 'commandId')
+        if ($comparisonCommandState.Conflicting) {
+            Add-UniqueText -List $unknowns -Value 'inventory_command_id_alias_conflict'
+        }
+        $comparisonCommandId = if ($comparisonCommandState.Present -and
+            -not $comparisonCommandState.Conflicting) {
+            [string]$comparisonCommandState.Value
+        }
+        else {
+            ''
+        }
+        $comparisonRoot = [string](Get-ObjectValue -Object $comparison -Name 'root' -Default '')
         if (-not $leftState.Present -or -not $rightState.Present -or
             $null -eq $leftState.Value -or $null -eq $rightState.Value -or
             [string]::IsNullOrWhiteSpace($comparisonName)) {
@@ -1663,6 +2119,75 @@ function Invoke-ControllerCore {
             name = $comparisonName
             equal = [bool]$result.Equal
         })
+        if ($comparisonCommandState.Present -and
+            -not $comparisonCommandState.Conflicting) {
+            if ([string]::IsNullOrWhiteSpace($comparisonCommandId) -or
+                [string]::IsNullOrWhiteSpace($comparisonRoot)) {
+                Add-UniqueText -List $unknowns -Value 'auxiliary_inventory_link_shape_invalid'
+            }
+            elseif ($auxiliaryInventoryByCommand.ContainsKey($comparisonCommandId)) {
+                Add-UniqueText -List $unknowns -Value 'duplicate_auxiliary_inventory_command_id'
+            }
+            else {
+                $auxiliaryInventoryByCommand[$comparisonCommandId] = [pscustomobject]@{
+                    Root = $comparisonRoot
+                    Result = $result
+                }
+            }
+        }
+    }
+
+    $seenAuxiliaryCommandIds = [System.Collections.Generic.HashSet[string]]::new(
+        [System.StringComparer]::Ordinal
+    )
+    foreach ($pending in $pendingAuxiliaryReads) {
+        $pendingCommandId = [string]$pending.command_id
+        if (-not $commandIdCounts.ContainsKey($pendingCommandId) -or
+            $commandIdCounts[$pendingCommandId] -ne 1) {
+            Add-UniqueText -List $unknowns -Value 'auxiliary_read_command_id_ambiguous'
+            continue
+        }
+        if (-not $seenAuxiliaryCommandIds.Add($pendingCommandId)) {
+            Add-UniqueText -List $unknowns -Value 'duplicate_auxiliary_read_command_id'
+            continue
+        }
+        $rootedEffects = @($pending.effects | Where-Object {
+            [string]$_.kind -eq 'auxiliary-read'
+        })
+        $rootNames = @($rootedEffects | ForEach-Object {
+            [string]$_.root
+        } | Sort-Object -Unique)
+        if ($rootedEffects.Count -eq 0 -or $rootNames.Count -ne 1 -or
+            [string]::IsNullOrWhiteSpace($rootNames[0])) {
+            Add-UniqueText -List $unknowns -Value 'auxiliary_read_requires_one_root'
+            continue
+        }
+        $auxiliaryRoot = $rootNames[0]
+        if (-not $auxiliaryReadRootResult.Set.Contains($auxiliaryRoot)) {
+            Add-UniqueText -List $violations -Value 'auxiliary_read_root_not_authorized'
+            continue
+        }
+        if (@($rootedEffects | Where-Object {
+            -not [string]::IsNullOrEmpty([string]$_.relative_path)
+        }).Count -gt 0) {
+            Add-UniqueText -List $violations -Value 'auxiliary_read_path_not_authorized'
+            continue
+        }
+        if (-not $auxiliaryInventoryByCommand.ContainsKey($pendingCommandId)) {
+            Add-UniqueText -List $unknowns -Value 'auxiliary_read_inventory_not_proven'
+            continue
+        }
+        $inventoryLink = $auxiliaryInventoryByCommand[$pendingCommandId]
+        if ([string]$inventoryLink.Root -cne $auxiliaryRoot) {
+            Add-UniqueText -List $unknowns -Value 'auxiliary_inventory_root_mismatch'
+            continue
+        }
+        if ($null -ne $inventoryLink.Result.Error -or -not $inventoryLink.Result.Equal) {
+            continue
+        }
+        foreach ($effect in @($pending.effects)) {
+            $completedEffects.Add($effect)
+        }
     }
 
     $construction = @(Get-ObjectValue -Object $evidence -Name 'construction_events' -Default @())
