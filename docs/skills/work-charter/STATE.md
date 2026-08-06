@@ -50,27 +50,24 @@ product candidate, not a new Work Charter package identity.
 Decision 0018 `WC-AR-D27` now adds a prospective controller/evaluation
 boundary without changing that product candidate: strict full-file evidence is
 separate from bounded auxiliary observation, and shared matrix contamination
-is separate from a cell-local visibility gap. The implementation is currently
-an uncommitted offline delta on
-`codex/work-charter-controller-evidence-boundary` from `79806bf...`.
+is separate from a cell-local visibility gap. Local commit
+`191cd1f841468d6585382a64aef8d81a9aff7550` records that reviewed offline
+implementation from `79806bf...`, and local `main` was fast-forwarded to the
+same commit without a merge commit. The former feature branch remains a Git
+locator for those bytes rather than a separate product or writer state.
 
 ## Current Writer
 
 The phase Executor relinquished at clean local controller-stabilization commit
-`119aa27...`, and the integration writer completed local merge commit
-`c05cb99...` over governance baseline `f55b15a...`. The current bounded writer
-owns only the controller/evaluation evidence-boundary delta on branch
-`codex/work-charter-controller-evidence-boundary`, plus mapped existing
-documentation consumers and one sanitized result. The user later opened this
-exact 14-path attempt to native review. Clear same-scope findings, affected
-offline checks, and all five completed reviews were handled under the commit
-gate. The user explicitly reset that count once for the same commit attempt;
-the reset remains bounded to five completed reviews and unused budget is not a
-reason to continue after a clean final-byte result. No Skill
-SOURCE or sealed-evidence edit, Gate 2
-behavior-model or app-server call, assessor, staging, commit, push, candidate
-materialization, discovery, installation, release, private-global mutation, or
-cleanup authority follows.
+`119aa27...`, the integration writer completed local merge commit `c05cb99...`
+over governance baseline `f55b15a...`, and the later evidence-boundary writer
+relinquished after commit `191cd1f...` was fast-forward integrated into local
+`main`. No active Work Charter SOURCE, controller/evaluation, or Gate 2 writer
+is authorized. This six-document post-integration record closes its bounded
+documentation window; it does not reopen the implementation lane or authorize a
+Skill SOURCE or sealed-evidence edit, Gate 2 behavior-model or app-server call,
+assessor, push, candidate materialization, discovery, installation, release,
+private-global mutation, or cleanup.
 
 ## Evidence State
 
@@ -386,8 +383,8 @@ authorize advancement.
 
 ### 2026-08-06 — Controller Evidence Boundary
 
-The current offline delta accepts an exact single `Get-Content -Raw` result as
-required-read evidence only when the sole unknown action completed successfully
+The integrated controller revision accepts an exact single `Get-Content -Raw`
+result as required-read evidence only when the sole unknown action completed successfully
 and its aggregated output matches the authorized file's UTF-8 length and
 SHA-256, allowing removal of at most one transport-added final newline.
 Structured full-file proofs remain valid. Compound, partial, unmatched, or
@@ -447,13 +444,12 @@ Work Charter `v0.1.2` remains the released and installed stable revision, while
 `b965102...` remains the unaccepted exact product candidate. Local commit
 `119aa27...` records controller infrastructure after that candidate, and local
 merge `c05cb99...` integrates it without changing the five package blobs or
-establishing behavior acceptance. The current evidence-boundary delta is
-implemented but uncommitted. The initial cycle exhausted 5/5 reviews; the user
-approved one reset, and reset-cycle review 1/5 produced the two corrections
-above. Reset-cycle review 2/5 returned clean over that corrected diff. This
-review-history synchronization is the only later mutation; native-review gate
-satisfaction is determined by a completed semantic review over the final bytes.
-No staging, commit, push, or other Git closeout is currently authorized.
+establishing behavior acceptance. Local commit `191cd1f...` records the later
+reviewed 14-path evidence-boundary correction, and local `main` was
+fast-forwarded to that exact commit. This Git integration changed no package
+blob, sealed execution, product candidate, or behavior verdict. No push,
+candidate materialization, model evidence, installation, release, or cleanup
+is authorized by that completed local closeout.
 
 The next possible product gate is a newly authorized Gate 2 evaluation window,
 not a SOURCE correction and not Gate 3. Before any new model consumption, that
@@ -476,9 +472,9 @@ consumed and non-retriable and does not satisfy that boundary.
    this state, and [Verification](VERIFICATION.md).
 3. Confirm live workspace, writer, and action authority.
 4. Confirm the live integration result includes merge `c05cb99...`, controller
-   commit `119aa27...`, and governance baseline `f55b15a...`; then confirm the
-   current branch descends from `79806bf...` and revalidate writer and action
-   authority before writing.
+   commit `119aa27...`, governance baseline `f55b15a...`, and later
+   evidence-boundary commit `191cd1f...`; then confirm local `main` is at or
+   after `191cd1f...` and revalidate writer and action authority before writing.
 5. Distinguish the three sealed execution records from the unchanged
    `b965102...` candidate: preserve their terminal results and consumption, but
    do not infer that the candidate is permanently ineligible for a separately

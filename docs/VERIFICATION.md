@@ -20,8 +20,8 @@ Sanitized detailed runs remain under [`evals/results`](../evals/results/README.m
 | Check | Purpose | Current result |
 |---|---|---|
 | Three Skill validators | Validate frontmatter and package names without changing packages | pass for the three packages in tag and stable install `v0.1.2` |
-| Repository checker | Validate strict UTF-8/no BOM, whitespace, local links/fragments, publication safety, exact Skill/eval sets, federated docs, and bilingual navigation | current controller-stabilization revision passes with the unchanged 14 cases / 12 fixtures |
-| Fixture checker | Validate synthetic starting states and their Git/reparse/ignored-result boundaries plus the tracked controller regression | current controller-stabilization revision passes all 17 checks |
+| Repository checker | Validate strict UTF-8/no BOM, whitespace, local links/fragments, publication safety, exact Skill/eval sets, federated docs, and bilingual navigation | current integrated controller/evidence-boundary revision passes with the unchanged 14 cases / 12 fixtures |
+| Fixture checker | Validate synthetic starting states and their Git/reparse/ignored-result boundaries plus the tracked controller regression | current integrated controller/evidence-boundary revision passes all 17 checks |
 | Codex evidence controller | Validate one shared core across four entry modes, strict required-read versus bounded auxiliary-observation attribution, structural PowerShell/Git/path classification, source-and-generated-contract-bound historical regressions, exact package manifests, candidate-identity and content-proof shape, record cardinality, completed exit typing, output-array shape, per-key single-capture sealed parsing and reuse, real-reparse rejection, fail-closed negatives, external-input types, independently resolved inner/wrapper command identity, Git-read and external-filter safety, profile-free PowerShell wrappers, culture-independent canonical ordering, metamorphic equivalence, output no-clobber, and canonical repeatability | 11/11 historical, 19/19 evidence-surface, 31/31 negative, and 4/4 metamorphic checks pass twice with identical canonical JSON/hash; 11/11 source projections, 3/3 generated-contract drift guards, 2/2 five-file manifests, 3/3 candidate-identity guards, 6/6 content/proof/inventory identity guards, 3/3 record-cardinality/exit guards, 8/8 command-resolution guards including bare native-name rejection plus N24/N30 invocation-path binding, 1/1 output-shape guard, 1/1 output-no-clobber guard, 1/1 per-key capture-reuse guard, 3/3 external-input type guards, 9/9 Git-read safety guards, 1/1 ordinal-order guard, and the immediately preceding full checkpoint matched 8/8 contained sealed inputs |
 | Isolated controller canary | Record the bounded disposition of one private path-bound infrastructure check without broadening behavior claims | retained sealed `CANARY_PASS`; the public summary reports an exact-response pass and no command execution, omits private locator/artifact/runtime details, and leaves physical backend request count `UNKNOWN` |
 | PowerShell deterministic hardening | Validate cardinality, LF bytes, one-base paths, and Junction link-only removal | 15 assertions pass in PowerShell 7 and Windows PowerShell 5.1 |
@@ -1040,8 +1040,8 @@ creates no candidate acceptance, model evidence, or Gate 3 authority.
 
 ### 2026-08-06 — Controller evidence-boundary correction
 
-Starting from `79806bf...`, the uncommitted
-`codex/work-charter-controller-evidence-boundary` delta adds prospective
+Starting from `79806bf...`, local commit
+`191cd1f841468d6585382a64aef8d81a9aff7550` adds prospective
 evidence attribution without changing any `skills/work-charter` blob. One
 completed `unknown` action may prove a required read only when it is an exact
 single `Get-Content -Raw` and its aggregated string output matches the
@@ -1115,6 +1115,13 @@ relabelled, and absence of a required reference cell still blocks acceptance.
 This offline correction invoked no Gate 2 behavior model, app-server turn, or
 assessor; the separate native review is code-review evidence only. It read no
 private manifest and changed no sealed execution.
+
+Local `main` was fast-forwarded to `191cd1f...` without a merge commit, and
+post-integration ancestry plus working-tree cleanliness were verified. The
+former feature branch identifies the same reviewed bytes; it is not a separate
+candidate or active writer. This local integration creates no model evidence,
+assessor verdict, candidate acceptance, push, installation, release, or Gate 3
+authority.
 
 ### 2026-08-02 — Capability-delta decision and workflow
 

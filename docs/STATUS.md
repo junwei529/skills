@@ -9,7 +9,7 @@ Last updated: 2026-08-06
 | Tested package identity | all three package byte sets independently reached exact-commit RC readiness at `c42eef392a5b9f58bbee64aa73ffb603a6fb6c29` and were re-proved at tag/stable identity `v0.1.2` | [Verification](VERIFICATION.md) |
 | Stable release identity | immutable [`v0.1.2`](https://github.com/junwei529/skills/releases/tag/v0.1.2) at `ceed607152849775b981c54add74bfa30d858e4d`; exact tag, stable loaded-copy, and GitHub Release proof pass for all three Skills | [Verification](VERIFICATION.md) |
 | Project Docs | released six-file `v0.1.2` stable copy; exact loaded identity and mature `NOOP` canary pass | [State](skills/manage-project-docs/STATE.md) |
-| Work Charter | released five-file `v0.1.2` stable copy remains active; exact product candidate `b965102...` remains unaccepted, while its three recorded Gate 2 executions are individually sealed and non-retriable; the tracked controller plus an uncommitted strict-read/auxiliary-observation delta pass offline regression, but neither is a new product candidate or behavior acceptance | [State](skills/work-charter/STATE.md) |
+| Work Charter | released five-file `v0.1.2` stable copy remains active; exact product candidate `b965102...` remains unaccepted, while its three recorded Gate 2 executions are individually sealed and non-retriable; integrated controller/evidence-boundary commit `191cd1f...` passes offline regression but is neither a new product candidate nor behavior acceptance | [State](skills/work-charter/STATE.md) |
 | PowerShell | released five-file `v0.1.2` stable copy; corrected loaded identity and guarded native/text diagnosis pass; live WSL remains unproved | [State](skills/use-powershell-safely/STATE.md) |
 | Release lifecycle | `v0.1.2` tag, stable update, tag-pinned canaries, and Latest GitHub Release complete; `v0.1.1` retained as rollback identity | [Runbook](RUNBOOK.md) |
 
@@ -55,9 +55,11 @@ behavior acceptance follows. Tracked controller commit `119aa27...` adds
 deterministic evaluation infrastructure only, and local merge `c05cb99...`
 integrates it over governance baseline `f55b15a...`. Neither edits the package,
 retries or rescores sealed evidence, or creates a new candidate identity.
-The current uncommitted controller delta starts from `79806bf...`, keeps all
-five package blobs and sealed executions unchanged, and separates strict file-
-read evidence from bounded auxiliary observation.
+Local commit `191cd1f841468d6585382a64aef8d81a9aff7550` records the later
+controller evidence-boundary correction that started from `79806bf...`. Local
+`main` was fast-forwarded to that exact commit without a merge commit. The
+revision keeps all five package blobs and sealed executions unchanged and
+separates strict file-read evidence from bounded auxiliary observation.
 
 [Decision 0018](decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md)
 records the accepted rationale, two-stage entry, level model, adoption and re-
@@ -298,32 +300,15 @@ decision.
 ## Next Gate
 
 No release action remains pending for `v0.1.2`. Local merge `c05cb99...`
-already integrates controller-stabilization commit `119aa27...` over governance
-baseline `f55b15a...`. The current evidence-boundary delta is implemented but
-uncommitted on `codex/work-charter-controller-evidence-boundary`. Native review
-cycle 1 review 1/5 found two P1 fail-closed gaps in duplicate-alias handling and
-outer/action command provenance; both are corrected with four added evidence-
-surface regressions. Review 2/5 found two further P1 gaps in recursive auxiliary
-listing and empty-inventory handling; both are corrected with E14-E15. A
-sandboxed network failure before that semantic result is excluded as transport
-qualification. Review 3/5 found that a direct subordinate path could still
-traverse a contained reparse point; the root-only restriction and E16 correct
-that P1. Review 4/5 then materially covered staged, unstaged, and untracked
-changes and returned no actionable correctness finding. This review-history
-synchronization was the only later mutation. Review 5/5 found one P1: a linked
-auxiliary command ID could collide with a non-auxiliary record. Global command-
-ID cardinality and E17 now correct that ambiguity. The user approved one reset
-for the same commit attempt. Reset-cycle review 1/5 found two more P1 gaps:
-variable-bearing auxiliary transforms could expose environment data, and a
-case-insensitive inventory map could let case-distinct command IDs share one
-proof. Variable expressions now fail closed, ordinal inventory linkage plus
-E18-E19 correct both gaps, and focused verification passes 19/19. The fixes
-changed reviewed bytes. Reset-cycle review 2/5 materially covered staged,
-unstaged, and untracked changes, independently reran the controller and fixture
-suites, and returned no actionable correctness issue. This review-history
-synchronization is the only later tracked mutation; native-review gate
-satisfaction is determined by a completed semantic review over these final
-bytes. No staging, commit, push, or other Git closeout is authorized.
+integrates controller-stabilization commit `119aa27...` over governance
+baseline `f55b15a...`; local controller/evidence-boundary commit `191cd1f...`
+is its later fast-forward-integrated descendant. The latter records the
+reviewed 14-path offline correction and its 19/19 evidence-surface regression
+without changing a Work Charter package blob, sealed execution, product
+candidate, or behavior verdict. Its former feature branch remains only a Git
+locator for the same commit, not an active writer or separate product state.
+No push, candidate materialization, model evidence, installation, release, or
+cleanup follows from local integration.
 
 The next possible Work Charter product gate is a separately authorized Gate 2
 recovery window for exact candidate `b965102...`, not Gate 3. Its pre-consumption

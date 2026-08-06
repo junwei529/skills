@@ -13,7 +13,7 @@ Last updated: 2026-08-06
 | Successor `v0.2.0` exact candidate Gate 2 | `92a8c045...` passed qualification and consumed A01-A04; A04 hard-stopped on an unproved selected/loaded claim, so no candidate acceptance or later cell exists |
 | Exact `72db7e9...` fixed-turn Standard probe | one one-shot bundle completed four fresh primary sessions, sealed `VIOLATION`, created no subagent activity, left A16 unexecuted, and permits no retry or retrospective rescore |
 | Exact `b965102...` product candidate | five package blobs are fixed; three recorded Gate 2 executions are individually sealed `SEALED_DECISION_REQUIRED` and non-retriable, behavior acceptance was not achieved, the candidate is not permanently retired, and the later tracked controller revision is a distinct evidence-infrastructure identity |
-| Tracked Codex evidence controller | offline source/generated-contract-bound historical 11/11, evidence-surface 19/19, negative 31/31, metamorphic 4/4, generated-drift guards 3/3, exact five-file manifests 2/2, logical-identity guards 3/3, content/proof/inventory identity guards 6/6, record-cardinality/exit guards 3/3, command-resolution guards 8/8 including bare native-name rejection plus N24/N30 invocation-path binding, historical-output shape guard 1/1, output-no-clobber guard 1/1, per-key capture-reuse guard 1/1, scratch-topology guards 2/2, external-input type guards 3/3, Git-read safety guards 9/9, canonical ordinal guard 1/1, immediately preceding full-checkpoint contained sealed inputs 8/8, real-reparse rejection, and canonical repeatability pass under quiescent single-writer use; strict required reads are separate from bounded auxiliary observations, PowerShell wrappers require `-NoProfile`, and this remains controller qualification only, not candidate behavior acceptance |
+| Tracked Codex evidence controller | locally integrated at `191cd1f...`; offline source/generated-contract-bound historical 11/11, evidence-surface 19/19, negative 31/31, metamorphic 4/4, generated-drift guards 3/3, exact five-file manifests 2/2, logical-identity guards 3/3, content/proof/inventory identity guards 6/6, record-cardinality/exit guards 3/3, command-resolution guards 8/8 including bare native-name rejection plus N24/N30 invocation-path binding, historical-output shape guard 1/1, output-no-clobber guard 1/1, per-key capture-reuse guard 1/1, scratch-topology guards 2/2, external-input type guards 3/3, Git-read safety guards 9/9, canonical ordinal guard 1/1, immediately preceding full-checkpoint contained sealed inputs 8/8, real-reparse rejection, and canonical repeatability pass under quiescent single-writer use; strict required reads are separate from bounded auxiliary observations, PowerShell wrappers require `-NoProfile`, and this remains controller qualification only, not candidate behavior acceptance |
 | Isolated path-bound controller canary | private retained sealed `CANARY_PASS`; the public summary reports an exact-response pass and no command execution, omits locator/artifact/runtime details, leaves physical backend request count `UNKNOWN`, and proves neither natural-language selection nor candidate acceptance |
 | Small bounded work stays flat | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
 | Midstream implicit behavior is proposal-only | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
@@ -636,8 +636,9 @@ future evaluation of exact candidate `b965102...` is therefore a new,
 explicitly authorized Gate 2 evidence window, not a retry or relabelling of any
 sealed execution. Before its first model `turn/start`, the recovery contract
 must bind the exact candidate and five package blobs, stabilized controller
-revision, isolated installed copy, approved model/reasoning and cost envelope,
-one independent assessor, consumption point, and terminal stop behavior.
+revision `191cd1f...`, isolated installed copy, approved model/reasoning and
+cost envelope, one independent assessor, consumption point, and terminal stop
+behavior.
 
 The pre-consumption reconciliation must enumerate the required matrix evidence
 and prove which retained observations, if any, still have exact source,
@@ -913,8 +914,8 @@ owned by [root Verification](../../VERIFICATION.md).
 
 ### 2026-08-06 — Strict Read And Auxiliary Observation Regression
 
-An uncommitted offline controller delta on
-`codex/work-charter-controller-evidence-boundary` adds a strict fallback for
+Local commit `191cd1f841468d6585382a64aef8d81a9aff7550`, now fast-forward
+integrated into local `main`, adds a strict fallback for
 the live record shape where one completed action is `unknown`: only an exact
 single `Get-Content -Raw` can use aggregated output as evidence, and only when
 its UTF-8 length/SHA-256 matches the authorized file after removal of at most
@@ -981,6 +982,12 @@ relabel; required reference-cell absence still blocks acceptance. The delta
 called no Gate 2 behavior model or assessor, read no private manifest, and
 changed no Work Charter package blob or sealed execution. Native review remains
 code-review evidence only.
+
+The commit contains the reviewed 14-path controller/evaluation and mapped-
+documentation correction from baseline `79806bf...`. Git ancestry and a clean
+working tree were verified after fast-forward integration. This local Git
+state does not create an `RC_INSTALL`, behavior-model result, assessor verdict,
+candidate acceptance, push, installation, release, or Gate 3 authority.
 
 ## Required Checks
 
