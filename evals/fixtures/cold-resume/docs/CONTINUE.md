@@ -3,7 +3,7 @@
 ## Recorded Workspace
 
 - Branch: `phase/retry-delay`
-- Commit: `7d3c0de`
+- Baseline commit: exact value supplied by the setup controller record
 - Owned dirty file: `src/retry_policy.py`
 - Writer: interrupted Executor
 
@@ -14,9 +14,10 @@ recorded commit. It does not verify retry delay behavior.
 
 ## Next Safe Action
 
-Revalidate the repository root, branch, commit, dirty state, and writer
-ownership. Only if they match this snapshot, inspect the dirty implementation
-and add the authorized focused tests.
+Revalidate the repository root, branch, controller-recorded baseline commit,
+dirty state, and writer ownership. If they match this workstream, recommend
+continuing only after the authorized focused evidence is refreshed.
 
 Stop and report recovery drift before writing if the branch, commit, ownership,
-or approved contract does not match.
+or approved contract does not match. An unrelated task or branch is not a
+conflict unless it changed this protected state.

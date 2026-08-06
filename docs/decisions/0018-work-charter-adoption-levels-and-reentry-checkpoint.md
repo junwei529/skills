@@ -1,14 +1,16 @@
 # 0018: Work Charter Adoption, Protection Levels, And Re-entry Checkpoint
 
 Date: 2026-08-02
-Status: accepted design; implementation and lifecycle effects are pending
+Amended: 2026-08-04
+Status: accepted design; exact `72db7e9...` sealed a fixed-turn Standard `VIOLATION`, and the conditional-role-read correction is implemented and offline-verified without candidate or behavior evidence; Git disposition belongs to the live commit-attempt record
 
-- Planning checkpoint: 11 (final)
-- Last incorporated decision: `WC-AR-D23`
+- Planning checkpoint: 14 (conditional role reads and evidence attribution)
+- Last incorporated decision: `WC-AR-D26`
 - Open decision IDs: none
 - Lifecycle authority: this Decision grants none; consult `docs/HANDOFF.md` for
   the live next gate
-- Checkpoint reason: completed product-design decision set
+- Checkpoint reason: completed product-design decision set plus the accepted
+  convergence and honest indirect-entry corrections
 
 ## Status And Evidence Boundary
 
@@ -63,34 +65,44 @@ an always-on workflow controller.
 ### WC-AR-D02 — Natural-Language Selection Without Special Syntax
 
 **Confirmed.** A user need not know or type the exact `$work-charter` syntax.
-Natural-language requests such as the following should be valid selection
-signals:
+Natural-language requests such as the following remain valid entry signals:
 
 - "Use Work Charter to decide how this project should continue."
 - "Based on the Skills already installed, recommend the safest way to continue
   this project."
 
 The frontmatter description remains the primary Harness-visible selection
-surface. It should be discriminative enough to recognize relevant intent and
-observable continuity, control, authorization, recovery, or independent-
-assessment symptoms without making every design discussion or development task
-match.
+surface. A direct ordinary-language request that explicitly names or asks to
+use Work Charter requests activation without another confirmation. The full
+Skill body must be available in the current context before the response may
+claim it is active. If the runtime does not expose the exact loaded path or
+revision, preserve that identity as `UNKNOWN` and make no exact-copy claim; the
+missing identity signal alone does not block ordinary activation. An indirect
+request to choose among installed Skills, or observable continuity, control,
+authorization, recovery, writer, or independent-assessment symptoms, permits
+only a metadata-level proposal. That response says Work Charter appears
+applicable and asks whether to activate it; it does not claim the Skill is
+selected, loaded, or active.
 
-Implicit selection permits only symptom recognition and a visible proposal.
-Before the user authorizes additional inspection, Work Charter may use the
-conversation and context already supplied by the Harness, but it must not call
+Before the user authorizes additional inspection, either path may use only the
+conversation and context already supplied by the Harness. It must not call
 tools to inspect project-specific files, Git state, worktrees, tasks, or other
 environment details.
 
-### WC-AR-D03 — First-Turn Read Authorization
+### WC-AR-D03 — Activation And First Project-Read Authorization
 
-**Confirmed.** The first selected response uses progressive authorization:
+**Confirmed.** Entry uses progressive authorization:
 
-1. say that the relevant Skill has been selected and explain the observed need
-   in ordinary language;
-2. describe the smallest proposed read scope, such as project rules, declared
-   canonical owners, and the current branch/worktree/writer boundary;
-3. ask whether the user authorizes that bounded inspection; and
+1. for direct intent, load the full Skill and only then say that Work Charter is
+   now being used; for an indirect match, say only that it appears applicable
+   and ask whether to activate it. Preserve exact copy identity as `UNKNOWN`
+   when the runtime does not expose it, without claiming a revision or blocking
+   ordinary activation;
+2. after the direct load or the load following confirmation, rely on the full
+   Skill to describe the smallest proposed read scope, such as project rules,
+   declared canonical owners, and the current branch/worktree/writer boundary;
+3. ask whether the user authorizes that bounded inspection, unless the same
+   response explicitly confirms activation and that exact scope; and
 4. only after approval, perform the reads and return a recommendation or the
    next required decision.
 
@@ -106,8 +118,8 @@ external effects.
 
 | Boundary | What it permits | What it does not permit |
 |---|---|---|
-| Natural-language explicit intent | Select and discuss Work Charter without requiring exact syntax | Project inspection, persistent adoption, roles, writes, or side effects unless separately approved |
-| Symptom-only implicit selection | Explain the symptoms and propose the smallest next step | Additional project reads, adoption, coordination changes, or mutation |
+| Natural-language explicit intent | Activate, load, and discuss Work Charter without requiring exact syntax | Project inspection, persistent adoption, roles, writes, or side effects unless separately approved |
+| Indirect or symptom-only match | Use metadata to say Work Charter appears applicable and propose activation plus the smallest next step | Claiming selected/loaded state, loading the body before confirmation, additional project reads, adoption, coordination changes, or mutation |
 | Visible standing-policy reuse | Reuse an applicable previously approved policy and show the user that it is being reused | Authority beyond the policy, silent role delivery, or a material contract change |
 | Material change | Request fresh approval before changing outcome, hard boundaries, coordination responsibilities, canonical carrier, workspace/writer routing, permissions, or side effects | Treating an old marker, profile, or policy as sufficient authority |
 
@@ -285,10 +297,11 @@ Use only the conversation and context already supplied by the Harness to
 classify the request:
 
 - keep an ordinary bounded task Flat without a Work Charter ceremony;
-- treat a natural-language request to use Work Charter as explicit selection
-  intent without requiring exact `$work-charter` syntax;
-- treat continuity, control, authorization, recovery, writer, or independent-
-  assessment symptoms as proposal-only implicit selection; or
+- treat a natural-language request that explicitly asks to use Work Charter as
+  activation intent without requiring exact `$work-charter` syntax;
+- treat an indirect installed-Skills request or continuity, control,
+  authorization, recovery, writer, or independent-assessment symptoms as a
+  metadata-only proposal that asks whether to activate Work Charter; or
 - treat an explicit continue, resume, or recovery request as a proposal to run
   the re-entry check.
 
@@ -452,8 +465,11 @@ remaining long-path budget.
 The six selection runs are:
 
 1. natural-language use of Work Charter without exact invocation syntax;
-2. a request to choose among already installed Skills;
-3. symptom-only continuity, authority, writer, recovery, or assessment risk;
+2. a request to choose among already installed Skills, followed in the same
+   context by an activation-only confirmation that must load the exact Skill
+   while still performing no project read;
+3. symptom-only continuity, authority, writer, recovery, or assessment risk,
+   which must remain a metadata-only proposal;
 4. an ordinary bounded task that must remain Flat;
 5. a Project Docs-only near neighbor; and
 6. a PowerShell-only near neighbor.
@@ -485,8 +501,10 @@ five-level matrix.
   tool, permission, and workspace identities that the environment exposes;
   preserve `UNKNOWN` otherwise.
 - Use fresh contexts and controller-observed loaded files, tool reads, writes,
-  workspace effects, and result surfaces. Do not use model self-report as
-  loaded-copy or no-read proof.
+  workspace effects, and result surfaces. Direct activation and the confirmed
+  follow-up must load the exact candidate; indirect and symptom-only first
+  turns must not claim loaded state. Do not use model self-report as loaded-
+  copy or no-read proof.
 - Keep expected answers, intended diagnoses, and cross-variant artifacts out
   of role prompts and fixtures.
 - Treat unauthorized reads or actions, proposal-to-adoption escalation, a
@@ -594,8 +612,8 @@ duplicated wording instead of appending every decision to every file.
 
 | Existing file | Future responsibility |
 |---|---|
-| `SKILL.md` frontmatter | Natural-language and symptom selection, discriminative non-triggers, and the proposal-only implicit boundary |
-| `SKILL.md` body | First-turn read authority, the compact `L0`-`L4` choice, one-carrier rule, optional Goal boundary, four re-entry routes, and links to conditional detail |
+| `SKILL.md` frontmatter | Direct natural-language activation, indirect/symptom metadata proposal, confirmation-time loading, discriminative non-triggers, and the no-false-loaded-claim boundary |
+| `SKILL.md` body | Activated entry and first-project-read authority, the compact `L0`-`L4` choice, one-carrier rule, optional Goal boundary, four re-entry routes, and links to conditional detail |
 | `references/coordination-and-recovery.md` | Entry/re-entry read order, `L1`/`L2` durability, carrier/fallback and managed-workstream rules, workspace/writer/evidence reconciliation, route precedence, multi-worktree behavior, and `L3` P/E detail |
 | `references/standard-ope.md` | Only the `L4` delta: standing-policy approval and visible reuse, O/P/E responsibilities and path, control-location requirement, and honest delivery degradation |
 | `assets/work-charter.md` | Optional no-existing-owner durable carrier with applicability, level/responsibilities, locator/revision, workspace/writer, checkpoint/evidence, next action, and reconfirmation fields |
@@ -658,7 +676,9 @@ actual shared fact changes.
 
 Add two public cases and one shared fixture:
 
-- `work-charter-selection.md` for six metadata-only selection prompts;
+- `work-charter-selection.md` for six catalog prompts, including direct
+  ordinary-language activation, proposal-only indirect/symptom matches, and
+  one same-context activation-confirmation follow-up;
 - `work-charter-entry.md` for existing/new-project two-turn entry behavior;
   and
 - one `work-charter-entry` fixture with clean existing-owner and no-owner
@@ -686,8 +706,10 @@ actual count.
 
 1. Validate the five-file package, links, strict text bytes, case/fixture
    identity, preconditions, publication safety, and repository structure.
-2. Run the two native baselines and six catalog-selection cases. Stop the
-   matrix on a hard selection, false-load, or pre-read-authorization failure.
+2. Run the two native baselines and six catalog-selection cases. The installed-
+   Skills positive adds one confirmation turn but no seventh fresh run. Stop
+   the matrix on a hard selection, false activation/loaded claim, false load,
+   missing confirmed load, or pre-read-authorization failure.
 3. Run the seven exact-candidate behavior cases on `Sol/high`.
 4. Run four matched sentinels against the exact accepted control without
    editing the stable installation in place.
@@ -842,10 +864,128 @@ or installation success. Canonical sanitized evidence, immutable tags, the
 immediate `v0.1.2` rollback manifest, and the retained historical `v0.1.1`
 identity are not cleanup candidates under this decision.
 
+### WC-AR-D24 — Stable Subject, Consumption, And Convergence
+
+**Confirmed.** Bind correction and assessment history to one logical Charter
+subject and material contract/acceptance revision, with each verdict bound to
+the stable checkpoint it assessed. Task, Session, root, branch, worktree,
+delivery epoch, attempt name, and internal slice are carriers or observations,
+not reset keys. An authorized workspace or writer route change may require a
+coordination decision but preserves approvals, completed corrections, evidence
+consumption, and open findings. An authorized material successor or split must
+retain a predecessor pointer and the applicable prior history.
+
+Declare the consumption point before scarce, one-shot, or time-bound evidence.
+A qualification, preflight, transport, or Executor-internal same-scope repair
+before that point does not by itself consume the evidence opportunity or a Work
+Charter correction round. Only a completed independent
+`CORRECTION_REQUIRED` assessment against a stable checkpoint consumes the Work
+Charter correction budget; that round remains consumed even if later proof
+shows the scarce execution did not start. Once the consumption point is
+crossed, preserve the event even when incomplete or invalidated, and do not
+reset it through a new container or label.
+
+Every `CORRECTION_REQUIRED` must name a concrete, verifiable same-scope delta.
+A repeated material finding, no net reduction, unreliable context, or material
+contract change returns `DECISION_REQUIRED`. Work Charter correction rounds,
+delivery/transport automation limits, and native-review budgets remain
+independent.
+
+Implement this behavior by clarifying the existing coordination/recovery
+reference and targeted existing evals. Do not add a required file, ledger,
+schema, state machine, user-facing term, or Codex task API procedure. Under
+WC-AR-D23, a material SOURCE correction after exact-candidate evaluation
+creates a successor candidate: retain the prior candidate and consumed events
+as historical evidence, but require a new exact SHA and new Gate 2 authority
+before candidate evaluation resumes.
+
+### WC-AR-D25 — Two-Stage Lazy Entry And Honest Loaded Identity
+
+**Confirmed.** Indirect intent uses a two-stage lazy entry so Work Charter can
+remain discoverable without taking over every matching conversation.
+
+1. **Catalog proposal.** For a generic request to choose among installed
+   Skills, or for symptom-only continuity, control, authorization, recovery,
+   writer, or assessment risk, use surfaced metadata only. Say that Work
+   Charter appears applicable, explain the observable reason, propose the
+   smallest bounded project read, and ask whether to activate it. Do not claim
+   the Skill is selected, loaded, invoked, or active, and do not inspect the
+   project.
+2. **Confirmed activation.** After the user confirms, load the full
+   `SKILL.md` and only then make activation visible and follow its entry
+   workflow. An explicit `$work-charter` invocation or ordinary-language
+   request that directly names and asks to use Work Charter enters at this stage
+   without requiring a separate activation question, but keeps the same
+   load-before-claim order. If the runtime does not expose exact copy identity,
+   preserve it as `UNKNOWN` and do not claim a revision; this alone does not
+   block activation.
+3. **Bounded project read.** Activation is not read authority. Inspect only an
+   exact scope the user approves or an exact scope visibly reused from an
+   applicable standing policy. The user may bundle activation and that scope
+   in one clear response.
+
+The exact `92a8c045...` Gate 2 run exposed this distinction. Its indirect
+installed-Skills cell safely performed no project or tool read and produced a
+bounded proposal, but it said "Selected skill: Work Charter" without any
+controller-observed `SKILL.md` read. That proves metadata-level intent
+recognition, not full Skill invocation or loaded-copy identity, so the batch
+stopped without candidate acceptance. The earlier direct ordinary-language
+cell did load the exact candidate and remains a separate observation.
+
+The revised matrix keeps the same six selection contexts. The indirect
+installed-Skills context adds one confirmation turn that must prove exact
+candidate loading while still performing no project read. This extra turn is
+not a new lane or a reset of prior evidence consumption. The stopped batch and
+its four consumed reference turns remain historical; the material SOURCE
+revision requires a new exact candidate and separately authorized evidence
+window.
+
+### WC-AR-D26 — Conditional Role Reads And Evidence Attribution
+
+**Confirmed.** The sealed fixed-turn Standard probe at exact candidate
+`72db7e9...` remains a `VIOLATION` and is not retried or rescored. It exposed
+one product gap and two controller-calibration gaps without changing the
+stable logical subject or erasing earlier correction and consumption history.
+
+The product correction is conditional and role-local:
+
+1. direct or confirmed activation requires the full `SKILL.md` body to be
+   available in the current context; metadata-only or unavailable body loading
+   is reported as degraded and stops without an activation claim. Exact copy
+   identity remains `UNKNOWN` when the runtime does not expose it and blocks an
+   exact-copy claim, not ordinary activation;
+2. every fresh role that claims to apply `L3` or `L4` Work Charter
+   responsibilities first loads the full `SKILL.md`, then loads the
+   coordination/recovery reference before relying on those responsibilities;
+3. every fresh `L4` role additionally loads the Standard O/P/E reference before
+   applying any `L4` responsibility, including implementation. An `L3` run may
+   conditionally read it while evaluating an explicit transition to `L4`
+   within the approved read scope, but the read does not authorize the
+   transition or any `L4` responsibility; and
+4. a handoff summary supports orientation but does not substitute for the
+   receiving role's own full-body and conditional-reference reads. Exact
+   loaded-copy identity remains separate evaluation or release evidence. The
+   Standard reference remains unloaded for `L0`-`L3` merely by default.
+
+Evaluation keeps semantic judgment separate from observable action evidence.
+Role boundaries are scored by meaning, not the presence of one expected phrase.
+Command and file-read attribution uses structured tool events and resolved
+accesses; punctuation inside a shell string does not create pseudo-commands.
+A policy-declined compound read can still leave required files unread, but its
+fragments are not independently relabeled as executed unauthorized actions.
+
+For a one-shot bundle, freeze immutable inputs at the declared consumption
+point and then recheck the mutable or explicitly invalidating surfaces. Do not
+repeat a full static inventory after every turn without an identified mutation
+channel. These controller corrections apply prospectively and never alter the
+sealed probe, authorize a model call, or create a fresh evidence window.
+
 ## Important Rejected Alternatives
 
 - Require exact `$work-charter` syntax from users.
 - Bootstrap or preload a universal workflow for every conversation.
+- Claim that Work Charter is selected or loaded from a metadata match, or load
+  its full body for every indirect symptom merely to make that claim.
 - Treat installation as permission to monitor, inspect, or mutate a project.
 - Hard-code one model or reasoning level as the product baseline.
 - Automatically select and apply a level after environment inspection.
@@ -880,7 +1020,7 @@ identity are not cleanup candidates under this decision.
   capability-delta method and the boundary against universal monitoring or
   duplicated model/Harness behavior.
 
-This accepted design refines the future Work Charter direction without changing
-the current Work Charter Design, SOURCE, State, or Verification ledgers. Those
-owners change only at their separately authorized implementation and evidence
-gates.
+This accepted design governs the `v0.2.0` development line. Work Charter
+Design, SOURCE, State, and Verification change only under the separately
+authorized writer and evidence gates recorded in the live handoff; design
+acceptance itself supplies no lifecycle authority.

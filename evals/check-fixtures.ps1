@@ -485,10 +485,11 @@ try {
     [void](New-Item -ItemType Directory -Path $runRootFull -Force)
     $setupOutput = & pwsh -NoProfile -File $setupScript -Destination $coldResumeRunFull 2>&1
     $setupExit = $LASTEXITCODE
+    $setupRecord = ($setupOutput | Out-String) | ConvertFrom-Json
 
     $actualBranch = & git -C $coldResumeRunFull branch --show-current
     $branchExit = $LASTEXITCODE
-    $null = & git -C $coldResumeRunFull rev-parse --verify HEAD 2>&1
+    $actualHead = & git -C $coldResumeRunFull rev-parse --verify HEAD 2>&1
     $headExit = $LASTEXITCODE
     $coldResumeStatus = & git -C $coldResumeRunFull status --porcelain=v1
     $statusExit = $LASTEXITCODE
@@ -501,12 +502,16 @@ try {
 
     $coldResumeGitReady = (
         $setupExit -eq 0 -and
+        $setupRecord.Fixture -eq 'cold-resume' -and
+        $setupRecord.Branch -eq 'phase/retry-delay' -and
         $branchExit -eq 0 -and
-        ($actualBranch | Out-String).Trim() -eq 'main' -and
-        $headExit -ne 0 -and
+        ($actualBranch | Out-String).Trim() -eq 'phase/retry-delay' -and
+        $headExit -eq 0 -and
+        ($actualHead | Out-String).Trim() -eq $setupRecord.BaselineCommit -and
         $statusExit -eq 0 -and
         $indexExit -eq 0 -and
-        $coldResumeStatus -contains 'AM src/retry_policy.py' -and
+        $coldResumeStatus -contains ' M src/retry_policy.py' -and
+        @($coldResumeIndex).Count -eq 0 -and
         ($coldResumeStatus | Out-String) -notmatch '(?m)^\?\?' -and
         $stagedInterpreterArtifacts.Count -eq 0
     )
@@ -531,7 +536,7 @@ Add-Check `
         $coldResumeOutsideRejected -and
         $coldResumeGitReady
     ) `
-    -Expectation 'out-of-root setup is rejected and the deliberate Git drift is reproducible'
+    -Expectation 'out-of-root setup is rejected and the approved branch plus owned dirty implementation are reproducible'
 
 $workCharterLoop = Join-Path $repoRoot 'evals\fixtures\work-charter-loop'
 Push-Location $workCharterLoop
@@ -581,11 +586,35 @@ Add-Check `
         $workCharterStandardText -match 'test_empty_input' -and
         $workCharterStandardText -match 'Ran 1 test' -and
         $workCharterStandardText -notmatch '(?m)^(?:FAILED|ERROR)' -and
-        $workCharterProject -match '## Proposed Standing Policy' -and
-        $workCharterProject -match 'This proposal has no effect until the user approves it' -and
+        $workCharterProject -match '## Approved Standing Policy' -and
+        $workCharterProject -match 'Policy revision 2 applies only' -and
+        $workCharterProject -match 'Reuse must remain visible' -and
         $workCharterProject -match 'This phase is unapproved'
     ) `
-    -Expectation 'Standard fixture starts with a proposed policy, active Phase One contract, and unapproved Phase Two'
+    -Expectation 'Standard fixture starts with an approved bounded policy, active Phase One contract, and unapproved Phase Two'
+
+$workCharterEntry = Join-Path $repoRoot 'evals\fixtures\work-charter-entry'
+$entryExistingReadme = Get-Content -Raw -Encoding UTF8 (
+    Join-Path $workCharterEntry 'existing-owner\README.md'
+)
+$entryExistingOwner = Get-Content -Raw -Encoding UTF8 (
+    Join-Path $workCharterEntry 'existing-owner\PROJECT.md'
+)
+$entryNoOwner = Get-Content -Raw -Encoding UTF8 (
+    Join-Path $workCharterEntry 'no-owner\README.md'
+)
+Add-Check `
+    -Name 'work-charter entry variants' `
+    -Passed (
+        $entryExistingReadme -match 'PROJECT\.md#work-coordination-and-recovery' -and
+        $entryExistingOwner -match 'Workstream: release-cleanup only' -and
+        $entryExistingOwner -match 'must survive one planned session handoff' -and
+        $entryExistingOwner -match 'No Work Charter has been\s+adopted yet' -and
+        $entryNoOwner -match 'completed in the\s+current reliable task' -and
+        $entryNoOwner -match 'no planned handoff' -and
+        $entryNoOwner -match 'durable project-document owner'
+    ) `
+    -Expectation 'entry fixture exposes one clean existing-owner variant and one current-task no-owner variant'
 
 $workCharterIntegrity = Join-Path $repoRoot 'evals\fixtures\work-charter-recovery-integrity'
 $integrityAuthority = Get-Content -Raw -Encoding UTF8 (
@@ -599,6 +628,12 @@ $integrityEvidence = Get-Content -Raw -Encoding UTF8 (
 )
 $integrityDelivery = Get-Content -Raw -Encoding UTF8 (
     Join-Path $workCharterIntegrity 'delivery-and-writer\SNAPSHOT.md'
+)
+$integrityRevision = Get-Content -Raw -Encoding UTF8 (
+    Join-Path $workCharterIntegrity 'charter-revision\SNAPSHOT.md'
+)
+$integrityWorktrees = Get-Content -Raw -Encoding UTF8 (
+    Join-Path $workCharterIntegrity 'multi-worktree-carrier\SNAPSHOT.md'
 )
 $integrityEvidenceVariant = Join-Path $workCharterIntegrity 'evidence-drift'
 $integrityRun = Join-Path $runRoot (
@@ -627,6 +662,7 @@ try {
     & git -C $integrityRunFull `
         -c 'user.name=Fixture Check' `
         -c 'user.email=fixture@example.invalid' `
+        -c 'commit.gpgSign=false' `
         commit -m 'fixture baseline' | Out-Null
     if ($LASTEXITCODE -ne 0) {
         throw 'Failed to commit the recovery-integrity fixture baseline.'
@@ -667,13 +703,29 @@ Add-Check `
         $integrityEvidence -match 'Source revision: `2`' -and
         $integrityEvidence -match 'Bound source revision: `1`' -and
         $integrityEvidence -match 'Remaining authorized attempts: `0`' -and
+        $integrityEvidence -match 'completed `CORRECTION_REQUIRED` round `1`' -and
+        $integrityEvidence -match 'Declared evidence consumption point: `qualification/start`' -and
+        $integrityEvidence -match 'failed before `qualification/start`' -and
+        $integrityEvidence -match 'Qualification `q1`: emitted `qualification/start`' -and
+        $integrityEvidence -match 'Delivery/transport retries consumed: `1`' -and
+        $integrityEvidence -match 'Native-review rounds consumed: `2`' -and
         $integrityEvidence -match 'Tracked Git status: clean' -and
         $integrityIgnoredReady -and
         $integrityDelivery -match 'Addressable role: unproved' -and
         $integrityDelivery -match 'Replacement authority: none' -and
-        $integrityDelivery -match 'Delta owner: unknown'
+        $integrityDelivery -match 'Delta owner: unknown' -and
+        $integrityRevision -match 'Revision: `4`' -and
+        $integrityRevision -match 'Requested scope: active and archived customers' -and
+        $integrityRevision -match 'Authority for the scope or acceptance change: not yet granted' -and
+        $integrityRevision -match 'Completed Work Charter corrections: `1`' -and
+        $integrityRevision -match 'Consumed one-shot evidence: `archive-write-04`' -and
+        $integrityRevision -match 'Current task, root, and attempt labels are not identity fields' -and
+        $integrityWorktrees -match 'Worktree A: `WORK_CHARTER\.md`, revision `5`' -and
+        $integrityWorktrees -match 'Worktree B: `WORK_CHARTER\.md`, revision `6`' -and
+        $integrityWorktrees -match 'Common control location: `UNKNOWN`' -and
+        $integrityWorktrees -match 'Dirty ownership: incomparable'
     ) `
-    -Expectation 'four read-only integrity variants expose ordered authority, pending assessment recording, source-bound hidden evidence drift, and delivery/writer ambiguity'
+    -Expectation 'six read-only integrity variants expose resume, successor history, pending recording, consumption-aware hidden evidence drift, delivery/writer ambiguity, and divergent worktree carriers'
 
 $powerShell = Join-Path $repoRoot 'evals\fixtures\powershell-boundary'
 $jsonPath = Join-Path $powerShell 'data\input file.json'
@@ -708,6 +760,89 @@ Add-Check `
     -Name 'PowerShell JSON encoding' `
     -Passed (-not $hasBom) `
     -Expectation 'fixture input is UTF-8 without BOM'
+
+$controllerCheck = Join-Path $repoRoot 'evals\check-codex-evidence-controller.ps1'
+$controllerOutput = & pwsh -NoProfile -File $controllerCheck 2>&1
+$controllerExit = $LASTEXITCODE
+$controllerRecord = $null
+if ($controllerExit -eq 0) {
+    try {
+        $controllerRecord = ($controllerOutput | Out-String) | ConvertFrom-Json
+    }
+    catch {
+        $controllerRecord = $null
+    }
+}
+$realReparseGuard = @(
+    $controllerRecord.sealed_locator_guards.identities |
+        Where-Object { [string]$_.id -ceq 'real-reparse-component' }
+)
+$expectedReparsePrimitive = if ($IsWindows) { 'Junction' } else { 'SymbolicLink' }
+$expectedUnexecutedBranch = if ($IsWindows) {
+    'non-Windows/SymbolicLink:UNKNOWN'
+}
+else {
+    'Windows/Junction:UNKNOWN'
+}
+Add-Check `
+    -Name 'Codex evidence controller regression' `
+    -Passed (
+        $controllerExit -eq 0 -and
+        $null -ne $controllerRecord -and
+        $controllerRecord.verdict -eq 'PASS' -and
+        $controllerRecord.historical.passed -eq 11 -and
+        $controllerRecord.historical.total -eq 11 -and
+        @($controllerRecord.historical.generated_contracts).Count -eq 11 -and
+        $controllerRecord.negative.passed -eq 31 -and
+        $controllerRecord.negative.total -eq 31 -and
+        $controllerRecord.metamorphic.passed -eq 4 -and
+        $controllerRecord.metamorphic.total -eq 4 -and
+        $controllerRecord.historical_source_bindings.passed -eq 11 -and
+        $controllerRecord.historical_source_bindings.total -eq 11 -and
+        $controllerRecord.historical_binding_guards.passed -eq 4 -and
+        $controllerRecord.historical_binding_guards.total -eq 4 -and
+        $controllerRecord.historical_generated_contract_guards.passed -eq 3 -and
+        $controllerRecord.historical_generated_contract_guards.total -eq 3 -and
+        $controllerRecord.package_manifests.passed -eq 2 -and
+        $controllerRecord.package_manifests.total -eq 2 -and
+        $controllerRecord.package_manifest_hash_guards.passed -eq 2 -and
+        $controllerRecord.package_manifest_hash_guards.total -eq 2 -and
+        $controllerRecord.sealed_locator_guards.passed -eq 4 -and
+        $controllerRecord.sealed_locator_guards.total -eq 4 -and
+        $realReparseGuard.Count -eq 1 -and
+        $realReparseGuard[0].selected_primitive -ceq $expectedReparsePrimitive -and
+        $realReparseGuard[0].selected_link_type -ceq $expectedReparsePrimitive -and
+        $realReparseGuard[0].target_retained -eq $true -and
+        $realReparseGuard[0].unexecuted_platform_branch -ceq $expectedUnexecutedBranch -and
+        $controllerRecord.sealed_byte_capture_guards.passed -eq 1 -and
+        $controllerRecord.sealed_byte_capture_guards.total -eq 1 -and
+        $controllerRecord.scratch_topology_guards.passed -eq 2 -and
+        $controllerRecord.scratch_topology_guards.total -eq 2 -and
+        $controllerRecord.threat_model.id -ceq 'quiescent-offline-single-writer/v1' -and
+        $controllerRecord.threat_model.concurrent_path_swap_resistance -ceq 'UNSUPPORTED' -and
+        $controllerRecord.threat_model.observable_pre_post_topology_drift -ceq 'fail_closed' -and
+        $controllerRecord.scratch_lifecycle.pre_cleanup -ceq 'validated' -and
+        $controllerRecord.scratch_lifecycle.scratch_absent -eq $true -and
+        $controllerRecord.scratch_lifecycle.run_root_post_cleanup -ceq 'ordinary_non_reparse' -and
+        $controllerRecord.scratch_lifecycle.residue -ceq 'none' -and
+        $controllerRecord.external_input_type_guards.passed -eq 3 -and
+        $controllerRecord.external_input_type_guards.total -eq 3 -and
+        $controllerRecord.git_read_safety_guards.passed -eq 9 -and
+        $controllerRecord.git_read_safety_guards.total -eq 9 -and
+        $controllerRecord.canonical_ordinal_guards.passed -eq 1 -and
+        $controllerRecord.canonical_ordinal_guards.total -eq 1 -and
+        $controllerRecord.command_resolution_guards.passed -eq 8 -and
+        $controllerRecord.command_resolution_guards.total -eq 8 -and
+        $controllerRecord.content_proof_identity_guards.passed -eq 6 -and
+        $controllerRecord.content_proof_identity_guards.total -eq 6 -and
+        $controllerRecord.record_cardinality_and_exit_guards.passed -eq 3 -and
+        $controllerRecord.record_cardinality_and_exit_guards.total -eq 3 -and
+        $controllerRecord.output_no_clobber_guards.passed -eq 1 -and
+        $controllerRecord.output_no_clobber_guards.total -eq 1 -and
+        $controllerRecord.narrow_git_context_check -eq $true -and
+        $controllerRecord.canonical_repeat.equal -eq $true
+    ) `
+    -Expectation 'tracked controller binds generated historical contracts, captures sealed bytes once, rejects real reparse and scratch-topology drift, safely cleans validated scratch, and passes historical, negative, metamorphic, and repeatability checks without recursive self-invocation'
 
 $checks | Format-Table -AutoSize
 

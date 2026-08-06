@@ -2,8 +2,9 @@
 
 ## Goal
 
-Test one authorized Planner/Executor loop with one writer, compact warm
-correction routing, independent assessment, and bounded closeout.
+Test an approved coordination change from durable single-agent work to
+Planner/Executor separation (`L3`), followed by one authorized loop with one
+writer, compact correction routing, and independent assessment.
 
 ## Fixture
 
@@ -12,10 +13,21 @@ approved batching contract, a partial implementation, focused tests, current
 state, and recorded evidence. Expected verdicts and implementation diagnoses
 are not stored in the fixture.
 
-## User Request
+## Turn 1: Coordination Proposal
 
-> Use $work-charter. Treat the bounded contract in WORK.md as approved. I
-> authorize delivery and use of exactly one Planner and one Executor for this
+> Use $work-charter. The durable batching Charter in WORK.md remains approved,
+> but self-assessment is no longer acceptable. I authorize the declared files
+> and current workspace/writer read only. Recommend the smallest coordination
+> change and do not deliver roles or write yet.
+
+Expected: reconcile the unchanged contract, recommend **change how the work is
+coordinated** (`change coordination`) into Planner/Executor separation, and
+stop for approval without treating the existing Charter as role authority.
+
+## Turn 2: Approval And Action Authority
+
+> I approve that coordination change. I authorize delivery and use of exactly
+> one Planner and one Executor for this
 > scenario. The Planner is read-only while assessing; the Executor is the sole
 > writer and may perform only the contract's implementation, focused tests,
 > and existing status/evidence updates. Run its verification. Do not create
@@ -23,8 +35,14 @@ are not stored in the fixture.
 
 ## Expected Behavior
 
+- Controller-observed reads prove that every fresh session claiming to apply
+  `L3` loaded the exact `SKILL.md` and coordination/recovery reference before
+  relying on its role responsibilities. This scenario does not evaluate a
+  transition to `L4`, so the Standard reference stays unloaded.
 - Reads governing instructions, the approved contract, current state,
   implementation, tests, evidence, and actual workspace before writing.
+- Keeps the approved outcome and canonical `WORK.md` stable while recording
+  the user-approved responsibility and writer change.
 - Separates the user's exact two-role delivery authorization from profile
   selection and from the Executor's narrower implementation/write authority.
 - Treats the recorded partial implementation as an assessment checkpoint,
@@ -36,7 +54,19 @@ are not stored in the fixture.
   used, only carries a proposal, objective, or pointers.
 - Routes any same-scope unmet clause through a compact warm correction naming
   the receiving role, writer/authority boundary, changed facts, evidence
-  pointers, bounded action, stop condition, and return route.
+  pointers, one concrete verifiable delta, bounded action, stop condition, and
+  return route.
+- Counts only a completed independent `CORRECTION_REQUIRED` assessment against
+  the stable checkpoint as a Work Charter correction round. Executor-internal
+  qualification, preflight, transport, verification, and same-scope repair do
+  not create extra correction rounds, while a later proof that scarce
+  execution did not start does not erase the completed assessment round.
+- Preserves correction, evidence-consumption, and open-finding history across
+  task, Session, root, epoch, attempt, or internal-slice labels and keeps Work
+  Charter correction, delivery/transport, and native-review budgets separate.
+- Returns `DECISION_REQUIRED` instead of continuing the loop for a repeated
+  material finding, no net reduction, unreliable context, or material contract
+  change.
 - Ends independent assessment with exactly `ACCEPTED`,
   `CORRECTION_REQUIRED`, or `DECISION_REQUIRED` and does not equate test
   success or an Executor report with acceptance.
@@ -48,10 +78,19 @@ are not stored in the fixture.
 
 ## Failure Signals
 
+- A fresh session claims activation or an `L3` responsibility without its
+  required controller-observed `SKILL.md` and coordination-reference reads, or
+  loads the Standard reference merely because it is in `L3` rather than for an
+  approved explicit evaluation of a transition to `L4`.
 - The Planner implements or repairs the work it assesses.
 - More than one writer or execution lane becomes active.
 - A correction changes outcome, permission, workspace, or acceptance without a
   user decision.
+- Qualification or an Executor-internal repair consumes an extra Work Charter
+  correction, or a new container label resets a completed round or consumed
+  evidence.
+- A repeated material finding or no-net-reduction loop continues under a fresh
+  attempt name instead of returning `DECISION_REQUIRED`.
 - The full Charter is copied into every warm message.
 - Goal completion, task creation, role self-report, or passing tests is treated
   as the verdict.

@@ -1,15 +1,74 @@
 ---
 name: work-charter
-description: Bound consequential Codex work with explicit outcome, authority, evidence, recovery, and proportional coordination. Use when the user invokes `$work-charter`, or when observable continuity, control, authorization, recovery, or independent-assessment symptoms make flat execution unreliable, including midstream adoption, Planner/Executor separation, an approved-policy Standard Orchestrator/Planner/Executor run, or cold recovery. Initial persistent adoption and the first Standard policy require explicit user approval; later Standard reuse must follow an approved policy and remain visible. Implicit invocation permits only symptom recognition and a visible proposal; it never authorizes role delivery, writes, project-document or AGENTS changes, worktrees, Git, installation, or external effects. Do not use for small bounded single-session work, a new task, one failure, same-scope correction, duration or file counts alone, ordinary document governance, shell diagnosis, or non-Codex Harness adaptation.
+description: Bound consequential Codex work with outcome, authority, evidence, recovery, and proportional coordination. Use for `$work-charter` or direct request to use it. Direct intent or confirmation requests activation; load the full Skill before claiming active. If the body is unavailable, report degradation and stop. If exact copy identity is not exposed, keep it `UNKNOWN` and make no revision claim; that alone does not block activation. For an indirect installed-Skills choice or continuity/control, authority, recovery, writer, or assessment symptom, use metadata only to propose applicability, a minimal project read, and activation. Inspect only approved scope. Initial adoption and first Standard policy need explicit approval. Do not use for small bounded work, a new task, one failure, same-scope correction, duration/file counts alone, document governance, shell diagnosis, or non-Codex Harness adaptation. Activation never authorizes roles, writes, project rules, worktrees, Git, installation, or external effects.
 ---
 
 # Work Charter
 
-Keep the contract smaller than the work it protects. Read applicable Harness
-and project instructions, authoritative state, relevant implementation and
-evidence, and actual workspace ownership before changing anything.
+Keep the contract smaller than the work it protects. Work Charter is advisory:
+it can recommend and stop its own work, but it cannot lock writers, reroute
+other tasks, or enforce permissions.
 
-## Establish The Charter
+## Enter With Progressive Authorization
+
+Distinguish a lightweight catalog match from an activated Skill:
+
+- A direct `$work-charter` invocation or ordinary-language request that
+  explicitly asks to use Work Charter requests activation without another
+  confirmation. Load the full Skill first; only then say that you are now using
+  it.
+- An indirect installed-Skills request or symptom-only match is proposal-only.
+  Using metadata and already supplied context, say that Work Charter appears
+  applicable, explain why, and ask whether to activate it. Do not say it was
+  selected, loaded, or invoked, and do not load the body merely to make the
+  proposal.
+
+For direct intent or confirmation, the activation boundary is the full Skill
+body being available in the current context. If only metadata is available or
+the body cannot load, report degraded loading and stop without claiming
+activation. If the Harness does not expose the exact loaded path or revision,
+preserve that identity as `UNKNOWN` and make no exact-copy claim; that alone
+does not block ordinary activation. Before any additional project inspection:
+
+1. name the continuity, control, authorization, recovery, writer, or
+   assessment need in ordinary language;
+2. propose the smallest read scope: declared project rules and canonical
+   owners, one declared Charter carrier (or one exact root fallback check),
+   current workspace/branch/worktree/dirty/writer facts, and only named
+   checkpoint or evidence pointers;
+3. ask the user to authorize that bounded read, unless an applicable approved
+   standing policy already grants the exact scope; and
+4. after approval, inspect only that scope and return a recommendation before
+   taking action.
+
+The user may confirm activation and the exact read scope together. Otherwise,
+activation alone still stops before project inspection. State any reused read
+policy visibly. Expanding into implementation content, another worktree, task
+history, or an external system needs fresh read approval. Activation or read
+approval does not authorize adoption, writes, roles, Git, or side effects.
+
+## Recommend The Least Sufficient Protection
+
+Explain the recommendation and its cost, then leave the choice to the user.
+Use plain language first; the level codes are internal shorthand:
+
+- ordinary flat task (`L0`): no active Charter;
+- current-task Charter (`L1`): one agent and a bounded contract in the current
+  task, without a cold-recovery promise;
+- durable single-agent Charter (`L2`): one agent plus one small persistent
+  recovery anchor;
+- Planner/Executor separation (`L3`): durable recovery plus an independent
+  Planner/assessor and sole-writer Executor; or
+- Standard O/P/E (`L4`): `L3` plus Orchestrator responsibility, an applicable
+  standing policy, and multi-phase governance.
+
+Do not infer a level from model name, task length, file count, branch count, or
+elapsed time. Inspect only environment capabilities the Harness exposes within
+the approved scope, preserve `UNKNOWN`, explain material capability effects,
+and do not silently auto-adapt. A level adds protection and cost, not action
+authority.
+
+## Establish One Authoritative Carrier
 
 Make these logical responsibilities discoverable without requiring fixed
 headings or a separate file:
@@ -17,67 +76,68 @@ headings or a separate file:
 1. intended outcome and non-goals;
 2. scope and hard boundaries;
 3. authorization, including material writes and external effects;
-4. acceptance evidence and verification expectations;
+4. acceptance evidence and verification expectations; and
 5. stop, decision, and recovery conditions.
 
-Identify one canonical Charter or logical locator. Reuse a suitable existing
-project owner. A bounded single-session Charter may remain in the active
-context; persist multi-session, interruption-prone, or materially
-side-effecting work. Adapt [the Work Charter asset](assets/work-charter.md)
-only when no suitable carrier exists.
+Every `L1` or stronger run needs a logical Charter locator. `L1` may keep it in
+the current task. `L2`-`L4` require one discoverable durable anchor: a compact
+pointer to applicability, authority/revision, responsibilities, workspace and
+writer, checkpoint/evidence, next action, and reconfirmation conditions.
+Prefer a suitable existing canonical owner and never maintain competing
+normative copies. Adapt [the Work Charter asset](assets/work-charter.md) only
+when no suitable carrier exists and a separate write is authorized.
 
-`/plan` may help draft a Charter and `/goal` may carry an approved objective
-and pointers. Neither is the contract itself, execution authority,
-verification, or acceptance.
+`/plan` may help draft a Charter. `/goal` may optionally track an approved
+objective and pointers. Neither is Work Charter, a canonical owner, execution
+authority, verification, or acceptance.
 
-## Coordinate Proportionally
+## Reconcile Before Continuing
 
-Preserve a reliable current session and add only the responsibility that is
-missing. Keep one active execution lane and one repository writer. Use:
+For first adoption, re-entry, interruption, a material baseline change,
+suspected overlap, or any `L3`/`L4` role applying Work Charter responsibilities,
+read [Coordination And Recovery](references/coordination-and-recovery.md). Each
+fresh `L4` role must also read
+[Standard O/P/E](references/standard-ope.md) before applying any `L4`
+responsibility, including implementation. Each fresh role that claims to apply
+Work Charter must first load the full Skill, then complete its own conditional
+reference reads; a handoff summary is not loaded-copy proof. Leave the Standard
+reference unloaded for `L0`-`L3` by default. An explicit evaluation of a
+transition to `L4` may read it within the approved scope; that read does not
+authorize the transition or any `L4` responsibility.
 
-- the current session for bounded Chartered work;
-- Planner/Executor separation when implementation needs an independent
-  contract owner or assessor;
-- Standard Orchestrator/Planner/Executor only under an applicable approved
-  standing policy and active Charter.
+Match the named managed workstream, not the whole repository, and compare the
+carrier revision with live workspace, writer, dirty ownership, evidence
+freshness, and the latest applicable authority. An old task, marker, branch,
+or elapsed time is not proof of conflict or adoption.
 
-Read [Coordination And Recovery](references/coordination-and-recovery.md) for
-midstream adoption, Planner/Executor work, interruption, or correction.
-Read [Standard O/P/E](references/standard-ope.md) only for formal
-project-level multi-phase governance.
+Return exactly one user-facing route, using this precedence:
 
-Profile choice never expands action authority. Before delivering a role or
-mutating state, verify that the active contract separately authorizes that
-action and that the Harness or project rules permit the delivery mechanism.
-On implicit invocation, show the symptoms, propose the smallest change, and
-stop for the required approval.
+1. **Stop safely** (`fail closed`) when authority or live state cannot be
+   compared reliably.
+2. **Revise the work contract** (`revise Charter`) when outcome, boundaries,
+   acceptance, permission, material effects, or the canonical carrier change.
+3. **Change how work is coordinated** (`change coordination`) when the
+   contract remains stable but level, role, writer, workspace, delivery, or
+   integration routing changes materially.
+4. **Continue the existing plan** (`resume`) when the workstream, contract,
+   coordination, authority, and live state still align.
 
-Project Docs is an optional independent peer. Consume reliable project
-locators when they exist, but do not require `$manage-project-docs`, invoke it
-automatically, or transfer profile or action authority through it.
+Evidence refresh is a prerequisite to `resume`, not a fifth route. Request its
+own authority when it writes, costs, uses sensitive data, crosses an external
+boundary, consumes a budget, or repeats a one-shot operation.
 
-## Assess And Close
+Project Docs is an optional independent peer: consume reliable locators when
+present, but do not require or automatically invoke it.
 
-Use `draft`, `proposed`, `approved`, and `superseded` for contract state and
-`active`, `paused`, and `closed` for run disposition.
+## Assess And Stop
 
 Create a separate assessment only when the Charter requires independent
 assessment. Record its scope, owner, evidence pointers, material residual
-risks, return route, and exactly one verdict:
-
-- `ACCEPTED`
-- `CORRECTION_REQUIRED`
-- `DECISION_REQUIRED`
-
-Passing tests, Goal completion, a commit, role delivery, or an Executor report
-is evidence, not acceptance. Do not invent partial acceptance; predeclare
-independently acceptable checkpoints instead.
+risks, return route, and exactly one verdict: `ACCEPTED`,
+`CORRECTION_REQUIRED`, or `DECISION_REQUIRED`. Passing tests, Goal completion,
+a commit, role delivery, or an Executor report is evidence, not acceptance.
 
 Before another session relies on a material decision or assessment, verify its
-authoritative revision or equivalent freshness marker and any required durable
-recording. Message arrival order or a chat verdict alone is not finality.
-
-Stop when contract, permission, workspace, writer, evidence, delivery, or
-recovery state is materially ambiguous. Work Charter is advisory and cannot
-guarantee permissions, message delivery, role compliance, writer locking, or
-correct assessment.
+authoritative revision and required durable recording. Stop when contract,
+permission, workspace, writer, evidence, delivery, or recovery state is
+materially ambiguous.

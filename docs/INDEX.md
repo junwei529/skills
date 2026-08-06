@@ -1,6 +1,6 @@
 # Documentation Index
 
-Last updated: 2026-08-02
+Last updated: 2026-08-03
 
 ## Core Documents
 
@@ -53,7 +53,7 @@ mirror.
 | [`docs/decisions/0015-federated-repository-documentation.md`](decisions/0015-federated-repository-documentation.md) | Root/per-Skill documentation ownership, bilingual public entries, and unchanged installable-package boundary | accepted |
 | [`docs/decisions/0016-work-charter-authority-assessment-and-evidence-integrity.md`](decisions/0016-work-charter-authority-assessment-and-evidence-integrity.md) | Work Charter authority finality, assessment recording, evidence invalidation, delivery degradation, and advisory writer recovery | accepted |
 | [`docs/decisions/0017-capability-delta-skill-development.md`](decisions/0017-capability-delta-skill-development.md) | Prospective capability-delta design, layer placement, matched evaluation, and upgrade/retirement rule for Skill development | accepted |
-| [`docs/decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md`](decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md) | Future Work Charter natural-language entry, proportional protection levels, durable re-entry, evaluation, workspace, and lifecycle gates | accepted design; implementation pending |
+| [`docs/decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md`](decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md) | Work Charter two-stage natural-language entry, proportional protection levels, durable re-entry, task convergence, evaluation, workspace, and lifecycle gates | accepted design; exact `72db7e9...` sealed a fixed-turn Standard `VIOLATION`; the conditional-role-read correction has offline SOURCE evidence only, candidate and behavior evidence remain absent, and Git disposition belongs to the live commit-attempt record |
 
 ## Skill Sources
 

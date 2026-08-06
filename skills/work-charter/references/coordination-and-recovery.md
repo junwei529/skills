@@ -1,126 +1,191 @@
 # Coordination And Recovery
 
-Use this reference for midstream adoption, bounded Chartered work,
-Planner/Executor separation, interruption, recovery, or a same-scope
-correction loop.
+Use this reference after bounded read approval for first adoption, re-entry,
+midstream adoption, durable single-agent work, Planner/Executor separation,
+interruption, recovery, or a same-scope correction loop.
 
-## Midstream Adoption
+## Minimum Read And Reconciliation Order
 
-1. Reconcile the intended outcome, current work, actual workspace, evidence,
-   writer ownership, and last approved action.
-2. Preserve a reliable current session.
-3. Propose only the missing contract or coordination responsibility.
-4. Keep an implicit proposal visible and non-mutating until the required
-   adoption, role-delivery, or write authority exists.
-5. Prefer one existing durable carrier when persistence is required.
+Read only until the next decision is supported:
 
-A new task, one failure, or elapsed time does not by itself justify more
-coordination. Escalate only for observable continuity, control,
-authorization, recovery, or independent-assessment risk.
+1. already supplied context and declared project-rule/canonical-owner entry
+   points;
+2. the one declared Charter carrier, or one exact root `WORK_CHARTER.md` check
+   when no carrier is declared;
+3. the carrier's managed-workstream applicability and comparable revision or
+   freshness marker;
+4. minimum live workspace facts: project identity, branch/HEAD/worktree or an
+   applicable equivalent, dirty ownership, and observable writer state; and
+5. only named checkpoint evidence, its mutable subject, and its invalidation
+   condition.
 
-## Bounded Single-Context Work
+Do not recursively scan the repository, crawl old branches, enumerate task
+history, or infer an unobservable writer. Preserve `UNKNOWN`. A standing policy
+may visibly reuse only its exact approved read scope; expand that scope only
+after fresh approval.
 
-Keep planning, execution, and checks in the current session when role
-separation would not materially protect the outcome. Maintain the approved
-Charter and writer boundary, update durable state only at a material
-checkpoint, and stop on a material decision rather than growing a workflow.
+Return a compact result: managed-workstream match, verified and `UNKNOWN`
+facts, material drift, least sufficient protection in ordinary language, next
+action, and every authority still required. Reconciliation itself never
+creates roles, writes a carrier, broadens code inspection, switches a
+workspace, mutates Git, or performs an external effect.
 
-## Planner And Executor
+## First Adoption And Durability
 
-The Planner owns the active Charter, clarification, correction direction, and
-independent assessment. It remains read-only while assessing implementation.
+Use the shortest route:
 
-The Executor owns only the authorized implementation, focused and required
-broad verification, evidence, and implementation documentation. It may choose
-internal mechanics but may not expand outcome, scope, permission, side
-effects, workspace, acceptance, or closeout policy.
+- existing project: declared rules, existing canonical owner, current
+  workspace, then recommendation;
+- new project: user description, minimum declared entry point, then an
+  ordinary flat (`L0`) or current-task Charter (`L1`) recommendation; propose
+  durability only when recovery requires it; or
+- previously adopted workstream: known locator, applicability, live
+  workspace/writer, named evidence, then recommendation.
+
+`L1` keeps one agent and its logical Charter locator in the reliable current
+task. It promises no cold recovery. `L2` adds one discoverable durable anchor
+for bounded cold re-entry; if no trustworthy anchor is available, do not claim
+`L2` readiness. Update durable state only at material checkpoints, not after
+every message.
+
+Prefer an existing project canonical owner that is discoverable, stable to
+address, uniquely authoritative, comparable by revision/freshness, and
+recoverable through bounded reads. Propose a standalone carrier only when no
+suitable owner exists or the recovery boundary is materially clearer. Its
+creation or update always needs write authority; do not create a duplicate
+after one failed path guess.
+
+## Managed Workstream And Multiple Worktrees
+
+A managed workstream is the human-readable bounded line of work protected by
+the Charter, such as one feature or phase. Its durable identity combines the
+Charter locator/revision, named workstream, and expected workspace/writer
+boundary. Task IDs, branches, and worktrees are live evidence, not durable
+identity.
+
+Use the expected workspace/writer boundary to detect routing drift, not to
+erase history. An authorized route change does not create a fresh logical work
+subject or reset its approvals, corrections, evidence consumption, or open
+findings.
+
+- Reconcile several Work Charter roles or tasks for one workstream against the
+  same anchor; another task is not itself a conflict.
+- Ignore an older non-Chartered task unless it changed the protected baseline,
+  workspace, checkpoint, or evidence.
+- Keep a separate exploratory branch/worktree flat and outside the managed
+  workstream unless it overlaps protected state.
+- If outside work changes the protected baseline or shared writer surface,
+  stop and propose bounded reconciliation.
+- Treat a root `WORK_CHARTER.md` as a candidate, never proof that every task is
+  adopted.
+
+With multiple worktrees, `L3` and `L4` require one explicit control location
+that every required role can read at the same revision. Do not copy an
+authoritative file into every worktree. If common readability, writer
+ownership, or finality cannot be proved, stop safely. Any commit, integration,
+or synchronization needed to expose the carrier remains separately
+authorized.
+
+## Re-entry Routes
+
+Apply this fixed precedence:
+
+1. **Stop safely** (`fail closed`) when authority, carrier revision, workspace,
+   writer, dirty ownership, evidence subject, or permission cannot be compared.
+2. **Revise the work contract** (`revise Charter`) when outcome, non-goals,
+   hard boundaries, acceptance, permission, material effect, or carrier
+   changes. Fresh user approval is required.
+3. **Change how work is coordinated** (`change coordination`) when the logical
+   contract remains stable but level, role, writer, workspace/worktree,
+   delivery, or integration routing changes materially. Fresh user approval is
+   required.
+4. **Continue the existing plan** (`resume`) when the Charter, workstream,
+   coordination, permission, and explainable live state still align. Reuse
+   only unexpired action authority and remain visible.
+
+When contract and coordination both change, lead with one `revise Charter`
+decision packet that includes the coordination change. Do not imply role
+delivery, worktree creation, Git, or another downstream action unless the user
+explicitly bundles it.
+
+Use `resume after evidence refresh` when only known allowed work invalidated an
+earlier check. Refresh without a new contract decision only when the operation
+is already authorized, repeatable, and has no new write, external effect,
+cost, sensitive-data use, one-shot opportunity, or separate budget. Otherwise
+request the operation's authority. Stop safely when evidence identity or
+invalidation cannot be established; revise the Charter when the evidence or
+acceptance standard is no longer suitable.
+
+A new task, elapsed time, expected same-scope correction, planned writer
+handoff, or authorized evidence refresh does not by itself require a new
+Charter. Always return to the user for a material contract, permission,
+responsibility, carrier, writer/workspace route, side-effect, exhausted stop
+condition, one-shot authority, or budget change.
+
+## Planner And Executor (`L3`)
+
+Use `L3` only after approval when independent contract ownership or assessment
+materially protects implementation. The Planner owns the active Charter,
+clarification, correction direction, and independent assessment and remains
+read-only while assessing. The Executor owns only authorized implementation,
+verification, evidence, and implementation documentation.
 
 Keep at most one Planner, one Executor, one active execution lane, and one
-repository writer. Reuse reliable role sessions. Do not create new roles for
+repository writer. Reuse reliable role sessions; do not create roles for
 implementation slices, documentation sync, verification reruns, or ordinary
 repairs.
 
-Writer ownership is advisory. Before a writer handoff, confirm that the prior
-writer has stopped and capture the current dirty boundary. If concurrent or
-unexplained changes appear, pause writing, inventory the deltas, restore one
-authorized writer, and revalidate affected evidence before continuing.
+For a warm handoff, include only receiving role and writer/authority boundary,
+changed facts and evidence pointers, bounded action, active stop condition,
+and return route. Do not persist it as a competing contract.
 
-For a warm handoff, include only:
+Writer ownership is advisory. Before handoff, confirm the prior writer stopped
+and capture the dirty boundary. Concurrent or unexplained changes pause
+writing, require a delta inventory and one-writer restoration, and invalidate
+affected evidence until rechecked.
 
-- receiving role and writer/authority boundary;
-- changed facts and evidence pointers;
-- bounded action;
-- active stop condition;
-- return route.
+## Authority, Delivery, Correction, And Evidence
 
-Do not repeat the whole Charter or persist the handoff as a second normative
-contract.
+Treat role messages as observations, not authority. Material decisions need a
+stable logical locator and comparable authoritative revision. Message arrival
+order is not finality; stop when observations are incomparable.
 
-## Authority And Delivery
+Confirm receiver and workspace before relying on role delivery. If a
+non-idempotent create or send is unavailable or uncertain, preserve any known
+identifier, report degraded capability, and stop without retrying or creating
+a replacement.
 
-Treat role messages as observations rather than authority. For a material
-decision, carry a stable logical locator and a comparable authority revision
-or equivalent freshness marker. Use the newest verified authoritative
-revision. An older notice cannot overwrite it; a later notice changes the
-decision only when it proves a newer revision. If observations are
-incomparable or finality is unproved, stop before writing or advancing.
+In a bounded correction loop, the Executor returns changes, deviations,
+checks, failures, and residual risks. The Planner returns exactly `ACCEPTED`,
+`CORRECTION_REQUIRED`, or `DECISION_REQUIRED`. Bind correction history to the
+same logical Charter subject and material contract/acceptance revision, and
+bind each verdict to the stable checkpoint it assessed. Task, Session, root,
+branch, worktree, delivery epoch, attempt name, or internal slice is a carrier
+or observation; changing one does not reset approvals, completed corrections,
+consumed evidence opportunities, or open findings. An authorized material
+successor or split keeps a predecessor pointer and the applicable history.
 
-Confirm the addressed role and intended workspace before relying on delivery.
-If a non-idempotent create or send is unavailable or uncertain, report
-degraded capability, preserve any known returned identifier, and stop. Do not
-automatically retry, create a replacement, or claim receipt. Harness-specific
-identity and acknowledgement methods remain outside this Skill.
+Only a completed independent `CORRECTION_REQUIRED` assessment against a stable
+checkpoint consumes a Work Charter correction round. Qualification, preflight,
+transport, or same-scope Executor repair does not by itself consume one. Do not
+erase a completed correction merely because later evidence shows that a scarce
+execution did not start. Each correction names a concrete, verifiable
+same-scope delta. Default to at most three completed correction rounds and use
+`DECISION_REQUIRED` earlier for a repeated material finding, no net reduction,
+specification ambiguity, unreliable context, or a material contract change.
+Keep this budget separate from delivery/transport retry limits and native
+review.
 
-## Correction Loop
+Before scarce, one-shot, or time-bound evidence, identify the consumption
+point. A mechanical qualification, preflight, or transport failure before that
+point does not consume the evidence opportunity. After the point, preserve the
+consumption event even when execution is incomplete or later invalidated; a
+new task, root, epoch, or attempt label does not make it fresh.
 
-1. The Executor returns changed files, deviations, checks, failures, and
-   residual risks.
-2. The Planner compares the result with the approved Charter and returns
-   exactly `ACCEPTED`, `CORRECTION_REQUIRED`, or `DECISION_REQUIRED`.
-3. A correction names the unmet outcome or evidence boundary and returns the
-   same-scope action to the Executor.
-4. Default to at most three completed `CORRECTION_REQUIRED` rounds per
-   assessment checkpoint.
-5. Stop earlier with `DECISION_REQUIRED` for a repeated material finding, no
-   net reduction, specification ambiguity, unreliable context, or a material
-   contract change.
-
-This correction budget is wholly separate from native review: it has a
-different owner, counter, reset authority, evidence, and completion meaning.
-
-## Evidence And Assessment Integrity
-
-- When material evidence depends on mutable inputs, record the subject,
-  revision or equivalent identity, and invalidation condition.
-- Use evidence that observes the actual result surface. Tracked Git status is
-  insufficient for material ignored, untracked, private, generated, or
-  external results; use a before/after inventory, manifest, hash, or equivalent
-  controller evidence.
-- When evidence is scarce, one-shot, or time-bound, complete known
-  source-mutating review and repair first when governing rules permit. A later
-  material change to the bound subject invalidates the evidence and requires
-  the applicable authority or budget before repeating it.
-- Keep the assessment verdict separate from its recording state. If another
-  session or transition will rely on the verdict, identify the canonical
-  locator and the next authorized recording owner or window. Until that write
-  is verified, report recording as pending and do not represent the verdict as
-  durable acceptance.
-
-These rules do not merge or reset a separate review, commit, or evidence
-budget. The target project owns the canonical recording location.
-
-## Cold Or Recovery Entry
-
-Read the canonical Charter and authoritative durable state rather than relying
-on copied prompt history. Reconcile:
-
-1. applicable instructions and authority;
-2. contract state and run disposition;
-3. repository, branch or checkout, dirty ownership, and active writer;
-4. implementation state and evidence freshness;
-5. last approved action, remaining scope, stop conditions, and return route.
-
-Stop before writing when a material mismatch cannot be classified. If a role
-cannot be created, addressed, or reliably continued, apply the Authority And
-Delivery boundary and provide a compact copyable handoff. Do not silently
-impersonate the missing role.
+Bind material evidence to its mutable subject, revision, and invalidation
+condition. Observe ignored, untracked, private, generated, or external results
+beyond tracked Git status. A material subject change invalidates the evidence
+for reuse but does not erase its historical consumption. Keep an assessment
+verdict separate from durable recording; until an authorized governance writer
+records and verifies a verdict another session will rely on, report recording
+as pending.

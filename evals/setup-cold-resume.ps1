@@ -86,7 +86,7 @@ ForEach-Object {
     Copy-Item -LiteralPath $_.FullName -Destination $targetPath
 }
 
-& git -C $destinationFull init --initial-branch=main
+& git -C $destinationFull init --initial-branch=phase/retry-delay | Out-Null
 if ($LASTEXITCODE -ne 0) {
     throw 'Unable to initialize the cold-resume Git fixture.'
 }
@@ -94,6 +94,21 @@ if ($LASTEXITCODE -ne 0) {
 & git -c core.autocrlf=false -C $destinationFull add --all
 if ($LASTEXITCODE -ne 0) {
     throw 'Unable to stage the cold-resume baseline.'
+}
+
+& git `
+    -C $destinationFull `
+    -c 'user.name=Fixture Check' `
+    -c 'user.email=fixture@example.invalid' `
+    -c 'commit.gpgSign=false' `
+    commit -m 'fixture baseline' | Out-Null
+if ($LASTEXITCODE -ne 0) {
+    throw 'Unable to commit the cold-resume baseline.'
+}
+
+$baselineCommit = (& git -C $destinationFull rev-parse HEAD | Out-String).Trim()
+if ($LASTEXITCODE -ne 0 -or -not $baselineCommit) {
+    throw 'Unable to resolve the cold-resume baseline commit.'
 }
 
 $retryPath = Join-Path $destinationFull 'src\retry_policy.py'
@@ -110,4 +125,9 @@ def retry_delay(attempt: int) -> int:
     [System.Text.UTF8Encoding]::new($false)
 )
 
-Write-Output 'Cold-resume fixture prepared on unborn main with one owned dirty file.'
+[pscustomobject]@{
+    Fixture = 'cold-resume'
+    Branch = 'phase/retry-delay'
+    BaselineCommit = $baselineCommit
+    OwnedDirtyFile = 'src/retry_policy.py'
+} | ConvertTo-Json -Depth 3

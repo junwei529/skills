@@ -49,10 +49,22 @@ $work-charter Bound this consequential task, its authority, evidence, and recove
 $use-powershell-safely Diagnose this material Windows shell boundary before changing application code.
 ```
 
-Project Docs is explicit-only. Work Charter may implicitly recognize concrete
-control or recovery symptoms only to make a visible proposal. PowerShell may
-be selected for material Windows boundaries. Read each public guide for its
-non-triggers and safety limits.
+Project Docs is explicit-only. Work Charter also accepts ordinary-language
+requests such as “use Work Charter to decide how this project should continue”;
+that direct request tells Codex to load the full Skill and permits an activation
+claim only after the full body is available in the current context. If Codex
+cannot load the body, it reports degraded loading and stops without claiming
+activation. When the runtime does not expose the exact loaded path or revision,
+that identity remains `UNKNOWN` and Codex makes no exact-copy claim; this alone
+does not block ordinary activation. For an indirect installed-Skills request or
+concrete control or recovery symptoms, metadata may show that Work Charter
+appears applicable. The first response explains why, proposes the smallest
+project read, and asks whether to activate it without claiming that it is
+selected or loaded. After confirmation, the same load-or-stop boundary applies,
+while project inspection still requires approval for the exact scope.
+PowerShell may be selected for material Windows boundaries. Activation or read
+approval does not authorize adoption, roles, writes, Git, installation, or
+external effects.
 
 ## Compose Optionally
 

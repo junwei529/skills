@@ -8,10 +8,12 @@ skills. It does not contain a causal benchmark or release certification.
 
 Use two distinct experiment types:
 
-1. **Selection tests** — configure the realistic Skill catalog, but name or
-   preselect no Skill. Record the installed manifest and metadata actually
-   surfaced, then measure the expected positive or negative selection and
-   whether unrelated Skills remain unloaded.
+1. **Selection tests** — configure the realistic Skill catalog without a
+   `$skill-name` invocation or Harness preselection. A case may name a product
+   in ordinary language when direct activation is the behavior under test.
+   Record the installed manifest and metadata actually surfaced, then measure
+   the expected activation, proposal, or negative outcome and whether
+   unrelated Skills remain unloaded.
 2. **Behavior tests** — explicitly invoke one `$skill-name`. Measure whether the agent follows that skill's workflow and boundaries; do not score skill selection.
 
 Project Docs has
@@ -19,9 +21,11 @@ Project Docs has
 is not loaded before explicit invocation and is available after explicit
 invocation. Project Docs continuity begins as a persistence test: no Skill is
 named or preselected, and the target-project rule must be sufficient without
-loading Project Docs. Work Charter allows implicit invocation, but implicit
-selection may only recognize concrete symptoms and visibly propose a bounded
-transition. The 2026-07-29 Work Charter M2R matrix was SOURCE-assisted. The
+loading Project Docs. Work Charter allows implicit invocation, but an indirect
+installed-Skills request or symptom-only match may use metadata only to say it
+appears applicable and ask for activation. Direct ordinary-language intent or
+later confirmation must load the full Skill before its workflow is relied on.
+The 2026-07-29 Work Charter M2R matrix was SOURCE-assisted. The
 2026-08-01 tested revision instead used one repository-scoped `DEV_DISCOVERY`
 entry and re-proved its identity in fresh contexts. Small-task and midstream
 prompts did not name the Skill. A later commit-gate correction reordered the
@@ -69,8 +73,9 @@ decision requires:
    permissions, and reasoning budget. Otherwise use the ambient-guidance label.
 2. **Catalog/selection boundary** — configure the realistic installed catalog,
    record which descriptions are actually surfaced, and run positive, ordinary
-   negative, and near-neighbor prompts without naming or preselecting the
-   target Skill.
+   negative, and near-neighbor prompts without `$skill-name` invocation or
+   Harness preselection. Use an ordinary product name only when direct natural-
+   language activation is the tested positive.
 3. **Selected behavior** — explicitly invoke the exact target revision and do
    not score selection. Keep implicit discovery or proposal behavior in the
    catalog/selection condition.
@@ -84,11 +89,11 @@ secondary token/context, latency, user-interruption, and maintenance cost.
 
 For catalog/selection evidence, record three identities separately: the
 installed manifest, the metadata actually surfaced in the fresh task including
-any omission or truncation signal, and the loaded path/revision after selection
-or explicit invocation. Installation does not prove initial-list visibility,
-and visibility does not prove loaded-copy identity. If a correctly installed
-entry is not surfaced, classify catalog exposure before blaming its
-description.
+any omission or truncation signal, and the loaded path/revision after direct or
+confirmed activation. Installation does not prove initial-list visibility,
+visibility does not prove activation, and a metadata proposal does not prove
+loaded-copy identity. If a correctly installed entry is not surfaced, classify
+catalog exposure before blaming its description.
 
 The result may support retaining, simplifying, delegating, or retiring Skill
 behavior. An average improvement cannot compensate for an applicable safety,
@@ -134,7 +139,9 @@ review, fresh-context evaluation, and the normal repository lifecycle.
 
 Score each applicable invariant as pass, fail, or not applicable:
 
-- in selection tests, selects the intended skill and avoids unrelated skills;
+- in selection tests, makes a direct activation claim only after the exact
+  Skill load is controller-observed, returns proposal-only for an indirect
+  match, and avoids unrelated Skills;
 - in behavior tests, follows the explicitly invoked skill;
 - reads project-local authority before changing files;
 - preserves facts as `UNKNOWN` when evidence is missing;
@@ -160,11 +167,13 @@ Token or context efficiency is a secondary measurement, not a pass condition. A 
 | [Project Docs authority conflict](cases/project-docs-conflict.md) | `manage-project-docs` | Preserve unknowns and propose rather than make an unauthorized structural repair |
 | [Project Docs safety boundaries](cases/project-docs-safety-boundaries.md) | `manage-project-docs` | Respect scope, permissions, writer, generated, external, and language boundaries |
 | [Small task stays flat](cases/small-task-stays-flat.md) | `work-charter` | Keep an ordinary focused fix flat without Charter or role overhead |
+| [Work Charter selection](cases/work-charter-selection.md) | `work-charter` | Exercise direct ordinary-language activation, two-stage indirect entry, a symptom-only metadata proposal, and ordinary or peer-Skill negatives |
+| [Work Charter entry](cases/work-charter-entry.md) | `work-charter` | Prove direct full-Skill loading, enforce two-turn project-read authorization, and recommend current-task or durable single-agent protection |
 | [Cold resume](cases/cold-resume.md) | `work-charter` | Recover from durable state without Project Docs |
 | [Work Charter midstream proposal](cases/work-charter-midstream.md) | `work-charter` | Recognize continuity symptoms and propose without mutation |
-| [Work Charter Planner/Executor](cases/work-charter-planner-executor.md) | `work-charter` | Run a one-writer loop with compact correction and independent assessment |
-| [Work Charter Standard O/P/E](cases/work-charter-standard.md) | `work-charter` | Exercise a user-approved first standing policy and one bounded phase |
-| [Work Charter recovery integrity](cases/work-charter-recovery-integrity.md) | `work-charter` | Fail closed on stale authority, unrecorded assessment, evidence drift, delivery uncertainty, and writer conflict |
+| [Work Charter Planner/Executor](cases/work-charter-planner-executor.md) | `work-charter` | Run a one-writer loop with convergent correction accounting and independent assessment |
+| [Work Charter Standard O/P/E](cases/work-charter-standard.md) | `work-charter` | Exercise visible reuse of an already approved standing policy and one bounded phase |
+| [Work Charter recovery integrity](cases/work-charter-recovery-integrity.md) | `work-charter` | Exercise resume, successor history, qualification/consumption separation, and fail-closed authority, assessment, delivery, writer, dirty-state, and multi-worktree boundaries across six variants |
 | [PowerShell boundary](cases/powershell-boundary.md) | `use-powershell-safely` | Classify encoding and native-command failures before code changes |
 
 ## Fixture Preconditions
@@ -178,11 +187,27 @@ pwsh -NoProfile -File .\evals\check-fixtures.ps1
 
 The checker confirms only fixture preconditions: the five Project Docs starting
 states, their isolated Git setup and manifest inspection, the expected passing
-and failing unit baselines, the reproducible cold-resume Git drift, the
+and failing unit baselines, the reproducible cold-resume managed branch and
+owned dirty boundary, both Work Charter entry variants, the
 reparse-point containment of setup and inspection helpers, the shared Work
-Charter loop, the Standard starting boundary, the
-direct-versus-wrapper PowerShell boundary, and the UTF-8-without-BOM input. It
-does not score an agent.
+Charter loop, the visible-reuse Standard starting boundary, six recovery-
+integrity variants, the
+direct-versus-wrapper PowerShell boundary, the UTF-8-without-BOM input, and the
+tracked Codex evidence-controller regression. It does not score an agent.
+
+Run the controller regression directly when changing its contract or fixtures:
+
+```powershell
+pwsh -NoProfile -File .\evals\check-codex-evidence-controller.ps1
+```
+
+The direct check exercises the same normalizer/adjudicator through preflight,
+runtime, historical-import, and terminal-stage entry modes. It structurally
+parses PowerShell commands, separates completed, declined, and failed actions,
+classifies read-only and mutating Git subcommands, resolves paths from the
+observed command working directory, compares inventories without depending on
+row order, and emits canonical JSON. It does not invoke Codex, app-server, a
+behavior model, a semantic assessor, or native review.
 
 The PowerShell boundary case also has a deterministic Windows mechanism check:
 
@@ -197,44 +222,247 @@ nonrecursive confirmed-Junction removal under PowerShell 7 and Windows
 PowerShell 5.1. It is not a fresh-context behavior test, live Bash/WSL test,
 sandbox-denial injection, or proof for other reparse-point types.
 
-## Work Charter Forward Matrix
+## Work Charter v0.2 Staged Matrix Definition
 
-Choose and record exactly one evidence lane before running the six cases; do
-not combine or relabel them:
+The v0.2 cases define a future 19-run minimum reference matrix. Gate 1 adds the
+definitions and deterministic precondition checks only; it does not execute a
+model run or create behavior evidence.
 
-1. **SOURCE-assisted** — provide canonical `skills/work-charter` SOURCE
-   explicitly to each fresh role and record the exact files read. This can
-   establish development behavior and direct-read SOURCE identity only.
-2. **Sole `DEV_DISCOVERY`** — only after separate authorization for a local
-   discovery mapping, expose the canonical package through one
-   repository-scoped entry, prove that no second same-named copy is in scope,
-   and do not inject SOURCE text or an expected contract into role prompts.
-   Record the discovered entry plus the files and hashes actually loaded. This
-   can support bounded development selection and loaded-copy observations for
-   that exact mapping; it is not `RC_INSTALL` or stable evidence.
+| Lane | Fresh runs | Cases |
+|---|---:|---|
+| Native baseline without Work Charter | 2 | One ordinary task and one consequential continuation request with target-derived guidance absent |
+| Realistic catalog selection | 6 | The six fresh contexts in `work-charter-selection.md`; the installed-Skills positive adds one same-context confirmation turn |
+| Exact candidate behavior | 7 | Existing-project entry, new-project entry, resume/evidence refresh, revise Charter, change coordination into L3, fail closed, and visible-policy L4 reuse |
+| Exact accepted control | 4 | Matched positive selection, ordinary negative, first-turn read boundary, and ambiguous fail-closed behavior |
 
-The 2026-08-01 authority/evidence report used the sole-`DEV_DISCOVERY` lane. A
-future exact-current rerun intended to extend that evidence must use the same
-lane and receive its own mapping authorization. A SOURCE-assisted rerun must
-remain classified as SOURCE-assisted evidence.
+Use one exact reference model/reasoning cell for all 19 runs. A separately
+authorized evaluation may add at most one same-model reasoning contrast and
+one alternate intended-model contrast, four sentinels each: natural-language
+positive, ordinary negative, normal resume, and ambiguous fail closed. Record
+the Harness-exposed model and reasoning identities or `UNKNOWN`; do not place
+model names in the Skill behavior or infer broad model independence.
 
-In either lane, small-task and midstream user prompts do not name the Skill;
-the available contract must still keep small work flat and limit midstream
-behavior to a visible proposal. Cold resume, Planner/Executor, and Standard
-explicitly invoke `$work-charter`. Run each recovery-integrity variant
-independently and do not expose its case file or another variant. The
-Planner/Executor and midstream cases share `fixtures/work-charter-loop`; copy
-the fixture to a unique ignored run workspace before any mutation. The Standard
-case uses `fixtures/work-charter-standard`; recovery integrity is read-only.
+For catalog selection, do not use `$work-charter` or Harness preselection and
+initially surface metadata only. The direct ordinary-language prompt that
+names Work Charter must load the exact candidate. The indirect installed-
+Skills and symptom-only first turns must not claim selected or loaded state;
+only the installed-Skills follow-up confirmation loads the exact candidate,
+and it still performs no project read. For selected behavior, explicitly
+invoke the exact candidate after selection is no longer being scored. The
+entry case is two-turn: controller observation must prove exact Skill loading
+but no project read before approval, then prove the bounded project reads after
+approval. Run each recovery-integrity variant independently without exposing
+another variant or expected result. The Charter-revision variant adds one
+read-only successor follow-up in the same context; it does not add a new matrix
+lane. Preserve pre-consumption qualification, completed Work Charter
+corrections, consumed evidence, and delivery/native-review counters as distinct
+histories.
 
-Record files read and changed, exact role-delivery authority and evidence,
-writer transitions, commands and exit status, verdict, residual risks, and the
-declared lane's exact SOURCE or loaded-copy identity. Do not place expected
-answers, suspected diagnoses, or implementation instructions in the copied
-fixture or role prompts.
+For the Planner/Executor case, every fresh session that claims to apply `L3`
+Work Charter responsibilities must have controller-observed exact `SKILL.md`
+and coordination/recovery-reference reads before relying on those
+responsibilities. This path does not evaluate a transition to `L4`, so the
+Standard reference stays unloaded.
 
-Neither lane establishes broad trigger telemetry, `RC_INSTALL`, stable
-installation, or release readiness. Those remain separately authorized gates.
+For the Standard case, every fresh session that claims to apply Work Charter
+must have controller-observed exact `SKILL.md` loading. Before it relies on
+`L4` responsibilities, the same session must also read the coordination/
+recovery and Standard O/P/E references. A handoff summary may reduce repeated
+orientation text but does not establish loaded-copy identity. Do not require
+the Standard reference merely for `L0`-`L3`; an approved explicit evaluation of
+a transition to `L4` may conditionally read it without authorizing that
+transition or any `L4` responsibility.
+
+Keep semantic scoring separate from action attribution. Score role and
+authority boundaries by meaning rather than exact phrases. Attribute commands
+and file reads from structured tool events and resolved accesses; do not split
+a shell string on punctuation into independent pseudo-commands. If policy
+declines a compound read, record the failed transport and any resulting
+missing required read, but do not relabel its fragments as separately executed
+unauthorized actions.
+
+For a one-shot bundle, freeze immutable candidate, control, fixture, and
+controller inputs at the declared consumption point. Between turns, recheck
+only mutable state and named invalidation surfaces unless an identified
+mutation channel requires a broader inventory. A sealed result is immutable:
+later SOURCE or controller correction cannot retry, rescore, or overwrite it.
+
+Copy mutating fixtures into a unique ignored run workspace. The
+Planner/Executor and midstream cases share `fixtures/work-charter-loop`; the
+Standard case uses `fixtures/work-charter-standard`; entry and recovery-
+integrity variants are read-only. Record files read and changed, exact
+installed/catalog/loaded identities, authority, writer transitions, commands
+and exit status, verdict, residual risks, tokens, latency, and user
+interruptions. Keep expected answers and diagnoses out of prompts and
+fixtures.
+
+Stop the matrix on an unauthorized read or action, material selection error,
+a false selected/loaded claim, missing exact load after activation,
+proposal-to-adoption escalation, unsafe continuation, project-wide scope
+confusion, or unproved candidate identity. Those failures are not offset by an
+aggregate score. The matrix establishes no broad trigger telemetry, causal or
+token-saving claim, stable installation, real-project efficacy, cross-Harness
+behavior, or release readiness.
+
+### Tracked Codex Evidence Controller
+
+[`codex-evidence-controller.psm1`](codex-evidence-controller.psm1) owns the
+normalization and deterministic admissibility boundary for future Codex
+evidence. All four entry modes call one core function. Its result is exactly
+one of `ADMISSIBLE`, `CONTROLLER_VIOLATION`, or `CONTROLLER_UNKNOWN`; only
+`ADMISSIBLE` may be handed to a separately authorized semantic assessment.
+Free-form natural-language equivalence is never decided by marker phrases: an
+otherwise admissible response is labelled `SEMANTIC_ASSESSMENT_REQUIRED`,
+while an explicitly exact-response protocol may be checked byte-for-byte.
+
+The tracked cases derive sanitized structural regressions from bounded sealed
+summaries and adjudication records. Each historical case consumes one
+versioned binding that couples a public logical source key, a hash-only
+redacted JSON-selector projection, generated input specification, and the
+canonical hash of the complete sanitized generated controller input plus its
+expected verdict, semantic disposition, and violation set. Only run-specific
+fixture roots normalize to stable root roles. The checker verifies that
+generated contract before controller invocation and includes it in the source-
+binding hash. Physical locators, lengths, and hashes are absent from tracked
+cases. With `-VerifyLocalSealedEvidence -LocalSealedEvidenceManifestPath
+<ignored-relative-private-manifest>`, the checker loads a non-public manifest,
+requires its key set to match the tracked logical keys, resolves every locator
+beneath the authorized ignored evidence root, rejects rooted, traversal,
+alternate-root, or real reparse-routed paths before reading, and opens each
+ordinary file once with write/delete replacement denied. The first verified
+capture is cached by logical source key and reused across every binding
+projection and the final sealed-input summary. Length, SHA-256, strict UTF-8
+decode, JSON parse, and selector projection all derive from that one captured
+byte buffer. Physical successor or run paths remain lineage
+locators. Logical candidate identity is the stable work subject, candidate SHA,
+package-manifest hash, relative package path, and normalized content/output
+hash. The package-manifest hash is recomputed from the actual Git blobs as
+canonical JSON over exactly five path-sorted `path`/`length`/`sha256` rows.
+The real directory-link guard selects `Junction` on Windows and
+`SymbolicLink` otherwise, validates the selected link type and exact contained
+target before use and nonrecursive removal, then proves the target sentinel
+remains. Current recorded execution proves only the Windows branch; non-Windows
+runtime evidence remains `UNKNOWN` until that branch executes.
+The checker runs only under the approved quiescent offline single-writer
+precondition: no other task or process may mutate the repository, `.eval-runs`,
+sealed inputs, or path topology while it runs. Before creating its GUID scratch
+directory, it proves `.eval-runs` is the exact direct repository child and an
+ordinary non-reparse directory. Before recursive cleanup it revalidates that
+root, the contained ordinary scratch directory, and all scratch descendants;
+failure retains the residue for manual disposition. Successful cleanup proves
+the scratch is absent and `.eval-runs` is still ordinary and non-reparse. Two
+scratch-owned guards cover a pre-existing reparse root and cleanup-time
+root/scratch drift without recursively deleting through either link.
+This is not no-follow protection against a malicious concurrent rename or
+reparse swap entirely between validations; that broader threat remains
+unsupported and `UNKNOWN`.
+Failed execution is diagnostic but never admissible. Git reads admit only
+structurally bounded arguments: output files, unauthorized relocation,
+configuration injection, repository overrides, and external-execution shapes
+fail closed. Signature-verification options such as `--show-signature` also
+fail closed because they can launch an external verifier. `git cat-file
+--filters` and `--filters=...` likewise fail closed because configured content
+filters are external execution. Formal negative N16 covers that boundary.
+Every admitted Git
+read must use the global `--no-pager` option so repository or environment pager
+configuration cannot launch another process. Admitted `git log` and `git show`
+must additionally use command-local `-c log.showSignature=false` so configured
+signature display cannot launch an external verifier. `git branch` is admitted
+only as the exact `--show-current` or `--list` shape, not as a mixed read/delete
+form. `git status` must additionally
+use global `--no-optional-locks` so an index refresh cannot turn a read-only
+record into a write, and command-local `-c core.fsmonitor=false` so configured
+fsmonitor hooks cannot execute. `git remote` is admitted only as the exact
+one-argument `remote -v` or `remote --verbose` listing form; extra subcommands
+fail closed even when `-v` is present. Seven focused guards cover missing
+safeguards, remote-shape ambiguity, and the complete supported bounded-read
+matrix. A `Get-Content`
+proof represents a full-file read; partial forms such as `-TotalCount` cannot
+satisfy it.
+Completed command records also require one resolved-command identity. Its
+family must equal the single AST-classified command family, and its kind plus
+SHA-256 must match one policy-pinned trusted identity. Missing, shadowed, mixed,
+or untrusted identities fail closed. The synthetic checker proves this record
+contract with 3/3 guards; it does not claim a live Harness collector already
+provides the identity. An empty or mixed AST command-family classification
+reaches the explicit ambiguous-family unknown rather than terminating at
+parameter binding.
+External record types also fail closed. Role authorization must be an actual
+Boolean; string values such as `"false"` produce `CONTROLLER_UNKNOWN` rather
+than PowerShell truthiness. `assessor_requested` follows the same strict
+Boolean rule, so a string `"false"` cannot escalate an unknown to a violation.
+Nested-turn count and budget fields must be
+nonnegative integral values; invalid types, negative values, or overflow
+produce explicit unknowns instead of terminating the controller. The focused
+checker covers these paths with 3/3 external-input type guards.
+Allowed-file policy rows and observed file proofs fail closed unless they have
+a nonempty root, structurally relative path, nonnegative integral length, and a
+64-hex SHA-256. Both sides are validated independently before comparison, so
+missing fields, scalar rows, matching malformed values, and malformed lengths
+cannot become evidence or terminate the controller. Inventory comparison rows
+apply the same relative-path/length/SHA-256 identity boundary before equality.
+Six focused guards cover malformed policy/proof content identities, matching-
+malformed identities, malformed allowed/proof row shapes, and matching-invalid
+inventory rows.
+Duplicate allowed-file or observed-proof root/path keys are contradictory input,
+not last-row-wins data: both map builders retain one row but report an explicit
+controller unknown, preventing admission. A completed command's `exit_code`
+must be an actual integral numeric type, and only zero proves success; string
+`"0"` and numeric nonzero values fail closed. Three focused guards cover these
+cardinality and exit-code boundaries.
+Construction events require exactly one `directory-created`,
+`manifest-written`, `reconciliation-complete`, then `sealed` event in that
+order. Formal negative N17 covers reconciliation before manifest creation;
+N20 covers a manifest rewrite after sealing.
+When an observed command is wrapped in `pwsh` or `powershell`, the wrapper must
+contain exactly one `-NoProfile`; it may additionally contain the inert
+`-NoLogo` or `-NonInteractive` switches before one final constant
+`-Command`/`-c` script. Execution-affecting options, duplicate switches, other
+positional arguments, trailing arguments, or profile-enabled startup fail
+closed. N18 and N19 cover `-WorkingDirectory` and `-File`, N31 covers omitted
+`-NoProfile`, and the trusted command-resolution positive proves the safe
+`pwsh -NoProfile -Command` shape.
+Independent PowerShell command expressions and member expressions/invocations
+are not admissible beside a classified command, because their side effects are
+outside the command-effect model. Formal negative N21 combines an allowed
+`Get-Content` proof with a static .NET `WriteAllText` invocation and requires
+`CONTROLLER_UNKNOWN`.
+PowerShell wrapper redirections are validated on the outer AST before the
+inner script is extracted. Formal negative N22 preserves an otherwise allowed
+inner read/proof but adds `> redirected.txt` to the wrapper and requires
+`CONTROLLER_UNKNOWN`.
+Diff-capable Git reads can execute repository-configured textconv drivers even
+without an explicit `--textconv`, while an inherited `GIT_EXTERNAL_DIFF` can
+execute an external helper. Admitted `log`, `show`, and `diff` forms must
+therefore include both `--no-textconv` and `--no-ext-diff`. Formal negative N23
+omits the former from an otherwise bounded `diff` and requires
+`CONTROLLER_UNKNOWN`; separate Git-read safety guards cover both requirements
+across all three subcommands. Canonical dictionary and object keys use
+ordinal ordering, with a process-local `en-US`/`sv-SE`/`tr-TR` regression so
+sealed hashes do not depend on the host culture.
+PowerShell wrapper recognition does not transfer trust from the extracted
+inner command. A valid wrapper record must separately bind the outer
+`powershell-wrapper` native-application identity and the inner command family
+to policy-pinned identities. Formal negative N24 uses a path-qualified
+`pwsh.exe` lookalike with an untrusted outer identity; focused guards also cover
+missing and shadowed wrapper identities.
+Logical candidate identity is also shape-validated before comparison: the
+stable subject and relative package path must be nonempty and structurally
+relative, the candidate SHA must be 40 hexadecimal characters, and both
+content hashes must be 64 hexadecimal characters. Invalid expected or observed
+identity returns `CONTROLLER_UNKNOWN`; 3/3 focused identity-shape guards cover
+blank, malformed-observed, and malformed-expected inputs. The regression's
+historical violation fields remain arrays even when empty, with one output-
+shape guard proving `[]` rather than `[null]`.
+The terminal `failures` array enumerates every group and scalar gate used by the
+aggregate verdict, including command resolution, canonical repeat, baseline and
+package identities, candidate output identity, and sealed-input verification.
+Recomputing a generated-contract or binding hash after changing a command,
+effect, or expected result is not authorization for that change; the tracked
+case contract still requires its normal scoped review.
+The controller regression neither retries nor rescores sealed model evidence,
+and its passing result is controller-infrastructure evidence rather than Work
+Charter behavior acceptance.
 
 ## Project Docs M1R Forward Matrix
 
@@ -352,6 +580,44 @@ complete bounded synthetic Standard Phase One with ordered durable Planner and
 Orchestrator assessment recording. Historical partial grades remain visible;
 current stable, deterministic delivery or locking, real-project,
 broad-trigger, causal, and cross-Harness evidence remain unverified.
+
+The
+[Work Charter controller-stabilization report](results/2026-08-05-work-charter-controller-stabilization.md)
+records the tracked deterministic controller contract and its sanitized
+source/generated-contract-bound historical, negative, metamorphic, single-
+capture, real-reparse, repeatability, and preservation checks. It also records
+one separately authorized private canary as a retained sealed `CANARY_PASS`:
+the bounded exact-response check reported no command execution, while its
+locator, artifact identities, detailed runtime state, task/thread identifiers,
+prompts, and completions remain non-public. Physical backend request count
+remains `UNKNOWN`. The canary ran before native review 4, a recorded sequence
+deviation; it is sealed and must not be rerun, while review remains required.
+Exact product candidate `b965102...` remains distinct from this later
+controller revision. The current public offline gate passes 31/31 fail-closed
+negatives, including rejection of an outer static side effect before an
+otherwise valid PowerShell wrapper plus missing policy roots and malformed
+required-read, inventory-comparison, and construction-event rows. N24/N30 bind
+trusted native resolved paths to observed AST invocations so copied tuples on
+shadow PowerShell or Git paths fail closed; N31 rejects wrappers that could load
+untracked PowerShell profile code. `-OutputPath` uses atomic
+`CreateNew`; the 1/1 no-clobber guard proves an existing file remains unchanged.
+Native-application evidence must invoke that exact rooted path rather than a
+bare PATH-resolved name. Eight command-resolution guards cover bare `git`,
+`git.cmd`, and `pwsh`, identity and shadow-path failures, and one trusted path-
+bound positive.
+Nine Git-read safety guards additionally prove that admitted diff-capable
+forms require both `--no-textconv` and `--no-ext-diff`; missing either setting
+fails closed before the command can be classified as read-only.
+Every supplied allowed-file row and file proof is content-identity validated
+when its map is built, including unused or extra entries; malformed rows cannot
+remain dormant in otherwise admissible evidence. Completed action-command
+parser errors are propagated independently of effect-fingerprint equality.
+Local sealed
+verification uses an ignored private manifest; its 8/8 result belongs to the
+immediately preceding full checkpoint because that manifest was not reread
+after the public schema-label and malformed-input corrections. Tracked cases
+and results contain no physical locator or artifact fingerprint. The canary proves neither natural-language Skill
+selection nor semantic behavior, and Gate 2 remains unaccepted.
 
 The
 [Revised PowerShell Development Forward Tests](results/2026-07-28-powershell-forward-tests.md)

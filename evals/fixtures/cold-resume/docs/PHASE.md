@@ -2,7 +2,8 @@
 
 - **Status:** `executing`
 - **Approved branch:** `phase/retry-delay`
-- **Recorded starting commit:** `7d3c0de`
+- **Recorded starting commit:** exact value supplied by the setup controller
+  record
 - **Active writer:** interrupted Executor
 
 ## Outcome

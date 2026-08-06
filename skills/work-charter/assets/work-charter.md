@@ -1,14 +1,22 @@
 # Work Charter: <Name>
 
-Adapt this carrier only when no suitable existing project owner exists. Remove
-unused prompts and keep pointers instead of copied source content.
+Use this optional durable carrier only when no suitable existing canonical
+owner exists. It is never auto-created and its presence is not adoption proof.
+For one authoritative checkout, root `WORK_CHARTER.md` is a possible fallback.
+With multiple worktrees, record one explicit control location all required
+roles can read at the same revision; do not copy authoritative files into each
+worktree. Remove unused prompts and keep pointers instead of copied content.
 
+- Managed workstream and exclusions: `<bounded line of work and what it does not cover>`
+- Protection and responsibilities: `<plain-language shape; internal L1 | L2 | L3 | L4 if useful>`
 - Contract state: `<draft | proposed | approved | superseded>`
 - Run disposition: `<active | paused | closed>`
-- Canonical locator: `<portable project-relative locator>`
-- Current owner and writer: `<role and boundary>`
-- Last material checkpoint: `<logical locator and comparable freshness marker;
-  include decision or assessment recording state when relied upon>`
+- Canonical locator and revision: `<portable locator and comparable freshness marker>`
+- Standing-policy locator: `<if applicable; otherwise none>`
+- Intended workspace and writer: `<workspace/worktree and one-writer boundary>`
+- Last material checkpoint and evidence: `<pointer, subject/revision, invalidation condition>`
+- Next approved action or pending decision: `<bounded action and its authority>`
+- Reconfirmation and return conditions: `<material change, stop, and return route>`
 
 ## Outcome And Non-Goals
 
@@ -20,23 +28,24 @@ unused prompts and keep pointers instead of copied source content.
 
 ## Authorization And Material Effects
 
-<State which writes, role delivery, Git operations, installation, external
-effects, or other actions are authorized or prohibited.>
+<State which reads, writes, role delivery, Git operations, installation,
+external effects, costs, or sensitive-data actions are authorized or
+prohibited.>
 
 ## Acceptance Evidence
 
-<State the checks, evidence pointers, mutable subject and invalidation
-condition when material, how ignored or external results are observed,
-assessor when separate assessment is required, recording owner or locator,
-and independently acceptable checkpoints if any.>
+<State checks, evidence pointers, mutable subjects and invalidation conditions,
+how hidden or external results are observed, assessor when required, recording
+owner, and independently acceptable checkpoints if any.>
 
 ## Stop, Decision, And Recovery
 
-<State stop conditions, pending decisions, durable read order, next safe
-action, and return route. Include incomparable authority, required unrecorded
-assessment, evidence drift, or writer conflict when applicable.>
+<State bounded recovery read order, next safe action, stop conditions, and
+return route. Include incomparable authority, pending assessment recording,
+evidence drift, or writer conflict when applicable.>
 
 ## Coordination
 
-<State the least sufficient role separation, one-writer owner, and applicable
-standing-policy locator without copying that policy.>
+<State the least sufficient responsibility separation and applicable standing
+policy without copying it. Profile choice does not authorize delivery or
+action.>

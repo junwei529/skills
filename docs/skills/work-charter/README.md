@@ -10,7 +10,7 @@ protect the result.
 
 - continuity, authorization, recovery, writer ownership, or independent
   assessment makes flat execution unreliable;
-- consequential work needs a durable Charter;
+- consequential work needs a current-task or durable Charter;
 - Planner/Executor separation would materially protect implementation; or
 - an approved standing policy and active Charter support Standard
   Orchestrator/Planner/Executor.
@@ -43,13 +43,40 @@ $work-charter Bound this consequential task, its authority, evidence,
 recovery, and least sufficient coordination.
 ```
 
-Observable control or recovery symptoms may allow implicit recognition and a
-visible proposal. Initial persistent adoption, the first Standard policy, role
-delivery, writes, Git, and external effects remain separately authorized.
+You do not need to know the exact syntax. For example:
+
+```text
+Use Work Charter to decide how this project should continue.
+Based on the Skills already installed, recommend the safest way to continue this work.
+```
+
+An ordinary-language request that explicitly names Work Charter is direct
+activation intent without requiring the `$work-charter` syntax. Codex loads the
+full Skill and claims activation only after the body is available in the current
+context; otherwise it reports degraded loading and stops without an activation
+claim. If the runtime does not expose the exact loaded path or revision, that
+identity remains `UNKNOWN` and Codex makes no exact-copy claim; this alone does
+not block ordinary activation. A generic installed-Skills request or
+symptom-only match first receives a metadata-level proposal (a lightweight
+catalog match): Work Charter appears applicable, why it may help, the smallest
+proposed project read, and a question asking whether to activate it. That
+proposal must not claim the Skill is selected or loaded. After the user
+confirms, the same load-or-stop boundary applies, and only the separately
+approved project scope may be inspected.
+Initial persistent adoption, the first Standard policy, role delivery, writes,
+Git, and external effects remain separately authorized.
+
+It recommends the least sufficient shape in ordinary language: an ordinary
+flat task (`L0`, no active Charter), a current-task Charter (`L1`), a durable
+single-agent Charter (`L2`), Planner/Executor separation (`L3`), or Standard
+O/P/E (`L4`). These codes are internal shorthand; the user chooses after the
+benefit and coordination cost are explained.
 
 ## Safety Boundaries
 
-Profile choice never expands action authority. Keep one active execution lane,
+Protection choice never expands action authority. Durable work uses one
+authoritative carrier and matches one managed workstream rather than treating
+the whole repository as adopted. Keep one active execution lane,
 one repository writer, and at most one Planner and one Executor for the active
 Charter. Stop on material contract, permission, workspace, writer, evidence,
 delivery, or recovery ambiguity.
@@ -61,22 +88,27 @@ changes.
 
 ## Verified Capability And Limits
 
-The recorded pre-hardening M2R SOURCE behavior, controlled development P/E and
-Standard delivery, exact-commit RC recovery canary, and historical tag-pinned
-`v0.1.1` explicit Flat smoke passed for their exact revisions. The pre-review
-authority, assessment, and evidence revision has structural,
-fixture-precondition, and sole-`DEV_DISCOVERY` fresh-context evidence plus an
-independent bounded `ACCEPTED`; its partial grades remain recorded. The current
-package bytes have exact-commit loaded-copy proof at `c42eef3...`, stay unloaded
-for a flat task, and pass one bounded synthetic Standard Phase One with durable
-Planner recording before Orchestrator reliance and later durable Orchestrator
-recording. The repository-level
+The recorded M2R SOURCE behavior, controlled development P/E and Standard
+delivery, exact-commit RC recovery canary, and tag-pinned `v0.1.1` Flat smoke
+passed for their exact historical revisions. The repository-level
 [`v0.1.2`](https://github.com/junwei529/skills/releases/tag/v0.1.2) stable copy
 has exact loaded-copy identity, a flat non-loading canary, and a narrow
-fail-closed recovery/assessment-order canary. Full Standard delivery at the
-stable layer, broad implicit telemetry, independent real-project efficacy,
-deterministic role delivery or writer locks, and cross-Harness parity are not
-established. See
+fail-closed recovery/assessment-order canary; its exact pre-release control also
+passed one bounded synthetic Standard Phase One. The `v0.2.0` line has no
+accepted candidate: `206c497...` stopped on convergence, and successor
+`92a8c045...` stopped at A04 after a safe indirect proposal claimed selection
+without loading the Skill. Exact `72db7e9...` implements two-stage entry, but
+its fixed-turn Standard probe sealed `VIOLATION` and did not run A16. The
+conditional-role-read correction stops when the full Skill body is unavailable,
+preserves unexposed exact identity as `UNKNOWN`, requires
+every fresh `L3`/`L4` role to load the full Skill and coordination reference,
+and requires `L4` to load the Standard reference before applying its
+responsibilities. It has offline definition evidence only; it is not a
+candidate or accepted behavior identity, and the prior sealed result does not
+transfer. Full staged selection, entry, level, re-entry, and visible
+Standard behavior, full Standard delivery at the stable layer, broad implicit
+telemetry, independent real-project efficacy, deterministic role delivery or
+writer locks, and cross-Harness parity remain unproved. See
 [Verification](VERIFICATION.md) and [State](STATE.md).
 
 ## Authoritative Contract
