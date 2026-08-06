@@ -103,9 +103,11 @@ conditional-role-read correction stops when the full Skill body is unavailable,
 preserves unexposed exact identity as `UNKNOWN`, requires
 every fresh `L3`/`L4` role to load the full Skill and coordination reference,
 and requires `L4` to load the Standard reference before applying its
-responsibilities. It has offline definition evidence only; it is not a
-candidate or accepted behavior identity, and the prior sealed result does not
-transfer. Full staged selection, entry, level, re-entry, and visible
+responsibilities. It is exact unaccepted candidate `b965102...`; its completed
+Gate 2 execution and two recorded same-subject successor executions are sealed
+and non-retriable, but that does not permanently retire the unchanged candidate
+or transfer acceptance. A future evaluation window requires separate authority.
+Full staged selection, entry, level, re-entry, and visible
 Standard behavior, full Standard delivery at the stable layer, broad implicit
 telemetry, independent real-project efficacy, deterministic role delivery or
 writer locks, and cross-Harness parity remain unproved. See

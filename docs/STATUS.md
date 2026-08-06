@@ -9,7 +9,7 @@ Last updated: 2026-08-06
 | Tested package identity | all three package byte sets independently reached exact-commit RC readiness at `c42eef392a5b9f58bbee64aa73ffb603a6fb6c29` and were re-proved at tag/stable identity `v0.1.2` | [Verification](VERIFICATION.md) |
 | Stable release identity | immutable [`v0.1.2`](https://github.com/junwei529/skills/releases/tag/v0.1.2) at `ceed607152849775b981c54add74bfa30d858e4d`; exact tag, stable loaded-copy, and GitHub Release proof pass for all three Skills | [Verification](VERIFICATION.md) |
 | Project Docs | released six-file `v0.1.2` stable copy; exact loaded identity and mature `NOOP` canary pass | [State](skills/manage-project-docs/STATE.md) |
-| Work Charter | released five-file `v0.1.2` stable copy remains active; exact product candidate `b965102...` is sealed `DECISION_REQUIRED` / `NO_RETRY` without behavior acceptance; a later tracked controller revision passes offline regression and one isolated path-bound app-server canary, but is not a new product candidate | [State](skills/work-charter/STATE.md) |
+| Work Charter | released five-file `v0.1.2` stable copy remains active; exact product candidate `b965102...` remains unaccepted, while its three recorded Gate 2 executions are individually sealed and non-retriable; a later tracked controller revision passes offline regression and one isolated path-bound app-server canary, but is not a new product candidate or behavior acceptance | [State](skills/work-charter/STATE.md) |
 | PowerShell | released five-file `v0.1.2` stable copy; corrected loaded identity and guarded native/text diagnosis pass; live WSL remains unproved | [State](skills/use-powershell-safely/STATE.md) |
 | Release lifecycle | `v0.1.2` tag, stable update, tag-pinned canaries, and Latest GitHub Release complete; `v0.1.1` retained as rollback identity | [Runbook](RUNBOOK.md) |
 
@@ -47,11 +47,14 @@ still selects `v0.1.2` as the current accepted tag and installed identity.
 
 The conditional correction is now exact product candidate `b965102...` with
 the same five package blobs recorded by the Work Charter verification owner.
-Its Gate 2 work subject and same-subject successors are sealed
-`DECISION_REQUIRED` / `NO_RETRY`; no behavior acceptance follows. The current
-twelve-path change adds tracked deterministic controller infrastructure only.
-It does not edit the package, retry or rescore sealed evidence, or create a new
-candidate identity.
+Its completed Gate 2 execution and two recorded same-subject successor
+executions are individually sealed `SEALED_DECISION_REQUIRED`; their consumed
+evidence cannot be retried, rescored, relabelled, or reset. That boundary
+applies to those executions, not permanently to the unchanged candidate. No
+behavior acceptance follows. Tracked controller commit `119aa27...` adds
+deterministic evaluation infrastructure only, and local merge `c05cb99...`
+integrates it over governance baseline `f55b15a...`. Neither edits the package,
+retries or rescores sealed evidence, or creates a new candidate identity.
 
 [Decision 0018](decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md)
 records the accepted rationale, two-stage entry, level model, adoption and re-
@@ -79,8 +82,10 @@ limits remain in the per-Skill ledgers and sanitized result files.
 
 For target `v0.2.0`, exact `92a8c045...` retains qualification and four
 consumed reference turns only. Exact `72db7e9...` separately retains one sealed
-four-session fixed-turn `VIOLATION`. Exact `b965102...` retains its own sealed
-no-retry Gate 2 history without acceptance. The tracked controller regression
+four-session fixed-turn `VIOLATION`. Exact `b965102...` retains three
+individually sealed execution records and their consumed history without
+acceptance; those executions are non-retriable, while the candidate remains
+eligible only for a newly authorized Gate 2 window. The tracked controller regression
 passes 11 source-and-generated-contract-bound historical, 17 negative, and 4 metamorphic cases twice
 with identical canonical output. Failed execution, effect-changing or
 signature-verifying Git arguments, and partial file reads fail closed; exact
@@ -278,15 +283,22 @@ decision.
 
 ## Next Gate
 
-No release action remains pending for `v0.1.2`. This local closeout integrates
-controller-stabilization commit `119aa27...` over governance baseline
-`f55b15a...`, verifies the combined repository state, and stops before any new
-Work Charter material delta. Exact product candidate `b965102...` remains
-sealed `DECISION_REQUIRED` / `NO_RETRY`; local controller infrastructure and
-the consumed `CANARY_PASS` do not establish behavior acceptance. Push,
-candidate materialization, further behavior-model evidence, semantic
-assessment, installation, tag, release, and cleanup remain separate user-owned
-gates.
+No release action remains pending for `v0.1.2`. Local merge `c05cb99...`
+already integrates controller-stabilization commit `119aa27...` over governance
+baseline `f55b15a...`. The current bounded documentation correction stops
+before any Work Charter SOURCE, eval, RC, or model action.
+
+The next possible Work Charter product gate is a separately authorized Gate 2
+recovery window for exact candidate `b965102...`, not Gate 3. Its pre-consumption
+contract must preserve all three sealed execution records, bind the exact
+candidate/controller/RC/model-cost/assessor identities and stop conditions, and
+prove whether any retained observations remain admissible without changing
+their original terminal records. Missing, invalidated, or `UNKNOWN` evidence
+requires its own collection authority. Local controller infrastructure and the
+consumed `CANARY_PASS` do not establish behavior acceptance. Gate 3 remains
+blocked until a complete exact-candidate batch is independently `ACCEPTED`;
+push, candidate materialization, model evidence, assessment, installation, tag,
+release, and cleanup remain separate user-owned gates.
 
 ## Known Repository Gaps
 

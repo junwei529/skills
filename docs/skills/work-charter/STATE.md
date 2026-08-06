@@ -37,19 +37,26 @@ responsibility. Mapped design, state, evidence, public entries, repository
 summaries, and existing eval definitions change with it.
 Those corrected SOURCE bytes became exact clean product candidate
 `b965102ea58f9cc1ef3c73e8dea515731fec12a6`. The five package blobs remain
-unchanged by the later controller-stabilization work. Gate 2 for that candidate
-is sealed `DECISION_REQUIRED` / `NO_RETRY`; it did not achieve behavior
-acceptance. The tracked controller revision is evaluation infrastructure after
-the product candidate, not a new Work Charter package identity.
+unchanged by the later controller-stabilization work. The completed Gate 2
+execution for that candidate and its two recorded same-subject successor
+executions are individually sealed `SEALED_DECISION_REQUIRED`: their consumed
+evidence cannot be retried, rescored, relabelled, or reset through another task,
+root, or attempt name. The candidate itself remains unaccepted rather than
+permanently retired or sealed. A later evaluation window for the unchanged
+candidate requires new explicit Gate 2 authority and must preserve all prior
+history. The tracked controller revision is evaluation infrastructure after the
+product candidate, not a new Work Charter package identity.
 
 ## Current Writer
 
 The phase Executor relinquished at clean local controller-stabilization commit
-`119aa27...`. The only active repository writer is the bounded integration
-window that semantically reconciles that commit with governance baseline
-`f55b15a...`, runs deterministic verification and native review, creates one
-local merge commit, and then relinquishes. No further Skill SOURCE edit, sealed-
-evidence edit, behavior-model or app-server call, assessor, push, candidate
+`119aa27...`, and the integration writer completed local merge commit
+`c05cb99...` over governance baseline `f55b15a...`. The only later write
+authority is the current bounded documentation correction on `main`, limited to
+the mapped existing status, evidence, public-summary, and recovery consumers
+listed in [Repository Handoff](../../HANDOFF.md). It ends after deterministic
+documentation checks. No Skill SOURCE or eval edit, sealed-evidence edit,
+behavior-model or app-server call, assessor, Git action, push, candidate
 materialization, discovery, installation, release, private-global mutation, or
 cleanup authority follows.
 
@@ -122,11 +129,14 @@ state. Future evidence uses meaning-based scoring, structured action/read
 attribution, and mutation-aware post-consumption checks. None of these
 prospective corrections rescores the sealed result.
 
-Later `b965102...` Gate 2 and its two same-subject successors also remain
-sealed historical evidence. Their terminal state is
-`SEALED_DECISION_REQUIRED`; product acceptance is `NOT_ACHIEVED`, retry is not
-permitted, and a successor-root locator was incorrectly treated as logical
-candidate identity. The bounded controller-stabilization gate converts only
+The completed `b965102...` Gate 2 execution and its two recorded same-subject
+successor executions remain sealed historical evidence. Each terminal state is
+`SEALED_DECISION_REQUIRED`; product acceptance is `NOT_ACHIEVED`, and none of
+those executions or consumed events may be retried, rescored, relabelled, or
+reset. That attempt-level boundary does not prohibit a separately authorized
+future evaluation window for the same unchanged candidate. One recorded stop
+incorrectly treated a successor-root locator as logical candidate identity.
+The bounded controller-stabilization gate converts only
 the already-sanitized structural findings into a tracked deterministic
 regression. It preserves the real A15 unauthorized Orchestrator delivery and
 unbudgeted nested turn as violations, and it does not retry, relabel, or
@@ -366,13 +376,22 @@ authorize advancement.
 
 Work Charter `v0.1.2` remains the released and installed stable revision, while
 `b965102...` remains the unaccepted exact product candidate. Local commit
-`119aa27...` records controller infrastructure after that candidate; it does
-not change the five package blobs or establish behavior acceptance. This
-closeout integrates that commit, verifies the combined repository state, and
-stops before any new Work Charter material delta. The isolated `CANARY_PASS`
-remains consumed and non-retriable. Any successor, live matrix, behavior
-evidence, semantic assessment, push, candidate materialization, installation,
-release, stable update, or cleanup remains a separate user decision.
+`119aa27...` records controller infrastructure after that candidate, and local
+merge `c05cb99...` integrates it without changing the five package blobs or
+establishing behavior acceptance. The current documentation correction stops
+before any new Work Charter product or evaluation delta.
+
+The next possible product gate is a newly authorized Gate 2 evaluation window,
+not a SOURCE correction and not Gate 3. Before any new model consumption, that
+window must bind the exact `b965102...` candidate, the exact stabilized
+controller revision, isolated `RC_INSTALL`, model/cost envelope, independent
+assessor, consumption point, and stop conditions. It must inventory the prior
+sealed cells and use them only when their exact identity and continued
+admissibility can be proved without rewriting their original terminal records;
+missing, invalidated, or `UNKNOWN` evidence needs its own explicitly authorized
+collection. Gate 3 remains blocked until the resulting exact-candidate batch is
+complete and independently `ACCEPTED`. The isolated `CANARY_PASS` remains
+consumed and non-retriable and does not satisfy that boundary.
 
 ## Recovery Entry
 
@@ -382,9 +401,13 @@ release, stable update, or cleanup remains a separate user decision.
    [Decision 0018](../../decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md),
    this state, and [Verification](VERIFICATION.md).
 3. Confirm live workspace, writer, and action authority.
-4. Confirm the live integration result includes controller commit `119aa27...`
-   and governance baseline `f55b15a...`, then revalidate writer and action
-   authority before writing.
-5. Read canonical SOURCE, current eval definitions, and only evidence matching
+4. Confirm the live integration result includes merge `c05cb99...`, controller
+   commit `119aa27...`, and governance baseline `f55b15a...`, then revalidate
+   writer and action authority before writing.
+5. Distinguish the three sealed execution records from the unchanged
+   `b965102...` candidate: preserve their terminal results and consumption, but
+   do not infer that the candidate is permanently ineligible for a separately
+   authorized Gate 2 window.
+6. Read canonical SOURCE, current eval definitions, and only evidence matching
    the exact revision before changing behavior or claims.
-6. Preserve the independent-Skill and non-propagating-authorization boundary.
+7. Preserve the independent-Skill and non-propagating-authorization boundary.

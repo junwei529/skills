@@ -574,21 +574,25 @@ authorized.
 
 Detailed native-review findings, fixes, cycle consumption, and coverage remain
 in the cumulative attempt record rather than this tracked evidence snapshot.
-The correction has offline implementation, definition, and finding-handling
-evidence only; native-review and Git disposition are resolved against the exact
-bytes from that live record. It has no candidate, behavior-model, RC,
-installation, integration, release, or stable-update evidence. Neither stopped
-candidate nor the sealed probe transfers acceptance to the conditional
-correction; a future exact candidate and behavior gate require their own
-authority.
+At this offline checkpoint, the correction had implementation, definition, and
+finding-handling evidence only; native-review and Git disposition were resolved
+later against the exact bytes from the live record. It had not yet obtained
+candidate, behavior-model, RC, installation, integration, release, or stable-
+update evidence. The following sections record the later candidate and local
+integration facts. Neither those later infrastructure facts nor the sealed
+probe transfers behavior acceptance; any new Gate 2 evidence window requires
+its own authority.
 
 ### 2026-08-05 — Work Charter controller stabilization
 
 The conditional-loading package became exact product candidate
 `b965102ea58f9cc1ef3c73e8dea515731fec12a6`. Its Work Charter package tree and
 five file blobs remain byte-identical through this later controller revision.
-The candidate's Gate 2 work subject is sealed `DECISION_REQUIRED` / `NO_RETRY`;
-product behavior acceptance was not achieved.
+Its completed Gate 2 execution and two recorded same-subject successor
+executions are individually sealed `SEALED_DECISION_REQUIRED`; their consumed
+events cannot be retried, rescored, relabelled, or reset. Product behavior
+acceptance was not achieved. This execution-level boundary does not permanently
+retire the unchanged candidate or authorize another evidence window.
 
 The repository now carries a small PowerShell evidence-controller contract and
 deterministic regression gate. One module owns preflight, runtime, historical-
@@ -1022,6 +1026,17 @@ twelve-path controller-stabilization revision. That Git identity does not alter
 the five Work Charter package blobs, rescore sealed evidence, or accept product
 candidate `b965102...`. The local merge gate independently verifies the combined
 repository result over governance baseline `f55b15a...`.
+
+Local merge `c05cb99bc067d07b7c1e32015fbfaafe52eb8d7a` integrates that
+controller revision with governance baseline `f55b15a...` without changing the
+five product blobs. A future `b965102...` evaluation requires a new explicit
+Gate 2 evidence-window approval that binds the exact candidate, controller,
+isolated installed copy, model/cost envelope, independent assessor, consumption
+point, and stop conditions. Pre-consumption reconciliation may reference only
+retained observations whose exact identity and continued admissibility are
+proved without changing their sealed terminal records; missing, invalidated,
+or incomparable evidence remains `UNKNOWN`. This documentation clarification
+creates no candidate acceptance, model evidence, or Gate 3 authority.
 
 ### 2026-08-02 — Capability-delta decision and workflow
 

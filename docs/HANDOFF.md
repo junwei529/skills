@@ -5,8 +5,8 @@ Last updated: 2026-08-06
 ## Snapshot
 
 - Repository: Agent Workflow Skills
-- Integration checkout: branch `main`; active development branch
-  `codex/work-charter-v0.2`
+- Integration checkout: branch `main` at local merge `c05cb99...`; attached
+  development branch `codex/work-charter-v0.2` remains at `119aa27...`
 - Released package identity: immutable `v0.1.2` at
   `ceed607152849775b981c54add74bfa30d858e4d`
 - GitHub Release:
@@ -16,10 +16,10 @@ Last updated: 2026-08-06
   5 files, each matching the `v0.1.2` Git blobs
 - Rollback identity: immutable `v0.1.1` retained as a separately verified
   three-package backup
-- Writer: the phase Executor relinquished at clean local commit `119aa27...`.
-  The final integration window is limited to semantic merge reconciliation,
-  deterministic verification, native review, and one local merge commit; no
-  Skill SOURCE writer or push authority survives closeout
+- Writer: the phase Executor and integration writer have relinquished. The
+  current bounded writer owns only the ten mapped existing documentation
+  consumers listed under Immediate Next Action, on `main`; no Skill SOURCE,
+  eval, sealed-evidence, Git, push, or release authority follows
 
 The `v0.1.2` tag remains fixed at the release-preparation commit. The later
 documentation commit records already-completed tag, stable-install, canary, and
@@ -182,9 +182,12 @@ canary, redefine the product candidate, or convert infrastructure evidence into
 Work Charter behavior acceptance.
 
 Exact product candidate `b965102...` keeps the same five Work Charter package
-blobs. Its Gate 2 subject and same-subject successors are sealed
-`DECISION_REQUIRED` / `NO_RETRY`; behavior acceptance was not achieved, and no
-sealed model evidence may be retried, rescored, or relabelled.
+blobs. Its completed Gate 2 execution and two recorded same-subject successor
+executions are individually sealed `SEALED_DECISION_REQUIRED`; behavior
+acceptance was not achieved, and none of their consumed evidence may be
+retried, rescored, relabelled, or reset. This execution-level no-retry boundary
+does not permanently retire the unchanged candidate or authorize a new
+evaluation window.
 
 The stabilization commit changes exactly:
 
@@ -476,9 +479,10 @@ is owned by [Repository Verification](VERIFICATION.md).
 1. Read `AGENTS.md`, `docs/INDEX.md`, and `docs/AUTHORITY.md`.
 2. Read [Repository Status](STATUS.md), this handoff, and the relevant per-Skill
    State and Verification owners.
-3. Resolve branch `codex/work-charter-v0.2`, exact entry `b965102...`, upstream,
-   dirty scope, the twelve-path boundary, and writer ownership rather than
-   assuming this snapshot is still current.
+3. Resolve `main` at or after merge `c05cb99...`, attached branch
+   `codex/work-charter-v0.2` at `119aa27...`, exact product candidate
+   `b965102...`, upstreams, the current ten-document dirty scope, and writer
+   ownership rather than assuming this snapshot is still current.
 4. Keep `c42eef3...` RC behavior, `ceed607...` release identity, the later
    evidence descendant, and the generated stable/rollback copies distinct.
 5. Before any future SOURCE, installation, cleanup, tag, or release action,
@@ -487,18 +491,42 @@ is owned by [Repository Verification](VERIFICATION.md).
 
 ## Immediate Next Action
 
-No release action remains pending for `v0.1.2`. This closeout integrates local
-controller-stabilization commit `119aa27...` over governance baseline
-`f55b15a...`, verifies the combined repository state, and stops before any new
-Work Charter material delta. Exact product candidate `b965102...` remains
-sealed `DECISION_REQUIRED` / `NO_RETRY`; the retained `CANARY_PASS` remains
-consumed and non-retriable. No push, candidate materialization, behavior-model
-evidence, semantic assessment, installation, tag, release, or cleanup follows.
+No release action remains pending for `v0.1.2`. Local merge `c05cb99...`
+already integrates controller commit `119aa27...` over governance baseline
+`f55b15a...`. The current writer may correct only these ten existing consumers
+of the candidate/evidence/recovery facts and run deterministic documentation
+checks:
+
+- `docs/HANDOFF.md`;
+- `docs/INDEX.md`;
+- `docs/ROADMAP.md`;
+- `docs/STATUS.md`;
+- `docs/VERIFICATION.md`;
+- `docs/decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md`;
+- `docs/skills/work-charter/README.md`;
+- `docs/skills/work-charter/README.zh-CN.md`;
+- `docs/skills/work-charter/STATE.md`; and
+- `docs/skills/work-charter/VERIFICATION.md`.
+
+This correction distinguishes the three sealed execution records from the
+unchanged unaccepted `b965102...` candidate and records the optional recovery
+boundary. It creates no new product or evaluation contract and stops without a
+Skill/eval edit, model or assessor call, Git action, RC, installation, release,
+or cleanup.
+
+The next possible product gate is a user-owned decision on a newly authorized
+Gate 2 evidence window. Before model consumption, that window must bind the
+exact candidate, stabilized controller, isolated RC, model/cost envelope,
+assessor, consumption point, and stop conditions; inventory the sealed history;
+and prove which retained observations can still be referenced without changing
+their terminal records. Missing, invalidated, or `UNKNOWN` evidence needs its
+own collection authority. Gate 3 remains blocked until a complete batch is
+independently `ACCEPTED`.
 
 Later user-owned choices include:
 
-- authorize the bounded Work Charter Gate 2 exact-candidate matrix and RC
-  effects for one exact accepted commit;
+- authorize a bounded Work Charter Gate 2 recovery/evaluation window and its
+  exact RC, model/cost, assessor, consumption, and stop effects;
 - begin another separately scoped development or evaluation cycle;
 - authorize a bounded external-optimizer feasibility experiment only after its
   data, isolation, provider, cost, and artifact-write contract is approved;
@@ -513,8 +541,9 @@ Stop before write or publication if:
 
 - live local/public identity, worktree, dirty scope, or writer ownership differs
   from the expected state;
-- any change escapes the twelve declared controller-stabilization paths or
-  changes a `skills/work-charter` blob;
+- the current documentation correction escapes the ten paths listed under
+  Immediate Next Action, changes a `skills/work-charter` blob, or changes an
+  eval/controller file;
 - any named sealed evidence input changes length or SHA-256;
 - the current correction would add a new file, case, fixture, checker, result,
   fact class, contract, permission, side effect, or existing consumer outside
@@ -531,6 +560,13 @@ Stop before write or publication if:
 
 ## Authorization Boundary
 
+The current user authorization covers only the ten-file documentation
+correction above and its deterministic documentation checks. It does not
+authorize a Skill or eval change, native review, staging, commit, push, branch
+or worktree change, RC materialization, model or assessor call, installation,
+release, global change, or cleanup. After checks, the writer stops with the
+exact dirty scope and verification results reported.
+
 The completed user authorization covers the `v0.1.2` stable update, GitHub
 Release, this mapped evidence synchronization, deterministic verification,
 native-review gate, one local evidence commit, and fast-forward push. It does
@@ -538,7 +574,7 @@ not authorize amend, tag movement, branch/worktree or remote reconfiguration,
 private-global edits, retained-evidence cleanup, rollback-copy cleanup, or a
 future release.
 
-### Current Integration Authority
+### Historical Integration Authority
 
 The 2026-08-02 content authorization covers the capability-delta workflow and
 Work Charter design documentation listed above. The subsequent Gate 0

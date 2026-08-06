@@ -2,7 +2,7 @@
 
 Date: 2026-08-02
 Amended: 2026-08-04
-Status: accepted design; exact `72db7e9...` sealed a fixed-turn Standard `VIOLATION`, and the conditional-role-read correction is implemented and offline-verified without candidate or behavior evidence; Git disposition belongs to the live commit-attempt record
+Status: accepted design; exact `72db7e9...` sealed a fixed-turn Standard `VIOLATION`; the conditional-role-read correction is exact candidate `b965102...`, whose three recorded Gate 2 executions are sealed without behavior acceptance; controller stabilization is integrated, and any new evaluation window requires separate authority
 
 - Planning checkpoint: 14 (conditional role reads and evidence attribution)
 - Last incorporated decision: `WC-AR-D26`

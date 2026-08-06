@@ -12,7 +12,7 @@ Last updated: 2026-08-06
 | First `v0.2.0` exact candidate Gate 2 | `206c497...` stopped incomplete and is superseded for acceptance; its completed correction and consumed events remain historical |
 | Successor `v0.2.0` exact candidate Gate 2 | `92a8c045...` passed qualification and consumed A01-A04; A04 hard-stopped on an unproved selected/loaded claim, so no candidate acceptance or later cell exists |
 | Exact `72db7e9...` fixed-turn Standard probe | one one-shot bundle completed four fresh primary sessions, sealed `VIOLATION`, created no subagent activity, left A16 unexecuted, and permits no retry or retrospective rescore |
-| Exact `b965102...` product candidate | five package blobs are fixed; its Gate 2 subject is sealed `DECISION_REQUIRED` / `NO_RETRY`, behavior acceptance was not achieved, and the later tracked controller revision is a distinct evidence-infrastructure identity |
+| Exact `b965102...` product candidate | five package blobs are fixed; three recorded Gate 2 executions are individually sealed `SEALED_DECISION_REQUIRED` and non-retriable, behavior acceptance was not achieved, the candidate is not permanently retired, and the later tracked controller revision is a distinct evidence-infrastructure identity |
 | Tracked Codex evidence controller | offline source/generated-contract-bound historical 11/11, negative 31/31, metamorphic 4/4, generated-drift guards 3/3, exact five-file manifests 2/2, logical-identity guards 3/3, content/proof/inventory identity guards 6/6, record-cardinality/exit guards 3/3, command-resolution guards 8/8 including bare native-name rejection plus N24/N30 invocation-path binding, historical-output shape guard 1/1, output-no-clobber guard 1/1, per-key capture-reuse guard 1/1, scratch-topology guards 2/2, external-input type guards 3/3, Git-read safety guards 9/9, canonical ordinal guard 1/1, immediately preceding full-checkpoint contained sealed inputs 8/8, real-reparse rejection, and canonical repeatability pass under quiescent single-writer use; PowerShell wrappers require `-NoProfile`, and this remains controller qualification only, not candidate behavior acceptance |
 | Isolated path-bound controller canary | private retained sealed `CANARY_PASS`; the public summary reports an exact-response pass and no command execution, omits locator/artifact/runtime details, leaves physical backend request count `UNKNOWN`, and proves neither natural-language selection nor candidate acceptance |
 | Small bounded work stays flat | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
@@ -259,9 +259,13 @@ None of these changes edits, retries, or rescales the sealed evidence.
 
 ### 2026-08-05 — Tracked Controller Stabilization Gate
 
-The `b965102...` exact-candidate Gate 2 subject and its same-subject successors
-are sealed `DECISION_REQUIRED` / `NO_RETRY`; no sealed model result is retried,
-rescored, or relabelled here. A bounded set of existing cell summaries, offline
+The completed `b965102...` exact-candidate Gate 2 execution and its two recorded
+same-subject successor executions are individually sealed
+`SEALED_DECISION_REQUIRED`; no sealed model result is retried, rescored,
+relabelled, or reset here. This attempt-level no-retry boundary preserves the
+stable subject and consumed history without permanently retiring the unchanged
+candidate or granting a new evidence window. A bounded set of existing cell
+summaries, offline
 adjudication reports, policy-correction records, and the successor terminal
 manifest supplied sanitized structural inputs for eleven historical
 regressions.
@@ -624,6 +628,28 @@ twelve-path controller-stabilization revision. The commit does not alter the
 five package blobs, rescore sealed evidence, or accept product candidate
 `b965102...`. The local merge gate independently verifies the combined
 repository result over governance baseline `f55b15a...`.
+
+### Gate 2 Recovery Boundary
+
+The sealed execution records and their consumed events remain immutable. A
+future evaluation of exact candidate `b965102...` is therefore a new,
+explicitly authorized Gate 2 evidence window, not a retry or relabelling of any
+sealed execution. Before its first model `turn/start`, the recovery contract
+must bind the exact candidate and five package blobs, stabilized controller
+revision, isolated installed copy, approved model/reasoning and cost envelope,
+one independent assessor, consumption point, and terminal stop behavior.
+
+The pre-consumption reconciliation must enumerate the required matrix evidence
+and prove which retained observations, if any, still have exact source,
+loaded-copy, workspace, and controller admissibility. It may preserve and
+reference those observations without changing their original terminal records.
+Anything missing, invalidated, or not comparable remains `UNKNOWN` and requires
+separately authorized evidence collection. Controller qualification failure
+before consumption is not product evidence; after consumption, every event is
+retained and the window seals on its declared stop condition. Gate 3 remains
+unavailable until one complete exact-candidate batch receives independent
+`ACCEPTED`. This documentation correction creates no RC, model call, assessor
+run, or acceptance evidence.
 
 ## v0.1.2 Stable And Control SOURCE Identity
 
