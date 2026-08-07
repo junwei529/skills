@@ -297,6 +297,18 @@ applicable and rerun only affected conditions; proportional evaluation does
 not require an unrelated full matrix or a net-benefit claim for a bounded
 safety correction.
 
+For a native-Windows live Codex evaluation whose deterministic controller
+audits PowerShell wrappers, make the runner own the shell-startup contract.
+Set `allow_login_shell=false` explicitly in the isolated app-server
+configuration, bind the exact Codex executable, and stop before the declared
+evidence-consumption point unless a sanitized isolated probe observes a
+path-qualified PowerShell wrapper with `-NoProfile`. A config file, current
+source tree, or no-turn capability response is not proof that the pinned live
+command used that wrapper. `thread/shellCommand` runs outside the thread
+sandbox, so it can qualify wrapper formation only; keep sandbox and action-
+authority evidence separate. Never relax the controller merely because the
+Harness emitted a profile-enabled wrapper or a read command failed.
+
 ## Documentation Impact Closure
 
 Complete this closure before the first native review for a new Skill or a

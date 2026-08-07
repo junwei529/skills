@@ -75,19 +75,34 @@ A02, later cells, and the independent assessor did not start. This is a fifth
 consumed execution record, not product behavior evidence, a product defect, or
 candidate acceptance, and it cannot be retried under that evidence window.
 
+A separately constructed successor-2 then preserved all five predecessor
+records, kept the same candidate/control/controller identities, and passed its
+own offline qualification and freeze. Under a new explicit turn envelope it
+consumed one A01 `Sol/high` turn. That turn produced an ordinary flat response,
+read no Work Charter file, identified the intended small code correction,
+reported the read-only limitation, and left all reconciled inventories equal.
+The live command records nevertheless used a PowerShell `-Command` wrapper
+without `-NoProfile`, and a later Git read failed. The controller correctly
+retained `CONTROLLER_UNKNOWN`; the carrier sealed a partial hard stop before
+A02, and its one authorized `Terra/high` assessor returned
+`DECISION_REQUIRED`. This sixth record is sealed and non-retriable. The bounded
+compatibility correction changes only tracked evaluation tests and public
+evidence/process owners: it keeps N31 fail closed, adds N32/N33 for parsed
+failed Git-read diagnostics with trusted-shaped and shadow identities without
+claiming identity admission, and requires a future runner to set
+`allow_login_shell=false` and prove the resulting wrapper before consumption.
+It neither changes Work Charter SOURCE nor creates a new Gate 2 window.
+
 ## Current Writer
 
-Earlier implementation and integration writers relinquished after
-`191cd1f...` was fast-forward integrated into local `main`. The bounded
-ten-document A01 reconciliation writer has also relinquished after updating and
-checking the existing Work Charter consumers. Its exact ten-file dirty scope
-remains unstaged and uncommitted in the shared checkout under user custody; the
-separate Project Docs dirty scope remains frozen and was not modified. No
-repository writer is active. No authority follows to edit Work Charter SOURCE,
-the tracked controller, any sealed execution, or Project Docs state; consume a
-behavior-model or assessor turn; run native review; use Git; push; materialize
-an active candidate; change discovery or installation; release; mutate private-
-global state; or clean retained evidence.
+No repository writer is active. The bounded controller/Harness compatibility
+writer completed the tracked regression and mapped documentation closure, then
+relinquished before final native review. Work Charter SOURCE, sealed or ignored
+execution records, Project Docs per-Skill owners, Git/index, installation,
+release, retained-evidence cleanup, new model or assessor turns, and another
+Gate 2 successor remain outside this completed window. A clear same-scope
+native-review finding may reopen only the affected correction and focused
+checks; otherwise the next boundary is the separate commit decision.
 
 ## Evidence State
 
@@ -161,14 +176,15 @@ prospective corrections rescores the sealed result.
 The completed `b965102...` Gate 2 execution, its two recorded same-subject
 successors, and the later A01-only recovery execution remain four sealed
 historical records. The first three are `SEALED_DECISION_REQUIRED`; the fourth
-is a sealed partial hard stop with assessor `DECISION_REQUIRED`. Product
-acceptance is `NOT_ACHIEVED`, and none of those executions or consumed events
+is a sealed partial hard stop with assessor `DECISION_REQUIRED`. The next
+successor failed during model transport after consuming A01 and became the
+fifth sealed record. Successor-2 later exposed an ordinary A01 behavior surface
+but hard-stopped on controller/Harness compatibility and became the sixth
+sealed record; its independent assessor returned `DECISION_REQUIRED`. Product
+acceptance is `NOT_ACHIEVED`, and none of these executions or consumed events
 may be retried, rescored, relabelled, or reset. That execution-level boundary
 does not prohibit a separately authorized successor for the unchanged
-candidate. The separately authorized successor later consumed its sole A01
-event and sealed `HARD_STOP / UNKNOWN` before an observable model-response or
-behavior surface; it is the fifth consumed execution record and is likewise
-non-retriable. One earlier stop incorrectly treated a successor-root locator as
+candidate. One earlier stop incorrectly treated a successor-root locator as
 logical candidate identity.
 The bounded controller-stabilization gate converts only
 the already-sanitized structural findings into a tracked deterministic
@@ -470,25 +486,36 @@ Work Charter `v0.1.2` remains the released and installed stable revision, while
 `119aa27...` records controller infrastructure after that candidate, and local
 merge `c05cb99...` integrates it without changing the five package blobs or
 establishing behavior acceptance. Local commit `191cd1f...` records the later
-reviewed 14-path evidence-boundary correction, and local `main` was
-fast-forwarded to that exact commit. This Git integration changed no package
-blob, sealed execution, product candidate, or behavior verdict. No push,
-candidate materialization, model evidence, installation, release, or cleanup
-is authorized by that completed local closeout.
+reviewed 14-path evidence-boundary correction. Current local `main` at
+`776989f...` contains that commit plus later documentation and Project Docs
+work, without changing any Work Charter package blob. These integrations
+changed no sealed execution, product candidate, or Work Charter behavior
+verdict. No push, candidate materialization, model evidence, installation,
+release, or cleanup is authorized by that completed local closeout.
 
 The next product action remains Gate 2, not a SOURCE correction and not Gate 3.
-The ignored successor bound exact candidate `b965102...`, controller
-`191cd1f...`, isolated `RC_INSTALL`, model/cost envelope, independent assessor,
-consumption point, stop conditions, and all four sealed predecessors. It then
-consumed its only authorized A01 `turn/start` and sealed `HARD_STOP / UNKNOWN`
-after transport failed before an observable model-response or Work Charter
-behavior surface. No A02, later cell, assessor, or retry is authorized. The
-next action is a user-owned Gate 2 disposition decision: retain the blocked
-`UNKNOWN` state, or separately authorize a materially explicit recovery or
-successor plan that preserves all five consumed records. Gate 3 remains blocked
-until an exact-candidate batch is complete and independently `ACCEPTED`. The
-isolated `CANARY_PASS` remains consumed and non-retriable and does not satisfy
-that boundary.
+Successor-2 consumed A01 and its assessor, sealed
+`SEALED_PARTIAL_HARD_STOP / CONTROLLER_UNKNOWN`, and left A02 plus every later
+cell unstarted. Its ordinary response is bounded observation only because the
+controller could not admit the command surface. The current compatibility diff
+contains 12 tracked modifications plus one included untracked report and passes
+deterministic verification. Native review 1/5 materially covered that entire
+scope and returned no actionable finding. Review 2/5 found two P2 accuracy
+gaps: N32 overstated identity admission, and this recovery record blurred the
+tracked/untracked split. The correction narrows the claim, adds paired shadow-
+identity N33, and records the exact split. Review 3/5 then found that N33
+excluded only one possible identity error; it now rejects every resolved-
+command or resolved-wrapper identity unknown, directly protecting the
+pre-admission boundary. This finding/state closeout is the only later mutation.
+Native-review gate satisfaction is determined by a
+completed semantic review over these final bytes. No staging or commit is yet
+authorized. Only after a separately approved integration may the user decide
+whether to retain Gate 2 at the six-record `UNKNOWN` boundary or authorize a
+new exact runner/successor plan that preserves every consumed record and proves
+profile-free wrapper formation before its first scarce turn.
+Gate 3 remains blocked until an exact-candidate batch is complete and
+independently `ACCEPTED`. The isolated `CANARY_PASS` remains consumed and non-
+retriable and does not satisfy that boundary.
 
 ## Recovery Entry
 
@@ -499,15 +526,14 @@ that boundary.
    this state, and [Verification](VERIFICATION.md).
 3. Confirm live workspace, writer, and action authority.
 4. Confirm the live integration result includes merge `c05cb99...`, controller
-   commit `119aa27...`, governance baseline `f55b15a...`, and later
-   evidence-boundary commit `191cd1f...`; then confirm local `main` is at or
-   after `191cd1f...` and revalidate writer and action authority before writing.
-5. Distinguish the four prior sealed execution records and the successor's
-   sealed A01 `HARD_STOP / UNKNOWN` from the unchanged `b965102...` candidate:
-   preserve all five terminal/consumption records, do not retry or relabel the
-   successor event, and do not infer either product acceptance or permanent
-   candidate retirement. Any recovery or successor plan needs new explicit
-   Gate 2 authority.
+   commit `119aa27...`, governance baseline `f55b15a...`, later evidence-
+   boundary commit `191cd1f...`, and current descendant `776989f...`; then
+   revalidate writer and action authority before writing.
+5. Distinguish all six sealed execution records from the unchanged
+   `b965102...` candidate. Preserve every terminal, A01, and assessor
+   consumption event; do not retry, relabel, or rescore successor-2; and infer
+   neither product acceptance nor permanent candidate retirement. Any recovery
+   or successor plan needs new explicit Gate 2 authority.
 6. Read canonical SOURCE, current eval definitions, and only evidence matching
    the exact revision before changing behavior or claims.
 7. Preserve the independent-Skill and non-propagating-authorization boundary.

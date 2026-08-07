@@ -510,8 +510,15 @@ contain exactly one `-NoProfile`; it may additionally contain the inert
 `-Command`/`-c` script. Execution-affecting options, duplicate switches, other
 positional arguments, trailing arguments, or profile-enabled startup fail
 closed. N18 and N19 cover `-WorkingDirectory` and `-File`, N31 covers omitted
-`-NoProfile`, and the trusted command-resolution positive proves the safe
-`pwsh -NoProfile -Command` shape.
+`-NoProfile` plus its observed outer/inner identity consequences, and the
+trusted command-resolution positive proves the safe
+`pwsh -NoProfile -Command` shape. A live isolated Codex runner must set
+`allow_login_shell=false` explicitly and must observe the expected wrapper
+shape in a pre-consumption qualification before relying on it. Configuration
+or source inspection alone is not runtime proof for the pinned executable.
+If the probe uses app-server `thread/shellCommand`, remember that this API runs
+outside the thread sandbox: it may prove wrapper formation only, not sandbox
+behavior or action authority.
 Independent PowerShell command expressions and member expressions/invocations
 are not admissible beside a classified command, because their side effects are
 outside the command-effect model. Formal negative N21 combines an allowed
@@ -553,6 +560,14 @@ case contract still requires its normal scoped review.
 The controller regression neither retries nor rescores sealed model evidence,
 and its passing result is controller-infrastructure evidence rather than Work
 Charter behavior acceptance.
+Failed commands remain diagnostics, not completed effects. N32 isolates a
+fully parsed Git-read shape with trusted-looking identities that exits nonzero;
+N33 pairs it with a shadow Git identity. The controller keeps
+`failed_execution`, preserves matching read-only outer/action semantics, and
+does not mislabel either record as an attempted write or Git mutation. Failed
+records stop before resolved-identity admission, so these cases prove neither
+identity validation nor a completed read. Equal inventories or a plausible
+final response do not convert either failed command into admitted evidence.
 
 ## Project Docs M1R Forward Matrix
 
@@ -707,13 +722,16 @@ prompts, and completions remain non-public. Physical backend request count
 remains `UNKNOWN`. The canary ran before native review 4, a recorded sequence
 deviation; it is sealed and must not be rerun, while review remains required.
 Exact product candidate `b965102...` remains distinct from this later
-controller revision. The current public offline gate passes 31/31 fail-closed
+controller revision. The current public offline gate passes 33/33 fail-closed
 negatives, including rejection of an outer static side effect before an
 otherwise valid PowerShell wrapper plus missing policy roots and malformed
 required-read, inventory-comparison, and construction-event rows. N24/N30 bind
 trusted native resolved paths to observed AST invocations so copied tuples on
 shadow PowerShell or Git paths fail closed; N31 rejects wrappers that could load
-untracked PowerShell profile code. `-OutputPath` uses atomic
+untracked PowerShell profile code, and N32/N33 keep parsed failed Git-read
+diagnostics at `CONTROLLER_UNKNOWN` without claiming identity admission or
+labelling them as writes or mutations.
+`-OutputPath` uses atomic
 `CreateNew`; the 1/1 no-clobber guard proves an existing file remains unchanged.
 Native-application evidence must invoke that exact rooted path rather than a
 bare PATH-resolved name. Eight command-resolution guards cover bare `git`,

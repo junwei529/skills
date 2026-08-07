@@ -291,7 +291,9 @@
     {"id": "N28", "scenario": "inventory-comparison-missing-side", "expected_verdict": "CONTROLLER_UNKNOWN"},
     {"id": "N29", "scenario": "construction-event-missing-event", "expected_verdict": "CONTROLLER_UNKNOWN"},
     {"id": "N30", "scenario": "shadowed-git-executable-path", "expected_verdict": "CONTROLLER_UNKNOWN"},
-    {"id": "N31", "scenario": "powershell-wrapper-without-no-profile", "expected_verdict": "CONTROLLER_UNKNOWN"}
+    {"id": "N31", "scenario": "powershell-wrapper-without-no-profile", "expected_verdict": "CONTROLLER_UNKNOWN"},
+    {"id": "N32", "scenario": "failed-read-execution", "expected_verdict": "CONTROLLER_UNKNOWN"},
+    {"id": "N33", "scenario": "failed-read-shadow-identity", "expected_verdict": "CONTROLLER_UNKNOWN"}
   ],
   "metamorphic_pairs": [
     {"id": "M01", "scenario": "get-content-parameter-order"},

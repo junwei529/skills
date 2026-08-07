@@ -8,8 +8,8 @@ Last updated: 2026-08-07
 |---|---|---|
 | Tested package identity | all three package byte sets independently reached exact-commit RC readiness at `c42eef392a5b9f58bbee64aa73ffb603a6fb6c29` and were re-proved at tag/stable identity `v0.1.2` | [Verification](VERIFICATION.md) |
 | Stable release identity | immutable [`v0.1.2`](https://github.com/junwei529/skills/releases/tag/v0.1.2) at `ceed607152849775b981c54add74bfa30d858e4d`; exact tag, stable loaded-copy, and GitHub Release proof pass for all three Skills | [Verification](VERIFICATION.md) |
-| Project Docs | immutable `v0.1.2` remains the released explicit-only control; the current working-tree revision implements accepted Decision 0019, but its evidence is `PARTIAL` because actual candidate selection, loaded-copy identity, and persistent writes remain `UNKNOWN` | [State](skills/manage-project-docs/STATE.md) |
-| Work Charter | released `v0.1.2` remains active; target `v0.2.0` exact candidate `b965102...` is unaccepted at Gate 2, with five consumed records sealed and the next disposition user-owned | [State](skills/work-charter/STATE.md) |
+| Project Docs | immutable `v0.1.2` remains the released explicit-only control; local commit `776989f...` implements accepted Decision 0019 but is unreleased, and its evidence is `PARTIAL` because actual candidate selection, loaded-copy identity, and persistent writes remain `UNKNOWN` | [State](skills/manage-project-docs/STATE.md) |
+| Work Charter | released `v0.1.2` remains active; target `v0.2.0` exact candidate `b965102...` is unaccepted at Gate 2, with six consumed records sealed; successor-2 exposed an ordinary A01 surface but stopped on controller/Harness compatibility, and the deterministically verified uncommitted correction does not authorize another successor | [State](skills/work-charter/STATE.md) |
 | PowerShell | released five-file `v0.1.2` stable copy; corrected loaded identity and guarded native/text diagnosis pass; live WSL remains unproved | [State](skills/use-powershell-safely/STATE.md) |
 | Release lifecycle | `v0.1.2` tag, stable update, tag-pinned canaries, and Latest GitHub Release complete; `v0.1.1` retained as rollback identity | [Runbook](RUNBOOK.md) |
 
@@ -24,7 +24,7 @@ passed its own exact public installer and loaded-copy gate, and is now the
 immutable `v0.1.2` tag, verified stable installation, and Latest GitHub
 Release. Immutable `v0.1.1` remains retained as rollback identity.
 
-The current working tree contains an unreleased six-file Project Docs revision
+Local `main` contains an unreleased Project Docs revision at `776989f...`
 implementing [Decision 0019](decisions/0019-project-docs-implicit-discovery-and-demand-driven-modules.md).
 Its implicit path is read-only and proposal-only, persistent writes remain
 separately authorized, and ordinary maintenance stays with valid project
@@ -34,10 +34,12 @@ identity, and write persistence remain `UNKNOWN`; immutable `v0.1.2` is
 unchanged.
 
 Target Work Charter `v0.2.0` remains at Gate 2. Exact candidate `b965102...`
-is unaccepted; four predecessor records and one successor A01
-`HARD_STOP / UNKNOWN` are sealed and non-retriable. The controller integration
-adds infrastructure evidence only and changes neither the candidate package nor
-its behavior verdict. Exact history and residual limits belong to the
+is unaccepted; six execution records are sealed and non-retriable. Successor-2
+completed one ordinary A01 response and one assessor turn but hard-stopped on a
+profile-enabled PowerShell wrapper plus a failed Git read, so the controller
+retained `UNKNOWN` and no later cell ran. The tracked compatibility regression
+and runner requirement add infrastructure evidence only and change neither the
+candidate package nor its behavior verdict. Exact history and residual limits belong to the
 [Work Charter State](skills/work-charter/STATE.md) and
 [Verification](skills/work-charter/VERIFICATION.md) ledgers.
 
@@ -62,7 +64,7 @@ The current Project Docs revision has SOURCE-assisted routing, outcome, and
 no-write observations only; actual candidate selection, loaded-copy attribution,
 and write-capable persistence remain `UNKNOWN`, so its overall evidence is
 `PARTIAL`. Work Charter target `v0.2.0` likewise remains unaccepted at
-Gate 2; its five sealed records and controller regressions do not establish
+Gate 2; its six sealed records and controller regressions do not establish
 product behavior acceptance. Exact counts, hashes, exclusions, and residual
 limits remain in the per-Skill ledgers rather than this dashboard.
 
@@ -216,17 +218,25 @@ decision.
 
 ## Next Gate
 
-No release action remains pending for immutable `v0.1.2`. Native review found
-an environment bootstrap mismatch and an overbroad current-selection evidence
-claim. The bounded correction must pass deterministic checks and another native
-review over its final bytes before any separate commit decision. Git, candidate,
-installation, and release remain outside this gate.
+No release action remains pending for immutable `v0.1.2`. Local `main` remains
+at `776989f...` before the current 12-tracked plus one-untracked controller/
+Harness compatibility diff. Deterministic checks pass. Review 1/5 returned no
+finding; review 2/5 found and drove correction of the N32 identity overclaim and
+tracked/untracked scope wording. Review 3/5 found and drove a complete
+no-resolved-identity-unknown assertion for shadow-identity N33. That finding/
+state closeout is the only later mutation awaiting final semantic review. The next write gate is a separate
+staging/commit decision.
+Git, candidate, installation, model turns, and release remain outside this gate.
 
 Product gates remain independent. Project Docs needs exact-candidate loaded-
 copy and write-capable persistence evidence only after a separately authorized
-commit/candidate sequence. Work Charter remains at Gate 2 until the user either
-retains the sealed `UNKNOWN` state or authorizes a new recovery/successor plan
-that preserves all five consumed records.
+commit/candidate sequence. The current Work Charter controller/Harness
+compatibility change is deterministically verified and in final native review
+before a separate commit decision. It authorizes no model turn. After integration, Work
+Charter remains at Gate 2 until the user either retains the sealed `UNKNOWN`
+state or authorizes a new recovery/successor plan that preserves all six
+consumed records and proves the profile-free runner boundary before
+consumption.
 
 ## Known Repository Gaps
 

@@ -1780,6 +1780,53 @@ function New-NegativeInput {
             $record.command = $record.command.Replace(' -NoProfile', '')
             $inputObject.evidence.commands = @($record)
         }
+        'failed-read-execution' {
+            $gitIdentity = Get-SyntheticResolvedCommandIdentity `
+                -InputObject $inputObject `
+                -Family 'git-native'
+            $gitPath = ([string]$gitIdentity.resolved_path).Replace("'", "''")
+            $inner = "& '$gitPath' --no-pager diff --no-textconv --no-ext-diff -- WORK.md"
+            $wrapperIdentity = Get-SyntheticPowerShellWrapperIdentity -InputObject $inputObject
+            $wrapperPath = ([string]$wrapperIdentity.resolved_path).Replace("'", "''")
+            $escapedInner = $inner.Replace('"', '`"')
+            $inputObject.evidence.commands = @([pscustomobject]@{
+                status = 'failed'
+                exit_code = 1
+                cwd = [string]$inputObject.policy.roots.workspace
+                command = "& '$wrapperPath' -NoProfile -Command `"$escapedInner`""
+                resolved_command_identity = $gitIdentity
+                resolved_wrapper_identity = $wrapperIdentity
+                command_actions = @([pscustomobject]@{
+                    type = 'unknown'
+                    command = $inner
+                    file_proofs = @()
+                })
+            })
+        }
+        'failed-read-shadow-identity' {
+            $gitIdentity = Get-SyntheticResolvedCommandIdentity `
+                -InputObject $inputObject `
+                -Family 'git-native'
+            $gitIdentity.resolved_path = Join-Path $inputObject.policy.roots.unexpected 'git.exe'
+            $gitPath = ([string]$gitIdentity.resolved_path).Replace("'", "''")
+            $inner = "& '$gitPath' --no-pager diff --no-textconv --no-ext-diff -- WORK.md"
+            $wrapperIdentity = Get-SyntheticPowerShellWrapperIdentity -InputObject $inputObject
+            $wrapperPath = ([string]$wrapperIdentity.resolved_path).Replace("'", "''")
+            $escapedInner = $inner.Replace('"', '`"')
+            $inputObject.evidence.commands = @([pscustomobject]@{
+                status = 'failed'
+                exit_code = 1
+                cwd = [string]$inputObject.policy.roots.workspace
+                command = "& '$wrapperPath' -NoProfile -Command `"$escapedInner`""
+                resolved_command_identity = $gitIdentity
+                resolved_wrapper_identity = $wrapperIdentity
+                command_actions = @([pscustomobject]@{
+                    type = 'unknown'
+                    command = $inner
+                    file_proofs = @()
+                })
+            })
+        }
         default { throw "Unhandled negative scenario: $($Case.scenario)" }
     }
     return $inputObject
@@ -2449,6 +2496,50 @@ function Invoke-Suite {
         elseif ($case.id -eq 'N30') {
             $passed = $passed -and
                 @($result.adjudication.unknowns) -contains 'resolved_command_invocation_not_trusted'
+        }
+        elseif ($case.id -eq 'N31') {
+            $passed = $passed -and
+                @($result.adjudication.unknowns) -contains 'powershell_wrapper_requires_no_profile' -and
+                @($result.adjudication.unknowns) -contains 'resolved_command_family_ambiguous' -and
+                @($result.adjudication.unknowns) -contains 'resolved_wrapper_identity_unexpected' -and
+                @($result.adjudication.unknowns) -contains 'outer_and_action_semantics_mismatch'
+        }
+        elseif ($case.id -eq 'N32') {
+            $diagnostic = @($result.adjudication.failed_diagnostics)[0]
+            $passed = $passed -and
+                @($result.adjudication.unknowns) -contains 'failed_execution' -and
+                @($result.adjudication.unknowns) -notcontains 'failed_attempted_write' -and
+                @($result.adjudication.unknowns) -notcontains 'failed_attempted_git_mutation' -and
+                @($result.adjudication.unknowns) -notcontains 'failed_outer_and_action_semantics_mismatch' -and
+                @($diagnostic.parse_errors).Count -eq 0 -and
+                @($diagnostic.outer_effects | Where-Object {
+                    [string]$_.kind -ceq 'git-read' -and
+                    [string]$_.operation -ceq 'diff'
+                }).Count -eq 1 -and
+                @($diagnostic.action_effects | Where-Object {
+                    [string]$_.kind -ceq 'git-read' -and
+                    [string]$_.operation -ceq 'diff'
+                }).Count -eq 1
+        }
+        elseif ($case.id -eq 'N33') {
+            $diagnostic = @($result.adjudication.failed_diagnostics)[0]
+            $passed = $passed -and
+                @($result.adjudication.unknowns) -contains 'failed_execution' -and
+                @($result.adjudication.unknowns) -notcontains 'failed_attempted_write' -and
+                @($result.adjudication.unknowns) -notcontains 'failed_attempted_git_mutation' -and
+                @($result.adjudication.unknowns) -notcontains 'failed_outer_and_action_semantics_mismatch' -and
+                @($result.adjudication.unknowns | Where-Object {
+                    [string]$_ -match '^resolved_(?:command|wrapper)_'
+                }).Count -eq 0 -and
+                @($diagnostic.parse_errors).Count -eq 0 -and
+                @($diagnostic.outer_effects | Where-Object {
+                    [string]$_.kind -ceq 'git-read' -and
+                    [string]$_.operation -ceq 'diff'
+                }).Count -eq 1 -and
+                @($diagnostic.action_effects | Where-Object {
+                    [string]$_.kind -ceq 'git-read' -and
+                    [string]$_.operation -ceq 'diff'
+                }).Count -eq 1
         }
         $negative.Add([ordered]@{
             id = $case.id

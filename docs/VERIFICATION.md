@@ -22,7 +22,7 @@ Sanitized detailed runs remain under [`evals/results`](../evals/results/README.m
 | Three Skill validators | Validate frontmatter and package names without changing packages | pass for the three packages in tag and stable install `v0.1.2` |
 | Repository checker | Validate strict UTF-8/no BOM, whitespace, local links/fragments, publication safety, exact Skill/eval sets, federated docs, and bilingual navigation | current integrated controller/evidence-boundary revision passes with the unchanged 14 cases / 12 fixtures |
 | Fixture checker | Validate synthetic starting states and their Git/reparse/ignored-result boundaries plus the tracked controller regression | current integrated controller/evidence-boundary revision passes all 17 checks |
-| Codex evidence controller | Validate one shared core across four entry modes, strict required-read versus bounded auxiliary-observation attribution, structural PowerShell/Git/path classification, source-and-generated-contract-bound historical regressions, exact package manifests, candidate-identity and content-proof shape, record cardinality, completed exit typing, output-array shape, per-key single-capture sealed parsing and reuse, real-reparse rejection, fail-closed negatives, external-input types, independently resolved inner/wrapper command identity, Git-read and external-filter safety, profile-free PowerShell wrappers, culture-independent canonical ordering, metamorphic equivalence, output no-clobber, and canonical repeatability | 11/11 historical, 19/19 evidence-surface, 31/31 negative, and 4/4 metamorphic checks pass twice with identical canonical JSON/hash; 11/11 source projections, 3/3 generated-contract drift guards, 2/2 five-file manifests, 3/3 candidate-identity guards, 6/6 content/proof/inventory identity guards, 3/3 record-cardinality/exit guards, 8/8 command-resolution guards including bare native-name rejection plus N24/N30 invocation-path binding, 1/1 output-shape guard, 1/1 output-no-clobber guard, 1/1 per-key capture-reuse guard, 3/3 external-input type guards, 9/9 Git-read safety guards, 1/1 ordinal-order guard, and the immediately preceding full checkpoint matched 8/8 contained sealed inputs |
+| Codex evidence controller | Validate one shared core across four entry modes, strict required-read versus bounded auxiliary-observation attribution, structural PowerShell/Git/path classification, source-and-generated-contract-bound historical regressions, exact package manifests, candidate-identity and content-proof shape, record cardinality, completed exit typing, output-array shape, per-key single-capture sealed parsing and reuse, real-reparse rejection, fail-closed negatives, external-input types, independently resolved inner/wrapper command identity, Git-read and external-filter safety, profile-free PowerShell wrappers, culture-independent canonical ordering, metamorphic equivalence, output no-clobber, and canonical repeatability | 11/11 historical, 19/19 evidence-surface, 33/33 negative, and 4/4 metamorphic checks pass twice with identical canonical JSON/hash; N31 binds the observed missing-profile consequence set, while N32/N33 preserve trusted-shaped and shadow-identity failed Git reads as `UNKNOWN` diagnostics without claiming identity admission or adding a false write/mutation label; the existing source projections, generated-contract, manifest, identity, proof, resolution, topology, Git-safety, no-clobber, and repeatability guards remain green |
 | Isolated controller canary | Record the bounded disposition of one private path-bound infrastructure check without broadening behavior claims | retained sealed `CANARY_PASS`; the public summary reports an exact-response pass and no command execution, omits private locator/artifact/runtime details, and leaves physical backend request count `UNKNOWN` |
 | PowerShell deterministic hardening | Validate cardinality, LF bytes, one-base paths, and Junction link-only removal | 15 assertions pass in PowerShell 7 and Windows PowerShell 5.1 |
 | PowerShell parser sweep | Parse all `evals/**/*.ps1` files and the tracked controller module | all scripts plus `codex-evidence-controller.psm1` parse |
@@ -1124,12 +1124,17 @@ authority.
 
 ### 2026-08-07 — Work Charter sealed successor summary
 
-The exact candidate remains unaccepted at Gate 2. Four predecessor terminals
-and one successor A01 `HARD_STOP / UNKNOWN` are sealed and non-retriable; the
-successor produced no observable model-response or Work Charter behavior
-surface. This repository ledger records only that integration-level boundary.
-The exact controller, qualification, consumption, assessor, and residual-risk
-record remains in [Work Charter Verification](skills/work-charter/VERIFICATION.md).
+The exact candidate remains unaccepted at Gate 2. Six execution records are
+sealed and non-retriable. The fifth stopped after transport consumed A01 but
+before a response. Successor-2 later completed one ordinary A01 response and
+one independent assessor turn, but its PowerShell wrapper omitted
+`-NoProfile`, one Git read failed, and the controller retained
+`CONTROLLER_UNKNOWN`; no later cell ran. The current tracked regression keeps
+that boundary fail closed and records a future-runner
+`allow_login_shell=false` requirement without changing Work Charter SOURCE or
+authorizing another model turn. The exact controller, qualification,
+consumption, assessor, and residual-risk record remains in
+[Work Charter Verification](skills/work-charter/VERIFICATION.md).
 
 ### 2026-08-02 — Capability-delta decision and workflow
 

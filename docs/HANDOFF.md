@@ -5,11 +5,11 @@ Last updated: 2026-08-07
 ## Snapshot
 
 - Repository: Agent Workflow Skills
-- Integration baseline: local `main` contains
-  `191cd1f841468d6585382a64aef8d81a9aff7550`, which was fast-forwarded from
-  `79806bf...` without a merge commit; attached development branch
-  `codex/work-charter-v0.2` remains at `119aa27...`, and the former
-  evidence-boundary branch points to the same `191cd1f...` commit
+- Integration baseline: local `main` is
+  `776989fffa4476f432df2118f118f984a4b5b031`; it contains the Work Charter
+  controller/evidence integrations through `191cd1f...`, the Work Charter
+  state sync at `5e057c0...`, and the unreleased Project Docs implicit-
+  discovery implementation at `776989f...`
 - Released package identity: immutable `v0.1.2` at
   `ceed607152849775b981c54add74bfa30d858e4d`
 - GitHub Release:
@@ -19,19 +19,11 @@ Last updated: 2026-08-07
   5 files, each matching the `v0.1.2` Git blobs
 - Rollback identity: immutable `v0.1.1` retained as a separately verified
   three-package backup
-- Current writer: none. This task completed one bounded native-review
-  correction window over seven existing Project Docs evidence and state
-  consumers only:
-  `docs/HANDOFF.md`, `docs/ROADMAP.md`, `docs/STATUS.md`,
-  `docs/skills/manage-project-docs/STATE.md`,
-  `docs/skills/manage-project-docs/VERIFICATION.md`,
-  `evals/results/README.md`, and the current Project Docs SOURCE-evaluation
-  result, then relinquished before final native review. The other 29 dirty paths
-  remain frozen. A clear same-scope native-review finding may reopen one bounded
-  writer under the Authorization Boundary; otherwise no repository writer is
-  active. No Skill SOURCE, eval case or fixture, per-Skill Work Charter
-  documentation, Git/index mutation, installation, release, ignored-evidence
-  cleanup, candidate, or fresh behavior-evaluation authority follows
+- Current writer: none. The bounded controller/Harness compatibility writer
+  completed and relinquished its 12-tracked plus one-untracked regression and
+  documentation scope before final native review. No Work Charter or Project Docs SOURCE, sealed/ignored
+  execution, Git/index, installation, release, cleanup, or new model/assessor-
+  turn authority was granted
 
 The `v0.1.2` tag remains fixed at the release-preparation commit. The later
 documentation commit records already-completed tag, stable-install, canary, and
@@ -512,10 +504,12 @@ evidence verdict. Skill SOURCE, cases, fixtures, scripts, Work Charter owners,
 candidate/install/release evidence, and ignored artifacts are
 `NOT_APPLICABLE` or independently frozen.
 
-Work Charter target `v0.2.0` remains unaccepted at Gate 2. Four predecessor
-records and one successor A01 `HARD_STOP / UNKNOWN` remain sealed and non-
-retriable; exact execution/controller detail stays in the Work Charter State
-and Verification owners rather than root navigation and dashboard summaries.
+Work Charter target `v0.2.0` remains unaccepted at Gate 2. Six execution
+records remain sealed and non-retriable. Successor-2 exposed one ordinary A01
+response but hard-stopped on controller/Harness compatibility; its assessor
+returned `DECISION_REQUIRED`, and no later cell ran. Exact execution/controller
+detail stays in the Work Charter State and Verification owners rather than root
+navigation and dashboard summaries.
 
 The completed integration window updated only the six existing documentation
 owners listed in the Snapshot and left the other 30 dirty paths unchanged. The
@@ -551,8 +545,9 @@ remained unchanged at this checkpoint.
 4. Resolve local `main`, HEAD, index, all dirty and ignored scopes, writer
    ownership, and the exact Work Charter candidate/controller bindings rather
    than assuming this snapshot is still current.
-5. Preserve all five sealed Work Charter records without retry or relabelling,
-   and infer neither product acceptance nor permanent candidate retirement.
+5. Preserve all six sealed Work Charter records without retry, relabelling, or
+   rescore, and infer neither product acceptance nor permanent candidate
+   retirement.
 6. Keep `c42eef3...` RC behavior, `ceed607...` release identity, the later
    evidence descendant, and the generated stable/rollback copies distinct.
 7. Before any future SOURCE, native review, Git, installation, cleanup, tag, or
@@ -562,26 +557,32 @@ remained unchanged at this checkpoint.
 
 ## Immediate Next Action
 
-No release action remains pending for immutable `v0.1.2`. Native review found
-one environment-bootstrap mismatch and one overbroad current-selection evidence
-claim. The bootstrap correction was applied outside tracked source under its
-separate authorization and is not repository or fresh-task behavior evidence.
-The bounded seven-file repository correction and deterministic checks are
-complete, and its writer has relinquished. The next gate is native review over
-the final exact 36-path diff. A clear same-scope P0-P2 finding may reopen that
-same bounded writer; a wider finding stops for a new decision. Staging, commit,
-push, candidate materialization, installation, fresh behavior evaluation, and
-release remain unauthorized. Product gates remain separate:
-Project Docs still needs an accepted commit and separately authorized exact-
-candidate loaded-copy/write-capable tests, while Work Charter remains at Gate 2
-until the user retains the sealed `UNKNOWN` or authorizes a new bounded
-recovery/successor plan that preserves all five consumed records.
+No release action remains pending for immutable `v0.1.2`. Local `main` remains
+at `776989f...` before the current 12-tracked plus one-untracked compatibility
+diff; the index is empty. Deterministic checks pass. Native review 1/5
+materially covered the full scope and returned no actionable finding. Review
+2/5 found the inaccurate N32 identity claim and tracked/untracked wording; both
+P2s are corrected by narrowing the claim, adding paired shadow-identity N33,
+and recording the exact split. Review 3/5 then found that N33 excluded only one
+possible identity error; it now rejects every resolved-command or resolved-
+wrapper identity unknown and directly protects the pre-admission boundary.
+This finding/state closeout is the only later tracked mutation, so one semantic
+review over the final bytes is the remaining read-only gate. If it is clean
+with material coverage, stop at the
+separate staging/commit decision without another tracked status rewrite.
+Staging, commit, push, candidate materialization, installation, fresh behavior
+evaluation, and release remain unauthorized. Product gates remain separate:
+Project Docs still needs a separately authorized exact-candidate loaded-copy/
+write-capable evaluation, while Work Charter remains at Gate 2 with six sealed
+records. A future Work Charter successor requires its own authority and must set
+`allow_login_shell=false`, prove the profile-free wrapper on its pinned Codex
+runtime before consumption, and preserve all six records.
 
 Later user-owned choices include:
 
-- retain Gate 2 at the current sealed `UNKNOWN`, or authorize a separately
-  bounded recovery/successor plan without retrying or resetting the consumed
-  A01 event;
+- after the compatibility change is accepted and integrated, retain Gate 2 at
+  the current six-record `UNKNOWN`, or authorize a separately bounded
+  recovery/successor plan without retrying or resetting any consumed event;
 - after an accepted Project Docs commit, authorize an exact-commit candidate
   and write-capable synthetic persistence test;
 - begin another separately scoped development or evaluation cycle;
