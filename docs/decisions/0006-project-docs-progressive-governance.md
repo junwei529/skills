@@ -3,7 +3,8 @@
 Date: 2026-07-28
 Status: accepted
 Partial supersession: Decision 0007 replaces the primary-public-product clause;
-the Project Docs contract remains accepted.
+Decision 0019 replaces the explicit-only selection and broken-route re-entry
+clauses. The remaining Project Docs contract stays accepted.
 
 ## Context
 

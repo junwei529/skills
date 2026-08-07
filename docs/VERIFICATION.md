@@ -1,6 +1,6 @@
 # Repository Verification
 
-Last updated: 2026-08-06
+Last updated: 2026-08-07
 
 ## Scope
 
@@ -579,20 +579,19 @@ finding-handling evidence only; native-review and Git disposition were resolved
 later against the exact bytes from the live record. It had not yet obtained
 candidate, behavior-model, RC, installation, integration, release, or stable-
 update evidence. The following sections record the later candidate and local
-integration facts. Neither those later infrastructure facts nor the sealed
-probe transfers behavior acceptance; any new Gate 2 evidence window requires
+integration facts. Neither those later infrastructure facts nor any sealed
+probe or successor transfers behavior acceptance. The bounded repository-level
+terminal summary is recorded below; exact execution detail remains in the
+Work Charter Verification owner, and any new Gate 2 evidence window requires
 its own authority.
 
 ### 2026-08-05 — Work Charter controller stabilization
 
 The conditional-loading package became exact product candidate
-`b965102ea58f9cc1ef3c73e8dea515731fec12a6`. Its Work Charter package tree and
-five file blobs remain byte-identical through this later controller revision.
-Its completed Gate 2 execution and two recorded same-subject successor
-executions are individually sealed `SEALED_DECISION_REQUIRED`; their consumed
-events cannot be retried, rescored, relabelled, or reset. Product behavior
-acceptance was not achieved. This execution-level boundary does not permanently
-retire the unchanged candidate or authorize another evidence window.
+`b965102ea58f9cc1ef3c73e8dea515731fec12a6`. Its five package blobs remain
+byte-identical through the later controller revisions. The candidate remains
+unaccepted at Gate 2; its sealed execution history and exact residual limits
+are owned by the Work Charter Verification ledger.
 
 The repository now carries a small PowerShell evidence-controller contract and
 deterministic regression gate. One module owns preflight, runtime, historical-
@@ -1123,6 +1122,15 @@ candidate or active writer. This local integration creates no model evidence,
 assessor verdict, candidate acceptance, push, installation, release, or Gate 3
 authority.
 
+### 2026-08-07 — Work Charter sealed successor summary
+
+The exact candidate remains unaccepted at Gate 2. Four predecessor terminals
+and one successor A01 `HARD_STOP / UNKNOWN` are sealed and non-retriable; the
+successor produced no observable model-response or Work Charter behavior
+surface. This repository ledger records only that integration-level boundary.
+The exact controller, qualification, consumption, assessor, and residual-risk
+record remains in [Work Charter Verification](skills/work-charter/VERIFICATION.md).
+
 ### 2026-08-02 — Capability-delta decision and workflow
 
 An accepted documentation-only decision established a prospective rule for new
@@ -1254,7 +1262,7 @@ ledgers without deleting sanitized results:
 
 | Evidence family | Canonical ledger |
 |---|---|
-| Project Docs decisions, M1R source revisions, explicit behavior, explicit-only selection, and Skill-specific limits | [Project Docs Verification](skills/manage-project-docs/VERIFICATION.md) |
+| Project Docs decisions, source revisions, historical explicit-only and current implicit-selection evidence, and Skill-specific limits | [Project Docs Verification](skills/manage-project-docs/VERIFICATION.md) |
 | Work Charter identity, M2R source matrix, independent acceptance, P/E and Standard delivery, and Skill-specific limits | [Work Charter Verification](skills/work-charter/VERIFICATION.md) |
 | PowerShell runtime readiness, portable-guidance migration, fresh contexts, deterministic hardening, and Skill-specific limits | [PowerShell Verification](skills/use-powershell-safely/VERIFICATION.md) |
 

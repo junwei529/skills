@@ -1,6 +1,6 @@
 # Work Charter Verification
 
-Last updated: 2026-08-06
+Last updated: 2026-08-07
 
 ## Claim Ledger
 
@@ -12,8 +12,9 @@ Last updated: 2026-08-06
 | First `v0.2.0` exact candidate Gate 2 | `206c497...` stopped incomplete and is superseded for acceptance; its completed correction and consumed events remain historical |
 | Successor `v0.2.0` exact candidate Gate 2 | `92a8c045...` passed qualification and consumed A01-A04; A04 hard-stopped on an unproved selected/loaded claim, so no candidate acceptance or later cell exists |
 | Exact `72db7e9...` fixed-turn Standard probe | one one-shot bundle completed four fresh primary sessions, sealed `VIOLATION`, created no subagent activity, left A16 unexecuted, and permits no retry or retrospective rescore |
-| Exact `b965102...` product candidate | five package blobs are fixed; three recorded Gate 2 executions are individually sealed `SEALED_DECISION_REQUIRED` and non-retriable, behavior acceptance was not achieved, the candidate is not permanently retired, and the later tracked controller revision is a distinct evidence-infrastructure identity |
+| Exact `b965102...` product candidate | five package blobs are fixed; four prior Gate 2 executions remain individually sealed, and the separately qualified successor consumed one A01 `turn/start` before sealing `HARD_STOP / UNKNOWN`; all five consumed execution records are non-retriable, behavior acceptance was not achieved, the candidate is not permanently retired, and the later tracked controller revision is a distinct evidence-infrastructure identity |
 | Tracked Codex evidence controller | locally integrated at `191cd1f...`; offline source/generated-contract-bound historical 11/11, evidence-surface 19/19, negative 31/31, metamorphic 4/4, generated-drift guards 3/3, exact five-file manifests 2/2, logical-identity guards 3/3, content/proof/inventory identity guards 6/6, record-cardinality/exit guards 3/3, command-resolution guards 8/8 including bare native-name rejection plus N24/N30 invocation-path binding, historical-output shape guard 1/1, output-no-clobber guard 1/1, per-key capture-reuse guard 1/1, scratch-topology guards 2/2, external-input type guards 3/3, Git-read safety guards 9/9, canonical ordinal guard 1/1, immediately preceding full-checkpoint contained sealed inputs 8/8, real-reparse rejection, and canonical repeatability pass under quiescent single-writer use; strict required reads are separate from bounded auxiliary observations, PowerShell wrappers require `-NoProfile`, and this remains controller qualification only, not candidate behavior acceptance |
+| Exact `b965102...` Gate 2 successor qualification and A01 terminal | ignored successor binds all four sealed predecessors, controller `191cd1f...`, control `ceed607...`, isolated catalogs/home, 27 cells, 33-context/39-turn maximum envelope, and one independent assessor; focused/full offline checks, no-turn capability probes, freeze, and four prestart reconciliations passed before one explicitly authorized A01 `turn/start` was consumed; transport then failed before an observable model-response or behavior surface, so the successor sealed `HARD_STOP / UNKNOWN`, no later cell or assessor ran, and no retry or acceptance follows |
 | Isolated path-bound controller canary | private retained sealed `CANARY_PASS`; the public summary reports an exact-response pass and no command execution, omits locator/artifact/runtime details, leaves physical backend request count `UNKNOWN`, and proves neither natural-language selection nor candidate acceptance |
 | Small bounded work stays flat | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
 | Midstream implicit behavior is proposal-only | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
@@ -631,14 +632,13 @@ repository result over governance baseline `f55b15a...`.
 
 ### Gate 2 Recovery Boundary
 
-The sealed execution records and their consumed events remain immutable. A
-future evaluation of exact candidate `b965102...` is therefore a new,
-explicitly authorized Gate 2 evidence window, not a retry or relabelling of any
-sealed execution. Before its first model `turn/start`, the recovery contract
-must bind the exact candidate and five package blobs, stabilized controller
-revision `191cd1f...`, isolated installed copy, approved model/reasoning and
-cost envelope, one independent assessor, consumption point, and terminal stop
-behavior.
+The four prior sealed execution records and their consumed events remain
+immutable. The ignored successor for exact candidate `b965102...` was a
+separately authorized Gate 2 evidence window, not a retry or relabelling of any
+sealed execution. Before its first model `turn/start`, it bound the exact
+candidate and five package blobs, controller revision `191cd1f...`, isolated
+installed copy, approved model/reasoning and cost envelope, one independent
+assessor, consumption point, and terminal stop behavior.
 
 The pre-consumption reconciliation must enumerate the required matrix evidence
 and prove which retained observations, if any, still have exact source,
@@ -647,10 +647,16 @@ reference those observations without changing their original terminal records.
 Anything missing, invalidated, or not comparable remains `UNKNOWN` and requires
 separately authorized evidence collection. Controller qualification failure
 before consumption is not product evidence; after consumption, every event is
-retained and the window seals on its declared stop condition. Gate 3 remains
-unavailable until one complete exact-candidate batch receives independent
-`ACCEPTED`. This documentation correction creates no RC, model call, assessor
-run, or acceptance evidence.
+retained and the window seals on its declared stop condition. The successor
+completed that pre-consumption qualification and freeze with zero model turns.
+A later explicit authorization permitted exactly one A01 `turn/start`. The
+Harness accepted that consumption event, but transport failed before any model
+response, token usage, command, Skill read, or Work Charter behavior was
+observed. The successor sealed `HARD_STOP / UNKNOWN`; A02, later cells, and the
+independent assessor did not start. This fifth consumed execution record is not
+product behavior evidence, a product defect, or acceptance, and it cannot be
+retried under this window. Gate 3 remains unavailable until one complete exact-
+candidate batch receives independent `ACCEPTED`.
 
 ## v0.1.2 Stable And Control SOURCE Identity
 
@@ -988,6 +994,56 @@ documentation correction from baseline `79806bf...`. Git ancestry and a clean
 working tree were verified after fast-forward integration. This local Git
 state does not create an `RC_INSTALL`, behavior-model result, assessor verdict,
 candidate acceptance, push, installation, release, or Gate 3 authority.
+
+### 2026-08-07 — Fourth Sealed Execution, Successor Qualification, And A01 Hard Stop
+
+Recovery reconciliation found a fourth exact-`b965102...` execution after the
+three carriers previously summarized here. It consumed one A01 `Sol/high`
+turn, then sealed a partial hard stop because its private normalization omitted
+the command item's existing `aggregatedOutput`. The deterministic controller
+therefore retained `CONTROLLER_UNKNOWN` for the raw read, and the fresh
+Terra/high assessor returned `DECISION_REQUIRED`. That execution is not retried,
+rescored, or relabelled; all four terminal records and prior correction history
+remain unchanged.
+
+The separately authorized ignored successor preserves those four predecessor
+hash bindings and the same logical subject/material contract. It binds exact
+candidate `b965102...`, control `ceed607...`, controller `191cd1f...`, the
+pinned Codex executable, isolated candidate/control catalogs and `CODEX_HOME`,
+27 cells, a maximum 33 fresh contexts and 39 `turn/start` events with no retry,
+and one fresh Terra/high read-only assessor. The only execution-adapter delta
+preserves the app-server command item's `aggregatedOutput` in normalized
+evidence; exact matching output becomes admissible through `191cd1f...`, while
+missing or mismatched output remains `CONTROLLER_UNKNOWN`.
+
+The exact public controller regression passes, including 19/19 evidence-surface
+cases. Focused adapter fallback checks cover matching, missing, and mismatched
+output; the core suite passes 15/15. The isolated runtime capability probes use
+`thread/start` only and record zero model turns. Full offline acceptance,
+prefreeze reconciliation, freeze, and four post-freeze prestart probes pass
+without a behavior-model or assessor `turn/start`. Two earlier focused outputs
+are retained as test-contract mismatches: one synthetic input accidentally used
+a proof-sufficient `-LiteralPath` shape, and one test retained an obsolete
+upstream query after the successor moved to local `main`. Neither is product
+evidence or another adapter behavior change.
+The first full-suite output is also retained: an empty `runs/` placeholder made
+the pre-consumption absence assertion fail; after removing that empty
+placeholder, full run 2 passed 22/22 with zero model turns.
+
+At that checkpoint this established only a qualified, frozen pre-consumption
+carrier. It created no fifth behavior execution, candidate acceptance, Gate 3
+authority, Git authority, installation, release, or cleanup authority, and its
+first fresh A01 `turn/start` still required an explicit user decision.
+
+The user later authorized exactly one A01 `turn/start`, with no retry and a
+mandatory stop on every terminal outcome. The Harness accepted one such event,
+but the model transport failed before any model response or token usage was
+observed. No command, Skill read, Work Charter behavior, A02, later cell, or
+independent assessor followed. The successor sealed `HARD_STOP / UNKNOWN` and
+stopped. This is the fifth consumed execution record for the unchanged logical
+subject, but not candidate behavior evidence, a product defect, candidate
+acceptance, or Gate 3 authority. The event and terminal disposition are sealed
+and cannot be retried, relabelled, or reset through another carrier.
 
 ## Required Checks
 

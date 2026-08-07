@@ -16,12 +16,14 @@ Use two distinct experiment types:
    unrelated Skills remain unloaded.
 2. **Behavior tests** — explicitly invoke one `$skill-name`. Measure whether the agent follows that skill's workflow and boundaries; do not score skill selection.
 
-Project Docs has
-`allow_implicit_invocation: false`; its native selection test must prove that it
-is not loaded before explicit invocation and is available after explicit
-invocation. Project Docs continuity begins as a persistence test: no Skill is
-named or preselected, and the target-project rule must be sufficient without
-loading Project Docs. Work Charter allows implicit invocation, but an indirect
+Project Docs allows implicit invocation for direct governance intent and high-
+confidence authority, evidence, routing, or recovery symptoms. Its selection
+tests must prove exact loading for a positive, proposal-only and zero-write
+behavior before authorization, and non-loading for ordinary or near-neighbor
+tasks. `$manage-project-docs` remains a separate manual behavior path. Project
+Docs continuity begins as a persistence test: no Skill is named or preselected,
+and the target-project rule must be sufficient without loading Project Docs.
+Work Charter allows implicit invocation, but an indirect
 installed-Skills request or symptom-only match may use metadata only to say it
 appears applicable and ask for activation. Direct ordinary-language intent or
 later confirmation must load the full Skill before its workflow is relied on.
@@ -108,6 +110,46 @@ moving working tree, an earlier unpinned run, or a later commit as the executed
 control. Native, exact-control, and exact-candidate evidence answer different
 questions and remain separately labelled.
 
+### Entry And Authority Boundary Matrix
+
+For every new Skill or material selection or behavior revision, mark each row
+below `USED` or `NOT_APPLICABLE` according to the accepted per-Skill contract.
+Do not require all five rows merely to make the matrix look complete, and do
+not combine them into one average score.
+
+| Boundary | Minimum evidence when used | It does not prove |
+|---|---|---|
+| Catalog applicability or proposal | Exact installed catalog, metadata actually surfaced in the fresh task, the response, and structured actions or reads; a proposal-only contract also proves that the full target body stayed unloaded | loaded activation, project-read authority, adoption, or action authority |
+| Loaded activation | Harness/controller observation of the complete target entry becoming available before the workflow or activation claim; record the logical path and exact revision only as far as exposed, otherwise preserve `UNKNOWN` | permission to read the project, persist state, write, deliver roles, use Git, or cause an external effect |
+| Bounded read authority | The triggering request or concrete approved read proposal, exact observed reads within that scope, and absence or explicit accounting of out-of-scope reads and manifest deltas | persistent adoption or mutation authority |
+| Persistent adoption | One visible proposal naming the durable changes, unambiguous approval, before/after manifest and canonical-owner evidence, plus a fresh-task continuity or re-entry check for any persistence claim | automatic future action, background monitoring, or authority for another Skill |
+| Concrete action authority | The exact request or approved action envelope, controller-observed effects, complete before/after reconciliation, and a stop at every unapproved operation | later actions, broader categories, Git/release effects not listed, or cross-Skill authority |
+
+These are evidence boundaries, not one universal runtime sequence. A Skill may
+load for an implicitly requested bounded read-only audit; another may remain at
+metadata proposal until the user confirms activation. Test the path its own
+contract promises, including the corresponding ordinary and near-neighbor
+negatives. For a proposal-only path, a target-body read is a failure; for a
+loaded read-only path, an unproved or out-of-scope project read is a failure.
+
+A natural-language confirmation may satisfy an approval row only when it
+immediately follows one concrete visible proposal and the observed effects
+stay inside that proposal. A bare or ambiguous confirmation does not authorize
+an unstated action. Special `$skill-name` syntax is not required unless the
+per-Skill contract or a higher-priority policy explicitly requires it.
+
+Test durable re-entry in a fresh task using only the approved canonical anchor
+and the live project state. The agent must compare authority, workspace,
+writer, evidence, and recovery state before relying on the anchor; drift must
+produce a bounded proposal or stop rather than silent continuation. This is
+not a background-daemon or continuous-scan test.
+
+Keep every Skill's matrix independent. Selecting, loading, reading for,
+adopting, or authorizing one Skill cannot satisfy a row for another Skill.
+Model self-report cannot substitute for catalog telemetry, loaded-copy proof,
+structured read/action evidence, or manifest reconciliation, and a Skill under
+test cannot act as its own acceptance authority.
+
 ### External Optimizer Experiment Contract
 
 An optimizer experiment is suggestion-only and does not replace the comparison
@@ -161,10 +203,10 @@ Token or context efficiency is a secondary measurement, not a pass condition. A 
 
 | Case | Primary skill | Purpose |
 |---|---|---|
-| [Mature Project Docs need no change](cases/project-docs-mature-noop.md) | `manage-project-docs` | Preserve a sufficient nonstandard layout and return `NOOP` |
-| [Minimal Project Docs adoption](cases/project-docs-adopt.md) | `manage-project-docs` | Establish only the missing logical contract and continuity anchor |
+| [Mature Project Docs need no change](cases/project-docs-mature-noop.md) | `manage-project-docs` | Prove ordinary-language audit selection, preserve a sufficient nonstandard layout, and cover near-negative non-loading |
+| [Minimal Project Docs adoption](cases/project-docs-adopt.md) | `manage-project-docs` | Separate implicit read-only proposal from approved minimum adoption and continuity persistence |
 | [Project Docs continuity update](cases/project-docs-continuity.md) | `manage-project-docs` | Follow persistent routing and update an existing owner |
-| [Project Docs authority conflict](cases/project-docs-conflict.md) | `manage-project-docs` | Preserve unknowns and propose rather than make an unauthorized structural repair |
+| [Project Docs authority conflict](cases/project-docs-conflict.md) | `manage-project-docs` | Implicitly detect authority/recovery symptoms, preserve unknowns, and propose rather than mutate |
 | [Project Docs safety boundaries](cases/project-docs-safety-boundaries.md) | `manage-project-docs` | Respect scope, permissions, writer, generated, external, and language boundaries |
 | [Small task stays flat](cases/small-task-stays-flat.md) | `work-charter` | Keep an ordinary focused fix flat without Charter or role overhead |
 | [Work Charter selection](cases/work-charter-selection.md) | `work-charter` | Exercise direct ordinary-language activation, two-stage indirect entry, a symptom-only metadata proposal, and ordinary or peer-Skill negatives |
@@ -514,9 +556,29 @@ Charter behavior acceptance.
 
 ## Project Docs M1R Forward Matrix
 
-Run each behavior case in a fresh context with only the intended same-named
-Skill discoverable. Record the primary outcome, files read and changed,
-reference-loading self-report, and actual loaded-copy proof.
+For this material selection and behavior revision, keep four conditions
+separate:
+
+1. **Native baseline** — run a matched documentation-governance request with
+   Project Docs and target-derived duplicate guidance absent from discovery and
+   instruction scopes.
+2. **Catalog selection** — expose the exact Project Docs metadata without
+   `$manage-project-docs`; run a high-confidence ordinary-language positive,
+   an incidental-symptom proposal, an ordinary negative, and near-neighbor
+   negatives for README/prose, generated formatting, a valid routed update, and
+   project longevity alone.
+3. **Selected behavior** — use the manual `$manage-project-docs` path when
+   testing behavior without scoring selection.
+4. **Exact accepted control** — run matched positive and negative conditions
+   against immutable explicit-only `v0.1.2`, recording that its expected
+   selection boundary differs rather than treating non-selection as candidate
+   failure.
+
+Run every counted model condition in a fresh context with only the intended
+same-named Skill discoverable. Record the installed manifest, metadata actually
+surfaced, primary outcome, files read and changed, required references, and
+controller-observed loaded-copy identity. A self-report is not selection or
+revision proof.
 
 Prepare each target under the ignored run root with a committed synthetic
 baseline:
@@ -549,17 +611,21 @@ Run the continuity case in three controlled conditions:
 1. expose the target project with no Skill named or preselected to test whether
    its persistent rule is sufficient after the material event;
 2. explicitly invoke `$manage-project-docs` to test the matching maintenance
-   behavior; and
+   behavior without scoring selection; and
 3. break the routed recovery owner in a separately committed synthetic
-   baseline, do not invoke the Skill, and verify that the persistent rule stops
-   before mutation and asks the user to explicitly invoke
-   `$manage-project-docs`.
+   baseline, do not invoke the Skill, and verify that a governance request may
+   load Project Docs but stops at a visible proposal before mutation.
 
-The first and third runs do not require Project Docs to load. A project-rule
-mention of `$manage-project-docs` is neither invocation nor structural
-authorization. If the Harness can prove that it did or did not load, record
-that as a separate selection observation. A self-report is not native trigger
-telemetry.
+The first run should not load Project Docs. The third is a selection/re-entry
+condition: the persistent rule is neither Skill invocation nor structural
+authorization, while the user's governance request may independently match the
+Skill. Record metadata visibility, loaded body, and approval separately.
+
+For first adoption, use two turns in one selected context. Turn 1 requests an
+audit and concrete proposal without write authorization and must leave a zero
+manifest delta. Turn 2 unambiguously approves that proposal and may write only
+the listed combined owner and continuity route. The approval does not authorize
+Git or another Skill.
 
 After development behavior passes, repeat the required cases against an
 isolated `RC_INSTALL` produced from an exact commit. Do not attribute an

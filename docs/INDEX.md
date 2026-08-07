@@ -1,6 +1,6 @@
 # Documentation Index
 
-Last updated: 2026-08-03
+Last updated: 2026-08-07
 
 ## Core Documents
 
@@ -53,7 +53,8 @@ mirror.
 | [`docs/decisions/0015-federated-repository-documentation.md`](decisions/0015-federated-repository-documentation.md) | Root/per-Skill documentation ownership, bilingual public entries, and unchanged installable-package boundary | accepted |
 | [`docs/decisions/0016-work-charter-authority-assessment-and-evidence-integrity.md`](decisions/0016-work-charter-authority-assessment-and-evidence-integrity.md) | Work Charter authority finality, assessment recording, evidence invalidation, delivery degradation, and advisory writer recovery | accepted |
 | [`docs/decisions/0017-capability-delta-skill-development.md`](decisions/0017-capability-delta-skill-development.md) | Prospective capability-delta design, layer placement, matched evaluation, and upgrade/retirement rule for Skill development | accepted |
-| [`docs/decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md`](decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md) | Work Charter two-stage natural-language entry, proportional protection levels, durable re-entry, task convergence, evaluation, workspace, and lifecycle gates | accepted design; exact `72db7e9...` sealed a fixed-turn Standard `VIOLATION`; the conditional-role-read correction is exact candidate `b965102...`, whose three recorded Gate 2 executions are sealed without behavior acceptance; controller stabilization is integrated, and a new evaluation window remains separately authorized |
+| [`docs/decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md`](decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md) | Work Charter two-stage natural-language entry, proportional protection levels, durable re-entry, task convergence, evaluation, workspace, and lifecycle gates | accepted design; target `v0.2.0` remains unaccepted at Gate 2; see the Work Charter State and Verification ledgers |
+| [`docs/decisions/0019-project-docs-implicit-discovery-and-demand-driven-modules.md`](decisions/0019-project-docs-implicit-discovery-and-demand-driven-modules.md) | Project Docs implicit discovery, proposal/write boundary, demand-driven modules, update modes, and persistent routing | accepted; current implementation is an unreleased working-tree revision; see Project Docs State |
 
 ## Skill Sources
 
@@ -90,6 +91,7 @@ mirror.
   [`evals/README.md`](../evals/README.md#external-optimizer-experiment-contract).
 - Understand the Project Docs refinement:
   [`Decision 0006`](decisions/0006-project-docs-progressive-governance.md) →
+  [`Decision 0019`](decisions/0019-project-docs-implicit-discovery-and-demand-driven-modules.md) →
   [`Project Docs Design`](skills/manage-project-docs/DESIGN.md) →
   [`Project Docs State`](skills/manage-project-docs/STATE.md).
 - Understand the Work Charter refinement:

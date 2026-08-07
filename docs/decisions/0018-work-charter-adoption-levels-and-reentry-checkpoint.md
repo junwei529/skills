@@ -1,8 +1,8 @@
 # 0018: Work Charter Adoption, Protection Levels, And Re-entry Checkpoint
 
 Date: 2026-08-02
-Amended: 2026-08-04
-Status: accepted design; exact `72db7e9...` sealed a fixed-turn Standard `VIOLATION`; the conditional-role-read correction is exact candidate `b965102...`, whose three recorded Gate 2 executions are sealed without behavior acceptance; controller stabilization is integrated, and any new evaluation window requires separate authority
+Amended: 2026-08-07
+Status: accepted design; exact `72db7e9...` sealed a fixed-turn Standard `VIOLATION`; the conditional-role-read correction is exact candidate `b965102...`, whose four prior Gate 2 executions remain sealed without behavior acceptance; controller `191cd1f...` is integrated, and the separately qualified successor consumed one authorized A01 `turn/start` before sealing `HARD_STOP / UNKNOWN` without a model-response or behavior surface; no retry or acceptance follows
 
 - Planning checkpoint: 15 (strict evidence reads, auxiliary observation, and matrix-local stops)
 - Last incorporated decision: `WC-AR-D27`

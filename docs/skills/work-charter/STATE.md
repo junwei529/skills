@@ -1,6 +1,6 @@
 # Work Charter State
 
-Last updated: 2026-08-06
+Last updated: 2026-08-07
 
 ## Current Implementation
 
@@ -38,8 +38,8 @@ summaries, and existing eval definitions change with it.
 Those corrected SOURCE bytes became exact clean product candidate
 `b965102ea58f9cc1ef3c73e8dea515731fec12a6`. The five package blobs remain
 unchanged by the later controller-stabilization work. The completed Gate 2
-execution for that candidate and its two recorded same-subject successor
-executions are individually sealed `SEALED_DECISION_REQUIRED`: their consumed
+execution, its two recorded same-subject successors, and the later A01-only
+recovery execution are four individually sealed records: their consumed
 evidence cannot be retried, rescored, relabelled, or reset through another task,
 root, or attempt name. The candidate itself remains unaccepted rather than
 permanently retired or sealed. A later evaluation window for the unchanged
@@ -56,18 +56,38 @@ implementation from `79806bf...`, and local `main` was fast-forwarded to the
 same commit without a merge commit. The former feature branch remains a Git
 locator for those bytes rather than a separate product or writer state.
 
+The fourth sealed execution crossed A01 once and then stopped on
+`CONTROLLER_UNKNOWN`: its private normalizer had omitted the command item's
+existing `aggregatedOutput`, so the exact raw-read evidence added by
+`191cd1f...` was unavailable. Its independent assessor returned
+`DECISION_REQUIRED`; no retry or reinterpretation follows. A new ignored
+successor preserves all four predecessor hashes under the same logical subject
+and material contract, binds candidate `b965102...`, control `ceed607...`, and
+controller `191cd1f...`, and carries `aggregatedOutput` into normalized command
+evidence. Its offline materialization, isolated catalogs and home, 27 synthetic
+workspaces, controller and adapter regressions, no-turn capability probes, full
+offline acceptance, freeze, and four prestart reconciliations passed with zero
+model `turn/start` events. A later explicit authorization permitted exactly one
+A01 `turn/start`. The Harness accepted that consumption event, but transport
+failed before any model response, token usage, command, Skill read, or Work
+Charter behavior was observed. The successor sealed `HARD_STOP / UNKNOWN`;
+A02, later cells, and the independent assessor did not start. This is a fifth
+consumed execution record, not product behavior evidence, a product defect, or
+candidate acceptance, and it cannot be retried under that evidence window.
+
 ## Current Writer
 
-The phase Executor relinquished at clean local controller-stabilization commit
-`119aa27...`, the integration writer completed local merge commit `c05cb99...`
-over governance baseline `f55b15a...`, and the later evidence-boundary writer
-relinquished after commit `191cd1f...` was fast-forward integrated into local
-`main`. No active Work Charter SOURCE, controller/evaluation, or Gate 2 writer
-is authorized. This six-document post-integration record closes its bounded
-documentation window; it does not reopen the implementation lane or authorize a
-Skill SOURCE or sealed-evidence edit, Gate 2 behavior-model or app-server call,
-assessor, push, candidate materialization, discovery, installation, release,
-private-global mutation, or cleanup.
+Earlier implementation and integration writers relinquished after
+`191cd1f...` was fast-forward integrated into local `main`. The bounded
+ten-document A01 reconciliation writer has also relinquished after updating and
+checking the existing Work Charter consumers. Its exact ten-file dirty scope
+remains unstaged and uncommitted in the shared checkout under user custody; the
+separate Project Docs dirty scope remains frozen and was not modified. No
+repository writer is active. No authority follows to edit Work Charter SOURCE,
+the tracked controller, any sealed execution, or Project Docs state; consume a
+behavior-model or assessor turn; run native review; use Git; push; materialize
+an active candidate; change discovery or installation; release; mutate private-
+global state; or clean retained evidence.
 
 ## Evidence State
 
@@ -138,13 +158,18 @@ state. Future evidence uses meaning-based scoring, structured action/read
 attribution, and mutation-aware post-consumption checks. None of these
 prospective corrections rescores the sealed result.
 
-The completed `b965102...` Gate 2 execution and its two recorded same-subject
-successor executions remain sealed historical evidence. Each terminal state is
-`SEALED_DECISION_REQUIRED`; product acceptance is `NOT_ACHIEVED`, and none of
-those executions or consumed events may be retried, rescored, relabelled, or
-reset. That attempt-level boundary does not prohibit a separately authorized
-future evaluation window for the same unchanged candidate. One recorded stop
-incorrectly treated a successor-root locator as logical candidate identity.
+The completed `b965102...` Gate 2 execution, its two recorded same-subject
+successors, and the later A01-only recovery execution remain four sealed
+historical records. The first three are `SEALED_DECISION_REQUIRED`; the fourth
+is a sealed partial hard stop with assessor `DECISION_REQUIRED`. Product
+acceptance is `NOT_ACHIEVED`, and none of those executions or consumed events
+may be retried, rescored, relabelled, or reset. That execution-level boundary
+does not prohibit a separately authorized successor for the unchanged
+candidate. The separately authorized successor later consumed its sole A01
+event and sealed `HARD_STOP / UNKNOWN` before an observable model-response or
+behavior surface; it is the fifth consumed execution record and is likewise
+non-retriable. One earlier stop incorrectly treated a successor-root locator as
+logical candidate identity.
 The bounded controller-stabilization gate converts only
 the already-sanitized structural findings into a tracked deterministic
 regression. It preserves the real A15 unauthorized Orchestrator delivery and
@@ -451,17 +476,19 @@ blob, sealed execution, product candidate, or behavior verdict. No push,
 candidate materialization, model evidence, installation, release, or cleanup
 is authorized by that completed local closeout.
 
-The next possible product gate is a newly authorized Gate 2 evaluation window,
-not a SOURCE correction and not Gate 3. Before any new model consumption, that
-window must bind the exact `b965102...` candidate, the exact stabilized
-controller revision, isolated `RC_INSTALL`, model/cost envelope, independent
-assessor, consumption point, and stop conditions. It must inventory the prior
-sealed cells and use them only when their exact identity and continued
-admissibility can be proved without rewriting their original terminal records;
-missing, invalidated, or `UNKNOWN` evidence needs its own explicitly authorized
-collection. Gate 3 remains blocked until the resulting exact-candidate batch is
-complete and independently `ACCEPTED`. The isolated `CANARY_PASS` remains
-consumed and non-retriable and does not satisfy that boundary.
+The next product action remains Gate 2, not a SOURCE correction and not Gate 3.
+The ignored successor bound exact candidate `b965102...`, controller
+`191cd1f...`, isolated `RC_INSTALL`, model/cost envelope, independent assessor,
+consumption point, stop conditions, and all four sealed predecessors. It then
+consumed its only authorized A01 `turn/start` and sealed `HARD_STOP / UNKNOWN`
+after transport failed before an observable model-response or Work Charter
+behavior surface. No A02, later cell, assessor, or retry is authorized. The
+next action is a user-owned Gate 2 disposition decision: retain the blocked
+`UNKNOWN` state, or separately authorize a materially explicit recovery or
+successor plan that preserves all five consumed records. Gate 3 remains blocked
+until an exact-candidate batch is complete and independently `ACCEPTED`. The
+isolated `CANARY_PASS` remains consumed and non-retriable and does not satisfy
+that boundary.
 
 ## Recovery Entry
 
@@ -475,10 +502,12 @@ consumed and non-retriable and does not satisfy that boundary.
    commit `119aa27...`, governance baseline `f55b15a...`, and later
    evidence-boundary commit `191cd1f...`; then confirm local `main` is at or
    after `191cd1f...` and revalidate writer and action authority before writing.
-5. Distinguish the three sealed execution records from the unchanged
-   `b965102...` candidate: preserve their terminal results and consumption, but
-   do not infer that the candidate is permanently ineligible for a separately
-   authorized Gate 2 window.
+5. Distinguish the four prior sealed execution records and the successor's
+   sealed A01 `HARD_STOP / UNKNOWN` from the unchanged `b965102...` candidate:
+   preserve all five terminal/consumption records, do not retry or relabel the
+   successor event, and do not infer either product acceptance or permanent
+   candidate retirement. Any recovery or successor plan needs new explicit
+   Gate 2 authority.
 6. Read canonical SOURCE, current eval definitions, and only evidence matching
    the exact revision before changing behavior or claims.
 7. Preserve the independent-Skill and non-propagating-authorization boundary.

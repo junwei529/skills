@@ -15,8 +15,8 @@ file suite.
 - a project needs a first documentation-governance adoption;
 - a structural split, merge, rename, migration, or canonical-owner change must
   be assessed; or
-- the user explicitly requests a project-document audit, repair, pause,
-  handoff, or recovery.
+- the user requests a project-document audit, repair, pause, handoff, or
+  recovery in ordinary language or through `$manage-project-docs`.
 
 ## Do Not Use It When
 
@@ -40,16 +40,28 @@ release authority. Do not use the moving `main` branch as a stable identity.
 
 ## Invoke
 
-Project Docs is explicit-only:
+Codex may select Project Docs from a direct documentation-governance request or
+high-confidence authority, evidence, routing, or recovery symptoms. Implicit
+selection starts read-only: it may inspect and propose, but it does not
+authorize adoption, structure, owner changes, or any write.
+
+`$manage-project-docs` remains the manual override:
 
 ```text
 $manage-project-docs Audit this repository's project-document governance. Do
 not make structural changes without separate approval.
 ```
 
-After an authorized adoption, ordinary tasks follow the target project's
-persisted routing. A broken route may ask the user to invoke Project Docs; that
-mention is not itself invocation or authorization.
+After a concrete proposal is visible, an unambiguous natural-language approval
+authorizes only its listed target-project changes. After authorized adoption,
+ordinary tasks follow the target project's persisted routing without loading
+Project Docs. A broken route may make Project Docs relevant again, but neither
+the route nor implicit selection authorizes its repair.
+
+For a new project, Project Docs starts with the five minimum logical
+responsibilities and activates separate functional modules only when their
+owner or update lifecycle must differ. For an existing project, it maps the
+current documents and preserves their layout when the routing is sufficient.
 
 ## Safety Boundaries
 
@@ -57,14 +69,18 @@ Audit is read-only unless an update is separately authorized. First adoption,
 new modules, splits, merges, renames, migrations, authority changes, and
 canonical-owner changes require explicit structural authorization. Project
 Docs stops before unsafe writes when scope, permission, writer ownership, or
-evidence is unresolved.
+evidence is unresolved. It does not run as a daemon or scan every task in the
+background.
 
 ## Verified Capability And Limits
 
-The current six-file package has exact-source behavior evidence, controlled
-development loaded-copy evidence, exact-commit candidate identity, and
+The released six-file `v0.1.2` package has exact-source behavior evidence,
+controlled development loaded-copy evidence, exact-commit candidate identity,
+and
 tag-pinned `v0.1.2` stable loaded-copy identity plus a mature-layout `NOOP`
-canary. The current accepted release is the repository-level
+canary. The current working-tree revision changes selection and module routing;
+it requires revision-specific evaluation before candidate readiness. The
+current accepted release remains the repository-level
 [`v0.1.2`](https://github.com/junwei529/skills/releases/tag/v0.1.2). Stable
 mutation behavior, broad trigger telemetry, causal efficacy, token savings,
 and cross-Harness parity are not established. See

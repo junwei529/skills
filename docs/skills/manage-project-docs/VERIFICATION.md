@@ -1,6 +1,6 @@
 # Project Docs Verification
 
-Last updated: 2026-08-01
+Last updated: 2026-08-07
 
 ## Claim Ledger
 
@@ -8,9 +8,11 @@ Last updated: 2026-08-01
 |---|---|
 | The current package has six canonical files | verified structurally |
 | The five logical responsibilities work without fixed filenames | passed in mature, adoption, continuity, conflict, and safety fixtures |
-| Explicit-only selection is enforced | controlled DEV_DISCOVERY positive and negative canaries pass |
+| Immutable `v0.1.2` explicit-only selection | controlled DEV_DISCOVERY, RC, and stable positive/negative canaries pass for that exact control |
+| Current implicit-selection policy and no-write boundary | `PARTIAL`: policy and zero-delta boundaries are present, and candidate-routing signals, mature `NOOP`, ordinary non-selection, and conflict `PROPOSE` were observed; actual candidate selection and physical loaded-copy attribution remain `UNKNOWN` |
+| Demand-driven modules and per-owner update modes | present in SOURCE and the eval contract; a static SOURCE/eval-contract assessor found no Must defect, while persistent model writes remain `UNKNOWN` because the effective child sandbox rejected them |
 | A sufficient mature layout is preserved | explicit SOURCE, RC, and stable `NOOP` smoke pass |
-| Authorized first adoption makes the minimum coherent change | exact-source synthetic behavior passes |
+| Authorized first adoption makes the minimum coherent change | historical exact-source synthetic behavior passes; the current implicit revision recognized bounded authorization and failed closed, but its write was environment-blocked and remains `UNKNOWN` |
 | Broken authority or structure fails closed | conflict, safety, and broken-routing variants pass |
 | Reader/session/writer distinction and coherent recovery snapshot | current-SOURCE continuity correction passes; writer rechecked before write and exact recovery target preserved |
 | Current/history/index/authorization and immutable-history audit | current-SOURCE conflict and safety runs pass |
@@ -18,9 +20,81 @@ Last updated: 2026-08-01
 | Stable loaded-copy identity and mature-layout behavior | tag-pinned `v0.1.2` six-file identity and fresh `NOOP` canary pass |
 | Stable mutation, broad trigger telemetry, causal efficacy, token savings, or cross-Harness parity | unverified |
 
-## Current SOURCE Identity
+## Current Development Revision
 
-The official-manual-aligned six-file SOURCE was decoded as strict UTF-8,
+The 2026-08-07 working-tree revision keeps the six-file package and has these
+strict UTF-8/no-BOM, LF-only, one-final-newline raw and normalized SHA-256
+identities:
+
+```text
+SKILL.md
+  07ccc6341ba766f0d8ff0faf4234ccec5b270d97f482f6a3cbae81d87eb54713
+agents/openai.yaml
+  99a6bf68edeb722904bd301c456de6ab62f4e2a19d1cb8c4501ef7ced67fda73
+references/audit-and-adopt.md
+  87a5ad3b000ea2710f01f63c6cac7eb10b34ee0c06fa532c0d60001f156988a6
+references/maintain-and-recover.md
+  92768df8aa8d7a8f799366c46b9f03ba6bab8183896d80578188c03e361c9bb4
+assets/templates/project-doc-starter.md
+  d49b567235b29aad84b468e054cea993bebc774094718ce3e9d7d2d30202a4e4
+assets/templates/continuity-anchor.md
+  9b7cc87a002176b604301773db7b91af5ae113805b245dc94ad6481e72bdd603
+```
+
+The Skill validator, repository checker at 197 text files / 14 cases / 12
+fixtures, all 17 fixture checks, seven-script PowerShell parser sweep, and both
+Git diff whitespace checks pass. Gitleaks passes for all 25 Project Docs
+publication files in this change. The deterministic continuity check requires
+`allow_implicit_invocation: true`, proposal-only broken-routing language, no
+`$manage-project-docs` requirement in the persisted anchor, and activation/
+update-mode fields in the starter.
+
+Earlier CLI qualifications that failed before model behavior remain excluded.
+After explicit synthetic-only data-transfer authorization, nine bounded fresh
+Sol contexts and one independent Terra assessor exercised the current revision.
+The assessor returned `ACCEPTED` only for its static SOURCE and eval-contract
+assessment. The overall current-revision evidence is `PARTIAL`: actual
+candidate selection and physical loaded-copy attribution, successful adoption
+persistence, routine-maintenance persistence, candidate readiness, and release
+readiness remain `UNKNOWN`.
+
+The [sanitized implicit-discovery result](../../../evals/results/2026-08-07-project-docs-implicit-discovery-source-eval.md)
+owns current attempts, counted observations, excluded contexts, controller
+limits, and residual gates.
+
+## Implicit Discovery And Demand-Driven Modules
+
+Nine fresh `gpt-5.6-sol` medium-reasoning contexts used isolated synthetic
+repositories. Two were excluded: one exceeded the approved input envelope by
+loading a non-target Skill after a command failure, and one did not expose a
+callable current candidate. Counted observations established:
+
+| Scenario | Result | Evidence boundary |
+|---|---|---|
+| No-target baseline | bounded mature-layout audit without any Skill body | zero delta |
+| Explicit-only stable control | metadata available, body and references unloaded | zero delta |
+| Current mature positive | native routing signal named Project Docs and returned `NOOP` | actual candidate selection and physical loaded-copy read not exposed; zero delta |
+| Ordinary README negative | no Project Docs selection or task expansion | zero delta |
+| Authority/recovery conflict | native routing signal named Project Docs, then `PROPOSE`, weak continuity, preserved `UNKNOWN`, history, gate, competing recovery, and unrelated dirty work | actual candidate selection and physical loaded-copy read not exposed; zero delta |
+| Authorized adoption | recognized the exact two-target approval and rechecked writer, then failed closed | effective sandbox rejected reads/writes; persistence `UNKNOWN` |
+| Valid routed routine update | no Skill loaded; followed `AGENTS.md`, rechecked writer, preserved the same recovery target | effective sandbox rejected the owner write; persistence `UNKNOWN` |
+
+The unique ignored discovery mapping resolved to the exact six-file SOURCE and
+the stable and all non-target local Skills were disabled process-locally.
+Native automatic injection did not emit a physical resource-read event, and a
+model self-report is not loaded-copy proof. This is therefore bounded
+SOURCE-assisted outcome and no-write evidence, not accepted selection,
+`DEV_DISCOVERY`, `RC_INSTALL`, or stable identity.
+
+The independent `gpt-5.6-terra` medium-reasoning assessor read a sanitized
+self-contained packet and returned `ACCEPTED` for the static SOURCE/eval
+contract, while retaining exact loaded copy and persistent writes as `UNKNOWN`.
+That bounded assessment does not close selection identity; no SOURCE correction
+was made in response to the child-sandbox or controller boundaries.
+
+## Immutable `v0.1.2` SOURCE Identity
+
+The official-manual-aligned six-file released SOURCE was decoded as strict UTF-8,
 normalized to LF with one final newline, and hashed with SHA-256:
 
 ```text
@@ -38,7 +112,7 @@ assets/templates/continuity-anchor.md
   258578585c4a9c69379afdfa9a872b41233885a11c6342a7458c7677aeb68ec5
 ```
 
-These exact hashes are contained in tested public candidate
+These historical exact hashes are contained in tested public candidate
 `c42eef392a5b9f58bbee64aa73ffb603a6fb6c29` and immutable stable release
 `v0.1.2` at `ceed607152849775b981c54add74bfa30d858e4d`.
 
@@ -217,6 +291,7 @@ git diff --check
 gitleaks dir . --no-banner --redact --no-color --exit-code 1
 ```
 
-Behavior changes require fresh explicit contexts and exact loaded-copy
-attribution. SOURCE-assisted, DEV_DISCOVERY, RC_INSTALL, and STABLE_INSTALL
-claims must remain distinct.
+Selection or behavior changes require matched native, exact-control, and exact-
+candidate fresh contexts, ordinary and near-neighbor negatives, and
+controller-observed loaded-copy attribution. SOURCE-assisted, DEV_DISCOVERY,
+RC_INSTALL, and STABLE_INSTALL claims must remain distinct.

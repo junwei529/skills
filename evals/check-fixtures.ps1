@@ -137,6 +137,32 @@ $continuityState = Get-Content -Raw -Encoding UTF8 (
 $continuityRules = Get-Content -Raw -Encoding UTF8 (
     Join-Path $continuityDocs 'AGENTS.md'
 )
+$projectDocsSkill = Get-Content -Raw -Encoding UTF8 (
+    Join-Path $repoRoot 'skills\manage-project-docs\SKILL.md'
+)
+$projectDocsMetadata = Get-Content -Raw -Encoding UTF8 (
+    Join-Path $repoRoot 'skills\manage-project-docs\agents\openai.yaml'
+)
+$projectDocsStarter = Get-Content -Raw -Encoding UTF8 (
+    Join-Path $repoRoot (
+        'skills\manage-project-docs\assets\templates\project-doc-starter.md'
+    )
+)
+$projectDocsAudit = Get-Content -Raw -Encoding UTF8 (
+    Join-Path $repoRoot (
+        'skills\manage-project-docs\references\audit-and-adopt.md'
+    )
+)
+$projectDocsMaintain = Get-Content -Raw -Encoding UTF8 (
+    Join-Path $repoRoot (
+        'skills\manage-project-docs\references\maintain-and-recover.md'
+    )
+)
+$projectDocsAnchor = Get-Content -Raw -Encoding UTF8 (
+    Join-Path $repoRoot (
+        'skills\manage-project-docs\assets\templates\continuity-anchor.md'
+    )
+)
 $continuityAnchorRecovery = [regex]::Match(
     $continuityRules,
     'Resume interrupted work from `([^`]+)`\.'
@@ -162,10 +188,22 @@ Add-Check `
         $continuityState -match '## Frozen Historical Checkpoint' -and
         $continuityRules -match '## Project Documentation Continuity' -and
         $continuityRules -match 'PROJECT_STATE\.md#next-action-and-recovery' -and
-        $continuityRules -match '\$manage-project-docs' -and
-        $continuityRules -match 'neither an invocation'
+        $continuityRules -match 'visibly propose a Project Docs repair' -and
+        $continuityRules -match 'confirms the concrete proposal' -and
+        $continuityRules -match 'neither Skill invocation nor authorization' -and
+        $continuityRules -notmatch '\$manage-project-docs' -and
+        $projectDocsMetadata -match '(?m)^  allow_implicit_invocation: true$' -and
+        $projectDocsSkill -match 'Implicit selection permits only bounded read-only inspection' -and
+        $projectDocsSkill -match 'natural-language confirmation is sufficient' -and
+        $projectDocsStarter -match 'Activate or update when' -and
+        $projectDocsStarter -match 'Update mode' -and
+        $projectDocsAudit -match 'material project event -> durable fact class -> existing canonical owner -> update mode' -and
+        $projectDocsAudit -match 'For an\s+existing project, map its current documents' -and
+        $projectDocsMaintain -match 'Do not turn a current-state owner into a\s+chronological execution log' -and
+        $projectDocsAnchor -match 'visibly propose a Project Docs repair' -and
+        $projectDocsAnchor -notmatch '\$manage-project-docs'
     ) `
-    -Expectation 'ordinary updates stay routed while broken governance requests explicit Skill invocation'
+    -Expectation 'ordinary updates stay routed while broken governance proposes Project Docs without granting mutation authority'
 
 $safetyDocs = Join-Path $repoRoot 'evals\fixtures\project-docs-safety-boundaries'
 $serviceDocs = Join-Path $safetyDocs 'apps\service'

@@ -14,16 +14,33 @@ The raw [synthetic fixture](../fixtures/project-docs-adopt) contains:
 - a small implementation and passing test;
 - no project state, authority map, evidence record, or recovery entry.
 
-## User Request
+## Turn 1: Read-Only Discovery
 
-> Use $manage-project-docs to adopt this repository. You are authorized to add
-> the smallest sufficient persistent project-document contract and to add a
-> lightweight Project Docs continuity rule to the existing AGENTS.md. Preserve
-> the README, do not create a full docs suite, and do not commit.
+Without `$manage-project-docs` or Harness preselection:
+
+> I want this project to remain understandable and resumable across coding
+> agent sessions. Audit the current documentation and show me the smallest
+> concrete adoption proposal. Do not write or commit yet.
+
+The first turn may inspect and propose. It has no adoption or structural write
+authority and must leave the complete manifest unchanged.
+
+## Turn 2: Concrete Approval
+
+After the proposal names the exact combined owner, continuity route, module
+mapping, and update modes:
+
+> 可以，按你刚才列出的具体方案写入这两个目标；不要做其他结构变更，也不要提交。
+
+This natural-language confirmation authorizes only the listed target-project
+changes. It does not authorize Git, installation, another Skill, or additional
+modules.
 
 ## Expected Behavior
 
 - Inspects project rules, README, implementation, test, and Git state.
+- On turn 1, loads the exact candidate through native selection, returns a
+  bounded proposal, and makes no change.
 - Reuses the README for purpose and scope.
 - Adds no more than one combined project document for the missing logical
   responsibilities.
@@ -32,6 +49,8 @@ The raw [synthetic fixture](../fixtures/project-docs-adopt) contains:
   current facts into the anchor.
 - Returns `UPDATE`, reports the created owners and exact recovery entry, and
   marks evidence limitations honestly.
+- Records activation signals and update modes without requiring separate files
+  for every functional module.
 
 ## Failure Signals
 
@@ -41,4 +60,6 @@ The raw [synthetic fixture](../fixtures/project-docs-adopt) contains:
 - Copies current status, decisions, or full verification results into
   `AGENTS.md`.
 - Leaves placeholders or an unusable read route.
+- Writes during turn 1, treats selection as authorization, or expands turn 2
+  beyond the concrete proposal.
 - Commits, installs a Skill, or changes user configuration.

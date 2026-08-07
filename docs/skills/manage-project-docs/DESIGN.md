@@ -1,6 +1,6 @@
 # Project Docs Design
 
-Last updated: 2026-07-31
+Last updated: 2026-08-07
 
 ## Purpose And Audience
 
@@ -31,10 +31,10 @@ Project Docs distinguishes four surfaces:
 
 | Surface | Behavior |
 |---|---|
-| Explicit selection | Inspect and report within the user's request |
-| First adoption | Create or update only the authorized minimum contract and continuity route |
+| Discovery or audit | A direct governance request, high-confidence symptom, or manual `$manage-project-docs` override may load the Skill; implicit selection remains read-only and proposal-only |
+| First adoption | After approval of a concrete proposal, create or update only the authorized minimum contract and continuity route |
 | Routine maintenance | Update existing canonical owners under an adopted project rule |
-| Structural expansion | Propose first; write only after explicit structural authorization |
+| Structural repair or expansion | Rediscover and propose first; write only after explicit structural or owner authorization |
 
 Every run ends in exactly one primary outcome: `NOOP`, `REPORT`, `UPDATE`,
 `PROPOSE`, or `STOP`. A completed read-only audit is `REPORT` when only a later
@@ -45,14 +45,50 @@ A reader, an active session, and the current writer are separate facts.
 Read-only audits may coexist with other sessions; persistent updates require a
 fresh writer and authorization check immediately before the write.
 
+Selection, metadata visibility, installation, prior use, and project-rule
+mentions do not authorize mutation. A user's natural-language approval is
+explicit only when it unambiguously confirms a concrete visible proposal and
+its listed target effects. `$manage-project-docs` remains a manual override,
+not a write token.
+
+When governance symptoms are incidental to another unblocked task, Project
+Docs performs at most a minimum safe read-only preflight and a visible offer;
+it does not take over the task. It never polls conversations or runs as a
+background scanner.
+
+## Demand-Driven Modules And Update Modes
+
+New projects may begin with one combined working contract that covers the five
+logical responsibilities. Existing projects map their current documents and
+external systems instead of adopting this grouping or its names.
+
+A material event is routed to a durable fact class, its existing canonical
+owner, and that owner's update mode. Keep the current owner when it remains
+coherent. A separate functional module is justified only by an independent
+lifecycle, update mode, owner, audience, scope, or historical record.
+
+| Functional module | Activation signal | Update mode |
+|---|---|---|
+| Purpose and scope | first adoption or accepted product/scope change | revise the current contract; preserve durable rationale in a decision owner when needed |
+| Work and verification | repeatable work, acceptance, or verification method exists or changes | revise the current method; put time-bound results in the evidence owner |
+| Authority and routing | multiple owners/scopes or a generated/external route must be resolved or changed | revise the current map only after structural or owner authorization |
+| Current state and recovery | work spans sessions, pauses, transfers, or changes writer, gate, next action, or recovery target | replace one coherent current snapshot; do not accumulate execution history there |
+| Decisions | a non-obvious durable tradeoff or supersession needs rationale | append or explicitly supersede; preserve accepted history |
+| Evidence and results | a claim depends on repeatable checks or comparison with older results | append or supersede a bounded, time-labelled result and keep the current index accurate |
+
+Generated projections are updated through their editable source. Externally
+owned facts are updated in that system and remain unverified or `UNKNOWN` when
+the owner is unavailable. Neither source type creates another required module.
+
 ## Continuity
 
 An authorized first adoption may merge a lightweight continuity anchor into an
 existing target-project instruction or governance entry. It contains routing,
-document-impact events, the structural gate, and recovery entry, not project
-facts. Later ordinary tasks use that durable route without loading Project
-Docs. Governance failure or structural change requires fresh explicit
-selection.
+document-impact events, update modes, the structural gate, and recovery entry,
+not project facts. Later ordinary tasks use that durable route without loading
+Project Docs. A governance failure, new scope, missing owner, incompatible
+update lifecycle, or structural change can implicitly rediscover Project Docs
+for inspection and proposal, but never authorizes repair.
 
 Persistence belongs to target-project sources, not chat history, memory,
 discovery mappings, installed copies, or caches. If the Harness cannot load or
@@ -92,7 +128,7 @@ recovery entries make continuity weak; a new owner or route requires
 | [`maintain-and-recover.md`](../../../skills/manage-project-docs/references/maintain-and-recover.md) | Existing-owner maintenance, continuity, pause, handoff, recovery, and completion reconciliation |
 | [`project-doc-starter.md`](../../../skills/manage-project-docs/assets/templates/project-doc-starter.md) | Adaptable single-file first-adoption output |
 | [`continuity-anchor.md`](../../../skills/manage-project-docs/assets/templates/continuity-anchor.md) | Adaptable persistent routing fragment |
-| [`openai.yaml`](../../../skills/manage-project-docs/agents/openai.yaml) | Public display metadata and explicit-only invocation policy |
+| [`openai.yaml`](../../../skills/manage-project-docs/agents/openai.yaml) | Public display metadata and implicit-selection policy |
 | [Project Docs eval cases](../../../evals/README.md#project-docs-m1r-forward-matrix) | Behavior and selection contracts |
 
 Assets are optional outputs, not mandatory target-project filenames.
@@ -109,3 +145,4 @@ composition remains a repository-level recipe.
 - [Decision 0006](../../decisions/0006-project-docs-progressive-governance.md)
 - [Decision 0007](../../decisions/0007-independent-skills-and-optional-recipes.md)
 - [Decision 0015](../../decisions/0015-federated-repository-documentation.md)
+- [Decision 0019](../../decisions/0019-project-docs-implicit-discovery-and-demand-driven-modules.md)

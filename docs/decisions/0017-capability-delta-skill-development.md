@@ -1,6 +1,7 @@
 # 0017: Capability-Delta Skill Development
 
 Date: 2026-08-02
+Last amended: 2026-08-07
 Status: accepted
 
 ## Context
@@ -87,6 +88,54 @@ retroactively invalidated.
 - Prefer capability checks and stable outcome contracts over branching on
   model marketing names. Record the actual model/Harness identity as far as
   the Harness exposes it and preserve `UNKNOWN` where it does not.
+
+### Entry, Adoption, And Authority Boundaries
+
+For every new Skill or material selection or behavior revision, distinguish
+these possible boundaries before choosing the user workflow:
+
+1. **Catalog applicability or proposal** — surfaced metadata supports saying
+   that the Skill may apply and, when useful, presenting a visible proposal.
+2. **Loaded activation** — the full Skill body is available in the current
+   context before its workflow is relied on. Exact physical path or revision
+   identity is a separate evidence claim and remains `UNKNOWN` when the
+   Harness does not expose it.
+3. **Bounded read authority** — the current request or a concrete approved
+   proposal permits only the named project, document, or evidence reads.
+4. **Persistent adoption** — the user explicitly approves a durable rule or
+   anchor because later-session continuity requires it.
+5. **Concrete action authority** — the current request or explicit approval
+   authorizes the listed writes, role delivery, Git, installation, external
+   effect, or other mutation.
+
+These are analytical boundaries, not five mandatory runtime stages or one
+universal order. Mark an unused boundary `NOT_APPLICABLE` with a reason. One
+Skill may load for a bounded implicit read-only audit, while another may offer
+only a metadata-level proposal until confirmation. Each per-Skill contract
+owns that choice; capability-delta development must not force identical
+triggers, anchors, or evaluation matrices across products.
+
+An implicit path uses the lowest-cost visible and rejectable behavior that the
+residual requires. It must not silently adopt a workflow, persist state, write,
+deliver roles, use Git, or cause an external effect. Reads are allowed only
+when the user's request or the Skill's accepted read-only contract covers their
+exact scope. An unambiguous natural-language confirmation of one concrete,
+visible proposal can authorize the listed effects unless a higher-priority
+policy requires a special form; a vague confirmation or a proposal without an
+action envelope cannot.
+
+Persistent adoption is justified only by a real cross-session continuity need.
+Write the smallest sufficient route into an existing canonical owner, and do
+not describe it as a daemon or continuous scan. On re-entry, compare the
+durable anchor with live authority, workspace, writer, evidence, and recovery
+state before relying on it. A stale anchor does not renew action authority.
+
+Selection, activation, reads, adoption, and action authority are scoped to one
+Skill and operation. None propagates to another Skill merely because both are
+installed, composed, or discussed in the same task. The boundary map remains a
+repository design and evaluation aid, not a fourth public Skill or a runtime
+state machine. A Skill under test must not certify its own acceptance,
+authorize its own SOURCE edits, or auto-adopt evaluator or optimizer output.
 
 ### Upgrade And Retirement Rule
 

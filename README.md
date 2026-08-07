@@ -49,8 +49,16 @@ $work-charter Bound this consequential task, its authority, evidence, and recove
 $use-powershell-safely Diagnose this material Windows shell boundary before changing application code.
 ```
 
-Project Docs is explicit-only. Work Charter also accepts ordinary-language
-requests such as “use Work Charter to decide how this project should continue”;
+Project Docs may be selected from a direct documentation-governance request or
+high-confidence authority, evidence, routing, or recovery symptoms. That
+implicit path is read-only and proposal-only; it never authorizes adoption,
+structure, canonical-owner changes, or writes. `$manage-project-docs` remains
+the manual override. After a concrete proposal is visible, natural-language
+approval authorizes only its listed target-project changes. Valid persisted
+project routing handles ordinary maintenance without loading the Skill.
+
+Work Charter also accepts ordinary-language requests such as “use Work Charter
+to decide how this project should continue”;
 that direct request tells Codex to load the full Skill and permits an activation
 claim only after the full body is available in the current context. If Codex
 cannot load the body, it reports degraded loading and stops without claiming

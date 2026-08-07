@@ -89,10 +89,13 @@ selected。精确 `72db7e9...` 实现了两阶段入口，但其固定轮次 Sta
 `VIOLATION`，且没有运行 A16。条件式角色读取修订会在完整 Skill 正文不可用时
 停止，并把未暴露的精确副本身份保留为 `UNKNOWN`；每个 fresh `L3`/`L4` 角色都
 必须加载完整 Skill 和 coordination reference，`L4` 还必须在履行职责前加载
-Standard reference。它是精确但未接受的 candidate `b965102...`；它已完成的
-Gate 2 execution 和两个已记录的 same-subject successor execution 均已封存且
-不可重试，但这既不会让未变化的 candidate 永久退役，也不会转移 acceptance。
-未来的 evaluation window 需要单独授权。完整分阶段 selection、entry、等级、
+Standard reference。它是精确但未接受的 candidate `b965102...`；此前四次
+Gate 2 execution 仍被封存且不可重试，但这既不会让未变化的 candidate 永久退役，
+也不会转移 acceptance。一个另行授权的 successor 已针对 controller `191cd1f...`
+完成离线资格检查，随后消费一次 A01 `turn/start`；传输在观察到模型响应或 Work
+Charter 行为前失败，因此该次执行以 `HARD_STOP / UNKNOWN` 封存。这是第五条已消费
+execution 记录，不是产品缺陷或 acceptance，也不能在该 evidence window 下重试。
+完整分阶段 selection、entry、等级、
 重新接入和可见 Standard 行为，stable 层完整 Standard
 delivery、广泛隐式触发 telemetry、独立真实项目效果、确定性角色交付或 writer
 锁，以及跨 Harness 等价性仍未得到证明。参见[验证](VERIFICATION.md)和

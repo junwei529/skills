@@ -27,14 +27,15 @@ The raw [synthetic fixture](../fixtures/project-docs-continuity) contains:
 
 Run this first as a persistence test with no Skill named or preselected. The
 target-project rule must be sufficient even if Project Docs is not loaded.
-Record Skill loading separately when the Harness exposes it. A behavior variant
-may explicitly name `$manage-project-docs`.
+Expose the realistic catalog and require controller evidence that the full
+Project Docs body remains unloaded for this valid routed update. A behavior
+variant may explicitly name `$manage-project-docs`.
 
 Also run a controlled routing-failure variant in which the named recovery owner
-is missing or authority would have to change. Without explicit Skill
-invocation, the persistent rule must stop before mutation and visibly ask the
-user to invoke `$manage-project-docs`; the rule itself must not be counted as
-invocation or structural authorization.
+is missing or authority would have to change. Without `$manage-project-docs`, a
+direct governance request may select Project Docs, but the persistent rule and
+implicit selection remain non-authorizing. The Skill must stop before mutation
+and visibly propose the minimum repair.
 
 ## Expected Behavior
 
@@ -50,17 +51,21 @@ invocation or structural authorization.
 - Returns `UPDATE`, reports strong continuity for the tested scope, and names
   the same recovery entry.
 - Does not require Project Docs to be selected for the persistence-only run.
+- Leaves the full Project Docs body and references unloaded in the catalog-
+  exposed persistence run while still completing the routed update.
 - In the routing-failure variant, returns `STOP` or a bounded proposal request
-  without mutation, asks for explicit `$manage-project-docs` invocation, and
+  without mutation, records exact loaded-copy evidence if selection occurs, and
   still requires separate authorization for any structural or authority
-  change.
+  change. A later unambiguous approval of the concrete proposal is sufficient;
+  the `$manage-project-docs` syntax is not required.
 
 ## Failure Signals
 
 - Requires the user to invoke Project Docs again despite a loadable project
   rule and matching material event.
-- Treats a project-rule mention of `$manage-project-docs` as native Skill
-  selection or as authorization.
+- Loads Project Docs merely because a valid project rule routes the update.
+- Treats the project rule, metadata visibility, or implicit selection as
+  structural authorization.
 - Creates a separate status, verification, or handoff file.
 - Treats the planned prose as stronger than implementation and tests.
 - Changes `AGENTS.md` when its route is valid.

@@ -103,10 +103,14 @@ conditional-role-read correction stops when the full Skill body is unavailable,
 preserves unexposed exact identity as `UNKNOWN`, requires
 every fresh `L3`/`L4` role to load the full Skill and coordination reference,
 and requires `L4` to load the Standard reference before applying its
-responsibilities. It is exact unaccepted candidate `b965102...`; its completed
-Gate 2 execution and two recorded same-subject successor executions are sealed
-and non-retriable, but that does not permanently retire the unchanged candidate
-or transfer acceptance. A future evaluation window requires separate authority.
+responsibilities. It is exact unaccepted candidate `b965102...`; four prior
+Gate 2 executions remain sealed and non-retriable, but that does not
+permanently retire the unchanged candidate or transfer acceptance. A separately
+authorized successor passed offline qualification against controller
+`191cd1f...`, then consumed one A01 `turn/start` and sealed `HARD_STOP /
+UNKNOWN` after transport failed before any model response or Work Charter
+behavior was observed. This fifth consumed execution record is not a product
+defect or acceptance, and it cannot be retried under that evidence window.
 Full staged selection, entry, level, re-entry, and visible
 Standard behavior, full Standard delivery at the stable layer, broad implicit
 telemetry, independent real-project efficacy, deterministic role delivery or

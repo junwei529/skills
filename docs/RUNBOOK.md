@@ -1,6 +1,6 @@
 # Development, Installation, And Release Runbook
 
-Last updated: 2026-08-04
+Last updated: 2026-08-07
 
 ## Quick Navigation
 
@@ -242,18 +242,48 @@ For Selection, Material behavior, and New public Skill work:
 4. Allocate each proposed responsibility to the model, Harness, project rules
    or durable documents, deterministic scripts/hooks/tools, external systems,
    or the residual Skill. Do not reproduce an already-owned layer in prose.
-5. For every material Skill concept, record the observed gap, accepted product
+5. Complete an entry-and-authority map for catalog applicability or proposal,
+   loaded activation, bounded read authority, persistent adoption, and concrete
+   action authority. For each boundary, record `USED` or `NOT_APPLICABLE`, its
+   trigger, allowed observation or effect, required evidence or approval, and
+   fail-closed behavior. Keep this record in the active task, accepted decision,
+   or existing design/evaluation owner; do not create a mandatory package file.
+6. For every material Skill concept, record the observed gap, accepted product
    requirement, or hard boundary that justifies it and the case that can
    falsify it.
-6. Stop the Skill path when no material residual remains. Simplify, delegate,
+7. Stop the Skill path when no material residual remains. Simplify, delegate,
    or retire existing behavior instead of manufacturing a package-shaped need.
-7. Only after the target scope is authorized, invoke `$skill-creator` for
-   authoring or revision and package validation. It does not accept the product
-   decision or authorize source, installation, or release actions, and its
-   invocation does not itself authorize a write.
-8. Route the resulting revision through the proportional conditions in
+8. Only after the target scope is authorized, give the justified residual and
+   boundary map to `$skill-creator` for authoring or revision and package
+   validation. It does not decide whether the Skill should exist, accept the
+   product decision, or authorize source, installation, or release actions,
+   and its invocation does not itself authorize a write.
+9. Route the resulting revision through the proportional conditions in
    [`evals/README.md`](../evals/README.md) and then the ordinary development,
    candidate, and release gates below.
+
+The five mapped boundaries are not mandatory runtime stages and do not impose
+one entry pattern on every Skill. Choose the smallest path supported by the
+residual: an implicit match may remain a metadata-level proposal, or an
+accepted contract may load the full body for a bounded read-only task. A direct
+or confirmed activation may rely on the workflow only after the full body is
+available; exact physical copy identity remains a separate evidence question.
+
+Implicit behavior must be visible, rejectable, and free of mutation or
+external effects until separately authorized. It may read only the scope
+covered by the current request or accepted read-only contract. An unambiguous
+natural-language approval of one concrete visible proposal authorizes only the
+listed effects; it does not implicitly authorize unlisted persistence, Git,
+installation, release, another Skill, or a broader action category. Treat a
+vague confirmation or an ambiguous proposal as no authority.
+
+Use persistent adoption only when later-session continuity materially requires
+it. Prefer the smallest route in an existing canonical owner; do not create a
+background monitor or duplicate anchor. On re-entry, reconcile the anchor with
+live authority, workspace, writer, evidence, and recovery state. Continue only
+within the current valid route, otherwise stop or present a new visible
+proposal. Never copy one Skill's trigger, adoption, or authority map into
+another without its own capability-delta intake.
 
 After reproducible production feedback or a material model, Harness, tool,
 permission, or catalog change, repeat the affected baseline and
@@ -443,10 +473,11 @@ migration, not a file copy:
    and the actually loaded `DEV_DISCOVERY`, `RC_INSTALL`, and
    `STABLE_INSTALL` identities.
 7. Route through the Skill during a bounded shadow period before retiring the
-   duplicate private procedure. For explicit-only Project Docs, test both
-   explicit invocation and ordinary maintenance through an adopted
-   target-project rule. Preserve a recoverable private fallback until
-   missed-routing and safety-regression checks pass.
+   duplicate private procedure. For Project Docs, test high-confidence implicit
+   selection, ordinary and near-neighbor non-selection, manual invocation,
+   proposal-only implicit behavior, authorized mutation, and ordinary
+   maintenance through an adopted target-project rule. Preserve a recoverable
+   private fallback until missed-routing and safety-regression checks pass.
 
 The private global bootstrap may retain only high-signal routing, hard
 authorization or destructive-operation invariants that apply before Skill

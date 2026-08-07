@@ -1,7 +1,7 @@
 interface:
   display_name: "Project Docs"
   short_description: "Repair and sustain reliable project truth"
-  default_prompt: "Use $manage-project-docs to audit this repository's project-document governance and propose only necessary changes."
+  default_prompt: "Use $manage-project-docs to audit this repository's project-document governance. Start read-only and propose only necessary changes; do not write without approval for the concrete change."
 
 policy:
-  allow_implicit_invocation: false
+  allow_implicit_invocation: true

@@ -1,6 +1,6 @@
 # Repository Status
 
-Last updated: 2026-08-06
+Last updated: 2026-08-07
 
 ## Dashboard
 
@@ -8,8 +8,8 @@ Last updated: 2026-08-06
 |---|---|---|
 | Tested package identity | all three package byte sets independently reached exact-commit RC readiness at `c42eef392a5b9f58bbee64aa73ffb603a6fb6c29` and were re-proved at tag/stable identity `v0.1.2` | [Verification](VERIFICATION.md) |
 | Stable release identity | immutable [`v0.1.2`](https://github.com/junwei529/skills/releases/tag/v0.1.2) at `ceed607152849775b981c54add74bfa30d858e4d`; exact tag, stable loaded-copy, and GitHub Release proof pass for all three Skills | [Verification](VERIFICATION.md) |
-| Project Docs | released six-file `v0.1.2` stable copy; exact loaded identity and mature `NOOP` canary pass | [State](skills/manage-project-docs/STATE.md) |
-| Work Charter | released five-file `v0.1.2` stable copy remains active; exact product candidate `b965102...` remains unaccepted, while its three recorded Gate 2 executions are individually sealed and non-retriable; integrated controller/evidence-boundary commit `191cd1f...` passes offline regression but is neither a new product candidate nor behavior acceptance | [State](skills/work-charter/STATE.md) |
+| Project Docs | immutable `v0.1.2` remains the released explicit-only control; the current working-tree revision implements accepted Decision 0019, but its evidence is `PARTIAL` because actual candidate selection, loaded-copy identity, and persistent writes remain `UNKNOWN` | [State](skills/manage-project-docs/STATE.md) |
+| Work Charter | released `v0.1.2` remains active; target `v0.2.0` exact candidate `b965102...` is unaccepted at Gate 2, with five consumed records sealed and the next disposition user-owned | [State](skills/work-charter/STATE.md) |
 | PowerShell | released five-file `v0.1.2` stable copy; corrected loaded identity and guarded native/text diagnosis pass; live WSL remains unproved | [State](skills/use-powershell-safely/STATE.md) |
 | Release lifecycle | `v0.1.2` tag, stable update, tag-pinned canaries, and Latest GitHub Release complete; `v0.1.1` retained as rollback identity | [Runbook](RUNBOOK.md) |
 
@@ -24,51 +24,24 @@ passed its own exact public installer and loaded-copy gate, and is now the
 immutable `v0.1.2` tag, verified stable installation, and Latest GitHub
 Release. Immutable `v0.1.1` remains retained as rollback identity.
 
-The Gate 1 branch contains the later five-file Work Charter SOURCE and eval
-definitions. Candidate `206c497...` stopped incomplete on convergence; pushed
-successor `92a8c045...` preserved that history and stopped its reference matrix
-at an unproved selected/loaded claim. Exact descendant `72db7e9...` implements
-the accepted two-stage lazy entry and then received one fixed-turn Standard
-probe. Its four fresh primary sessions sealed `VIOLATION`, created no subagent
-activity, left A16 unexecuted, and permit no retry or retrospective rescore.
+The current working tree contains an unreleased six-file Project Docs revision
+implementing [Decision 0019](decisions/0019-project-docs-implicit-discovery-and-demand-driven-modules.md).
+Its implicit path is read-only and proposal-only, persistent writes remain
+separately authorized, and ordinary maintenance stays with valid project
+routing. A static SOURCE/eval-contract assessor found no Must defect, but the
+overall evidence is `PARTIAL`: actual candidate selection, physical loaded-copy
+identity, and write persistence remain `UNKNOWN`; immutable `v0.1.2` is
+unchanged.
 
-The material finding was conditional package loading: the top level did not
-prove full-Skill loading, and the Standard components missed one or both
-required references. The conditional correction stops an unproved activation
-claim when the full Skill body is unavailable, preserves unexposed exact copy
-identity as `UNKNOWN` without blocking ordinary activation, makes L3/L4
-reference routing role-local, and leaves the Standard reference unloaded for
-L0-L3 by default while permitting an approved explicit L4-transition evaluation
-to read it without authorizing the transition. Exact-phrase semantic checks,
-shell-string fragment classification, and repeated static inventories are
-separately corrected as future controller methodology. Version-neutral README
-installer commands remain the supported interface; the live release ledger
-still selects `v0.1.2` as the current accepted tag and installed identity.
+Target Work Charter `v0.2.0` remains at Gate 2. Exact candidate `b965102...`
+is unaccepted; four predecessor records and one successor A01
+`HARD_STOP / UNKNOWN` are sealed and non-retriable. The controller integration
+adds infrastructure evidence only and changes neither the candidate package nor
+its behavior verdict. Exact history and residual limits belong to the
+[Work Charter State](skills/work-charter/STATE.md) and
+[Verification](skills/work-charter/VERIFICATION.md) ledgers.
 
-The conditional correction is now exact product candidate `b965102...` with
-the same five package blobs recorded by the Work Charter verification owner.
-Its completed Gate 2 execution and two recorded same-subject successor
-executions are individually sealed `SEALED_DECISION_REQUIRED`; their consumed
-evidence cannot be retried, rescored, relabelled, or reset. That boundary
-applies to those executions, not permanently to the unchanged candidate. No
-behavior acceptance follows. Tracked controller commit `119aa27...` adds
-deterministic evaluation infrastructure only, and local merge `c05cb99...`
-integrates it over governance baseline `f55b15a...`. Neither edits the package,
-retries or rescores sealed evidence, or creates a new candidate identity.
-Local commit `191cd1f841468d6585382a64aef8d81a9aff7550` records the later
-controller evidence-boundary correction that started from `79806bf...`. Local
-`main` was fast-forwarded to that exact commit without a merge commit. The
-revision keeps all five package blobs and sealed executions unchanged and
-separates strict file-read evidence from bounded auxiliary observation.
-
-[Decision 0018](decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md)
-records the accepted rationale, two-stage entry, level model, adoption and re-
-entry behavior, conditional role reads, evaluation design, and separately
-authorized lifecycle gates for target Work Charter `v0.2.0`. The correction has
-development SOURCE and offline evidence only; it does not change the stable
-installation or release identity and inherits no candidate evidence.
-
-The exact scope and recovery order are owned by
+The exact combined dirty scope, writer state, and recovery order are owned by
 [Repository Handoff](HANDOFF.md).
 
 ## Current Verification Boundary
@@ -85,74 +58,13 @@ positive/negative boundary evidence, and Work Charter has a complete bounded
 synthetic Standard Phase One. Counted and excluded attempts and all residual
 limits remain in the per-Skill ledgers and sanitized result files.
 
-For target `v0.2.0`, exact `92a8c045...` retains qualification and four
-consumed reference turns only. Exact `72db7e9...` separately retains one sealed
-four-session fixed-turn `VIOLATION`. Exact `b965102...` retains three
-individually sealed execution records and their consumed history without
-acceptance; those executions are non-retriable, while the candidate remains
-eligible only for a newly authorized Gate 2 window. The tracked controller regression
-passes 11 source-and-generated-contract-bound historical, 19 evidence-surface,
-31 negative, and 4 metamorphic cases twice with identical canonical output.
-The evidence-surface group proves exact-output strict reads and bounded
-auxiliary observations remain separate. Conflicting snake/camel command or
-inventory-link aliases fail closed, matching duplicates remain admissible, and
-both outer and action command representations must prove an exact raw read.
-Auxiliary path operations target only the exact policy-listed root, recursive
-listing is rejected, and explicitly present empty before/after inventories
-compare equal without aborting adjudication. Inventory-linked command IDs must
-name exactly one record across the complete command set and use ordinal,
-case-sensitive linkage throughout. Auxiliary display transforms containing
-variables or expressions remain unknown rather than receiving evidence credit.
-Failed execution, effect-changing or signature-verifying Git arguments, and
-partial file reads fail closed; exact
-revision blobs own both five-file manifest hashes, and sealed locators are
-contained before read. Each historical generated input plus expected result is
-hash-bound before controller invocation; each sealed projection derives hash
-and parsed JSON from one held byte stream; and, on the current Windows host, one
-real scratch junction proves the resolver's reparse rejection. Source selects a
-Junction on Windows and SymbolicLink otherwise; non-Windows execution remains
-`UNKNOWN`. Under the user-approved quiescent offline single-writer threat
-model, the checker also validates the exact ordinary `.eval-runs` root before
-scratch creation, revalidates root/scratch/descendants before recursive
-cleanup, and verifies post-cleanup shape; two scratch-topology guards pass.
-Three external-input type guards also pass: non-Boolean role or assessor
-authorization and non-integral nested-turn counts fail closed as
-`CONTROLLER_UNKNOWN` rather than being coerced or throwing.
-Nine Git-read safety guards require `--no-pager` on every admitted Git read and
-additionally require `--no-optional-locks` plus `-c core.fsmonitor=false` for
-`git status`; missing safeguards fail closed, while all supported bounded read
-shapes remain admissible. Only exact `git remote -v` or `remote --verbose`
-listing forms are admitted; extra remote subcommands fail closed.
-Eight command-resolution guards additionally require one policy-pinned resolved
-identity for every completed command family; missing, shadowed, or untrusted
-identities fail closed. This validates the evidence record contract, not a live
-resolver collector.
-Git `cat-file --filters` and `--filters=...` also fail closed because they can
-invoke configured content filters despite an otherwise read-shaped command.
-Six content/proof/inventory identity guards require nonnegative integral lengths and
-64-hex SHA-256 values on both policy and evidence sides before comparison;
-malformed or matching-malformed identities return `CONTROLLER_UNKNOWN` rather
-than being admitted or throwing.
-Three record-cardinality/exit guards reject duplicate allowed-file keys,
-duplicate observed-proof keys, and non-integral completed exit codes; only an
-actual integral zero proves successful completion.
-Three logical-candidate identity guards reject blank or malformed expected and
-observed identities before comparison, and one historical-output shape guard
-proves empty violation sets serialize as `[]` rather than `[null]`.
-Concurrent path swaps entirely between those checks remain unsupported and
-`UNKNOWN`. This remains infrastructure evidence rather than product behavior
-evidence.
-
-One separately authorized private one-shot canary produced a sealed
-`CANARY_PASS`; the bounded exact-response check reported no command execution.
-Tracked docs intentionally omit its locator, artifact identities, detailed
-runtime state, task/thread identifiers, prompts, and completions. The physical
-backend sampling-request count remains `UNKNOWN`. The canary proves only a
-narrow infrastructure observation; it does not prove natural-language Skill
-selection, semantic quality, broad Work Charter behavior, or candidate
-acceptance. It ran before native review 4 rather than after it; the consumed
-private evidence remains sealed but does not replace review or authorize
-advancement.
+The current Project Docs revision has SOURCE-assisted routing, outcome, and
+no-write observations only; actual candidate selection, loaded-copy attribution,
+and write-capable persistence remain `UNKNOWN`, so its overall evidence is
+`PARTIAL`. Work Charter target `v0.2.0` likewise remains unaccepted at
+Gate 2; its five sealed records and controller regressions do not establish
+product behavior acceptance. Exact counts, hashes, exclusions, and residual
+limits remain in the per-Skill ledgers rather than this dashboard.
 
 Per-Skill evidence and gaps:
 
@@ -161,6 +73,11 @@ Per-Skill evidence and gaps:
 - [PowerShell Verification](skills/use-powershell-safely/VERIFICATION.md)
 
 ## Historical Controller Pre-Commit Record
+
+The detailed controller review and correction history below predates the
+current documentation-integration window. Its canonical evidence is the
+[Repository Verification](VERIFICATION.md) ledger; this section is retained
+unchanged as historical source pending a separately scoped dashboard cleanup.
 
 Before local commit `119aa27...`, one scoped writer owned the twelve-path
 controller-stabilization diff on `codex/work-charter-v0.2`; its tracked status
@@ -299,34 +216,24 @@ decision.
 
 ## Next Gate
 
-No release action remains pending for `v0.1.2`. Local merge `c05cb99...`
-integrates controller-stabilization commit `119aa27...` over governance
-baseline `f55b15a...`; local controller/evidence-boundary commit `191cd1f...`
-is its later fast-forward-integrated descendant. The latter records the
-reviewed 14-path offline correction and its 19/19 evidence-surface regression
-without changing a Work Charter package blob, sealed execution, product
-candidate, or behavior verdict. Its former feature branch remains only a Git
-locator for the same commit, not an active writer or separate product state.
-No push, candidate materialization, model evidence, installation, release, or
-cleanup follows from local integration.
+No release action remains pending for immutable `v0.1.2`. Native review found
+an environment bootstrap mismatch and an overbroad current-selection evidence
+claim. The bounded correction must pass deterministic checks and another native
+review over its final bytes before any separate commit decision. Git, candidate,
+installation, and release remain outside this gate.
 
-The next possible Work Charter product gate is a separately authorized Gate 2
-recovery window for exact candidate `b965102...`, not Gate 3. Its pre-consumption
-contract must preserve all three sealed execution records, bind the exact
-candidate/controller/RC/model-cost/assessor identities and stop conditions, and
-prove whether any retained observations remain admissible without changing
-their original terminal records. Missing, invalidated, or `UNKNOWN` evidence
-requires its own collection authority. Local controller infrastructure and the
-consumed `CANARY_PASS` do not establish behavior acceptance. Gate 3 remains
-blocked until a complete exact-candidate batch is independently `ACCEPTED`;
-push, candidate materialization, model evidence, assessment, installation, tag,
-release, and cleanup remain separate user-owned gates.
+Product gates remain independent. Project Docs needs exact-candidate loaded-
+copy and write-capable persistence evidence only after a separately authorized
+commit/candidate sequence. Work Charter remains at Gate 2 until the user either
+retains the sealed `UNKNOWN` state or authorizes a new recovery/successor plan
+that preserves all five consumed records.
 
 ## Known Repository Gaps
 
-- Project Docs current stable proof is mature `NOOP`, not persistent `UPDATE`;
-  stable mutation, broad triggers, and real-project behavior remain
-  unproved.
+- Project Docs `v0.1.2` stable proof is mature `NOOP`, not persistent `UPDATE`.
+  For the current implicit-selection revision, exact loaded-copy attribution,
+  write persistence, candidate readiness, broad triggers, and real-project
+  behavior remain unproved.
 - PowerShell still lacks live Bash/WSL, native execution inside the stable
   canary sandbox, actual sandbox-denial injection, and shadow-use evidence.
 - No Skill has a causal correctness or token-saving comparison.

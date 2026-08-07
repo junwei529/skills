@@ -1,6 +1,6 @@
 # Repository Handoff
 
-Last updated: 2026-08-06
+Last updated: 2026-08-07
 
 ## Snapshot
 
@@ -19,11 +19,19 @@ Last updated: 2026-08-06
   5 files, each matching the `v0.1.2` Git blobs
 - Rollback identity: immutable `v0.1.1` retained as a separately verified
   three-package backup
-- Writer transition: the phase Executor, controller/evaluation writer, and
-  integration writer have relinquished. This six-document record closes the
-  separately authorized state-synchronization window; no continuing Work
-  Charter SOURCE, Gate 2, model, assessor, push, installation, release, or
-  cleanup authority follows
+- Current writer: none. This task completed one bounded native-review
+  correction window over seven existing Project Docs evidence and state
+  consumers only:
+  `docs/HANDOFF.md`, `docs/ROADMAP.md`, `docs/STATUS.md`,
+  `docs/skills/manage-project-docs/STATE.md`,
+  `docs/skills/manage-project-docs/VERIFICATION.md`,
+  `evals/results/README.md`, and the current Project Docs SOURCE-evaluation
+  result, then relinquished before final native review. The other 29 dirty paths
+  remain frozen. A clear same-scope native-review finding may reopen one bounded
+  writer under the Authorization Boundary; otherwise no repository writer is
+  active. No Skill SOURCE, eval case or fixture, per-Skill Work Charter
+  documentation, Git/index mutation, installation, release, ignored-evidence
+  cleanup, candidate, or fresh behavior-evaluation authority follows
 
 The `v0.1.2` tag remains fixed at the release-preparation commit. The later
 documentation commit records already-completed tag, stable-install, canary, and
@@ -186,12 +194,10 @@ canary, redefine the product candidate, or convert infrastructure evidence into
 Work Charter behavior acceptance.
 
 Exact product candidate `b965102...` keeps the same five Work Charter package
-blobs. Its completed Gate 2 execution and two recorded same-subject successor
-executions are individually sealed `SEALED_DECISION_REQUIRED`; behavior
-acceptance was not achieved, and none of their consumed evidence may be
-retried, rescored, relabelled, or reset. This execution-level no-retry boundary
-does not permanently retire the unchanged candidate or authorize a new
-evaluation window.
+blobs and remains unaccepted at Gate 2. Its sealed execution history and exact
+residual limits belong to the Work Charter State and Verification owners. No
+record may be retried, rescored, relabelled, or reset, and no new evaluation
+window follows from this handoff.
 
 The stabilization commit changes exactly:
 
@@ -478,47 +484,106 @@ is owned by [Repository Verification](VERIFICATION.md).
   converted into positive evidence. Exact identity is controller-owned, not
   based on model self-reported hashes.
 
+## 2026-08-07 Combined Dirty Integration
+
+At writer acquisition, local `main` remained at `5e057c0...`, the index was
+empty, and the frozen working tree contained exactly 36 paths: 23 Project Docs-
+only paths, one capability-delta-only decision, two shared development/eval
+owners, and ten Work Charter documentation consumers. The byte manifest matched
+the prior read-only integration review before this six-file correction began.
+
+Project Docs now has an accepted Decision 0019 and an unreleased working-tree
+implementation. A static SOURCE/eval-contract assessor found no Must defect,
+but the overall evidence verdict is `PARTIAL`: actual candidate selection,
+automatic physical loaded-copy attribution, and persistent adoption/routine
+writes remain `UNKNOWN`, while immutable `v0.1.2` remains the explicit-only
+stable control.
+The capability-delta update keeps native Skill authoring, external-reference,
+optimizer-experiment, and per-Skill authorization boundaries separate.
+
+For the native-review finding correction, the seven Snapshot consumers are
+`UPDATE`. Repository `AGENTS.md`, the root and Project Docs README pairs,
+`docs/INDEX.md`, `docs/AUTHORITY.md`, `docs/SPEC.md`,
+`docs/ARCHITECTURE.md`, `docs/RUNBOOK.md`, `docs/PROVENANCE.md`, root
+`docs/VERIFICATION.md`, Decisions 0006, 0017, and 0019, `evals/README.md`, and
+Project Docs `DESIGN.md` are `CHECKED_NO_CHANGE`: they already distinguish
+implicit discovery from action authority or do not publish the current
+evidence verdict. Skill SOURCE, cases, fixtures, scripts, Work Charter owners,
+candidate/install/release evidence, and ignored artifacts are
+`NOT_APPLICABLE` or independently frozen.
+
+Work Charter target `v0.2.0` remains unaccepted at Gate 2. Four predecessor
+records and one successor A01 `HARD_STOP / UNKNOWN` remain sealed and non-
+retriable; exact execution/controller detail stays in the Work Charter State
+and Verification owners rather than root navigation and dashboard summaries.
+
+The completed integration window updated only the six existing documentation
+owners listed in the Snapshot and left the other 30 dirty paths unchanged. The
+Skill validator, all 17 fixture checks, repository checker at 198 text files /
+14 cases / 12 fixtures, seven-file PowerShell parser sweep, both Git whitespace
+checks, and a 36-file dirty-scope Gitleaks scan with zero findings passed. HEAD
+and the empty index remained unchanged. The window granted no authority over
+Skill SOURCE, evals, sealed/ignored evidence, native review, Git, installation,
+candidate materialization, release, or cleanup, and its writer relinquished.
+
+The later seven-consumer native-review correction keeps implicit discovery,
+explicit effect authorization, and evidence acceptance separate. At its final
+pre-review checkpoint, the Project Docs validator, all 17 fixture checks, the
+repository checker at 198 text files / 14 cases / 12 fixtures, an eight-file
+PowerShell parser sweep, both Git whitespace checks, and an exact 36-file
+dirty-scope Gitleaks scan with zero findings passed. Two preliminary secret-scan
+controller commands stopped before invoking Gitleaks because their executable
+selection or temporary-directory command shape was invalid; they are
+qualification noise, not product findings or consumed semantic scans. The
+separately authorized local bootstrap correction is outside tracked source and
+does not prove fresh-task loading or Project Docs behavior. The correction
+writer relinquished before final native review; HEAD and the empty index
+remained unchanged at this checkpoint.
+
 ## Resume Order
 
 1. Read `AGENTS.md`, `docs/INDEX.md`, and `docs/AUTHORITY.md`.
 2. Read [Repository Status](STATUS.md), this handoff, and the relevant per-Skill
    State and Verification owners.
-3. Resolve local `main` at or after `191cd1f...`, attached branch
-   `codex/work-charter-v0.2` at `119aa27...`, the retained
-   `codex/work-charter-controller-evidence-boundary` branch at `191cd1f...`,
-   exact product candidate `b965102...`, upstreams, the current dirty scope,
-   and writer ownership rather than assuming this snapshot is still current.
-4. Keep `c42eef3...` RC behavior, `ceed607...` release identity, the later
+3. Read Decision 0017, Decision 0019, the capability-delta Runbook/eval owners,
+   and Project Docs State before changing shared development or selection
+   claims.
+4. Resolve local `main`, HEAD, index, all dirty and ignored scopes, writer
+   ownership, and the exact Work Charter candidate/controller bindings rather
+   than assuming this snapshot is still current.
+5. Preserve all five sealed Work Charter records without retry or relabelling,
+   and infer neither product acceptance nor permanent candidate retirement.
+6. Keep `c42eef3...` RC behavior, `ceed607...` release identity, the later
    evidence descendant, and the generated stable/rollback copies distinct.
-5. Before any future SOURCE, installation, cleanup, tag, or release action,
+7. Before any future SOURCE, native review, Git, installation, cleanup, tag, or
+   release action,
    obtain its own explicit authority and re-enter the corresponding Runbook
    procedure.
 
 ## Immediate Next Action
 
-No release action remains pending for `v0.1.2`. Local commit `191cd1f...`
-records the reviewed 14-path controller/evidence-boundary correction over
-baseline `79806bf...`; local `main` was fast-forwarded to it without a merge
-commit. Post-integration checks proved the expected ancestry and a clean
-working tree. The former evidence-boundary branch points to the same commit and
-does not retain writer authority. The integration changed no Work Charter
-package blob, sealed execution, product candidate, or behavior verdict, and it
-was not pushed.
-
-The next possible product gate is a user-owned decision on a newly authorized
-Gate 2 evidence window. Before model consumption, that window must bind exact
-candidate `b965102...`, controller revision `191cd1f...`, an isolated
-`RC_INSTALL`, model/reasoning and cost envelope, one independent assessor,
-consumption point, and terminal stop conditions. It must inventory the sealed
-history and prove which retained observations can still be referenced without
-changing their terminal records. Missing, invalidated, or `UNKNOWN` evidence
-needs its own collection authority. Gate 3 remains blocked until a complete
-batch is independently `ACCEPTED`.
+No release action remains pending for immutable `v0.1.2`. Native review found
+one environment-bootstrap mismatch and one overbroad current-selection evidence
+claim. The bootstrap correction was applied outside tracked source under its
+separate authorization and is not repository or fresh-task behavior evidence.
+The bounded seven-file repository correction and deterministic checks are
+complete, and its writer has relinquished. The next gate is native review over
+the final exact 36-path diff. A clear same-scope P0-P2 finding may reopen that
+same bounded writer; a wider finding stops for a new decision. Staging, commit,
+push, candidate materialization, installation, fresh behavior evaluation, and
+release remain unauthorized. Product gates remain separate:
+Project Docs still needs an accepted commit and separately authorized exact-
+candidate loaded-copy/write-capable tests, while Work Charter remains at Gate 2
+until the user retains the sealed `UNKNOWN` or authorizes a new bounded
+recovery/successor plan that preserves all five consumed records.
 
 Later user-owned choices include:
 
-- authorize a bounded Work Charter Gate 2 recovery/evaluation window and its
-  exact RC, model/cost, assessor, consumption, and stop effects;
+- retain Gate 2 at the current sealed `UNKNOWN`, or authorize a separately
+  bounded recovery/successor plan without retrying or resetting the consumed
+  A01 event;
+- after an accepted Project Docs commit, authorize an exact-commit candidate
+  and write-capable synthetic persistence test;
 - begin another separately scoped development or evaluation cycle;
 - authorize a bounded external-optimizer feasibility experiment only after its
   data, isolation, provider, cost, and artifact-write contract is approved;
@@ -533,8 +598,8 @@ Stop before write or publication if:
 
 - live local/public identity, worktree, dirty scope, or writer ownership differs
   from the expected state;
-- a future action treats the completed six-document state sync or local
-  integration as authority to change a `skills/work-charter` blob;
+- a future action treats the earlier state sync, local integration, or current
+  successor qualification as authority to change a `skills/work-charter` blob;
 - any named sealed evidence input changes length or SHA-256;
 - a future action uses that completed window to add a file, change a model
   behavior case, fixture, controller, or result, or introduce a product
@@ -551,15 +616,34 @@ Stop before write or publication if:
 
 ## Authorization Boundary
 
-The post-integration authorization covered only `docs/STATUS.md`,
-`docs/HANDOFF.md`, `docs/ROADMAP.md`, `docs/VERIFICATION.md`, and the Work
-Charter `STATE.md` and `VERIFICATION.md`, plus applicable documentation checks,
-native review, and one local commit. This record closes that window. It permits
-no new file, Skill SOURCE, controller, eval contract or result, sealed-evidence,
-model or assessor call, branch/worktree change, push, RC materialization,
-installation, release, global change, cleanup, or continuing writer authority.
+The current correction authorization covered two existing local global-guidance
+consumers plus the seven existing tracked evidence/state consumers listed in
+the Snapshot and deterministic verification. That write/check portion is
+complete and its writer has relinquished. Remaining authority covers read-only
+continuation of the current native-review cycle and, only if that review returns
+a clear same-scope P0-P2 defect within those same consumers, reacquisition of one
+bounded writer plus affected checks. It changes no Skill SOURCE, case, fixture,
+accepted design, or release identity and authorizes no fresh behavior model or
+canary, Git/index mutation, candidate, installation, push, release,
+ignored-evidence cleanup, or other-Skill change.
 
-The completed user authorization covers the `v0.1.2` stable update, GitHub
+The completed 2026-08-07 authorization covered only the six existing documentation
+owners named in the Snapshot, same-scope wording/routing corrections, and
+deterministic verification. It permits no seventh file, new fact class, Skill
+SOURCE, eval or per-Skill Work Charter change, ignored or sealed artifact
+mutation, model/provider/assessor action, native review, Git/index mutation,
+push, candidate materialization, discovery or installation change, release,
+global mutation, or cleanup. It created no new product or evidence window and
+is now closed; the writer has relinquished and retains no continuing authority.
+
+The earlier ten-document A01 reconciliation authorization is historical. Its
+writer relinquished, and it grants no continuing authority.
+
+The earlier post-integration authorization covered the six-document state
+synchronization, applicable checks, native review, and one local commit; it is
+historical and grants no continuing authority.
+
+The historical release authorization covered the `v0.1.2` stable update, GitHub
 Release, this mapped evidence synchronization, deterministic verification,
 native-review gate, one local evidence commit, and fast-forward push. It does
 not authorize amend, tag movement, branch/worktree or remote reconfiguration,

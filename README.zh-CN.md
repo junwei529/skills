@@ -47,8 +47,14 @@ $work-charter 约束此项有后果的工作、权限、证据和恢复。
 $use-powershell-safely 在修改应用代码前诊断此实质 Windows shell 边界。
 ```
 
-Project Docs 只允许显式调用。Work Charter 也接受“调用 Work Charter，判断项目
-应该怎样继续”这类自然语言请求；这种直接请求会要求 Codex 加载完整 Skill，只有
+Project Docs 可以根据直接的文档治理请求，或高置信度的 authority、evidence、
+routing、recovery 症状被选择。该隐式路径只允许只读检查和提出方案，不授权采用、
+结构、canonical owner 变更或写入；`$manage-project-docs` 仍是手动 override。
+具体方案可见后，自然语言确认只授权方案列明的目标项目变更。有效的持久化项目
+路由负责普通维护，无需加载 Skill。
+
+Work Charter 也接受“调用 Work Charter，判断项目应该怎样继续”这类自然语言
+请求；这种直接请求会要求 Codex 加载完整 Skill，只有
 完整正文已经进入当前上下文后才能声称已经激活。如果正文无法加载，Codex 会说明
 加载降级并停止，不会声称已激活。若 runtime 不暴露精确加载路径或 revision，该
 身份保留为 `UNKNOWN`，Codex 不声称具体副本；这本身不阻止普通激活。对于泛化的
