@@ -852,8 +852,8 @@ Add-Check `
         $controllerRecord.historical.passed -eq 11 -and
         $controllerRecord.historical.total -eq 11 -and
         @($controllerRecord.historical.generated_contracts).Count -eq 11 -and
-        $controllerRecord.evidence_surface.passed -eq 19 -and
-        $controllerRecord.evidence_surface.total -eq 19 -and
+        $controllerRecord.evidence_surface.passed -eq 32 -and
+        $controllerRecord.evidence_surface.total -eq 32 -and
         $controllerRecord.negative.passed -eq 33 -and
         $controllerRecord.negative.total -eq 33 -and
         $controllerRecord.metamorphic.passed -eq 4 -and

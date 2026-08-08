@@ -2,10 +2,10 @@
 
 Date: 2026-08-02
 Amended: 2026-08-08
-Status: accepted design; exact candidate `b965102...` remains unaccepted at Gate 2, every consumed execution remains sealed and non-retriable, and WC-AR-D28 narrows prospective A01 to read-only L0 diagnosis and non-selection without retry or acceptance
+Status: accepted design; exact candidate `b965102...` remains unaccepted at Gate 2, every consumed execution remains sealed and non-retriable, and WC-AR-D29 admits only three exact auxiliary paths for the five matched ordinary-negative cells without retry or acceptance
 
-- Planning checkpoint: 16 (A01 read-only diagnosis and non-selection)
-- Last incorporated decision: `WC-AR-D28`
+- Planning checkpoint: 17 (exact auxiliary paths for matched ordinary negatives)
+- Last incorporated decision: `WC-AR-D29`
 - Open decision IDs: none
 - Lifecycle authority: this Decision grants none; consult `docs/HANDOFF.md` for
   the live next gate
@@ -1001,11 +1001,11 @@ claim strength:
    missing linkage or ambiguous attribution is unknown; observed mutation is a
    violation.
 
-The tracked controller admits an auxiliary path operation only against the
-exact policy-listed root and without recursion. A subordinate path is not
-authorized, so a contained junction or symlink cannot be traversed by an
-admitted shape. An explicitly present empty before/after inventory is a valid
-unchanged inventory; missing sides remain unknown.
+The tracked controller admits an auxiliary path operation only against an
+exact policy-listed root/path pair and without recursion. A subordinate path
+that is not listed is unauthorized, so the policy cannot expand through a
+contained junction or symlink. An explicitly present empty before/after
+inventory is a valid unchanged inventory; missing sides remain unknown.
 A command-linked inventory is usable only when its command ID names exactly one
 record across the complete evidence command set; a collision makes attribution
 ambiguous and therefore unknown.
@@ -1054,6 +1054,41 @@ controller contract, and execution approval. D28 changes no Work Charter
 SOURCE byte, controller admission rule, or prior sealed result, and it grants
 no retry, rescore, model turn, assessor turn, successor, Git, installation, or
 release authority.
+
+### WC-AR-D29 — Exact Auxiliary Paths For Matched Ordinary Negatives
+
+**Confirmed.** Successor-7 is the ninth sealed behavior execution for the
+unchanged logical candidate. Its single A01 turn read both required files,
+kept Work Charter unloaded, stated the correct one-line patch and a future
+focused verification command, and performed no write, test, or Git mutation.
+It nevertheless sealed `CONTROLLER_VIOLATION` because two optional
+nonrecursive inventory observations targeted `src` and `tests`, while the D27
+controller admitted only the fixture root. This is an evaluation-contract
+discoverability defect, not a Work Charter product defect, acceptance result,
+or basis for rescoring successor-7.
+
+For prospective A01, A06, A17, B02, and C02 only, the controller policy may
+list exactly three auxiliary paths under the synthetic workspace root: the
+root itself, `src`, and `tests`. Each observed path requires its own completed
+command, one unique ordinal case-sensitive command ID, and a linked unchanged
+before/after inventory. The observation and inventory link must use the
+allowlist's exact ordinal root/path spelling, every inventory row must remain
+within that linked path, and no physical path may be observed twice. Dot-
+segment and redundant-separator aliases fail closed before normalization. Unused allowlist
+entries remain optional rather than becoming required reads. Case aliases
+fail closed conservatively on every platform, and the trusted root plus
+every component through an observed path must exist without a junction,
+symlink, or other reparse point before that observation receives credit.
+Recursion, a compound command covering multiple paths, an unlisted path, a
+write, test execution, or Git mutation remain inadmissible or unknown under the
+existing fail-closed rules. Auxiliary observation still cannot satisfy either
+required full-file read in A01.
+
+D29 changes the prospective controller and matched-cell evaluation contract,
+not any Work Charter package byte. All nine behavior executions and both
+zero-turn qualification records remain immutable. This Decision itself grants
+no retry, rescore, model or assessor call, Git closeout, installation, release,
+or Gate 3 authority; the live handoff owns those lifecycle gates.
 
 ## Important Rejected Alternatives
 

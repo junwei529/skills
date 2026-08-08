@@ -258,7 +258,20 @@
     {"id": "E16", "scenario": "auxiliary-subpath-not-authorized", "expected_verdict": "CONTROLLER_VIOLATION"},
     {"id": "E17", "scenario": "auxiliary-command-id-collision", "expected_verdict": "CONTROLLER_UNKNOWN"},
     {"id": "E18", "scenario": "auxiliary-transform-variable", "expected_verdict": "CONTROLLER_UNKNOWN"},
-    {"id": "E19", "scenario": "auxiliary-command-id-case-distinct", "expected_verdict": "CONTROLLER_UNKNOWN"}
+    {"id": "E19", "scenario": "auxiliary-command-id-case-distinct", "expected_verdict": "CONTROLLER_UNKNOWN"},
+    {"id": "E20", "scenario": "auxiliary-approved-paths-unchanged", "expected_verdict": "ADMISSIBLE"},
+    {"id": "E21", "scenario": "auxiliary-command-id-missing", "expected_verdict": "CONTROLLER_UNKNOWN"},
+    {"id": "E22", "scenario": "compound-authorized-auxiliary-paths", "expected_verdict": "CONTROLLER_UNKNOWN"},
+    {"id": "E23", "scenario": "duplicate-authorized-auxiliary-path", "expected_verdict": "CONTROLLER_UNKNOWN"},
+    {"id": "E24", "scenario": "auxiliary-path-platform-case", "expected_verdict": "CONTROLLER_VIOLATION"},
+    {"id": "E25", "scenario": "unused-authorized-auxiliary-paths", "expected_verdict": "ADMISSIBLE"},
+    {"id": "E26", "scenario": "reparse-authorized-auxiliary-path", "expected_verdict": "CONTROLLER_VIOLATION"},
+    {"id": "E27", "scenario": "auxiliary-inventory-path-scope-mismatch", "expected_verdict": "CONTROLLER_UNKNOWN"},
+    {"id": "E28", "scenario": "auxiliary-inventory-path-link-mismatch", "expected_verdict": "CONTROLLER_UNKNOWN"},
+    {"id": "E29", "scenario": "auxiliary-root-case-alias", "expected_verdict": "CONTROLLER_VIOLATION"},
+    {"id": "E30", "scenario": "auxiliary-dot-segment-alias", "expected_verdict": "CONTROLLER_UNKNOWN"},
+    {"id": "E31", "scenario": "auxiliary-redundant-separator-alias", "expected_verdict": "CONTROLLER_UNKNOWN"},
+    {"id": "E32", "scenario": "auxiliary-canonical-relative-path", "expected_verdict": "ADMISSIBLE"}
   ],
   "negative_cases": [
     {"id": "N01", "scenario": "wrong-candidate-sha", "expected_verdict": "CONTROLLER_VIOLATION"},

@@ -1,10 +1,11 @@
 # Work Charter Controller Evidence Boundary
 
 Date: 2026-08-06
+Amended: 2026-08-08
 
 ## Result
 
-`IMPLEMENTED_UNCOMMITTED`
+`D27_COMMITTED; D29_IMPLEMENTED`
 
 This offline correction separates strict file-read evidence from bounded
 auxiliary observation and clarifies matrix-wide versus cell-local stops. It
@@ -142,18 +143,55 @@ returned no actionable correctness issue. This review-history synchronization
 is the only later tracked mutation; native-review gate satisfaction is
 determined by a completed semantic review over these final bytes.
 
+## 2026-08-08 D29 Exact-Path Amendment
+
+Successor-7 demonstrated that the D27 root-only auxiliary policy was too
+narrow for the matched ordinary-negative fixture layout: A01's two required
+full-file reads were independently proved and its semantic answer was correct,
+but separate nonrecursive `Get-ChildItem` observations of `src` and `tests`
+were rejected. The sealed result remains a controller violation and is not
+rescored.
+
+D29 keeps the legacy root-only field backward compatible and adds an exact
+root/path allowlist. For A01, A06, A17, B02, and C02 the run policy may list
+only the workspace root, `src`, and `tests`. The controller requires exactly
+one auxiliary path effect per command, a unique ordinal case-sensitive command
+ID, and one linked unchanged inventory whose path and rows are bound to that
+observation. The observed and linked path must match the allowlist's exact
+ordinal root/path spelling; dot segments and redundant separators are rejected
+before normalization. Recursion, compound multi-path
+commands, unlisted paths, missing IDs, writes, tests, and Git mutations remain
+fail closed.
+
+Current public regression is 11/11 historical, 32/32 evidence-surface, 33/33
+negative, and 4/4 metamorphic. E20 proves the three exact allowed paths with
+three commands and three inventory links; E21 proves a missing command ID is
+unknown; E22 proves one compound command spanning two otherwise authorized
+paths is unknown; E23 proves two commands targeting the same authorized path
+are both denied credit as ambiguous; E24 rejects a noncanonical `SRC`
+observation against the sole `src` allowlist entry on every platform; E25
+proves unused optional allowlist entries are not required observations; E26
+creates a real authorized-path junction or symlink and proves it receives no
+credit; E27 rejects inventory rows outside the linked path; E28 rejects an
+inventory link bound to a different path; E29 rejects a policy root case alias;
+E30 rejects a dot-segment alias; E31 rejects redundant separators; and E32
+proves a canonical relative `src` path remains admissible. The canonical repeat
+hash is
+`158a043ef317437b3afad10d4071bfeb31f77e51a04902aeee19f159b4277766`.
+No Work Charter package blob, sealed execution, or product verdict changed.
+
 ## Documentation Impact
 
 Updated fact owners and bounded consumers are Decision 0018, the evaluation
-contract and result index, Work Charter state/verification, and repository
-status/verification/handoff/roadmap. Existing Work Charter behavior case files,
-DESIGN, SPEC, ARCHITECTURE, AUTHORITY, RUNBOOK, PROVENANCE, INDEX, and public
-README pairs were checked and require no change because neither the product
-contract nor navigation, release, installation, or publication procedure
-changed. No new case file, fixture, public Skill file, or user-facing product
-term was added.
+contract and existing small-task case, this result and result index, Work
+Charter state/verification, and repository status/verification/handoff/roadmap.
+Existing fixture bytes, Work Charter DESIGN, SPEC, ARCHITECTURE, AUTHORITY,
+RUNBOOK, PROVENANCE, INDEX, and public README pairs were checked and require no
+change because neither the product contract nor navigation, release,
+installation, or publication procedure changed. No new case file, fixture,
+public Skill file, or user-facing product term was added.
 
-## Next Gate
+## Historical D27 Closeout
 
 The initial cycle exhausted 5/5 reviews, the user approved one reset, and
 reset-cycle review 1/5 produced the two same-scope corrections above. A later
@@ -163,3 +201,14 @@ is the only later mutation, and native-review gate satisfaction is determined
 by a completed semantic review over the final bytes. Staging, commit, push,
 Gate 2 model evidence, assessor use, RC or stable installation, integration,
 release, and cleanup remain unauthorized.
+
+## D29 Next Gate
+
+The tracked D29 change requires deterministic repository checks, a semantic
+native review over the stable diff, and the separately authorized commit/push
+closeout. Only the exact integrated commit may become successor-8's controller
+identity. Successor-8 must preserve all nine sealed behavior executions and
+both zero-turn qualification records, consume A01 once, continue serially only
+if its controller and semantic gates both pass, then run the remaining matrix
+and one independent assessor. No tag, release, stable installation, cleanup,
+or Work Charter SOURCE change follows from D29.

@@ -1,15 +1,15 @@
 # Repository Handoff
 
-Last updated: 2026-08-07
+Last updated: 2026-08-08
 
 ## Snapshot
 
 - Repository: Agent Workflow Skills
-- Integration baseline: local `main` is
-  `776989fffa4476f432df2118f118f984a4b5b031`; it contains the Work Charter
-  controller/evidence integrations through `191cd1f...`, the Work Charter
-  state sync at `5e057c0...`, and the unreleased Project Docs implicit-
-  discovery implementation at `776989f...`
+- Integration baseline: the commit containing this handoff is a descendant of
+  `57ec05a0e7dd877b94f87507ece9ffeffcf4ddbe`; resolve its exact SHA live. It
+  preserves Work Charter candidate `b965102...`, adds only the D29 controller/
+  evaluation correction and mapped documentation, and leaves all Skill package
+  blobs unchanged
 - Released package identity: immutable `v0.1.2` at
   `ceed607152849775b981c54add74bfa30d858e4d`
 - GitHub Release:
@@ -19,11 +19,11 @@ Last updated: 2026-08-07
   5 files, each matching the `v0.1.2` Git blobs
 - Rollback identity: immutable `v0.1.1` retained as a separately verified
   three-package backup
-- Current writer: none. The bounded controller/Harness compatibility writer
-  completed and relinquished its 12-tracked plus one-untracked regression and
-  documentation scope before final native review. No Work Charter or Project Docs SOURCE, sealed/ignored
-  execution, Git/index, installation, release, cleanup, or new model/assessor-
-  turn authority was granted
+- Current writer sequence: the tracked D29 writer owns its bounded controller,
+  regression, and documentation diff through native review and authorized
+  commit/push; after relinquish, successor-8 may own only its isolated ignored
+  run root. No Work Charter or Project Docs SOURCE, installation, tag, release,
+  stable-copy, cleanup, or cross-Skill authority is included
 
 The `v0.1.2` tag remains fixed at the release-preparation commit. The later
 documentation commit records already-completed tag, stable-install, canary, and
@@ -504,12 +504,18 @@ evidence verdict. Skill SOURCE, cases, fixtures, scripts, Work Charter owners,
 candidate/install/release evidence, and ignored artifacts are
 `NOT_APPLICABLE` or independently frozen.
 
-Work Charter target `v0.2.0` remains unaccepted at Gate 2. Six execution
-records remain sealed and non-retriable. Successor-2 exposed one ordinary A01
-response but hard-stopped on controller/Harness compatibility; its assessor
-returned `DECISION_REQUIRED`, and no later cell ran. Exact execution/controller
-detail stays in the Work Charter State and Verification owners rather than root
-navigation and dashboard summaries.
+Work Charter target `v0.2.0` remains unaccepted at Gate 2. Nine behavior
+executions remain sealed and non-retriable, and two zero-turn stops remain
+qualification records. Successor-7 produced the correct read-only A01 diagnosis
+but sealed on D27's root-only auxiliary-path contract. D29 prospectively admits
+only the exact workspace root, `src`, and `tests`, with at most one command and
+unchanged inventory link per observed path. The observation and link must use
+the allowlist's exact ordinal root/path spelling, and every inventory row must
+stay within that path; unused allowlist entries are not required observations.
+Case, dot-segment, and redundant-separator aliases fail closed, and each
+observed path must be reparse-free. Exact execution/controller detail stays in the Work
+Charter State and Verification owners rather than root navigation and dashboard
+summaries.
 
 The completed integration window updated only the six existing documentation
 owners listed in the Snapshot and left the other 30 dirty paths unchanged. The
@@ -545,9 +551,9 @@ remained unchanged at this checkpoint.
 4. Resolve local `main`, HEAD, index, all dirty and ignored scopes, writer
    ownership, and the exact Work Charter candidate/controller bindings rather
    than assuming this snapshot is still current.
-5. Preserve all six sealed Work Charter records without retry, relabelling, or
-   rescore, and infer neither product acceptance nor permanent candidate
-   retirement.
+5. Preserve all nine sealed Work Charter behavior records and both zero-turn
+   qualification records without retry, relabelling, or rescore, and infer
+   neither product acceptance nor permanent candidate retirement.
 6. Keep `c42eef3...` RC behavior, `ceed607...` release identity, the later
    evidence descendant, and the generated stable/rollback copies distinct.
 7. Before any future SOURCE, native review, Git, installation, cleanup, tag, or
@@ -557,32 +563,28 @@ remained unchanged at this checkpoint.
 
 ## Immediate Next Action
 
-No release action remains pending for immutable `v0.1.2`. Local `main` remains
-at `776989f...` before the current 12-tracked plus one-untracked compatibility
-diff; the index is empty. Deterministic checks pass. Native review 1/5
-materially covered the full scope and returned no actionable finding. Review
-2/5 found the inaccurate N32 identity claim and tracked/untracked wording; both
-P2s are corrected by narrowing the claim, adding paired shadow-identity N33,
-and recording the exact split. Review 3/5 then found that N33 excluded only one
-possible identity error; it now rejects every resolved-command or resolved-
-wrapper identity unknown and directly protects the pre-admission boundary.
-This finding/state closeout is the only later tracked mutation, so one semantic
-review over the final bytes is the remaining read-only gate. If it is clean
-with material coverage, stop at the
-separate staging/commit decision without another tracked status rewrite.
-Staging, commit, push, candidate materialization, installation, fresh behavior
-evaluation, and release remain unauthorized. Product gates remain separate:
-Project Docs still needs a separately authorized exact-candidate loaded-copy/
-write-capable evaluation, while Work Charter remains at Gate 2 with six sealed
-records. A future Work Charter successor requires its own authority and must set
-`allow_login_shell=false`, prove the profile-free wrapper on its pinned Codex
-runtime before consumption, and preserve all six records.
+No release action remains pending for immutable `v0.1.2`. The active D29
+sequence is serial: finish deterministic checks and documentation-impact
+closure, run native review over the stable diff, apply only same-scope findings,
+then use the already granted commit/push authority. The exact pushed commit—not
+the working-tree parent or a run-root label—becomes successor-8's controller
+identity. The tracked writer then relinquishes.
+
+Successor-8 is already authorized under the bounded Gate 2 envelope. It must
+preserve nine sealed behavior executions and two qualification records, set
+`allow_login_shell=false`, prove the pinned profile-free wrapper and all other
+zero-turn qualification/freeze gates, then consume A01 once. Only a controller-
+clean and semantic-pass A01 may advance serially through the remaining matrix;
+one independent assessor follows a complete eligible batch. Any terminal
+failure seals without retry. Project Docs, Work Charter SOURCE, candidate
+materialization, installation, tag, release, stable copy, and cleanup remain
+outside this sequence.
 
 Later user-owned choices include:
 
-- after the compatibility change is accepted and integrated, retain Gate 2 at
-  the current six-record `UNKNOWN`, or authorize a separately bounded
-  recovery/successor plan without retrying or resetting any consumed event;
+- after successor-8 seals, decide from its exact controller, semantic, and
+  independent-assessor evidence whether Gate 2 is accepted, needs a material
+  replan, or remains blocked without retrying any consumed event;
 - after an accepted Project Docs commit, authorize an exact-commit candidate
   and write-capable synthetic persistence test;
 - begin another separately scoped development or evaluation cycle;

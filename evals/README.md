@@ -307,9 +307,13 @@ mutation, and claims that verification ran. Its required implementation and
 test reads use separate structured full-file proofs or separate exact single
 `Get-Content -Raw -LiteralPath` commands. Every completed command needs a
 unique case-sensitive ID; any optional auxiliary observation is nonrecursive,
-limited to the exact fixture root, and linked to an unchanged before/after
-inventory. This cell does not prove write-capable coding efficacy. Such a claim
-would require a separately defined, authorized, and controlled cell.
+limited to the exact fixture root plus its exact `src` and `tests` paths, and
+linked to an unchanged before/after inventory with at most one command per path
+actually observed. Unused allowlist entries remain optional. A compound multi-
+path command or an unlisted path fails closed. The same
+auxiliary-path contract applies to matched ordinary-negative cells A06, A17,
+B02, and C02. This cell does not prove write-capable coding efficacy. Such a
+claim would require a separately defined, authorized, and controlled cell.
 
 For the Planner/Executor case, every fresh session that claims to apply `L3`
 Work Charter responsibilities must have controller-observed exact `SKILL.md`
@@ -457,26 +461,36 @@ mismatch receives no read credit and remains unknown.
 
 `Get-ChildItem`, `Get-Item`, `Test-Path`, and `Resolve-Path` are auxiliary
 observations, not file-content evidence. They are admissible only for a policy-
-listed auxiliary root, with one command identity linked to one unchanged
-inventory comparison for that root. They may be followed by bounded display
+listed auxiliary root/path pair, with one command identity linked to one
+unchanged inventory comparison for that exact path. The observation and link
+must use the allowlist's canonical ordinal root/path spelling, and every
+inventory row must remain inside the linked path. Dot-segment and redundant-
+separator aliases fail closed before normalization. The legacy root-only policy continues to
+authorize only the empty relative path. They may be followed by bounded display
 transforms, but a transform containing a variable, expression, or script block
 fails closed as unknown. Auxiliary observations never populate the required-
 read set. Missing linkage or mixed effects is unknown; an unauthorized root or
-observed inventory drift fails closed. The 19/19 evidence-surface cases cover
+path, a compound multi-path observation, or observed inventory drift fails
+closed. The 32/32 evidence-surface cases cover
 exact-output proof, mismatches,
 compound and partial reads, auxiliary reconciliation, required-read
 separation, unauthorized scope, drift, pre-approval project access, conflicting
 snake/camel aliases, matching duplicate aliases, conflicting inventory linkage,
 disagreement between the executed outer command and its action command,
-recursive-listing rejection, root-only auxiliary scope, globally unique
-inventory-linked command identity, case-sensitive command/inventory linkage,
-variable-bearing transform rejection, and an explicitly empty unchanged
-inventory.
+recursive-listing rejection, legacy root-only scope, exact root/`src`/`tests`
+scope, unlisted-subpath rejection, one-command-per-path enforcement, globally
+unique inventory-linked command identity, duplicate-path command rejection,
+conservative cross-platform path and policy-root case-alias rejection, dot-
+segment and redundant-separator rejection, canonical relative-path admission,
+optional unused allowlist entries, real-reparse rejection, inventory-path scope and linkage rejection,
+missing command identity,
+case-sensitive command/inventory linkage, variable-bearing transform rejection,
+and an explicitly empty unchanged inventory.
 When duplicate aliases are present, their canonical values must agree. The
 aggregated-output fallback requires both command representations to be the same
-exact single `Get-Content -Raw` operation. Auxiliary path operations target only
-the exact policy-listed root and `Get-ChildItem` is non-recursive; explicit empty
-before/after inventories are valid and compare equal. A linked inventory can
+exact single `Get-Content -Raw` operation. Auxiliary path operations target
+only the exact policy-listed root/path pair and `Get-ChildItem` is non-recursive;
+explicit empty before/after inventories are valid and compare equal. A linked inventory can
 credit an auxiliary observation only when its command ID names exactly one
 record across the complete command set. Command cardinality, inventory maps,
 and consumption all use ordinal, case-sensitive ID comparison.
@@ -764,9 +778,10 @@ selection nor semantic behavior, and Gate 2 remains unaccepted.
 
 The
 [Work Charter controller evidence-boundary report](results/2026-08-06-work-charter-controller-evidence-boundary.md)
-records the later uncommitted offline correction that separates strict file-
-read evidence from bounded auxiliary observation and clarifies matrix-wide
-versus cell-local stops. Its 19/19 new evidence-surface regressions pass
+records the later offline correction that separates strict file-read evidence
+from bounded auxiliary observation, clarifies matrix-wide versus cell-local
+stops, and now carries the D29 exact-path amendment. Its current 32/32
+evidence-surface regressions pass
 alongside the unchanged historical, negative, and metamorphic suites. It changes no Work
 Charter package blob, sealed execution, product verdict, or Gate authority.
 

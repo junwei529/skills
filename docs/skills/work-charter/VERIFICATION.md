@@ -1,6 +1,6 @@
 # Work Charter Verification
 
-Last updated: 2026-08-07
+Last updated: 2026-08-08
 
 ## Claim Ledger
 
@@ -12,9 +12,10 @@ Last updated: 2026-08-07
 | First `v0.2.0` exact candidate Gate 2 | `206c497...` stopped incomplete and is superseded for acceptance; its completed correction and consumed events remain historical |
 | Successor `v0.2.0` exact candidate Gate 2 | `92a8c045...` passed qualification and consumed A01-A04; A04 hard-stopped on an unproved selected/loaded claim, so no candidate acceptance or later cell exists |
 | Exact `72db7e9...` fixed-turn Standard probe | one one-shot bundle completed four fresh primary sessions, sealed `VIOLATION`, created no subagent activity, left A16 unexecuted, and permits no retry or retrospective rescore |
-| Exact `b965102...` product candidate | five package blobs are fixed; six Gate 2 executions are individually sealed and non-retriable; behavior acceptance was not achieved, the candidate is not permanently retired, and later controller/runner work is a distinct evidence-infrastructure identity |
-| Tracked Codex evidence controller | locally integrated baseline `191cd1f...`; current offline regression passes source/generated-contract-bound historical 11/11, evidence-surface 19/19, negative 33/33, and metamorphic 4/4 plus the existing identity, proof, Git, topology, no-clobber, and repeatability guards; N31 preserves the exact missing-`-NoProfile` fail-closed consequences, while N32/N33 preserve trusted-shaped and shadow-identity failed Git reads as `CONTROLLER_UNKNOWN` diagnostics without claiming identity admission or adding a false write/mutation label; this is controller qualification only, not candidate behavior acceptance |
+| Exact `b965102...` product candidate | five package blobs are fixed; nine Gate 2 behavior executions are individually sealed and non-retriable, while two later zero-turn stops remain qualification records; behavior acceptance was not achieved, the candidate is not permanently retired, and later controller/runner work is a distinct evidence-infrastructure identity |
+| Tracked Codex evidence controller | integrated D27 baseline `191cd1f...` plus the current D29 exact-path revision; current offline regression passes source/generated-contract-bound historical 11/11, evidence-surface 32/32, negative 33/33, and metamorphic 4/4 plus the existing identity, proof, Git, topology, no-clobber, and repeatability guards; the legacy root-only policy remains compatible, exact optional root/`src`/`tests` paths permit canonical absolute or relative forms with at most one command and inventory link per observed physical path, the observation and link must match the canonical allowlist root/path spelling ordinally, every inventory row must remain within the linked path, unused allowlist entries are not required, case, dot-segment, and redundant-separator aliases fail closed, and missing IDs, compound paths, repeated paths, reparse-routed paths, recursion, or unlisted paths fail closed; this is controller qualification only, not candidate behavior acceptance |
 | Exact `b965102...` Gate 2 successor-2 A01 terminal | successor-2 preserved five predecessors and the exact candidate/control/controller bindings, passed offline qualification and freeze, then consumed one authorized A01 `Sol/high` turn; the response stayed flat, read no Work Charter file, identified the intended correction, reported the read-only boundary, and changed no reconciled inventory, but live commands used a PowerShell wrapper without `-NoProfile` and one Git read failed; the controller returned `CONTROLLER_UNKNOWN`, the carrier sealed a partial hard stop before A02, and one authorized `Terra/high` assessor returned `DECISION_REQUIRED` |
+| Exact `b965102...` Gate 2 successor-7 A01 terminal | successor-7 is the ninth sealed behavior execution; its single A01 turn proved both required reads, stayed flat, proposed the correct patch and future test command, and performed no write, test, or Git mutation, but D27 rejected its separate `src` and `tests` auxiliary observations, so the immutable result remains `CONTROLLER_VIOLATION`; D29 is prospective infrastructure only |
 | Isolated path-bound controller canary | private retained sealed `CANARY_PASS`; the public summary reports an exact-response pass and no command execution, omits locator/artifact/runtime details, leaves physical backend request count `UNKNOWN`, and proves neither natural-language selection nor candidate acceptance |
 | Small bounded work stays flat | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
 | Midstream implicit behavior is proposal-only | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
@@ -632,12 +633,13 @@ repository result over governance baseline `f55b15a...`.
 
 ### Gate 2 Recovery Boundary
 
-All six sealed execution records and their consumed events remain immutable.
-Each successor for exact candidate `b965102...` was a separately authorized
-Gate 2 evidence window, not a retry or relabelling of a prior execution. Before
-its first model `turn/start`, each bound its exact candidate/controller inputs,
-approved model/reasoning envelope, consumption point, and terminal stop
-behavior.
+All nine sealed behavior execution records and their consumed events remain
+immutable. Successors 3 and 5 remain separate zero-turn qualification records.
+Each behavior successor for exact candidate `b965102...` was a separately
+authorized Gate 2 evidence window, not a retry or relabelling of a prior
+execution. Before its first model `turn/start`, each bound its exact candidate/
+controller inputs, approved model/reasoning envelope, consumption point, and
+terminal stop behavior.
 
 The pre-consumption reconciliation must enumerate the required matrix evidence
 and prove which retained observations, if any, still have exact source,
@@ -1076,6 +1078,49 @@ attempted write or mutation. Failed records stop before resolved-identity
 admission, so neither case proves or claims identity validation. Public offline
 mode passes 33/33 negatives. No controller relaxation, Work Charter SOURCE
 change, successor authorization, or retrospective rescore follows.
+
+### 2026-08-08 — Successors 3-7 And D29 Exact-Path Correction
+
+Successors 3 and 5 stopped before any model turn and remain qualification
+records. Successor-4 consumed A01 once and sealed the seventh behavior record
+without an admissible completed command surface. Successor-6 consumed A01 once
+and sealed the eighth on mixed or missing auxiliary attribution. Neither is
+product acceptance or reusable behavior proof.
+
+Successor-7 passed isolated qualification and consumed one A01 turn. The turn
+read both required fixture files, did not load Work Charter, proposed the exact
+`return end - start + 1` patch, named the focused unittest command as future
+work, and executed no write, test, or Git mutation. Required-read evidence and
+semantic content were correct. The controller's only violation was
+`auxiliary_read_path_not_authorized` for separate nonrecursive `src` and
+`tests` inventory observations under D27's root-only policy. It therefore
+sealed as the ninth immutable behavior execution; no later cell or assessor ran.
+
+D29 keeps that result unchanged and corrects the prospective matched-cell
+contract. A01, A06, A17, B02, and C02 may authorize only the exact workspace
+root, `src`, and `tests`, with one unique ordinal case-sensitive command ID and
+one unchanged inventory link per path. The observation and link must use the
+allowlist's exact ordinal root/path spelling, and every inventory row must
+remain within the linked path. E20 admits those three separate path
+observations. E21 rejects a missing command ID as unknown. E22 rejects a single
+compound command spanning `src` and `tests` as unknown. E16 continues to reject
+an unlisted subordinate path, E23 rejects two commands targeting the same
+authorized path, E24 rejects an observed `SRC` alias against the sole canonical
+`src` allowlist entry on every platform, E25 proves unused optional allowlist
+entries are not required observations, E26 creates a real junction or symlink
+at an authorized path and proves it is rejected before credit, E27 rejects
+inventory rows outside their linked path, E28 rejects an inventory link bound
+to a different path, E29 rejects a policy root case alias, E30 rejects a dot-
+segment alias, E31 rejects redundant separators, and E32 proves the canonical
+relative `src` form remains admissible. E14 rejects recursion, and all required reads,
+write/test/Git boundaries, history, and product identity remain unchanged.
+
+The focused public suite passes 11/11 historical, 32/32 evidence-surface,
+33/33 negative, and 4/4 metamorphic at canonical repeat hash
+`158a043ef317437b3afad10d4071bfeb31f77e51a04902aeee19f159b4277766`.
+This proves only the offline controller revision. Successor-8 must bind the
+exact integrated commit and independently pass zero-turn qualification before
+its separately authorized single A01 consumption.
 
 ## Required Checks
 

@@ -151,6 +151,55 @@ function Test-ControllerRelativePath {
     )
 }
 
+function Get-ControllerAuxiliaryPathComparer {
+    return [System.StringComparer]::OrdinalIgnoreCase
+}
+
+function Test-ControllerAuxiliaryPathTopology {
+    param(
+        [Parameter(Mandatory)][string]$RootPath,
+        [Parameter(Mandatory)][AllowEmptyString()][string]$RelativePath
+    )
+
+    try {
+        $current = [System.IO.Path]::GetFullPath($RootPath)
+    }
+    catch {
+        return [pscustomobject]@{
+            Error = 'auxiliary_read_path_topology_not_proven'
+            Violation = $null
+        }
+    }
+
+    $paths = [System.Collections.Generic.List[string]]::new()
+    $paths.Add($current)
+    if (-not [string]::IsNullOrEmpty($RelativePath)) {
+        foreach ($segment in @($RelativePath.Replace('\', '/').Split('/'))) {
+            $current = Join-Path $current $segment
+            $paths.Add($current)
+        }
+    }
+
+    foreach ($path in $paths) {
+        try {
+            $attributes = [System.IO.File]::GetAttributes($path)
+        }
+        catch {
+            return [pscustomobject]@{
+                Error = 'auxiliary_read_path_topology_not_proven'
+                Violation = $null
+            }
+        }
+        if (($attributes -band [System.IO.FileAttributes]::ReparsePoint) -ne 0) {
+            return [pscustomobject]@{
+                Error = $null
+                Violation = 'auxiliary_read_path_reparse_not_authorized'
+            }
+        }
+    }
+    return [pscustomobject]@{ Error = $null; Violation = $null }
+}
+
 function ConvertTo-ControllerContentIdentity {
     param([AllowNull()][object]$Value)
 
@@ -1328,46 +1377,135 @@ function ConvertTo-ControllerRoots {
     return [pscustomobject]@{ Valid = $true; Normalized = [pscustomobject]$normalized }
 }
 
-function Get-AuxiliaryReadRootSet {
+function Get-AuxiliaryReadAuthorization {
     param(
         [AllowNull()][object]$Policy,
         [AllowNull()][object]$Roots
     )
 
-    $set = [System.Collections.Generic.HashSet[string]]::new(
+    $rootSet = [System.Collections.Generic.HashSet[string]]::new(
         [System.StringComparer]::OrdinalIgnoreCase
     )
+    $pathSet = [System.Collections.Generic.HashSet[string]]::new(
+        (Get-ControllerAuxiliaryPathComparer)
+    )
+    $canonicalPathMap = [System.Collections.Generic.Dictionary[string, string]]::new(
+        (Get-ControllerAuxiliaryPathComparer)
+    )
     $errors = [System.Collections.Generic.List[string]]::new()
-    $state = Get-ControllerPropertyState -Object $Policy -Name 'auxiliary_read_roots'
-    if (-not $state.Present) {
-        return [pscustomobject]@{ Set = $set; Errors = @() }
-    }
-    if ($null -eq $Roots) {
-        return [pscustomobject]@{
-            Set = $set
-            Errors = @('auxiliary_read_roots_require_valid_policy_roots')
-        }
-    }
     $available = [System.Collections.Generic.HashSet[string]]::new(
         [System.StringComparer]::OrdinalIgnoreCase
     )
-    foreach ($property in @($Roots.PSObject.Properties)) {
-        [void]$available.Add([string]$property.Name)
-    }
-    foreach ($value in @($state.Value)) {
-        if ($value -isnot [string] -or [string]::IsNullOrWhiteSpace([string]$value) -or
-            -not $available.Contains([string]$value)) {
-            $errors.Add('auxiliary_read_root_invalid')
-            continue
+    $canonicalRootNames =
+        [System.Collections.Generic.Dictionary[string, string]]::new(
+            [System.StringComparer]::OrdinalIgnoreCase
+        )
+    if ($null -ne $Roots) {
+        foreach ($property in @($Roots.PSObject.Properties)) {
+            $declaredRootName = [string]$property.Name
+            [void]$available.Add($declaredRootName)
+            if (-not $canonicalRootNames.ContainsKey($declaredRootName)) {
+                $canonicalRootNames[$declaredRootName] = $declaredRootName
+            }
         }
-        if (-not $set.Add([string]$value)) {
-            $errors.Add('duplicate_auxiliary_read_root')
+    }
+
+    $rootState = Get-ControllerPropertyState -Object $Policy -Name 'auxiliary_read_roots'
+    if ($rootState.Present) {
+        if ($null -eq $Roots) {
+            $errors.Add('auxiliary_read_roots_require_valid_policy_roots')
+        }
+        else {
+            foreach ($value in @($rootState.Value)) {
+                if ($value -isnot [string] -or
+                    [string]::IsNullOrWhiteSpace([string]$value) -or
+                    -not $available.Contains([string]$value)) {
+                    $errors.Add('auxiliary_read_root_invalid')
+                    continue
+                }
+                if (-not $rootSet.Add([string]$value)) {
+                    $errors.Add('duplicate_auxiliary_read_root')
+                    continue
+                }
+                $key = '{0}|' -f ([string]$value).ToLowerInvariant()
+                [void]$pathSet.Add($key)
+                $canonicalPathMap[$key] = $key
+            }
         }
     }
+
+    $pathState = Get-ControllerPropertyState -Object $Policy -Name 'auxiliary_read_paths'
+    if ($pathState.Present) {
+        if ($null -eq $Roots) {
+            $errors.Add('auxiliary_read_paths_require_valid_policy_roots')
+        }
+        else {
+            foreach ($entry in @($pathState.Value)) {
+                $root = Get-ObjectValue -Object $entry -Name 'root'
+                $entryPathState = Get-ControllerPropertyState -Object $entry -Name 'path'
+                if ($root -isnot [string] -or
+                    [string]::IsNullOrWhiteSpace([string]$root) -or
+                    -not $entryPathState.Present -or
+                    $entryPathState.Value -isnot [string]) {
+                    $errors.Add('auxiliary_read_path_shape_invalid')
+                    continue
+                }
+                if (-not $available.Contains([string]$root)) {
+                    $errors.Add('auxiliary_read_root_invalid')
+                    continue
+                }
+                $canonicalRootName = $canonicalRootNames[[string]$root]
+                if ($canonicalRootName -cne [string]$root) {
+                    $errors.Add('auxiliary_read_root_case_alias_not_authorized')
+                    continue
+                }
+                $relativePath = ([string]$entryPathState.Value).Replace('\', '/')
+                if (-not [string]::IsNullOrEmpty($relativePath) -and
+                    -not (Test-ControllerRelativePath -Value $relativePath)) {
+                    $errors.Add('auxiliary_read_path_shape_invalid')
+                    continue
+                }
+                [void]$rootSet.Add($canonicalRootName)
+                $key = '{0}|{1}' -f $canonicalRootName.ToLowerInvariant(), $relativePath
+                if (-not $pathSet.Add($key)) {
+                    $errors.Add('duplicate_auxiliary_read_path')
+                }
+                else {
+                    $canonicalPathMap[$key] = $key
+                }
+            }
+        }
+    }
+
     return [pscustomobject]@{
-        Set = $set
+        RootSet = $rootSet
+        PathSet = $pathSet
+        CanonicalPathMap = $canonicalPathMap
         Errors = @($errors | Sort-Object -Unique)
     }
+}
+
+function Test-ControllerInventoryRowsWithinPath {
+    param(
+        [Parameter(Mandatory)][AllowEmptyCollection()][object[]]$Rows,
+        [Parameter(Mandatory)][AllowEmptyString()][string]$RelativePath
+    )
+
+    if ([string]::IsNullOrEmpty($RelativePath)) {
+        return $true
+    }
+    $prefix = $RelativePath.TrimEnd('/') + '/'
+    foreach ($row in $Rows) {
+        $rowPath = ([string](Get-ObjectValue `
+            -Object $row `
+            -Name 'path' `
+            -Default '')).Replace('\', '/')
+        if ($rowPath -cne $RelativePath -and
+            -not $rowPath.StartsWith($prefix, [System.StringComparison]::Ordinal)) {
+            return $false
+        }
+    }
+    return $true
 }
 
 function Resolve-ControllerPath {
@@ -1427,6 +1565,61 @@ function Resolve-ControllerPath {
     return [pscustomobject]@{ Error = 'unauthorized_root'; Root = $null; RelativePath = $null }
 }
 
+function Test-ControllerAuxiliaryPathSpelling {
+    param(
+        [Parameter(Mandatory)][string]$Path,
+        [Parameter(Mandatory)][string]$Cwd,
+        [Parameter(Mandatory)][object]$Roots,
+        [Parameter(Mandatory)][object]$Resolved
+    )
+
+    try {
+        $rootProperties = @($Roots.PSObject.Properties | Where-Object {
+            [string]$_.Name -ceq [string]$Resolved.Root
+        })
+        if ($rootProperties.Count -ne 1) {
+            return $false
+        }
+        $rootPath = [System.IO.Path]::GetFullPath(
+            [string]$rootProperties[0].Value
+        ).TrimEnd('\', '/')
+        $relativePath = [string]$Resolved.RelativePath
+        $targetPath = if ([string]::IsNullOrEmpty($relativePath)) {
+            $rootPath
+        }
+        else {
+            [System.IO.Path]::GetFullPath((Join-Path $rootPath (
+                $relativePath.Replace(
+                    '/',
+                    [System.IO.Path]::DirectorySeparatorChar
+                )
+            )))
+        }
+        if ([System.IO.Path]::IsPathRooted($Path)) {
+            return $Path -ceq $targetPath
+        }
+
+        $cwdPath = [System.IO.Path]::GetFullPath($Cwd).TrimEnd('\', '/')
+        $expectedRelativePath = if ($targetPath -ceq $cwdPath) {
+            '.'
+        }
+        else {
+            $cwdPrefix = $cwdPath + [System.IO.Path]::DirectorySeparatorChar
+            if (-not $targetPath.StartsWith(
+                    $cwdPrefix,
+                    [System.StringComparison]::Ordinal
+                )) {
+                return $false
+            }
+            $targetPath.Substring($cwdPrefix.Length)
+        }
+        return $Path -ceq $expectedRelativePath
+    }
+    catch {
+        return $false
+    }
+}
+
 function Get-NormalizedEffects {
     param(
         [Parameter(Mandatory)]
@@ -1452,6 +1645,16 @@ function Get-NormalizedEffects {
                 }
                 continue
             }
+            $effectKind = [string](Get-ObjectValue -Object $effect -Name 'kind')
+            if ($effectKind -ceq 'auxiliary-read' -and
+                -not (Test-ControllerAuxiliaryPathSpelling `
+                    -Path ([string]$path) `
+                    -Cwd $Cwd `
+                    -Roots $Roots `
+                    -Resolved $resolved)) {
+                $errors.Add('auxiliary_read_path_alias_not_authorized')
+                continue
+            }
             $safeDirectory = Get-ObjectValue -Object $effect -Name 'safe_directory'
             if ($null -ne $safeDirectory) {
                 $safeResolved = Resolve-ControllerPath -Path ([string]$safeDirectory) -Cwd $Cwd -Roots $Roots
@@ -1463,7 +1666,7 @@ function Get-NormalizedEffects {
                 }
             }
             $normalized.Add([ordered]@{
-                kind = [string](Get-ObjectValue -Object $effect -Name 'kind')
+                kind = $effectKind
                 operation = [string](Get-ObjectValue -Object $effect -Name 'operation')
                 root = $resolved.Root
                 relative_path = $resolved.RelativePath
@@ -1718,8 +1921,8 @@ function Invoke-ControllerCore {
     foreach ($error in @($trustedCommandIdentityResult.Errors)) {
         Add-UniqueText -List $unknowns -Value ([string]$error)
     }
-    $auxiliaryReadRootResult = Get-AuxiliaryReadRootSet -Policy $policy -Roots $roots
-    foreach ($error in @($auxiliaryReadRootResult.Errors)) {
+    $auxiliaryReadAuthorization = Get-AuxiliaryReadAuthorization -Policy $policy -Roots $roots
+    foreach ($error in @($auxiliaryReadAuthorization.Errors)) {
         Add-UniqueText -List $unknowns -Value ([string]$error)
     }
     $completedReadKeys = [System.Collections.Generic.HashSet[string]]::new([System.StringComparer]::Ordinal)
@@ -2102,6 +2305,14 @@ function Invoke-ControllerCore {
             ''
         }
         $comparisonRoot = [string](Get-ObjectValue -Object $comparison -Name 'root' -Default '')
+        $comparisonPathState = Get-ControllerPropertyState -Object $comparison -Name 'path'
+        $comparisonPath = if ($comparisonPathState.Present -and
+            $comparisonPathState.Value -is [string]) {
+            ([string]$comparisonPathState.Value).Replace('\', '/')
+        }
+        else {
+            ''
+        }
         if (-not $leftState.Present -or -not $rightState.Present -or
             $null -eq $leftState.Value -or $null -eq $rightState.Value -or
             [string]::IsNullOrWhiteSpace($comparisonName)) {
@@ -2122,15 +2333,34 @@ function Invoke-ControllerCore {
         if ($comparisonCommandState.Present -and
             -not $comparisonCommandState.Conflicting) {
             if ([string]::IsNullOrWhiteSpace($comparisonCommandId) -or
-                [string]::IsNullOrWhiteSpace($comparisonRoot)) {
+                [string]::IsNullOrWhiteSpace($comparisonRoot) -or
+                ($comparisonPathState.Present -and
+                    $comparisonPathState.Value -isnot [string]) -or
+                (-not [string]::IsNullOrEmpty($comparisonPath) -and
+                    -not (Test-ControllerRelativePath -Value $comparisonPath))) {
                 Add-UniqueText -List $unknowns -Value 'auxiliary_inventory_link_shape_invalid'
             }
             elseif ($auxiliaryInventoryByCommand.ContainsKey($comparisonCommandId)) {
                 Add-UniqueText -List $unknowns -Value 'duplicate_auxiliary_inventory_command_id'
             }
             else {
+                $scopeValid = (
+                    (Test-ControllerInventoryRowsWithinPath `
+                        -Rows @($leftState.Value) `
+                        -RelativePath $comparisonPath) -and
+                    (Test-ControllerInventoryRowsWithinPath `
+                        -Rows @($rightState.Value) `
+                        -RelativePath $comparisonPath)
+                )
+                if (-not $scopeValid) {
+                    Add-UniqueText `
+                        -List $unknowns `
+                        -Value 'auxiliary_inventory_path_scope_mismatch'
+                }
                 $auxiliaryInventoryByCommand[$comparisonCommandId] = [pscustomobject]@{
                     Root = $comparisonRoot
+                    RelativePath = $comparisonPath
+                    ScopeValid = $scopeValid
                     Result = $result
                 }
             }
@@ -2140,6 +2370,28 @@ function Invoke-ControllerCore {
     $seenAuxiliaryCommandIds = [System.Collections.Generic.HashSet[string]]::new(
         [System.StringComparer]::Ordinal
     )
+    $auxiliaryPathCommandCounts =
+        [System.Collections.Generic.Dictionary[string, int]]::new(
+            (Get-ControllerAuxiliaryPathComparer)
+        )
+    foreach ($pending in $pendingAuxiliaryReads) {
+        $rootedEffects = @($pending.effects | Where-Object {
+            [string]$_.kind -eq 'auxiliary-read'
+        })
+        if ($rootedEffects.Count -ne 1 -or
+            [string]::IsNullOrWhiteSpace([string]$rootedEffects[0].root)) {
+            continue
+        }
+        $pathKey = '{0}|{1}' -f (
+            [string]$rootedEffects[0].root
+        ).ToLowerInvariant(), [string]$rootedEffects[0].relative_path
+        if ($auxiliaryPathCommandCounts.ContainsKey($pathKey)) {
+            $auxiliaryPathCommandCounts[$pathKey]++
+        }
+        else {
+            $auxiliaryPathCommandCounts[$pathKey] = 1
+        }
+    }
     foreach ($pending in $pendingAuxiliaryReads) {
         $pendingCommandId = [string]$pending.command_id
         if (-not $commandIdCounts.ContainsKey($pendingCommandId) -or
@@ -2162,15 +2414,53 @@ function Invoke-ControllerCore {
             Add-UniqueText -List $unknowns -Value 'auxiliary_read_requires_one_root'
             continue
         }
+        if ($rootedEffects.Count -ne 1) {
+            Add-UniqueText -List $unknowns -Value 'auxiliary_read_requires_one_path_effect'
+            continue
+        }
         $auxiliaryRoot = $rootNames[0]
-        if (-not $auxiliaryReadRootResult.Set.Contains($auxiliaryRoot)) {
+        if (-not $auxiliaryReadAuthorization.RootSet.Contains($auxiliaryRoot)) {
             Add-UniqueText -List $violations -Value 'auxiliary_read_root_not_authorized'
             continue
         }
-        if (@($rootedEffects | Where-Object {
-            -not [string]::IsNullOrEmpty([string]$_.relative_path)
-        }).Count -gt 0) {
+        $auxiliaryPathKey = '{0}|{1}' -f (
+            [string]$auxiliaryRoot
+        ).ToLowerInvariant(), [string]$rootedEffects[0].relative_path
+        if (-not $auxiliaryReadAuthorization.PathSet.Contains($auxiliaryPathKey)) {
             Add-UniqueText -List $violations -Value 'auxiliary_read_path_not_authorized'
+            continue
+        }
+        if (-not $auxiliaryReadAuthorization.CanonicalPathMap.ContainsKey(
+                $auxiliaryPathKey
+            ) -or
+            $auxiliaryReadAuthorization.CanonicalPathMap[$auxiliaryPathKey] -cne
+                $auxiliaryPathKey) {
+            Add-UniqueText `
+                -List $violations `
+                -Value 'auxiliary_read_path_case_alias_not_authorized'
+            continue
+        }
+        if (-not $auxiliaryPathCommandCounts.ContainsKey($auxiliaryPathKey) -or
+            $auxiliaryPathCommandCounts[$auxiliaryPathKey] -ne 1) {
+            Add-UniqueText -List $unknowns -Value 'auxiliary_read_path_command_ambiguous'
+            continue
+        }
+        $auxiliaryRootProperties = @($roots.PSObject.Properties | Where-Object {
+            [string]$_.Name -ieq $auxiliaryRoot
+        })
+        if ($auxiliaryRootProperties.Count -ne 1) {
+            Add-UniqueText -List $unknowns -Value 'auxiliary_read_path_topology_not_proven'
+            continue
+        }
+        $topology = Test-ControllerAuxiliaryPathTopology `
+            -RootPath ([string]$auxiliaryRootProperties[0].Value) `
+            -RelativePath ([string]$rootedEffects[0].relative_path)
+        if ($null -ne $topology.Violation) {
+            Add-UniqueText -List $violations -Value ([string]$topology.Violation)
+            continue
+        }
+        if ($null -ne $topology.Error) {
+            Add-UniqueText -List $unknowns -Value ([string]$topology.Error)
             continue
         }
         if (-not $auxiliaryInventoryByCommand.ContainsKey($pendingCommandId)) {
@@ -2180,6 +2470,14 @@ function Invoke-ControllerCore {
         $inventoryLink = $auxiliaryInventoryByCommand[$pendingCommandId]
         if ([string]$inventoryLink.Root -cne $auxiliaryRoot) {
             Add-UniqueText -List $unknowns -Value 'auxiliary_inventory_root_mismatch'
+            continue
+        }
+        if ([string]$inventoryLink.RelativePath -cne
+            [string]$rootedEffects[0].relative_path) {
+            Add-UniqueText -List $unknowns -Value 'auxiliary_inventory_path_mismatch'
+            continue
+        }
+        if (-not [bool]$inventoryLink.ScopeValid) {
             continue
         }
         if ($null -ne $inventoryLink.Result.Error -or -not $inventoryLink.Result.Equal) {

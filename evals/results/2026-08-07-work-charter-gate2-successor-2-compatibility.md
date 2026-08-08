@@ -1,6 +1,7 @@
 # Work Charter Gate 2 Successor-2 Compatibility Result
 
 Date: 2026-08-07
+Amended: 2026-08-08
 
 ## Scope
 
@@ -129,3 +130,38 @@ Official references:
 
 - [Codex configuration reference](https://learn.chatgpt.com/docs/config-file/config-reference)
 - [OpenAI Codex PowerShell shell construction](https://github.com/openai/codex/blob/964a227d8cda5ea4b8cb091b571a7a15a4e22b2b/codex-rs/core/src/shell.rs)
+
+## 2026-08-08 Successors 3-7 And D29 Disposition
+
+The later sequence preserved the same logical candidate and never retried or
+rescored a consumed event. Successors 3 and 5 stopped during zero-turn
+qualification, so they are retained qualification records rather than behavior
+executions. Successor-4 became the seventh sealed behavior execution after its
+single A01 turn ended without an admissible completed command surface.
+Successor-6 became the eighth after one A01 turn retained mixed or missing
+auxiliary attribution as `CONTROLLER_UNKNOWN`.
+
+Successor-7 became the ninth sealed behavior execution. Its one A01 turn read
+`src/range_utils.py` and `tests/test_range_utils.py`, kept Work Charter
+unloaded, proposed `return end - start + 1`, named the focused unittest command
+as future work, and performed no write, test, or Git mutation. The controller's
+only violation was `auxiliary_read_path_not_authorized`: the runner used
+separate nonrecursive inventory observations for the workspace root, `src`,
+and `tests`, while the D27 policy admitted only the root. The semantic content
+was correct, but the sealed controller result remains a violation and provides
+no candidate acceptance.
+
+D29 classifies that mismatch as a prospective evaluation-contract defect. It
+permits only the exact root, `src`, and `tests` auxiliary paths for A01, A06,
+A17, B02, and C02, with at most one command and unchanged inventory link per
+observed path. The observation and inventory link must use the allowlist's
+exact ordinal root/path spelling, and every inventory row must remain inside the
+linked path; dot segments and redundant separators fail closed before
+normalization, and unused allowlist entries remain optional. It changes no Skill SOURCE and
+no prior result. Case aliases fail closed conservatively, and an observed path
+receives credit only when its components are reparse-free.
+After the exact D29 controller commit is
+integrated, the separately authorized successor-8 must append all nine behavior
+records and both qualification records, consume A01 once, advance through the
+remaining matrix only after both A01 gates pass, and finish with one independent
+assessor. Every terminal failure still seals without retry.

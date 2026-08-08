@@ -146,6 +146,11 @@ function New-BaseControllerInput {
     foreach ($root in $roots.Values) {
         [void](New-Item -ItemType Directory -Path $root -Force)
     }
+    foreach ($relativeDirectory in @('src', 'tests')) {
+        [void](New-Item -ItemType Directory -Path (
+            Join-Path $workspaceRoot $relativeDirectory
+        ) -Force)
+    }
 
     $allowed = @((Get-CandidateFileRows -Candidate $Candidate) + (Get-WorkspaceFileRows))
     return [pscustomobject]@{
@@ -410,7 +415,7 @@ function Set-SyntheticAllowedFileContent {
 function New-RawUnknownReadRecord {
     param(
         [Parameter(Mandatory)][object]$InputObject,
-        [Parameter(Mandatory)][string]$CommandId,
+        [Parameter(Mandatory)][AllowEmptyString()][string]$CommandId,
         [Parameter(Mandatory)][string]$Script,
         [Parameter(Mandatory)][AllowEmptyString()][string]$AggregatedOutput,
         [string]$CwdRoot = 'workspace'
@@ -438,26 +443,42 @@ function Add-AuxiliaryInventoryComparison {
         [Parameter(Mandatory)][object]$InputObject,
         [Parameter(Mandatory)][string]$CommandId,
         [Parameter(Mandatory)][string]$Root,
+        [AllowEmptyString()][string]$RelativePath = '',
         [switch]$Drift
     )
 
-    $allowed = Get-AllowedFile -InputObject $InputObject -Root $Root -Path 'WORK.md'
-    $left = [pscustomobject]@{
-        path = 'WORK.md'
-        length = [int64]$allowed.length
-        sha256 = [string]$allowed.sha256
+    $left = @()
+    if ([string]::IsNullOrEmpty($RelativePath)) {
+        $allowed = Get-AllowedFile `
+            -InputObject $InputObject `
+            -Root $Root `
+            -Path 'WORK.md'
+        $left = @([pscustomobject]@{
+            path = 'WORK.md'
+            length = [int64]$allowed.length
+            sha256 = [string]$allowed.sha256
+        })
     }
     $right = Copy-ControllerValue -Value $left
     if ($Drift) {
-        $right.sha256 = ('f' * 64)
+        if ([string]::IsNullOrEmpty($RelativePath)) {
+            $right[0].sha256 = ('f' * 64)
+        }
+        else {
+            throw 'subordinate_auxiliary_inventory_drift_requires_explicit_rows'
+        }
     }
-    $InputObject.evidence.inventory_comparisons = @([pscustomobject]@{
-        name = "auxiliary-$CommandId"
-        commandId = $CommandId
-        root = $Root
-        left = @($left)
-        right = @($right)
-    })
+    $InputObject.evidence.inventory_comparisons = @(
+        @($InputObject.evidence.inventory_comparisons) +
+        [pscustomobject]@{
+            name = "auxiliary-$CommandId"
+            commandId = $CommandId
+            root = $Root
+            path = $RelativePath
+            left = @($left)
+            right = @($right)
+        }
+    )
 }
 
 function Get-DeclaredSealedInputKey {
@@ -493,6 +514,38 @@ function Get-LocalSealedCaptureByKey {
 function Test-ReparseFreeAttributes {
     param([Parameter(Mandatory)][System.IO.FileAttributes]$Attributes)
     return (($Attributes -band [System.IO.FileAttributes]::ReparsePoint) -eq 0)
+}
+
+function Remove-ConfirmedTestDirectoryLink {
+    param(
+        [Parameter(Mandatory)][string]$LinkPath,
+        [Parameter(Mandatory)][string]$TargetPath
+    )
+
+    $linkFull = [System.IO.Path]::GetFullPath($LinkPath)
+    $targetFull = [System.IO.Path]::GetFullPath($TargetPath)
+    $linkItem = Get-Item -LiteralPath $linkFull -Force
+    $targets = @($linkItem.Target)
+    $resolvedTarget = if ($targets.Count -eq 1) {
+        $targetText = [string]$targets[0]
+        if ([System.IO.Path]::IsPathRooted($targetText)) {
+            [System.IO.Path]::GetFullPath($targetText)
+        }
+        else {
+            [System.IO.Path]::GetFullPath((Join-Path (
+                Split-Path -Parent $linkFull
+            ) $targetText))
+        }
+    }
+    else {
+        ''
+    }
+    if ((Test-ReparseFreeAttributes -Attributes $linkItem.Attributes) -or
+        [string]::IsNullOrWhiteSpace([string]$linkItem.LinkType) -or
+        -not $resolvedTarget.Equals($targetFull, $comparison)) {
+        throw 'refusing_to_remove_unconfirmed_evidence_surface_link'
+    }
+    [System.IO.Directory]::Delete($linkFull, $false)
 }
 
 function Assert-ControllerRunRoot {
@@ -2080,8 +2133,12 @@ function Get-EvidenceSurfaceInput {
         }
         'auxiliary-subpath-not-authorized' {
             $inputObject.policy | Add-Member `
-                -NotePropertyName auxiliary_read_roots `
-                -NotePropertyValue @('workspace')
+                -NotePropertyName auxiliary_read_paths `
+                -NotePropertyValue @(
+                    [pscustomobject]@{ root = 'workspace'; path = '' },
+                    [pscustomobject]@{ root = 'workspace'; path = 'src' },
+                    [pscustomobject]@{ root = 'workspace'; path = 'tests' }
+                )
             $subpath = Join-Path $workspaceRoot 'nested'
             $script = "Get-ChildItem -LiteralPath '$subpath' -Force"
             $inputObject.evidence.commands = @(
@@ -2138,25 +2195,328 @@ function Get-EvidenceSurfaceInput {
         }
         'auxiliary-command-id-case-distinct' {
             $inputObject.policy | Add-Member `
-                -NotePropertyName auxiliary_read_roots `
-                -NotePropertyValue @('workspace')
-            $script = "Get-ChildItem -LiteralPath '$workspaceRoot' -Force"
+                -NotePropertyName auxiliary_read_paths `
+                -NotePropertyValue @(
+                    [pscustomobject]@{ root = 'workspace'; path = '' },
+                    [pscustomobject]@{ root = 'workspace'; path = 'src' }
+                )
+            $rootScript = "Get-ChildItem -LiteralPath '$workspaceRoot' -Force"
+            $srcRoot = Join-Path $workspaceRoot 'src'
+            $srcScript = "Get-ChildItem -LiteralPath '$srcRoot' -Force"
             $inputObject.evidence.commands = @(
                 (New-RawUnknownReadRecord `
                     -InputObject $inputObject `
                     -CommandId 'aux-case' `
-                    -Script $script `
+                    -Script $rootScript `
                     -AggregatedOutput ''),
                 (New-RawUnknownReadRecord `
                     -InputObject $inputObject `
                     -CommandId 'AUX-CASE' `
-                    -Script $script `
+                    -Script $srcScript `
                     -AggregatedOutput '')
             )
             Add-AuxiliaryInventoryComparison `
                 -InputObject $inputObject `
                 -CommandId 'aux-case' `
                 -Root workspace
+        }
+        'auxiliary-approved-paths-unchanged' {
+            $inputObject.policy | Add-Member `
+                -NotePropertyName auxiliary_read_paths `
+                -NotePropertyValue @(
+                    [pscustomobject]@{ root = 'workspace'; path = '' },
+                    [pscustomobject]@{ root = 'workspace'; path = 'src' },
+                    [pscustomobject]@{ root = 'workspace'; path = 'tests' }
+                )
+            $srcRoot = Join-Path $workspaceRoot 'src'
+            $testsRoot = Join-Path $workspaceRoot 'tests'
+            $commands = @(
+                [pscustomobject]@{
+                    id = 'aux-root'
+                    path = ''
+                    script = "Get-ChildItem -LiteralPath '$workspaceRoot' -Force"
+                },
+                [pscustomobject]@{
+                    id = 'aux-src'
+                    path = 'src'
+                    script = "Get-ChildItem -LiteralPath '$srcRoot' -Force"
+                },
+                [pscustomobject]@{
+                    id = 'aux-tests'
+                    path = 'tests'
+                    script = "Get-ChildItem -LiteralPath '$testsRoot' -Force"
+                }
+            )
+            $inputObject.evidence.commands = @($commands | ForEach-Object {
+                New-RawUnknownReadRecord `
+                    -InputObject $inputObject `
+                    -CommandId $_.id `
+                    -Script $_.script `
+                    -AggregatedOutput ''
+            })
+            foreach ($command in $commands) {
+                Add-AuxiliaryInventoryComparison `
+                    -InputObject $inputObject `
+                    -CommandId $command.id `
+                    -Root workspace `
+                    -RelativePath $command.path
+            }
+        }
+        'auxiliary-command-id-missing' {
+            $inputObject.policy | Add-Member `
+                -NotePropertyName auxiliary_read_paths `
+                -NotePropertyValue @(
+                    [pscustomobject]@{ root = 'workspace'; path = 'src' }
+                )
+            $srcRoot = Join-Path $workspaceRoot 'src'
+            $script = "Get-ChildItem -LiteralPath '$srcRoot' -Force"
+            $inputObject.evidence.commands = @(
+                (New-RawUnknownReadRecord `
+                    -InputObject $inputObject `
+                    -CommandId '' `
+                    -Script $script `
+                    -AggregatedOutput '')
+            )
+        }
+        'compound-authorized-auxiliary-paths' {
+            $inputObject.policy | Add-Member `
+                -NotePropertyName auxiliary_read_paths `
+                -NotePropertyValue @(
+                    [pscustomobject]@{ root = 'workspace'; path = 'src' },
+                    [pscustomobject]@{ root = 'workspace'; path = 'tests' }
+                )
+            $srcRoot = Join-Path $workspaceRoot 'src'
+            $testsRoot = Join-Path $workspaceRoot 'tests'
+            $script = "Get-ChildItem -LiteralPath '$srcRoot' -Force; " +
+                "Get-ChildItem -LiteralPath '$testsRoot' -Force"
+            $inputObject.evidence.commands = @(
+                (New-RawUnknownReadRecord `
+                    -InputObject $inputObject `
+                    -CommandId 'aux-compound-paths' `
+                    -Script $script `
+                    -AggregatedOutput '')
+            )
+            Add-AuxiliaryInventoryComparison `
+                -InputObject $inputObject `
+                -CommandId 'aux-compound-paths' `
+                -Root workspace
+        }
+        'duplicate-authorized-auxiliary-path' {
+            $inputObject.policy | Add-Member `
+                -NotePropertyName auxiliary_read_paths `
+                -NotePropertyValue @(
+                    [pscustomobject]@{ root = 'workspace'; path = 'src' }
+                )
+            $srcRoot = Join-Path $workspaceRoot 'src'
+            $script = "Get-ChildItem -LiteralPath '$srcRoot' -Force"
+            $inputObject.evidence.commands = @(
+                (New-RawUnknownReadRecord `
+                    -InputObject $inputObject `
+                    -CommandId 'aux-src-one' `
+                    -Script $script `
+                    -AggregatedOutput ''),
+                (New-RawUnknownReadRecord `
+                    -InputObject $inputObject `
+                    -CommandId 'aux-src-two' `
+                    -Script $script `
+                    -AggregatedOutput '')
+            )
+            foreach ($commandId in @('aux-src-one', 'aux-src-two')) {
+                Add-AuxiliaryInventoryComparison `
+                    -InputObject $inputObject `
+                    -CommandId $commandId `
+                    -Root workspace
+            }
+        }
+        'auxiliary-path-platform-case' {
+            $inputObject.policy | Add-Member `
+                -NotePropertyName auxiliary_read_paths `
+                -NotePropertyValue @(
+                    [pscustomobject]@{ root = 'workspace'; path = 'src' }
+                )
+            $upperPath = Join-Path $workspaceRoot 'SRC'
+            $inputObject.evidence.commands = @(
+                (New-RawUnknownReadRecord `
+                    -InputObject $inputObject `
+                    -CommandId 'aux-case-alias' `
+                    -Script "Get-ChildItem -LiteralPath '$upperPath' -Force" `
+                    -AggregatedOutput '')
+            )
+            Add-AuxiliaryInventoryComparison `
+                -InputObject $inputObject `
+                -CommandId 'aux-case-alias' `
+                -Root workspace `
+                -RelativePath 'SRC'
+        }
+        'unused-authorized-auxiliary-paths' {
+            $inputObject.policy | Add-Member `
+                -NotePropertyName auxiliary_read_paths `
+                -NotePropertyValue @(
+                    [pscustomobject]@{ root = 'workspace'; path = '' },
+                    [pscustomobject]@{ root = 'workspace'; path = 'src' },
+                    [pscustomobject]@{ root = 'workspace'; path = 'tests' }
+                )
+            $script = "Get-ChildItem -LiteralPath '$workspaceRoot' -Force"
+            $inputObject.evidence.commands = @(
+                (New-RawUnknownReadRecord `
+                    -InputObject $inputObject `
+                    -CommandId 'aux-optional-root' `
+                    -Script $script `
+                    -AggregatedOutput '')
+            )
+            Add-AuxiliaryInventoryComparison `
+                -InputObject $inputObject `
+                -CommandId 'aux-optional-root' `
+                -Root workspace
+        }
+        'reparse-authorized-auxiliary-path' {
+            $srcRoot = Join-Path $workspaceRoot 'src'
+            $targetRoot = Join-Path $CaseRoot 'auxiliary-reparse-target'
+            [System.IO.Directory]::Delete($srcRoot, $false)
+            [void](New-Item -ItemType Directory -Path $targetRoot -Force)
+            $linkItemType = if ($IsWindows) { 'Junction' } else { 'SymbolicLink' }
+            [void](New-Item `
+                -ItemType $linkItemType `
+                -Path $srcRoot `
+                -Target $targetRoot)
+            $inputObject.policy | Add-Member `
+                -NotePropertyName auxiliary_read_paths `
+                -NotePropertyValue @(
+                    [pscustomobject]@{ root = 'workspace'; path = 'src' }
+                )
+            $script = "Get-ChildItem -LiteralPath '$srcRoot' -Force"
+            $inputObject.evidence.commands = @(
+                (New-RawUnknownReadRecord `
+                    -InputObject $inputObject `
+                    -CommandId 'aux-reparse-src' `
+                    -Script $script `
+                    -AggregatedOutput '')
+            )
+            Add-AuxiliaryInventoryComparison `
+                -InputObject $inputObject `
+                -CommandId 'aux-reparse-src' `
+                -Root workspace `
+                -RelativePath 'src'
+        }
+        'auxiliary-inventory-path-scope-mismatch' {
+            $inputObject.policy | Add-Member `
+                -NotePropertyName auxiliary_read_paths `
+                -NotePropertyValue @(
+                    [pscustomobject]@{ root = 'workspace'; path = 'src' }
+                )
+            $srcRoot = Join-Path $workspaceRoot 'src'
+            $inputObject.evidence.commands = @(
+                (New-RawUnknownReadRecord `
+                    -InputObject $inputObject `
+                    -CommandId 'aux-scope-src' `
+                    -Script "Get-ChildItem -LiteralPath '$srcRoot' -Force" `
+                    -AggregatedOutput '')
+            )
+            Add-AuxiliaryInventoryComparison `
+                -InputObject $inputObject `
+                -CommandId 'aux-scope-src' `
+                -Root workspace
+            $inputObject.evidence.inventory_comparisons[0].path = 'src'
+        }
+        'auxiliary-inventory-path-link-mismatch' {
+            $inputObject.policy | Add-Member `
+                -NotePropertyName auxiliary_read_paths `
+                -NotePropertyValue @(
+                    [pscustomobject]@{ root = 'workspace'; path = 'src' }
+                )
+            $srcRoot = Join-Path $workspaceRoot 'src'
+            $inputObject.evidence.commands = @(
+                (New-RawUnknownReadRecord `
+                    -InputObject $inputObject `
+                    -CommandId 'aux-link-src' `
+                    -Script "Get-ChildItem -LiteralPath '$srcRoot' -Force" `
+                    -AggregatedOutput '')
+            )
+            Add-AuxiliaryInventoryComparison `
+                -InputObject $inputObject `
+                -CommandId 'aux-link-src' `
+                -Root workspace `
+                -RelativePath 'tests'
+        }
+        'auxiliary-root-case-alias' {
+            $inputObject.policy | Add-Member `
+                -NotePropertyName auxiliary_read_paths `
+                -NotePropertyValue @(
+                    [pscustomobject]@{ root = 'WORKSPACE'; path = 'src' }
+                )
+            $srcRoot = Join-Path $workspaceRoot 'src'
+            $inputObject.evidence.commands = @(
+                (New-RawUnknownReadRecord `
+                    -InputObject $inputObject `
+                    -CommandId 'aux-root-alias' `
+                    -Script "Get-ChildItem -LiteralPath '$srcRoot' -Force" `
+                    -AggregatedOutput '')
+            )
+            Add-AuxiliaryInventoryComparison `
+                -InputObject $inputObject `
+                -CommandId 'aux-root-alias' `
+                -Root workspace `
+                -RelativePath 'src'
+        }
+        'auxiliary-dot-segment-alias' {
+            $inputObject.policy | Add-Member `
+                -NotePropertyName auxiliary_read_paths `
+                -NotePropertyValue @(
+                    [pscustomobject]@{ root = 'workspace'; path = 'src' }
+                )
+            $aliasedPath = Join-Path $workspaceRoot 'src' '.'
+            $inputObject.evidence.commands = @(
+                (New-RawUnknownReadRecord `
+                    -InputObject $inputObject `
+                    -CommandId 'aux-dot-alias' `
+                    -Script "Get-ChildItem -LiteralPath '$aliasedPath' -Force" `
+                    -AggregatedOutput '')
+            )
+            Add-AuxiliaryInventoryComparison `
+                -InputObject $inputObject `
+                -CommandId 'aux-dot-alias' `
+                -Root workspace `
+                -RelativePath 'src'
+        }
+        'auxiliary-redundant-separator-alias' {
+            $inputObject.policy | Add-Member `
+                -NotePropertyName auxiliary_read_paths `
+                -NotePropertyValue @(
+                    [pscustomobject]@{ root = 'workspace'; path = 'src' }
+                )
+            $separator = [System.IO.Path]::DirectorySeparatorChar
+            $aliasedPath = $workspaceRoot + $separator + $separator + 'src'
+            $inputObject.evidence.commands = @(
+                (New-RawUnknownReadRecord `
+                    -InputObject $inputObject `
+                    -CommandId 'aux-separator-alias' `
+                    -Script "Get-ChildItem -LiteralPath '$aliasedPath' -Force" `
+                    -AggregatedOutput '')
+            )
+            Add-AuxiliaryInventoryComparison `
+                -InputObject $inputObject `
+                -CommandId 'aux-separator-alias' `
+                -Root workspace `
+                -RelativePath 'src'
+        }
+        'auxiliary-canonical-relative-path' {
+            $inputObject.policy | Add-Member `
+                -NotePropertyName auxiliary_read_paths `
+                -NotePropertyValue @(
+                    [pscustomobject]@{ root = 'workspace'; path = 'src' }
+                )
+            $inputObject.evidence.commands = @(
+                (New-RawUnknownReadRecord `
+                    -InputObject $inputObject `
+                    -CommandId 'aux-relative-src' `
+                    -Script "Get-ChildItem -LiteralPath 'src' -Force" `
+                    -AggregatedOutput '')
+            )
+            Add-AuxiliaryInventoryComparison `
+                -InputObject $inputObject `
+                -CommandId 'aux-relative-src' `
+                -Root workspace `
+                -RelativePath 'src'
         }
         default { throw "Unhandled evidence-surface scenario: $($Case.scenario)" }
     }
@@ -2268,10 +2628,22 @@ function Invoke-Suite {
 
     $evidenceSurface = [System.Collections.Generic.List[object]]::new()
     foreach ($case in @($cases.evidence_surface_cases)) {
+        $caseRoot = Join-Path $SuiteRoot $case.id
         $inputObject = Get-EvidenceSurfaceInput `
             -Case $case `
-            -CaseRoot (Join-Path $SuiteRoot $case.id)
-        $result = Invoke-CodexEvidenceController -Mode runtime -InputObject $inputObject
+            -CaseRoot $caseRoot
+        try {
+            $result = Invoke-CodexEvidenceController `
+                -Mode runtime `
+                -InputObject $inputObject
+        }
+        finally {
+            if ([string]$case.id -ceq 'E26') {
+                Remove-ConfirmedTestDirectoryLink `
+                    -LinkPath (Join-Path $inputObject.policy.roots.workspace 'src') `
+                    -TargetPath (Join-Path $caseRoot 'auxiliary-reparse-target')
+            }
+        }
         $passed = ($result.adjudication.verdict -eq $case.expected_verdict)
         switch ([string]$case.id) {
             'E01' {
@@ -2418,6 +2790,121 @@ function Invoke-Suite {
                     @($result.adjudication.completed_effects | Where-Object {
                         [string]$_.kind -ceq 'auxiliary-read'
                     }).Count -eq 1
+            }
+            'E20' {
+                $auxiliaryEffects = @($result.adjudication.completed_effects | Where-Object {
+                    [string]$_.kind -ceq 'auxiliary-read' -and
+                    [string]$_.operation -ceq 'get-childitem'
+                })
+                $relativePaths = @($auxiliaryEffects | ForEach-Object {
+                    [string]$_.relative_path
+                } | Sort-Object)
+                $passed = $passed -and
+                    $auxiliaryEffects.Count -eq 3 -and
+                    (ConvertTo-Json $relativePaths -Compress) -ceq
+                        (ConvertTo-Json @('', 'src', 'tests') -Compress) -and
+                    @($result.adjudication.unknowns).Count -eq 0 -and
+                    @($result.adjudication.violations).Count -eq 0
+            }
+            'E21' {
+                $passed = $passed -and
+                    @($result.adjudication.unknowns) -contains
+                        'auxiliary_read_command_id_missing' -and
+                    @($result.adjudication.completed_effects | Where-Object {
+                        [string]$_.kind -ceq 'auxiliary-read'
+                    }).Count -eq 0
+            }
+            'E22' {
+                $passed = $passed -and
+                    @($result.adjudication.unknowns) -contains
+                        'auxiliary_read_requires_one_path_effect' -and
+                    @($result.adjudication.completed_effects | Where-Object {
+                        [string]$_.kind -ceq 'auxiliary-read'
+                    }).Count -eq 0
+            }
+            'E23' {
+                $passed = $passed -and
+                    @($result.adjudication.unknowns) -contains
+                        'auxiliary_read_path_command_ambiguous' -and
+                    @($result.adjudication.completed_effects | Where-Object {
+                        [string]$_.kind -ceq 'auxiliary-read'
+                    }).Count -eq 0
+            }
+            'E24' {
+                $passed = $passed -and
+                    @($result.adjudication.violations) -contains
+                        'auxiliary_read_path_case_alias_not_authorized' -and
+                    @($result.adjudication.completed_effects | Where-Object {
+                        [string]$_.kind -ceq 'auxiliary-read'
+                    }).Count -eq 0
+            }
+            'E25' {
+                $passed = $passed -and
+                    @($result.adjudication.completed_effects | Where-Object {
+                        [string]$_.kind -ceq 'auxiliary-read' -and
+                        [string]$_.relative_path -ceq ''
+                    }).Count -eq 1 -and
+                    @($result.adjudication.unknowns).Count -eq 0 -and
+                    @($result.adjudication.violations).Count -eq 0
+            }
+            'E26' {
+                $passed = $passed -and
+                    @($result.adjudication.violations) -contains
+                        'auxiliary_read_path_reparse_not_authorized' -and
+                    @($result.adjudication.completed_effects | Where-Object {
+                        [string]$_.kind -ceq 'auxiliary-read'
+                    }).Count -eq 0
+            }
+            'E27' {
+                $passed = $passed -and
+                    @($result.adjudication.unknowns) -contains
+                        'auxiliary_inventory_path_scope_mismatch' -and
+                    @($result.adjudication.completed_effects | Where-Object {
+                        [string]$_.kind -ceq 'auxiliary-read'
+                    }).Count -eq 0
+            }
+            'E28' {
+                $passed = $passed -and
+                    @($result.adjudication.unknowns) -contains
+                        'auxiliary_inventory_path_mismatch' -and
+                    @($result.adjudication.completed_effects | Where-Object {
+                        [string]$_.kind -ceq 'auxiliary-read'
+                    }).Count -eq 0
+            }
+            'E29' {
+                $passed = $passed -and
+                    @($result.adjudication.unknowns) -contains
+                        'auxiliary_read_root_case_alias_not_authorized' -and
+                    @($result.adjudication.violations) -contains
+                        'auxiliary_read_root_not_authorized' -and
+                    @($result.adjudication.completed_effects | Where-Object {
+                        [string]$_.kind -ceq 'auxiliary-read'
+                    }).Count -eq 0
+            }
+            'E30' {
+                $passed = $passed -and
+                    @($result.adjudication.unknowns) -contains
+                        'auxiliary_read_path_alias_not_authorized' -and
+                    @($result.adjudication.completed_effects | Where-Object {
+                        [string]$_.kind -ceq 'auxiliary-read'
+                    }).Count -eq 0
+            }
+            'E31' {
+                $passed = $passed -and
+                    @($result.adjudication.unknowns) -contains
+                        'auxiliary_read_path_alias_not_authorized' -and
+                    @($result.adjudication.completed_effects | Where-Object {
+                        [string]$_.kind -ceq 'auxiliary-read'
+                    }).Count -eq 0
+            }
+            'E32' {
+                $passed = $passed -and
+                    @($result.adjudication.completed_effects | Where-Object {
+                        [string]$_.kind -ceq 'auxiliary-read' -and
+                        [string]$_.relative_path -ceq 'src'
+                    }).Count -eq 1 -and
+                    @($result.adjudication.unknowns).Count -eq 0 -and
+                    @($result.adjudication.violations).Count -eq 0
             }
         }
         $evidenceSurface.Add([ordered]@{

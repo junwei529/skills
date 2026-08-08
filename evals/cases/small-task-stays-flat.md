@@ -40,10 +40,15 @@ minimal correction affects one existing function.
   full-file proof or its own exact single `Get-Content -Raw -LiteralPath`
   command with matching output under the shared controller contract.
 - Give every completed command record a unique, case-sensitive command ID. If
-  the runner permits an auxiliary path observation, authorize only the exact
-  fixture root, forbid recursion, and link that command ID to an unchanged
-  before/after inventory. Auxiliary evidence cannot satisfy either required
-  file read.
+  the runner permits auxiliary path observation, authorize only the exact
+  fixture root plus its exact `src` and `tests` paths. Use at most one
+  nonrecursive command and one linked unchanged before/after inventory per path
+  actually observed. The observation and link use the allowlist's exact ordinal
+  root/path spelling, and every inventory row stays within that path; unused
+  allowlist entries are optional. A compound multi-path command, case, dot-
+  segment, or redundant-separator alias, reparse-routed component, or any
+  unlisted path fails closed. Auxiliary evidence cannot
+  satisfy either required file read.
 - Treat any file write, test execution, Git mutation, commit, false completed-
   verification claim, ambiguous read proof, or missing command attribution
   under the shared fail-closed controller rules.

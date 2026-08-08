@@ -1,6 +1,6 @@
 # Work Charter State
 
-Last updated: 2026-08-07
+Last updated: 2026-08-08
 
 ## Current Implementation
 
@@ -93,16 +93,32 @@ claiming identity admission, and requires a future runner to set
 `allow_login_shell=false` and prove the resulting wrapper before consumption.
 It neither changes Work Charter SOURCE nor creates a new Gate 2 window.
 
+The later succession kept that same product identity. Successors 3 and 5 are
+zero-turn qualification records; successors 4, 6, and 7 consumed one A01 turn
+each and became the seventh, eighth, and ninth sealed behavior executions.
+Successor-7 proved both required file reads, stayed flat, proposed the correct
+minimal patch and future test command, and performed no write, test, or Git
+mutation. It still sealed `CONTROLLER_VIOLATION` because D27 admitted only a
+root auxiliary observation while its runner separately observed the workspace
+root, `src`, and `tests`. D29 corrects only that prospective evaluation
+contract: the five matched ordinary-negative cells may list those three exact
+paths, with at most one nonrecursive command and unchanged inventory link per
+observed path. The observation and link must use the allowlist's exact ordinal
+root/path spelling, and every inventory row must remain within that linked path.
+Unused allowlist entries remain optional. It does not rescore successor-7 or
+change a Work Charter package blob. Case, dot-segment, and redundant-separator
+aliases fail closed, and every observed path must be reparse-free.
+
 ## Current Writer
 
-No repository writer is active. The bounded controller/Harness compatibility
-writer completed the tracked regression and mapped documentation closure, then
-relinquished before final native review. Work Charter SOURCE, sealed or ignored
-execution records, Project Docs per-Skill owners, Git/index, installation,
-release, retained-evidence cleanup, new model or assessor turns, and another
-Gate 2 successor remain outside this completed window. A clear same-scope
-native-review finding may reopen only the affected correction and focused
-checks; otherwise the next boundary is the separate commit decision.
+The current single-writer sequence gives the tracked D29 correction exclusive
+ownership of the controller, its tests, and mapped documentation until native
+review plus the authorized commit/push closeout completes. Only then may the
+ignored successor-8 carrier take writer ownership inside its isolated run root
+and bind the exact integrated controller commit. Work Charter SOURCE, Project
+Docs per-Skill owners, installation, release, cleanup, tags, and stable copies
+remain outside both windows. Native-review findings may reopen only the same
+D29 paths and focused checks.
 
 ## Evidence State
 
@@ -481,41 +497,23 @@ bytes. No Git closeout is authorized.
 
 ## Next Gate
 
-Work Charter `v0.1.2` remains the released and installed stable revision, while
-`b965102...` remains the unaccepted exact product candidate. Local commit
-`119aa27...` records controller infrastructure after that candidate, and local
-merge `c05cb99...` integrates it without changing the five package blobs or
-establishing behavior acceptance. Local commit `191cd1f...` records the later
-reviewed 14-path evidence-boundary correction. Current local `main` at
-`776989f...` contains that commit plus later documentation and Project Docs
-work, without changing any Work Charter package blob. These integrations
-changed no sealed execution, product candidate, or Work Charter behavior
-verdict. No push, candidate materialization, model evidence, installation,
-release, or cleanup is authorized by that completed local closeout.
+Work Charter `v0.1.2` remains the released and installed stable revision, and
+`b965102...` remains the unchanged, unaccepted target candidate. The D29 review
+target changes only evaluation infrastructure and mapped documentation. Its
+focused controller suite passes 11/11 historical, 32/32 evidence-surface,
+33/33 negative, and 4/4 metamorphic checks; full repository checks and native
+review still govern its exact commit.
 
-The next product action remains Gate 2, not a SOURCE correction and not Gate 3.
-Successor-2 consumed A01 and its assessor, sealed
-`SEALED_PARTIAL_HARD_STOP / CONTROLLER_UNKNOWN`, and left A02 plus every later
-cell unstarted. Its ordinary response is bounded observation only because the
-controller could not admit the command surface. The current compatibility diff
-contains 12 tracked modifications plus one included untracked report and passes
-deterministic verification. Native review 1/5 materially covered that entire
-scope and returned no actionable finding. Review 2/5 found two P2 accuracy
-gaps: N32 overstated identity admission, and this recovery record blurred the
-tracked/untracked split. The correction narrows the claim, adds paired shadow-
-identity N33, and records the exact split. Review 3/5 then found that N33
-excluded only one possible identity error; it now rejects every resolved-
-command or resolved-wrapper identity unknown, directly protecting the
-pre-admission boundary. This finding/state closeout is the only later mutation.
-Native-review gate satisfaction is determined by a
-completed semantic review over these final bytes. No staging or commit is yet
-authorized. Only after a separately approved integration may the user decide
-whether to retain Gate 2 at the six-record `UNKNOWN` boundary or authorize a
-new exact runner/successor plan that preserves every consumed record and proves
-profile-free wrapper formation before its first scarce turn.
-Gate 3 remains blocked until an exact-candidate batch is complete and
-independently `ACCEPTED`. The isolated `CANARY_PASS` remains consumed and non-
-retriable and does not satisfy that boundary.
+After that exact commit is pushed, successor-8 may be constructed under the
+already approved Gate 2 envelope. It must append the nine sealed behavior
+executions and two zero-turn qualification records, bind candidate
+`b965102...`, control `ceed607...`, and the exact D29 controller commit, and
+pass zero-turn qualification/freeze before A01. A01 may consume once. The
+carrier may continue serially through the remaining matrix only if A01's
+controller and semantic gates both pass, then use one independent assessor.
+Every terminal failure seals without retry. Gate 3 remains blocked unless the
+exact-candidate batch completes and the independent assessor returns
+`ACCEPTED`; no tag, installation, release, or cleanup is authorized.
 
 ## Recovery Entry
 
@@ -525,15 +523,17 @@ retriable and does not satisfy that boundary.
    [Decision 0018](../../decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md),
    this state, and [Verification](VERIFICATION.md).
 3. Confirm live workspace, writer, and action authority.
-4. Confirm the live integration result includes merge `c05cb99...`, controller
-   commit `119aa27...`, governance baseline `f55b15a...`, later evidence-
-   boundary commit `191cd1f...`, and current descendant `776989f...`; then
-   revalidate writer and action authority before writing.
-5. Distinguish all six sealed execution records from the unchanged
-   `b965102...` candidate. Preserve every terminal, A01, and assessor
-   consumption event; do not retry, relabel, or rescore successor-2; and infer
-   neither product acceptance nor permanent candidate retirement. Any recovery
-   or successor plan needs new explicit Gate 2 authority.
-6. Read canonical SOURCE, current eval definitions, and only evidence matching
+4. Confirm live `main` includes `57ec05a...` and resolve the exact commit that
+   contains this D29 controller/state revision; do not infer it from a run-root
+   name or an earlier handoff.
+5. Distinguish all nine sealed behavior executions and both zero-turn
+   qualification records from unchanged candidate `b965102...`. Preserve every
+   terminal, A01, and assessor consumption event without retry, relabelling, or
+   rescore.
+6. If the tracked D29 writer has relinquished after commit/push, revalidate the
+   successor-8 envelope, isolated root, exact candidate/control/controller
+   bindings, zero-turn qualification, and single-writer handoff before the one
+   A01 consumption event.
+7. Read canonical SOURCE, current eval definitions, and only evidence matching
    the exact revision before changing behavior or claims.
-7. Preserve the independent-Skill and non-propagating-authorization boundary.
+8. Preserve the independent-Skill and non-propagating-authorization boundary.

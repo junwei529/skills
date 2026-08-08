@@ -1,6 +1,6 @@
 # Repository Verification
 
-Last updated: 2026-08-07
+Last updated: 2026-08-08
 
 ## Scope
 
@@ -22,7 +22,7 @@ Sanitized detailed runs remain under [`evals/results`](../evals/results/README.m
 | Three Skill validators | Validate frontmatter and package names without changing packages | pass for the three packages in tag and stable install `v0.1.2` |
 | Repository checker | Validate strict UTF-8/no BOM, whitespace, local links/fragments, publication safety, exact Skill/eval sets, federated docs, and bilingual navigation | current integrated controller/evidence-boundary revision passes with the unchanged 14 cases / 12 fixtures |
 | Fixture checker | Validate synthetic starting states and their Git/reparse/ignored-result boundaries plus the tracked controller regression | current integrated controller/evidence-boundary revision passes all 17 checks |
-| Codex evidence controller | Validate one shared core across four entry modes, strict required-read versus bounded auxiliary-observation attribution, structural PowerShell/Git/path classification, source-and-generated-contract-bound historical regressions, exact package manifests, candidate-identity and content-proof shape, record cardinality, completed exit typing, output-array shape, per-key single-capture sealed parsing and reuse, real-reparse rejection, fail-closed negatives, external-input types, independently resolved inner/wrapper command identity, Git-read and external-filter safety, profile-free PowerShell wrappers, culture-independent canonical ordering, metamorphic equivalence, output no-clobber, and canonical repeatability | 11/11 historical, 19/19 evidence-surface, 33/33 negative, and 4/4 metamorphic checks pass twice with identical canonical JSON/hash; N31 binds the observed missing-profile consequence set, while N32/N33 preserve trusted-shaped and shadow-identity failed Git reads as `UNKNOWN` diagnostics without claiming identity admission or adding a false write/mutation label; the existing source projections, generated-contract, manifest, identity, proof, resolution, topology, Git-safety, no-clobber, and repeatability guards remain green |
+| Codex evidence controller | Validate one shared core across four entry modes, strict required-read versus bounded auxiliary-observation attribution, structural PowerShell/Git/path classification, source-and-generated-contract-bound historical regressions, exact package manifests, candidate-identity and content-proof shape, record cardinality, completed exit typing, output-array shape, per-key single-capture sealed parsing and reuse, real-reparse rejection, fail-closed negatives, external-input types, independently resolved inner/wrapper command identity, Git-read and external-filter safety, profile-free PowerShell wrappers, culture-independent canonical ordering, metamorphic equivalence, output no-clobber, and canonical repeatability | 11/11 historical, 32/32 evidence-surface, 33/33 negative, and 4/4 metamorphic checks pass twice with identical canonical JSON/hash; D29 preserves legacy root-only policy while proving exact optional root/`src`/`tests` authorization, canonical absolute and relative path forms, missing-ID rejection, at-most-one-command-per-observed-path cardinality, ordinal canonical root/path spelling and path-bound inventory proof, conservative case, dot-segment, and redundant-separator alias rejection, reparse-free observed paths, recursion and unlisted-path rejection; unused allowlist entries are not required observations, and the existing source projections, generated-contract, manifest, identity, proof, resolution, topology, Git-safety, no-clobber, and repeatability guards remain green |
 | Isolated controller canary | Record the bounded disposition of one private path-bound infrastructure check without broadening behavior claims | retained sealed `CANARY_PASS`; the public summary reports an exact-response pass and no command execution, omits private locator/artifact/runtime details, and leaves physical backend request count `UNKNOWN` |
 | PowerShell deterministic hardening | Validate cardinality, LF bytes, one-base paths, and Junction link-only removal | 15 assertions pass in PowerShell 7 and Windows PowerShell 5.1 |
 | PowerShell parser sweep | Parse all `evals/**/*.ps1` files and the tracked controller module | all scripts plus `codex-evidence-controller.psm1` parse |
@@ -1122,18 +1122,24 @@ candidate or active writer. This local integration creates no model evidence,
 assessor verdict, candidate acceptance, push, installation, release, or Gate 3
 authority.
 
-### 2026-08-07 — Work Charter sealed successor summary
+### 2026-08-08 — Work Charter sealed succession and D29
 
-The exact candidate remains unaccepted at Gate 2. Six execution records are
-sealed and non-retriable. The fifth stopped after transport consumed A01 but
-before a response. Successor-2 later completed one ordinary A01 response and
-one independent assessor turn, but its PowerShell wrapper omitted
-`-NoProfile`, one Git read failed, and the controller retained
-`CONTROLLER_UNKNOWN`; no later cell ran. The current tracked regression keeps
-that boundary fail closed and records a future-runner
-`allow_login_shell=false` requirement without changing Work Charter SOURCE or
-authorizing another model turn. The exact controller, qualification,
-consumption, assessor, and residual-risk record remains in
+The exact candidate remains unaccepted at Gate 2. Nine behavior execution
+records are sealed and non-retriable, while successors 3 and 5 are retained as
+zero-turn qualification records. Successor-7 proved both required A01 reads,
+stayed flat, proposed the correct patch and future test command, and made no
+write, test, or Git mutation; its controller result remains a violation because
+D27 admitted only a root auxiliary observation. D29 prospectively admits only
+the exact root, `src`, and `tests` for the five matched ordinary-negative cells,
+at most one command and unchanged inventory link per observed path. The
+observation and inventory link must use the allowlist's exact ordinal root and
+relative-path spelling,
+and every inventory row must stay within that path. Unused allowlist entries
+remain optional. Case aliases fail closed conservatively on all platforms, and
+dot-segment and redundant-separator aliases fail closed, and every observed
+path must be reparse-free. Current offline evidence is 32/32 and
+changes no Work Charter SOURCE or prior result. The exact controller,
+qualification, consumption, assessor, and residual-risk record remains in
 [Work Charter Verification](skills/work-charter/VERIFICATION.md).
 
 ### 2026-08-02 — Capability-delta decision and workflow
