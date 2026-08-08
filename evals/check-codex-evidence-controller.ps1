@@ -3101,7 +3101,10 @@ function Invoke-Suite {
 }
 
 function Test-PackageIdentity {
-    $expectedRows = @($cases.entry_baseline.work_charter_files)
+    if (-not (Test-PackageManifestDeclaredHash -Manifest $cases.current_source_package)) {
+        return $false
+    }
+    $expectedRows = @($cases.current_source_package.files)
     $expected = @{}
     foreach ($row in $expectedRows) {
         if ($expected.ContainsKey([string]$row.path)) {
@@ -3268,6 +3271,12 @@ function Test-PackageManifestHashGuards {
             passed = -not (Test-PackageManifestDeclaredHash -Manifest $changed)
         })
     }
+    $changedCurrentSource = Copy-ControllerValue -Value $cases.current_source_package
+    $changedCurrentSource.package_manifest_sha256 = ('0' * 64)
+    $checks.Add([ordered]@{
+        id = 'stale-hash-current-source'
+        passed = -not (Test-PackageManifestDeclaredHash -Manifest $changedCurrentSource)
+    })
     return @($checks)
 }
 
@@ -4467,7 +4476,7 @@ try {
         narrow_git_context_check = $runOne.narrow_git_context_check
         entry_baseline = if ($entryBaselinePass) { 'hash-exact' } else { 'DRIFT' }
         candidate_content_outputs = if ($candidateContentOutputsPass) { 'hash-exact' } else { 'DRIFT' }
-        package_identity = if ($packageIdentityPass) { 'b965102-five-file-exact' } else { 'DRIFT' }
+        package_identity = if ($packageIdentityPass) { 'current-source-five-file-exact' } else { 'DRIFT' }
         sealed_inputs = [ordered]@{
             required = [bool]$VerifyLocalSealedEvidence
             contained = @($sealed | Where-Object contained).Count

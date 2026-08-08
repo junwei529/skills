@@ -52,10 +52,12 @@ $work-charter 约束此项有后果的工作、权限、证据、恢复和最小
 revision，该身份保留为 `UNKNOWN`，Codex 不声称具体副本；这本身不阻止普通激活。
 泛化的“根据已安装 Skills 判断”请求或仅由症状触发的匹配，首先只得到元数据级
 proposal（即根据 Skill 简介做轻量候选判断）：说明 Work Charter 看起来可能适用、
-原因、建议的最小项目读取范围，并询问是否激活。此时不能声称 Skill 已经 selected
-或 loaded。用户确认后同样遵循“加载成功，否则停止”的边界，并且只能检查另行
-批准的项目范围。首次持久采用、第一份 Standard policy、角色交付、写入、Git 和
-外部影响仍需分别授权。
+原因、建议的最小项目读取范围，并询问是否激活。此时不能声称 Skill 已经
+selected、loaded、invoked 或 active。用户确认后同样遵循“加载成功，否则停止”的边界，
+并且只能检查另行批准的项目范围。若已批准读取无法通过批准路径完成，相关事实保持
+`UNKNOWN`；其他路径必须作为新的可见 proposal，而不是检查相邻路径或 metadata
+的许可。首次持久采用、第一份 Standard policy、角色交付、写入、Git 和外部影响
+仍需分别授权。
 
 它会用通用语言推荐最小充分形式：普通简单任务（`L0`，无 active Charter）、
 当前任务 Charter（`L1`）、持久单 Agent Charter（`L2`，有一个便于冷恢复的小型
@@ -89,12 +91,13 @@ selected。精确 `72db7e9...` 实现了两阶段入口，但其固定轮次 Sta
 `VIOLATION`，且没有运行 A16。条件式角色读取修订会在完整 Skill 正文不可用时
 停止，并把未暴露的精确副本身份保留为 `UNKNOWN`；每个 fresh `L3`/`L4` 角色都
 必须加载完整 Skill 和 coordination reference，`L4` 还必须在履行职责前加载
-Standard reference。它是精确但未接受的 candidate `b965102...`；此前四次
-Gate 2 execution 仍被封存且不可重试，但这既不会让未变化的 candidate 永久退役，
-也不会转移 acceptance。一个另行授权的 successor 已针对 controller `191cd1f...`
-完成离线资格检查，随后消费一次 A01 `turn/start`；传输在观察到模型响应或 Work
-Charter 行为前失败，因此该次执行以 `HARD_STOP / UNKNOWN` 封存。这是第五条已消费
-execution 记录，不是产品缺陷或 acceptance，也不能在该 evidence window 下重试。
+Standard reference。精确 candidate `b965102...` 仍未被接受。十个 Gate 2 行为
+execution window 与两条零 turn 资格记录均已封存且不可重试。successor-8 在 A10
+硬停止前完成 27 个 cell 中的 9 个：A04 暴露 metadata-only selected-state 声明，
+A10 则在 Git 读取失败后扩大了批准读取范围；后者同时暴露 runner ownership 噪声，
+不能算作产品 finding。独立 assessor 返回 `DECISION_REQUIRED`。当前 SOURCE 已收紧
+metadata 措辞并加入 unavailable-read 停止规则，但尚无精确已提交 candidate 或新的
+行为证据。
 完整分阶段 selection、entry、等级、
 重新接入和可见 Standard 行为，stable 层完整 Standard
 delivery、广泛隐式触发 telemetry、独立真实项目效果、确定性角色交付或 writer

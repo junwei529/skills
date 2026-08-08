@@ -60,9 +60,12 @@ not block ordinary activation. A generic installed-Skills request or
 symptom-only match first receives a metadata-level proposal (a lightweight
 catalog match): Work Charter appears applicable, why it may help, the smallest
 proposed project read, and a question asking whether to activate it. That
-proposal must not claim the Skill is selected or loaded. After the user
-confirms, the same load-or-stop boundary applies, and only the separately
-approved project scope may be inspected.
+proposal must not claim the Skill is selected, loaded, invoked, or active.
+After the user confirms, the same load-or-stop boundary applies, and only the
+separately approved project scope may be inspected. If an approved read cannot complete
+through the approved route, the affected fact remains `UNKNOWN`; any different
+route is a new visible proposal, not permission to inspect adjacent paths or
+metadata.
 Initial persistent adoption, the first Standard policy, role delivery, writes,
 Git, and external effects remain separately authorized.
 
@@ -103,14 +106,15 @@ conditional-role-read correction stops when the full Skill body is unavailable,
 preserves unexposed exact identity as `UNKNOWN`, requires
 every fresh `L3`/`L4` role to load the full Skill and coordination reference,
 and requires `L4` to load the Standard reference before applying its
-responsibilities. It is exact unaccepted candidate `b965102...`; four prior
-Gate 2 executions remain sealed and non-retriable, but that does not
-permanently retire the unchanged candidate or transfer acceptance. A separately
-authorized successor passed offline qualification against controller
-`191cd1f...`, then consumed one A01 `turn/start` and sealed `HARD_STOP /
-UNKNOWN` after transport failed before any model response or Work Charter
-behavior was observed. This fifth consumed execution record is not a product
-defect or acceptance, and it cannot be retried under that evidence window.
+responsibilities. Exact candidate `b965102...` remains unaccepted. Ten Gate 2
+behavior execution windows and two zero-turn qualification records are sealed
+and non-retriable. Successor-8 completed nine of 27 cells before A10 hard-
+stopped; A04 exposed a metadata-only selected-state claim, while A10 broadened
+an approved read after Git access failed. The latter also exposed runner
+ownership noise, which is not a product finding. Its independent assessor
+returned `DECISION_REQUIRED`. Current SOURCE now narrows metadata wording and
+adds an unavailable-read stop, but it has no exact committed candidate or new
+behavior evidence yet.
 Full staged selection, entry, level, re-entry, and visible
 Standard behavior, full Standard delivery at the stable layer, broad implicit
 telemetry, independent real-project efficacy, deterministic role delivery or

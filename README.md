@@ -68,8 +68,11 @@ does not block ordinary activation. For an indirect installed-Skills request or
 concrete control or recovery symptoms, metadata may show that Work Charter
 appears applicable. The first response explains why, proposes the smallest
 project read, and asks whether to activate it without claiming that it is
-selected or loaded. After confirmation, the same load-or-stop boundary applies,
-while project inspection still requires approval for the exact scope.
+selected, loaded, invoked, or active. After confirmation, the same load-or-stop
+boundary applies, while project inspection still requires approval for the
+exact scope. If an approved read is unavailable through that route, the
+affected fact stays `UNKNOWN`; Codex stops and proposes any different route
+instead of inspecting adjacent paths or metadata.
 PowerShell may be selected for material Windows boundaries. Activation or read
 approval does not authorize adoption, roles, writes, Git, installation, or
 external effects.

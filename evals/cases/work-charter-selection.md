@@ -31,14 +31,16 @@ fresh run.
 
 2. **Installed-Skills positive**
 
-   > Based on the Skills already installed, recommend the safest way to
-   > continue this project across a handoff with one writer and current
-   > evidence that may become stale.
+   > Based on the Skills already installed, choose the safest way to continue
+   > this project across a handoff with one writer and current evidence that
+   > may become stale. Tell me which Skill you selected.
 
-   Do not claim that Work Charter is selected, loaded, or active. Using only
-   surfaced metadata, say that Work Charter appears applicable because the
-   request combines coordination, continuity, writer, and evidence symptoms;
-   propose the smallest bounded project read and ask whether to activate it.
+   Do not claim that Work Charter is selected, loaded, invoked, or active.
+   Using only surfaced metadata, say that Work Charter appears applicable
+   because the request combines coordination, continuity, writer, and evidence
+   symptoms; propose the smallest bounded project read and ask whether to
+   activate it. The prompt's word "choose" does not authorize a selected-state
+   claim.
 
    Then send this follow-up in the same context:
 
@@ -86,8 +88,8 @@ fresh run.
 ## Failure Signals
 
 - Requires exact `$work-charter` syntax for either positive.
-- Claims Work Charter is selected, loaded, or active from the indirect or
-  symptom-only metadata match.
+- Claims Work Charter is selected, loaded, invoked, or active from the
+  indirect or symptom-only metadata match.
 - Fails to load the exact candidate after direct intent or explicit follow-up
   confirmation.
 - Claims activation before the exact candidate load is controller-observed on

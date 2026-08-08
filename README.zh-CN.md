@@ -60,9 +60,11 @@ Work Charter 也接受“调用 Work Charter，判断项目应该怎样继续”
 身份保留为 `UNKNOWN`，Codex 不声称具体副本；这本身不阻止普通激活。对于泛化的
 “根据已安装 Skills 判断”请求，或具体控制与恢复症状，系统首先只根据 metadata
 （Skill 简介）判断 Work Charter 看起来可能适用：说明原因、提出最小项目读取范围，
-并询问是否激活，但不能声称它已经 selected 或 loaded。用户确认后同样遵循“加载
-成功，否则停止”的边界，而项目检查仍需批准精确范围。PowerShell 可以在实质
-Windows 边界出现时被选择。
+并询问是否激活，但不能声称它已经 selected、loaded、invoked 或 active。用户确认
+后同样遵循“加载成功，否则停止”的边界，而项目检查仍需批准精确范围。若已批准的
+读取无法通过该路径完成，相关事实保持 `UNKNOWN`；Codex 停止并把其他读取路径作为
+新 proposal，而不会检查相邻路径或 metadata。PowerShell 可以在实质 Windows 边界
+出现时被选择。
 激活或读取许可并不授权持久采用、角色交付、写入、Git、安装或外部影响。
 
 ## 可选组合

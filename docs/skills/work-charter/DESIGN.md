@@ -26,7 +26,9 @@ continuity, control, authorization, recovery, writer, or independent-
 assessment symptoms, creates only a metadata-level proposal. The response says
 that Work Charter appears applicable, explains why, proposes the smallest
 bounded project read, and asks whether to activate it. It must not claim the
-Skill is selected, loaded, or active, and must not inspect project details.
+Skill is selected, loaded, invoked, or active, and must not inspect project
+details. User wording such as "choose" or "what you selected" does not change
+that state boundary.
 Ordinary bounded tasks, a new task, one failure, elapsed time, file count,
 document governance, and shell diagnosis remain non-triggers.
 
@@ -44,6 +46,11 @@ approval, persistent adoption, roles, writes, project-document changes,
 worktrees, Git, installation, and external effects remain distinct.
 Controller-observed Skill reads, not model self-report, establish exact
 loaded-copy identity in evaluation.
+
+After read approval, an unavailable authorized route does not open a discovery
+fallback. Preserve the affected fact as `UNKNOWN` and stop safely. Do not use
+adjacent hidden files or metadata, neighboring-path search, or unapproved
+observations to compensate; a different route is a new visible proposal.
 
 Package detail remains conditional rather than universal. Before a fresh role
 claims to apply `L3` or `L4` Work Charter responsibilities, it loads the full
@@ -158,7 +165,7 @@ deferred.
 
 | Source | Owner |
 |---|---|
-| [`SKILL.md`](../../../skills/work-charter/SKILL.md) | Selection/read boundary, degraded-load stop, conditional role-reference routing, five-part contract, compact levels/carrier/re-entry workflow, authority, and stop boundary |
+| [`SKILL.md`](../../../skills/work-charter/SKILL.md) | Metadata-state and selection/read boundary, degraded-load and unavailable-read stops, conditional role-reference routing, five-part contract, compact levels/carrier/re-entry workflow, authority, and stop boundary |
 | [`coordination-and-recovery.md`](../../../skills/work-charter/references/coordination-and-recovery.md) | Entry/re-entry order, L1/L2 durability, managed workstreams, multi-worktree reconciliation, re-entry precedence, L3, correction, and evidence |
 | [`standard-ope.md`](../../../skills/work-charter/references/standard-ope.md) | L4 standing-policy reuse, control location, responsibilities, operating path, and honest degradation |
 | [`work-charter.md`](../../../skills/work-charter/assets/work-charter.md) | Optional no-existing-owner durable carrier |

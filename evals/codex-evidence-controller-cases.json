@@ -17,6 +17,17 @@
     "sealed_input_names_sha256": "dfaa45517f42709fb8d36c8440f2fcf382e3db28ee91fefc0f7806188c091bf5"
   },
   "entry_baseline_sha256": "2d0dcb755a1bf3af69e627e2500d88d82c7e7795a189a460c9aa5433e0cb4762",
+  "current_source_package": {
+    "canonicalization": "canonical-json/path-sorted-five-file-rows/v1",
+    "package_manifest_sha256": "9cac62ce17aaa9274b13321c1ef2c2ebcb641982349fb215c3475c7f9e22a885",
+    "files": [
+      {"path": "SKILL.md", "length": 8549, "sha256": "3a9307901de66b2a6b4e33367ed3629e218b6a1fe128d4b12dd02f7070dba27c"},
+      {"path": "agents/openai.yaml", "length": 306, "sha256": "f0032475e213d75ed17eb41c3424007ebc46c0ddb6739138c9908185beefdad6"},
+      {"path": "assets/work-charter.md", "length": 2329, "sha256": "4420e9faa5a6090e5fc54680e26b2dedddbb8c60c7c3891aa88da824dd881b72"},
+      {"path": "references/coordination-and-recovery.md", "length": 10072, "sha256": "436d6ada3288fb7374445ce2a7bfd51501fd218def8f50755f7cbbdae3bd65f7"},
+      {"path": "references/standard-ope.md", "length": 3309, "sha256": "a85f03815313beaf3b399c8cf712904a402ae197518d8a5489281cff389698df"}
+    ]
+  },
   "candidate_identities": {
     "72db7e9": {
       "candidate_sha": "72db7e9dfe920de5e2017421b22446cf5c8c75e6",

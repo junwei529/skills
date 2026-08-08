@@ -37,15 +37,15 @@ responsibility. Mapped design, state, evidence, public entries, repository
 summaries, and existing eval definitions change with it.
 Those corrected SOURCE bytes became exact clean product candidate
 `b965102ea58f9cc1ef3c73e8dea515731fec12a6`. The five package blobs remain
-unchanged by the later controller-stabilization work. The completed Gate 2
-execution, its two recorded same-subject successors, and the later A01-only
-recovery execution are four individually sealed records: their consumed
-evidence cannot be retried, rescored, relabelled, or reset through another task,
-root, or attempt name. The candidate itself remains unaccepted rather than
-permanently retired or sealed. A later evaluation window for the unchanged
-candidate requires new explicit Gate 2 authority and must preserve all prior
-history. The tracked controller revision is evaluation infrastructure after the
-product candidate, not a new Work Charter package identity.
+unchanged by the later controller-stabilization work. Its Gate 2 history now
+contains ten individually sealed behavior execution windows and two separate
+zero-turn qualification records. Their consumed evidence cannot be retried,
+rescored, relabelled, or reset through another task, root, or attempt name. The
+candidate remains unaccepted rather than permanently retired or sealed. The
+current D30 working-tree revision changes only `SKILL.md` inside the five-file
+package, so it is not exact candidate `b965102...` and has no exact committed
+candidate or behavior evidence yet. Tracked controller revisions remain
+evaluation infrastructure rather than Work Charter package identities.
 
 Decision 0018 `WC-AR-D27` now adds a prospective controller/evaluation
 boundary without changing that product candidate: strict full-file evidence is
@@ -109,16 +109,42 @@ Unused allowlist entries remain optional. It does not rescore successor-7 or
 change a Work Charter package blob. Case, dot-segment, and redundant-separator
 aliases fail closed, and every observed path must be reparse-free.
 
+Successor-8 bound candidate `b965102...`, released control `ceed607...`, and
+integrated D29 controller `8f00a557...`. It passed offline qualification and
+then consumed 13 `turn/start` events serially. Nine of 27 cells completed; A10
+hard-stopped the window, and the independent assessor returned
+`DECISION_REQUIRED`. A04 Turn 1 used metadata only but claimed that Work Charter
+was selected before a controller-observed full-body load. A10 loaded the exact
+candidate and read the two authorized documents, but when an authorized Git
+route failed it inspected adjacent root and hidden metadata outside the
+approved scope. The Git failure was also caused by a synthetic workspace
+created under a different OS identity, which is runner qualification noise
+rather than a product finding. Both unauthorized expansion and the metadata-
+state claim remain non-compensable; successor-8 is the tenth sealed behavior
+window and is not acceptance.
+
+Decision 0018 D30 applies the narrow capability delta. Harness-visible
+frontmatter now permits only an "appears applicable" proposal on the indirect
+metadata path and forbids selected, loaded, invoked, or active state claims.
+The core body now preserves an unavailable authorized fact as `UNKNOWN`, stops,
+and makes a different route a new visible proposal instead of inspecting
+adjacent paths or metadata. The existing selection prompt remains adversarial.
+The existing no-owner entry variant adds one same-context missing-
+`CHECKPOINT.md` sentinel. A future successor must also create its synthetic Git
+workspace under the same execution identity as model commands and qualify a
+normal read-only Git status before consumption.
+
 ## Current Writer
 
-The current single-writer sequence gives the tracked D29 correction exclusive
-ownership of the controller, its tests, and mapped documentation until native
-review plus the authorized commit/push closeout completes. Only then may the
-ignored successor-8 carrier take writer ownership inside its isolated run root
-and bind the exact integrated controller commit. Work Charter SOURCE, Project
-Docs per-Skill owners, installation, release, cleanup, tags, and stable copies
-remain outside both windows. Native-review findings may reopen only the same
-D29 paths and focused checks.
+The currently authorized D30 correction window is the sole repository writer.
+It owns only the existing Work Charter SOURCE, selection/entry definitions,
+fixture precondition, current-SOURCE controller manifest/checker, and mapped
+product/evidence/public/recovery consumers listed in the repository handoff. It
+may complete deterministic verification and native review and may correct
+same-scope findings. It has no staging,
+commit, push, candidate materialization, model/assessor turn, installation,
+tag, release, stable-copy, ignored-evidence mutation, cleanup, or Project Docs
+authority. The writer relinquishes at the next user-owned Git decision.
 
 ## Evidence State
 
@@ -498,22 +524,33 @@ bytes. No Git closeout is authorized.
 ## Next Gate
 
 Work Charter `v0.1.2` remains the released and installed stable revision, and
-`b965102...` remains the unchanged, unaccepted target candidate. The D29 review
-target changes only evaluation infrastructure and mapped documentation. Its
-focused controller suite passes 11/11 historical, 32/32 evidence-surface,
-33/33 negative, and 4/4 metamorphic checks; full repository checks and native
-review still govern its exact commit.
+prior candidate `b965102...` remains unaccepted. Native review 1/5 found one P1
+frontmatter contradiction: indirect symptoms were still inside the activation
+trigger despite the metadata-only proposal contract. The correction limits
+`Use for` to direct intent or confirmation. The Work Charter validator,
+controller, and all 17 fixture checks pass again. Native review 2/5 materially
+covered the corrected 20-file diff, independently reran the relevant validators
+and checks, and found no actionable correctness issue. Native review 3/5 then
+found one P2: the existing selection case's expected result prohibited a
+selected-state claim without putting the adversarial choice/selected wording in
+Prompt 2. The prompt now contains that wording; the repository checker and all
+17 fixture checks pass. This review-history and regression-prompt
+synchronization is the only later tracked mutation; a completed semantic review
+over these final bytes determines gate satisfaction. Once satisfied, stop for
+explicit user authority to stage and create the one commit that would establish
+a new exact candidate. Commit success would not authorize push, candidate
+materialization, a model or assessor turn, installation, tag, release, stable
+update, or cleanup.
 
-After that exact commit is pushed, successor-8 may be constructed under the
-already approved Gate 2 envelope. It must append the nine sealed behavior
-executions and two zero-turn qualification records, bind candidate
-`b965102...`, control `ceed607...`, and the exact D29 controller commit, and
-pass zero-turn qualification/freeze before A01. A01 may consume once. The
-carrier may continue serially through the remaining matrix only if A01's
-controller and semantic gates both pass, then use one independent assessor.
-Every terminal failure seals without retry. Gate 3 remains blocked unless the
-exact-candidate batch completes and the independent assessor returns
-`ACCEPTED`; no tag, installation, release, or cleanup is authorized.
+A separately authorized successor-9 may begin only after an exact candidate
+exists. It must preserve all ten sealed behavior windows and two qualification
+records, bind the exact new candidate and controller identities, create entry
+workspaces under the model command runner's OS identity, and pass zero-turn
+qualification/freeze. The existing 19-run/27-cell matrix stays intact; the A10
+missing-read sentinel raises the complete envelope by one same-context turn,
+to at most 40 counted turns including the independent assessor. Every terminal
+failure seals without retry. Gate 3 remains blocked until a complete exact-
+candidate batch receives independent `ACCEPTED`.
 
 ## Recovery Entry
 
@@ -523,17 +560,17 @@ exact-candidate batch completes and the independent assessor returns
    [Decision 0018](../../decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md),
    this state, and [Verification](VERIFICATION.md).
 3. Confirm live workspace, writer, and action authority.
-4. Confirm live `main` includes `57ec05a...` and resolve the exact commit that
-   contains this D29 controller/state revision; do not infer it from a run-root
-   name or an earlier handoff.
-5. Distinguish all nine sealed behavior executions and both zero-turn
-   qualification records from unchanged candidate `b965102...`. Preserve every
-   terminal, A01, and assessor consumption event without retry, relabelling, or
-   rescore.
-6. If the tracked D29 writer has relinquished after commit/push, revalidate the
-   successor-8 envelope, isolated root, exact candidate/control/controller
-   bindings, zero-turn qualification, and single-writer handoff before the one
-   A01 consumption event.
+4. Confirm live `main` includes controller commit `8f00a557...`, then resolve
+   HEAD, index, dirty scope, and current writer instead of inferring them from
+   a run-root name or older handoff.
+5. Distinguish all ten sealed behavior windows and both zero-turn qualification
+   records for prior candidate `b965102...` from the current uncommitted D30
+   SOURCE. Preserve every terminal, cell, and assessor consumption event
+   without retry, relabelling, or rescore.
+6. If resuming the D30 window, verify its exact existing-file scope and stop at
+   the user-owned commit decision after native review. If resuming later, bind
+   any successor only to an exact committed candidate under separate Gate 2
+   authority.
 7. Read canonical SOURCE, current eval definitions, and only evidence matching
    the exact revision before changing behavior or claims.
 8. Preserve the independent-Skill and non-propagating-authorization boundary.

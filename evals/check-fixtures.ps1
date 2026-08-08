@@ -671,9 +671,12 @@ Add-Check `
         $entryExistingOwner -match 'No Work Charter has been\s+adopted yet' -and
         $entryNoOwner -match 'completed in the\s+current reliable task' -and
         $entryNoOwner -match 'no planned handoff' -and
-        $entryNoOwner -match 'durable project-document owner'
+        $entryNoOwner -match 'durable project-document owner' -and
+        -not (Test-Path -LiteralPath (
+            Join-Path $workCharterEntry 'no-owner\CHECKPOINT.md'
+        ))
     ) `
-    -Expectation 'entry fixture exposes one clean existing-owner variant and one current-task no-owner variant'
+    -Expectation 'entry fixture exposes one clean existing-owner variant, one current-task no-owner variant, and no fallback checkpoint file'
 
 $workCharterIntegrity = Join-Path $repoRoot 'evals\fixtures\work-charter-recovery-integrity'
 $integrityAuthority = Get-Content -Raw -Encoding UTF8 (
@@ -866,8 +869,9 @@ Add-Check `
         $controllerRecord.historical_generated_contract_guards.total -eq 3 -and
         $controllerRecord.package_manifests.passed -eq 2 -and
         $controllerRecord.package_manifests.total -eq 2 -and
-        $controllerRecord.package_manifest_hash_guards.passed -eq 2 -and
-        $controllerRecord.package_manifest_hash_guards.total -eq 2 -and
+        $controllerRecord.package_manifest_hash_guards.passed -eq 3 -and
+        $controllerRecord.package_manifest_hash_guards.total -eq 3 -and
+        $controllerRecord.package_identity -ceq 'current-source-five-file-exact' -and
         $controllerRecord.sealed_locator_guards.passed -eq 4 -and
         $controllerRecord.sealed_locator_guards.total -eq 4 -and
         $realReparseGuard.Count -eq 1 -and
@@ -903,7 +907,7 @@ Add-Check `
         $controllerRecord.narrow_git_context_check -eq $true -and
         $controllerRecord.canonical_repeat.equal -eq $true
     ) `
-    -Expectation 'tracked controller binds generated historical contracts, separates strict evidence reads from bounded auxiliary observations, captures sealed bytes once, rejects real reparse and scratch-topology drift, safely cleans validated scratch, and passes historical, negative, metamorphic, and repeatability checks without recursive self-invocation'
+    -Expectation 'tracked controller binds immutable historical candidates separately from the current SOURCE manifest, separates strict evidence reads from bounded auxiliary observations, captures sealed bytes once, rejects real reparse and scratch-topology drift, safely cleans validated scratch, and passes historical, negative, metamorphic, and repeatability checks without recursive self-invocation'
 
 $checks | Format-Table -AutoSize
 
