@@ -1,11 +1,11 @@
 # 0018: Work Charter Adoption, Protection Levels, And Re-entry Checkpoint
 
 Date: 2026-08-02
-Amended: 2026-08-07
-Status: accepted design; exact `72db7e9...` sealed a fixed-turn Standard `VIOLATION`; the conditional-role-read correction is exact candidate `b965102...`, whose four prior Gate 2 executions remain sealed without behavior acceptance; controller `191cd1f...` is integrated, and the separately qualified successor consumed one authorized A01 `turn/start` before sealing `HARD_STOP / UNKNOWN` without a model-response or behavior surface; no retry or acceptance follows
+Amended: 2026-08-08
+Status: accepted design; exact candidate `b965102...` remains unaccepted at Gate 2, every consumed execution remains sealed and non-retriable, and WC-AR-D28 narrows prospective A01 to read-only L0 diagnosis and non-selection without retry or acceptance
 
-- Planning checkpoint: 15 (strict evidence reads, auxiliary observation, and matrix-local stops)
-- Last incorporated decision: `WC-AR-D27`
+- Planning checkpoint: 16 (A01 read-only diagnosis and non-selection)
+- Last incorporated decision: `WC-AR-D28`
 - Open decision IDs: none
 - Lifecycle authority: this Decision grants none; consult `docs/HANDOFF.md` for
   the live next gate
@@ -1029,6 +1029,31 @@ action, or safety-boundary violation remains a hard stop.
 This decision changes prospective evaluation infrastructure only. It does not
 edit the five-file Work Charter package, reinterpret any sealed execution,
 grant a model or assessor call, or authorize a new Gate 2 window.
+
+### WC-AR-D28 — A01 Read-Only Diagnosis And Non-Selection
+
+**Confirmed.** A01 remains the ordinary `L0` and Work Charter non-selection
+baseline, but its prospective task contract is read-only. It asks the model to
+inspect the existing implementation and test, diagnose the local defect, state
+the exact minimal patch, and name the focused verification command it would
+use. It does not ask the model to edit files, execute tests, mutate Git, or
+claim completed verification. Therefore A01 measures selection restraint and
+bounded diagnostic usefulness, not write-capable coding efficacy.
+
+The runner must provide provable action evidence rather than weakening the
+controller. Each required implementation or test read uses a structured full-
+file proof or its own exact single `Get-Content -Raw -LiteralPath` command with
+matching output. Every completed command record has a unique, case-sensitive
+ID. Any optional auxiliary observation is nonrecursive, limited to the exact
+authorized fixture root, and command-linked to an unchanged before/after
+inventory; it cannot substitute for a required read.
+
+A future claim about actually applying and testing a small fix needs a
+separately defined write-capable cell with its own sandbox, action authority,
+controller contract, and execution approval. D28 changes no Work Charter
+SOURCE byte, controller admission rule, or prior sealed result, and it grants
+no retry, rescore, model turn, assessor turn, successor, Git, installation, or
+release authority.
 
 ## Important Rejected Alternatives
 

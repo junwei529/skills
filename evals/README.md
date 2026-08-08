@@ -208,7 +208,7 @@ Token or context efficiency is a secondary measurement, not a pass condition. A 
 | [Project Docs continuity update](cases/project-docs-continuity.md) | `manage-project-docs` | Follow persistent routing and update an existing owner |
 | [Project Docs authority conflict](cases/project-docs-conflict.md) | `manage-project-docs` | Implicitly detect authority/recovery symptoms, preserve unknowns, and propose rather than mutate |
 | [Project Docs safety boundaries](cases/project-docs-safety-boundaries.md) | `manage-project-docs` | Respect scope, permissions, writer, generated, external, and language boundaries |
-| [Small task stays flat](cases/small-task-stays-flat.md) | `work-charter` | Keep an ordinary focused fix flat without Charter or role overhead |
+| [Small task stays flat](cases/small-task-stays-flat.md) | `work-charter` | Keep an ordinary read-only diagnosis flat without Charter or role overhead |
 | [Work Charter selection](cases/work-charter-selection.md) | `work-charter` | Exercise direct ordinary-language activation, two-stage indirect entry, a symptom-only metadata proposal, and ordinary or peer-Skill negatives |
 | [Work Charter entry](cases/work-charter-entry.md) | `work-charter` | Prove direct full-Skill loading, enforce two-turn project-read authorization, and recommend current-task or durable single-agent protection |
 | [Cold resume](cases/cold-resume.md) | `work-charter` | Recover from durable state without Project Docs |
@@ -299,6 +299,17 @@ read-only successor follow-up in the same context; it does not add a new matrix
 lane. Preserve pre-consumption qualification, completed Work Charter
 corrections, consumed evidence, and delivery/native-review counters as distinct
 histories.
+
+A01 (`small-task-stays-flat`) is the read-only `L0` diagnosis and non-selection
+baseline. It requires the exact minimal patch and a focused verification
+command as proposed work, while prohibiting edits, test execution, Git
+mutation, and claims that verification ran. Its required implementation and
+test reads use separate structured full-file proofs or separate exact single
+`Get-Content -Raw -LiteralPath` commands. Every completed command needs a
+unique case-sensitive ID; any optional auxiliary observation is nonrecursive,
+limited to the exact fixture root, and linked to an unchanged before/after
+inventory. This cell does not prove write-capable coding efficacy. Such a claim
+would require a separately defined, authorized, and controlled cell.
 
 For the Planner/Executor case, every fresh session that claims to apply `L3`
 Work Charter responsibilities must have controller-observed exact `SKILL.md`

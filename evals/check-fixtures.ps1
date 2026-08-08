@@ -440,6 +440,18 @@ Add-Check `
     -Expectation 'setup and inspection reject junction or symlink path components'
 
 $smallTask = Join-Path $repoRoot 'evals\fixtures\small-task-stays-flat'
+$smallTaskCase = Get-Content -Raw -Encoding UTF8 (
+    Join-Path $repoRoot 'evals\cases\small-task-stays-flat.md'
+)
+$smallTaskAgents = Get-Content -Raw -Encoding UTF8 (
+    Join-Path $smallTask 'AGENTS.md'
+)
+$smallTaskSource = Get-Content -Raw -Encoding UTF8 (
+    Join-Path $smallTask 'src\range_utils.py'
+)
+$smallTaskTests = Get-Content -Raw -Encoding UTF8 (
+    Join-Path $smallTask 'tests\test_range_utils.py'
+)
 Push-Location $smallTask
 try {
     $smallTaskOutput = & python -m unittest discover -s tests -v 2>&1
@@ -458,9 +470,18 @@ Add-Check `
         $smallTaskText -match 'Ran 2 tests' -and
         $smallTaskText -match 'AssertionError: 2 != 3' -and
         $smallTaskText -match '(?m)^FAILED \(failures=1\)' -and
-        $smallTaskText -notmatch '(?m)^ERROR'
+        $smallTaskText -notmatch '(?m)^ERROR' -and
+        $smallTaskCase -match '## Controller Contract' -and
+        $smallTaskCase -match 'A01 measures ordinary non-selection' -and
+        $smallTaskCase -match 'Get-Content -Raw -LiteralPath' -and
+        $smallTaskCase -match 'unique, case-sensitive command ID' -and
+        $smallTaskCase -match 'unchanged\s+before/after inventory' -and
+        $smallTaskAgents -match 'do\s+not edit files, run tests, or commit' -and
+        $smallTaskSource -match '(?m)^\s*return end - start\s*$' -and
+        $smallTaskSource -notmatch 'return end - start \+ 1' -and
+        $smallTaskTests -match 'assertEqual\(inclusive_count\(4, 6\), 3\)'
     ) `
-    -Expectation 'off-by-one test fails before the task is solved'
+    -Expectation 'off-by-one baseline fails while A01 remains a read-only diagnosis and non-selection contract'
 
 $coldResume = Join-Path $repoRoot 'evals\fixtures\cold-resume'
 Push-Location $coldResume
