@@ -1,6 +1,6 @@
 # Repository Verification
 
-Last updated: 2026-08-08
+Last updated: 2026-08-09
 
 ## Scope
 
@@ -19,16 +19,16 @@ Sanitized detailed runs remain under [`evals/results`](../evals/results/README.m
 
 | Check | Purpose | Current result |
 |---|---|---|
-| Three Skill validators | Validate frontmatter and package names without changing packages | pass for current D30 Work Charter SOURCE and the unchanged Project Docs and PowerShell packages |
-| Repository checker | Validate strict UTF-8/no BOM, whitespace, local links/fragments, publication safety, exact Skill/eval sets, federated docs, and bilingual navigation | current D30 working tree passes at 199 text files / 14 cases / 12 fixtures |
-| Fixture checker | Validate synthetic starting states and their Git/reparse/ignored-result boundaries plus the tracked controller regression | current D30 working tree passes all 17 checks, including the missing-`CHECKPOINT.md` precondition and separate current-SOURCE identity |
-| Codex evidence controller | Validate one shared core across four entry modes, strict required-read versus bounded auxiliary-observation attribution, structural PowerShell/Git/path classification, source-and-generated-contract-bound historical regressions, exact package manifests, candidate-identity and content-proof shape, record cardinality, completed exit typing, output-array shape, per-key single-capture sealed parsing and reuse, real-reparse rejection, fail-closed negatives, external-input types, independently resolved inner/wrapper command identity, Git-read and external-filter safety, profile-free PowerShell wrappers, culture-independent canonical ordering, metamorphic equivalence, output no-clobber, and canonical repeatability | D30 pre-review run passes 11/11 historical, 32/32 evidence-surface, 33/33 negative, 4/4 metamorphic, 3/3 package-manifest hash guards, and every reported structural guard with no failures; immutable historical candidate manifests stay separate from a content-only current-SOURCE manifest that carries no candidate SHA, Git tree, behavior, or acceptance claim |
+| Three Skill validators | Validate frontmatter and package names without changing packages | pass for exact D30 Work Charter candidate `53d424c...` and the unchanged Project Docs and PowerShell packages |
+| Repository checker | Validate strict UTF-8/no BOM, whitespace, local links/fragments, publication safety, exact Skill/eval sets, federated docs, and bilingual navigation | exact D30 candidate `53d424c...` and the post-commit documentation synchronization pass at 199 text files / 14 cases / 12 fixtures |
+| Fixture checker | Validate synthetic starting states and their Git/reparse/ignored-result boundaries plus the tracked controller regression | exact D30 candidate `53d424c...` passes all 17 checks, including the missing-`CHECKPOINT.md` precondition and separate current-SOURCE identity |
+| Codex evidence controller | Validate one shared core across four entry modes, strict required-read versus bounded auxiliary-observation attribution, structural PowerShell/Git/path classification, source-and-generated-contract-bound historical regressions, exact package manifests, candidate-identity and content-proof shape, record cardinality, completed exit typing, output-array shape, per-key single-capture sealed parsing and reuse, real-reparse rejection, fail-closed negatives, external-input types, independently resolved inner/wrapper command identity, Git-read and external-filter safety, profile-free PowerShell wrappers, culture-independent canonical ordering, metamorphic equivalence, output no-clobber, and canonical repeatability | D30 candidate qualification passes 11/11 historical, 32/32 evidence-surface, 33/33 negative, 4/4 metamorphic, 3/3 package-manifest hash guards, and every reported structural guard with no failures; immutable historical candidate manifests stay separate from a content-only current-SOURCE manifest that intentionally carries no candidate SHA, Git tree, behavior, or acceptance claim, while Git commit `53d424c...` separately supplies the exact product-candidate identity |
 | Isolated controller canary | Record the bounded disposition of one private path-bound infrastructure check without broadening behavior claims | retained sealed `CANARY_PASS`; the public summary reports an exact-response pass and no command execution, omits private locator/artifact/runtime details, and leaves physical backend request count `UNKNOWN` |
 | PowerShell deterministic hardening | Validate cardinality, LF bytes, one-base paths, and Junction link-only removal | 15 assertions pass in PowerShell 7 and Windows PowerShell 5.1 |
-| PowerShell parser sweep | Parse all `evals/**/*.ps1` files and the tracked controller module | all eight files parse in the D30 working tree |
+| PowerShell parser sweep | Parse all `evals/**/*.ps1` files and the tracked controller module | all eight files parse for exact D30 candidate `53d424c...` |
 | Markdown navigation and ownership | Verify local links/fragments, English/Chinese routes, expected per-Skill owners, and no orphan canonical owner | pass through repository checker |
 | `git diff --check` and cached diff check | Reject whitespace defects in unstaged or staged candidates | both pass; the cached check makes no empty-index claim |
-| Gitleaks | Detect secret-like content independently | all 20 changed tracked publication files pass; whole-worktree ignored Gate 2 artifacts remain outside this exact changed-file scan |
+| Gitleaks | Detect secret-like content independently | all 20 D30 candidate files and all nine post-commit documentation files pass their exact changed-file scans; whole-worktree ignored Gate 2 artifacts remain outside these scans |
 
 ## Repository Claim Ledger
 
@@ -1174,9 +1174,9 @@ manifest while leaving both historical candidate manifests immutable. The
 current-SOURCE manifest has no candidate SHA or Git tree and therefore does not
 pre-create a candidate or alter Gate 2 evidence.
 
-This working-tree SOURCE is distinct from `b965102...` and has no exact
-committed candidate, fresh model/assessor evidence, Gate 2 acceptance,
-installation, or release status. Native review 1/5 found one P1: the
+Exact local product candidate `53d424c...` is distinct from `b965102...` and
+has no fresh model/assessor evidence, Gate 2 acceptance, installation, or
+release status. Native review 1/5 found one P1: the
 frontmatter activation phrase still listed indirect symptoms even though the
 same contract requires a metadata-only proposal. The correction restricts
 `Use for` to direct intent or confirmation and leaves indirect symptoms only in
@@ -1193,6 +1193,15 @@ checker and all 17 fixture checks pass. This review-history and regression-
 prompt synchronization is the only later tracked mutation; native-review gate
 satisfaction is determined by a completed semantic review over these final
 bytes.
+
+Native review 4/5 materially covered those final 20-file bytes, independently
+reran the controller, fixture checker, repository checker, Work Charter
+validator, and whitespace check, and found no actionable correctness issue.
+Local commit `53d424c814a83515830993da1cd7e1a4c61ff01e` records the exact
+reviewed D30 product candidate. The subsequent post-commit synchronization
+changes only nine existing documentation consumers and does not alter that
+candidate's Skill, eval, or controller bytes or provide fresh behavior,
+installation, or release evidence.
 
 ### 2026-08-02 — Capability-delta decision and workflow
 

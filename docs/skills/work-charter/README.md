@@ -113,8 +113,9 @@ stopped; A04 exposed a metadata-only selected-state claim, while A10 broadened
 an approved read after Git access failed. The latter also exposed runner
 ownership noise, which is not a product finding. Its independent assessor
 returned `DECISION_REQUIRED`. Current SOURCE now narrows metadata wording and
-adds an unavailable-read stop, but it has no exact committed candidate or new
-behavior evidence yet.
+adds an unavailable-read stop. Exact local product candidate `53d424c...`
+records those bytes, but it has no new behavior, installation, or release
+evidence yet.
 Full staged selection, entry, level, re-entry, and visible
 Standard behavior, full Standard delivery at the stable layer, broad implicit
 telemetry, independent real-project efficacy, deterministic role delivery or

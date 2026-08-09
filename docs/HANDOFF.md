@@ -1,14 +1,14 @@
 # Repository Handoff
 
-Last updated: 2026-08-08
+Last updated: 2026-08-09
 
 ## Snapshot
 
 - Repository: Agent Workflow Skills
-- Clean parent: `8f00a55769123c8d03c1b7767ff94ec1144dce41`, the integrated and
-  pushed D29 controller/evaluation correction. It preserves exact Work Charter
-  candidate `b965102...`; the current D30 working tree changes only
-  `skills/work-charter/SKILL.md` inside that five-file package
+- Exact D30 product candidate: local commit
+  `53d424c814a83515830993da1cd7e1a4c61ff01e`, whose parent is pushed D29
+  controller/evaluation commit `8f00a55769123c8d03c1b7767ff94ec1144dce41`;
+  only `skills/work-charter/SKILL.md` changes inside the five-file package
 - Released package identity: immutable `v0.1.2` at
   `ceed607152849775b981c54add74bfa30d858e4d`
 - GitHub Release:
@@ -18,12 +18,15 @@ Last updated: 2026-08-08
   5 files, each matching the `v0.1.2` Git blobs
 - Rollback identity: immutable `v0.1.1` retained as a separately verified
   three-package backup
-- Current writer sequence: one bounded D30 writer owns the 20 existing tracked
-  files listed below through deterministic checks and native review, then stops
-  for a user-owned commit decision. No staging, commit, push, candidate
+- Writer boundary: the D30 SOURCE writer closed at `53d424c...`. The only
+  authorized follow-up writer window is the bounded nine-document
+  synchronization described below, its deterministic checks, native review,
+  and one local docs-only descendant commit. A dirty checkout with exactly that
+  diff may finish the window; a clean descendant containing this snapshot has
+  no active writer and stops for a user-owned push decision. The window includes
+  no Skill, eval, controller, Decision 0018, candidate
   materialization, successor/model/assessor turn, installation, tag, release,
-  stable-copy, ignored-evidence mutation, cleanup, or cross-Skill authority is
-  included
+  stable-copy, ignored-evidence mutation, cleanup, or cross-Skill authority
 
 The `v0.1.2` tag remains fixed at the release-preparation commit. The later
 documentation commit records already-completed tag, stable-install, canary, and
@@ -540,7 +543,7 @@ does not prove fresh-task loading or Project Docs behavior. The correction
 writer relinquished before final native review; HEAD and the empty index
 remained unchanged at this checkpoint.
 
-## Current D30 Correction Window
+## D30 Candidate And Post-Commit Synchronization
 
 Successor-8 is sealed, not pending. It bound candidate `b965102...`, control
 `ceed607...`, and controller `8f00a557...`, consumed 13 turns, completed 9/27
@@ -553,7 +556,7 @@ returned `DECISION_REQUIRED`. This is the tenth sealed behavior window; all ten
 behavior windows and two zero-turn qualification records remain immutable and
 non-retriable.
 
-D30 authorizes only the narrow residual correction. Indirect metadata may say
+D30 implements only the narrow residual correction. Indirect metadata may say
 Work Charter appears applicable but cannot claim selected, loaded, invoked, or
 active. If an approved read is unavailable, the affected fact remains
 `UNKNOWN`; the response stops and presents any different route as a new visible
@@ -563,7 +566,7 @@ same-context exact missing-`CHECKPOINT.md` sentinel. Future entry workspaces
 must be created under the same OS identity as model commands and qualify normal
 read-only Git before consumption.
 
-The exact existing-file `UPDATE` set is:
+The committed D30 exact existing-file `UPDATE` set was:
 
 - `skills/work-charter/SKILL.md`;
 - `evals/cases/work-charter-selection.md`;
@@ -588,14 +591,12 @@ The exact existing-file `UPDATE` set is:
 
 `docs/SPEC.md`, `docs/ARCHITECTURE.md`, `docs/AUTHORITY.md`,
 `docs/RUNBOOK.md`, `docs/PROVENANCE.md`, the other four Work Charter package
-files, other cases/fixtures/results, and neighboring Skill owners are
-`CHECKED_NO_CHANGE` or `NOT_APPLICABLE`. This window adds no file, public state,
-fresh run, matrix lane, fixture, result document, permission, side effect, or
-acceptance boundary. It may complete deterministic verification and native
-review, then must stop for explicit staging/commit authority. A commit would
-establish an exact candidate but would not authorize push, candidate
-materialization, successor-9, model/assessor turns, installation, tag, release,
-stable update, or cleanup.
+files, other cases/fixtures/results, and neighboring Skill owners were
+`CHECKED_NO_CHANGE` or `NOT_APPLICABLE`. The reviewed set became exact local
+product candidate `53d424c...`; that commit adds no fresh run, matrix lane,
+fixture, result document, permission, side effect, or acceptance boundary and
+does not authorize push, candidate materialization, successor-9,
+model/assessor turns, installation, tag, release, stable update, or cleanup.
 
 At the initial pre-review checkpoint, all three Skill validators, repository
 checker at 199 text files / 14 cases / 12 fixtures, all 17 fixture checks,
@@ -619,6 +620,23 @@ fixture checks pass on that correction. This review-history and regression-
 prompt synchronization is the only later tracked mutation; gate satisfaction is
 determined by a completed semantic review over these final bytes.
 
+Native review 4/5 materially covered those final 20-file bytes, independently
+reran the controller, fixture checker, repository checker, Work Charter
+validator, and whitespace check, and found no actionable correctness issue.
+Local commit `53d424c...` records the exact reviewed product candidate. The
+post-commit synchronization changes only `docs/HANDOFF.md`, `docs/STATUS.md`,
+`docs/INDEX.md`, `docs/ROADMAP.md`, `docs/VERIFICATION.md`, and the Work Charter
+`STATE.md`, `VERIFICATION.md`, and bilingual README pair. Its descendant commit
+does not replace candidate `53d424c...` or add behavior evidence.
+
+The documentation-impact closure marks exactly those nine existing consumers
+`UPDATE`. Decision 0018, the five-file Skill package, all eval/case/fixture/
+controller files, root bilingual README pair, Work Charter `DESIGN.md`,
+`docs/SPEC.md`, `docs/ARCHITECTURE.md`, `docs/AUTHORITY.md`, `docs/RUNBOOK.md`,
+`docs/PROVENANCE.md`, and neighboring Skill owners are `CHECKED_NO_CHANGE`.
+Candidate materialization, fresh behavior/results, installation, release, and
+cleanup consumers are `NOT_APPLICABLE` to this state-only synchronization.
+
 ## Resume Order
 
 1. Read `AGENTS.md`, `docs/INDEX.md`, and `docs/AUTHORITY.md`.
@@ -632,38 +650,42 @@ determined by a completed semantic review over these final bytes.
    rather than assuming this snapshot is still current.
 5. Preserve all ten sealed Work Charter behavior windows and both zero-turn
    qualification records without retry, relabelling, or rescore. Keep prior
-   candidate `b965102...` separate from the uncommitted D30 SOURCE.
+   candidate `b965102...` separate from exact D30 candidate `53d424c...`.
 6. Keep `c42eef3...` RC behavior, `ceed607...` release identity, the later
    evidence descendant, and the generated stable/rollback copies distinct.
-7. The current D30 authority ends after native review at the commit decision.
-   Before Git, candidate construction, successor/model/assessor activity,
+7. The D30 SOURCE authority ended with local commit `53d424c...`. The bounded
+   documentation synchronization ends with its own local descendant commit.
+   Before push, candidate construction, successor/model/assessor activity,
    installation, cleanup, tag, or release, obtain its own explicit authority
    and re-enter the corresponding Runbook procedure.
 
 ## Immediate Next Action
 
-No release action remains pending for immutable `v0.1.2`. A completed semantic
-review over the review-history synchronization closes the D30 native-review
-gate if it reports no actionable correctness issue. Apply only same-scope
-findings and rerun affected checks. Once the gate is satisfied, stop and ask the
-user whether to stage the 20 files and create one exact-candidate commit.
+No release action remains pending for immutable `v0.1.2`. Exact D30 product
+candidate `53d424c...` exists locally and passed its native-review and commit
+gates. This nine-document set is the post-commit synchronization payload. If
+the live checkout still carries exactly this dirty diff, finish its
+deterministic checks, native review, and one local docs-only descendant commit.
+If these bytes are already in a clean descendant of `53d424c...`, do not repeat
+the synchronization: stop and ask whether to make the candidate and its state
+record reachable through a fast-forward push. Push remains separate from
+materialization.
 
-Successor-9 is design-only at this checkpoint. If a new exact commit is later
-authorized, a separate Gate 2 authorization must preserve all ten sealed
-behavior windows and two qualification records, bind the exact new candidate
-and controller, create entry workspaces under the model command runner's OS
-identity, pass zero-turn qualification/freeze, and run serially with terminal
-failures sealed without retry. The unchanged 19-run/27-cell matrix adds one
-same-context missing-read turn, for at most 40 counted turns including the
-independent assessor. Project Docs, push, candidate materialization, model or
-assessor turns, installation, tag, release, stable copy, and cleanup remain
-outside the current window.
+Successor-9 is design-only at this checkpoint. A separate Gate 2 authorization
+must preserve all ten sealed behavior windows and two qualification records,
+bind exact candidate and controller `53d424c...`, create entry workspaces under
+the model command runner's OS identity, pass zero-turn qualification/freeze,
+and run serially with terminal failures sealed without retry. The unchanged
+19-run/27-cell matrix adds one same-context missing-read turn, for at most 40
+counted turns including the independent assessor. Project Docs, push,
+candidate materialization, model or assessor turns, installation, tag, release,
+stable copy, and cleanup remain outside the current window.
 
 Later user-owned choices include:
 
-- after the D30 commit decision, separately decide whether to push/materialize
-  an exact candidate and authorize successor-9 without retrying any consumed
-  predecessor event;
+- decide whether to fast-forward push the local candidate and documentation
+  descendant, then separately materialize exact candidate `53d424c...` and
+  authorize successor-9 without retrying any consumed predecessor event;
 - after an accepted Project Docs commit, authorize an exact-commit candidate
   and write-capable synthetic persistence test;
 - begin another separately scoped development or evaluation cycle;

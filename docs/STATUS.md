@@ -1,6 +1,6 @@
 # Repository Status
 
-Last updated: 2026-08-08
+Last updated: 2026-08-09
 
 ## Dashboard
 
@@ -9,7 +9,7 @@ Last updated: 2026-08-08
 | Tested package identity | all three package byte sets independently reached exact-commit RC readiness at `c42eef392a5b9f58bbee64aa73ffb603a6fb6c29` and were re-proved at tag/stable identity `v0.1.2` | [Verification](VERIFICATION.md) |
 | Stable release identity | immutable [`v0.1.2`](https://github.com/junwei529/skills/releases/tag/v0.1.2) at `ceed607152849775b981c54add74bfa30d858e4d`; exact tag, stable loaded-copy, and GitHub Release proof pass for all three Skills | [Verification](VERIFICATION.md) |
 | Project Docs | immutable `v0.1.2` remains the released explicit-only control; local commit `776989f...` implements accepted Decision 0019 but is unreleased, and its evidence is `PARTIAL` because actual candidate selection, loaded-copy identity, and persistent writes remain `UNKNOWN` | [State](skills/manage-project-docs/STATE.md) |
-| Work Charter | released `v0.1.2` remains active; prior target `b965102...` is unaccepted with ten behavior windows and two zero-turn qualification records sealed; successor-8 stopped after 9/27 cells, and current D30 SOURCE narrowly hardens metadata-state and unavailable-read boundaries but has no exact committed candidate | [State](skills/work-charter/STATE.md) |
+| Work Charter | released `v0.1.2` remains active; prior target `b965102...` is unaccepted with ten behavior windows and two zero-turn qualification records sealed; successor-8 stopped after 9/27 cells, and exact local D30 product candidate `53d424c...` now hardens metadata-state and unavailable-read boundaries without fresh behavior evidence | [State](skills/work-charter/STATE.md) |
 | PowerShell | released five-file `v0.1.2` stable copy; corrected loaded identity and guarded native/text diagnosis pass; live WSL remains unproved | [State](skills/use-powershell-safely/STATE.md) |
 | Release lifecycle | `v0.1.2` tag, stable update, tag-pinned canaries, and Latest GitHub Release complete; `v0.1.1` retained as rollback identity | [Runbook](RUNBOOK.md) |
 
@@ -44,18 +44,19 @@ approved scope; its different-OS-owner Git failure is runner qualification
 noise, not a product finding. The independent assessor returned
 `DECISION_REQUIRED`.
 
-Current D30 working-tree SOURCE changes only Work Charter `SKILL.md`: indirect
-metadata may say only "appears applicable" and cannot claim selected, loaded,
-invoked, or active; an unavailable approved read preserves `UNKNOWN` and stops
-without adjacent inspection. Existing selection/entry cases and the fixture
-precondition carry the prospective checks. This dirty SOURCE is not
-`b965102...` and has no exact committed candidate or behavior evidence. Exact
-history and residual limits belong to the
+Exact local D30 product candidate `53d424c...` changes only Work Charter
+`SKILL.md` inside the five-file package: indirect metadata may say only
+"appears applicable" and cannot claim selected, loaded, invoked, or active; an
+unavailable approved read preserves `UNKNOWN` and stops without adjacent
+inspection. Existing selection/entry cases and the fixture precondition carry
+the prospective checks. This candidate is not `b965102...` and has no fresh
+model/assessor, installation, or release evidence. Exact history and residual
+limits belong to the
 [Work Charter State](skills/work-charter/STATE.md) and
 [Verification](skills/work-charter/VERIFICATION.md) ledgers.
 
-The exact combined dirty scope, writer state, and recovery order are owned by
-[Repository Handoff](HANDOFF.md).
+The exact post-commit documentation scope, writer state, and recovery order are
+owned by [Repository Handoff](HANDOFF.md).
 
 ## Current Verification Boundary
 
@@ -77,10 +78,10 @@ and write-capable persistence remain `UNKNOWN`, so its overall evidence is
 `PARTIAL`. Work Charter target `v0.2.0` likewise remains unaccepted at
 Gate 2; its ten sealed behavior windows, two qualification records, and
 controller regressions do not establish product behavior acceptance. The
-current D30 SOURCE has offline definition evidence only until an exact candidate
-and separately authorized fresh behavior window exist. Exact counts, hashes,
-exclusions, and residual limits remain in the per-Skill ledgers rather than
-this dashboard.
+exact D30 candidate `53d424c...` has offline definition and commit evidence only
+until separately authorized materialization and a fresh behavior window exist.
+Exact counts, hashes, exclusions, and residual limits remain in the per-Skill
+ledgers rather than this dashboard.
 
 Per-Skill evidence and gaps:
 
@@ -233,29 +234,23 @@ decision.
 ## Next Gate
 
 No release action remains pending for immutable `v0.1.2`. Native review 1/5
-found one P1 frontmatter contradiction: indirect symptoms still appeared in
-the activation trigger despite the metadata-only proposal contract. The
-current sole writer narrowed `Use for` to direct intent or confirmation; the
-Work Charter validator, controller, and all 17 fixture checks pass again. A
-second native review materially covered the corrected 20-file diff,
-independently reran the relevant validators and checks, and found no actionable
-correctness issue. Native review 3/5 then found that the existing selection
-case's expected result prohibited a selected-state claim without putting the
-adversarial choice/selected wording in Prompt 2. Prompt 2 now contains that
-wording; the repository checker and all 17 fixture checks pass. This review-
-history and regression-prompt synchronization is the only later tracked
-mutation; a completed semantic review over these final bytes determines gate
-satisfaction. Once satisfied, stop for the user to decide whether to stage and
-create one exact-candidate commit. No staging, commit, push, candidate
+found and corrected one P1 frontmatter trigger contradiction; review 3/5 found
+and corrected one P2 selection-prompt coverage gap. Reviews 2/5 and 4/5 found no
+actionable correctness issue, and review 4 covered the final 20-file diff. Local
+commit `53d424c...` now records that exact D30 product candidate. The bounded
+post-commit synchronization changes only nine existing documentation consumers
+and ends with one local docs-only descendant commit. Its next user-owned gate is
+whether to fast-forward push both local commits. No push, candidate
 materialization, model or assessor turn, installation, tag, release, stable
 update, or cleanup is presently authorized.
 
-If a new exact commit is later authorized, successor-9 remains a separate Gate
-2 decision. Its design preserves all ten sealed behavior windows and two zero-
-turn qualification records, qualifies entry workspaces under the same OS
-identity as model commands, and tests the existing no-owner entry context with
-one exact unavailable-read sentinel. Product gates remain independent; Project
-Docs keeps its own candidate and persistence-evidence sequence.
+Successor-9 remains a separate Gate 2 decision bound to exact candidate and
+controller `53d424c...`. Its design preserves all ten sealed behavior windows
+and two zero-turn qualification records, qualifies entry workspaces under the
+same OS identity as model commands, and tests the existing no-owner entry
+context with one exact unavailable-read sentinel. Product gates remain
+independent; Project Docs keeps its own candidate and persistence-evidence
+sequence.
 
 ## Known Repository Gaps
 
@@ -271,9 +266,10 @@ Docs keeps its own candidate and persistence-evidence sequence.
   role delivery or writer locking, broad triggers, real-project efficacy, or
   standalone causality. Decision 0018's entry, level, re-entry, convergence,
   two-stage activation, and conditional role-read behavior remains unaccepted.
-  D30 metadata-state and unavailable-read hardening has no exact candidate or
-  fresh behavior evidence. The stopped matrices and sealed fixed-turn bundle
-  remain historical and cannot be relabeled for that SOURCE revision.
+  D30 metadata-state and unavailable-read hardening has exact candidate
+  `53d424c...` but no fresh behavior evidence. The stopped matrices and sealed
+  fixed-turn bundle remain historical and cannot be relabeled for that
+  candidate.
 - The tracked controller now has one narrow isolated path-bound app-server
   compatibility pass. It does not establish natural-language Skill selection,
   semantic correctness, broad behavior, or Work Charter candidate acceptance;

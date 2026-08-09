@@ -1,23 +1,23 @@
 # Work Charter Verification
 
-Last updated: 2026-08-08
+Last updated: 2026-08-09
 
 ## Claim Ledger
 
 | Claim | Status |
 |---|---|
 | `work-charter` is the sole current five-file package | verified structurally for current SOURCE |
-| Gate 1 protection, re-entry, convergence, and two-stage lazy-entry contract | implemented at exact `72db7e9...`; its sealed fixed-turn Standard probe is `VIOLATION`; later `b965102...` evidence remains unaccepted, and the current D30 hardening has no exact candidate or behavior evidence |
+| Gate 1 protection, re-entry, convergence, and two-stage lazy-entry contract | implemented at exact `72db7e9...`; its sealed fixed-turn Standard probe is `VIOLATION`; later `b965102...` evidence remains unaccepted, while exact D30 product candidate `53d424c...` has no fresh behavior evidence |
 | Gate 1 evaluation definitions | 14 exact cases and 12 exact fixtures remain the intended repository shape; one existing selection context adds a confirmation turn and one existing entry context adds a missing-read sentinel without a new fresh run or matrix lane |
 | First `v0.2.0` exact candidate Gate 2 | `206c497...` stopped incomplete and is superseded for acceptance; its completed correction and consumed events remain historical |
 | Successor `v0.2.0` exact candidate Gate 2 | `92a8c045...` passed qualification and consumed A01-A04; A04 hard-stopped on an unproved selected/loaded claim, so no candidate acceptance or later cell exists |
 | Exact `72db7e9...` fixed-turn Standard probe | one one-shot bundle completed four fresh primary sessions, sealed `VIOLATION`, created no subagent activity, left A16 unexecuted, and permits no retry or retrospective rescore |
-| Exact `b965102...` product candidate | five package blobs are fixed; ten Gate 2 behavior execution windows are individually sealed and non-retriable, while two zero-turn stops remain qualification records; behavior acceptance was not achieved, the candidate is not permanently retired, and current D30 SOURCE is a different uncommitted identity |
+| Exact `b965102...` product candidate | five package blobs are fixed; ten Gate 2 behavior execution windows are individually sealed and non-retriable, while two zero-turn stops remain qualification records; behavior acceptance was not achieved, the candidate is not permanently retired, and exact D30 candidate `53d424c...` is a different identity |
 | Tracked Codex evidence controller | integrated D27 baseline `191cd1f...` plus the current D29 exact-path revision; current offline regression passes source/generated-contract-bound historical 11/11, evidence-surface 32/32, negative 33/33, and metamorphic 4/4 plus the existing identity, proof, Git, topology, no-clobber, and repeatability guards; the legacy root-only policy remains compatible, exact optional root/`src`/`tests` paths permit canonical absolute or relative forms with at most one command and inventory link per observed physical path, the observation and link must match the canonical allowlist root/path spelling ordinally, every inventory row must remain within the linked path, unused allowlist entries are not required, case, dot-segment, and redundant-separator aliases fail closed, and missing IDs, compound paths, repeated paths, reparse-routed paths, recursion, or unlisted paths fail closed; this is controller qualification only, not candidate behavior acceptance |
 | Exact `b965102...` Gate 2 successor-2 A01 terminal | successor-2 preserved five predecessors and the exact candidate/control/controller bindings, passed offline qualification and freeze, then consumed one authorized A01 `Sol/high` turn; the response stayed flat, read no Work Charter file, identified the intended correction, reported the read-only boundary, and changed no reconciled inventory, but live commands used a PowerShell wrapper without `-NoProfile` and one Git read failed; the controller returned `CONTROLLER_UNKNOWN`, the carrier sealed a partial hard stop before A02, and one authorized `Terra/high` assessor returned `DECISION_REQUIRED` |
 | Exact `b965102...` Gate 2 successor-7 A01 terminal | successor-7 is the ninth sealed behavior execution; its single A01 turn proved both required reads, stayed flat, proposed the correct patch and future test command, and performed no write, test, or Git mutation, but D27 rejected its separate `src` and `tests` auxiliary observations, so the immutable result remains `CONTROLLER_VIOLATION`; D29 is prospective infrastructure only |
 | Exact `b965102...` Gate 2 successor-8 terminal | bound controller `8f00a557...`, consumed 13 turns, completed nine of 27 cells, and hard-stopped at A10; A04 made a selected-state claim from metadata before full-body loading, A10 broadened its approved read after a failed Git route, the runner also exposed different-OS-owner qualification noise, and the independent assessor returned `DECISION_REQUIRED`; the window is the tenth sealed behavior execution and is neither acceptance nor retriable |
-| Current D30 SOURCE hardening | only package `SKILL.md` changes: metadata-only indirect entry may say only "appears applicable" and cannot claim selected, loaded, invoked, or active; an unavailable approved read preserves `UNKNOWN` and stops without adjacent inspection; the existing selection and entry cases plus fixture precondition carry the prospective checks, but no exact committed candidate or fresh behavior evidence exists |
+| Exact `53d424c...` D30 product candidate | only package `SKILL.md` changes: metadata-only indirect entry may say only "appears applicable" and cannot claim selected, loaded, invoked, or active; an unavailable approved read preserves `UNKNOWN` and stops without adjacent inspection; the existing selection and entry cases plus fixture precondition carry the prospective checks, but no fresh behavior, installation, or release evidence exists |
 | Isolated path-bound controller canary | private retained sealed `CANARY_PASS`; the public summary reports an exact-response pass and no command execution, omits locator/artifact/runtime details, leaves physical backend request count `UNKNOWN`, and proves neither natural-language selection nor candidate acceptance |
 | Small bounded work stays flat | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
 | Midstream implicit behavior is proposal-only | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
@@ -1162,8 +1162,8 @@ This changes only `SKILL.md` inside the five-file package and reuses existing
 cases, fixture, and checker. It adds no public state, package file, fresh run,
 matrix lane, fixture, or result document. The future reference matrix remains
 19 runs and 27 cells, with one additional same-context turn for a maximum of 40
-counted turns including the independent assessor. Current D30 SOURCE has no
-exact committed candidate, model/assessor result, Gate 2 acceptance,
+counted turns including the independent assessor. Exact local D30 product
+candidate `53d424c...` has no model/assessor result, Gate 2 acceptance,
 installation, or release evidence.
 
 At the initial pre-review checkpoint, all three Skill validators pass; the
@@ -1181,8 +1181,10 @@ exact candidate `b965102...`. Its controller logic otherwise passed every
 suite. The correction leaves historical candidate identities and manifests
 unchanged, adds a content-only `current_source_package` manifest with no
 candidate SHA or Git tree, validates its canonical five-row hash, and adds a
-third stale-manifest guard. This is offline SOURCE identity only; it is not a
-candidate, behavior result, or acceptance claim.
+third stale-manifest guard. This manifest remains content-only SOURCE identity;
+it does not itself establish a candidate, behavior result, or acceptance claim.
+Git commit `53d424c...` separately supplies the exact product-candidate
+identity.
 
 After that correction, the direct controller passes 11/11 historical, 32/32
 evidence-surface, 33/33 negative, 4/4 metamorphic, 3/3 package-manifest hash
@@ -1208,6 +1210,15 @@ checks pass on that correction. This review-history and regression-prompt
 synchronization is the only later tracked mutation; native-review gate
 satisfaction is determined by a completed semantic review over these final
 bytes.
+
+Native review 4/5 materially covered those final 20-file bytes, independently
+reran the controller, fixture checker, repository checker, Work Charter
+validator, and whitespace check, and found no actionable correctness issue.
+Local commit `53d424c814a83515830993da1cd7e1a4c61ff01e` records the exact
+reviewed D30 product candidate. The subsequent post-commit synchronization
+changes only nine existing documentation consumers and does not alter the
+candidate's five package files, eval/controller bytes, sealed history, or
+behavior verdict.
 
 ## Required Checks
 

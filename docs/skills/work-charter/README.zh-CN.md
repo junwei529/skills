@@ -96,8 +96,8 @@ execution window 与两条零 turn 资格记录均已封存且不可重试。suc
 硬停止前完成 27 个 cell 中的 9 个：A04 暴露 metadata-only selected-state 声明，
 A10 则在 Git 读取失败后扩大了批准读取范围；后者同时暴露 runner ownership 噪声，
 不能算作产品 finding。独立 assessor 返回 `DECISION_REQUIRED`。当前 SOURCE 已收紧
-metadata 措辞并加入 unavailable-read 停止规则，但尚无精确已提交 candidate 或新的
-行为证据。
+metadata 措辞并加入 unavailable-read 停止规则；精确本地 product candidate
+`53d424c...` 已记录这些字节，但尚无新的行为、安装或发布证据。
 完整分阶段 selection、entry、等级、
 重新接入和可见 Standard 行为，stable 层完整 Standard
 delivery、广泛隐式触发 telemetry、独立真实项目效果、确定性角色交付或 writer
