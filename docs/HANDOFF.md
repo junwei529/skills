@@ -5,9 +5,10 @@ Last updated: 2026-08-10
 ## Snapshot
 
 - Repository: Agent Workflow Skills
-- Current exact Work Charter product candidate: local commit
-  `07a9f1c436213a5c377610c9157b7c6a76c5d4c1`; its D31 five-file package is
-  frozen for the current Campaign and remains unaccepted at Gate 2
+- Latest exact Work Charter product candidate: historical local commit
+  `07a9f1c436213a5c377610c9157b7c6a76c5d4c1`; it remains unaccepted at Gate 2.
+  The approved D34 working-tree SOURCE revision has no candidate identity or
+  behavior acceptance
 - Released package identity: immutable `v0.1.2` at
   `ceed607152849775b981c54add74bfa30d858e4d`
 - GitHub Release:
@@ -17,17 +18,61 @@ Last updated: 2026-08-10
   5 files, each matching the `v0.1.2` Git blobs
 - Rollback identity: immutable `v0.1.1` retained as a separately verified
   three-package backup
-- Writer boundary: the bounded D37 attribution writer owns only the seven
-  existing mapped documentation owners, deterministic checks, native-review
-  fixes, and one local documentation commit. D37's three one-shot turns are
-  complete. The writer window ends with that commit; push, installation, tag,
-  release, stable update, cleanup, full Gate 2, Skill SOURCE, and cross-Skill
-  product work remain excluded
+- Writer boundary: the authorized D34 commit attempt owns the mapped existing
+  Work Charter SOURCE, contract, evaluation, public-entry, state, verification,
+  status, index, roadmap, recovery, and content-only source-manifest owners plus
+  deterministic checks, native review, same-scope clear P0-P2 corrections, and
+  one local commit; model/assessor turns, candidate creation, push,
+  installation, tag, release, stable update, cleanup, full Gate 2, and cross-
+  Skill product work remain excluded
 
 The `v0.1.2` tag remains fixed at the release-preparation commit. The later
 documentation commit records already-completed tag, stable-install, canary, and
 GitHub Release facts; it is an evidence descendant and must not move or replace
 the released tag.
+
+## 2026-08-10 Native Package Load And Explicit Activation Correction
+
+The frozen D40 packet completed A01-A03 and reached A04 with five behavior
+turns. Its indirect A04 first turn loaded exact D31 candidate `07a9f1c...`, made
+no project or Git read, and stayed proposal-only. The follow-up made activation
+visible only after user confirmation. The old frozen rubric prohibited every
+first-turn command and therefore sealed the packet at 3/27 cells; one
+independent assessor returned `DECISION_REQUIRED`.
+
+The user accepted Decision 0018 D34 and authorized the bounded existing-file
+revision now complete in the working tree. Native implicit selection may load
+the exact `SKILL.md`, but package availability remains separate from user-visible
+activation, project-read authority, persistent adoption, roles, writes, Git,
+installation, and external effects. D40 remains immutable and is not retried,
+rescored, relabelled, or accepted. Deterministic offline checks are complete.
+Native review 1/5 found one P2 conflict where D03/D04 still expressed the old
+confirmation-before-package-load assumption; the same-scope correction amends
+D03, D04, and D25 while preserving every user-visible authority boundary. A
+second completed review materially covered that correction and returned no
+actionable finding. Review 3/5 then found one P2 in D19's still-active
+"confirmation-time loading" implementation map. The same-scope correction
+amends D19 and the related D31 wording and makes D34's amendment set explicit.
+This review-history synchronization is the only later tracked mutation; the
+local commit gate is determined by a completed semantic review over the final
+bytes. Any exact candidate,
+behavior Campaign, installation, or release is a later separate gate.
+
+The D34 documentation-impact closure is fact-first and uses only existing
+owners:
+
+- `UPDATE`: `skills/work-charter/SKILL.md`; Decision 0018; Work Charter Design,
+  State, Verification, and bilingual public entry; root bilingual entry,
+  Status, Verification, Index, Roadmap, and this Handoff; the shared evaluation
+  contract, Work Charter selection and midstream cases, and the content-only
+  current-SOURCE package manifest;
+- `CHECKED_NO_CHANGE`: `AGENTS.md`, Authority, SPEC, Architecture, Runbook,
+  Provenance, Work Charter `agents/openai.yaml`, assets, references, direct-
+  entry and other eval cases, fixtures, controller code, and deterministic
+  check scripts; and
+- `NOT_APPLICABLE`: new files, sanitized result publication, Project Docs or
+  PowerShell product changes, discovery mappings, candidates, installation,
+  tags, release, stable update, cleanup, and external effects.
 
 ## Release Completion
 
@@ -778,26 +823,33 @@ created the fact class; it did not require or authorize speculative files.
    retry, overwrite, relabelling, rescore, or acceptance transfer.
 6. Keep `c42eef3...` RC behavior, `ceed607...` release identity, the later
    evidence descendant, and the generated stable/rollback copies distinct.
-7. Resume only D37 attribution documentation, verification, native review, and
-   the authorized local documentation commit. The D31 package, D35/D36 packets,
-   tracked controller/eval definitions, and consumed D37 turns are frozen. Stop
-   on Skill SOURCE work, a full packet, additional model/assessor turns,
-   product repair, replay or reinterpretation, budget expansion, push,
+7. Treat the D34 working-tree revision and deterministic checks as complete and
+   resume only inside the authorized native-review/local-commit attempt. D31,
+   D33/D35/D36/D40, and every consumed D37 turn remain frozen. After the local
+   commit, relinquish the writer. Stop on a full packet, additional model/
+   assessor turns, replay or reinterpretation, budget expansion, push,
    installation, cleanup, tag, or release.
 
 ## Immediate Next Action
 
-No release action remains pending for immutable `v0.1.2`. Complete the current
-D37 attribution synchronization, deterministic checks, native review, and
-authorized local documentation commit. D36 remains sealed and non-retriable;
-D37 is complete and cannot grow beyond its three consumed turns. A Skill
-behavior revision or full additive packet requires a new user-owned decision.
-Push,
+No release action remains pending for immutable `v0.1.2`. The D34 Work Charter
+revision and deterministic offline checks are complete, and the authorized
+native-review/local-commit attempt is the immediate action. Review 1/5's single
+P2 was corrected within scope, and review 2/5 returned no actionable finding on
+the corrected diff. Review 3/5 found one additional P2 in D19's old
+"confirmation-time loading" map; D19 and related D31 wording are now reconciled
+with D34. This review-history synchronization is the only later tracked
+mutation; one completed semantic review over the final bytes determines commit
+eligibility. After the authorized local commit, the next user-owned decision is
+whether to create and evaluate a fresh exact candidate. D36/D40 remain sealed
+and non-retriable; D37 cannot grow beyond its three consumed turns. Push,
 installation, tag, release, stable update, and cleanup remain outside the
-current Campaign.
+current scope.
 
 Later user-owned choices include:
 
+- authorize a fresh exact D34 candidate and its bounded evaluation, or leave the
+  committed SOURCE revision without behavior acceptance;
 - after Campaign closeout, decide public reachability and any later install,
   tag, release, stable-update, or cleanup action;
 - after an accepted Project Docs commit, authorize an exact-commit candidate

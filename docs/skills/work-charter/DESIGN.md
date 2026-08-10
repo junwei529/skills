@@ -18,38 +18,47 @@ monitor.
 
 Users may invoke `$work-charter` or explicitly ask in ordinary language to use
 Work Charter without knowing special syntax. That direct intent requests
-activation without another confirmation. The Harness must load the full body
-before the response makes activation visible or follows the Skill workflow.
-Direct intent or confirmation authorizes loading `SKILL.md` and only the
-package references required by the applicable branch. Those package reads are
-part of activation, not project inspection: an exact project-read limit
-constrains project and evidence sources but does not suppress required package
-loading. Package loading does not grant any additional project read, role,
-write, Git, or external-effect authority.
+activation without another confirmation. User-visible activation requires both
+that intent and the full body being available before the response claims the
+Skill is active or follows its workflow.
+
+Codex's native Skill mechanism may load `SKILL.md` when it implicitly selects a
+matching Skill. That package-instruction read can therefore occur before the
+user confirms Work Charter; it is not itself user-visible activation,
+persistent adoption, project inspection, role delivery, or action authority.
+Direct intent or confirmation permits activation and the package references
+required by the applicable branch. An exact project-read limit constrains
+project and evidence sources but does not suppress those package reads. No
+package load grants additional project-read, role, write, Git, or external-
+effect authority.
 
 An indirect request to choose among installed Skills, or observable
 continuity, control, authorization, recovery, writer, or independent-
-assessment symptoms, creates only a metadata-level proposal. The response says
-that Work Charter appears applicable, explains why, proposes the smallest
-bounded project read, and asks whether to activate it. It must not claim the
-Skill is selected, loaded, invoked, or active, and must not inspect project
-details. User wording such as "choose" or "what you selected" does not change
-that state boundary.
+assessment symptoms, creates only a user-visible proposal even if native
+selection has already loaded `SKILL.md`. The response says that Work Charter
+appears applicable, explains why, proposes the smallest bounded project read,
+and asks whether to activate it. It must not present selected, loaded, invoked,
+active, adopted, or in-force state as user-authorized and must not inspect
+project details. User wording such as "choose" or "what you selected" does not
+change that authority boundary.
 Ordinary bounded tasks, a new task, one failure, elapsed time, file count,
 document governance, and shell diagnosis remain non-triggers.
 
 After direct intent or indirect confirmation, the full Skill body must be
 available in the current context before the response claims activation or
-relies on the workflow. If only metadata is available or the body cannot load,
+relies on the workflow. A body already loaded by native implicit selection may
+satisfy the package-availability part of that condition; it does not replace
+the user's confirmation. If only metadata is available or the body cannot load,
 the response reports degraded loading and stops without claiming activation.
 When the Harness does not expose an exact loaded path or revision, that identity
 remains `UNKNOWN` and the response makes no exact-copy claim; this alone does
 not block ordinary activation. The user may authorize activation and one exact
 bounded project read together; otherwise activation stops at a read proposal.
 A later entry may visibly reuse an exact read scope from an applicable approved
-standing policy. Metadata matching, activation, loaded-copy proof, read
-approval, persistent adoption, roles, writes, project-document changes,
-worktrees, Git, installation, and external effects remain distinct.
+standing policy. Catalog matching, native package loading, user-visible
+activation, loaded-copy proof, read approval, persistent adoption, roles,
+writes, project-document changes, worktrees, Git, installation, and external
+effects remain distinct.
 Controller-observed Skill reads, not model self-report, establish exact
 loaded-copy identity in evaluation.
 

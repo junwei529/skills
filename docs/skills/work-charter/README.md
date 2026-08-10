@@ -51,25 +51,23 @@ Based on the Skills already installed, recommend the safest way to continue this
 ```
 
 An ordinary-language request that explicitly names Work Charter is direct
-activation intent without requiring the `$work-charter` syntax. Codex loads the
-full Skill and claims activation only after the body is available in the current
-context; otherwise it reports degraded loading and stops without an activation
-claim. If the runtime does not expose the exact loaded path or revision, that
-identity remains `UNKNOWN` and Codex makes no exact-copy claim; this alone does
-not block ordinary activation. Loading the directly requested Skill and only
-the package references required by its active branch is part of activation,
-not project inspection. An exact project-read limit does not block those
-package reads, and the package load grants no additional project-read or
-action authority. A generic installed-Skills request or
-symptom-only match first receives a metadata-level proposal (a lightweight
-catalog match): Work Charter appears applicable, why it may help, the smallest
-proposed project read, and a question asking whether to activate it. That
-proposal must not claim the Skill is selected, loaded, invoked, or active.
-After the user confirms, the same load-or-stop boundary applies, and only the
-separately approved project scope may be inspected. If an approved read cannot complete
-through the approved route, the affected fact remains `UNKNOWN`; any different
-route is a new visible proposal, not permission to inspect adjacent paths or
-metadata.
+activation intent without requiring the `$work-charter` syntax. Activation may
+be claimed only when that intent and the full body are both present. Native
+implicit selection may load the exact `SKILL.md` before the user confirms Work
+Charter; that package read is instruction availability, not user-visible
+activation, adoption, project-read authority, or action authority. A generic
+installed-Skills request or symptom-only match therefore still receives only a
+visible proposal: Work Charter appears applicable, why it may help, the
+smallest proposed project read, and a question asking whether to activate it.
+The response does not present selected, loaded, invoked, active, adopted, or
+in-force state as user-authorized and does not inspect the project. After the
+user confirms, an already available body may satisfy the package condition and
+only branch-required package references may load; only the separately approved
+project scope may be inspected. If the body is unavailable, activation stops.
+If an approved project read cannot complete through its approved route, the
+affected fact remains `UNKNOWN`; any different route is a new visible proposal.
+If the runtime does not expose the exact loaded path or revision, that identity
+also remains `UNKNOWN` and Codex makes no exact-copy claim.
 Initial persistent adoption, the first Standard policy, role delivery, writes,
 Git, and external effects remain separately authorized.
 
@@ -136,6 +134,12 @@ A later three-turn D37 precursor supplied exact package paths and typed tool
 normalization; native, released control, and exact candidate all stayed within
 their read boundary, but response semantics were not assessed and no Gate 2
 acceptance transfers.
+D40 later reached A04 with five behavior turns. Its indirect first turn loaded
+the exact candidate, made no project or Git read, and stayed proposal-only; the
+old frozen no-command rubric nevertheless stopped the packet and its assessor
+returned `DECISION_REQUIRED`. Decision 0018 D34 now corrects SOURCE and the
+evaluation contract by separating native package loading from user-visible
+activation. D40 remains immutable and is not rescored or accepted.
 D31 still has no behavior acceptance, installation, or release evidence.
 Full staged selection, entry, level, re-entry, and visible
 Standard behavior, full Standard delivery at the stable layer, broad implicit

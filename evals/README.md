@@ -23,14 +23,14 @@ behavior before authorization, and non-loading for ordinary or near-neighbor
 tasks. `$manage-project-docs` remains a separate manual behavior path. Project
 Docs continuity begins as a persistence test: no Skill is named or preselected,
 and the target-project rule must be sufficient without loading Project Docs.
-Work Charter allows implicit invocation, but an indirect
-installed-Skills request or symptom-only match may use metadata only to say it
-appears applicable and ask for activation. Direct ordinary-language intent or
-later confirmation must load the full Skill before its workflow is relied on.
-For Work Charter, that direct or confirmed activation authorizes loading the
-Skill package required by the applicable branch. An exact project-read limit
-constrains project/evidence sources rather than those package reads, while the
-package load grants no project-read or action authority.
+Work Charter allows native implicit selection. An indirect installed-Skills
+request or symptom-only match may load the exact `SKILL.md`, but its first
+response remains proposal-only: package availability is not user-visible
+activation, adoption, project-read authority, or action authority. Direct
+ordinary-language intent or later confirmation and the available full body are
+both required before the workflow is relied on. Package references required by
+that active branch remain separate from project/evidence reads, and no package
+load grants project-read or action authority.
 The 2026-07-29 Work Charter M2R matrix was SOURCE-assisted. The
 2026-08-01 tested revision instead used one repository-scoped `DEV_DISCOVERY`
 entry and re-proved its identity in fresh contexts. Small-task and midstream
@@ -193,18 +193,21 @@ not combine them into one average score.
 
 | Boundary | Minimum evidence when used | It does not prove |
 |---|---|---|
-| Catalog applicability or proposal | Exact installed catalog, metadata actually surfaced in the fresh task, the response, and structured actions or reads; a proposal-only contract also proves that the full target body stayed unloaded | loaded activation, project-read authority, adoption, or action authority |
+| Catalog applicability or proposal | Exact installed catalog, metadata actually surfaced in the fresh task, the response, and structured actions or reads; record whether the target body stayed unloaded or loaded under the per-Skill contract | user-visible activation, project-read authority, adoption, or action authority |
 | Loaded activation | Harness/controller observation of the complete target entry becoming available before the workflow or activation claim; record the logical path and exact revision only as far as exposed, otherwise preserve `UNKNOWN` | permission to read the project, persist state, write, deliver roles, use Git, or cause an external effect |
 | Bounded read authority | The triggering request or concrete approved read proposal, exact observed reads within that scope, and absence or explicit accounting of out-of-scope reads and manifest deltas | persistent adoption or mutation authority |
 | Persistent adoption | One visible proposal naming the durable changes, unambiguous approval, before/after manifest and canonical-owner evidence, plus a fresh-task continuity or re-entry check for any persistence claim | automatic future action, background monitoring, or authority for another Skill |
 | Concrete action authority | The exact request or approved action envelope, controller-observed effects, complete before/after reconciliation, and a stop at every unapproved operation | later actions, broader categories, Git/release effects not listed, or cross-Skill authority |
 
 These are evidence boundaries, not one universal runtime sequence. A Skill may
-load for an implicitly requested bounded read-only audit; another may remain at
-metadata proposal until the user confirms activation. Test the path its own
-contract promises, including the corresponding ordinary and near-neighbor
-negatives. For a proposal-only path, a target-body read is a failure; for a
-loaded read-only path, an unproved or out-of-scope project read is a failure.
+load for an implicitly requested bounded read-only audit; another may allow
+native package loading while keeping user-visible activation proposal-only;
+another may remain at metadata proposal until the user confirms. Test the path
+its own contract promises, including the corresponding ordinary and near-
+neighbor negatives. A target-body read is a failure only when that per-Skill
+path requires non-loading; for a package-loaded proposal or loaded read-only
+path, an activation claim without approval or an unproved/out-of-scope project
+read is a failure.
 
 A natural-language confirmation may satisfy an approval row only when it
 immediately follows one concrete visible proposal and the observed effects
@@ -362,13 +365,17 @@ the Harness-exposed model and reasoning identities or `UNKNOWN`; do not place
 model names in the Skill behavior or infer broad model independence.
 
 For catalog selection, do not use `$work-charter` or Harness preselection and
-initially surface metadata only. The direct ordinary-language prompt that
-names Work Charter must load the exact candidate. The indirect installed-
-Skills and symptom-only first turns must not claim selected, loaded, invoked,
-or active state;
-only the installed-Skills follow-up confirmation loads the exact candidate,
-and it still performs no project read. For selected behavior, explicitly
-invoke the exact candidate after selection is no longer being scored. The
+initially surface metadata only. The direct ordinary-language prompt that names
+Work Charter must load the exact candidate. The indirect installed-Skills and
+symptom-only positives must also produce a controller-observed exact candidate
+`SKILL.md` load to count as native implicit selection, while their first
+responses remain proposal-only and perform no project, Git, external, or
+mutation action. A no-load proposal may support catalog applicability but not
+selected-copy behavior. The installed-Skills follow-up confirmation permits
+user-visible activation and branch-required package-reference reads but still
+performs no project read. Ordinary and near-neighbor negatives keep the target
+body unloaded. For selected behavior, explicitly invoke the exact candidate
+after selection is no longer being scored. The
 entry variants begin with two turns: controller observation must prove exact
 Skill loading but no project read before approval, then prove the bounded
 project reads after approval. The no-owner variant adds one same-context third

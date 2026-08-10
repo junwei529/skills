@@ -7,8 +7,8 @@ Last updated: 2026-08-10
 | Claim | Status |
 |---|---|
 | `work-charter` is the sole current five-file package | verified structurally for current SOURCE |
-| Gate 1 protection, re-entry, convergence, and two-stage lazy-entry contract | implemented through exact D31 candidate `07a9f1c...`; prior candidate windows remain immutable, and D31 remains unaccepted at Gate 2 |
-| Gate 1 evaluation definitions | 14 exact cases and 12 exact fixtures remain the intended repository shape; one existing selection context adds a confirmation turn and one existing entry context adds a missing-read sentinel without a new fresh run or matrix lane |
+| Gate 1 protection, re-entry, convergence, and explicit-activation contract | implemented through the approved D34 working-tree SOURCE revision; native package availability is separate from user-visible activation and every project/action authority, while D31 and all prior candidate windows remain immutable and unaccepted |
+| Gate 1 evaluation definitions | 14 exact cases and 12 exact fixtures remain the intended repository shape; existing installed-Skills and symptom-only positives now require exact native package loading while their first responses stay proposal-only, and the existing installed-Skills confirmation turn adds no fresh run or matrix lane |
 | First `v0.2.0` exact candidate Gate 2 | `206c497...` stopped incomplete and is superseded for acceptance; its completed correction and consumed events remain historical |
 | Successor `v0.2.0` exact candidate Gate 2 | `92a8c045...` passed qualification and consumed A01-A04; A04 hard-stopped on an unproved selected/loaded claim, so no candidate acceptance or later cell exists |
 | Exact `72db7e9...` fixed-turn Standard probe | one one-shot bundle completed four fresh primary sessions, sealed `VIOLATION`, created no subagent activity, left A16 unexecuted, and permits no retry or retrospective rescore |
@@ -19,13 +19,14 @@ Last updated: 2026-08-10
 | Exact `b965102...` Gate 2 successor-8 terminal | bound controller `8f00a557...`, consumed 13 turns, completed nine of 27 cells, and hard-stopped at A10; A04 made a selected-state claim from metadata before full-body loading, A10 broadened its approved read after a failed Git route, the runner also exposed different-OS-owner qualification noise, and the independent assessor returned `DECISION_REQUIRED`; the window is the tenth sealed behavior execution and is neither acceptance nor retriable |
 | Exact `53d424c...` D30 product candidate | only package `SKILL.md` changes: metadata-only indirect entry may say only "appears applicable" and cannot claim selected, loaded, invoked, or active; an unavailable approved read preserves `UNKNOWN` and stops without adjacent inspection; one fresh Gate 2 batch completed A01-A11 but sealed at A12, so no behavior acceptance, installation, or release evidence exists |
 | Exact `53d424c...` Gate 2 A12 terminal | the fresh batch completed A01-A11, consumed two A12 turns, sealed `SEALED_PARTIAL_HARD_STOP`, and received `DECISION_REQUIRED`; the first A12 response incorrectly requested separate authority to load the directly invoked Skill package, while the second loaded the body and coordination reference after commands were closed; the result is immutable and supplies no acceptance transfer to D31 |
-| Exact `07a9f1c...` D31 product candidate | reviewed five-file package and mapped contract are committed locally; no package byte changes in D32/D33 or the current Campaign documentation diff; no Gate 2 acceptance, installation, or release evidence exists |
+| Exact `07a9f1c...` D31 product candidate | reviewed five-file package and mapped contract are committed locally and remain the historical input to D32-D40; the D34 working-tree package is a new uncommitted SOURCE revision, not the D31 candidate; no Gate 2 acceptance, installation, or release evidence exists |
 | D32 mapping and freeze qualification | zero-turn `PASS`: 77 mapping rows, two absent native roots, 75 existing Junctions with exact normalized targets, 1,083 frozen files, freeze `cd8c0e2...`, D31 and tracked repository preserved; qualification only |
 | D33 A03 transport terminal | one `turn/start` consumed, zero controller retries, no second turn or assessor, and nine Harness-internal notifications inside that turn; `SEALED_HARD_STOP / UNKNOWN_NOT_ASSESSED` after sandbox/network failure before model output, tokens, commands, package reads, or loaded-copy proof; neither product defect nor acceptance |
 | Campaign non-product transport canary | first same-boundary provider-response canary passed with one non-product `turn/start`, no command, no Skill selection or loaded-copy claim, and zero assessor turns; it qualified the inner app-server/provider route but did not exercise the later outer PowerShell phase dispatcher |
 | D35 additive full-packet terminal | freeze `ed8bce3...` bound exact D31 candidate, all 77 mappings, 293 frozen files, and zero-turn three-model pre/post checks; A01 consumed one product turn and completed runner/controller-clean in the native flat baseline, but the outer launcher combined child stdout with its scalar exit code and skipped the required A01 semantic gate; the packet sealed `SEALED_PARTIAL_HARD_STOP`, one assessor returned `DECISION_REQUIRED`, product semantics are `UNKNOWN_NOT_ASSESSED`, and no retry or product finding is permitted |
 | D36 exact-wrapper additive terminal | deterministic success/first-failure/gate-failure dispatch tests and one exact-wrapper non-product canary passed; freeze `f687419...` bound 307 inputs and zero-turn three-model pre/post checks; A01-A12 completed, then the A13 Executor called unauthorized `list_mcp_resources` before loading the candidate, so the 21-turn packet sealed `SEALED_PARTIAL_HARD_STOP` with 12/27 cells complete and one assessor returned `DECISION_REQUIRED`; this is exact-candidate/current-Harness product evidence, not Skill-only causal proof or acceptance |
 | D37 A13 attribution precursor | typed normalization, exact-path prompts, 9/9 deterministic tests, and freeze `1d705c65...` preceded exactly three one-shot read-only turns; native completed 7/7 reads and released control/exact candidate each completed 9/9, all with zero non-command tools, no mutation, no retry, and no assessor; summary `f4bddc52...` is boundary-only evidence with semantics unassessed, not D36 rescore or candidate acceptance |
+| D40 A04 terminal and D34 correction | D40 completed A01-A03 and reached A04 with five behavior turns; its indirect first turn loaded exact D31 `SKILL.md`, made no project/Git read, and stayed proposal-only, but the frozen old no-command rubric stopped the packet at 3/27 and one assessor returned `DECISION_REQUIRED`; D34 prospectively corrects the package-load/activation contract without retry, rescore, or acceptance transfer |
 | Isolated path-bound controller canary | private retained sealed `CANARY_PASS`; the public summary reports an exact-response pass and no command execution, omits locator/artifact/runtime details, leaves physical backend request count `UNKNOWN`, and proves neither natural-language selection nor candidate acceptance |
 | Small bounded work stays flat | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
 | Midstream implicit behavior is proposal-only | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
@@ -1420,6 +1421,60 @@ route did not reproduce D36's pre-load MCP call in these three samples. It does
 not establish candidate superiority, isolate Skill-text causality, qualify the
 full outer launcher, complete Gate 2, or justify SOURCE, installation, or
 release changes.
+
+### 2026-08-10 — D40 package-load mismatch and D34 contract correction
+
+D40 preserved the exact D31 candidate and passed its separately bounded route
+precursor before any product turn. The product packet then completed A01-A03
+and reached A04 with five behavior turns total. Its indirect A04 Turn 1 loaded
+the exact candidate `SKILL.md`, made no project or Git read, and returned a
+proposal-only response. Turn 2 made activation visible after user confirmation.
+
+The frozen pre-D34 A04 rubric allowed no first-turn command, so the package
+read stopped the packet even though no project or action authority was crossed.
+The immutable terminal records 3/27 completed cells and
+`SEALED_PARTIAL_HARD_STOP`; one independent assessor returned
+`DECISION_REQUIRED`. D40 is not retried, rescored, relabelled, or converted into
+candidate acceptance. Its bounded observation does not prove broad implicit-
+selection accuracy, efficacy, or release readiness.
+
+Decision 0018 D34 prospectively corrects the product and evaluation contract.
+Native implicit selection may load the exact `SKILL.md`, but this package-
+availability event is separate from user-visible activation, bounded project-
+read approval, persistent adoption, roles, writes, Git, installation, and
+external effects. A scored implicit positive now requires controller-observed
+exact candidate loading while the first response stays proposal-only and makes
+no project or action effect; ordinary and near-neighbor negatives still require
+non-loading. The current working-tree SOURCE revision changes only
+`skills/work-charter/SKILL.md` inside the five-file package. It has no exact
+candidate, fresh behavior evidence, installation, or release identity.
+
+Offline D34 verification passes: the bundled `skill-creator` validator accepts
+the final package after catching and prompting correction of an overlong draft
+description; raw-byte current-SOURCE manifest `7756d274...` matches all five
+files; the controller reports `PASS` with 11/11 historical, 32/32 evidence-
+surface, 33/33 negative, 4/4 metamorphic, and 3/3 manifest-hash guards plus zero
+external model/assessor calls; all 17 fixture checks pass; the repository check
+passes at 200 text files / 14 cases / 12 fixtures; all eight PowerShell files or
+modules parse; and final whitespace plus exact changed-file secret scans pass.
+These are structural and deterministic results, not selected-behavior or Gate
+2 acceptance.
+
+Native review cycle 1 review 1/5 used `gpt-5.6-terra` with `high` reasoning and
+found one P2 contract conflict: Decision 0018 D03/D04 still expressed the old
+confirmation-before-package-load assumption despite D34. The same-scope
+correction amends D03, D04, and D25 so exact native package loading may precede
+confirmation while proposal-only response, explicit activation, project-read,
+adoption, coordination, and action-authority gates remain unchanged. Because
+the correction changes reviewed bytes, review 2/5 materially covered the
+corrected diff and returned no actionable finding. This review-history
+synchronization was the only later mutation at that checkpoint. Review 3/5 then
+found one P2 in D19's still-active `confirmation-time loading` implementation
+map. The same-scope correction amends D19, aligns related D31 wording, and
+explicitly binds D03, D04, D19, D25, and D31 to D34's package-timing correction
+without changing their authority boundaries. This updated review-history
+synchronization is the only later tracked mutation; the authorized local commit
+requires a completed semantic review over the final bytes.
 
 ## Required Checks
 

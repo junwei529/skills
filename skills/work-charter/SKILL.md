@@ -1,6 +1,6 @@
 ---
 name: work-charter
-description: Bound consequential Codex work by outcome, authority, evidence, recovery, and proportional coordination. Use for `$work-charter`, direct intent, or confirmation of its metadata proposal. Direct activation loads the branch-required package; project-read limits constrain project/evidence sources, not package reads. Claim active only after the body loads; otherwise degrade and stop. Keep unexposed copy identity `UNKNOWN`; claim no revision. Indirect installed-Skills or continuity, authority, recovery, writer, or assessment symptoms permit metadata saying it appears applicable and proposing activation plus minimal read; never claim selected, loaded, invoked, or active. Inspect only approved scope. Initial adoption/first Standard policy need approval. Exclude small work, new-task/one-failure/same-scope-correction signals, size/duration alone, document or shell-only work, and non-Codex Harness adaptation. Activation never authorizes roles, writes, project rules, worktrees, Git, installation, or external effects.
+description: Bound consequential Codex work by outcome, authority, evidence, recovery, and proportional coordination. Use for `$work-charter`, direct intent, or clear continuity, authority, recovery, writer, or assessment symptoms. Native implicit selection may load `SKILL.md`; this is package availability, not activation, adoption, project-read, or action authority. On an indirect match, say only it appears applicable, explain why, propose activation and the smallest read, and ask for confirmation; do not present loaded or active state as user-authorized. Direct intent or confirmation plus the full body permits activation. Keep unexposed copy identity `UNKNOWN`; inspect only approved scope. Initial adoption and first Standard policy need approval. Exclude small work, new-task/one-failure/same-scope correction, size/duration-only, document/shell-only, and non-Codex-adaptation signals. Activation never authorizes roles, writes, project rules, worktrees, Git, installation, or external effects.
 ---
 
 # Work Charter
@@ -11,31 +11,34 @@ other tasks, or enforce permissions.
 
 ## Enter With Progressive Authorization
 
-Distinguish a lightweight catalog match from an activated Skill:
+Distinguish native package availability from user-visible activation:
 
 - A direct `$work-charter` invocation or ordinary-language request that
   explicitly asks to use Work Charter requests activation without another
   confirmation. Load the full Skill first; only then say that you are now using
   it.
 - An indirect installed-Skills request or symptom-only match is proposal-only.
-  Using metadata and already supplied context, say that Work Charter appears
-  applicable, explain why, and ask whether to activate it. Do not say it was
-  selected, loaded, invoked, or active, and do not load the body merely to
-  make the proposal.
+  Native selection may already have loaded this `SKILL.md`; use that package
+  availability only to constrain the proposal. Say that Work Charter appears
+  applicable, explain why, propose the smallest project read, and ask whether
+  to activate it. Do not present selected, loaded, invoked, active, adopted, or
+  in-force state as user-authorized, and do not inspect the project.
 
-Direct intent or activation confirmation authorizes loading this `SKILL.md`
-and only the package references required by the applicable workflow branch.
-Those are Skill-package reads, not project inspection. An exact project-read
-limit constrains only project or evidence sources; do not ask for a second
-permission to load package instructions needed by the directly requested
-Skill. Package loading never expands project-read or action authority.
+Native selection can load this `SKILL.md` without user authorization because it
+is the Harness instruction mechanism, not a project or action effect. Direct
+intent or activation confirmation permits user-visible activation and loading
+only the package references required by the applicable workflow branch. Those
+are Skill-package reads, not project inspection. An exact project-read limit
+constrains only project or evidence sources; do not ask for a second permission
+to load package instructions needed by the activated Skill. Package loading
+never expands project-read or action authority.
 
-For direct intent or confirmation, the activation boundary is the full Skill
-body being available in the current context. If only metadata is available or
-the body cannot load, report degraded loading and stop without claiming
-activation. If the Harness does not expose the exact loaded path or revision,
-preserve that identity as `UNKNOWN` and make no exact-copy claim; that alone
-does not block ordinary activation. Before any additional project inspection:
+Activation requires both direct intent or confirmation and the full Skill body
+being available in the current context. If only metadata is available or the
+body cannot load, report degraded loading and stop without claiming activation.
+If the Harness does not expose the exact loaded path or revision, preserve that
+identity as `UNKNOWN` and make no exact-copy claim; that alone does not block
+ordinary activation. Before any additional project inspection:
 
 1. name the continuity, control, authorization, recovery, writer, or
    assessment need in ordinary language;

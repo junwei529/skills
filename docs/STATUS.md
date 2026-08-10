@@ -9,7 +9,7 @@ Last updated: 2026-08-10
 | Tested package identity | all three package byte sets independently reached exact-commit RC readiness at `c42eef392a5b9f58bbee64aa73ffb603a6fb6c29` and were re-proved at tag/stable identity `v0.1.2` | [Verification](VERIFICATION.md) |
 | Stable release identity | immutable [`v0.1.2`](https://github.com/junwei529/skills/releases/tag/v0.1.2) at `ceed607152849775b981c54add74bfa30d858e4d`; exact tag, stable loaded-copy, and GitHub Release proof pass for all three Skills | [Verification](VERIFICATION.md) |
 | Project Docs | immutable `v0.1.2` remains the released explicit-only control; local commit `776989f...` implements accepted Decision 0019 but is unreleased, and its evidence is `PARTIAL` because actual candidate selection, loaded-copy identity, and persistent writes remain `UNKNOWN` | [State](skills/manage-project-docs/STATE.md) |
-| Work Charter | released `v0.1.2` remains active; exact D31 candidate `07a9f1c...` is committed locally but unaccepted; D36 hard-stopped when its controller-instantiated Executor made a pre-load resource-discovery call, while the later D37 native/control/candidate precursor passed only that corrected exact-read boundary with semantics unassessed | [State](skills/work-charter/STATE.md) |
+| Work Charter | released `v0.1.2` remains active; exact D31 candidate `07a9f1c...` is unaccepted; D40 exposed that the old A04 rubric incorrectly treated native package loading as pre-authorization behavior, and the approved D34 working-tree revision now separates package availability from explicit user activation and every project/action authority | [State](skills/work-charter/STATE.md) |
 | PowerShell | released five-file `v0.1.2` stable copy; corrected loaded identity and guarded native/text diagnosis pass; live WSL remains unproved | [State](skills/use-powershell-safely/STATE.md) |
 | Release lifecycle | `v0.1.2` tag, stable update, tag-pinned canaries, and Latest GitHub Release complete; `v0.1.1` retained as rollback identity | [Runbook](RUNBOOK.md) |
 
@@ -71,6 +71,16 @@ provide Gate 2 acceptance.
 Exact details and residual limits belong to the
 [Work Charter State](skills/work-charter/STATE.md) and
 [Verification](skills/work-charter/VERIFICATION.md) ledgers.
+
+The later immutable D40 packet completed A01-A03 and reached A04 with five
+behavior turns. A04's indirect first turn loaded exact candidate `07a9f1c...`,
+made no project or Git read, and stayed proposal-only; after confirmation, the
+second turn made activation visible. The frozen old no-command rubric stopped
+the packet solely at that package-read boundary, and its assessor returned
+`DECISION_REQUIRED`. Decision 0018 D34 therefore prospectively permits native
+`SKILL.md` loading while retaining explicit activation, project-read, adoption,
+role, write, Git, installation, and external-effect gates. D40 remains 3/27,
+immutable, unrescored, and unaccepted.
 
 The exact post-commit documentation scope, writer state, and recovery order are
 owned by [Repository Handoff](HANDOFF.md).
@@ -252,16 +262,22 @@ decision.
 
 ## Next Gate
 
-No release action remains pending for immutable `v0.1.2`. Complete the bounded
-D37 attribution closeout, deterministic checks, native review, and one local
-documentation commit. After that commit no continuing repository writer is
-authorized. The next Work Charter product decision is whether to construct a
-new full exact-candidate packet using the corrected role prompt and typed tool
-normalization, or leave candidate `07a9f1c...` unaccepted. Current evidence does
-not justify a Skill SOURCE change. D33, D35, and D36 cannot be retried. Push,
-installation, tag, release, stable update, cleanup, and a full Gate 2 packet
-remain separate gates. Project Docs keeps its own candidate and persistence-
-evidence sequence.
+No release action remains pending for immutable `v0.1.2`. The approved D34 Work
+Charter SOURCE/evaluation/documentation revision and deterministic offline
+checks are complete. Its authorized native-review/local-commit attempt is in
+progress: review 1/5 found one P2 conflict with old D03/D04 package-timing
+wording, and the same-scope correction reconciles D03, D04, and D25 with D34.
+The changed working-tree package is not a candidate and has no behavior
+acceptance. Review 2/5 materially covered the corrected diff and returned no
+actionable finding. Review 3/5 found one P2 in D19's still-active
+"confirmation-time loading" map; D19 and related D31 wording are now reconciled
+with D34. This review-history synchronization is the only later tracked
+mutation; a completed semantic review over the final bytes determines commit
+eligibility. After the authorized local commit, the next user decision is
+whether to authorize a fresh candidate and full Gate 2 packet. D33, D35, D36,
+and D40 cannot be retried or rescored. Push, installation, tag, release, stable
+update, and cleanup remain separate gates. Project Docs keeps its own candidate
+and persistence-evidence sequence.
 
 ## Known Repository Gaps
 
@@ -284,7 +300,10 @@ evidence sequence.
   command tool prior to loading the Skill; the incomplete `DECISION_REQUIRED`
   packet cannot be compensated by earlier cell quality. D37's three corrected-
   route boundary passes have no assessor, semantic score, full-matrix coverage,
-  or acceptance transfer. All stopped matrices and sealed bundles remain
+  or acceptance transfer. D40's package-only A04 read is now recognized as an
+  eval-contract mismatch under D34, but the frozen packet remains incomplete
+  and unaccepted. The D34 working-tree SOURCE revision has no fresh selected-
+  behavior evidence. All stopped matrices and sealed bundles remain
   historical and cannot be retried, relabeled, or transferred.
 - The tracked controller now has one narrow isolated path-bound app-server
   compatibility pass. It does not establish natural-language Skill selection,

@@ -602,24 +602,56 @@ synchronization is the only later tracked mutation; native-review gate
 satisfaction is determined by a completed semantic review over these final
 bytes. No Git closeout is authorized.
 
+The later frozen D40 packet passed its route precursor, then completed A01-A03
+and reached A04 with five behavior turns total. A04 Turn 1 loaded exact D31
+candidate `07a9f1c...`, made no project or Git read, and returned a proposal-
+only response; Turn 2 made activation visible after user confirmation. The old
+frozen A04 rubric permitted no command before confirmation, so the packet
+sealed `SEALED_PARTIAL_HARD_STOP` at 3/27 cells and one independent assessor
+returned `DECISION_REQUIRED`. D40 remains immutable and is not rescored,
+retried, relabelled, or accepted.
+
+Decision 0018 D34 records the resulting product correction: native implicit
+selection may load `SKILL.md`, but that package availability is not user-
+visible activation, adoption, project-read authority, or action authority. The
+bounded D34 writer updated only mapped existing Work Charter SOURCE, contract,
+evaluation, public-entry, state, verification, status, roadmap, index, and
+recovery owners plus the content-only current-SOURCE manifest, completed
+offline validation, and stopped. No new candidate, case, fixture, model turn,
+assessor turn, installation, or release is part of this revision.
+
+The user then authorized native review and one local commit. Review 1/5 found
+one P2 conflict where D03/D04 still encoded the old confirmation-before-package-
+load assumption. The same-scope correction reconciles D03, D04, and D25 with
+D34 without changing any user-visible authority boundary. Review 2/5 materially
+covered the corrected diff and returned no actionable finding. This review-
+history synchronization was the only later mutation at that checkpoint. Review
+3/5 then found one P2 in D19's still-active `confirmation-time loading` map. The
+same-scope correction amends D19 and related D31 wording and explicitly binds
+D34's package-timing amendment set. This updated review-history synchronization
+is the only later tracked mutation; local-commit eligibility is determined by a
+completed semantic review over the final bytes.
+
 ## Next Gate
 
 Work Charter `v0.1.2` remains the released and installed stable revision.
 Exact D31 candidate `07a9f1c...` remains unaccepted. D32 qualifies mapping and
 freeze only; D33 and D35 are immutable infrastructure/controller
-`UNKNOWN_NOT_ASSESSED` records. D36 is fresh product evidence but sealed
-incomplete with a non-compensable A13 tool-authorization failure and independent
-`DECISION_REQUIRED`.
+`UNKNOWN_NOT_ASSESSED` records. D36 and D40 are incomplete product packets with
+independent `DECISION_REQUIRED`; neither transfers acceptance.
 
-Complete D37 attribution synchronization, deterministic checks, native review,
-and the authorized local documentation commit. That closes the current writer
-window. Gate 3 remains blocked until one complete exact-candidate packet
-receives independent `ACCEPTED`. The next user-owned product decision is
-whether to construct a fresh full packet using the corrected role prompt and
-typed normalization, or leave the candidate unaccepted; current evidence does
-not justify Skill SOURCE changes. D33, D35, and D36 may not be repaired,
-retried, rescored, or relabelled. Push, installation, release,
-stable update, and cleanup remain separate user gates.
+The approved D34 SOURCE/evaluation/documentation revision and deterministic
+offline checks are complete. Its authorized native-review/local-commit attempt
+is in progress. Review 2/5 returned no actionable finding on the first corrected
+diff; review 3/5 found and prompted correction of D19's remaining old package-
+timing map and related D31 wording. The only later mutation is this review-
+history synchronization, and a completed semantic review over the final bytes
+determines commit eligibility. The changed working-tree package has no exact
+candidate, behavior acceptance, installation, or release identity. After the
+local commit, the next user-owned gate is whether to authorize a later exact-
+candidate Campaign under new evidence authority.
+D33, D35, D36, and D40 may not be repaired, retried, rescored, or relabelled.
+Push, installation, release, stable update, and cleanup remain separate gates.
 
 ## Recovery Entry
 
@@ -629,19 +661,20 @@ stable update, and cleanup remain separate user gates.
    [Decision 0018](../../decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md),
    this state, and [Verification](VERIFICATION.md).
 3. Confirm live workspace, writer, and action authority.
-4. Confirm live `main` includes exact D31 candidate `07a9f1c...`, then resolve
-   HEAD, index, the Campaign dirty scope, ignored carriers, and current writer
-   instead of inferring them from a run-root name or older handoff.
+4. Confirm live `main` starts from D37 documentation commit `5e3fe76...`, then
+   resolve HEAD, index, the bounded D34 dirty scope, ignored carriers, and
+   current writer instead of inferring them from an older handoff.
 5. Preserve the complete predecessor ledger, including the D31 mapping-
    defective A03, zero-turn D32 freeze `cd8c0e2...`, D33 transport terminal
    `39ffdea...`, D35 freeze `ed8bce3...` plus its one-turn controller-
    orchestration terminal, D36 freeze `f687419...` plus its A13 product
-   terminal, and D37 freeze `1d705c65...` plus summary `f4bddc52...`, without
-   retry, overwrite, relabelling, rescore, or acceptance transfer.
-6. Resume only the D37 documentation closeout and local commit. A Skill or
-   tracked-controller correction, another model/assessor turn, a full product
-   packet, budget expansion, or excluded external
-   effect requires a new user decision.
+   terminal, D37 freeze `1d705c65...` plus summary `f4bddc52...`, and D40's
+   3/27-cell package-load/rubric mismatch terminal, without retry, overwrite,
+   relabelling, rescore, or acceptance transfer.
+6. Resume D34 only within the authorized native-review/local-commit attempt and
+   relinquish the writer after commit. Tracked-controller behavior changes,
+   another model/assessor turn, a full product packet, budget expansion, or any
+   excluded external effect requires its own authority.
 7. Read canonical SOURCE, current eval definitions, and only evidence matching
    the exact revision before changing behavior or claims.
 8. Preserve the independent-Skill and non-propagating-authorization boundary.

@@ -59,24 +59,22 @@ project routing handles ordinary maintenance without loading the Skill.
 
 Work Charter also accepts ordinary-language requests such as “use Work Charter
 to decide how this project should continue”;
-that direct request tells Codex to load the full Skill and permits an activation
-claim only after the full body is available in the current context. If Codex
-cannot load the body, it reports degraded loading and stops without claiming
-activation. When the runtime does not expose the exact loaded path or revision,
-that identity remains `UNKNOWN` and Codex makes no exact-copy claim; this alone
-does not block ordinary activation. Loading the directly requested Skill and
-its branch-required package references is part of activation, not project
-inspection: an exact project-read limit does not block those package reads,
-and they grant no broader project or action authority. For an indirect
-installed-Skills request or concrete control or recovery symptoms, metadata may
-show that Work Charter
-appears applicable. The first response explains why, proposes the smallest
-project read, and asks whether to activate it without claiming that it is
-selected, loaded, invoked, or active. After confirmation, the same load-or-stop
-boundary applies, while project inspection still requires approval for the
-exact scope. If an approved read is unavailable through that route, the
-affected fact stays `UNKNOWN`; Codex stops and proposes any different route
-instead of inspecting adjacent paths or metadata.
+that direct request permits an activation claim only after the full body is
+available in the current context. Native implicit selection may also load the
+exact `SKILL.md` before the user confirms Work Charter. That package read is
+instruction availability, not user-visible activation, adoption, project-read
+authority, or action authority. For an indirect installed-Skills request or
+concrete control or recovery symptoms, the first response says only that Work
+Charter appears applicable, explains why, proposes the smallest project read,
+and asks whether to activate it. It does not present selected, loaded, invoked,
+active, or adopted state as user-authorized and does not inspect the project.
+After confirmation, the available body plus confirmation permits activation;
+branch-required package references may load, while project inspection still
+requires approval for the exact scope. If the body is unavailable, activation
+stops; if an approved project read is unavailable through its route, the
+affected fact stays `UNKNOWN` and any different route needs a new proposal.
+When the runtime does not expose the exact loaded path or revision, that
+identity remains `UNKNOWN` and Codex makes no exact-copy claim.
 PowerShell may be selected for material Windows boundaries. Activation or read
 approval does not authorize adoption, roles, writes, Git, installation, or
 external effects.

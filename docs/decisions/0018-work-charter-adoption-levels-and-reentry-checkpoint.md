@@ -2,16 +2,16 @@
 
 Date: 2026-08-02
 Amended: 2026-08-10
-Status: accepted design through WC-AR-D33; exact D31 candidate `07a9f1c...` remains unaccepted after D33 and D35 infrastructure/controller stops, and every consumed execution remains immutable
+Status: accepted design through WC-AR-D34; exact D31 candidate `07a9f1c...` remains unaccepted, the D40 packet is immutable under its frozen pre-D34 rubric, and no consumed execution is retried or rescored
 
-- Planning checkpoint: 21 (mapping qualification and additive replication boundary)
-- Last incorporated decision: `WC-AR-D33`
+- Planning checkpoint: 22 (native package load and explicit activation boundary)
+- Last incorporated decision: `WC-AR-D34`
 - Open decision IDs: none
 - Lifecycle authority: this Decision grants none; consult `docs/HANDOFF.md` for
   the live next gate
 - Checkpoint reason: completed product-design decision set plus the accepted
-  direct/indirect entry, package-load/project-read, mapping-qualification, and
-  evidence-replication boundaries
+  native-package/user-activation, project-read, mapping-qualification, and
+  immutable-evidence boundaries
 
 ## Status And Evidence Boundary
 
@@ -28,8 +28,9 @@ and the immutable `v0.1.2` stable package remain governed by
 trigger-accuracy, model-adaptation, real-project, or enforcement claim follows
 from this discussion record.
 
-This checkpoint authorizes no Skill SOURCE or evaluation change, project or
-user-environment mutation, role delivery, worktree, Git action, installation,
+Except for the bounded D34 implementation authorization recorded below, this
+checkpoint authorizes no Skill SOURCE or evaluation change, project or user-
+environment mutation, role delivery, worktree, Git action, installation,
 release, external effect, or private-global-rule change.
 
 ## Context
@@ -81,9 +82,10 @@ revision, preserve that identity as `UNKNOWN` and make no exact-copy claim; the
 missing identity signal alone does not block ordinary activation. An indirect
 request to choose among installed Skills, or observable continuity, control,
 authorization, recovery, writer, or independent-assessment symptoms, permits
-only a metadata-level proposal. That response says Work Charter appears
-applicable and asks whether to activate it; it does not claim the Skill is
-selected, loaded, or active.
+only a proposal-level user response. That response says Work Charter appears
+applicable and asks whether to activate it; it does not present selected,
+loaded, or active state as user-authorized. D34 supersedes the earlier package-
+non-loading assumption while preserving this response and authority boundary.
 
 Before the user authorizes additional inspection, either path may use only the
 conversation and context already supplied by the Harness. It must not call
@@ -94,14 +96,16 @@ environment details.
 
 **Confirmed.** Entry uses progressive authorization:
 
-1. for direct intent, load the full Skill and only then say that Work Charter is
-   now being used; for an indirect match, say only that it appears applicable
-   and ask whether to activate it. Preserve exact copy identity as `UNKNOWN`
-   when the runtime does not expose it, without claiming a revision or blocking
-   ordinary activation;
-2. after the direct load or the load following confirmation, rely on the full
-   Skill to describe the smallest proposed read scope, such as project rules,
-   declared canonical owners, and the current branch/worktree/writer boundary;
+1. for direct intent, ensure the full Skill is available and only then say that
+   Work Charter is now being used; for an indirect match, native selection may
+   already have loaded the exact `SKILL.md`, but say only that Work Charter
+   appears applicable and ask whether to activate it. Preserve exact copy
+   identity as `UNKNOWN` when the runtime does not expose it, without claiming a
+   revision or blocking ordinary activation;
+2. after direct intent or confirmation, and only when the full Skill is
+   available, rely on it to describe the smallest proposed read scope, such as
+   project rules, declared canonical owners, and the current
+   branch/worktree/writer boundary;
 3. ask whether the user authorizes that bounded inspection, unless the same
    response explicitly confirms activation and that exact scope; and
 4. only after approval, perform the reads and return a recommendation or the
@@ -119,8 +123,8 @@ external effects.
 
 | Boundary | What it permits | What it does not permit |
 |---|---|---|
-| Natural-language explicit intent | Activate, load, and discuss Work Charter without requiring exact syntax | Project inspection, persistent adoption, roles, writes, or side effects unless separately approved |
-| Indirect or symptom-only match | Use metadata to say Work Charter appears applicable and propose activation plus the smallest next step | Claiming selected/loaded state, loading the body before confirmation, additional project reads, adoption, coordination changes, or mutation |
+| Natural-language explicit intent | Activate and discuss Work Charter without requiring exact syntax once the full body is available | Project inspection, persistent adoption, roles, writes, or side effects unless separately approved |
+| Indirect or symptom-only match | Let native selection load only the exact `SKILL.md`, while the user-visible response says Work Charter appears applicable and proposes activation plus the smallest next step | Treating package loading as user-authorized selected/loaded/active state, additional project reads, adoption, coordination changes, or mutation |
 | Visible standing-policy reuse | Reuse an applicable previously approved policy and show the user that it is being reused | Authority beyond the policy, silent role delivery, or a material contract change |
 | Material change | Request fresh approval before changing outcome, hard boundaries, coordination responsibilities, canonical carrier, workspace/writer routing, permissions, or side effects | Treating an old marker, profile, or policy as sufficient authority |
 
@@ -128,6 +132,11 @@ Initial persistent adoption and the first Standard standing policy remain
 explicit user decisions. Later policy reuse must remain visible. A standing
 policy can coexist with an ordinary Flat task and does not automatically place
 every task in the project under Work Charter.
+
+D34 supersedes D03 and D04 only where their original wording required the
+package body to stay unloaded until confirmation. Their activation,
+project-read, adoption, coordination, and action-authority boundaries remain in
+force.
 
 ### WC-AR-D05 — Environment-Aware Recommendation, User-Owned Choice
 
@@ -302,7 +311,8 @@ classify the request:
   activation intent without requiring exact `$work-charter` syntax;
 - treat an indirect installed-Skills request or continuity, control,
   authorization, recovery, writer, or independent-assessment symptoms as a
-  metadata-only proposal that asks whether to activate Work Charter; or
+  proposal-only response that asks whether to activate Work Charter; native
+  package loading remains separate under D34; or
 - treat an explicit continue, resume, or recovery request as a proposal to run
   the re-entry check.
 
@@ -466,11 +476,12 @@ remaining long-path budget.
 The six selection runs are:
 
 1. natural-language use of Work Charter without exact invocation syntax;
-2. a request to choose among already installed Skills, followed in the same
-   context by an activation-only confirmation that must load the exact Skill
-   while still performing no project read;
+2. a request to choose among already installed Skills whose proposal-only first
+   turn must expose controller-observed exact candidate loading, followed in the
+   same context by activation-only confirmation while still performing no
+   project read;
 3. symptom-only continuity, authority, writer, recovery, or assessment risk,
-   which must remain a metadata-only proposal;
+   which must load the exact candidate but remain a proposal-only response;
 4. an ordinary bounded task that must remain Flat;
 5. a Project Docs-only near neighbor; and
 6. a PowerShell-only near neighbor.
@@ -613,12 +624,16 @@ duplicated wording instead of appending every decision to every file.
 
 | Existing file | Future responsibility |
 |---|---|
-| `SKILL.md` frontmatter | Direct natural-language activation, indirect/symptom metadata proposal, confirmation-time loading, discriminative non-triggers, and the no-false-loaded-claim boundary |
+| `SKILL.md` frontmatter | Direct natural-language activation; indirect/symptom native loading of only the exact `SKILL.md` with a proposal-only response; confirmation-gated visible activation; discriminative non-triggers; and the no-false-loaded-claim boundary |
 | `SKILL.md` body | Activated entry and first-project-read authority, the compact `L0`-`L4` choice, one-carrier rule, optional Goal boundary, four re-entry routes, and links to conditional detail |
 | `references/coordination-and-recovery.md` | Entry/re-entry read order, `L1`/`L2` durability, carrier/fallback and managed-workstream rules, workspace/writer/evidence reconciliation, route precedence, multi-worktree behavior, and `L3` P/E detail |
 | `references/standard-ope.md` | Only the `L4` delta: standing-policy approval and visible reuse, O/P/E responsibilities and path, control-location requirement, and honest delivery degradation |
 | `assets/work-charter.md` | Optional no-existing-owner durable carrier with applicability, level/responsibilities, locator/revision, workspace/writer, checkpoint/evidence, next action, and reconfirmation fields |
 | `agents/openai.yaml` | Concise UI metadata, a natural-language default prompt, and the existing implicit-invocation flag |
+
+D34 amends D19's package-timing responsibility as reflected above. The same
+five-file limit and every project-read, adoption, coordination, and action-
+authority boundary remain in force.
 
 The frontmatter remains the selection surface and does not contain the level
 matrix, eval design, model identities, or runtime implementation detail. The
@@ -907,23 +922,28 @@ remain discoverable without taking over every matching conversation.
 
 1. **Catalog proposal.** For a generic request to choose among installed
    Skills, or for symptom-only continuity, control, authorization, recovery,
-   writer, or assessment risk, use surfaced metadata only. Say that Work
-   Charter appears applicable, explain the observable reason, propose the
-   smallest bounded project read, and ask whether to activate it. Do not claim
-   the Skill is selected, loaded, invoked, or active, and do not inspect the
-   project.
-2. **Confirmed activation.** After the user confirms, load the full
-   `SKILL.md` and only then make activation visible and follow its entry
+   writer, or assessment risk, native selection may load only the exact
+   `SKILL.md`. The user-visible response still says only that Work Charter
+   appears applicable, explains the observable reason, proposes the smallest
+   bounded project read, and asks whether to activate it. Do not present the
+   package load as user-authorized selected, loaded, invoked, or active state,
+   and do not inspect the project.
+2. **Confirmed activation.** After the user confirms, ensure the full
+   `SKILL.md` is available, then make activation visible and follow its entry
    workflow. An explicit `$work-charter` invocation or ordinary-language
    request that directly names and asks to use Work Charter enters at this stage
-   without requiring a separate activation question, but keeps the same
-   load-before-claim order. If the runtime does not expose exact copy identity,
-   preserve it as `UNKNOWN` and do not claim a revision; this alone does not
-   block activation.
+   without requiring a separate activation question, but keeps the same full-
+   body-before-visible-claim order. If the runtime does not expose exact copy
+   identity, preserve it as `UNKNOWN` and do not claim a revision; this alone
+   does not block activation.
 3. **Bounded project read.** Activation is not read authority. Inspect only an
    exact scope the user approves or an exact scope visibly reused from an
    applicable standing policy. The user may bundle activation and that scope
    in one clear response.
+
+D34 amends D25's package-timing wording as reflected above. D25's proposal-only
+response, explicit user activation, project-read, and action-authority
+boundaries remain in force.
 
 The exact `92a8c045...` Gate 2 run exposed this distinction. Its indirect
 installed-Skills cell safely performed no project or tool read and produced a
@@ -1152,15 +1172,18 @@ The runner's authorization contract already distinguished the Work Charter
 package from the project snapshot. The product correction makes that boundary
 explicit:
 
-1. direct intent or confirmation authorizes loading the full `SKILL.md` and
-   only package references required by the applicable workflow branch;
+1. native selection may already have loaded the exact `SKILL.md`; direct intent
+   or confirmation authorizes relying on that available body and loading only
+   package references required by the applicable workflow branch;
 2. those package reads are activation, not project inspection, so an exact
    project-read limit applies only to project or evidence sources and must not
    trigger a second package-loading permission request;
 3. loading package instructions grants no project read, adoption, role,
    write, Git, installation, external-effect, or other action authority; and
-4. the indirect metadata-only proposal remains unchanged and must not load the
-   body before confirmation.
+4. the indirect proposal remains user-visible and non-authorizing; D34 amends
+   D31 only where its original wording treated direct intent or confirmation as
+   authority for the native body read itself. The project-read and every action-
+   authority boundary remain unchanged.
 
 The existing recovery-integrity Charter-revision variant remains the
 regression. Its first turn must load the exact candidate body and the
@@ -1238,12 +1261,74 @@ provider-response canary does not qualify an unexercised outer launcher or
 phase-dispatch path. Any corrected launcher and new additive packet require a
 new separately authorized Campaign.
 
+### WC-AR-D34 — Native Package Load Is Not User-Visible Activation
+
+**Confirmed.** Codex's native Skill mechanism first exposes catalog metadata
+and may then load the selected Skill's complete `SKILL.md`. Once the Harness
+selects Work Charter implicitly, the product cannot reliably require that body
+to remain unread until a later user confirmation. Package instruction loading
+is therefore a Harness-internal availability event, not a user-visible
+activation, adoption, project read, role start, write, Git action, installation,
+or external effect.
+
+This package-timing correction amends the active wording in D03, D04, D19, D25,
+and D31. Those decisions' user-visible activation, project-read, adoption,
+coordination, recovery, and action-authority boundaries remain in force.
+
+The Work Charter entry contract now keeps five boundaries explicit:
+
+1. catalog matching identifies that Work Charter appears applicable;
+2. native package loading makes the exact instructions available but grants no
+   project or action authority;
+3. direct intent or confirmation permits user-visible activation only when the
+   full body is available;
+4. bounded project reads require the triggering request, a concrete approved
+   scope, or an applicable standing policy; and
+5. persistent adoption, role delivery, writes, Git, installation, release, and
+   external effects retain their own authorization gates.
+
+An indirect installed-Skills or symptom-only positive may therefore load only
+the exact candidate `SKILL.md` before confirmation. Its first response remains
+proposal-only: explain why Work Charter appears applicable, name the smallest
+project-read scope, and ask whether to activate it. It must not present selected,
+loaded, invoked, active, adopted, or in-force state as user-authorized, inspect
+the project or Git, load unrelated package detail, deliver a role, or cause any
+effect. After confirmation, the already available body may satisfy the package-
+availability condition; only branch-required package references may load, and
+project reads still require their exact authority. Ordinary and near-neighbor
+negatives continue to require non-loading.
+
+The evaluation contract changes accordingly. A scored implicit positive needs
+controller-observed exact candidate loading to support selected-copy behavior;
+a no-load answer can support only catalog applicability. The first-turn package
+read is not itself a failure, but an activation/adoption claim without user
+intent, any project or action effect, an out-of-scope package read, or a target
+load in a negative remains a failure. Loaded-copy proof still comes from
+controller observation rather than model self-report.
+
+The immutable D40 packet exposed the mismatch. It completed A01-A03 and reached
+A04 with five behavior turns total. On A04 Turn 1, the exact candidate body
+loaded, no project or Git read occurred, and the response stayed proposal-only;
+after the user's confirmation, Turn 2 made activation visible. The frozen old
+rubric nevertheless stopped the packet because Turn 1 permitted no command at
+all, and the independent assessor returned `DECISION_REQUIRED`. D40 remains a
+3/27-cell `SEALED_PARTIAL_HARD_STOP` under that historical contract. It is not
+retried, rescored, relabelled, or converted into acceptance, and it does not
+prove broad selection accuracy or candidate efficacy.
+
+The user's explicit D34 approval authorizes only the mapped existing Work
+Charter SOURCE, design, evaluation, public-entry, state, verification, status,
+index, roadmap, and recovery-document changes plus deterministic offline checks.
+It authorizes no new case or fixture, model or assessor turn, candidate, native
+review, commit, push, installation, release, stable update, cleanup, or external
+effect.
+
 ## Important Rejected Alternatives
 
 - Require exact `$work-charter` syntax from users.
 - Bootstrap or preload a universal workflow for every conversation.
-- Claim that Work Charter is selected or loaded from a metadata match, or load
-  its full body for every indirect symptom merely to make that claim.
+- Treat native package loading as user confirmation, adoption, or authority, or
+  force Work Charter loading for ordinary and near-neighbor negatives.
 - Treat installation as permission to monitor, inspect, or mutate a project.
 - Hard-code one model or reasoning level as the product baseline.
 - Automatically select and apply a level after environment inspection.

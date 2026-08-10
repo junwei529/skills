@@ -47,19 +47,17 @@ $work-charter 约束此项有后果的工作、权限、证据、恢复和最小
 ```
 
 用自然语言明确说“使用 Work Charter”就是直接激活意图，不必记住
-`$work-charter` 语法。Codex 只有在完整 Skill 正文已经进入当前上下文后才声称已经
-激活；否则会说明加载降级并停止，不作激活声明。若 runtime 不暴露精确加载路径或
-revision，该身份保留为 `UNKNOWN`，Codex 不声称具体副本；这本身不阻止普通激活。加载
-直接请求的 Skill 以及当前分支必需的 package references 属于激活，而不是项目检查。
-精确项目读取限制不会禁止这些 package reads，package 加载也不会增加项目读取或行动授权。
-泛化的“根据已安装 Skills 判断”请求或仅由症状触发的匹配，首先只得到元数据级
-proposal（即根据 Skill 简介做轻量候选判断）：说明 Work Charter 看起来可能适用、
-原因、建议的最小项目读取范围，并询问是否激活。此时不能声称 Skill 已经
-selected、loaded、invoked 或 active。用户确认后同样遵循“加载成功，否则停止”的边界，
-并且只能检查另行批准的项目范围。若已批准读取无法通过批准路径完成，相关事实保持
-`UNKNOWN`；其他路径必须作为新的可见 proposal，而不是检查相邻路径或 metadata
-的许可。首次持久采用、第一份 Standard policy、角色交付、写入、Git 和外部影响
-仍需分别授权。
+`$work-charter` 语法。只有该意图与完整正文都存在时，Codex 才能声称已经激活。原生
+隐式选择可能在用户确认前读取精确 `SKILL.md`；这个 package read 只表示指令可用，
+不是用户可见的激活、采用、项目读取授权或行动授权。泛化的“根据已安装 Skills 判断”
+请求或仅由症状触发的匹配，仍只能得到可见 proposal：说明 Work Charter 看起来可能
+适用、原因、建议的最小项目读取范围，并询问是否激活。回复不得把 selected、loaded、
+invoked、active、adopted 或 in-force 状态表述为已获用户授权，也不得检查项目。用户
+确认后，已经可用的正文可以满足 package 条件，只加载当前分支必需的 references；
+项目仍只能检查另行批准的范围。正文不可用时停止激活；已批准的项目读取无法通过批准
+路径完成时，相关事实保持 `UNKNOWN`，其他路径必须作为新的可见 proposal。若 runtime
+不暴露精确加载路径或 revision，具体副本身份同样保持 `UNKNOWN`。首次持久采用、第一份
+Standard policy、角色交付、写入、Git 和外部影响仍需分别授权。
 
 它会用通用语言推荐最小充分形式：普通简单任务（`L0`，无 active Charter）、
 当前任务 Charter（`L1`）、持久单 Agent Charter（`L2`，有一个便于冷恢复的小型
@@ -113,7 +111,11 @@ D35 已封存为 controller-orchestration `UNKNOWN_NOT_ASSESSED`。Additive D36
 12/27 个 cell 完成而封存，独立 assessor 返回 `DECISION_REQUIRED`。之后的三
 turn D37 precursor 提供了精确 package 路径和分类型 tool normalization；native、
 released control 与 exact candidate 都遵守读取边界，但未评估 response semantics，
-也不转移任何 Gate 2 接受。D31 仍无行为接受、安装或发布证据。
+也不转移任何 Gate 2 接受。D40 随后以五个行为 turn 到达 A04；其间接首轮加载了精确
+candidate，没有读取项目或 Git，回复也保持 proposal-only，但冻结的旧 no-command rubric
+仍停止了 packet，assessor 返回 `DECISION_REQUIRED`。Decision 0018 D34 现已通过区分
+原生 package loading 与用户可见激活来修正 SOURCE 和评测合同；D40 保持不可变，不被
+重评分或追认接受。D31 仍无行为接受、安装或发布证据。
 完整分阶段 selection、entry、等级、
 重新接入和可见 Standard 行为，stable 层完整 Standard
 delivery、广泛隐式触发 telemetry、独立真实项目效果、确定性角色交付或 writer

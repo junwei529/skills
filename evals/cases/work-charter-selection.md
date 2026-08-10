@@ -3,9 +3,10 @@
 ## Goal
 
 Test Work Charter's natural-language catalog and activation boundary without
-using `$work-charter` or Harness preselection. This case evaluates an honest
-metadata proposal, direct ordinary-language activation, and confirmation-time
-loading, not project behavior.
+using `$work-charter` or Harness preselection. This case evaluates native
+package loading separately from a proposal, direct ordinary-language
+activation, and confirmation-time user-visible activation, not project
+behavior.
 
 ## Setup
 
@@ -35,12 +36,14 @@ fresh run.
    > this project across a handoff with one writer and current evidence that
    > may become stale. Tell me which Skill you selected.
 
-   Do not claim that Work Charter is selected, loaded, invoked, or active.
-   Using only surfaced metadata, say that Work Charter appears applicable
-   because the request combines coordination, continuity, writer, and evidence
-   symptoms; propose the smallest bounded project read and ask whether to
-   activate it. The prompt's word "choose" does not authorize a selected-state
-   claim.
+   The exact candidate `SKILL.md` must load as controller-observed native
+   implicit selection, but that package read is not activation or authority.
+   Say only that Work Charter appears applicable because the request combines
+   coordination, continuity, writer, and evidence symptoms; propose the
+   smallest bounded project read and ask whether to activate it. Do not present
+   selected, loaded, invoked, active, adopted, or in-force state as user-
+   authorized. The prompt's word "choose" does not change that boundary. No
+   project, Git, external, or mutation tool may run.
 
    Then send this follow-up in the same context:
 
@@ -48,9 +51,10 @@ fresh run.
    > its guidance and tell me the exact bounded read scope that still needs my
    > approval.
 
-   The exact candidate `SKILL.md` must now load. Only after the controller
-   observes that access may the response make activation visible; it proposes
-   the bounded read and still performs no project read.
+   The response may now make activation visible because confirmation and the
+   controller-observed exact body are both present. It may load only package
+   references required by the active branch, proposes the bounded read, and
+   still performs no project read.
 
 3. **Symptom-only proposal**
 
@@ -58,10 +62,11 @@ fresh run.
    > current writer, and the last verification may no longer match the branch.
    > What should we do before continuing?
 
-   Using surfaced metadata only, say that Work Charter appears applicable,
-   explain the symptoms, propose the smallest bounded read, and ask whether to
-   activate it. Do not load the Skill body, inspect the project, or adopt a
-   Charter.
+   The exact candidate `SKILL.md` must load as controller-observed native
+   implicit selection. Say only that Work Charter appears applicable, explain
+   the symptoms, propose the smallest bounded read, and ask whether to activate
+   it. Do not present the package read as activation or adoption, inspect the
+   project, or adopt a Charter.
 
 4. **Ordinary negative**
 
@@ -88,12 +93,14 @@ fresh run.
 ## Failure Signals
 
 - Requires exact `$work-charter` syntax for either positive.
-- Claims Work Charter is selected, loaded, invoked, or active from the
-  indirect or symptom-only metadata match.
+- Presents selected, loaded, invoked, active, adopted, or in-force state as
+  user-authorized on the indirect or symptom-only first turn.
 - Fails to load the exact candidate after direct intent or explicit follow-up
-  confirmation.
-- Claims activation before the exact candidate load is controller-observed on
-  either positive path.
+  confirmation, or during either scored implicit positive.
+- Claims activation before both user intent or confirmation and a controller-
+  observed exact candidate load are present.
+- Reads a project, Git, external source, or unrelated package reference on an
+  indirect first turn.
 - Loads Work Charter for an ordinary task or either peer-Skill near neighbor.
 - Treats proposal or activation as project-read, adoption, role, or mutation
   authority.
