@@ -115,7 +115,13 @@ released control 与 exact candidate 都遵守读取边界，但未评估 respon
 candidate，没有读取项目或 Git，回复也保持 proposal-only，但冻结的旧 no-command rubric
 仍停止了 packet，assessor 返回 `DECISION_REQUIRED`。Decision 0018 D34 现已通过区分
 原生 package loading 与用户可见激活来修正 SOURCE 和评测合同；D40 保持不可变，不被
-重评分或追认接受。D31 仍无行为接受、安装或发布证据。
+重评分或追认接受。这些 D34 字节已成为精确 candidate `b3ad360...`。fresh D41 随后
+完成 A01-A04；A04 证明原生加载可以不伴随项目读取，但其首轮可见回复在用户批准激活前
+就称 Work Charter 已被 selected，违反 proposal-only 边界。A05 只提出有界激活建议，
+没有项目/Git 读取或动作，但评测 policy 把单轮合同写成了错误的 object 而不是 list；
+controller 因此 fail closed，packet 以 4/27 个 cell 完成而封存。一个 assessor 返回
+`DECISION_REQUIRED`。D41 不被重试或追认接受，stable `v0.1.2` 保持不变。D31 及其
+D34 后继仍无行为接受、安装或发布证据。
 完整分阶段 selection、entry、等级、
 重新接入和可见 Standard 行为，stable 层完整 Standard
 delivery、广泛隐式触发 telemetry、独立真实项目效果、确定性角色交付或 writer

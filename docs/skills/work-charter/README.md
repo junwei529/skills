@@ -140,7 +140,17 @@ old frozen no-command rubric nevertheless stopped the packet and its assessor
 returned `DECISION_REQUIRED`. Decision 0018 D34 now corrects SOURCE and the
 evaluation contract by separating native package loading from user-visible
 activation. D40 remains immutable and is not rescored or accepted.
-D31 still has no behavior acceptance, installation, or release evidence.
+Those D34 bytes are committed at exact candidate `b3ad360...`. Fresh D41 then
+completed A01-A04. A04 proved that native loading can occur without a project
+read, but its visible first response called Work Charter selected before the
+user approved activation, violating the proposal-only boundary. A05 produced
+a bounded activation proposal with no project/Git read or action, but the
+evaluation policy encoded its single turn with the wrong object-versus-list
+shape; the controller failed closed and the packet sealed with 4/27 cells
+complete. One assessor returned `DECISION_REQUIRED`. D41 is neither retried nor
+accepted, and stable `v0.1.2` is unchanged.
+D31 and its D34 descendant still have no behavior acceptance, installation, or
+release evidence.
 Full staged selection, entry, level, re-entry, and visible
 Standard behavior, full Standard delivery at the stable layer, broad implicit
 telemetry, independent real-project efficacy, deterministic role delivery or

@@ -19,19 +19,19 @@ Sanitized detailed runs remain under [`evals/results`](../evals/results/README.m
 
 | Check | Purpose | Current result |
 |---|---|---|
-| Changed Skill validator | Validate frontmatter and package name without changing the package | Work Charter passes the bundled `skill-creator` validator after the final D34 description was reduced below the 1,024-character limit; unchanged Skills were not rerun |
-| Repository checker | Validate strict UTF-8/no BOM, whitespace, local links/fragments, publication safety, exact Skill/eval sets, federated docs, and bilingual navigation | D34 working tree passes at 200 text files / 14 cases / 12 fixtures |
-| Fixture checker | Validate synthetic starting states and their Git/reparse/ignored-result boundaries plus the tracked controller regression | D34 working tree passes all 17 checks; no fixture or controller-code bytes changed |
-| Codex evidence controller | Validate one shared core across four entry modes, strict required-read versus bounded auxiliary-observation attribution, structural PowerShell/Git/path classification, source-and-generated-contract-bound historical regressions, exact package manifests, candidate-identity and content-proof shape, record cardinality, completed exit typing, output-array shape, per-key single-capture sealed parsing and reuse, real-reparse rejection, fail-closed negatives, external-input types, independently resolved inner/wrapper command identity, Git-read and external-filter safety, profile-free PowerShell wrappers, culture-independent canonical ordering, metamorphic equivalence, output no-clobber, and canonical repeatability | D34 current-SOURCE package is five-file exact at manifest `7756d274...`; 11/11 historical, 32/32 evidence-surface, 33/33 negative, 4/4 metamorphic, 3/3 manifest-hash guards, and all reported structural guards pass with zero external model or assessor calls |
-| CRG supplemental preflight | Sharpen structural review scope when the maintained index represents the intended diff | degraded supplemental evidence for D34: the graph covers 34 PowerShell/Python files, was built at `763a15e...` rather than current base `5e3fe76...`, and cannot represent the 18-file Markdown/JSON contract surface; its zero-risk result is not acceptance evidence |
-| Native Codex review | Review the exact uncommitted D34 contract/evaluation/documentation change with `gpt-5.6-terra` at `high` reasoning | review 1/5 found one P2: D03/D04 retained the old confirmation-before-package-load assumption; D03, D04, and D25 were reconciled; review 2/5 materially covered that corrected diff and returned no actionable finding; review 3/5 found one P2 in D19's still-active `confirmation-time loading` map, so D19 and related D31 wording are now reconciled with D34; the review-history sync is the only later mutation, and commit eligibility is determined by a completed semantic review over the final bytes |
+| Changed Skill validator | Validate frontmatter and package name without changing the package | D41 closeout changes no Skill; the bundled `skill-creator` validator was rerun against exact Work Charter candidate `b3ad360...` and passed |
+| Repository checker | Validate strict UTF-8/no BOM, whitespace, local links/fragments, publication safety, exact Skill/eval sets, federated docs, and bilingual navigation | D41 closeout passes at 201 text files / 14 cases / 12 fixtures |
+| Fixture checker | Validate synthetic starting states and their Git/reparse/ignored-result boundaries plus the tracked controller regression | D41 closeout passes all 17 checks; no fixture or controller-code bytes changed |
+| Codex evidence controller | Validate one shared core across four entry modes, strict required-read versus bounded auxiliary-observation attribution, structural PowerShell/Git/path classification, source-and-generated-contract-bound historical regressions, exact package manifests, candidate-identity and content-proof shape, record cardinality, completed exit typing, output-array shape, per-key single-capture sealed parsing and reuse, real-reparse rejection, fail-closed negatives, external-input types, independently resolved inner/wrapper command identity, Git-read and external-filter safety, profile-free PowerShell wrappers, culture-independent canonical ordering, metamorphic equivalence, output no-clobber, and canonical repeatability | Exact candidate `b3ad360...` remains five-file manifest `7756d274...`; 11/11 historical, 32/32 evidence-surface, 33/33 negative, 4/4 metamorphic, 3/3 manifest-hash guards, and all reported structural guards pass with zero external model or assessor calls |
+| CRG supplemental preflight | Sharpen structural review scope when the maintained index represents the intended diff | not relied on for D41: the closeout changes only Markdown/result evidence, while the ignored carrier and its private diagnosis are intentionally outside the tracked index |
+| Native Codex review | Review the exact uncommitted D41 sanitized-result/documentation closeout with `gpt-5.6-terra` at `high` reasoning | required before the authorized local commit; its completed semantic disposition remains in the cumulative commit-attempt record so the reviewed bytes are not mutated merely to restate the review |
 | Isolated controller canary | Record the bounded disposition of one private path-bound infrastructure check without broadening behavior claims | retained sealed `CANARY_PASS`; the public summary reports an exact-response pass and no command execution, omits private locator/artifact/runtime details, and leaves physical backend request count `UNKNOWN` |
-| Work Charter D36/D37/D40 and D34 correction | Preserve additive predecessors and separate product behavior from route, tool, and eval-contract failures | D36 and D40 remain immutable incomplete `DECISION_REQUIRED` packets; D37 remains boundary-only evidence; D34 prospectively separates native package loading from explicit activation without rescore or acceptance transfer |
+| Work Charter D36/D37/D40, D34 correction, and D41 terminal | Preserve additive predecessors and separate product behavior from route, tool, and eval-contract failures | D36 and D40 remain immutable incomplete `DECISION_REQUIRED` packets; D37 remains boundary-only evidence; D34 exact candidate `b3ad360...` separates native package loading from explicit activation; D41 completed A01-A04, recorded an A04 proposal-only semantics failure, then sealed at A05 on a separate evaluation-policy shape defect; no retry or acceptance transfer follows |
 | PowerShell deterministic hardening | Validate cardinality, LF bytes, one-base paths, and Junction link-only removal | 15 assertions pass in PowerShell 7 and Windows PowerShell 5.1 |
 | PowerShell parser sweep | Parse all `evals/**/*.ps1` files and the tracked controller module | all eight files/modules parse; no PowerShell/controller-code bytes changed |
 | Markdown navigation and ownership | Verify local links/fragments, English/Chinese routes, expected per-Skill owners, and no orphan canonical owner | pass through repository checker |
-| `git diff --check` | Reject whitespace defects in the working revision | pass for the final D34 working-tree diff; index remains untouched |
-| Gitleaks | Detect secret-like content independently | exact changed-file scan passes with zero findings; a repository-wide directory scan is excluded from this claim because it traverses retained ignored/private evidence rather than the tracked D34 change surface |
+| `git diff --check` | Reject whitespace defects in the working revision | passes for the D41 closeout diff; index remains untouched |
+| Gitleaks | Detect secret-like content independently | exact 10-path D41 changed-file scan passes with zero findings; its verified temporary scan copy was removed, and retained ignored/private evidence was not published or traversed |
 
 ## Repository Claim Ledger
 
@@ -1351,10 +1351,10 @@ the packet sealed at 3/27 cells and its independent assessor returned
 Decision 0018 D34 treats that result as an eval-contract mismatch rather than a
 retroactive pass. Native package loading is now separate from user-visible
 activation and every project/action authority. D40 remains immutable,
-unrescored, and unaccepted. The current D34 working-tree revision changes one
-of Work Charter's five package files plus mapped existing contract/evaluation/
-documentation consumers; it has no candidate, behavior, installation, stable,
-or release evidence.
+unrescored, and unaccepted. The D34 revision changed one of Work Charter's five
+package files plus mapped existing contract/evaluation/documentation consumers
+and was reviewed and committed as exact candidate `b3ad360...`; installation,
+stable, and release evidence remain absent.
 
 Native review cycle 1 review 1/5 used `gpt-5.6-terra` with `high` reasoning and
 found one P2 conflict in Decision 0018: D03 and D04 still required confirmation
@@ -1371,6 +1371,31 @@ D25, and D31 as D34's package-timing amendments without weakening their
 authority boundaries. This updated review-history synchronization is the only
 later tracked mutation; local-commit eligibility is determined by a completed
 semantic review over the final bytes.
+
+### 2026-08-10 — Work Charter D41 exact D34 candidate terminal
+
+D41 bound exact candidate `b3ad36065aeeb147de9d3b02cb888fa0757673a9`,
+five-file package manifest `7756d274...`, and released `v0.1.2` control. It
+passed offline construction, controller and fixture checks, 77 catalog
+mappings, exact outer-wrapper success/failure probes, three non-product
+transport canaries, and freeze before product activity.
+
+The run consumed six behavior turns. A01-A04 completed, A05 consumed but did
+not complete, and 22 later cells did not start. A04 loaded exact candidate
+`SKILL.md` without a project/Git read, supporting D34's package-load timing,
+but its visible first response called Work Charter selected before activation
+approval. This violates the indirect proposal-only response boundary under the
+observed model and Harness; it does not isolate Skill text as the sole cause.
+
+A05 loaded only the candidate package, used no project/Git read or non-command
+tool, proposed activation plus a bounded read, and took no action. Its one-turn
+authorization policy was encoded as an object rather than the list consumed by
+both adapter and runner. The controller therefore failed closed as
+`CONTROLLER_UNKNOWN`. The sealed packet is `SEALED_PARTIAL_HARD_STOP` at 4/27;
+one independent assessor returned `DECISION_REQUIRED`. A05 receives no pass or
+Skill-defect attribution, and D41 receives no retry, rescore, acceptance,
+installation, or release credit. The public evidence is
+[Work Charter D41 Gate 2 terminal](../evals/results/2026-08-10-work-charter-d41-gate2-terminal.md).
 
 ### 2026-08-02 — Capability-delta decision and workflow
 

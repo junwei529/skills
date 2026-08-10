@@ -5,10 +5,10 @@ Last updated: 2026-08-10
 ## Snapshot
 
 - Repository: Agent Workflow Skills
-- Latest exact Work Charter product candidate: historical local commit
-  `07a9f1c436213a5c377610c9157b7c6a76c5d4c1`; it remains unaccepted at Gate 2.
-  The approved D34 working-tree SOURCE revision has no candidate identity or
-  behavior acceptance
+- Latest exact Work Charter product candidate:
+  `b3ad36065aeeb147de9d3b02cb888fa0757673a9`; its five-file manifest is
+  `7756d2740cdf45bd45617bf0b65954cc63d62ac2b6cd91e55030b5995ef0b70c`,
+  and it remains unaccepted at Gate 2
 - Released package identity: immutable `v0.1.2` at
   `ceed607152849775b981c54add74bfa30d858e4d`
 - GitHub Release:
@@ -18,13 +18,13 @@ Last updated: 2026-08-10
   5 files, each matching the `v0.1.2` Git blobs
 - Rollback identity: immutable `v0.1.1` retained as a separately verified
   three-package backup
-- Writer boundary: the authorized D34 commit attempt owns the mapped existing
-  Work Charter SOURCE, contract, evaluation, public-entry, state, verification,
-  status, index, roadmap, recovery, and content-only source-manifest owners plus
-  deterministic checks, native review, same-scope clear P0-P2 corrections, and
-  one local commit; model/assessor turns, candidate creation, push,
-  installation, tag, release, stable update, cleanup, full Gate 2, and cross-
-  Skill product work remain excluded
+- Writer boundary: no persistent writer is authorized; the bounded D41
+  closeout writer may update only the sanitized result and its mapped existing
+  documentation consumers, run deterministic/native review, apply same-scope
+  clear P0-P2 corrections, and create one local result commit; the window ends
+  with that commit. Skill SOURCE/controller changes, model/assessor turns, a
+  fresh packet, push, installation, tag, release, stable update, cleanup, and
+  cross-Skill product work remain excluded
 
 The `v0.1.2` tag remains fixed at the release-preparation commit. The later
 documentation commit records already-completed tag, stable-install, canary, and
@@ -41,7 +41,7 @@ first-turn command and therefore sealed the packet at 3/27 cells; one
 independent assessor returned `DECISION_REQUIRED`.
 
 The user accepted Decision 0018 D34 and authorized the bounded existing-file
-revision now complete in the working tree. Native implicit selection may load
+revision now committed at exact `b3ad360...`. Native implicit selection may load
 the exact `SKILL.md`, but package availability remains separate from user-visible
 activation, project-read authority, persistent adoption, roles, writes, Git,
 installation, and external effects. D40 remains immutable and is not retried,
@@ -53,10 +53,9 @@ second completed review materially covered that correction and returned no
 actionable finding. Review 3/5 then found one P2 in D19's still-active
 "confirmation-time loading" implementation map. The same-scope correction
 amends D19 and the related D31 wording and makes D34's amendment set explicit.
-This review-history synchronization is the only later tracked mutation; the
-local commit gate is determined by a completed semantic review over the final
-bytes. Any exact candidate,
-behavior Campaign, installation, or release is a later separate gate.
+The completed native-review/local-commit attempt produced exact candidate
+`b3ad360...`; its later D41 behavior Campaign is recorded below. Installation
+and release remain separate gates.
 
 The D34 documentation-impact closure is fact-first and uses only existing
 owners:
@@ -73,6 +72,31 @@ owners:
 - `NOT_APPLICABLE`: new files, sanitized result publication, Project Docs or
   PowerShell product changes, discovery mappings, candidates, installation,
   tags, release, stable update, cleanup, and external effects.
+
+## 2026-08-10 D41 Gate 2 Terminal
+
+D41 bound exact D34 candidate `b3ad360...`, five-file manifest `7756d274...`,
+and released `v0.1.2` control. Offline qualification, 77 catalog mappings,
+exact outer-wrapper tests, three one-shot non-product transport canaries, and
+freeze passed before product consumption. The product run consumed six turns:
+A01-A04 completed, A05 consumed but did not complete, and 22 later cells did
+not start. The packet sealed `SEALED_PARTIAL_HARD_STOP`; one independent
+assessor returned `DECISION_REQUIRED`.
+
+A04 loaded exact candidate `SKILL.md` on its indirect first turn and made no
+project or Git read. Its visible response nevertheless called Work Charter
+selected before the user approved activation, which violates D34's proposal-
+only boundary. A05 loaded only the candidate package, proposed activation plus
+one bounded read scope, used no non-command tool, and took no project/Git or
+mutation action. Its evaluation policy encoded a single object instead of the
+required per-turn list, so the adapter failed closed as `CONTROLLER_UNKNOWN`;
+the runner shared the same list-shaped contract. A05 is neither a behavior pass
+nor evidence of a Skill defect.
+
+D41 and every consumed event are immutable and non-retriable. The sanitized
+result is [Work Charter D41 Gate 2 terminal](../evals/results/2026-08-10-work-charter-d41-gate2-terminal.md).
+No candidate acceptance, installation, release, stable update, or cleanup
+follows.
 
 ## Release Completion
 
@@ -823,33 +847,28 @@ created the fact class; it did not require or authorize speculative files.
    retry, overwrite, relabelling, rescore, or acceptance transfer.
 6. Keep `c42eef3...` RC behavior, `ceed607...` release identity, the later
    evidence descendant, and the generated stable/rollback copies distinct.
-7. Treat the D34 working-tree revision and deterministic checks as complete and
-   resume only inside the authorized native-review/local-commit attempt. D31,
-   D33/D35/D36/D40, and every consumed D37 turn remain frozen. After the local
-   commit, relinquish the writer. Stop on a full packet, additional model/
-   assessor turns, replay or reinterpretation, budget expansion, push,
-   installation, cleanup, tag, or release.
+7. Treat exact D34 commit `b3ad360...` and sealed D41 as complete immutable
+   inputs. D31, D33/D35/D36/D40/D41, and every consumed D37 turn remain frozen.
+   Stop on any product/controller repair, fresh packet, additional model/
+   assessor turn, replay or reinterpretation, budget expansion, push,
+   installation, cleanup, tag, or release without new authority.
 
 ## Immediate Next Action
 
-No release action remains pending for immutable `v0.1.2`. The D34 Work Charter
-revision and deterministic offline checks are complete, and the authorized
-native-review/local-commit attempt is the immediate action. Review 1/5's single
-P2 was corrected within scope, and review 2/5 returned no actionable finding on
-the corrected diff. Review 3/5 found one additional P2 in D19's old
-"confirmation-time loading" map; D19 and related D31 wording are now reconciled
-with D34. This review-history synchronization is the only later tracked
-mutation; one completed semantic review over the final bytes determines commit
-eligibility. After the authorized local commit, the next user-owned decision is
-whether to create and evaluate a fresh exact candidate. D36/D40 remain sealed
-and non-retriable; D37 cannot grow beyond its three consumed turns. Push,
-installation, tag, release, stable update, and cleanup remain outside the
-current scope.
+No release action remains pending for immutable `v0.1.2`. D34 is committed as
+exact candidate `b3ad360...`; D41 is its immutable first fresh full-packet
+attempt and remains unaccepted. The immediate authorized action is only D41's
+sanitized result/documentation review and local commit. After that commit, the
+next user-owned decision is whether to revise both the A04 product-visible
+proposal boundary and the A05 evaluation-policy shape before a separately fresh
+packet, or leave the candidate unaccepted. D36/D40/D41 remain sealed and non-
+retriable; D37 cannot grow beyond its three consumed turns. Push, installation,
+tag, release, stable update, and cleanup remain outside the current scope.
 
 Later user-owned choices include:
 
-- authorize a fresh exact D34 candidate and its bounded evaluation, or leave the
-  committed SOURCE revision without behavior acceptance;
+- authorize a new product/evaluation revision and a separately fresh packet, or
+  leave exact candidate `b3ad360...` without behavior acceptance;
 - after Campaign closeout, decide public reachability and any later install,
   tag, release, stable-update, or cleanup action;
 - after an accepted Project Docs commit, authorize an exact-commit candidate
@@ -886,15 +905,15 @@ Stop before write or publication if:
 
 ## Authorization Boundary
 
-The current bounded authorization has completed the ignored D37 precursor and
-its three one-shot product turns. Its remaining scope is limited to the seven
-existing mapped documentation owners, deterministic verification, up to five
-native reviews for the local documentation-commit attempt, same-scope review
-fixes, and one local commit. It does not authorize Skill SOURCE, tracked cases,
-fixtures, controller modules, another model or assessor turn, a full packet,
-product correction, or replay/reinterpretation of D33, D35, or D36; push,
-installation, tag,
-release; stable mutation; cleanup; or another Skill's product work.
+The current bounded authorization completed D41's six product turns and one
+assessor turn, sealed the ignored packet, and permits only its sanitized
+closeout: one new result plus nine mapped existing documentation owners,
+deterministic verification, up to five native reviews for this local result-
+commit attempt, same-scope review fixes, and one local commit. It does not
+authorize Skill SOURCE, tracked cases, fixtures, controller modules, another
+model or assessor turn, a fresh packet, product/controller correction, or
+replay/reinterpretation of any D31-D41 event; push, installation, tag, release,
+stable mutation, cleanup, or another Skill's product work also remain excluded.
 
 The completed 2026-08-07 authorization covered only the six existing documentation
 owners named in the Snapshot, same-scope wording/routing corrections, and

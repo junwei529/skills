@@ -9,7 +9,7 @@ Last updated: 2026-08-10
 | Tested package identity | all three package byte sets independently reached exact-commit RC readiness at `c42eef392a5b9f58bbee64aa73ffb603a6fb6c29` and were re-proved at tag/stable identity `v0.1.2` | [Verification](VERIFICATION.md) |
 | Stable release identity | immutable [`v0.1.2`](https://github.com/junwei529/skills/releases/tag/v0.1.2) at `ceed607152849775b981c54add74bfa30d858e4d`; exact tag, stable loaded-copy, and GitHub Release proof pass for all three Skills | [Verification](VERIFICATION.md) |
 | Project Docs | immutable `v0.1.2` remains the released explicit-only control; local commit `776989f...` implements accepted Decision 0019 but is unreleased, and its evidence is `PARTIAL` because actual candidate selection, loaded-copy identity, and persistent writes remain `UNKNOWN` | [State](skills/manage-project-docs/STATE.md) |
-| Work Charter | released `v0.1.2` remains active; exact D31 candidate `07a9f1c...` is unaccepted; D40 exposed that the old A04 rubric incorrectly treated native package loading as pre-authorization behavior, and the approved D34 working-tree revision now separates package availability from explicit user activation and every project/action authority | [State](skills/work-charter/STATE.md) |
+| Work Charter | released `v0.1.2` remains active; exact D34 candidate `b3ad360...` is unaccepted; D41 completed A01-A04, exposed an A04 proposal-only semantics failure, and then sealed at A05 on an independent evaluation-policy shape defect | [State](skills/work-charter/STATE.md) |
 | PowerShell | released five-file `v0.1.2` stable copy; corrected loaded identity and guarded native/text diagnosis pass; live WSL remains unproved | [State](skills/use-powershell-safely/STATE.md) |
 | Release lifecycle | `v0.1.2` tag, stable update, tag-pinned canaries, and Latest GitHub Release complete; `v0.1.1` retained as rollback identity | [Runbook](RUNBOOK.md) |
 
@@ -82,6 +82,18 @@ the packet solely at that package-read boundary, and its assessor returned
 role, write, Git, installation, and external-effect gates. D40 remains 3/27,
 immutable, unrescored, and unaccepted.
 
+D34 was reviewed and committed as exact local candidate `b3ad360...`, with
+five-file package manifest `7756d274...`. Fresh D41 passed offline
+qualification, three non-product transport canaries, all 77 catalog mappings,
+and freeze. Its product packet consumed six turns and completed A01-A04. A04
+loaded exact `SKILL.md` without a project or Git read, but visibly called Work
+Charter selected before activation approval, violating the proposal-only
+boundary. A05 itself stayed at a bounded activation/read proposal with no
+project/Git read or action, but its one-turn authorization policy used an
+object where the adapter and runner require a list. The controller failed
+closed, D41 sealed at 4/27, and one assessor returned `DECISION_REQUIRED`.
+D41 is immutable, unaccepted, and not retried or rescored.
+
 The exact post-commit documentation scope, writer state, and recovery order are
 owned by [Repository Handoff](HANDOFF.md).
 
@@ -109,6 +121,9 @@ exact-candidate product evidence but not acceptance: its A13 Executor crossed
 the authorized tool boundary before loading the Skill and left 15 available
 cells unexecuted. D37 supplies only a three-turn corrected-route precursor;
 semantic assessment and the remaining Gate 2 matrix are still absent.
+Exact D34 candidate `b3ad360...` now has fresh D41 evidence, but not acceptance:
+A04 crossed the visible proposal-only boundary and A05 remained
+`CONTROLLER_UNKNOWN` because of a separate evaluation-construction defect.
 Exact counts, hashes, exclusions, and residual limits remain in the per-Skill
 ledgers rather than this dashboard.
 
@@ -262,22 +277,16 @@ decision.
 
 ## Next Gate
 
-No release action remains pending for immutable `v0.1.2`. The approved D34 Work
-Charter SOURCE/evaluation/documentation revision and deterministic offline
-checks are complete. Its authorized native-review/local-commit attempt is in
-progress: review 1/5 found one P2 conflict with old D03/D04 package-timing
-wording, and the same-scope correction reconciles D03, D04, and D25 with D34.
-The changed working-tree package is not a candidate and has no behavior
-acceptance. Review 2/5 materially covered the corrected diff and returned no
-actionable finding. Review 3/5 found one P2 in D19's still-active
-"confirmation-time loading" map; D19 and related D31 wording are now reconciled
-with D34. This review-history synchronization is the only later tracked
-mutation; a completed semantic review over the final bytes determines commit
-eligibility. After the authorized local commit, the next user decision is
-whether to authorize a fresh candidate and full Gate 2 packet. D33, D35, D36,
-and D40 cannot be retried or rescored. Push, installation, tag, release, stable
-update, and cleanup remain separate gates. Project Docs keeps its own candidate
-and persistence-evidence sequence.
+No release action remains pending for immutable `v0.1.2`. D34 is committed as
+exact candidate `b3ad360...`, and D41 is its immutable first fresh full-packet
+attempt. D41 preserves the native-load correction but records an A04 visible-
+semantics failure and a separate A05 evaluation-policy shape defect. After the
+authorized D41 result commit, the next user decision is whether to authorize a
+new product/evaluation revision plus a separately fresh packet, or leave the
+candidate unaccepted. D33, D35, D36, D40, and D41 cannot be retried or
+rescored. Push, installation, tag, release, stable update, and cleanup remain
+separate gates. Project Docs keeps its own candidate and persistence-evidence
+sequence.
 
 ## Known Repository Gaps
 
@@ -302,9 +311,11 @@ and persistence-evidence sequence.
   route boundary passes have no assessor, semantic score, full-matrix coverage,
   or acceptance transfer. D40's package-only A04 read is now recognized as an
   eval-contract mismatch under D34, but the frozen packet remains incomplete
-  and unaccepted. The D34 working-tree SOURCE revision has no fresh selected-
-  behavior evidence. All stopped matrices and sealed bundles remain
-  historical and cannot be retried, relabeled, or transferred.
+  and unaccepted. Exact D34 candidate `b3ad360...` adds D41's fresh evidence:
+  A04 violated proposal-only visible semantics, while A05 stayed semantically
+  bounded but could not be admitted because its evaluation policy had the wrong
+  shape. D41 remains incomplete and unaccepted. All stopped matrices and sealed
+  bundles remain historical and cannot be retried, relabeled, or transferred.
 - The tracked controller now has one narrow isolated path-bound app-server
   compatibility pass. It does not establish natural-language Skill selection,
   semantic correctness, broad behavior, or Work Charter candidate acceptance;

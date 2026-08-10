@@ -7,7 +7,7 @@ Last updated: 2026-08-10
 | Claim | Status |
 |---|---|
 | `work-charter` is the sole current five-file package | verified structurally for current SOURCE |
-| Gate 1 protection, re-entry, convergence, and explicit-activation contract | implemented through the approved D34 working-tree SOURCE revision; native package availability is separate from user-visible activation and every project/action authority, while D31 and all prior candidate windows remain immutable and unaccepted |
+| Gate 1 protection, re-entry, convergence, and explicit-activation contract | implemented in exact D34 commit `b3ad360...`; native package availability is separate from user-visible activation and every project/action authority, while D31 and all prior candidate windows remain immutable and unaccepted |
 | Gate 1 evaluation definitions | 14 exact cases and 12 exact fixtures remain the intended repository shape; existing installed-Skills and symptom-only positives now require exact native package loading while their first responses stay proposal-only, and the existing installed-Skills confirmation turn adds no fresh run or matrix lane |
 | First `v0.2.0` exact candidate Gate 2 | `206c497...` stopped incomplete and is superseded for acceptance; its completed correction and consumed events remain historical |
 | Successor `v0.2.0` exact candidate Gate 2 | `92a8c045...` passed qualification and consumed A01-A04; A04 hard-stopped on an unproved selected/loaded claim, so no candidate acceptance or later cell exists |
@@ -19,7 +19,7 @@ Last updated: 2026-08-10
 | Exact `b965102...` Gate 2 successor-8 terminal | bound controller `8f00a557...`, consumed 13 turns, completed nine of 27 cells, and hard-stopped at A10; A04 made a selected-state claim from metadata before full-body loading, A10 broadened its approved read after a failed Git route, the runner also exposed different-OS-owner qualification noise, and the independent assessor returned `DECISION_REQUIRED`; the window is the tenth sealed behavior execution and is neither acceptance nor retriable |
 | Exact `53d424c...` D30 product candidate | only package `SKILL.md` changes: metadata-only indirect entry may say only "appears applicable" and cannot claim selected, loaded, invoked, or active; an unavailable approved read preserves `UNKNOWN` and stops without adjacent inspection; one fresh Gate 2 batch completed A01-A11 but sealed at A12, so no behavior acceptance, installation, or release evidence exists |
 | Exact `53d424c...` Gate 2 A12 terminal | the fresh batch completed A01-A11, consumed two A12 turns, sealed `SEALED_PARTIAL_HARD_STOP`, and received `DECISION_REQUIRED`; the first A12 response incorrectly requested separate authority to load the directly invoked Skill package, while the second loaded the body and coordination reference after commands were closed; the result is immutable and supplies no acceptance transfer to D31 |
-| Exact `07a9f1c...` D31 product candidate | reviewed five-file package and mapped contract are committed locally and remain the historical input to D32-D40; the D34 working-tree package is a new uncommitted SOURCE revision, not the D31 candidate; no Gate 2 acceptance, installation, or release evidence exists |
+| Exact `07a9f1c...` D31 product candidate | reviewed five-file package and mapped contract are committed locally and remain the historical input to D32-D40; D34 descendant `b3ad360...` is a separate exact candidate; no D31 Gate 2 acceptance, installation, or release evidence exists |
 | D32 mapping and freeze qualification | zero-turn `PASS`: 77 mapping rows, two absent native roots, 75 existing Junctions with exact normalized targets, 1,083 frozen files, freeze `cd8c0e2...`, D31 and tracked repository preserved; qualification only |
 | D33 A03 transport terminal | one `turn/start` consumed, zero controller retries, no second turn or assessor, and nine Harness-internal notifications inside that turn; `SEALED_HARD_STOP / UNKNOWN_NOT_ASSESSED` after sandbox/network failure before model output, tokens, commands, package reads, or loaded-copy proof; neither product defect nor acceptance |
 | Campaign non-product transport canary | first same-boundary provider-response canary passed with one non-product `turn/start`, no command, no Skill selection or loaded-copy claim, and zero assessor turns; it qualified the inner app-server/provider route but did not exercise the later outer PowerShell phase dispatcher |
@@ -27,6 +27,7 @@ Last updated: 2026-08-10
 | D36 exact-wrapper additive terminal | deterministic success/first-failure/gate-failure dispatch tests and one exact-wrapper non-product canary passed; freeze `f687419...` bound 307 inputs and zero-turn three-model pre/post checks; A01-A12 completed, then the A13 Executor called unauthorized `list_mcp_resources` before loading the candidate, so the 21-turn packet sealed `SEALED_PARTIAL_HARD_STOP` with 12/27 cells complete and one assessor returned `DECISION_REQUIRED`; this is exact-candidate/current-Harness product evidence, not Skill-only causal proof or acceptance |
 | D37 A13 attribution precursor | typed normalization, exact-path prompts, 9/9 deterministic tests, and freeze `1d705c65...` preceded exactly three one-shot read-only turns; native completed 7/7 reads and released control/exact candidate each completed 9/9, all with zero non-command tools, no mutation, no retry, and no assessor; summary `f4bddc52...` is boundary-only evidence with semantics unassessed, not D36 rescore or candidate acceptance |
 | D40 A04 terminal and D34 correction | D40 completed A01-A03 and reached A04 with five behavior turns; its indirect first turn loaded exact D31 `SKILL.md`, made no project/Git read, and stayed proposal-only, but the frozen old no-command rubric stopped the packet at 3/27 and one assessor returned `DECISION_REQUIRED`; D34 prospectively corrects the package-load/activation contract without retry, rescore, or acceptance transfer |
+| Exact `b3ad360...` D41 terminal | D41 passed qualification, three non-product transport canaries, and freeze, then consumed six behavior turns; A01-A04 completed, A04 loaded the exact package but visibly claimed selected state before activation approval, and A05 produced a bounded proposal but stopped on an object-versus-list authorization-policy construction defect; the packet sealed at 4/27, one assessor returned `DECISION_REQUIRED`, and no retry, acceptance, installation, or release follows |
 | Isolated path-bound controller canary | private retained sealed `CANARY_PASS`; the public summary reports an exact-response pass and no command execution, omits locator/artifact/runtime details, leaves physical backend request count `UNKNOWN`, and proves neither natural-language selection nor candidate acceptance |
 | Small bounded work stays flat | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
 | Midstream implicit behavior is proposal-only | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
@@ -1445,9 +1446,10 @@ read approval, persistent adoption, roles, writes, Git, installation, and
 external effects. A scored implicit positive now requires controller-observed
 exact candidate loading while the first response stays proposal-only and makes
 no project or action effect; ordinary and near-neighbor negatives still require
-non-loading. The current working-tree SOURCE revision changes only
-`skills/work-charter/SKILL.md` inside the five-file package. It has no exact
-candidate, fresh behavior evidence, installation, or release identity.
+non-loading. The revision changed only `skills/work-charter/SKILL.md` inside
+the five-file package and was committed as exact candidate `b3ad360...`. D41
+supplies fresh behavior evidence without acceptance; installation and release
+identity remain absent.
 
 Offline D34 verification passes: the bundled `skill-creator` validator accepts
 the final package after catching and prompting correction of an overlong draft
@@ -1475,6 +1477,45 @@ explicitly binds D03, D04, D19, D25, and D31 to D34's package-timing correction
 without changing their authority boundaries. This updated review-history
 synchronization is the only later tracked mutation; the authorized local commit
 requires a completed semantic review over the final bytes.
+
+### 2026-08-10 — D41 exact D34 candidate terminal
+
+Exact D34 commit `b3ad36065aeeb147de9d3b02cb888fa0757673a9` fixes the
+five-file package at manifest
+`7756d2740cdf45bd45617bf0b65954cc63d62ac2b6cd91e55030b5995ef0b70c`.
+D41 rebuilt candidate and `v0.1.2` control catalogs from pinned Git bytes,
+proved 77 catalog mappings, passed deterministic controller/fixture and outer-
+wrapper qualification, completed three one-shot non-product transport canaries,
+and froze the packet before product evidence.
+
+The product run consumed six turns. A01-A04 completed; A05 consumed but did not
+complete; 22 later cells did not start. A04 Turn 1 loaded exact candidate
+`SKILL.md` without a project/Git read, which supports D34's native package-load
+timing. The response nevertheless said Work Charter was selected before the
+user approved activation, so the indirect visible surface failed its proposal-
+only contract.
+
+A05 loaded the candidate package, made no project/Git read or non-command tool
+call, proposed activation plus a bounded read, and performed no mutation. Its
+authorization-policy entry was encoded as one object rather than the required
+per-turn list. The tracked-controller adapter therefore failed while iterating
+the shape; the runner authorization path shares the same list contract. The
+controller remained fail closed as `CONTROLLER_UNKNOWN`. A05 is neither a
+behavior pass nor a Skill defect.
+
+The packet sealed `SEALED_PARTIAL_HARD_STOP` with 4/27 completed cells. One
+independent `Terra/high` assessor returned `DECISION_REQUIRED`. D41 has no
+retry, rescore, second assessor, or acceptance transfer. The sanitized result
+is [Work Charter D41 Gate 2 terminal](../../../evals/results/2026-08-10-work-charter-d41-gate2-terminal.md).
+Stable `v0.1.2` and every installation/release claim remain unchanged.
+
+D41 closeout verification passes the unchanged Work Charter validator,
+repository checker at 201 text files / 14 cases / 12 fixtures, all 17 fixture
+checks, tracked controller at 11/11 historical + 32/32 evidence-surface + 33/33
+negative + 4/4 metamorphic plus its structural guards, 8/8 PowerShell parser
+checks, `git diff --check`, and Gitleaks over the exact 10 changed paths. These
+checks validate the sanitized record and documentation closure, not the
+incomplete behavior packet.
 
 ## Required Checks
 

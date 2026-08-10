@@ -218,14 +218,15 @@ SOURCE by itself.
 
 ## Current Writer
 
-One bounded D37 attribution writer owns only the seven existing mapped
-documentation owners, deterministic verification, same-scope native-review
-corrections, and the authorized local documentation commit. The writer window
-ends with that commit. The Work Charter five-file package, tracked cases,
-fixtures, controller, D31-D36 evidence, and three consumed D37 turns are frozen.
-Another model or assessor turn, a full product packet, Skill SOURCE, push,
-installation, tag, release, stable-copy mutation, cleanup, cross-Skill product
-work, and any budget expansion remain outside this authorization.
+No persistent repository writer is authorized by this state. During preparation
+of the D41 closeout, one bounded writer owns only the sanitized result, its
+mapped existing documentation consumers, deterministic verification,
+same-scope native-review corrections, and one local result commit. That window
+ends with the commit. The Work Charter five-file package, cases, fixtures,
+controller, and every consumed D31-D41 event are frozen. Another model or
+assessor turn, a new packet, Skill SOURCE, push, installation, tag, release,
+stable-copy mutation, cleanup, cross-Skill product work, and budget expansion
+remain outside this authorization.
 
 ## Evidence State
 
@@ -632,25 +633,43 @@ D34's package-timing amendment set. This updated review-history synchronization
 is the only later tracked mutation; local-commit eligibility is determined by a
 completed semantic review over the final bytes.
 
+D34 was subsequently reviewed and committed as exact local candidate
+`b3ad36065aeeb147de9d3b02cb888fa0757673a9`, with five-file manifest
+`7756d2740cdf45bd45617bf0b65954cc63d62ac2b6cd91e55030b5995ef0b70c`.
+Fresh D41 passed offline qualification, all 77 catalog mappings, exact outer-
+wrapper tests, three non-product transport canaries, and freeze before product
+consumption. It consumed six behavior turns: A01-A04 completed, A05 consumed
+but did not complete, and 22 later cells did not start. The packet sealed
+`SEALED_PARTIAL_HARD_STOP`; one independent assessor returned
+`DECISION_REQUIRED`.
+
+A04 loaded exact candidate `SKILL.md` on its first indirect turn without a
+project or Git read, confirming D34's package-load timing correction. Its
+visible response nevertheless called Work Charter selected before activation
+approval, violating the proposal-only boundary. A05 itself used one authorized
+command to load only the candidate package, proposed activation plus a bounded
+read, and made no project/Git read, non-command tool call, or mutation. D41's
+A05 authorization policy, however, used a single object where the adapter and
+runner require a per-turn list; the adapter failed on that shape and the
+controller stayed `CONTROLLER_UNKNOWN`. A05 is therefore neither a behavior
+pass nor a Work Charter defect. D41 is immutable, unaccepted, and not retried
+or rescored.
+
 ## Next Gate
 
 Work Charter `v0.1.2` remains the released and installed stable revision.
-Exact D31 candidate `07a9f1c...` remains unaccepted. D32 qualifies mapping and
+Exact D34 candidate `b3ad360...` remains unaccepted. D32 qualifies mapping and
 freeze only; D33 and D35 are immutable infrastructure/controller
 `UNKNOWN_NOT_ASSESSED` records. D36 and D40 are incomplete product packets with
 independent `DECISION_REQUIRED`; neither transfers acceptance.
 
-The approved D34 SOURCE/evaluation/documentation revision and deterministic
-offline checks are complete. Its authorized native-review/local-commit attempt
-is in progress. Review 2/5 returned no actionable finding on the first corrected
-diff; review 3/5 found and prompted correction of D19's remaining old package-
-timing map and related D31 wording. The only later mutation is this review-
-history synchronization, and a completed semantic review over the final bytes
-determines commit eligibility. The changed working-tree package has no exact
-candidate, behavior acceptance, installation, or release identity. After the
-local commit, the next user-owned gate is whether to authorize a later exact-
-candidate Campaign under new evidence authority.
-D33, D35, D36, and D40 may not be repaired, retried, rescored, or relabelled.
+The D34 package revision and its local commit are complete. D41 is the first
+fresh full-packet attempt for those exact bytes: it preserves D34's loading
+correction, adds one A04 visible-semantics finding, and exposes an independent
+A05 evaluation-policy shape defect. The next user-owned gate is whether to
+authorize a new product/evaluation revision and a separately fresh packet, or
+leave candidate `b3ad360...` unaccepted. D33, D35, D36, D40, and D41 may not be
+repaired, retried, rescored, or relabelled.
 Push, installation, release, stable update, and cleanup remain separate gates.
 
 ## Recovery Entry
@@ -661,20 +680,20 @@ Push, installation, release, stable update, and cleanup remain separate gates.
    [Decision 0018](../../decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md),
    this state, and [Verification](VERIFICATION.md).
 3. Confirm live workspace, writer, and action authority.
-4. Confirm live `main` starts from D37 documentation commit `5e3fe76...`, then
-   resolve HEAD, index, the bounded D34 dirty scope, ignored carriers, and
-   current writer instead of inferring them from an older handoff.
+4. Confirm live `main` includes exact D34 candidate commit `b3ad360...`, then
+   resolve HEAD, index, any dirty scope, ignored carriers, and current writer
+   instead of inferring them from an older handoff.
 5. Preserve the complete predecessor ledger, including the D31 mapping-
    defective A03, zero-turn D32 freeze `cd8c0e2...`, D33 transport terminal
    `39ffdea...`, D35 freeze `ed8bce3...` plus its one-turn controller-
    orchestration terminal, D36 freeze `f687419...` plus its A13 product
    terminal, D37 freeze `1d705c65...` plus summary `f4bddc52...`, and D40's
-   3/27-cell package-load/rubric mismatch terminal, without retry, overwrite,
-   relabelling, rescore, or acceptance transfer.
-6. Resume D34 only within the authorized native-review/local-commit attempt and
-   relinquish the writer after commit. Tracked-controller behavior changes,
-   another model/assessor turn, a full product packet, budget expansion, or any
-   excluded external effect requires its own authority.
+   3/27-cell package-load/rubric mismatch terminal, and D41's 4/27 terminal with
+   A04 product and A05 evaluation-infrastructure findings, without retry,
+   overwrite, relabelling, rescore, or acceptance transfer.
+6. Treat D34 and D41 as complete immutable inputs. A product or evaluation-
+   infrastructure correction, another model/assessor turn, a fresh packet,
+   budget expansion, or any excluded external effect requires new authority.
 7. Read canonical SOURCE, current eval definitions, and only evidence matching
    the exact revision before changing behavior or claims.
 8. Preserve the independent-Skill and non-propagating-authorization boundary.
