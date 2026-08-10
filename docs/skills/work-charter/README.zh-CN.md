@@ -138,7 +138,14 @@ Work Charter 流程，并要求确认激活前加载精确正文。其新 carrie
 PowerShell parser gate 及全部零模型资格检查，但第一个 `Sol/high` 非产品 canary 消费
 一轮后在 sandbox/network transport 边界失败，未产生模型消息；其余两个 canary、全部
 27 个产品 cell 和 assessor 均未启动。D43 为 `UNKNOWN_NOT_ASSESSED`，未获接受且不重试。
-D31、D34、D42 与 D43 均仍无行为接受、安装或发布证据。
+随后，additive D44 通过最终 12/12 资格检查、全部三个 network-capable canary 与
+freeze。其唯一一个 A01 产品回复保持 flat、未加载 Work Charter 文件、完成必要读取、
+提出精确补丁与聚焦命令，并明确标注该命令未运行。tracked controller 返回
+`ADMISSIBLE`，但冻结的 semantic gate 对分开使用强调标记的 `not run` 标题产生了
+false negative。D44 在 0/27 处封存；carrier 随后在未满足“至少一个 cell 获接纳”前提时
+启动了 assessor。该 turn 作为偏差保留，但排除在 D44 证据之外。冻结 gate 不会被重评分；
+精确 candidate `c481005...` 仍未获接受，controller、launch guard 修正和任何 fresh packet
+均需要新的用户决策。D31、D34、D42、D43 与 D44 均仍无行为接受、安装或发布证据。
 完整分阶段 selection、entry、等级、
 重新接入和可见 Standard 行为，stable 层完整 Standard
 delivery、广泛隐式触发 telemetry、独立真实项目效果、确定性角色交付或 writer

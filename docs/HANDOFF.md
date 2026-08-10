@@ -8,7 +8,8 @@ Last updated: 2026-08-11
 - Latest exact Work Charter product candidate:
   `c4810057c3f28cca9f12004ca2018784cd21f449`; its five-file manifest is
   `04c382a48e43897a8806aa5ffd996984cb015d3d8cdc6e675e9181a6d94e6f44`,
-  and it remains unaccepted after D43 stopped at its first transport canary
+  and it remains unaccepted after D44 sealed at A01 on a controller semantic-
+  gate false negative
 - Exact predecessor `b3ad360...` and its D41 packet remain immutable and
   unaccepted
 - Released package identity: immutable `v0.1.2` at
@@ -20,10 +21,9 @@ Last updated: 2026-08-11
   5 files, each matching the `v0.1.2` Git blobs
 - Rollback identity: immutable `v0.1.1` retained as a separately verified
   three-package backup
-- Writer boundary: one bounded D44 Campaign writer owns the authorization/state
-  commit, fresh ignored carrier qualification, three network-capable canaries,
-  conditional 27-cell packet and one assessor, and sanitized result/review/local
-  commit. D31-D43 remain immutable. SOURCE, case, fixture, tracked controller,
+- Writer boundary: the D44 writer relinquished with its local result commit; no
+  Work Charter writer remains. D31-D44 and every consumed turn remain
+  immutable. SOURCE, case, fixture, tracked controller, another model packet,
   other Skills, push, installation, tag, release, stable update, retained-
   evidence cleanup, and unlisted external effects remain excluded
 
@@ -37,12 +37,15 @@ candidate `c481005...` passed that gate and all zero-model qualification. Its
 first `Sol/high` canary then stopped at `SANDBOX_NETWORK_TRANSPORT` before a
 model response; no other canary, product cell, or assessor started.
 
-Approved `WC-AR-D44` is a fresh additive packet for the unchanged candidate,
-not a D43 retry. After this durable authorization commit, it automatically
-qualifies a fresh ignored carrier and the exact network-capable outer route,
-then runs three canaries, the unchanged 27-cell matrix with at most 39 product
-turns, one assessor, and local result closeout only while all prerequisites
-pass. Bounded pre-canary carrier and documentation corrections are automatic.
+Approved `WC-AR-D44` completed a fresh additive packet for the unchanged
+candidate, not a D43 retry. After two zero-consumption carrier-only policy-host
+corrections, it passed final 12/12 qualification, three network-capable
+canaries, and freeze. A01 stayed flat and visibly marked its focused command not
+run; the tracked controller returned `ADMISSIBLE`, but the frozen semantic gate
+false-negatively rejected the split-emphasis heading. D44 sealed at 0/27, and
+the carrier then launched one assessor outside D44's admitted-cell prerequisite.
+That turn is retained as a deviation record and excluded from D44 assessment
+evidence. D44 is not retried or rescored.
 
 The `v0.1.2` tag remains fixed at the release-preparation commit. The later
 documentation commit records already-completed tag, stable-install, canary, and
@@ -901,27 +904,29 @@ created the fact class; it did not require or authorize speculative files.
    overwrite, relabelling, rescore, or acceptance transfer.
 6. Keep `c42eef3...` RC behavior, `ceed607...` release identity, the later
    evidence descendant, and the generated stable/rollback copies distinct.
-7. Treat exact D43 candidate `c481005...`, its passing zero-model qualification,
-   and its one consumed transport-canary turn as immutable inputs. D31,
-   D33/D35/D36/D40/D41/D42/D43, and every consumed D37 turn remain frozen.
-   Continue only the approved D44 root and its declared automatic sequence;
-   stop on a material D44 condition or any unlisted downstream effect.
+7. Treat exact candidate `c481005...` and D43-D44 as immutable inputs. Preserve
+   D44's two carrier-correction receipts, three canary turns, one A01 product
+   turn, semantic-gate false-negative terminal, and one out-of-scope assessor
+   turn without replay, rescore, relabelling, or acceptance transfer. Exclude
+   that assessor output from the D44 evidence ledger. No D44 continuation is
+   authorized.
 
 ## Immediate Next Action
 
-No release action remains pending for immutable `v0.1.2`. D44 is active for
-exact candidate `c481005...`: commit this durable authorization, build and
-qualify its fresh ignored carrier, run all three network-capable canaries, then
-automatically run the frozen matrix and assessor only if the prerequisites
-pass. Complete sanitized result review and one local result commit. Do not
-pause for small same-scope corrections. Push, installation, tag, release,
-stable update, cleanup, SOURCE/case/fixture/controller expansion, and other-
-Skill changes remain unauthorized.
+No release action remains pending for immutable `v0.1.2`. D44 result closeout
+is complete and its writer has relinquished. The next Work Charter product
+action is a user decision on whether to authorize a prospective controller-only
+successor with deterministic regressions for the observed split-emphasis
+heading and the assessor-launch prerequisite, plus a fresh additive Campaign.
+Push, installation, tag, release, stable update, cleanup,
+SOURCE/case/fixture/controller changes, another model turn, and other-Skill
+changes remain unauthorized.
 
 Later user-owned choices include:
 
-- after D43 closes or stops, decide any residual Work Charter correction,
-  candidate disposition, installation, release, or public reachability;
+- after D44 result closeout, decide whether to pursue a controller-only
+  successor, or leave the exact candidate unaccepted; candidate installation,
+  release, and public reachability remain separate choices;
 - after an accepted Project Docs commit, authorize an exact-commit candidate
   and write-capable synthetic persistence test;
 - begin another separately scoped development or evaluation cycle;
@@ -956,11 +961,11 @@ Stop before write or publication if:
 
 ## Authorization Boundary
 
-D42 and D43 execution authority is consumed. Exact D43 candidate
-`c481005...`, its passing qualification, one consumed canary turn, and every
-carrier input/output are immutable and non-retriable. Approved D44 alone grants
-the bounded writer, ignored-carrier, network/model, assessor, documentation,
-native-review, and two-local-commit authority recorded in `WC-AR-D44`.
+D42-D44 execution authority is consumed. Exact candidate `c481005...`, every
+qualification/canary/product receipt, the assessor-deviation receipt, and all
+consumed turns are immutable and non-retriable. The assessor output is excluded
+from the D44 evidence ledger. D44 result authority ended with its local result
+commit, and no Work Charter writer remains.
 
 No tracked controller or fixture expansion, other-Skill change, push,
 installation, tag, release, stable mutation, retained-evidence cleanup, or
@@ -1012,6 +1017,18 @@ fixtures/current-SOURCE manifest/tracked controller/package references/assets,
 and neighboring Skills. `NOT_APPLICABLE` covers a new product candidate,
 installation, push, tag, release, stable update, cleanup, or external
 publication. The fresh D44 root is ignored evidence infrastructure.
+
+The D44 result documentation-impact closure is fact-first. `UPDATE` covers the
+sanitized result/index, Work Charter bilingual public entry, per-Skill State/
+Verification, and root Status, Verification, Roadmap, Index, and this Handoff.
+`CHECKED_NO_CHANGE` covers repository `AGENTS.md`, the root README pair,
+Authority, SPEC, Architecture, Runbook, Provenance, Decisions 0017/0018/0020,
+Work Charter SOURCE, Design, cases, fixtures, shared evaluation method,
+current-SOURCE manifest, tracked controller, package references/assets, and
+neighboring Skills. `NOT_APPLICABLE` covers another candidate, controller or
+fixture expansion, discovery mapping, installation, tag, release, stable
+update, cleanup, and external effects. The ignored D44 carrier remains
+unpublished evidence.
 
 The completed 2026-08-07 authorization covered only the six existing documentation
 owners named in the Snapshot, same-scope wording/routing corrections, and

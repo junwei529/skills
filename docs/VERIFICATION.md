@@ -1,6 +1,6 @@
 # Repository Verification
 
-Last updated: 2026-08-10
+Last updated: 2026-08-11
 
 ## Scope
 
@@ -19,19 +19,19 @@ Sanitized detailed runs remain under [`evals/results`](../evals/results/README.m
 
 | Check | Purpose | Current result |
 |---|---|---|
-| Changed Skill validator | Validate frontmatter and package name without changing the package | current D43 SOURCE passes the bundled `skill-creator` validator |
-| Repository checker | Validate strict UTF-8/no BOM, whitespace, local links/fragments, publication safety, exact Skill/eval sets, federated docs, and bilingual navigation | D43 result closeout passes with 203 text files / 14 cases / 12 fixtures |
-| Fixture checker | Validate synthetic starting states and their Git/reparse/ignored-result boundaries plus the tracked controller regression | D43 result closeout retains all 17 passing checks; no fixture or controller-code bytes changed |
-| Codex evidence controller | Validate one shared core across four entry modes, strict required-read versus bounded auxiliary-observation attribution, structural PowerShell/Git/path classification, source-and-generated-contract-bound historical regressions, exact package manifests, candidate-identity and content-proof shape, record cardinality, completed exit typing, output-array shape, per-key single-capture sealed parsing and reuse, real-reparse rejection, fail-closed negatives, external-input types, independently resolved inner/wrapper command identity, Git-read and external-filter safety, profile-free PowerShell wrappers, culture-independent canonical ordering, metamorphic equivalence, output no-clobber, and canonical repeatability | D43 current SOURCE manifest `04c382a4...` passes with exact package identity, 11/11 historical, 32/32 evidence-surface, 33/33 negative, 4/4 metamorphic, 3/3 manifest-hash guards, all reported structural guards, and zero external model or assessor calls |
+| Changed Skill validator | Validate frontmatter and package name without changing the package | unchanged exact `c481005...` Work Charter package passes the bundled `skill-creator` validator; D44 changes no Skill SOURCE |
+| Repository checker | Validate strict UTF-8/no BOM, whitespace, local links/fragments, publication safety, exact Skill/eval sets, federated docs, and bilingual navigation | D44 result closeout passes with 204 text files / 14 cases / 12 fixtures |
+| Fixture checker | Validate synthetic starting states and their Git/reparse/ignored-result boundaries plus the tracked controller regression | D44 result closeout retains all 17 passing checks; no fixture or controller-code bytes changed |
+| Codex evidence controller | Validate one shared core across four entry modes, strict required-read versus bounded auxiliary-observation attribution, structural PowerShell/Git/path classification, source-and-generated-contract-bound historical regressions, exact package manifests, candidate-identity and content-proof shape, record cardinality, completed exit typing, output-array shape, per-key single-capture sealed parsing and reuse, real-reparse rejection, fail-closed negatives, external-input types, independently resolved inner/wrapper command identity, Git-read and external-filter safety, profile-free PowerShell wrappers, culture-independent canonical ordering, metamorphic equivalence, output no-clobber, and canonical repeatability | D44 result closeout retains exact current-SOURCE package identity, 11/11 historical, 32/32 evidence-surface, 33/33 negative, 4/4 metamorphic, 3/3 manifest-hash guards, all reported structural guards, and zero external model or assessor calls |
 | CRG supplemental preflight | Sharpen structural review scope when the maintained index represents the intended diff | not applicable: no maintained `.code-review-graph/` index exists; the separate CodeGraph source-navigation query did not represent the Markdown-first contract diff, so native review inspects the actual files |
-| Native Codex review | Review the exact uncommitted D43 SOURCE/evaluation/documentation or result closure | the candidate attempt completed with no finding; the result closeout has a separate semantic-review gate whose final disposition is retained in the cumulative commit record rather than appended after review to the bytes it reviewed |
+| Native Codex review | Review the exact uncommitted Work Charter SOURCE/evaluation/documentation or result closure | D44 result closeout has a separate semantic-review gate whose final disposition is retained in the cumulative commit record rather than appended after review to the bytes it reviewed |
 | Isolated controller canary | Record the bounded disposition of one private path-bound infrastructure check without broadening behavior claims | retained sealed `CANARY_PASS`; the public summary reports an exact-response pass and no command execution, omits private locator/artifact/runtime details, and leaves physical backend request count `UNKNOWN` |
-| Work Charter D36/D37/D40, D34/D41 predecessors, D42, and D43 terminals | Preserve additive predecessors and separate product behavior from route, tool, qualification, and eval-contract failures | D36 and D40 remain immutable incomplete `DECISION_REQUIRED` packets; D37 remains boundary-only evidence; D34 permits native package loading before confirmation; D41 records A04 product-visible and A05 evaluation-shape findings; D42 remains invalidly qualified; exact D43 candidate `c481005...` passed corrected qualification but its first non-product canary stopped at `SANDBOX_NETWORK_TRANSPORT`, so no product or assessor turn ran and D43 remains unaccepted |
+| Work Charter D36/D37/D40, D34/D41 predecessors, and D42-D44 terminals | Preserve additive predecessors and separate product behavior from route, tool, qualification, eval-contract, and authorization failures | D36 and D40 remain immutable incomplete `DECISION_REQUIRED` packets; D37 remains boundary-only evidence; D34 permits native package loading before confirmation; D41 records A04 product-visible and A05 evaluation-shape findings; D42 remains invalidly qualified; D43 stopped at `SANDBOX_NETWORK_TRANSPORT`; D44 passed final qualification, three canaries, and freeze, but a frozen A01 semantic-gate false negative sealed it at 0/27; one later assessor turn violated the admitted-cell prerequisite and is excluded from D44 evidence; exact candidate `c481005...` remains unaccepted |
 | PowerShell deterministic hardening | Validate cardinality, LF bytes, one-base paths, and Junction link-only removal | 15 assertions pass in PowerShell 7 and Windows PowerShell 5.1 |
-| PowerShell parser sweep | Parse all `evals/**/*.ps1` files and the tracked controller module | D43 result closeout retains all eight tracked parses; the ignored carrier independently passed its exact six-file pre-consumption gate |
+| PowerShell parser sweep | Parse all `evals/**/*.ps1` files and the tracked controller module | D44 result closeout retains all eight tracked parses; the ignored carrier independently passed its exact six-file final pre-consumption gate |
 | Markdown navigation and ownership | Verify local links/fragments, English/Chinese routes, expected per-Skill owners, and no orphan canonical owner | passes through repository checker |
-| `git diff --check` | Reject whitespace defects in the working revision | passes for the D43 result diff with an untouched index |
-| Gitleaks | Detect secret-like content independently | exact 11-path D43 result projection passes with zero findings and its bounded temporary copy was removed; ignored/private evidence was not treated as public SOURCE |
+| `git diff --check` | Reject whitespace defects in the working revision | passes for the D44 result diff with an untouched index |
+| Gitleaks | Detect secret-like content independently | exact 11-path D44 result projection passes with zero findings and its bounded temporary copy was removed; ignored/private evidence was not treated as public SOURCE |
 
 ## Repository Claim Ledger
 
@@ -1480,6 +1480,36 @@ D43 is sealed `SEALED_HARD_STOP / UNKNOWN_NOT_ASSESSED` and remains unaccepted.
 The environment stop proves no D43 product behavior and does not transfer any
 predecessor result. The sanitized evidence is
 [Work Charter D43 transport-canary terminal](../evals/results/2026-08-10-work-charter-d43-transport-terminal.md).
+
+### 2026-08-11 — Work Charter D44 Gate 2 terminal
+
+Additive D44 preserved exact candidate `c481005...`, five-file manifest
+`04c382a4...`, released control `ceed607...`, and immutable D43. Two
+zero-consumption carrier-only policy-host bindings were corrected within the
+approved pre-canary budget. Final zero-model qualification passed 12/12 with 27
+workspaces, all 77 mappings, and exact positive parsing of the closed six-file
+PowerShell set. The exact outer network-capable `Sol/high`, `Sol/xhigh`, and
+`Terra/high` canaries each passed with one turn and `TRANSPORT_CANARY_OK`.
+The D44 freeze bound 125 files and zero product turns.
+
+A01 then consumed one `Sol/high` product turn. It stayed flat, loaded no Work
+Charter file, made the required implementation/test reads, proposed the exact
+minimal patch and focused future command, visibly marked the command not run,
+and changed no workspace or repository state. The tracked controller returned
+`ADMISSIBLE`. The frozen semantic gate separately returned `FAIL` because its
+exact not-run heading grammar did not normalize the response's adjacent
+Markdown emphasis spans. This is a controller semantic-gate false negative,
+but the sealed verdict is not changed or rescored.
+
+D44 therefore sealed `SEALED_PARTIAL_HARD_STOP` with 0/27 cells admitted, one
+product turn, and later cells unstarted. The carrier subsequently launched one
+read-only `Terra/high` assessor even though D44 required at least one admitted
+cell. Its turn and `DECISION_REQUIRED` output are retained as an immutable
+authority deviation but excluded from the D44 evidence ledger. Exact candidate
+behavior remains unaccepted and later-cell semantics remain
+`UNKNOWN_NOT_ASSESSED`. Any prospective controller correction, launch-guard
+correction, and fresh additive packet require a new user decision. The sanitized evidence is
+[Work Charter D44 Gate 2 terminal](../evals/results/2026-08-11-work-charter-d44-gate2-terminal.md).
 
 ### 2026-08-02 — Capability-delta decision and workflow
 

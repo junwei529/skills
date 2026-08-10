@@ -32,12 +32,15 @@ evidence-revalidation, handoff, resume, protection-level, or role workflow.
 Direct intent or same-context confirmation still requires the exact full body
 before activation or workflow reliance.
 
-Accepted `WC-AR-D44` now owns one additive Gate 2 Campaign for that unchanged
-candidate. It preserves D43's passing qualification and one consumed blocked
-canary as immutable predecessor evidence, creates a fresh ignored carrier, and
-may advance automatically through three network-capable canaries, the frozen
-27-cell matrix, one assessor, and local result closeout only while every
-declared prerequisite remains satisfied.
+Accepted `WC-AR-D44` completed one additive Gate 2 Campaign for that unchanged
+candidate. After two zero-consumption carrier-only policy-host corrections, its
+fresh ignored carrier passed final 12/12 qualification, all three network-
+capable canaries, and freeze. A01 then produced contract-conformant ordinary
+flat behavior, but the frozen semantic gate false-negatively rejected the
+split-emphasis `not run` heading. D44 sealed at 0/27 with one product turn. The
+carrier then launched one assessor outside the admitted-cell prerequisite; its
+turn is retained as a deviation and excluded from D44 evidence. D44 is
+immutable and unaccepted.
 
 The sealed fixed-turn Standard probe for `72db7e9...` returned `VIOLATION` and
 did not run its successor action. Decision 0018 `WC-AR-D26` preserves that
@@ -235,15 +238,12 @@ SOURCE by itself.
 
 ## Current Writer
 
-One bounded D44 Campaign writer owns the mapped authorization/state commit;
-fresh ignored D44 carrier and zero-model qualification; three declared
-network-capable canaries; the conditional frozen 27-cell packet and one
-assessor; and sanitized result checks, native review, and one local result
-commit. The writer may correct small same-scope pre-consumption carrier or
-documentation defects within the declared budgets. D31-D43 remain immutable.
-SOURCE, case, fixture, tracked-controller, other-Skill, push, installation,
-tag, release, stable-copy, retained-evidence cleanup, and external-publication
-changes remain outside this window.
+No Work Charter writer is authorized after the D44 result commit. This closeout
+is the final tracked action under `WC-AR-D44`, and the committing writer
+relinquishes immediately with that commit. D31-D44 and every consumed turn
+remain immutable. A controller revision, fresh Campaign, SOURCE, case, fixture,
+other-Skill, push, installation, tag, release, stable-copy, retained-evidence
+cleanup, and external-publication change require new authority.
 
 ## Evidence State
 
@@ -719,6 +719,19 @@ D43 is sealed `SEALED_HARD_STOP / UNKNOWN_NOT_ASSESSED` at
 `SANDBOX_NETWORK_TRANSPORT`; this is neither a Work Charter defect nor Gate 2
 acceptance.
 
+D44 used two of three permitted pre-canary carrier corrections, both before any
+model turn, then passed final 12/12 qualification, three one-turn network-
+capable canaries, and the D44 freeze. A01 consumed one product turn, stayed
+flat, loaded no Work Charter file, proved the required reads, proposed the exact
+patch and focused future command, labelled it `not run`, and left the workspace
+unchanged. The tracked controller returned `ADMISSIBLE`. The frozen semantic
+gate nevertheless returned `FAIL` because it did not normalize the response's
+adjacent Markdown emphasis spans around the heading and parenthetical. The
+sealed verdict is not rescored: D44 remains 0/27. One later assessor turn
+violated the admitted-cell prerequisite; its `DECISION_REQUIRED` output is
+retained as a deviation but excluded from D44 evidence. Later-cell semantics
+are `UNKNOWN_NOT_ASSESSED`, and the candidate remains unaccepted.
+
 ## Next Gate
 
 Work Charter `v0.1.2` remains the released and installed stable revision.
@@ -727,14 +740,14 @@ freeze only; D33 and D35 are immutable infrastructure/controller
 `UNKNOWN_NOT_ASSESSED` records. D36 and D40 are incomplete product packets with
 independent `DECISION_REQUIRED`; neither transfers acceptance.
 
-The D42 and D43 evidence windows are complete. Exact D43 candidate
-`c481005...` remains unaccepted and unchanged. Approved D44 proceeds serially:
-persist this authorization and commit it; construct and qualify the fresh
-ignored carrier; run all three same-route canaries; run the 27-cell packet and
-one assessor only after all prerequisites pass; then sanitize, verify, review,
-and locally commit the result. Small same-scope corrections are automatic.
-Stop only on the material conditions in `WC-AR-D44`. Push, installation,
-release, stable update, and cleanup remain separate gates.
+The D42-D44 evidence windows and D44 result closeout are complete. Exact
+candidate `c481005...` remains unaccepted and unchanged; no Work Charter writer
+remains. The next product action is a user decision on whether to authorize a
+prospective controller-only successor with regressions for the observed split-
+emphasis heading and the assessor-launch prerequisite, plus a fresh additive
+Campaign. No controller or launch-guard fix,
+behavior turn, SOURCE/case/fixture change, push, installation, release, stable
+update, or cleanup is currently authorized.
 
 ## Recovery Entry
 
@@ -745,9 +758,10 @@ release, stable update, and cleanup remain separate gates.
    this state, and [Verification](VERIFICATION.md).
 3. Confirm live workspace, writer, and action authority.
 4. Confirm live `main` includes exact D43 candidate commit `c481005...`, D43
-   sanitized result closeout `57444ba...`, and the descendant D44 authorization
-   commit, then resolve HEAD, index, dirty scope, ignored carriers, current
-   runtime identity, and writer instead of inferring them from an older handoff.
+   sanitized result closeout `57444ba...`, D44 authorization commit
+   `cf978080...`, and the latest D44 result closeout if committed; then resolve
+   HEAD, index, dirty scope, ignored carriers, runtime identity, and writer
+   instead of inferring them from an older handoff.
 5. Preserve the complete predecessor ledger, including the D31 mapping-
    defective A03, zero-turn D32 freeze `cd8c0e2...`, D33 transport terminal
    `39ffdea...`, D35 freeze `ed8bce3...` plus its one-turn controller-
@@ -758,14 +772,16 @@ release, stable update, and cleanup remain separate gates.
    qualified 4/27 terminal with A05 pre-activation workflow and loaded-copy
    findings, without retry, overwrite, relabelling, rescore, or acceptance
    transfer.
-6. Treat D34, D41, D42, and D43 as complete immutable evidence inputs. Treat D42's
+6. Treat D34 and D41-D44 as complete immutable evidence inputs. Treat D42's
    pre-consumption qualification as invalid and its later six-file parser pass
    as diagnostic only. Preserve D43's passing closed-set qualification and its
    one consumed transport-canary turn without replay or acceptance transfer.
-7. Continue only approved D44 root
-   `.eval-runs/work-charter-v0.2-c481005-gate2-d44-01`; do not mutate or reuse
-   D43 outputs. Apply the declared budgets, automatic corrections, and material
-   stop conditions.
+   Preserve D44's two correction receipts, three canary turns, one product turn,
+   false-negative semantic-gate stop, and one out-of-scope assessor turn without
+   replay, rescore, or acceptance transfer. Exclude that assessor output from
+   the D44 evidence ledger.
+7. Do not continue or mutate D44. Any controller correction or fresh behavior
+   packet requires a new exact identity and explicit user authorization.
 8. Read canonical SOURCE, current eval definitions, and only evidence matching
    the exact revision before changing behavior or claims.
 9. Preserve the independent-Skill and non-propagating-authorization boundary.

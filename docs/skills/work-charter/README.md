@@ -173,8 +173,18 @@ all other zero-model qualification, but the first `Sol/high` non-product
 canary consumed one turn and failed at the sandbox/network transport boundary
 before any model message. The other canaries, all 27 product cells, and the
 assessor did not start. D43 is `UNKNOWN_NOT_ASSESSED`, unaccepted, and not
-retried. D31, D34, D42, and D43 still have no behavior acceptance,
-installation, or release evidence.
+retried. Additive D44 then passed final 12/12 qualification, all three network-
+capable canaries, and freeze. Its one A01 product response stayed flat, loaded
+no Work Charter file, proved the required reads, proposed the exact patch and
+focused command, and labelled the command not run. The tracked controller
+returned `ADMISSIBLE`, but the frozen semantic gate false-negatively rejected
+the response's split-emphasis `not run` heading. D44 sealed at 0/27. The carrier
+then launched one assessor outside the admitted-cell prerequisite; the turn is
+retained as a deviation and excluded from D44 evidence. The sealed gate is not
+rescored; exact candidate `c481005...` remains unaccepted, and controller and
+launch-guard corrections plus any fresh packet require a new user decision.
+D31, D34, D42, D43, and D44 still
+have no behavior acceptance, installation, or release evidence.
 Full staged selection, entry, level, re-entry, and visible
 Standard behavior, full Standard delivery at the stable layer, broad implicit
 telemetry, independent real-project efficacy, deterministic role delivery or

@@ -1,6 +1,6 @@
 # Work Charter Verification
 
-Last updated: 2026-08-10
+Last updated: 2026-08-11
 
 ## Claim Ledger
 
@@ -30,6 +30,7 @@ Last updated: 2026-08-10
 | Exact `b3ad360...` D41 terminal | D41 passed qualification, three non-product transport canaries, and freeze, then consumed six behavior turns; A01-A04 completed, A04 loaded the exact package but visibly claimed selected state before activation approval, and A05 produced a bounded proposal but stopped on an object-versus-list authorization-policy construction defect; the packet sealed at 4/27, one assessor returned `DECISION_REQUIRED`, and no retry, acceptance, installation, or release follows |
 | Exact `f24bda7...` D42 terminal | D42 consumed six turns and stopped at 4/27, but post-consumption review invalidated its static qualification and found A05 prescribed Work Charter workflow before activation while candidate-body loading remained unproved; A04/A05 are observations without Gate 2 credit, one assessor returned `DECISION_REQUIRED`, and D43 changes only the prospective contract |
 | Exact `c481005...` D43 transport terminal | current SOURCE/evaluation/docs closure separates metadata proposal from confirmed exact-body activation; the ignored successor passed 12/12 zero-model checks including exactly six positive PowerShell parse receipts with empty stderr and exit zero, but its first `Sol/high` non-product canary consumed one turn and failed at `SANDBOX_NETWORK_TRANSPORT`; the other canaries, all product cells, and assessor did not start, so D43 is sealed `UNKNOWN_NOT_ASSESSED` and unaccepted |
+| Exact `c481005...` D44 Gate 2 terminal | additive D44 used two zero-consumption carrier-only policy-host corrections, passed final 12/12 qualification, all three network-capable canaries, and freeze, then consumed one A01 product turn; the response stayed flat, proved the required reads, proposed the exact patch and focused command, and labelled it not run, while the tracked controller returned `ADMISSIBLE`, but the frozen semantic gate false-negatively rejected the split-emphasis heading, so D44 sealed at 0/27; one later assessor turn violated the admitted-cell prerequisite and is retained only as an excluded deviation; no retry, rescore, acceptance, installation, or release follows |
 | Isolated path-bound controller canary | private retained sealed `CANARY_PASS`; the public summary reports an exact-response pass and no command execution, omits locator/artifact/runtime details, leaves physical backend request count `UNKNOWN`, and proves neither natural-language selection nor candidate acceptance |
 | Small bounded work stays flat | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
 | Midstream implicit behavior is proposal-only | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
@@ -1634,6 +1635,41 @@ and assessor did not start. D43 is therefore sealed
 `SEALED_HARD_STOP / UNKNOWN_NOT_ASSESSED`; exact candidate behavior remains
 unassessed and Gate 2 remains unaccepted. The sanitized record is
 [Work Charter D43 transport-canary terminal](../../../evals/results/2026-08-10-work-charter-d43-transport-terminal.md).
+
+### 2026-08-11 — D44 exact-candidate Gate 2 terminal
+
+Additive D44 preserved exact candidate
+`c4810057c3f28cca9f12004ca2018784cd21f449`, five-file manifest
+`04c382a48e43897a8806aa5ffd996984cb015d3d8cdc6e675e9181a6d94e6f44`,
+released control `ceed607152849775b981c54add74bfa30d858e4d`, and immutable D43.
+Two carrier-only policy-host bindings were corrected before any D44 model turn;
+their failed receipts remain preserved and correction usage is 2/3. Final
+zero-model qualification passed 12/12 with 27 workspaces, 77 mappings, and the
+closed six-file PowerShell parser gate. The three exact outer network-capable
+`Sol/high`, `Sol/xhigh`, and `Terra/high` canaries each passed with exactly one
+`turn/start` and `TRANSPORT_CANARY_OK`. The D44 freeze bound 125 files and
+zero product turns.
+
+A01 then consumed one `Sol/high` product turn. It loaded no Work Charter file,
+read the required implementation and test, stayed flat, proposed the exact
+minimal patch and focused future verification command without applying or
+running either, and left workspace and repository state unchanged. The tracked
+controller returned `ADMISSIBLE`. The final response visibly marked the command
+`*(not run)*`, but the separate frozen semantic gate only accepts the equivalent
+unformatted exact heading and did not normalize the adjacent Markdown emphasis
+spans. It therefore false-negatively returned `FAIL: truthful not-run statement
+is missing`.
+
+The sealed verdict is not changed or rescored. D44 stopped at A01 with 0/27
+cells admitted, one product turn consumed, and all later cells unstarted. The
+carrier subsequently launched one read-only `Terra/high` assessor even though
+D44 required at least one admitted product cell. The consumed turn and its
+`DECISION_REQUIRED` output are preserved as an immutable authority deviation
+but excluded from the D44 evidence ledger. Exact candidate behavior remains
+unaccepted; later-cell semantics are `UNKNOWN_NOT_ASSESSED`. Any prospective
+controller correction, launch-guard correction, and fresh additive packet
+require a new user decision. The sanitized record is
+[Work Charter D44 Gate 2 terminal](../../../evals/results/2026-08-11-work-charter-d44-gate2-terminal.md).
 
 ## Required Checks
 

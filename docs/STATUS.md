@@ -9,7 +9,7 @@ Last updated: 2026-08-11
 | Tested package identity | all three package byte sets independently reached exact-commit RC readiness at `c42eef392a5b9f58bbee64aa73ffb603a6fb6c29` and were re-proved at tag/stable identity `v0.1.2` | [Verification](VERIFICATION.md) |
 | Stable release identity | immutable [`v0.1.2`](https://github.com/junwei529/skills/releases/tag/v0.1.2) at `ceed607152849775b981c54add74bfa30d858e4d`; exact tag, stable loaded-copy, and GitHub Release proof pass for all three Skills | [Verification](VERIFICATION.md) |
 | Project Docs | immutable `v0.1.2` remains the released explicit-only control; local commit `776989f...` implements accepted Decision 0019 but is unreleased, and its evidence is `PARTIAL` because actual candidate selection, loaded-copy identity, and persistent writes remain `UNKNOWN` | [State](skills/manage-project-docs/STATE.md) |
-| Work Charter | released `v0.1.2` remains active; exact candidate `c481005...` is unchanged and unaccepted; approved D44 is an additive Gate 2 Campaign with a fresh ignored carrier, network-capable three-canary gate, conditional 27-cell packet, one assessor, and local result closeout | [State](skills/work-charter/STATE.md) |
+| Work Charter | released `v0.1.2` remains active; exact candidate `c481005...` is unchanged and unaccepted; D44 passed final qualification, three canaries, and freeze, then sealed at 0/27 because its frozen A01 semantic gate false-negatively rejected a visibly not-run command; a later out-of-scope assessor turn is excluded from D44 evidence | [State](skills/work-charter/STATE.md) |
 | PowerShell | released five-file `v0.1.2` stable copy; corrected loaded identity and guarded native/text diagnosis pass; live WSL remains unproved | [State](skills/use-powershell-safely/STATE.md) |
 | Release lifecycle | `v0.1.2` tag, stable update, tag-pinned canaries, and Latest GitHub Release complete; `v0.1.1` retained as rollback identity | [Runbook](RUNBOOK.md) |
 
@@ -128,14 +128,17 @@ cells, and assessor did not start. D43 is immutable, unaccepted, and sealed
 `SEALED_HARD_STOP / UNKNOWN_NOT_ASSESSED`; this is an environment transport
 blocker, not a Work Charter product defect.
 
-Approved D44 preserves that terminal and the candidate unchanged. It first
-persists its bounded writer/authority state, then creates and qualifies one
-fresh ignored carrier against the current exact executable and network-capable
-outer route. Three `Sol/high`, `Sol/xhigh`, and `Terra/high` canaries gate the
-unchanged 27-cell matrix and one assessor. Small pre-consumption carrier and
-documentation defects are corrected automatically within the fixed budgets;
-material identity, contract, permission, evidence, or downstream-effect drift
-stops the Campaign.
+Additive D44 preserved that terminal and the candidate unchanged. After two
+zero-consumption carrier-only policy-host corrections, its fresh ignored
+carrier passed final 12/12 qualification, all three network-capable canaries,
+and the D44 freeze. A01 then consumed one product turn, stayed flat,
+loaded no Work Charter file, proved the required reads, proposed the exact patch
+and focused command, and marked it not run. The tracked controller returned
+`ADMISSIBLE`, but the frozen semantic gate false-negatively rejected the split-
+emphasis `not run` heading. D44 sealed at 0/27. The carrier then launched one
+assessor outside the admitted-cell prerequisite; that turn is retained as a
+deviation and excluded from D44 evidence. The gate is not rescored and D44 is
+not retried.
 
 The exact post-commit documentation scope, writer state, and recovery order are
 owned by [Repository Handoff](HANDOFF.md).
@@ -167,11 +170,13 @@ semantic assessment and the remaining Gate 2 matrix are still absent.
 Exact D34 candidate `b3ad360...` now has fresh D41 evidence, but not acceptance:
 A04 crossed the visible proposal-only boundary and A05 remained
 `CONTROLLER_UNKNOWN` because of a separate evaluation-construction defect.
-Exact D43 candidate `c481005...` has admissible corrected qualification but no
-fresh product evidence: its first required transport canary stopped before a
-model response, and all product and assessor turns remained at zero. Product
-semantics are `UNKNOWN_NOT_ASSESSED`; no predecessor evidence or acceptance
-transfers.
+Exact D43 candidate `c481005...` now also has bounded D44 evidence: final
+qualification, three route canaries, and freeze pass, followed by one A01
+product observation. The response appears contract-conformant for the ordinary
+flat task, but the frozen semantic-gate false negative prevented admission and
+stopped the packet at 0/27. A later assessor turn was out of scope and is
+excluded from D44 assessment evidence; later-cell semantics remain
+`UNKNOWN_NOT_ASSESSED`, and no acceptance transfers.
 Exact counts, hashes, exclusions, and residual limits remain in the per-Skill
 ledgers rather than this dashboard.
 
@@ -325,15 +330,13 @@ decision.
 
 ## Next Gate
 
-No release action remains pending for immutable `v0.1.2`. D31-D43 remain
-sealed and non-retriable. Approved D44 is the current writer window: persist
-and commit its authority; build and zero-model qualify the fresh ignored
-carrier; run three canaries through the exact network-capable outer route;
-conditionally run the unchanged 27-cell packet and one assessor; then sanitize,
-verify, review, and locally commit the result. Small same-scope corrections are
-automatic. Push, installation, tag, release, stable update, cleanup, SOURCE/
-case/fixture/tracked-controller expansion, and other-Skill changes remain
-excluded.
+No release action remains pending for immutable `v0.1.2`. D31-D44 and D44
+result closeout are complete, sealed, and non-retriable; the D44 writer has
+relinquished. The next product action is a user decision on a prospective
+controller-only successor and fresh additive Campaign. Push, installation,
+tag, release, stable update, cleanup, SOURCE/case/fixture/tracked-controller
+changes, fresh model turns, and other-Skill changes are not currently
+authorized.
 Project Docs keeps its own candidate and persistence-evidence sequence.
 
 ## Known Repository Gaps
@@ -366,9 +369,12 @@ Project Docs keeps its own candidate and persistence-evidence sequence.
   A05 applied workflow before activation and did not produce controller-observed
   candidate-body loading; the strict frozen rubric stopped at 4/27. Post-consumption review also
   invalidated D42's static qualification because its PowerShell parse subcheck
-  accepted a binding error as pass. D41 and D42 remain incomplete and
-  unaccepted. All stopped matrices and sealed bundles remain historical and
-  cannot be retried, relabeled, or transferred.
+  accepted a binding error as pass. D44 later passed the corrected
+  qualification, all three network canaries, and freeze, but its frozen A01
+  semantic gate false-negatively rejected a visibly not-run focused command and
+  stopped at 0/27. D41-D44 remain incomplete and unaccepted. All stopped
+  matrices and sealed bundles remain historical and cannot be retried,
+  relabeled, or transferred.
 - The tracked controller now has one narrow isolated path-bound app-server
   compatibility pass. It does not establish natural-language Skill selection,
   semantic correctness, broad behavior, or Work Charter candidate acceptance;
