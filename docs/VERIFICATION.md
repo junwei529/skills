@@ -19,19 +19,19 @@ Sanitized detailed runs remain under [`evals/results`](../evals/results/README.m
 
 | Check | Purpose | Current result |
 |---|---|---|
-| Changed Skill validator | Validate frontmatter and package name without changing the package | exact D42 candidate `f24bda7...` passes the bundled `skill-creator` validator; the result closeout does not change SOURCE |
-| Repository checker | Validate strict UTF-8/no BOM, whitespace, local links/fragments, publication safety, exact Skill/eval sets, federated docs, and bilingual navigation | D42 result closeout passes at 202 text files / 14 cases / 12 fixtures |
-| Fixture checker | Validate synthetic starting states and their Git/reparse/ignored-result boundaries plus the tracked controller regression | D42 result closeout passes all 17 checks; no fixture or controller-code bytes changed |
-| Codex evidence controller | Validate one shared core across four entry modes, strict required-read versus bounded auxiliary-observation attribution, structural PowerShell/Git/path classification, source-and-generated-contract-bound historical regressions, exact package manifests, candidate-identity and content-proof shape, record cardinality, completed exit typing, output-array shape, per-key single-capture sealed parsing and reuse, real-reparse rejection, fail-closed negatives, external-input types, independently resolved inner/wrapper command identity, Git-read and external-filter safety, profile-free PowerShell wrappers, culture-independent canonical ordering, metamorphic equivalence, output no-clobber, and canonical repeatability | D42 current SOURCE manifest `a192540f...` passes with exact package identity, 11/11 historical, 32/32 evidence-surface, 33/33 negative, 4/4 metamorphic, 3/3 manifest-hash guards, all reported structural guards, and zero external model or assessor calls |
-| CRG supplemental preflight | Sharpen structural review scope when the maintained index represents the intended diff | queried for the D42 candidate but not relied on because its indexed symbol result did not represent the Markdown-first product/evaluation diff; native review inspects the actual files |
-| Native Codex review | Review the exact uncommitted D42 sanitized result and mapped-current-owner closeout | `codex-current review --uncommitted` is the required gate; completed semantic results and cumulative finding dispositions are reported after the result commit rather than written into the reviewed diff |
+| Changed Skill validator | Validate frontmatter and package name without changing the package | current D43 SOURCE passes the bundled `skill-creator` validator |
+| Repository checker | Validate strict UTF-8/no BOM, whitespace, local links/fragments, publication safety, exact Skill/eval sets, federated docs, and bilingual navigation | D43 candidate closure passes at 202 text files / 14 cases / 12 fixtures |
+| Fixture checker | Validate synthetic starting states and their Git/reparse/ignored-result boundaries plus the tracked controller regression | D43 candidate closure passes all 17 checks; no fixture or controller-code bytes changed |
+| Codex evidence controller | Validate one shared core across four entry modes, strict required-read versus bounded auxiliary-observation attribution, structural PowerShell/Git/path classification, source-and-generated-contract-bound historical regressions, exact package manifests, candidate-identity and content-proof shape, record cardinality, completed exit typing, output-array shape, per-key single-capture sealed parsing and reuse, real-reparse rejection, fail-closed negatives, external-input types, independently resolved inner/wrapper command identity, Git-read and external-filter safety, profile-free PowerShell wrappers, culture-independent canonical ordering, metamorphic equivalence, output no-clobber, and canonical repeatability | D43 current SOURCE manifest `04c382a4...` passes with exact package identity, 11/11 historical, 32/32 evidence-surface, 33/33 negative, 4/4 metamorphic, 3/3 manifest-hash guards, all reported structural guards, and zero external model or assessor calls |
+| CRG supplemental preflight | Sharpen structural review scope when the maintained index represents the intended diff | not applicable: no maintained `.code-review-graph/` index exists; the separate CodeGraph source-navigation query did not represent the Markdown-first contract diff, so native review inspects the actual files |
+| Native Codex review | Review the exact uncommitted D43 SOURCE/evaluation/documentation closure | `codex-current review --uncommitted` is the required gate; completed semantic results and cumulative finding dispositions are reported after the candidate commit rather than written into the reviewed diff |
 | Isolated controller canary | Record the bounded disposition of one private path-bound infrastructure check without broadening behavior claims | retained sealed `CANARY_PASS`; the public summary reports an exact-response pass and no command execution, omits private locator/artifact/runtime details, and leaves physical backend request count `UNKNOWN` |
-| Work Charter D36/D37/D40, D34/D41 predecessors, and D42 terminal | Preserve additive predecessors and separate product behavior from route, tool, qualification, and eval-contract failures | D36 and D40 remain immutable incomplete `DECISION_REQUIRED` packets; D37 remains boundary-only evidence; D34 exact candidate `b3ad360...` separates native package loading from explicit activation; immutable D41 records the A04 product-visible and A05 evaluation-shape findings; exact D42 candidate `f24bda7...` consumed six turns but has invalid pre-consumption static qualification, bounded A04/A05 observations only, and no behavior acceptance |
+| Work Charter D36/D37/D40, D34/D41 predecessors, D42 terminal, and D43 correction | Preserve additive predecessors and separate product behavior from route, tool, qualification, and eval-contract failures | D36 and D40 remain immutable incomplete `DECISION_REQUIRED` packets; D37 remains boundary-only evidence; D34 permits native package loading before confirmation; immutable D41 records A04 product-visible and A05 evaluation-shape findings; D42 remains invalidly qualified and unaccepted; D43 prospectively makes proposal metadata-sufficient, delays workflow until confirmed exact-body activation, and requires closed six-file qualification |
 | PowerShell deterministic hardening | Validate cardinality, LF bytes, one-base paths, and Junction link-only removal | 15 assertions pass in PowerShell 7 and Windows PowerShell 5.1 |
-| PowerShell parser sweep | Parse all `evals/**/*.ps1` files and the tracked controller module | D42 result-closeout sweep passes all eight tracked files/modules; a later six-file ignored-carrier diagnostic also parses cleanly but does not restore the invalid pre-consumption check |
+| PowerShell parser sweep | Parse all `evals/**/*.ps1` files and the tracked controller module | D43 candidate closure passes all eight tracked files/modules; the future ignored-carrier six-file gate remains a separate pre-consumption requirement |
 | Markdown navigation and ownership | Verify local links/fragments, English/Chinese routes, expected per-Skill owners, and no orphan canonical owner | pass through repository checker |
-| `git diff --check` | Reject whitespace defects in the working revision | passes for the D42 result-closeout diff; index remains untouched |
-| Gitleaks | Detect secret-like content independently | exact 11-path D42 result-closeout projection passes with zero findings and its validated temporary copy was removed; the earlier whole-repository scan traversed ignored/private evidence and is verification noise, not a D42 source finding |
+| `git diff --check` | Reject whitespace defects in the working revision | passes for the frozen D43 candidate diff; index remains untouched |
+| Gitleaks | Detect secret-like content independently | exact 18-path D43 candidate projection passes with zero findings and its validated temporary copy was removed; ignored/private evidence was not treated as public SOURCE |
 
 ## Repository Claim Ledger
 
@@ -1436,6 +1436,28 @@ fixtures, all 17 fixture checks, 8/8 PowerShell parser checks, `git diff
 sanitized record and mapped documentation consistency.
 The separate six-file carrier parse is diagnostic only and does not restore the
 missing pre-consumption qualification.
+
+### 2026-08-10 — Work Charter D43 candidate contract
+
+D43 preserves D42 as immutable and changes only the prospective product and
+evidence contract. An indirect installed-Skills or symptom-only response may
+remain metadata-only or load the candidate body natively; its proposal score is
+the same either way. Before confirmation it may explain applicability, propose
+activation plus the smallest bounded read, and ask for confirmation, but it may
+not prescribe pause, writer establishment, evidence refresh, handoff creation,
+resume gating, a protection level, or role delivery. Direct intent or same-
+context confirmation requires controller-observed exact body loading before an
+activation claim or Work Charter workflow reliance.
+
+The current five-file SOURCE manifest is `04c382a4...`. The changed-Skill
+validator, repository checker at 202 text files / 14 cases / 12 fixtures,
+tracked controller at 11/11 historical + 32/32 evidence-surface + 33/33 negative
++ 4/4 metamorphic plus structural guards, all 17 fixture checks, and the 8/8
+tracked PowerShell parser sweep pass with zero model or assessor turns. These
+checks establish SOURCE/evaluation consistency only. The D43 exact candidate is
+the local commit containing this closed set; a new ignored successor must still
+prove the exact six-file parser receipts and three transport canaries before
+any product or assessor turn.
 
 ### 2026-08-02 — Capability-delta decision and workflow
 

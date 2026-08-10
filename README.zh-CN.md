@@ -54,15 +54,15 @@ routing、recovery 症状被选择。该隐式路径只允许只读检查和提�
 路由负责普通维护，无需加载 Skill。
 
 Work Charter 也接受“调用 Work Charter，判断项目应该怎样继续”这类自然语言
-请求；只有完整正文已经进入当前上下文后才能声称已经激活。原生隐式选择也可能在
-用户确认前读取精确 `SKILL.md`；这个 package read 只表示指令可用，不是用户可见的
-激活、采用、项目读取授权或行动授权。对于泛化的“根据已安装 Skills 判断”请求，或
-具体控制与恢复症状，首个回复必须以 `Work Charter appears applicable because ...`
-开头，随后解释原因、提出最小项目读取范围并询问是否激活；不得使用 selection 或
-activation 标题；确认前不得声称 Work Charter 已 selected、loaded、invoked、
-active 或 adopted，即使附带“仅为 Harness 状态”或“未获用户授权”的限定也不行；
-同时不得检查项目。用户确认且正文可用后才可声明激活；当前
-分支必需的 package references 可以加载，但项目检查仍需批准精确范围。正文不可用时
+请求；只有完整正文已经进入当前上下文后才能声称已经激活。泛化的“根据已安装 Skills
+判断”请求或具体控制与恢复症状，只需 catalog metadata 就可以提出 proposal；原生选择
+可能读取也可能不读取 `SKILL.md`，两种情况都不产生授权。首个回复必须以
+`Work Charter appears applicable because ...` 开头，随后解释原因、提出激活与最小
+项目读取范围并请求确认；不得使用 selection 或 activation 标题，不得声称已 selected、
+loaded、invoked、active 或 adopted，不得检查项目，也不得提前给出 pause、writer、
+evidence、handoff、resume、protection level 或角色流程。用户确认后，必须先证明精确
+正文可用，才能声明激活或依赖流程；当前分支必需的 package references 可以加载，但
+项目检查仍需批准精确范围。正文不可用时
 停止激活；已批准的项目读取无法通过批准路径完成时，相关事实保持 `UNKNOWN`，其他
 路径必须作为新的 proposal。若 runtime 不暴露精确加载路径或 revision，该身份保留为
 `UNKNOWN`，Codex 不声称具体副本。PowerShell 可以在实质 Windows 边界出现时被选择。

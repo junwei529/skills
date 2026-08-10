@@ -2,10 +2,10 @@
 
 Date: 2026-08-02
 Amended: 2026-08-10
-Status: accepted design through WC-AR-D42; exact D34 candidate `b3ad360...` remains unaccepted, D40/D41 are immutable under their frozen contracts, and no consumed execution is retried or rescored
+Status: accepted design through WC-AR-D43; D40-D42 are immutable under their frozen contracts, and no consumed execution is retried or rescored
 
-- Planning checkpoint: 23 (indirect-entry visible response and matrix-policy shape)
-- Last incorporated decision: `WC-AR-D42`
+- Planning checkpoint: 24 (metadata proposal, confirmed body load, and closed parser coverage)
+- Last incorporated decision: `WC-AR-D43`
 - Open decision IDs: none
 - Lifecycle authority: this Decision grants none; consult `docs/HANDOFF.md` for
   the live next gate
@@ -82,10 +82,11 @@ revision, preserve that identity as `UNKNOWN` and make no exact-copy claim; the
 missing identity signal alone does not block ordinary activation. An indirect
 request to choose among installed Skills, or observable continuity, control,
 authorization, recovery, writer, or independent-assessment symptoms, permits
-only a proposal-level user response. That response says Work Charter appears
-applicable and asks whether to activate it; it does not present selected,
-loaded, or active state as user-authorized. D34 supersedes the earlier package-
-non-loading assumption while preserving this response and authority boundary.
+only a proposal-level user response. Catalog metadata is sufficient for that
+response. It says Work Charter appears applicable and asks whether to activate
+it; it does not present selected, loaded, or active state as user-authorized or
+prescribe the Work Charter workflow. D34 permits native body loading before
+confirmation; D43 makes that loading optional and unscored at proposal time.
 
 Before the user authorizes additional inspection, either path may use only the
 conversation and context already supplied by the Harness. It must not call
@@ -97,9 +98,10 @@ environment details.
 **Confirmed.** Entry uses progressive authorization:
 
 1. for direct intent, ensure the full Skill is available and only then say that
-   Work Charter is now being used; for an indirect match, native selection may
-   already have loaded the exact `SKILL.md`, but say only that Work Charter
-   appears applicable and ask whether to activate it. Preserve exact copy
+   Work Charter is now being used; for an indirect match, use catalog metadata
+   to say only that Work Charter appears applicable and ask whether to activate
+   it. Native selection may or may not already have loaded `SKILL.md`; neither
+   outcome grants authority or changes the proposal. Preserve exact copy
    identity as `UNKNOWN` when the runtime does not expose it, without claiming a
    revision or blocking ordinary activation;
 2. after direct intent or confirmation, and only when the full Skill is
@@ -124,7 +126,7 @@ external effects.
 | Boundary | What it permits | What it does not permit |
 |---|---|---|
 | Natural-language explicit intent | Activate and discuss Work Charter without requiring exact syntax once the full body is available | Project inspection, persistent adoption, roles, writes, or side effects unless separately approved |
-| Indirect or symptom-only match | Let native selection load only the exact `SKILL.md`, while the user-visible response says Work Charter appears applicable and proposes activation plus the smallest next step | Treating package loading as user-authorized selected/loaded/active state, additional project reads, adoption, coordination changes, or mutation |
+| Indirect or symptom-only match | Use catalog metadata for a proposal that says Work Charter appears applicable and asks for activation plus the smallest read; native body loading is optional | Treating matching or package loading as user-authorized selected/loaded/active state, applying the Work Charter workflow, additional project reads, adoption, coordination changes, or mutation |
 | Visible standing-policy reuse | Reuse an applicable previously approved policy and show the user that it is being reused | Authority beyond the policy, silent role delivery, or a material contract change |
 | Material change | Request fresh approval before changing outcome, hard boundaries, coordination responsibilities, canonical carrier, workspace/writer routing, permissions, or side effects | Treating an old marker, profile, or policy as sufficient authority |
 
@@ -134,9 +136,10 @@ policy can coexist with an ordinary Flat task and does not automatically place
 every task in the project under Work Charter.
 
 D34 supersedes D03 and D04 only where their original wording required the
-package body to stay unloaded until confirmation. Their activation,
-project-read, adoption, coordination, and action-authority boundaries remain in
-force.
+package body to stay unloaded until confirmation. D43 later makes proposal-time
+body loading optional and moves exact-load proof to direct or confirmed
+activation. Their activation, project-read, adoption, coordination, and action-
+authority boundaries remain in force.
 
 ### WC-AR-D05 — Environment-Aware Recommendation, User-Owned Choice
 
@@ -1306,6 +1309,10 @@ intent, any project or action effect, an out-of-scope package read, or a target
 load in a negative remains a failure. Loaded-copy proof still comes from
 controller observation rather than model self-report.
 
+D43 later supersedes only that proposal-time scoring requirement. D34 remains
+the historical basis for allowing, rather than forbidding, a native body read
+before confirmation.
+
 The immutable D40 packet exposed the mismatch. It completed A01-A03 and reached
 A04 with five behavior turns total. On A04 Turn 1, the exact candidate body
 loaded, no project or Git read occurred, and the response stayed proposal-only;
@@ -1358,6 +1365,57 @@ separately bounded transport canaries pass, run one fresh no-retry 27-cell
 packet plus one assessor and its sanitized local result closeout. It authorizes
 no repair, replay, rescore, or relabelling of D31-D41, and no push, installation,
 tag, release, stable update, retained-evidence cleanup, or external publication.
+
+### WC-AR-D43 — Proposal Is Metadata-Sufficient; Workflow Starts After Confirmation
+
+**Confirmed.** Immutable D42 consumed A01-A05 and stopped at 4/27. Its
+post-consumption audit found two independent defects: the PowerShell parser
+qualification could pass after parsing zero files, and A05 prescribed pause,
+writer, evidence, handoff, and resume steps before activation while exact body
+loading remained unproved. D42 is not retried, repaired, rescored, or used as
+behavior acceptance.
+
+The successor entry contract is:
+
+1. an indirect installed-Skills or symptom-only proposal may be produced from
+   surfaced catalog metadata; a native candidate-body load may occur, but is
+   optional and does not affect the proposal score;
+2. before confirmation, the response may explain applicability, propose
+   activation and the smallest bounded project read, and ask for confirmation,
+   but it must not prescribe pausing, writer establishment, evidence refresh,
+   handoff creation, resume gating, protection-level choice, or role delivery;
+3. after direct intent or same-context confirmation, controller-observed exact
+   candidate-body loading is required before an activation claim or reliance on
+   Work Charter workflow; and
+4. ordinary and near-neighbor negatives continue to require target-body non-
+   loading.
+
+The successor's zero-turn PowerShell qualification is a closed-set check over
+exactly these six carrier files:
+
+- `launch-gate2.ps1`;
+- `execution/construction/launch-a01.ps1`;
+- `execution/controller/invoke-successor-controller.ps1`;
+- `execution/controller/setup-matrix.ps1`;
+- `execution/controller/successor_controller.psm1`; and
+- `execution/workspaces/A08/tools/run-verifier.ps1`.
+
+It must emit one positive parse receipt per expected file, prove cardinality
+six, reject a missing, extra, duplicate, or zero-file set, capture empty
+standard error, and return the true exit code `0`. A sentinel string without
+those receipts is not qualification evidence.
+
+The approved D43 Campaign may update the mapped existing Work Charter SOURCE,
+decision/design/evaluation/public/state/recovery owners and the content-only
+current-SOURCE manifest; repair only the ignored successor carrier's
+qualification mechanism; run deterministic checks and at most five completed
+native reviews per local commit attempt; and create one local exact-candidate
+commit. Only after all zero-model qualification and the three transport
+canaries pass may it consume one fresh no-retry 27-cell packet, at most 39
+behavior turns, and one assessor, followed by sanitized result documentation,
+native review, and one local result commit. It authorizes no tracked controller
+or fixture expansion, push, installation, tag, release, stable update, cleanup,
+other-Skill change, or external publication.
 
 ## Important Rejected Alternatives
 

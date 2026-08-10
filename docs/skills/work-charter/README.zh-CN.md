@@ -47,16 +47,15 @@ $work-charter 约束此项有后果的工作、权限、证据、恢复和最小
 ```
 
 用自然语言明确说“使用 Work Charter”就是直接激活意图，不必记住
-`$work-charter` 语法。只有该意图与完整正文都存在时，Codex 才能声称已经激活。原生
-隐式选择可能在用户确认前读取精确 `SKILL.md`；这个 package read 只表示指令可用，
-不是用户可见的激活、采用、项目读取授权或行动授权。泛化的“根据已安装 Skills 判断”
-请求或仅由症状触发的匹配，仍只能得到以
-`Work Charter appears applicable because ...` 开头的可见 proposal，随后说明原因、
-建议的最小项目读取范围，并询问是否激活。回复不得使用 selection 或 activation 标题，
-确认前不得声称 Work Charter 已 selected、loaded、invoked、active、adopted 或
-in force，即使附带“仅为 Harness 状态”或“未获用户授权”的限定也不行；同时不得检查项目。用户
-确认后，已经可用的正文可以满足 package 条件，只加载当前分支必需的 references；
-项目仍只能检查另行批准的范围。正文不可用时停止激活；已批准的项目读取无法通过批准
+`$work-charter` 语法。只有该意图与完整正文都存在时，Codex 才能声称已经激活。泛化的
+“根据已安装 Skills 判断”请求或仅由症状触发的匹配，只需 catalog metadata 就能提出
+proposal；原生选择可能读取也可能不读取 `SKILL.md`，两种情况都不产生授权。回复必须以
+`Work Charter appears applicable because ...` 开头，说明原因，提出激活与最小项目读取
+范围，并请求确认。确认前不得使用 selection 或 activation 标题，不得声称已 selected、
+loaded、invoked、active、adopted 或 in force，不得检查项目，也不得提前给出 pause、
+writer、evidence、handoff、resume、protection level 或角色流程。确认后必须先让精确
+正文进入当前上下文，才能声明激活或依赖流程；随后只加载当前分支必需的
+references，项目仍只能检查另行批准的范围。正文不可用时停止激活；已批准的项目读取无法通过批准
 路径完成时，相关事实保持 `UNKNOWN`，其他路径必须作为新的可见 proposal。若 runtime
 不暴露精确加载路径或 revision，具体副本身份同样保持 `UNKNOWN`。首次持久采用、第一份
 Standard policy、角色交付、写入、Git 和外部影响仍需分别授权。

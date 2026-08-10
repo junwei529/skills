@@ -52,20 +52,19 @@ Based on the Skills already installed, recommend the safest way to continue this
 
 An ordinary-language request that explicitly names Work Charter is direct
 activation intent without requiring the `$work-charter` syntax. Activation may
-be claimed only when that intent and the full body are both present. Native
-implicit selection may load the exact `SKILL.md` before the user confirms Work
-Charter; that package read is instruction availability, not user-visible
-activation, adoption, project-read authority, or action authority. A generic
-installed-Skills request or symptom-only match therefore still receives only a
-visible proposal beginning `Work Charter appears applicable because ...`, then
-why it may help, the smallest proposed project read, and a question asking
-whether to activate it. The response uses no selection or activation heading,
-does not say Work Charter is selected, loaded, invoked, active, adopted, or in
-force before confirmation, even with a Harness or authorization caveat, and
-does not inspect the project. After the
-user confirms, an already available body may satisfy the package condition and
-only branch-required package references may load; only the separately approved
-project scope may be inspected. If the body is unavailable, activation stops.
+be claimed only when that intent and the full body are both present. A generic
+installed-Skills request or symptom-only match needs only catalog metadata for
+a visible proposal; native selection may or may not load `SKILL.md`, and neither
+outcome grants authority. The response begins `Work Charter appears applicable
+because ...`, explains why it may help, proposes activation plus the smallest
+project read, and asks for confirmation. It uses no selection or activation
+heading, claims no selected, loaded, invoked, active, adopted, or in-force
+state, does not inspect the project, and does not prescribe pause, writer,
+evidence-revalidation, handoff, resume, protection-level, or role workflow.
+After confirmation, the exact body must be available before activation or
+workflow reliance; only branch-required package references may then load, and
+only the separately approved project scope may be inspected. If
+the body is unavailable, activation stops.
 If an approved project read cannot complete through its approved route, the
 affected fact remains `UNKNOWN`; any different route is a new visible proposal.
 If the runtime does not expose the exact loaded path or revision, that identity

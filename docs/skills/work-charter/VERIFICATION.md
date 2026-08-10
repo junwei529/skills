@@ -7,8 +7,8 @@ Last updated: 2026-08-10
 | Claim | Status |
 |---|---|
 | `work-charter` is the sole current five-file package | verified structurally for current SOURCE |
-| Gate 1 protection, re-entry, convergence, and explicit-activation contract | implemented through exact D42 candidate `f24bda7...`; native package availability is separate from user-visible activation and every project/action authority, while D31-D42 candidate windows remain immutable and unaccepted |
-| Gate 1 evaluation definitions | 14 exact cases and 12 exact fixtures remain the intended repository shape; existing installed-Skills and symptom-only positives now require exact native package loading while their first responses stay proposal-only, and the existing installed-Skills confirmation turn adds no fresh run or matrix lane |
+| Gate 1 protection, re-entry, convergence, and explicit-activation contract | D43 SOURCE correction is implemented in the current revision: indirect proposal is metadata-sufficient and workflow-free, while direct or confirmed activation requires the exact body; the commit containing the closed set becomes the exact D43 candidate, and D31-D42 remain immutable and unaccepted |
+| Gate 1 evaluation definitions | 14 exact cases and 12 exact fixtures remain the intended repository shape; installed-Skills and symptom-only proposals may be metadata-only or package-loaded without changing their proposal score, while the same-context confirmation requires exact body loading before activation and adds no fresh run or matrix lane |
 | First `v0.2.0` exact candidate Gate 2 | `206c497...` stopped incomplete and is superseded for acceptance; its completed correction and consumed events remain historical |
 | Successor `v0.2.0` exact candidate Gate 2 | `92a8c045...` passed qualification and consumed A01-A04; A04 hard-stopped on an unproved selected/loaded claim, so no candidate acceptance or later cell exists |
 | Exact `72db7e9...` fixed-turn Standard probe | one one-shot bundle completed four fresh primary sessions, sealed `VIOLATION`, created no subagent activity, left A16 unexecuted, and permits no retry or retrospective rescore |
@@ -28,7 +28,8 @@ Last updated: 2026-08-10
 | D37 A13 attribution precursor | typed normalization, exact-path prompts, 9/9 deterministic tests, and freeze `1d705c65...` preceded exactly three one-shot read-only turns; native completed 7/7 reads and released control/exact candidate each completed 9/9, all with zero non-command tools, no mutation, no retry, and no assessor; summary `f4bddc52...` is boundary-only evidence with semantics unassessed, not D36 rescore or candidate acceptance |
 | D40 A04 terminal and D34 correction | D40 completed A01-A03 and reached A04 with five behavior turns; its indirect first turn loaded exact D31 `SKILL.md`, made no project/Git read, and stayed proposal-only, but the frozen old no-command rubric stopped the packet at 3/27 and one assessor returned `DECISION_REQUIRED`; D34 prospectively corrects the package-load/activation contract without retry, rescore, or acceptance transfer |
 | Exact `b3ad360...` D41 terminal | D41 passed qualification, three non-product transport canaries, and freeze, then consumed six behavior turns; A01-A04 completed, A04 loaded the exact package but visibly claimed selected state before activation approval, and A05 produced a bounded proposal but stopped on an object-versus-list authorization-policy construction defect; the packet sealed at 4/27, one assessor returned `DECISION_REQUIRED`, and no retry, acceptance, installation, or release follows |
-| Exact `f24bda7...` D42 terminal | D42 consumed six turns and stopped at 4/27, but post-consumption review invalidated its static qualification and found A05 prescribed Work Charter workflow before activation while candidate-body loading remained unproved; A04/A05 are observations without Gate 2 credit, one assessor returned `DECISION_REQUIRED`, and qualification coverage plus entry policy require a new decision |
+| Exact `f24bda7...` D42 terminal | D42 consumed six turns and stopped at 4/27, but post-consumption review invalidated its static qualification and found A05 prescribed Work Charter workflow before activation while candidate-body loading remained unproved; A04/A05 are observations without Gate 2 credit, one assessor returned `DECISION_REQUIRED`, and D43 changes only the prospective contract |
+| D43 candidate and successor qualification | current SOURCE/evaluation/docs closure separates metadata proposal from confirmed exact-body activation; before any D43 evidence, its new ignored successor must prove exactly six named PowerShell files with one parse receipt each, fixed cardinality, no missing/extra/duplicate/zero-file set, empty stderr, and true exit zero |
 | Isolated path-bound controller canary | private retained sealed `CANARY_PASS`; the public summary reports an exact-response pass and no command execution, omits locator/artifact/runtime details, leaves physical backend request count `UNKNOWN`, and proves neither natural-language selection nor candidate acceptance |
 | Small bounded work stays flat | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
 | Midstream implicit behavior is proposal-only | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
@@ -1589,6 +1590,25 @@ acceptance or a successor turn.
 
 The separate post-consumption parse of all six ignored carrier PowerShell files
 passed. That diagnostic does not restore the missing pre-consumption gate.
+
+### 2026-08-10 — D43 metadata proposal and closed qualification contract
+
+Accepted D43 preserves D42 as an immutable unaccepted packet and corrects only
+the prospective entry/evidence contract. Catalog metadata is sufficient for an
+indirect applicability proposal; a native body load may occur but is not
+required or scored. The proposal begins with the required applicability phrase,
+may propose activation plus the smallest read, and asks for confirmation. It
+does not apply Work Charter by prescribing pause, writer, evidence refresh,
+handoff, resume, a protection level, or roles. Direct intent or same-context
+confirmation requires controller-observed exact body loading before activation
+or workflow reliance.
+
+The D43 carrier contract names exactly six PowerShell files and requires one
+positive parser receipt per expected relative path, cardinality six, no
+missing/extra/duplicate/zero-file result, empty stderr, and true exit zero. The
+qualifier and three transport canaries remain zero-model prerequisites. This
+SOURCE closeout does not itself prove a candidate hash, qualification pass,
+model behavior, assessor verdict, installation, release, or stable update.
 
 ## Required Checks
 

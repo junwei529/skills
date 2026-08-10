@@ -22,6 +22,17 @@ clean pushed commit `72db7e9dfe920de5e2017421b22446cf5c8c75e6`, which implements
 the two-stage lazy entry accepted as `WC-AR-D25` while preserving all earlier
 correction and evidence-consumption history.
 
+Accepted `WC-AR-D43` is the current prospective contract. An indirect catalog
+or symptom match may remain metadata-only or load the body natively; its first
+response only explains applicability, proposes activation plus the smallest
+read, and asks for confirmation. It does not prescribe pause, writer,
+evidence-revalidation, handoff, resume, protection-level, or role workflow.
+Direct intent or same-context confirmation still requires the exact full body
+before activation or workflow reliance. The local commit containing this
+closed SOURCE/evaluation/documentation set becomes the D43 exact candidate;
+its hash is bound by the successor qualification and recorded in the result
+closeout rather than guessed inside the candidate commit.
+
 The sealed fixed-turn Standard probe for `72db7e9...` returned `VIOLATION` and
 did not run its successor action. Decision 0018 `WC-AR-D26` preserves that
 result and distinguishes the observed product gap from controller noise. The
@@ -218,15 +229,15 @@ SOURCE by itself.
 
 ## Current Writer
 
-One bounded D42 closeout writer owns only the sanitized result, mapped
-documentation corrections, final deterministic checks, same-scope native-
-review fixes, and one local result commit. This window ends only when that
-commit exists and tracked status is clean; until then, do not infer writer
-relinquish from the intended closeout. After those conditions pass, no
-repository writer remains and the next product/evaluation choice is user-owned.
-SOURCE, eval/controller/fixture changes, another model or assessor turn, push,
-installation, release, stable-copy mutation, retained-evidence cleanup, and
-external changes remain outside this window.
+One bounded D43 Campaign writer owns the mapped Work Charter SOURCE,
+evaluation-contract and documentation correction; deterministic checks; at
+most five completed native reviews per local commit attempt; one local exact-
+candidate commit; the ignored successor qualification/canary/evidence run; and,
+if every prerequisite passes, sanitized closeout plus one local result commit.
+The window ends at the first material stop condition or after the result commit
+and clean tracked status. D42 remains immutable. Tracked controller/fixture
+expansion, other Skills, push, installation, tag, release, stable-copy mutation,
+retained-evidence cleanup, and external publication remain outside this window.
 
 ## Evidence State
 
@@ -683,6 +694,14 @@ load requirement hard-stopped independently. The packet sealed at 4/27 and one
 assessor returned `DECISION_REQUIRED`. D42 is immutable, non-retriable,
 invalidly qualified, and unaccepted. A04/A05 receive no Gate 2 credit.
 
+D43 corrects the two prospective boundaries without changing D42. Proposal-
+time candidate loading is optional and unscored; confirmation-time exact body
+loading is mandatory before activation or workflow reliance. Pre-confirmation
+responses may not apply the Work Charter workflow. The successor qualifier
+must prove exactly six expected carrier PowerShell paths, one positive parse
+receipt per path, fixed cardinality, no missing/extra/duplicate/zero-file set,
+empty stderr, and true exit zero before any canary or model turn.
+
 ## Next Gate
 
 Work Charter `v0.1.2` remains the released and installed stable revision.
@@ -693,16 +712,14 @@ independent `DECISION_REQUIRED`; neither transfers acceptance.
 
 The D42 product/evidence window is complete. Exact candidate `f24bda7...` and
 its six consumed turns remain immutable; no D31-D42 execution may be repaired,
-retried, rescored, or relabelled. The bounded result closeout remains active
-until its local commit exists and tracked status is clean. The next user-owned
-gate must require a fail-closed PowerShell qualification correction with the
-exact expected file set/cardinality and one positive parse receipt per file,
-correct the pre-activation workflow application, and choose whether controller-
-observed body loading remains a hard requirement during the indirect proposal
-turn or metadata-only applicability proposal is allowed with exact body loading
-required after confirmation and before activation/workflow reliance. Either
-path requires a new bounded evaluation plan. Push, installation, release,
-stable update, and cleanup remain separate gates.
+retried, rescored, or relabelled. The approved D43 Campaign now proceeds
+serially: SOURCE/evaluation/documentation closure and local candidate commit;
+new ignored-carrier closed-set qualification; three transport canaries; one
+fresh no-retry 27-cell packet plus assessor only if all prerequisites pass; and
+sanitized result closeout plus one local result commit. Stop for qualification
+uncertainty, product-contract change, native-review budget exhaustion, or scope
+expansion. Push, installation, release, stable update, and cleanup remain
+separate gates.
 
 ## Recovery Entry
 
@@ -713,7 +730,7 @@ stable update, and cleanup remain separate gates.
    this state, and [Verification](VERIFICATION.md).
 3. Confirm live workspace, writer, and action authority.
 4. Confirm live `main` includes exact D42 candidate commit `f24bda7...` and its
-   sanitized result closeout commit, then
+   sanitized result closeout commit `b0d9708...`, then
    resolve HEAD, index, any dirty scope, ignored carriers, and current writer
    instead of inferring them from an older handoff.
 5. Preserve the complete predecessor ledger, including the D31 mapping-
@@ -728,10 +745,9 @@ stable update, and cleanup remain separate gates.
    transfer.
 6. Treat D34, D41, and D42 as complete immutable evidence inputs. Treat D42's
    pre-consumption qualification as invalid and its later six-file parser pass
-   as diagnostic only. No successor revision or evidence packet is authorized
-   until the user approves exact expected-file qualification coverage, resolves
-   the pre-activation workflow and proposal-time body-loading policy, and
-   approves the bounded evaluation plan.
+   as diagnostic only. D43 is the sole authorized successor: metadata is enough
+   for proposal, workflow waits for confirmation and exact body load, and the
+   six-file closed-set qualifier gates every canary or evidence turn.
 7. Read canonical SOURCE, current eval definitions, and only evidence matching
    the exact revision before changing behavior or claims.
 8. Preserve the independent-Skill and non-propagating-authorization boundary.

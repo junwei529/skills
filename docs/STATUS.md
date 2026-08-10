@@ -9,7 +9,7 @@ Last updated: 2026-08-10
 | Tested package identity | all three package byte sets independently reached exact-commit RC readiness at `c42eef392a5b9f58bbee64aa73ffb603a6fb6c29` and were re-proved at tag/stable identity `v0.1.2` | [Verification](VERIFICATION.md) |
 | Stable release identity | immutable [`v0.1.2`](https://github.com/junwei529/skills/releases/tag/v0.1.2) at `ceed607152849775b981c54add74bfa30d858e4d`; exact tag, stable loaded-copy, and GitHub Release proof pass for all three Skills | [Verification](VERIFICATION.md) |
 | Project Docs | immutable `v0.1.2` remains the released explicit-only control; local commit `776989f...` implements accepted Decision 0019 but is unreleased, and its evidence is `PARTIAL` because actual candidate selection, loaded-copy identity, and persistent writes remain `UNKNOWN` | [State](skills/manage-project-docs/STATE.md) |
-| Work Charter | released `v0.1.2` remains active; exact D42 candidate `f24bda7...` is unaccepted after post-consumption review invalidated its static qualification and found A05 applied workflow before activation; six consumed turns remain sealed observations, and qualification plus entry policy require a new decision | [State](skills/work-charter/STATE.md) |
+| Work Charter | released `v0.1.2` remains active; D42 is immutable and unaccepted; approved D43 separates metadata-sufficient proposal from confirmed exact-body activation, forbids pre-confirmation workflow instructions, and requires closed six-file parser qualification before any new evidence | [State](skills/work-charter/STATE.md) |
 | PowerShell | released five-file `v0.1.2` stable copy; corrected loaded identity and guarded native/text diagnosis pass; live WSL remains unproved | [State](skills/use-powershell-safely/STATE.md) |
 | Release lifecycle | `v0.1.2` tag, stable update, tag-pinned canaries, and Latest GitHub Release complete; `v0.1.1` retained as rollback identity | [Runbook](RUNBOOK.md) |
 
@@ -305,18 +305,17 @@ decision.
 
 ## Next Gate
 
-No release action remains pending for immutable `v0.1.2`. D42 completed one
-no-retry product packet and assessor, but post-consumption review invalidated
-its claimed static qualification. Exact candidate `f24bda7...` remains
-unaccepted and the sealed D42 packet cannot be retried or rescored. A bounded
-closeout writer retains only result/documentation corrections, final checks,
-native review, and one local result commit until that commit exists and tracked
-status is clean. The next user-owned decision must require a fail-closed
-qualification transport repair with exact expected-file coverage, correct the
-pre-activation workflow application, and choose whether proposal-time exact
-body loading remains mandatory or metadata-only proposal is separated from
-confirmed activation. Any successor needs a new bounded authorization. Push,
-installation, tag, release, stable update, and cleanup remain separate gates.
+No release action remains pending for immutable `v0.1.2`. D42 and its six
+consumed turns remain sealed, unaccepted, and non-retriable. The approved D43
+Campaign is the current writer window: close the mapped SOURCE/evaluation/docs
+revision, run deterministic checks and native review, and create one local
+exact-candidate commit. Then build a new ignored successor whose qualification
+proves the exact six-file PowerShell set with one receipt per file, empty
+stderr, and true exit zero. Only after that zero-model gate and three transport
+canaries pass may the one fresh 27-cell packet and assessor start. The same
+Campaign permits sanitized closeout and one local result commit. Push,
+installation, tag, release, stable update, cleanup, tracked controller/fixture
+expansion, and other-Skill changes remain excluded.
 Project Docs keeps its own candidate and persistence-evidence sequence.
 
 ## Known Repository Gaps

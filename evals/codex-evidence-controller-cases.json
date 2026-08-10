@@ -19,9 +19,9 @@
   "entry_baseline_sha256": "2d0dcb755a1bf3af69e627e2500d88d82c7e7795a189a460c9aa5433e0cb4762",
   "current_source_package": {
     "canonicalization": "canonical-json/path-sorted-five-file-rows/v1",
-    "package_manifest_sha256": "a192540f53e57f0a70721e8220970e064fef7e9a82f7459c726834ea0b778fb1",
+    "package_manifest_sha256": "04c382a48e43897a8806aa5ffd996984cb015d3d8cdc6e675e9181a6d94e6f44",
     "files": [
-      {"path": "SKILL.md", "length": 9446, "sha256": "b541163c2b631602569a8d226a70169570e8ef7e828e9f40c8895233b53a6fab"},
+      {"path": "SKILL.md", "length": 9702, "sha256": "7065e70b1b4c34000587b59b968dd2f39a94d980c97feff45b4b75d662e5b162"},
       {"path": "agents/openai.yaml", "length": 306, "sha256": "f0032475e213d75ed17eb41c3424007ebc46c0ddb6739138c9908185beefdad6"},
       {"path": "assets/work-charter.md", "length": 2329, "sha256": "4420e9faa5a6090e5fc54680e26b2dedddbb8c60c7c3891aa88da824dd881b72"},
       {"path": "references/coordination-and-recovery.md", "length": 10326, "sha256": "2a2c5e1fb0229ae155fe698023c71b5340b2bbdf09a900428d75dfdf2f789816"},

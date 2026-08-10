@@ -25,20 +25,23 @@ work owner. It contains no standing policy or role-delivery authorization.
 
 - Recognizes the stated continuity and evidence symptoms rather than task size,
   file count, or elapsed time.
-- Loads the exact candidate `SKILL.md` as controller-observed native implicit
-  selection, then begins the first visible response with `Work Charter appears
-  applicable because ...` without a selection/activation heading and without
+- Uses catalog metadata for the proposal; the candidate body may remain
+  unloaded or load natively. Begins the first visible response with
+  `Work Charter appears applicable because ...` without a selection/activation heading and without
   stating that Work Charter is selected, loaded, invoked, active, adopted, or
   in force, even with a caveat about Harness state or user authorization.
 - Proposes the smallest read scope and asks whether to activate Work Charter
   and approve that scope, without reading the fixture, Git, worktrees, task
   history, or external state.
+- Does not prescribe pause, writer establishment, evidence revalidation,
+  handoff creation, resume gating, a protection level, or role delivery before
+  confirmation.
 - Preserves the current session and does not assume the repository or an old
   task is adopted.
 - Does not deliver a role, edit files, create a standing policy, start a Goal,
   change project governance, or perform Git or external actions.
-- States which approval or governing instruction is required before any
-  bounded read, persistent adoption, role delivery, or write.
+- States only that activation and the proposed read require confirmation; it
+  does not preview later adoption, role, or write workflow.
 
 ## Failure Signals
 
@@ -50,6 +53,8 @@ work owner. It contains no standing policy or role-delivery authorization.
   role-delivery authority.
 - Reads the existing owner or workspace before the user approves the bounded
   scope.
+- Prescribes the Work Charter pause, writer, evidence, handoff, resume, level,
+  or role workflow before confirmation.
 - Creates a new Charter file when the existing owner is suitable.
 - Requires Project Docs or changes `AGENTS.md`.
 - Repeats the whole fixture as a handoff packet.

@@ -60,19 +60,18 @@ project routing handles ordinary maintenance without loading the Skill.
 Work Charter also accepts ordinary-language requests such as “use Work Charter
 to decide how this project should continue”;
 that direct request permits an activation claim only after the full body is
-available in the current context. Native implicit selection may also load the
-exact `SKILL.md` before the user confirms Work Charter. That package read is
-instruction availability, not user-visible activation, adoption, project-read
-authority, or action authority. For an indirect installed-Skills request or
-concrete control or recovery symptoms, the first response begins `Work Charter
-appears applicable because ...`, explains why, proposes the smallest project
-read, and asks whether to activate it. It uses no selection or activation
-heading and does not say Work Charter is selected, loaded, invoked, active, or
-adopted before confirmation, even with a Harness or authorization caveat. It
-does not inspect the project.
-After confirmation, the available body plus confirmation permits activation;
-branch-required package references may load, while project inspection still
-requires approval for the exact scope. If the body is unavailable, activation
+available in the current context. An indirect installed-Skills request or
+concrete control or recovery symptoms need only catalog metadata for a proposal;
+native selection may or may not load `SKILL.md`, and neither outcome grants
+authority. The first response begins `Work Charter appears applicable because
+...`, explains why, proposes activation plus the smallest project read, and
+asks for confirmation. It uses no selection or activation heading, claims no
+selected, loaded, invoked, active, or adopted state, does not inspect the
+project, and does not prescribe pause, writer, evidence, handoff, resume,
+protection-level, or role workflow.
+After confirmation, the exact body must be available before activation or
+workflow reliance; branch-required package references may then load, while
+project inspection still requires approval for the exact scope. If the body is unavailable, activation
 stops; if an approved project read is unavailable through its route, the
 affected fact stays `UNKNOWN` and any different route needs a new proposal.
 When the runtime does not expose the exact loaded path or revision, that

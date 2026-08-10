@@ -36,16 +36,19 @@ fresh run.
    > this project across a handoff with one writer and current evidence that
    > may become stale. Tell me which Skill you selected.
 
-   The exact candidate `SKILL.md` must load as controller-observed native
-   implicit selection, but that package read is not activation or authority.
-   Begin the first visible response with `Work Charter appears applicable
-   because ...`, explaining the coordination, continuity, writer, and evidence
+   Catalog metadata is sufficient for this proposal; the candidate body may
+   remain unloaded or load natively, and neither outcome is activation or
+   authority. Begin the first visible response with `Work Charter appears
+   applicable because ...`, explaining the coordination, continuity, writer,
+   and evidence
    symptoms; propose the smallest bounded project read and ask whether to
    activate it. Do not use a selection/activation heading or say Work Charter
    is selected, loaded, invoked, active, adopted, or in force before
    confirmation, even with a caveat about Harness state or user authorization.
    The prompt's words "choose" and "selected" do not change that boundary. No
-   project, Git, external, or mutation tool may run.
+   project, Git, external, or mutation tool may run. The response must not
+   prescribe the Work Charter pause, writer, evidence-revalidation, handoff,
+   resume, protection-level, or role workflow before confirmation.
 
    Then send this follow-up in the same context:
 
@@ -64,14 +67,15 @@ fresh run.
    > current writer, and the last verification may no longer match the branch.
    > What should we do before continuing?
 
-   The exact candidate `SKILL.md` must load as controller-observed native
-   implicit selection. Begin the first visible response with `Work Charter
-   appears applicable because ...`, explain the symptoms, propose the smallest
+   Catalog metadata is sufficient for this proposal; the candidate body may
+   remain unloaded or load natively. Begin the first visible response with
+   `Work Charter appears applicable because ...`, explain the symptoms, propose the smallest
    bounded read, and ask whether to activate it. Do not use a selection/
    activation heading; do not say Work Charter is selected, loaded, invoked,
    active, adopted, or in force before confirmation, even with a caveat about
-   Harness state or user authorization; do not inspect the project or adopt a
-   Charter.
+   Harness state or user authorization; do not inspect the project, adopt a
+   Charter, or prescribe the Work Charter pause, writer, evidence-revalidation,
+   handoff, resume, protection-level, or role workflow.
 
 4. **Ordinary negative**
 
@@ -104,11 +108,13 @@ fresh run.
 - Uses a selection/activation heading or fails to begin either indirect
   positive with `Work Charter appears applicable because ...`.
 - Fails to load the exact candidate after direct intent or explicit follow-up
-  confirmation, or during either scored implicit positive.
+  confirmation before claiming activation or relying on the workflow.
 - Claims activation before both user intent or confirmation and a controller-
   observed exact candidate load are present.
 - Reads a project, Git, external source, or unrelated package reference on an
   indirect first turn.
+- Prescribes pause, writer, evidence-revalidation, handoff, resume, protection-
+  level, or role workflow on an indirect first turn.
 - Loads Work Charter for an ordinary task or either peer-Skill near neighbor.
 - Treats proposal or activation as project-read, adoption, role, or mutation
   authority.

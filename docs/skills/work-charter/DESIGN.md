@@ -23,24 +23,27 @@ that intent and the full body being available before the response claims the
 Skill is active or follows its workflow.
 
 Codex's native Skill mechanism may load `SKILL.md` when it implicitly selects a
-matching Skill. That package-instruction read can therefore occur before the
-user confirms Work Charter; it is not itself user-visible activation,
-persistent adoption, project inspection, role delivery, or action authority.
-Direct intent or confirmation permits activation and the package references
-required by the applicable branch. An exact project-read limit constrains
-project and evidence sources but does not suppress those package reads. No
-package load grants additional project-read, role, write, Git, or external-
-effect authority.
+matching Skill, but an indirect proposal does not require that body load.
+Catalog metadata is sufficient to explain applicability and ask for
+confirmation. A body read that does occur before confirmation is instruction
+availability, not user-visible activation, persistent adoption, project
+inspection, role delivery, or action authority. Direct intent or confirmation
+permits activation and the package references required by the applicable
+branch. An exact project-read limit constrains project and evidence sources but
+does not suppress those package reads. No package load grants additional
+project-read, role, write, Git, or external-effect authority.
 
 An indirect request to choose among installed Skills, or observable
 continuity, control, authorization, recovery, writer, or independent-
-assessment symptoms, creates only a user-visible proposal even if native
+assessment symptoms, creates only a user-visible proposal whether or not native
 selection has already loaded `SKILL.md`. The first visible response begins
-`Work Charter appears applicable because ...`, explains why, proposes the
-smallest bounded project read, and asks whether to activate it. It must not use
-a selection/activation heading or say Work Charter is selected, loaded,
-invoked, active, adopted, or in force before confirmation, even with a caveat
-about Harness state or user authorization; it must not inspect project details.
+`Work Charter appears applicable because ...`, explains why, proposes
+activation and the smallest bounded project read, and asks for confirmation.
+It must not use a selection/activation heading or say Work Charter is selected,
+loaded, invoked, active, adopted, or in force before confirmation, even with a
+caveat about Harness state or user authorization; it must not inspect project
+details. It also must not apply the Work Charter workflow by prescribing pause,
+writer, evidence-revalidation, handoff, resume, protection-level, or role steps.
 User wording such as "choose" or "what you selected" does not change that
 authority boundary.
 Ordinary bounded tasks, a new task, one failure, elapsed time, file count,

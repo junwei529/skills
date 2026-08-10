@@ -8,7 +8,8 @@ Last updated: 2026-08-10
 - Latest exact Work Charter product candidate:
   `f24bda745c1692385498d77602cca314ed6518d6`; its five-file manifest is
   `a192540f53e57f0a70721e8220970e064fef7e9a82f7459c726834ea0b778fb1`,
-  and it remains unaccepted after immutable D42 stopped at 4/27
+  and it remains unaccepted after immutable D42 stopped at 4/27; the commit
+  containing the closed D43 revision becomes the next exact candidate
 - Exact predecessor `b3ad360...` and its D41 packet remain immutable and
   unaccepted
 - Released package identity: immutable `v0.1.2` at
@@ -20,13 +21,20 @@ Last updated: 2026-08-10
   5 files, each matching the `v0.1.2` Git blobs
 - Rollback identity: immutable `v0.1.1` retained as a separately verified
   three-package backup
-- Writer boundary: one bounded D42 closeout writer retains only the sanitized
-  result, mapped documentation corrections, final checks, native review, and
-  one local result commit. The window ends only when that commit exists and
-  tracked status is clean; then no repository writer remains and the next
-  product/evaluation choice is user-owned. Tracked controller/fixtures, other
-  Skills, push, installation, tag, release, stable update, retained-evidence
-  cleanup, and unlisted external effects remain excluded
+- Writer boundary: one bounded D43 Campaign writer owns the mapped Work Charter
+  SOURCE/evaluation/docs correction, deterministic checks, native review, one
+  local candidate commit, ignored-carrier qualification/canaries/evidence, and
+  conditional sanitized closeout plus one local result commit. D42 remains
+  immutable. Tracked controller/fixture expansion, other Skills, push,
+  installation, tag, release, stable update, retained-evidence cleanup, and
+  unlisted external effects remain excluded
+
+D43 has resolved D42's open product choice: indirect proposals are metadata-
+sufficient and must not prescribe Work Charter workflow; direct intent or
+same-context confirmation requires controller-observed exact body loading before
+activation or workflow reliance. Its qualification must close over exactly six
+named carrier PowerShell files with one receipt per file, cardinality six, no
+missing/extra/duplicate/zero-file set, empty stderr, and true exit zero.
 
 The `v0.1.2` tag remains fixed at the release-preparation commit. The later
 documentation commit records already-completed tag, stable-install, canary, and
@@ -872,7 +880,7 @@ created the fact class; it did not require or authorize speculative files.
 2. Read [Repository Status](STATUS.md), this handoff, and the relevant per-Skill
    State and Verification owners.
 3. Read Decisions 0017 and 0020, the capability-delta/Campaign Runbook and eval
-   owners, Decision 0018 through D42, and the current per-Skill State before
+   owners, Decision 0018 through D43, and the current per-Skill State before
    changing shared development or Work Charter selection claims.
 4. Resolve local `main`, HEAD, index, all dirty and ignored scopes, writer
    ownership, and the exact Work Charter SOURCE/candidate/controller bindings
@@ -887,29 +895,28 @@ created the fact class; it did not require or authorize speculative files.
    evidence descendant, and the generated stable/rollback copies distinct.
 7. Treat exact D42 candidate `f24bda7...` and sealed D42 as the latest complete
    immutable inputs. D31, D33/D35/D36/D40/D41/D42, and every consumed D37 turn
-   remain frozen. No successor SOURCE/eval or evidence packet is authorized;
-   stop on replay or reinterpretation, push, installation, cleanup, tag,
-   release, or another excluded effect.
+   remain frozen. Continue only the approved D43 SOURCE/candidate/ignored-
+   carrier/evidence/closeout sequence; stop on replay or reinterpretation,
+   scope expansion, push, installation, cleanup, tag, release, or another
+   excluded effect.
 
 ## Immediate Next Action
 
 No release action remains pending for immutable `v0.1.2`. Exact D42 candidate
-`f24bda7...` and its fresh packet are sealed, non-retriable, invalidly
-qualified, and unaccepted. The bounded closeout writer remains until the result
-commit exists and tracked status is clean. After that, the next user-owned
-decision must include a fail-closed qualification transport repair with exact
-expected-file coverage, correct the observed pre-activation workflow
-application, and choose whether proposal-time exact candidate-body loading
-remains a hard implicit-positive requirement or metadata-only applicability
-proposal is separated from confirmed activation. No SOURCE/eval revision, successor packet, push,
-installation, tag, release, stable update, or cleanup follows without new
-authorization.
+`f24bda7...` and its packet are sealed, non-retriable, invalidly qualified, and
+unaccepted. Continue the approved D43 sequence serially: finish mapped SOURCE/
+evaluation/docs closure and its local candidate commit; qualify a fresh ignored
+carrier against the exact six-file closed set; run three transport canaries;
+then, only if every zero-model prerequisite passes, consume one no-retry 27-
+cell packet plus one assessor and create the sanitized local result commit.
+Stop at the first material Campaign stop condition. Push, installation, tag,
+release, stable update, cleanup, tracked controller/fixture expansion, and
+other-Skill changes remain unauthorized.
 
 Later user-owned choices include:
 
-- decide D42's pre-activation workflow and proposal-time body-loading policy,
-  require positive parser coverage, and only then define any successor
-  candidate/evidence plan or public reachability;
+- after D43 closes or stops, decide any residual Work Charter correction,
+  candidate disposition, installation, release, or public reachability;
 - after an accepted Project Docs commit, authorize an exact-commit candidate
   and write-capable synthetic persistence test;
 - begin another separately scoped development or evaluation cycle;
@@ -947,18 +954,17 @@ Stop before write or publication if:
 D42's SOURCE/evaluation execution authority is consumed. Exact candidate
 `f24bda7...`, the three canary turns, six product turns, one assessor, and every
 carrier input/output remain immutable and non-retriable. The current bounded
-authorization permits only this sanitized result, its mapped existing
-documentation consumers, deterministic closeout checks, same-scope native-
-review corrections, and one local result commit. The closeout writer remains
-until that commit exists and tracked status is clean, then relinquishes.
+D43 authorization permits the mapped Work Charter SOURCE/evaluation/docs
+revision, deterministic checks, at most five completed native reviews per local
+commit attempt, one local candidate commit, one fresh ignored successor's
+zero-model qualification and three canaries, one conditional no-retry 27-cell
+packet with at most 39 behavior turns plus one assessor, sanitized closeout,
+and one local result commit.
 
-No SOURCE, case, fixture, tracked controller, another candidate or evidence
-packet, model/assessor turn, push, installation, tag, release, stable mutation,
-retained-evidence cleanup, or unlisted external effect is authorized. Any
-successor requires a new user-approved plan that repairs qualification with
-exact expected-file parser coverage, resolves the pre-activation workflow
-mismatch and proposal-time body-loading policy, and preserves D42 without
-replay or reinterpretation.
+No tracked controller or fixture expansion, other-Skill change, push,
+installation, tag, release, stable mutation, retained-evidence cleanup, or
+unlisted external effect is authorized. Stop for qualification uncertainty,
+product-contract change, native-review budget exhaustion, or scope expansion.
 
 The D42 result documentation-impact closure is fact-first. `UPDATE` covers the
 sanitized result/index, Work Charter bilingual public entry, per-Skill State/
@@ -970,6 +976,19 @@ Decision 0018, Design, cases, shared evaluation method, current-source manifest,
 `docs/PROVENANCE.md`, and neighboring Skills. `NOT_APPLICABLE` covers tracked
 controller/fixtures, installed/stable copies, release artifacts, and a new
 product contract or evidence packet.
+
+The D43 candidate documentation-impact closure is also fact-first. `UPDATE`
+covers Work Charter `SKILL.md`, Decision 0018, Design, State, Verification, the
+per-Skill bilingual README pair, selection and midstream cases, `evals/README.md`,
+the content-only current-SOURCE manifest, the root bilingual README pair, root
+Status, Verification, Index, Roadmap, and this Handoff. `CHECKED_NO_CHANGE`
+covers `AGENTS.md`, `agents/openai.yaml`, package references/assets, remaining
+cases, `docs/SPEC.md`, `docs/ARCHITECTURE.md`, `docs/AUTHORITY.md`,
+`docs/RUNBOOK.md`, `docs/PROVENANCE.md`, Decisions 0017 and 0020, and neighboring
+Skills. `NOT_APPLICABLE` covers a new tracked case, fixture, controller, package
+file, installed/stable copy, release artifact, or public lifecycle effect. The
+ignored D43 successor is evidence infrastructure inside the Campaign, not
+public SOURCE.
 
 The completed 2026-08-07 authorization covered only the six existing documentation
 owners named in the Snapshot, same-scope wording/routing corrections, and
