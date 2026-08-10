@@ -218,14 +218,15 @@ SOURCE by itself.
 
 ## Current Writer
 
-No persistent repository writer is authorized by this state. During preparation
-of the D41 closeout, one bounded writer owns only the sanitized result, its
-mapped existing documentation consumers, deterministic verification,
-same-scope native-review corrections, and one local result commit. That window
-ends with the commit. The Work Charter five-file package, cases, fixtures,
-controller, and every consumed D31-D41 event are frozen. Another model or
-assessor turn, a new packet, Skill SOURCE, push, installation, tag, release,
-stable-copy mutation, cleanup, cross-Skill product work, and budget expansion
+One bounded D42 Campaign writer owns the approved indirect-entry product
+correction, A05 policy-shape correction in the fresh private carrier, whole-
+matrix policy-schema preflight, mapped existing owners, deterministic checks,
+native review and same-scope fixes, one local exact-candidate commit, and—only
+after all zero-turn qualification plus three non-product canaries pass—one
+fresh no-retry 27-cell packet, one assessor, sanitized closeout, review, and one
+local result commit. D31-D41 and their ignored carriers remain immutable.
+Tracked controller/fixtures, other Skills, push, installation, tag, release,
+stable-copy mutation, retained-evidence cleanup, and unlisted external effects
 remain outside this authorization.
 
 ## Evidence State
@@ -655,6 +656,17 @@ controller stayed `CONTROLLER_UNKNOWN`. A05 is therefore neither a behavior
 pass nor a Work Charter defect. D41 is immutable, unaccepted, and not retried
 or rescored.
 
+D42 prospectively corrects both independent findings without changing trigger,
+project-read, adoption, role, write, Git, installation, or external-effect
+authority. An indirect positive must begin `Work Charter appears applicable
+because ...` and use no selection or activation heading. The fresh carrier must
+encode every cell policy as a non-empty per-turn list and, before any canary,
+model, assessor, or freeze activity, validate exact matrix keys, known policy
+modes, list cardinality against rendered prompt turns, and auxiliary-role
+policy topology. Current SOURCE manifest `a192540f...` records the modified
+five-file package. No D42 candidate or behavior evidence exists at this
+checkpoint.
+
 ## Next Gate
 
 Work Charter `v0.1.2` remains the released and installed stable revision.
@@ -663,14 +675,14 @@ freeze only; D33 and D35 are immutable infrastructure/controller
 `UNKNOWN_NOT_ASSESSED` records. D36 and D40 are incomplete product packets with
 independent `DECISION_REQUIRED`; neither transfers acceptance.
 
-The D34 package revision and its local commit are complete. D41 is the first
-fresh full-packet attempt for those exact bytes: it preserves D34's loading
-correction, adds one A04 visible-semantics finding, and exposes an independent
-A05 evaluation-policy shape defect. The next user-owned gate is whether to
-authorize a new product/evaluation revision and a separately fresh packet, or
-leave candidate `b3ad360...` unaccepted. D33, D35, D36, D40, and D41 may not be
-repaired, retried, rescored, or relabelled.
-Push, installation, release, stable update, and cleanup remain separate gates.
+The D34 package revision and its local commit are complete. D41 is the immutable
+first fresh full-packet attempt for those exact bytes. The approved D42 Campaign
+is now executing the bounded product/evaluation correction, deterministic
+verification, native review, and exact-candidate commit. Only a fully green
+zero-turn qualification and all three green non-product canaries permit its one
+fresh no-retry 27-cell packet and one assessor. D33, D35, D36, D40, and D41 may
+not be repaired, retried, rescored, or relabelled. Push, installation, release,
+stable update, and cleanup remain separate gates.
 
 ## Recovery Entry
 
@@ -680,7 +692,8 @@ Push, installation, release, stable update, and cleanup remain separate gates.
    [Decision 0018](../../decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md),
    this state, and [Verification](VERIFICATION.md).
 3. Confirm live workspace, writer, and action authority.
-4. Confirm live `main` includes exact D34 candidate commit `b3ad360...`, then
+4. Confirm live `main` includes exact D34 candidate commit `b3ad360...` and the
+   D41 closeout commit `efeb8d8...`, then
    resolve HEAD, index, any dirty scope, ignored carriers, and current writer
    instead of inferring them from an older handoff.
 5. Preserve the complete predecessor ledger, including the D31 mapping-
@@ -691,9 +704,10 @@ Push, installation, release, stable update, and cleanup remain separate gates.
    3/27-cell package-load/rubric mismatch terminal, and D41's 4/27 terminal with
    A04 product and A05 evaluation-infrastructure findings, without retry,
    overwrite, relabelling, rescore, or acceptance transfer.
-6. Treat D34 and D41 as complete immutable inputs. A product or evaluation-
-   infrastructure correction, another model/assessor turn, a fresh packet,
-   budget expansion, or any excluded external effect requires new authority.
+6. Treat D34 and D41 as complete immutable inputs. D42 supplies the currently
+   approved bounded correction and fresh-packet authority; stop on material
+   contract change, in-scope-unfixable qualification failure, native-review
+   budget exhaustion, or any excluded action.
 7. Read canonical SOURCE, current eval definitions, and only evidence matching
    the exact revision before changing behavior or claims.
 8. Preserve the independent-Skill and non-propagating-authorization boundary.

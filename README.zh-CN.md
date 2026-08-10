@@ -57,9 +57,11 @@ Work Charter 也接受“调用 Work Charter，判断项目应该怎样继续”
 请求；只有完整正文已经进入当前上下文后才能声称已经激活。原生隐式选择也可能在
 用户确认前读取精确 `SKILL.md`；这个 package read 只表示指令可用，不是用户可见的
 激活、采用、项目读取授权或行动授权。对于泛化的“根据已安装 Skills 判断”请求，或
-具体控制与恢复症状，首个回复只能说明 Work Charter 看起来适用、解释原因、提出最小
-项目读取范围并询问是否激活；不得把 selected、loaded、invoked、active 或 adopted
-状态表述为已获用户授权，也不得检查项目。用户确认且正文可用后才可声明激活；当前
+具体控制与恢复症状，首个回复必须以 `Work Charter appears applicable because ...`
+开头，随后解释原因、提出最小项目读取范围并询问是否激活；不得使用 selection 或
+activation 标题；确认前不得声称 Work Charter 已 selected、loaded、invoked、
+active 或 adopted，即使附带“仅为 Harness 状态”或“未获用户授权”的限定也不行；
+同时不得检查项目。用户确认且正文可用后才可声明激活；当前
 分支必需的 package references 可以加载，但项目检查仍需批准精确范围。正文不可用时
 停止激活；已批准的项目读取无法通过批准路径完成时，相关事实保持 `UNKNOWN`，其他
 路径必须作为新的 proposal。若 runtime 不暴露精确加载路径或 revision，该身份保留为

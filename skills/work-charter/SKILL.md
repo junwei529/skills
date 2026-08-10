@@ -1,6 +1,6 @@
 ---
 name: work-charter
-description: Bound consequential Codex work by outcome, authority, evidence, recovery, and proportional coordination. Use for `$work-charter`, direct intent, or clear continuity, authority, recovery, writer, or assessment symptoms. Native implicit selection may load `SKILL.md`; this is package availability, not activation, adoption, project-read, or action authority. On an indirect match, say only it appears applicable, explain why, propose activation and the smallest read, and ask for confirmation; do not present loaded or active state as user-authorized. Direct intent or confirmation plus the full body permits activation. Keep unexposed copy identity `UNKNOWN`; inspect only approved scope. Initial adoption and first Standard policy need approval. Exclude small work, new-task/one-failure/same-scope correction, size/duration-only, document/shell-only, and non-Codex-adaptation signals. Activation never authorizes roles, writes, project rules, worktrees, Git, installation, or external effects.
+description: Bound consequential Codex work by outcome, authority, evidence, recovery, and proportional coordination. Use for `$work-charter`, direct intent, or clear continuity, authority, recovery, writer, or assessment symptoms. Native implicit selection may load `SKILL.md`; package availability is not activation or authority. On an indirect match, begin `Work Charter appears applicable because ...`; never label it selected, loaded, invoked, active, adopted, or in force before confirmation. Explain why, propose activation and the smallest read, and ask for confirmation. Direct intent or confirmation plus the full body permits activation. Preserve unexposed copy identity as `UNKNOWN`; inspect only approved scope. Initial adoption and first Standard policy need approval. Exclude small/new-task/one-failure/same-scope correction, size/duration-only, document/shell-only, and non-Codex-adaptation signals. Activation never authorizes roles, writes, project rules, worktrees, Git, installation, or external effects.
 ---
 
 # Work Charter
@@ -19,10 +19,13 @@ Distinguish native package availability from user-visible activation:
   it.
 - An indirect installed-Skills request or symptom-only match is proposal-only.
   Native selection may already have loaded this `SKILL.md`; use that package
-  availability only to constrain the proposal. Say that Work Charter appears
-  applicable, explain why, propose the smallest project read, and ask whether
-  to activate it. Do not present selected, loaded, invoked, active, adopted, or
-  in-force state as user-authorized, and do not inspect the project.
+  availability only to constrain the proposal. Begin the first visible response
+  with `Work Charter appears applicable because ...`, explain why, propose the
+  smallest project read, and ask whether to activate it. Do not use a heading
+  or status label such as `Selected skill`. Before confirmation, do not say
+  Work Charter is selected, loaded, invoked, active, adopted, or in force, even
+  with a caveat about Harness state or user authorization. Do not inspect the
+  project.
 
 Native selection can load this `SKILL.md` without user authorization because it
 is the Harness instruction mechanism, not a project or action effect. Direct

@@ -35,12 +35,14 @@ effect authority.
 An indirect request to choose among installed Skills, or observable
 continuity, control, authorization, recovery, writer, or independent-
 assessment symptoms, creates only a user-visible proposal even if native
-selection has already loaded `SKILL.md`. The response says that Work Charter
-appears applicable, explains why, proposes the smallest bounded project read,
-and asks whether to activate it. It must not present selected, loaded, invoked,
-active, adopted, or in-force state as user-authorized and must not inspect
-project details. User wording such as "choose" or "what you selected" does not
-change that authority boundary.
+selection has already loaded `SKILL.md`. The first visible response begins
+`Work Charter appears applicable because ...`, explains why, proposes the
+smallest bounded project read, and asks whether to activate it. It must not use
+a selection/activation heading or say Work Charter is selected, loaded,
+invoked, active, adopted, or in force before confirmation, even with a caveat
+about Harness state or user authorization; it must not inspect project details.
+User wording such as "choose" or "what you selected" does not change that
+authority boundary.
 Ordinary bounded tasks, a new task, one failure, elapsed time, file count,
 document governance, and shell diagnosis remain non-triggers.
 

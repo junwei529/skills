@@ -64,10 +64,12 @@ available in the current context. Native implicit selection may also load the
 exact `SKILL.md` before the user confirms Work Charter. That package read is
 instruction availability, not user-visible activation, adoption, project-read
 authority, or action authority. For an indirect installed-Skills request or
-concrete control or recovery symptoms, the first response says only that Work
-Charter appears applicable, explains why, proposes the smallest project read,
-and asks whether to activate it. It does not present selected, loaded, invoked,
-active, or adopted state as user-authorized and does not inspect the project.
+concrete control or recovery symptoms, the first response begins `Work Charter
+appears applicable because ...`, explains why, proposes the smallest project
+read, and asks whether to activate it. It uses no selection or activation
+heading and does not say Work Charter is selected, loaded, invoked, active, or
+adopted before confirmation, even with a Harness or authorization caveat. It
+does not inspect the project.
 After confirmation, the available body plus confirmation permits activation;
 branch-required package references may load, while project inspection still
 requires approval for the exact scope. If the body is unavailable, activation

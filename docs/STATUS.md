@@ -9,7 +9,7 @@ Last updated: 2026-08-10
 | Tested package identity | all three package byte sets independently reached exact-commit RC readiness at `c42eef392a5b9f58bbee64aa73ffb603a6fb6c29` and were re-proved at tag/stable identity `v0.1.2` | [Verification](VERIFICATION.md) |
 | Stable release identity | immutable [`v0.1.2`](https://github.com/junwei529/skills/releases/tag/v0.1.2) at `ceed607152849775b981c54add74bfa30d858e4d`; exact tag, stable loaded-copy, and GitHub Release proof pass for all three Skills | [Verification](VERIFICATION.md) |
 | Project Docs | immutable `v0.1.2` remains the released explicit-only control; local commit `776989f...` implements accepted Decision 0019 but is unreleased, and its evidence is `PARTIAL` because actual candidate selection, loaded-copy identity, and persistent writes remain `UNKNOWN` | [State](skills/manage-project-docs/STATE.md) |
-| Work Charter | released `v0.1.2` remains active; exact D34 candidate `b3ad360...` is unaccepted; D41 completed A01-A04, exposed an A04 proposal-only semantics failure, and then sealed at A05 on an independent evaluation-policy shape defect | [State](skills/work-charter/STATE.md) |
+| Work Charter | released `v0.1.2` remains active; exact D34 candidate `b3ad360...` and immutable D41 remain unaccepted; approved D42 current SOURCE tightens the indirect visible proposal and adds whole-matrix policy-schema preflight, but has no candidate or behavior result yet | [State](skills/work-charter/STATE.md) |
 | PowerShell | released five-file `v0.1.2` stable copy; corrected loaded identity and guarded native/text diagnosis pass; live WSL remains unproved | [State](skills/use-powershell-safely/STATE.md) |
 | Release lifecycle | `v0.1.2` tag, stable update, tag-pinned canaries, and Latest GitHub Release complete; `v0.1.1` retained as rollback identity | [Runbook](RUNBOOK.md) |
 
@@ -93,6 +93,14 @@ project/Git read or action, but its one-turn authorization policy used an
 object where the adapter and runner require a list. The controller failed
 closed, D41 sealed at 4/27, and one assessor returned `DECISION_REQUIRED`.
 D41 is immutable, unaccepted, and not retried or rescored.
+
+The approved D42 Campaign prospectively corrects both independent findings.
+Indirect positive responses must begin `Work Charter appears applicable because
+...` and use no selection or activation heading. Before any D42 model,
+assessor, canary, or freeze activity, the complete authorization-policy matrix
+must pass schema and cardinality preflight. Current SOURCE manifest
+`a192540f...` records the changed five-file package; no exact D42 candidate,
+behavior acceptance, installation, or release claim exists yet.
 
 The exact post-commit documentation scope, writer state, and recovery order are
 owned by [Repository Handoff](HANDOFF.md).
@@ -279,14 +287,15 @@ decision.
 
 No release action remains pending for immutable `v0.1.2`. D34 is committed as
 exact candidate `b3ad360...`, and D41 is its immutable first fresh full-packet
-attempt. D41 preserves the native-load correction but records an A04 visible-
-semantics failure and a separate A05 evaluation-policy shape defect. After the
-authorized D41 result commit, the next user decision is whether to authorize a
-new product/evaluation revision plus a separately fresh packet, or leave the
-candidate unaccepted. D33, D35, D36, D40, and D41 cannot be retried or
-rescored. Push, installation, tag, release, stable update, and cleanup remain
-separate gates. Project Docs keeps its own candidate and persistence-evidence
-sequence.
+attempt. The authorized D42 Campaign now owns the bounded product/evaluation
+correction, deterministic verification, native review, one local exact-
+candidate commit, zero-turn qualification, three non-product canaries, and—only
+if all qualification gates pass—one fresh no-retry 27-cell packet and one
+assessor. D33, D35, D36, D40, and D41 cannot be retried or rescored. Stop on a
+material contract change, an in-scope-unfixable qualification failure, native-
+review budget exhaustion, or any excluded action. Push, installation, tag,
+release, stable update, and cleanup remain separate gates. Project Docs keeps
+its own candidate and persistence-evidence sequence.
 
 ## Known Repository Gaps
 

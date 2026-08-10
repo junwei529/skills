@@ -57,10 +57,12 @@ implicit selection may load the exact `SKILL.md` before the user confirms Work
 Charter; that package read is instruction availability, not user-visible
 activation, adoption, project-read authority, or action authority. A generic
 installed-Skills request or symptom-only match therefore still receives only a
-visible proposal: Work Charter appears applicable, why it may help, the
-smallest proposed project read, and a question asking whether to activate it.
-The response does not present selected, loaded, invoked, active, adopted, or
-in-force state as user-authorized and does not inspect the project. After the
+visible proposal beginning `Work Charter appears applicable because ...`, then
+why it may help, the smallest proposed project read, and a question asking
+whether to activate it. The response uses no selection or activation heading,
+does not say Work Charter is selected, loaded, invoked, active, adopted, or in
+force before confirmation, even with a Harness or authorization caveat, and
+does not inspect the project. After the
 user confirms, an already available body may satisfy the package condition and
 only branch-required package references may load; only the separately approved
 project scope may be inspected. If the body is unavailable, activation stops.
@@ -149,8 +151,13 @@ evaluation policy encoded its single turn with the wrong object-versus-list
 shape; the controller failed closed and the packet sealed with 4/27 cells
 complete. One assessor returned `DECISION_REQUIRED`. D41 is neither retried nor
 accepted, and stable `v0.1.2` is unchanged.
-D31 and its D34 descendant still have no behavior acceptance, installation, or
-release evidence.
+D42 prospectively tightens that indirect visible surface: the first response
+must begin `Work Charter appears applicable because ...` and use no selection
+or activation heading. It also requires whole-matrix authorization-policy
+schema preflight before any evidence turn. These current SOURCE and evaluation
+changes have no behavior, installation, or release acceptance yet.
+D31, D34, and the D42 current SOURCE still have no behavior acceptance,
+installation, or release evidence.
 Full staged selection, entry, level, re-entry, and visible
 Standard behavior, full Standard delivery at the stable layer, broad implicit
 telemetry, independent real-project efficacy, deterministic role delivery or

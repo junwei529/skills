@@ -2,10 +2,10 @@
 
 Date: 2026-08-02
 Amended: 2026-08-10
-Status: accepted design through WC-AR-D34; exact D31 candidate `07a9f1c...` remains unaccepted, the D40 packet is immutable under its frozen pre-D34 rubric, and no consumed execution is retried or rescored
+Status: accepted design through WC-AR-D42; exact D34 candidate `b3ad360...` remains unaccepted, D40/D41 are immutable under their frozen contracts, and no consumed execution is retried or rescored
 
-- Planning checkpoint: 22 (native package load and explicit activation boundary)
-- Last incorporated decision: `WC-AR-D34`
+- Planning checkpoint: 23 (indirect-entry visible response and matrix-policy shape)
+- Last incorporated decision: `WC-AR-D42`
 - Open decision IDs: none
 - Lifecycle authority: this Decision grants none; consult `docs/HANDOFF.md` for
   the live next gate
@@ -1322,6 +1322,42 @@ index, roadmap, and recovery-document changes plus deterministic offline checks.
 It authorizes no new case or fixture, model or assessor turn, candidate, native
 review, commit, push, installation, release, stable update, cleanup, or external
 effect.
+
+### WC-AR-D42 — Indirect Entry Has No Selection Status Label
+
+**Confirmed.** Exact D34 candidate `b3ad360...` reached A04 in fresh D41 with
+controller-observed native `SKILL.md` loading and no project or Git read. Its
+first visible response nevertheless used a `Selected skill` heading before the
+user approved activation. That is a product behavior failure under D34's
+proposal-only contract, although the observation does not isolate Skill text as
+the sole cause. D41 remains immutable and unaccepted.
+
+The narrow product correction makes the indirect first response operationally
+unambiguous: it begins `Work Charter appears applicable because ...`, explains
+the symptoms, proposes activation and the smallest project read, and asks for
+confirmation. It uses no selection or activation heading and does not label the
+Skill selected, loaded, invoked, active, adopted, or in force before
+confirmation. Native package loading remains allowed and grants no authority.
+Direct intent, confirmation, project-read, adoption, role, write, Git,
+installation, release, and external-effect boundaries do not change.
+
+D41 then consumed A05, whose visible response loaded only the candidate package
+and stayed at a bounded proposal. Its carrier encoded the single-turn
+authorization policy as an object rather than the per-turn array expected by
+both adapter and runner, so the controller failed closed. This is an evaluation-
+construction defect, not a Work Charter behavior pass or defect. A future
+matrix must validate every cell before any canary, freeze, product turn, or
+assessor turn: exact cell keys, non-empty arrays, object elements, known modes,
+and prompt-count equality. A shape failure stops at zero-turn qualification.
+
+The approved D42 Campaign may update the mapped existing Work Charter SOURCE,
+decision/design/evaluation/public/state/recovery owners and the content-only
+current-SOURCE manifest; run deterministic checks and native review; create one
+local exact-candidate commit; and, only after zero-turn qualification and three
+separately bounded transport canaries pass, run one fresh no-retry 27-cell
+packet plus one assessor and its sanitized local result closeout. It authorizes
+no repair, replay, rescore, or relabelling of D31-D41, and no push, installation,
+tag, release, stable update, retained-evidence cleanup, or external publication.
 
 ## Important Rejected Alternatives
 

@@ -369,8 +369,11 @@ initially surface metadata only. The direct ordinary-language prompt that names
 Work Charter must load the exact candidate. The indirect installed-Skills and
 symptom-only positives must also produce a controller-observed exact candidate
 `SKILL.md` load to count as native implicit selection, while their first
-responses remain proposal-only and perform no project, Git, external, or
-mutation action. A no-load proposal may support catalog applicability but not
+responses begin `Work Charter appears applicable because ...`, use no
+selection/activation heading, do not state a selected, loaded, invoked, active,
+adopted, or in-force Work Charter state even with a Harness/authorization
+caveat, remain proposal-only, and perform no project,
+Git, external, or mutation action. A no-load proposal may support catalog applicability but not
 selected-copy behavior. The installed-Skills follow-up confirmation permits
 user-visible activation and branch-required package-reference reads but still
 performs no project read. Ordinary and near-neighbor negatives keep the target
@@ -445,6 +448,16 @@ reads remain `CONTROLLER_UNKNOWN`. Read-only path listing, existence checks,
 and similar auxiliary observations may support reconciliation only under an
 explicit auxiliary root plus a command-linked unchanged inventory; they never
 satisfy a required file read or loaded-copy claim.
+
+Before any transport canary, product turn, assessor turn, or freeze for a
+matrix runner, validate the whole authorization-policy shape rather than only
+the next cell. The policy must have exactly the matrix cell keys; every
+`cells.<id>` value must be a non-empty JSON array; every array element must be
+an object with a known mode; and its element count must equal that cell's
+rendered prompt count. Validate auxiliary role policies against their declared
+topologies in the same zero-turn preflight. A scalar, object, string, missing
+cell, extra cell, or count mismatch is a qualification failure and must not be
+repaired after freeze or scarce-evidence consumption.
 
 For a one-shot bundle, freeze immutable candidate, control, fixture, and
 controller inputs at the declared consumption point. Between turns, recheck

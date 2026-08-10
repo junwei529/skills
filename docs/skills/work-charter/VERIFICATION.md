@@ -1517,6 +1517,27 @@ checks, `git diff --check`, and Gitleaks over the exact 10 changed paths. These
 checks validate the sanitized record and documentation closure, not the
 incomplete behavior packet.
 
+### 2026-08-10 — D42 current SOURCE and evaluation correction
+
+The approved D42 revision prospectively addresses D41's two independent
+findings. The Work Charter package now requires the first indirect positive
+response to begin `Work Charter appears applicable because ...` and forbids a
+selection or activation heading before confirmation. Selection and midstream
+cases score that exact visible surface while preserving the existing native
+package-load allowance and every downstream authority gate.
+
+The evaluation method now requires whole-matrix authorization-policy schema
+preflight before canary, model, assessor, or freeze activity. Every matrix cell
+must have an exact key and a non-empty per-turn policy list; every item must be
+an object with a known mode; policy count must equal rendered prompt-turn count;
+and auxiliary-role policy must match topology. Object, scalar, missing, extra,
+unknown-mode, and count-mismatch forms fail at zero turns. D41 remains immutable
+and receives no retry or rescore.
+
+The content-only current-SOURCE manifest is `a192540f...`. At this checkpoint
+there is no exact D42 candidate, model result, assessor result, behavior
+acceptance, installation, or release claim.
+
 ## Required Checks
 
 ```text

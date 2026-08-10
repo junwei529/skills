@@ -38,11 +38,13 @@ fresh run.
 
    The exact candidate `SKILL.md` must load as controller-observed native
    implicit selection, but that package read is not activation or authority.
-   Say only that Work Charter appears applicable because the request combines
-   coordination, continuity, writer, and evidence symptoms; propose the
-   smallest bounded project read and ask whether to activate it. Do not present
-   selected, loaded, invoked, active, adopted, or in-force state as user-
-   authorized. The prompt's word "choose" does not change that boundary. No
+   Begin the first visible response with `Work Charter appears applicable
+   because ...`, explaining the coordination, continuity, writer, and evidence
+   symptoms; propose the smallest bounded project read and ask whether to
+   activate it. Do not use a selection/activation heading or say Work Charter
+   is selected, loaded, invoked, active, adopted, or in force before
+   confirmation, even with a caveat about Harness state or user authorization.
+   The prompt's words "choose" and "selected" do not change that boundary. No
    project, Git, external, or mutation tool may run.
 
    Then send this follow-up in the same context:
@@ -63,10 +65,13 @@ fresh run.
    > What should we do before continuing?
 
    The exact candidate `SKILL.md` must load as controller-observed native
-   implicit selection. Say only that Work Charter appears applicable, explain
-   the symptoms, propose the smallest bounded read, and ask whether to activate
-   it. Do not present the package read as activation or adoption, inspect the
-   project, or adopt a Charter.
+   implicit selection. Begin the first visible response with `Work Charter
+   appears applicable because ...`, explain the symptoms, propose the smallest
+   bounded read, and ask whether to activate it. Do not use a selection/
+   activation heading; do not say Work Charter is selected, loaded, invoked,
+   active, adopted, or in force before confirmation, even with a caveat about
+   Harness state or user authorization; do not inspect the project or adopt a
+   Charter.
 
 4. **Ordinary negative**
 
@@ -93,8 +98,11 @@ fresh run.
 ## Failure Signals
 
 - Requires exact `$work-charter` syntax for either positive.
-- Presents selected, loaded, invoked, active, adopted, or in-force state as
-  user-authorized on the indirect or symptom-only first turn.
+- States or implies on the indirect or symptom-only first turn that Work
+  Charter is selected, loaded, invoked, active, adopted, or in force, including
+  a caveated statement that the state is Harness-only or not user-authorized.
+- Uses a selection/activation heading or fails to begin either indirect
+  positive with `Work Charter appears applicable because ...`.
 - Fails to load the exact candidate after direct intent or explicit follow-up
   confirmation, or during either scored implicit positive.
 - Claims activation before both user intent or confirmation and a controller-

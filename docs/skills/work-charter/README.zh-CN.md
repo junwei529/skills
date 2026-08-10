@@ -50,9 +50,11 @@ $work-charter 约束此项有后果的工作、权限、证据、恢复和最小
 `$work-charter` 语法。只有该意图与完整正文都存在时，Codex 才能声称已经激活。原生
 隐式选择可能在用户确认前读取精确 `SKILL.md`；这个 package read 只表示指令可用，
 不是用户可见的激活、采用、项目读取授权或行动授权。泛化的“根据已安装 Skills 判断”
-请求或仅由症状触发的匹配，仍只能得到可见 proposal：说明 Work Charter 看起来可能
-适用、原因、建议的最小项目读取范围，并询问是否激活。回复不得把 selected、loaded、
-invoked、active、adopted 或 in-force 状态表述为已获用户授权，也不得检查项目。用户
+请求或仅由症状触发的匹配，仍只能得到以
+`Work Charter appears applicable because ...` 开头的可见 proposal，随后说明原因、
+建议的最小项目读取范围，并询问是否激活。回复不得使用 selection 或 activation 标题，
+确认前不得声称 Work Charter 已 selected、loaded、invoked、active、adopted 或
+in force，即使附带“仅为 Harness 状态”或“未获用户授权”的限定也不行；同时不得检查项目。用户
 确认后，已经可用的正文可以满足 package 条件，只加载当前分支必需的 references；
 项目仍只能检查另行批准的范围。正文不可用时停止激活；已批准的项目读取无法通过批准
 路径完成时，相关事实保持 `UNKNOWN`，其他路径必须作为新的可见 proposal。若 runtime
@@ -120,8 +122,11 @@ candidate，没有读取项目或 Git，回复也保持 proposal-only，但冻�
 就称 Work Charter 已被 selected，违反 proposal-only 边界。A05 只提出有界激活建议，
 没有项目/Git 读取或动作，但评测 policy 把单轮合同写成了错误的 object 而不是 list；
 controller 因此 fail closed，packet 以 4/27 个 cell 完成而封存。一个 assessor 返回
-`DECISION_REQUIRED`。D41 不被重试或追认接受，stable `v0.1.2` 保持不变。D31 及其
-D34 后继仍无行为接受、安装或发布证据。
+`DECISION_REQUIRED`。D41 不被重试或追认接受，stable `v0.1.2` 保持不变。
+D42 对该间接可见表面作前瞻性收紧：首个回复必须以
+`Work Charter appears applicable because ...` 开头，且不得使用 selection 或
+activation 标题；同时，任何证据 turn 前都必须完成整个矩阵的 authorization-policy
+schema 预检。D31、D34 与 D42 当前 SOURCE 均仍无行为接受、安装或发布证据。
 完整分阶段 selection、entry、等级、
 重新接入和可见 Standard 行为，stable 层完整 Standard
 delivery、广泛隐式触发 telemetry、独立真实项目效果、确定性角色交付或 writer
