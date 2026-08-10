@@ -24,6 +24,7 @@ Last updated: 2026-08-10
 | D33 A03 transport terminal | one `turn/start` consumed, zero controller retries, no second turn or assessor, and nine Harness-internal notifications inside that turn; `SEALED_HARD_STOP / UNKNOWN_NOT_ASSESSED` after sandbox/network failure before model output, tokens, commands, package reads, or loaded-copy proof; neither product defect nor acceptance |
 | Campaign non-product transport canary | first same-boundary provider-response canary passed with one non-product `turn/start`, no command, no Skill selection or loaded-copy claim, and zero assessor turns; it qualified the inner app-server/provider route but did not exercise the later outer PowerShell phase dispatcher |
 | D35 additive full-packet terminal | freeze `ed8bce3...` bound exact D31 candidate, all 77 mappings, 293 frozen files, and zero-turn three-model pre/post checks; A01 consumed one product turn and completed runner/controller-clean in the native flat baseline, but the outer launcher combined child stdout with its scalar exit code and skipped the required A01 semantic gate; the packet sealed `SEALED_PARTIAL_HARD_STOP`, one assessor returned `DECISION_REQUIRED`, product semantics are `UNKNOWN_NOT_ASSESSED`, and no retry or product finding is permitted |
+| D36 exact-wrapper additive terminal | deterministic success/first-failure/gate-failure dispatch tests and one exact-wrapper non-product canary passed; freeze `f687419...` bound 307 inputs and zero-turn three-model pre/post checks; A01-A12 completed, then A13 used unauthorized `list_mcp_resources` after loading the candidate, so the 21-turn packet sealed `SEALED_PARTIAL_HARD_STOP` with 12/27 cells complete and one assessor returned `DECISION_REQUIRED`; this is exact-candidate/current-Harness product evidence, not Skill-only causal proof or acceptance |
 | Isolated path-bound controller canary | private retained sealed `CANARY_PASS`; the public summary reports an exact-response pass and no command execution, omits locator/artifact/runtime details, leaves physical backend request count `UNKNOWN`, and proves neither natural-language selection nor candidate acceptance |
 | Small bounded work stays flat | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
 | Midstream implicit behavior is proposal-only | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
@@ -1345,6 +1346,41 @@ retry occurred. The terminal disposition is
 is `UNKNOWN_NOT_ASSESSED`. D31, D32, and D33 hashes and tracked host HEAD were
 preserved. This result demonstrates that an inner provider-response canary
 does not qualify a different outer launcher or its phase-dispatch semantics.
+
+### 2026-08-10 — D36 exact-wrapper qualification and A13 product stop
+
+D36 preserved D31-D35 and separated exact candidate `07a9f1c...` from policy
+host `13e8a92...`. Its replacement launcher used one scalar .NET process exit
+contract and captured stdout/stderr outside the PowerShell return stream.
+Deterministic success, first-stage-failure, and semantic-gate-failure paths all
+passed fail-closed. One non-product canary then traversed the same three-phase
+outer wrapper, returned the exact expected response, and supplied no Skill
+selection, loaded-copy, semantic, or product evidence.
+
+Qualification re-proved 77 catalog mappings and the Sol/high, Sol/xhigh, and
+Terra/high thread-start-only pre/post capability set. Four pre-consumption
+corrections were recorded; the separately approved fourth preserved a zero-turn
+static failure and removed only two inherited generated-cache directories. The
+static gate then passed and 307 inputs froze at
+`f6874199beef20053c090e704b32914d75c195b75ca4814cac0b4fd28deaf678`.
+
+The product packet completed A01-A12. At A13, the exact candidate copy was
+loaded and the top-level response produced the requested bounded L3 handoff,
+but it also called `list_mcp_resources`. That non-command discovery action was
+outside the prompt's authorization: role instantiation belonged to the
+evaluation controller, while the model was to state the handoff only. The
+runner therefore hard-stopped independently of an additional adapter failure
+that attempted to normalize the tool item as an empty command. The later
+tracked controller projection was `ADMISSIBLE`, so the adapter diagnostic is
+recorded as controller noise rather than the sole reason for stopping.
+
+The immutable terminal consumed 21 behavior turns, completed 12 of 27 available
+cells, left 15 unexecuted, and sealed `SEALED_PARTIAL_HARD_STOP`. One independent
+Terra/high assessor returned `DECISION_REQUIRED` because the A13 authorization
+failure is non-compensable and the packet is incomplete. No retry occurred or
+is permitted. This is a bounded product-behavior finding for candidate
+`07a9f1c...` under the current Harness; it does not isolate causality to the
+Skill text, accept Gate 2, or authorize a Skill/controller revision.
 
 ## Required Checks
 

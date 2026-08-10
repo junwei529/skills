@@ -18,8 +18,8 @@ Last updated: 2026-08-10
 - Rollback identity: immutable `v0.1.1` retained as a separately verified
   three-package backup
 - Writer boundary: one bounded Campaign writer now owns only the approved
-  post-run D35 state/evidence synchronization, deterministic checks, native-
-  review fixes, and one local result commit. The pre-run commit, transport
+  post-run D36 state/evidence synchronization, deterministic checks, native-
+  review fixes, and one local result commit. The pre-run commit, exact-wrapper
   canary, additive packet, and assessor are complete. Push, installation, tag,
   release, stable update, cleanup, cross-Skill product work, and product
   correction are excluded
@@ -708,20 +708,39 @@ reads, loaded-copy proof, or semantic assessment. The immutable terminal is
 Harness-internal retryable transport notifications inside that turn. D33 is
 neither a product defect nor Gate 2 acceptance.
 
-The completed Campaign documentation-impact closure is:
+D35 later qualified its mappings and inner provider route but exposed a
+different outer-launcher return-stream defect after one product turn. It remains
+`UNKNOWN_NOT_ASSESSED`, sealed, and non-retriable. Additive D36 corrected and
+tested that exact wrapper before product consumption. Its non-product canary
+passed the same three-phase path, all 77 mappings and zero-turn pre/post model
+checks passed, and 307 inputs froze at `f687419...`.
 
-- `UPDATE`: `AGENTS.md`, `docs/RUNBOOK.md`, `evals/README.md`, Decisions 0018
-  and 0020, Work Charter `STATE.md`, `VERIFICATION.md`, and bilingual README
+D36 completed A01-A12 and consumed 21 behavior turns before A13 hard-stopped.
+The A13 top-level response loaded the candidate and stated the requested bounded
+handoff, but also called `list_mcp_resources`; role instantiation belonged to
+the evaluation controller, so this was an unauthorized non-command tool action.
+The runner's independent tool boundary is dispositive. A simultaneous adapter
+empty-command `CONTROLLER_UNKNOWN` is retained as controller noise, not used to
+erase or replace the product finding. The terminal sealed
+`SEALED_PARTIAL_HARD_STOP` with 12/27 cells complete and 15 unavailable by
+termination. One independent assessor returned `DECISION_REQUIRED`. D36 is
+immutable and non-retriable, and exact D31 candidate `07a9f1c...` remains
+unaccepted.
+
+The D36 result documentation-impact closure is:
+
+- `UPDATE`: Work Charter `STATE.md`, `VERIFICATION.md`, and bilingual README
   pair, plus root `STATUS.md`, `HANDOFF.md`, `VERIFICATION.md`, `INDEX.md`, and
   `ROADMAP.md`;
-- `CHECKED_NO_CHANGE`: Work Charter `DESIGN.md`, `docs/SPEC.md`,
-  `docs/ARCHITECTURE.md`, `docs/AUTHORITY.md`, `docs/PROVENANCE.md`, and the
-  root bilingual README pair; and
+- `CHECKED_NO_CHANGE`: `AGENTS.md`, `docs/RUNBOOK.md`, `evals/README.md`,
+  Decisions 0018 and 0020, Work Charter `DESIGN.md`,
+  `docs/SPEC.md`, `docs/ARCHITECTURE.md`, `docs/AUTHORITY.md`,
+  `docs/PROVENANCE.md`, and the root bilingual README pair; and
 - `NOT_APPLICABLE`: Skill SOURCE, cases, fixtures, tracked controller, installed
   or stable copies, release artifacts, neighboring Skill owners, and a tracked
   sanitized result file; the private ignored evidence remains outside source.
 
-The broad Campaign envelope permitted this mapped result update after D35
+The broad Campaign envelope permitted this mapped result update after D36
 created the fact class; it did not require or authorize speculative files.
 
 ## Resume Order
@@ -730,29 +749,32 @@ created the fact class; it did not require or authorize speculative files.
 2. Read [Repository Status](STATUS.md), this handoff, and the relevant per-Skill
    State and Verification owners.
 3. Read Decisions 0017 and 0020, the capability-delta/Campaign Runbook and eval
-   owners, Decision 0018 through D35, and the current per-Skill State before
+   owners, Decision 0018 through D36, and the current per-Skill State before
    changing shared development or Work Charter selection claims.
 4. Resolve local `main`, HEAD, index, all dirty and ignored scopes, writer
    ownership, and the exact Work Charter SOURCE/candidate/controller bindings
    rather than assuming this snapshot is still current.
 5. Preserve all predecessor windows, including the D31 mapping-defective A03,
    zero-turn D32 freeze `cd8c0e2...`, D33 transport terminal `39ffdea...`, and
-   D35 terminal freeze `ed8bce3...`, without retry, overwrite, relabelling,
-   rescore, or acceptance transfer.
+   D35 terminal freeze `ed8bce3...`, and D36 freeze `f687419...` plus A13
+   terminal, without retry, overwrite, relabelling, rescore, or acceptance
+   transfer.
 6. Keep `c42eef3...` RC behavior, `ceed607...` release identity, the later
    evidence descendant, and the generated stable/rollback copies distinct.
 7. Resume only post-run documentation, verification, native review, and the
-   authorized local result commit. The D31 package, D35 packet, and controller/
-   eval definitions are frozen. Stop on launcher repair, another packet,
+   authorized local result commit. The D31 package, D35/D36 packets, and
+   controller/eval definitions are frozen. Stop on Skill or controller repair,
+   another packet,
    product repair, replay or reinterpretation, budget expansion, push,
    installation, cleanup, tag, or release.
 
 ## Immediate Next Action
 
 No release action remains pending for immutable `v0.1.2`. Complete the current
-D35 result synchronization, deterministic checks, native review, and authorized
-local result commit. D35 is sealed and non-retriable. A corrected outer launcher
-and another additive packet require a new user-owned Campaign decision. Push,
+D36 result synchronization, deterministic checks, native review, and authorized
+local result commit. D36 is sealed and non-retriable. A Skill behavior revision,
+controller-adapter correction, or another additive packet requires a new user-
+owned Campaign decision. Push,
 installation, tag, release, stable update, and cleanup remain outside the
 current Campaign.
 
@@ -795,13 +817,14 @@ Stop before write or publication if:
 ## Authorization Boundary
 
 The current bounded Campaign authorization has completed its generic-method,
-pre-run commit, transport-canary, additive-packet, and assessor stages. Its
-remaining scope is limited to existing mapped D35 evidence-policy/state owners
+pre-run commit, exact-wrapper canary, D36 additive packet, and assessor stages.
+Its remaining scope is limited to existing mapped D36 evidence-policy/state owners
 and root consumers, deterministic verification, up to five native reviews for
 the local result-commit attempt, same-scope review fixes, and one local result
-commit. The Campaign does not authorize a corrected launcher, another packet,
-a Work Charter package, case, fixture, or tracked-controller change; product
-correction; replay or reinterpretation of D33 or D35; push; installation; tag;
+commit. The Campaign does not authorize a Skill or controller correction,
+another packet, a Work Charter package, case, fixture, or tracked-controller
+change; product correction; replay or reinterpretation of D33, D35, or D36;
+push; installation; tag;
 release; stable mutation; cleanup; or another Skill's product work.
 
 The completed 2026-08-07 authorization covered only the six existing documentation

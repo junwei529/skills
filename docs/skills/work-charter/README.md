@@ -127,8 +127,11 @@ model activity; D33 sealed one infrastructure `UNKNOWN` before model output or
 package loading. A later provider-response canary passed, but D35's different
 outer launcher skipped the required A01 semantic gate after one otherwise
 controller-clean native-baseline turn. D35 is sealed as a controller-
-orchestration `UNKNOWN_NOT_ASSESSED`; D31 still has no behavior acceptance,
-installation, or release evidence.
+orchestration `UNKNOWN_NOT_ASSESSED`. Additive D36 qualified that exact outer
+wrapper and completed A01-A12, but A13 called unauthorized
+`list_mcp_resources` after loading the candidate. The packet sealed with 12/27
+cells complete and its independent assessor returned `DECISION_REQUIRED`.
+D31 still has no behavior acceptance, installation, or release evidence.
 Full staged selection, entry, level, re-entry, and visible
 Standard behavior, full Standard delivery at the stable layer, broad implicit
 telemetry, independent real-project efficacy, deterministic role delivery or

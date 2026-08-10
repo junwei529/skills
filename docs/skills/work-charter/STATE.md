@@ -180,14 +180,36 @@ the required A01 semantic gate. D35 therefore sealed
 Product semantics remain `UNKNOWN_NOT_ASSESSED`, no Work Charter defect is
 claimed, and D35 is immutable and non-retriable.
 
+Additive D36 corrected and deterministically tested the outer PowerShell
+dispatcher before consumption, exercised that exact wrapper with one
+non-product canary turn, re-proved all 77 catalog mappings, passed zero-turn
+three-model prefreeze and postfreeze checks, and froze 307 inputs at
+`f687419...`. Four bounded pre-consumption correction rounds were used; the
+fourth was separately approved and removed only two proven inherited
+`__pycache__` directories after preserving the zero-turn static failure.
+
+D36 then completed A01-A12 and consumed 21 behavior turns before A13
+hard-stopped. The A13 candidate copy was loaded, but the top-level coordination
+flow called `list_mcp_resources` even though the prompt authorized only a
+bounded Planner/Executor handoff and delegated role instantiation to the
+evaluation controller. The runner independently treated this non-command tool
+action as unauthorized. An adapter empty-command normalization error also
+produced a `CONTROLLER_UNKNOWN` diagnostic, but it is redundant to the directly
+observed tool-boundary failure and does not turn the result into infrastructure-
+only `UNKNOWN`. The packet sealed `SEALED_PARTIAL_HARD_STOP`; 12 of 27 available
+cells completed, 15 remained unexecuted, and one independent assessor returned
+`DECISION_REQUIRED`. D36 is immutable and non-retriable. The finding is bounded
+to exact candidate `07a9f1c...` under the current Harness and does not establish
+Skill-only causality.
+
 ## Current Writer
 
-One bounded Campaign writer now owns only mapped D35 result synchronization,
+One bounded Campaign writer now owns only mapped D36 result synchronization,
 deterministic verification, same-scope native-review corrections, and the
 authorized local result commit. The writer relinquishes after that commit. The
 Work Charter five-file package, cases, fixtures, tracked controller, D31-D33,
-the passed transport canary, and sealed D35 packet are frozen. Another product
-packet, launcher correction for execution, push, installation, tag, release,
+the transport canaries, and sealed D35/D36 packets are frozen. A product or
+controller correction, another product packet, push, installation, tag, release,
 stable-copy mutation, cleanup, cross-Skill product work, and any budget
 expansion remain outside this Campaign.
 
@@ -571,14 +593,17 @@ bytes. No Git closeout is authorized.
 Work Charter `v0.1.2` remains the released and installed stable revision.
 Exact D31 candidate `07a9f1c...` remains unaccepted. D32 qualifies mapping and
 freeze only; D33 and D35 are immutable infrastructure/controller
-`UNKNOWN_NOT_ASSESSED` records, not product evidence.
+`UNKNOWN_NOT_ASSESSED` records. D36 is fresh product evidence but sealed
+incomplete with a non-compensable A13 tool-authorization failure and independent
+`DECISION_REQUIRED`.
 
-Synchronize this sealed result, complete deterministic checks and the second
-native-review cycle, and create the authorized local result commit. That closes
-the current Campaign. Gate 3 remains blocked until one complete exact-candidate
-packet receives independent `ACCEPTED`. Any corrected outer launcher and new
-additive packet require one new user-owned Campaign decision; D35 itself may
-not be repaired, retried, rescored, or relabelled. Push, installation, release,
+Synchronize this sealed result, complete deterministic checks and native review,
+and create the authorized local result commit. That closes the current Campaign.
+Gate 3 remains blocked until one complete exact-candidate packet receives
+independent `ACCEPTED`. Any Skill behavior revision, controller-adapter fix, or
+new additive packet requires one new user-owned Campaign decision; D33, D35,
+and D36 may not be repaired, retried, rescored, or relabelled. Push,
+installation, release,
 stable update, and cleanup remain separate user gates.
 
 ## Recovery Entry
@@ -594,11 +619,12 @@ stable update, and cleanup remain separate user gates.
    instead of inferring them from a run-root name or older handoff.
 5. Preserve the complete predecessor ledger, including the D31 mapping-
    defective A03, zero-turn D32 freeze `cd8c0e2...`, D33 transport terminal
-   `39ffdea...`, and D35 freeze `ed8bce3...` plus its one-turn controller-
-   orchestration terminal, without retry, overwrite, relabelling, rescore, or
-   acceptance transfer.
-6. Resume only the post-run evidence closeout and local result commit. A fixed
-   launcher, another product packet, budget expansion, or excluded external
+   `39ffdea...`, D35 freeze `ed8bce3...` plus its one-turn controller-
+   orchestration terminal, and D36 freeze `f687419...` plus its A13 product
+   terminal, without retry, overwrite, relabelling, rescore, or acceptance
+   transfer.
+6. Resume only the post-run evidence closeout and local result commit. A Skill
+   or controller correction, another product packet, budget expansion, or excluded external
    effect requires a new user decision.
 7. Read canonical SOURCE, current eval definitions, and only evidence matching
    the exact revision before changing behavior or claims.
