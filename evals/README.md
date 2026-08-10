@@ -114,6 +114,66 @@ moving working tree, an earlier unpinned run, or a later commit as the executed
 control. Native, exact-control, and exact-candidate evidence answer different
 questions and remain separately labelled.
 
+### Campaign Evidence Semantics
+
+For a bounded evaluation Campaign under
+[Decision 0020](../docs/decisions/0020-bounded-campaign-authorization-and-evidence-convergence.md),
+record these event classes separately:
+
+| Class | Purpose | May support Skill acceptance? |
+|---|---|---:|
+| Qualification action | Prove catalogs, mappings, fixtures, controller, identity, authority, and frozen inputs before product evidence | no |
+| Same-boundary transport canary | Prove the declared executable/auth/model-provider/network/sandbox/request route can complete a non-product response | no |
+| Product behavior turn | Exercise one frozen native, control, selection, or selected-behavior cell | yes, only for that exact cell and identity |
+| Independent assessor turn | Judge the complete admitted packet against the frozen rubric | yes, but it cannot repair missing evidence or override a hard boundary |
+
+A transport canary must be close enough to falsify the material transport path,
+but deliberately semantically separate from the product scenario. A successful
+catalog listing, capability response, `thread/start`, controller preflight, or
+local freeze is not responses-path proof. A successful canary proves neither
+Skill selection nor a loaded copy. A failed canary is infrastructure evidence
+and stops before candidate behavior is consumed.
+
+For each attempted product cell, record at least:
+
+- stable subject, exact candidate/control and carrier locator;
+- declared consumption event and observed `thread/start`, `turn/start`, and
+  assessor counts;
+- controller-initiated retries and second turns separately from Harness-
+  internal reconnect or retryable-transport notifications inside one turn;
+- primary failure origin such as product, controller, runner, sandbox,
+  permission, transport, or `UNKNOWN`;
+- semantic disposition such as pass, violation, unknown-not-assessed, or not
+  applicable; and
+- terminal sealing, continuation eligibility, and non-transfer limits.
+
+Failure origin and evidence disposition are independent axes. A controller may
+admit an unchanged inventory while the transport still yields no model output;
+that is not product evidence. Likewise, environment noise does not erase a
+separately observed product-boundary violation.
+
+Once the declared consumption point is crossed, preserve the event exactly.
+Do not retry, replace, rescore, or relabel it through a new task, carrier,
+successor, epoch, attempt, or candidate name. A new candidate gets a new
+identity but inherits the predecessor ledger and receives no behavior credit
+from it. Public reports use sanitized logical locators; private physical paths,
+task identifiers, prompts, completions, credentials, and raw runtime traces
+stay in their authorized private owner.
+
+A separately approved run against the same candidate is an additive
+replication packet, not a retry, only when it has a new frozen identity and
+budget, preserves an explicit predecessor binding, and leaves the earlier
+terminal record immutable. It may provide evidence for its own exact cells but
+cannot convert a predecessor infrastructure `UNKNOWN` into a pass or omit that
+predecessor from the cumulative ledger. One approved replication grants no
+general replay policy.
+
+After a cell-local transport or visibility gap, later cells may continue only
+when the Campaign declared them independent before consumption. Shared
+candidate, controller, authorization, safety, workspace/input, or provenance
+drift stops the full packet. Absence of a required reference cell blocks
+acceptance regardless of aggregate score or unaffected-cell results.
+
 ### Entry And Authority Boundary Matrix
 
 For every new Skill or material selection or behavior revision, mark each row

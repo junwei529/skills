@@ -120,10 +120,12 @@ returned `DECISION_REQUIRED`. Current SOURCE now narrows metadata wording and
 adds an unavailable-read stop. Exact local product candidate `53d424c...`
 records those bytes. Its fresh Gate 2 batch completed A01-A11 but sealed at
 A12 after a direct invocation requested separate authority to load the Skill
-package; the independent assessor returned `DECISION_REQUIRED`. D31 is the
-current uncommitted correction distinguishing activation-required package
-reads from the exact project-read scope. It has no exact candidate, behavior
-acceptance, installation, or release evidence.
+package; the independent assessor returned `DECISION_REQUIRED`. Exact local
+D31 candidate `07a9f1c...` distinguishes activation-required package reads from
+the exact project-read scope. D32 mapping/freeze qualification passed without
+model activity; D33 sealed one infrastructure `UNKNOWN` before model output or
+package loading. D31 has no behavior acceptance, installation, or release
+evidence.
 Full staged selection, entry, level, re-entry, and visible
 Standard behavior, full Standard delivery at the stable layer, broad implicit
 telemetry, independent real-project efficacy, deterministic role delivery or

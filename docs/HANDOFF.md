@@ -5,11 +5,9 @@ Last updated: 2026-08-10
 ## Snapshot
 
 - Repository: Agent Workflow Skills
-- Prior exact D30 product candidate: local commit
-  `53d424c814a83515830993da1cd7e1a4c61ff01e`, whose parent is pushed D29
-  controller/evaluation commit `8f00a55769123c8d03c1b7767ff94ec1144dce41`;
-  only `skills/work-charter/SKILL.md` changes inside the five-file package;
-  its fresh Gate 2 batch completed A01-A11 but sealed at A12 without acceptance
+- Current exact Work Charter product candidate: local commit
+  `07a9f1c436213a5c377610c9157b7c6a76c5d4c1`; its D31 five-file package is
+  frozen for the current Campaign and remains unaccepted at Gate 2
 - Released package identity: immutable `v0.1.2` at
   `ceed607152849775b981c54add74bfa30d858e4d`
 - GitHub Release:
@@ -19,12 +17,13 @@ Last updated: 2026-08-10
   5 files, each matching the `v0.1.2` Git blobs
 - Rollback identity: immutable `v0.1.1` retained as a separately verified
   three-package backup
-- Writer boundary: one D31 writer owns the 18 existing files listed below for
-  the approved SOURCE, existing A12 regression, current-SOURCE manifest, and
-  mapped documentation correction. Deterministic checks, native review, and
-  clear same-scope fixes are in scope. Commit, push, candidate materialization,
-  another model or assessor turn, installation, tag, release, stable-copy or
-  ignored-evidence mutation, cleanup, and cross-Skill work are not authorized
+- Writer boundary: one bounded Campaign writer owns the approved generic-method
+  and D32/D33 state/evidence synchronization, deterministic checks, native-
+  review fixes, one local pre-run commit, up to three materially different
+  same-boundary non-product transport canaries, one additive full Gate 2 packet
+  after canary success, one assessor, mapped result synchronization, and one
+  local result commit. Push, installation, tag, release, stable update,
+  cleanup, cross-Skill product work, and product correction are excluded
 
 The `v0.1.2` tag remains fixed at the release-preparation commit. The later
 documentation commit records already-completed tag, stable-install, canary, and
@@ -635,7 +634,7 @@ controller files, root bilingual README pair, Work Charter `DESIGN.md`,
 Candidate materialization, fresh behavior/results, installation, release, and
 cleanup consumers are `NOT_APPLICABLE` to this state-only synchronization.
 
-## D30 A12 Terminal And D31 Working-Tree Correction
+## D30 A12 Through D33 Infrastructure Terminal
 
 One fresh complete Gate 2 successor for exact D30 candidate `53d424c...`
 completed A01-A11 and then sealed `SEALED_PARTIAL_HARD_STOP` at A12. A12
@@ -646,7 +645,7 @@ commands were closed. The independent assessor returned `DECISION_REQUIRED`.
 All 17 behavior turns and the assessor turn are immutable; no completed cell
 transfers to a future candidate.
 
-D31 makes the minimal product correction: direct intent or confirmation
+D31 made the minimal product correction: direct intent or confirmation
 authorizes loading the full Skill and only branch-required package references;
 an exact project-read limit applies to project/evidence sources rather than
 those package instructions. The coordination/recovery reference now makes the
@@ -654,7 +653,7 @@ same timing explicit before its project/evidence steps. Package loading grants
 no project-read or action authority, and the indirect metadata-only proposal
 remains unchanged.
 
-The D31 existing-file `UPDATE` envelope is:
+The completed D31 existing-file `UPDATE` envelope was:
 
 - `skills/work-charter/SKILL.md`;
 - `skills/work-charter/references/coordination-and-recovery.md`;
@@ -683,54 +682,87 @@ Skill owners are `CHECKED_NO_CHANGE` or `NOT_APPLICABLE`. No file, case,
 fixture, lane, role, permission, package component, or acceptance boundary is
 added.
 
-Current deterministic checks pass: all three Skill validators; repository
+The D31 commit-attempt deterministic checks passed: all three Skill validators; repository
 checker at 199 text files / 14 cases / 12 fixtures; controller 11/11 historical,
 32/32 evidence-surface, 33/33 negative, 4/4 metamorphic, and 3/3 package-
 manifest hash guards; all 17 fixture checks; eight-file parser sweep; strict
 five-file package byte audit; both Git whitespace checks; and a pre-commit
-Gitleaks scan of the 18-file tracked diff with zero findings. Native review 1/5
-found one P1 timing conflict in the existing coordination/recovery reference;
-the same-scope correction is applied, and final-byte review remains required
-before commit.
+Gitleaks scan of the 18-file tracked diff with zero findings. Native review
+found and corrected one P1 timing conflict in the existing coordination/
+recovery reference. Final reviewed bytes were committed as exact local
+candidate `07a9f1c436213a5c377610c9157b7c6a76c5d4c1`.
+
+The first D31 full-matrix carrier later exposed a qualification defect: all 75
+candidate/control discovery mappings were absent although the static gate
+passed. Its consumed A03 remains `HARD_STOP / UNKNOWN`; it is not a Work Charter
+finding and is not retried or rescored. Additive zero-turn D32 corrected that
+gate, passed all 77 mapping rows including 75 exact Junction targets, froze
+1,083 files at `cd8c0e2...`, and preserved D31 plus the clean repository with
+no model activity.
+
+D33 bound exact candidate `07a9f1c...` and one newly frozen A03 at
+`39ffdea...` to D32. Its sole authorized turn failed at
+`SANDBOX_NETWORK_TRANSPORT` before model output, tokens, commands, package
+reads, loaded-copy proof, or semantic assessment. The immutable terminal is
+`SEALED_HARD_STOP / UNKNOWN_NOT_ASSESSED`: one `thread/start`, one
+`turn/start`, zero controller retries, no second turn, no assessor, and nine
+Harness-internal retryable transport notifications inside that turn. D33 is
+neither a product defect nor Gate 2 acceptance.
+
+The pre-run Campaign documentation-impact closure is:
+
+- `UPDATE`: `AGENTS.md`, `docs/RUNBOOK.md`, `evals/README.md`, Decisions 0018
+  and 0020, Work Charter `STATE.md`, `VERIFICATION.md`, and bilingual README
+  pair, plus root `STATUS.md`, `HANDOFF.md`, `VERIFICATION.md`, `INDEX.md`, and
+  `ROADMAP.md`;
+- `CHECKED_NO_CHANGE`: Work Charter `DESIGN.md`, `docs/SPEC.md`,
+  `docs/ARCHITECTURE.md`, `docs/AUTHORITY.md`, `docs/PROVENANCE.md`, and the
+  root bilingual README pair; and
+- `NOT_APPLICABLE`: Skill SOURCE, cases, fixtures, tracked controller, installed
+  or stable copies, release artifacts, neighboring Skill owners, and a
+  sanitized result file before new product evidence exists.
+
+The broad Campaign envelope permits a later mapped result update after new
+evidence, but it does not require or authorize speculative files before their
+fact class exists.
 
 ## Resume Order
 
 1. Read `AGENTS.md`, `docs/INDEX.md`, and `docs/AUTHORITY.md`.
 2. Read [Repository Status](STATUS.md), this handoff, and the relevant per-Skill
    State and Verification owners.
-3. Read Decision 0017, Decision 0019, the capability-delta Runbook/eval owners,
-   Decision 0018 through D31, and the current per-Skill State before changing shared
+3. Read Decisions 0017 and 0020, the capability-delta/Campaign Runbook and eval
+   owners, Decision 0018 through D33, and the current per-Skill State before changing shared
    development or Work Charter selection claims.
 4. Resolve local `main`, HEAD, index, all dirty and ignored scopes, writer
    ownership, and the exact Work Charter SOURCE/candidate/controller bindings
    rather than assuming this snapshot is still current.
-5. Preserve all ten `b965102...` behavior windows, both zero-turn qualification
-   records, and the separate sealed `53d424c...` Gate 2 window without retry,
-   relabelling, rescore, or acceptance transfer.
+5. Preserve all predecessor windows, including the D31 mapping-defective A03,
+   zero-turn D32 freeze `cd8c0e2...`, and D33 transport terminal `39ffdea...`,
+   without retry, overwrite, relabelling, rescore, or acceptance transfer.
 6. Keep `c42eef3...` RC behavior, `ceed607...` release identity, the later
    evidence descendant, and the generated stable/rollback copies distinct.
-7. The active D31 authority ends after the 18-file correction, checks, native
-   review, and clear same-scope fixes. Stop for explicit commit authority before
-   candidate construction, model/assessor activity, push, installation,
-   cleanup, tag, or release.
+7. Resume only the active Campaign stage. The D31 package and controller/eval
+   definitions are frozen. Stop on product repair, replay or reinterpretation,
+   budget expansion, push, installation, cleanup, tag, or release.
 
 ## Immediate Next Action
 
-No release action remains pending for immutable `v0.1.2`. Once the D31
-18-file correction, deterministic verification, and final-byte native review
-are complete, stop for explicit commit authority. Only a later exact commit can
-become the next candidate. That candidate must start a fresh Gate 2 batch at
-A01 and preserve
-the complete sealed `53d424c...` record without reusing A01-A11 behavior.
-Project Docs, commit, push, candidate materialization, model or assessor turns,
-installation, tag, release, stable copy, and cleanup remain outside the current
-window.
+No release action remains pending for immutable `v0.1.2`. Complete the current
+generic-method and D32/D33 documentation/evidence-policy diff, deterministic
+checks, and native review, then create the authorized local pre-run commit.
+Run up to three materially different same-boundary non-product transport
+canaries. On the first success, construct one independently frozen additive
+Gate 2 packet for exact candidate `07a9f1c...`, capped at 39 product
+`turn/start` events and one assessor. On a product failure, seal and report;
+do not repair SOURCE. Then synchronize mapped evidence owners, review the final
+diff, and create the authorized local result commit. Push, installation, tag,
+release, stable update, and cleanup remain outside the Campaign.
 
 Later user-owned choices include:
 
-- decide whether to authorize one D31 commit, then separately decide public
-  reachability, exact candidate materialization, and a fresh Gate 2 batch from
-  A01 without retrying or transferring any consumed predecessor event;
+- after Campaign closeout, decide public reachability and any later install,
+  tag, release, stable-update, or cleanup action;
 - after an accepted Project Docs commit, authorize an exact-commit candidate
   and write-capable synthetic persistence test;
 - begin another separately scoped development or evaluation cycle;
@@ -747,12 +779,12 @@ Stop before write or publication if:
 
 - live local/public identity, worktree, dirty scope, or writer ownership differs
   from the expected state;
-- a future action treats the earlier state sync, local integration, or sealed
-  D30 batch as authority beyond the explicit D31 envelope;
+- a future action treats a prior state sync, sealed predecessor, or Campaign
+  approval as authority beyond its exact envelope;
 - any named sealed evidence input changes length or SHA-256;
-- a future action uses the sealed D30 window or current correction to add a
-  file, new case, fixture, controller behavior, result, product contract,
-  permission, side effect, or new consumer beyond the D31 envelope;
+- a future action uses D32/D33 or the Campaign to change the frozen product,
+  case, fixture, controller behavior, contract, permission, or acceptance
+  boundary;
 - correction history or consumed evidence would be reset through a new task,
   root, epoch, attempt, or candidate label;
 - a root summary would duplicate or contradict a per-Skill canonical owner;
@@ -765,15 +797,18 @@ Stop before write or publication if:
 
 ## Authorization Boundary
 
-The current D31 authorization covers exactly the 18 existing files listed in
-the D31 section, deterministic verification, native review, and clear same-
-scope finding correction. It permits one active writer to change the Work
-Charter SOURCE, existing A12 regression, content-only current-SOURCE manifest,
-and mapped product/evidence/public-state consumers. It adds no file, case,
-fixture, lane, role, permission, package component, or acceptance boundary.
-It does not authorize commit, push, candidate materialization, a fresh behavior
-model or assessor turn, installation, release, stable or ignored-evidence
-mutation, cleanup, or another Skill.
+The current bounded Campaign authorization covers the generic process files,
+existing Work Charter evidence-policy/state owners and mapped root consumers,
+deterministic verification, up to five native reviews for each of two local
+commit attempts, one local pre-run commit, and one local result commit. After
+pre-run closeout it permits up to three materially different same-boundary
+non-product transport canaries. The first success may open one additive full
+Gate 2 packet for the frozen exact D31 candidate, capped at 39 product
+`turn/start` events plus one independent assessor. Same-scope ignored carriers,
+freezes, seals, and result synchronization are included. The Campaign does not
+authorize a Work Charter package, case, fixture, or tracked-controller change;
+product correction; replay or reinterpretation of D33; push; installation;
+tag; release; stable mutation; cleanup; or another Skill's product work.
 
 The completed 2026-08-07 authorization covered only the six existing documentation
 owners named in the Snapshot, same-scope wording/routing corrections, and

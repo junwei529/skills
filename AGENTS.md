@@ -115,6 +115,15 @@ Before changing this repository, read:
 
 ## Verification And Git
 
+- For consequential, interruption-prone, or one-shot Skill development and
+  evaluation, prefer one bounded Campaign authorization that names the stable
+  subject, tranches, budgets, external effects, consumption points, automatic
+  transitions, and material stop conditions. Within that approved envelope,
+  continue same-scope reversible qualification, deterministic verification,
+  evidence, assessment, and closeout without asking for command-by-command
+  approval. A new carrier or label never resets history; contract, candidate,
+  permission, cost, workspace, consumed-evidence, installation, release, or
+  cleanup changes return to the user as one complete decision.
 - Run the skill validator for every changed skill.
 - Check for unresolved scaffolding markers, broken local links, encoding
   problems, and publication-unsafe traces.

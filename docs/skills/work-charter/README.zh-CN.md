@@ -101,8 +101,10 @@ A10 则在 Git 读取失败后扩大了批准读取范围；后者同时暴露 r
 metadata 措辞并加入 unavailable-read 停止规则；精确本地 product candidate
 `53d424c...` 已记录这些字节。其 fresh Gate 2 batch 完成 A01-A11 后在 A12 封存，
 原因是直接调用仍要求另行授权加载 Skill package；独立 assessor 返回
-`DECISION_REQUIRED`。D31 是当前未提交修订，明确区分激活所需 package reads 与精确
-项目读取范围；它尚无 exact candidate、行为接受、安装或发布证据。
+`DECISION_REQUIRED`。精确本地 D31 candidate `07a9f1c...` 明确区分激活所需
+package reads 与精确项目读取范围。D32 mapping/freeze qualification 在无模型活动下
+通过；D33 在模型输出或 package loading 前封存为基础设施 `UNKNOWN`。D31 尚无行为
+接受、安装或发布证据。
 完整分阶段 selection、entry、等级、
 重新接入和可见 Standard 行为，stable 层完整 Standard
 delivery、广泛隐式触发 telemetry、独立真实项目效果、确定性角色交付或 writer

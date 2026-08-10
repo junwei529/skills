@@ -147,16 +147,38 @@ The existing no-owner entry variant adds one same-context missing-
 workspace under the same execution identity as model commands and qualify a
 normal read-only Git status before consumption.
 
+D31 was reviewed and committed as exact local candidate
+`07a9f1c436213a5c377610c9157b7c6a76c5d4c1`; its five-file package is the
+current `v0.2.0` product subject. A later full-matrix carrier exposed a
+pre-behavior mapping-qualification defect: 75 candidate/control mappings were
+absent although the old static gate passed. That consumed A03 remains
+`HARD_STOP / UNKNOWN` and supplies no product finding. Zero-turn D32 corrected
+the qualification boundary, proved all 77 rows including 75 exact Junction
+targets, froze 1,083 files at `cd8c0e2...`, and preserved the candidate and
+tracked repository without a model call.
+
+D33 then bound one newly frozen A03 window to D32 and consumed one authorized
+turn. The sandbox/network responses route failed before any model output,
+token usage, command, Work Charter package read, loaded-copy proof, or semantic
+assessment. D33 is sealed `SEALED_HARD_STOP / UNKNOWN_NOT_ASSESSED`; its one
+`turn/start`, zero controller retries, zero second turns, zero assessor turns,
+and nine Harness-internal transport notifications are immutable. It is neither
+a Work Charter defect nor Gate 2 acceptance. Under the approved bounded
+Campaign, any next Gate 2 run is an additive replication packet after a
+same-boundary non-product transport canary, not a retry or replacement of D33.
+
 ## Current Writer
 
-One D31 writer owns the 18 existing files listed in the repository handoff:
-the Work Charter `SKILL.md`, current-SOURCE manifest, existing A12 case and
-evaluation contract, Decision 0018, mapped design/state/evidence/public-entry
-owners, and repository state consumers. The user authorized this material
-SOURCE/eval/documentation correction plus deterministic checks and same-scope
-fixes. Commit, push, candidate materialization, another model or assessor
-turn, installation, tag, release, stable-copy mutation, ignored-evidence
-mutation, cleanup, and cross-Skill work remain outside this window.
+One bounded Campaign writer owns only the approved generic-method and Work
+Charter D32/D33 state/evidence synchronization, deterministic verification,
+native-review corrections, one local pre-run commit, up to three materially
+different same-boundary non-product transport canaries, one additive full
+Gate 2 replication packet after canary success, one independent assessor,
+mapped result synchronization, and one local result commit. The Work Charter
+five-file package and existing cases, fixtures, and controller are frozen.
+Push, installation, tag, release, stable-copy mutation, cleanup, cross-Skill
+product work, product correction after a failed cell, and any budget expansion
+remain outside this Campaign.
 
 ## Evidence State
 
@@ -535,23 +557,23 @@ bytes. No Git closeout is authorized.
 
 ## Next Gate
 
-Work Charter `v0.1.2` remains the released and installed stable revision, and
-prior candidate `b965102...` remains unaccepted. Exact D30 candidate
-`53d424c...` also remains unaccepted: its fresh Gate 2 successor completed
-A01-A11 but sealed at A12 on the direct package-load/project-read distinction,
-and its assessor returned `DECISION_REQUIRED`.
+Work Charter `v0.1.2` remains the released and installed stable revision.
+Exact D31 candidate `07a9f1c...` remains unaccepted. D32 qualifies mapping and
+freeze only; D33 is an immutable infrastructure `UNKNOWN`, not product
+evidence.
 
-Finish the D31 SOURCE, existing A12 regression, mapped documentation, current-
-SOURCE manifest, and native review. Current deterministic checks pass. Native
-review 1/5 found one P1 package-reference timing conflict; its same-scope fix
-is applied and requires final-byte review. Then stop for explicit commit
-authority. A commit is required before any exact successor
-candidate can be built. A later exact candidate must start a fresh Gate 2 batch
-at A01, preserve the complete `53d424c...` terminal record, and receive no
-behavior credit from its A01-A11 cells. Candidate materialization, model and
-assessor turns, push, installation, release, stable update, and cleanup remain
-separate gates. Gate 3 stays blocked until one complete exact-candidate batch
-receives independent `ACCEPTED`.
+Complete the approved documentation/evidence-policy diff, deterministic
+checks, and native review, then create the authorized local pre-run commit.
+Next run up to three same-boundary non-product transport canaries, stopping on
+success or exhausted risk-reducing alternatives. Only a successful canary
+opens one independently frozen additive full Gate 2 packet for the same exact
+candidate, capped at 39 product `turn/start` events plus one independent
+assessor. Seal and report any product failure without repairing SOURCE. After
+terminal evidence, synchronize mapped owners, complete the second review
+cycle, and create the authorized local result commit. Push, installation,
+release, stable update, and cleanup remain separate user gates. Gate 3 remains
+blocked until one complete exact-candidate packet receives independent
+`ACCEPTED`.
 
 ## Recovery Entry
 
@@ -561,17 +583,17 @@ receives independent `ACCEPTED`.
    [Decision 0018](../../decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md),
    this state, and [Verification](VERIFICATION.md).
 3. Confirm live workspace, writer, and action authority.
-4. Confirm live `main` includes exact D30 candidate `53d424c...`, then resolve
-   HEAD, index, the exact D31 dirty scope, and current writer instead of
-   inferring them from a run-root name or older handoff.
-5. Distinguish all ten sealed behavior windows and both zero-turn qualification
-   records for prior candidate `b965102...` from the sealed D30-candidate Gate 2
-   window. Preserve every terminal, cell, and assessor consumption event
-   without retry, relabelling, rescore, or acceptance transfer.
-6. If resuming D31 implementation, verify the exact 18-file envelope, complete
-   checks and native review, and stop at the user-owned commit decision. Only
-   an exact later commit may enter separately authorized candidate
-   materialization and a fresh Gate 2 batch from A01.
+4. Confirm live `main` includes exact D31 candidate `07a9f1c...`, then resolve
+   HEAD, index, the Campaign dirty scope, ignored carriers, and current writer
+   instead of inferring them from a run-root name or older handoff.
+5. Preserve the complete predecessor ledger, including the D31 mapping-
+   defective A03, zero-turn D32 freeze `cd8c0e2...`, and D33 transport terminal
+   `39ffdea...`, without retry, overwrite, relabelling, rescore, or acceptance
+   transfer.
+6. Resume only the currently authorized Campaign stage: pre-run documentation
+   closeout; same-boundary transport qualification; one additive Gate 2 packet
+   plus assessor; or post-run evidence closeout. Stop on a product correction,
+   budget expansion, or excluded external effect.
 7. Read canonical SOURCE, current eval definitions, and only evidence matching
    the exact revision before changing behavior or claims.
 8. Preserve the independent-Skill and non-propagating-authorization boundary.

@@ -2,15 +2,16 @@
 
 Date: 2026-08-02
 Amended: 2026-08-10
-Status: accepted design through WC-AR-D31; exact D30 candidate `53d424c...` remains unaccepted after a sealed A12 hard stop, and every consumed execution remains non-retriable
+Status: accepted design through WC-AR-D33; exact D31 candidate `07a9f1c...` remains unaccepted after mapping qualification and one infrastructure-blocked A03 window, and every consumed execution remains immutable
 
-- Planning checkpoint: 19 (direct activation package-load boundary)
-- Last incorporated decision: `WC-AR-D31`
+- Planning checkpoint: 21 (mapping qualification and additive replication boundary)
+- Last incorporated decision: `WC-AR-D33`
 - Open decision IDs: none
 - Lifecycle authority: this Decision grants none; consult `docs/HANDOFF.md` for
   the live next gate
 - Checkpoint reason: completed product-design decision set plus the accepted
-  direct/indirect entry and package-load/project-read corrections
+  direct/indirect entry, package-load/project-read, mapping-qualification, and
+  evidence-replication boundaries
 
 ## Status And Evidence Boundary
 
@@ -1176,6 +1177,48 @@ authorization failure, a future exact candidate starts a new Gate 2 batch at
 A01. None of the predecessor's completed A01-A11 behavior transfers as
 acceptance evidence. This decision does not authorize commit, candidate
 materialization, model or assessor turns, installation, release, or Gate 3.
+
+### WC-AR-D32 — Exact D31 Candidate And Mapping Qualification
+
+**Confirmed.** Reviewed D31 SOURCE and its mapped contract were committed as
+exact local candidate `07a9f1c436213a5c377610c9157b7c6a76c5d4c1`. The
+earlier full-matrix carrier did not qualify product behavior: all 75
+candidate/control discovery mappings were absent even though its static gate
+passed. Its consumed A03 therefore remains a controller/carrier qualification
+failure with product semantics `UNKNOWN`; it is not rescored or retried.
+
+The additive zero-turn D32 qualification corrected that specific gate without
+changing Work Charter SOURCE. It requires all 77 mapping rows to be structurally
+complete: two native rows have no mapping root, and all 75 candidate/control
+rows exist as Junctions whose normalized targets equal their expected catalogs.
+D32 passed those counts, froze 1,083 files at
+`cd8c0e255345cbea64e25aaa23fd4cd9c797f247bc45f7eedbe2b9bd02bb66d7`,
+preserved D31 and the tracked repository, and recorded zero `thread/start` and
+zero `turn/start` events. This is qualification evidence only; it proves no
+selection, loaded copy, semantic behavior, or Gate 2 acceptance.
+
+### WC-AR-D33 — Infrastructure Stop And Additive Replication Boundary
+
+**Confirmed.** One separately frozen A03 window bound exact candidate
+`07a9f1c...` to the D32 freeze and consumed one authorized `turn/start`. The
+responses path failed at the sandbox/network transport boundary before any
+model output, token usage, command, candidate `SKILL.md` read, loaded-copy
+proof, or semantic assessment. The carrier sealed `SEALED_HARD_STOP` with
+`UNKNOWN_NOT_ASSESSED`; no second turn, controller retry, or assessor ran.
+Nine Harness-internal retryable transport notifications occurred inside the
+single submitted turn and do not change its consumption count. The D33 freeze
+at `39ffdea02994c0f9ab44077b15e8a5f5f2b46c6760a8c3a93401aa884432b7a4`
+and its terminal remain immutable.
+
+D33 establishes neither a product defect nor acceptance. A later evaluation
+against the same exact candidate is permitted only as an independently frozen,
+additive replication packet after a materially same-boundary non-product
+transport canary succeeds. The replication receives its own budget and
+identity, cites D32 and D33, and cannot overwrite, replace, relabel, or turn
+D33's infrastructure `UNKNOWN` into a pass. This Decision records the evidence
+treatment; the live bounded Campaign owns the exact calls, costs, Git actions,
+and stop conditions and grants no push, installation, release, stable update,
+or cleanup authority.
 
 ## Important Rejected Alternatives
 

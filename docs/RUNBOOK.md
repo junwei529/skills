@@ -1,6 +1,6 @@
 # Development, Installation, And Release Runbook
 
-Last updated: 2026-08-07
+Last updated: 2026-08-10
 
 ## Quick Navigation
 
@@ -10,6 +10,7 @@ Last updated: 2026-08-07
 | RUN-DISTRIBUTION | v0.1 distribution | Select the public source, version, and Skill path |
 | RUN-PREFLIGHT | Preflight | Confirm source, Git, discovery, and authorization state |
 | RUN-DELTA | Capability-delta intake | Decide whether a Skill residual should exist or change |
+| RUN-CAMPAIGN | Bounded Campaign | Authorize and converge a consequential development or evaluation sequence |
 | RUN-DOCS | Documentation impact closure | Close mapped owners and consumers before review |
 | RUN-DEV | Development loop | Edit and forward-test a working revision |
 | RUN-OPT | External optimizer experiment | Isolate an authorized suggestion-only optimization run |
@@ -308,6 +309,122 @@ command used that wrapper. `thread/shellCommand` runs outside the thread
 sandbox, so it can qualify wrapper formation only; keep sandbox and action-
 authority evidence separate. Never relax the controller merely because the
 Harness emitted a profile-enabled wrapper or a read command failed.
+
+## Bounded Campaign Authorization
+
+Use a Campaign only when a Skill-development or evaluation sequence is
+consequential, interruption-prone, one-shot, cost-bearing, or likely to cross
+several coupled evidence gates. Keep routine source edits, documentation work,
+and ordinary deterministic checks flat. Decision
+[0020](decisions/0020-bounded-campaign-authorization-and-evidence-convergence.md)
+owns the accepted rationale.
+
+### Declare The Complete Envelope Once
+
+Before the first Campaign mutation or external effect, present one declaration
+that contains:
+
+1. **Stable subject** — one logical work subject, exact candidate/control
+   identities as currently known, and the predecessor ledger that remains
+   applicable.
+2. **Outcome and acceptance** — the exact gate being pursued, required cells or
+   artifacts, independent hard boundaries, and what remains `UNKNOWN`.
+3. **Tranches** — the ordered `qualification`, `evidence`, `assessment`, and
+   `closeout` work that may run automatically after one approval.
+4. **Authority** — allowed reads, canonical and ignored writes, model/provider
+   calls, cost ceiling, sandbox/network route, Git actions, installation,
+   publication, release, and cleanup. Mark every unneeded category excluded.
+5. **Consumption** — the event that consumes each scarce authorization, exact
+   turn and assessor budgets, retry policy, cell-local continuation policy, and
+   automatic terminal seal.
+6. **Convergence** — qualification-correction, native-review, and time budgets;
+   the risk-reduction statement required before a repeat; and material stop
+   conditions.
+7. **Closeout** — mapped canonical owners, checks, assessment route, permitted
+   commit or downstream effect, recovery record, and final result destination.
+
+An explicit approval of this complete declaration authorizes every listed
+action and conditional transition. Do not ask again for an individual command,
+ignored carrier, same-scope qualification correction, deterministic rerun,
+predeclared evidence cell, authorized assessor, or named closeout step. Do not
+infer an unlisted permission from the Campaign or from approval for another
+Skill.
+
+### Qualification Tranche
+
+Qualification may create or update only the declared task-owned ignored
+carrier, isolate candidate/control/native catalogs, construct synthetic
+workspaces, establish a private test home, validate mappings, run deterministic
+controllers, reconcile predecessor evidence, and freeze inputs. It consumes no
+product-behavior cell.
+
+Before relying on a live model/provider route, run one explicitly authorized
+same-boundary transport canary. Match every material transport dimension:
+
+- exact executable family and materially relevant version;
+- process-local home, authentication mode, and model/provider endpoint;
+- sandbox, network, escalation, and approval route;
+- login-shell and other execution-affecting configuration; and
+- request protocol through the point where a response can complete.
+
+`skills/list`, a capability response, `thread/start`, successful local setup,
+or controller acceptance does not qualify the responses route. When completing
+the route requires a model call, budget one non-product call in the Campaign.
+Use a synthetic prompt and keep its result out of Skill selection, loaded-copy,
+semantic, and acceptance scoring. If the canary fails, seal its infrastructure
+result and stop before candidate evidence.
+
+Run at most three pre-consumption qualification correction rounds for one
+stable subject unless the Campaign declares a smaller limit. Before every
+repeat, write one sentence naming the uncertainty removed or risk reduced. Do
+not repeat an unchanged action against unchanged relevant state. Exhaustion or
+a required permission, route, cost, workspace, or contract change produces one
+`DECISION_REQUIRED` packet rather than another renamed carrier.
+
+### Evidence And Assessment Tranches
+
+After qualification passes, recheck the frozen identity and named mutable
+surfaces, then consume only the predeclared cells and turn budgets. Seal every
+consumed cell automatically. Record Harness-internal reconnect notifications
+inside a submitted turn separately from controller retries and additional
+`turn/start` events.
+
+Continue after a cell-local transport or visibility failure only when the
+Campaign predeclares the remaining cells as independent. Stop the whole
+Campaign for candidate, controller, authorization, safety, shared workspace or
+input, or provenance drift. A missing required reference cell blocks
+acceptance even when other independent cells continue.
+
+Trigger the authorized independent assessment automatically only after at
+least one product-behavior cell is admitted and the required product packet
+completes or reaches a terminal seal. A qualification-only or transport-canary-
+only stop skips assessment and records zero assessor turns / `NOT_APPLICABLE`.
+Assessment consumes only its declared budget and cannot retry, replace,
+rescore, or relabel an immutable cell.
+
+### Closeout And Recovery
+
+Run the declared documentation-impact closure, checks, native review, and
+same-scope finding corrections without additional approval. Create a commit
+only when the Campaign explicitly includes the exact Git closeout category.
+Push, public candidate visibility, installation, tag, release, stable update,
+and cleanup remain excluded unless their targets and rollback are declared.
+
+Maintain one cumulative ledger keyed by the stable subject. A task, run root,
+carrier, successor, epoch, attempt, or candidate label is a locator and never
+resets earlier qualifications, corrections, consumption, review findings, or
+decisions. A changed candidate receives a new evidence identity while retaining
+its predecessor ledger and non-transfer rules.
+
+Stop for one complete user decision only when product semantics, acceptance,
+permission, cost, workspace, external effects, evidence treatment, budget, or
+release/cleanup disposition changes materially. The decision packet states:
+
+- what completed and what did not happen;
+- the cumulative evidence and consumption state;
+- the exact new uncertainty or risk that further work would reduce;
+- the proposed changed envelope and its user-visible effect; and
+- one recommended choice plus the principal alternative.
 
 ## Documentation Impact Closure
 

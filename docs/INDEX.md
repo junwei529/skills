@@ -16,7 +16,7 @@ Last updated: 2026-08-10
 | [`docs/ROADMAP.md`](ROADMAP.md) | Planned milestones | active |
 | [`docs/STATUS.md`](STATUS.md) | Current verified progress | active |
 | [`docs/HANDOFF.md`](HANDOFF.md) | Recovery entry point | active |
-| [`docs/RUNBOOK.md`](RUNBOOK.md) | Capability-delta intake, optional optimizer experiment, development, discovery, installation, candidate, and release procedure | active |
+| [`docs/RUNBOOK.md`](RUNBOOK.md) | Capability-delta intake, bounded Campaign authorization, optional optimizer experiment, development, discovery, installation, candidate, and release procedure | active |
 | [`docs/VERIFICATION.md`](VERIFICATION.md) | Checks, evidence, and claim ledger | active |
 | [`docs/PROVENANCE.md`](PROVENANCE.md) | Source transformation, external reference/data handling, and publication boundary | active |
 
@@ -53,8 +53,9 @@ mirror.
 | [`docs/decisions/0015-federated-repository-documentation.md`](decisions/0015-federated-repository-documentation.md) | Root/per-Skill documentation ownership, bilingual public entries, and unchanged installable-package boundary | accepted |
 | [`docs/decisions/0016-work-charter-authority-assessment-and-evidence-integrity.md`](decisions/0016-work-charter-authority-assessment-and-evidence-integrity.md) | Work Charter authority finality, assessment recording, evidence invalidation, delivery degradation, and advisory writer recovery | accepted |
 | [`docs/decisions/0017-capability-delta-skill-development.md`](decisions/0017-capability-delta-skill-development.md) | Prospective capability-delta design, layer placement, matched evaluation, and upgrade/retirement rule for Skill development | accepted |
-| [`docs/decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md`](decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md) | Work Charter two-stage natural-language entry, proportional protection levels, durable re-entry, task convergence, evaluation, workspace, and lifecycle gates | accepted through D31; exact D30 candidate `53d424c...` remains unaccepted after a sealed A12 hard stop, while D31 is the current uncommitted package-load/project-read correction; see the Work Charter State and Verification ledgers |
+| [`docs/decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md`](decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md) | Work Charter two-stage natural-language entry, proportional protection levels, durable re-entry, task convergence, evaluation, workspace, and lifecycle gates | accepted through D33; exact D31 candidate `07a9f1c...` remains unaccepted after zero-turn D32 qualification and the immutable D33 infrastructure `UNKNOWN`; see the Work Charter State and Verification ledgers |
 | [`docs/decisions/0019-project-docs-implicit-discovery-and-demand-driven-modules.md`](decisions/0019-project-docs-implicit-discovery-and-demand-driven-modules.md) | Project Docs implicit discovery, proposal/write boundary, demand-driven modules, update modes, and persistent routing | accepted; current implementation is an unreleased working-tree revision; see Project Docs State |
+| [`docs/decisions/0020-bounded-campaign-authorization-and-evidence-convergence.md`](decisions/0020-bounded-campaign-authorization-and-evidence-convergence.md) | One bounded authorization for qualification, evidence, assessment, and closeout with same-boundary transport qualification and cumulative convergence | accepted |
 
 ## Skill Sources
 
@@ -84,6 +85,10 @@ mirror.
   [`docs/SPEC.md`](SPEC.md) → [`docs/ARCHITECTURE.md`](ARCHITECTURE.md) →
   [`docs/RUNBOOK.md`](RUNBOOK.md#capability-delta-intake) →
   [`evals/README.md`](../evals/README.md).
+- Run a consequential or one-shot Skill evaluation:
+  [`Decision 0020`](decisions/0020-bounded-campaign-authorization-and-evidence-convergence.md) →
+  [`docs/RUNBOOK.md`](RUNBOOK.md#bounded-campaign-authorization) →
+  [`evals/README.md`](../evals/README.md#campaign-evidence-semantics).
 - Evaluate an external Skill optimizer:
   [`Decision 0017`](decisions/0017-capability-delta-skill-development.md#external-frameworks-and-optimizers) →
   [`docs/RUNBOOK.md`](RUNBOOK.md#external-optimizer-experiment) →

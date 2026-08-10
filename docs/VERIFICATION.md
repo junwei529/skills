@@ -19,16 +19,17 @@ Sanitized detailed runs remain under [`evals/results`](../evals/results/README.m
 
 | Check | Purpose | Current result |
 |---|---|---|
-| Three Skill validators | Validate frontmatter and package names without changing packages | pass for the current D31 working-tree Work Charter revision and the unchanged Project Docs and PowerShell packages |
-| Repository checker | Validate strict UTF-8/no BOM, whitespace, local links/fragments, publication safety, exact Skill/eval sets, federated docs, and bilingual navigation | current D31 working tree passes at 199 text files / 14 cases / 12 fixtures |
-| Fixture checker | Validate synthetic starting states and their Git/reparse/ignored-result boundaries plus the tracked controller regression | current D31 working tree passes all 17 checks, including recovery-integrity and separate current-SOURCE identity |
-| Codex evidence controller | Validate one shared core across four entry modes, strict required-read versus bounded auxiliary-observation attribution, structural PowerShell/Git/path classification, source-and-generated-contract-bound historical regressions, exact package manifests, candidate-identity and content-proof shape, record cardinality, completed exit typing, output-array shape, per-key single-capture sealed parsing and reuse, real-reparse rejection, fail-closed negatives, external-input types, independently resolved inner/wrapper command identity, Git-read and external-filter safety, profile-free PowerShell wrappers, culture-independent canonical ordering, metamorphic equivalence, output no-clobber, and canonical repeatability | current D31 SOURCE qualification passes 11/11 historical, 32/32 evidence-surface, 33/33 negative, 4/4 metamorphic, 3/3 package-manifest hash guards, and every reported structural guard with no failures; immutable historical candidate manifests stay separate from the updated content-only current-SOURCE manifest, which intentionally carries no candidate SHA, Git tree, behavior, or acceptance claim |
+| Three Skill validators | Validate frontmatter and package names without changing packages | pass for all three packages with exact D31 candidate unchanged by the documentation-only Campaign sync |
+| Repository checker | Validate strict UTF-8/no BOM, whitespace, local links/fragments, publication safety, exact Skill/eval sets, federated docs, and bilingual navigation | current pre-run Campaign diff passes at 200 text files / 14 cases / 12 fixtures |
+| Fixture checker | Validate synthetic starting states and their Git/reparse/ignored-result boundaries plus the tracked controller regression | D31 candidate passed all 17 checks; no fixture/controller bytes changed in the current Campaign documentation diff |
+| Codex evidence controller | Validate one shared core across four entry modes, strict required-read versus bounded auxiliary-observation attribution, structural PowerShell/Git/path classification, source-and-generated-contract-bound historical regressions, exact package manifests, candidate-identity and content-proof shape, record cardinality, completed exit typing, output-array shape, per-key single-capture sealed parsing and reuse, real-reparse rejection, fail-closed negatives, external-input types, independently resolved inner/wrapper command identity, Git-read and external-filter safety, profile-free PowerShell wrappers, culture-independent canonical ordering, metamorphic equivalence, output no-clobber, and canonical repeatability | exact D31 candidate qualification passed 11/11 historical, 32/32 evidence-surface, 33/33 negative, 4/4 metamorphic, 3/3 package-manifest hash guards, and every reported structural guard; no controller bytes changed in the current Campaign documentation diff |
+| CRG supplemental preflight | Sharpen structural review scope when the maintained index represents the intended diff | degraded for this commit attempt: the index was built at `763a15e...`, does not match current HEAD `07a9f1c...`, and indexes only PowerShell/Python rather than the 14 changed Markdown/rule files; it reported no code flow or test gap and is not relied on for coverage |
 | Isolated controller canary | Record the bounded disposition of one private path-bound infrastructure check without broadening behavior claims | retained sealed `CANARY_PASS`; the public summary reports an exact-response pass and no command execution, omits private locator/artifact/runtime details, and leaves physical backend request count `UNKNOWN` |
 | PowerShell deterministic hardening | Validate cardinality, LF bytes, one-base paths, and Junction link-only removal | 15 assertions pass in PowerShell 7 and Windows PowerShell 5.1 |
-| PowerShell parser sweep | Parse all `evals/**/*.ps1` files and the tracked controller module | all eight files parse for the current D31 working tree |
+| PowerShell parser sweep | Parse all `evals/**/*.ps1` files and the tracked controller module | all eight files parsed for exact D31 candidate; no PowerShell/controller bytes changed in the current Campaign documentation diff |
 | Markdown navigation and ownership | Verify local links/fragments, English/Chinese routes, expected per-Skill owners, and no orphan canonical owner | pass through repository checker |
 | `git diff --check` and cached diff check | Reject whitespace defects in unstaged or staged candidates | both pass; the cached check makes no empty-index claim |
-| Gitleaks | Detect secret-like content independently | `gitleaks git --pre-commit` scans the current 18-file tracked diff with zero findings; ignored Gate 2 artifacts remain outside this scan |
+| Gitleaks | Detect secret-like content independently | `gitleaks git --staged` scanned the 14-file pre-run Campaign diff (~44.6 KB) with zero findings; ignored Gate 2 artifacts remain outside this scan |
 
 ## Repository Claim Ledger
 
@@ -1203,7 +1204,7 @@ changes only nine existing documentation consumers and does not alter that
 candidate's Skill, eval, or controller bytes or provide fresh behavior,
 installation, or release evidence.
 
-### 2026-08-10 — Work Charter D30 A12 terminal and D31 working revision
+### 2026-08-10 — Work Charter D30 A12 terminal and D31 exact candidate
 
 One fresh complete Gate 2 successor bound exact D30 candidate `53d424c...`.
 After a zero-turn deterministic reconciliation corrected an A01 semantic-gate
@@ -1216,7 +1217,7 @@ sealed `SEALED_PARTIAL_HARD_STOP` after 17 behavior turns, and one independent
 assessor turn returned `DECISION_REQUIRED`. This is a non-compensable product
 behavior failure, not controller or runner noise, and the record is immutable.
 
-D31 is the current working-tree correction. It distinguishes Skill-package
+D31 distinguishes Skill-package
 loading required by direct or confirmed activation from the separately scoped
 project/evidence read. Package loading grants no broader read or action
 authority, and indirect metadata-only proposal behavior remains unchanged. The
@@ -1226,10 +1227,37 @@ The existing recovery-integrity Charter-revision case and content-only current-
 SOURCE manifest change with the Skill; no case, fixture, lane, role,
 permission, package component, or acceptance boundary is added.
 
-This working revision has no exact candidate identity, model or assessor pass,
-Gate 2 acceptance, installation, release, or Gate 3 authority. After an
-authorized commit, any new candidate must restart Gate 2 at A01 without reusing
-the sealed D30 batch's A01-A11 behavior.
+These bytes were committed as exact local D31 candidate `07a9f1c...`. The
+commit supplies no model or assessor pass, Gate 2 acceptance, installation,
+release, or Gate 3 authority and reuses no behavior from the sealed D30 batch.
+
+### 2026-08-10 — Work Charter D32 qualification and D33 transport terminal
+
+The first D31 full-matrix carrier lacked all 75 candidate/control discovery
+mappings although its old static gate passed. Its consumed A03 is preserved as
+a controller/carrier qualification failure with product semantics `UNKNOWN`.
+It was not rescored or retried.
+
+Zero-turn D32 added the missing qualification proof without changing tracked
+SOURCE. It passed 77 mapping rows, including two native rows with no mapping
+root and 75 candidate/control Junctions with exact normalized targets; froze
+1,083 files at `cd8c0e2...`; preserved D31 and the clean tracked repository;
+and recorded no `thread/start`, `turn/start`, or model authorization.
+
+D33 bound exact candidate `07a9f1c...` and freeze `39ffdea...` to D32. Its one
+authorized A03 `turn/start` failed at the sandbox/network transport boundary
+before model output, token usage, commands, package reads, loaded-copy proof,
+or semantic assessment. The immutable terminal is
+`SEALED_HARD_STOP / UNKNOWN_NOT_ASSESSED`, with zero controller retries, no
+second turn, no assessor, and nine Harness-internal notifications inside the
+single turn. This is neither a product defect nor acceptance.
+
+The current approved Campaign first closes the generic and Work Charter
+evidence-policy documentation, then permits up to three materially different
+same-boundary non-product transport canaries. A success may open one
+independently frozen additive Gate 2 packet plus one assessor. D33 remains in
+the cumulative ledger and cannot be overwritten, replaced, or converted into a
+pass. Push, installation, tag, release, stable update, and cleanup are excluded.
 
 ### 2026-08-02 — Capability-delta decision and workflow
 

@@ -7,7 +7,7 @@ Last updated: 2026-08-10
 | Claim | Status |
 |---|---|
 | `work-charter` is the sole current five-file package | verified structurally for current SOURCE |
-| Gate 1 protection, re-entry, convergence, and two-stage lazy-entry contract | implemented at exact `72db7e9...`; its sealed fixed-turn Standard probe is `VIOLATION`; later `b965102...` evidence remains unaccepted; exact D30 product candidate `53d424c...` also remains unaccepted after a fresh batch sealed at A12, and D31 is an uncommitted prospective correction |
+| Gate 1 protection, re-entry, convergence, and two-stage lazy-entry contract | implemented through exact D31 candidate `07a9f1c...`; prior candidate windows remain immutable, and D31 remains unaccepted at Gate 2 |
 | Gate 1 evaluation definitions | 14 exact cases and 12 exact fixtures remain the intended repository shape; one existing selection context adds a confirmation turn and one existing entry context adds a missing-read sentinel without a new fresh run or matrix lane |
 | First `v0.2.0` exact candidate Gate 2 | `206c497...` stopped incomplete and is superseded for acceptance; its completed correction and consumed events remain historical |
 | Successor `v0.2.0` exact candidate Gate 2 | `92a8c045...` passed qualification and consumed A01-A04; A04 hard-stopped on an unproved selected/loaded claim, so no candidate acceptance or later cell exists |
@@ -19,6 +19,9 @@ Last updated: 2026-08-10
 | Exact `b965102...` Gate 2 successor-8 terminal | bound controller `8f00a557...`, consumed 13 turns, completed nine of 27 cells, and hard-stopped at A10; A04 made a selected-state claim from metadata before full-body loading, A10 broadened its approved read after a failed Git route, the runner also exposed different-OS-owner qualification noise, and the independent assessor returned `DECISION_REQUIRED`; the window is the tenth sealed behavior execution and is neither acceptance nor retriable |
 | Exact `53d424c...` D30 product candidate | only package `SKILL.md` changes: metadata-only indirect entry may say only "appears applicable" and cannot claim selected, loaded, invoked, or active; an unavailable approved read preserves `UNKNOWN` and stops without adjacent inspection; one fresh Gate 2 batch completed A01-A11 but sealed at A12, so no behavior acceptance, installation, or release evidence exists |
 | Exact `53d424c...` Gate 2 A12 terminal | the fresh batch completed A01-A11, consumed two A12 turns, sealed `SEALED_PARTIAL_HARD_STOP`, and received `DECISION_REQUIRED`; the first A12 response incorrectly requested separate authority to load the directly invoked Skill package, while the second loaded the body and coordination reference after commands were closed; the result is immutable and supplies no acceptance transfer to D31 |
+| Exact `07a9f1c...` D31 product candidate | reviewed five-file package and mapped contract are committed locally; no package byte changes in D32/D33 or the current Campaign documentation diff; no Gate 2 acceptance, installation, or release evidence exists |
+| D32 mapping and freeze qualification | zero-turn `PASS`: 77 mapping rows, two absent native roots, 75 existing Junctions with exact normalized targets, 1,083 frozen files, freeze `cd8c0e2...`, D31 and tracked repository preserved; qualification only |
+| D33 A03 transport terminal | one `turn/start` consumed, zero controller retries, no second turn or assessor, and nine Harness-internal notifications inside that turn; `SEALED_HARD_STOP / UNKNOWN_NOT_ASSESSED` after sandbox/network failure before model output, tokens, commands, package reads, or loaded-copy proof; neither product defect nor acceptance |
 | Isolated path-bound controller canary | private retained sealed `CANARY_PASS`; the public summary reports an exact-response pass and no command execution, omits locator/artifact/runtime details, leaves physical backend request count `UNKNOWN`, and proves neither natural-language selection nor candidate acceptance |
 | Small bounded work stays flat | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
 | Midstream implicit behavior is proposal-only | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
@@ -1252,12 +1255,11 @@ first while retaining bounded approval for the project/evidence steps below.
 
 The existing recovery-integrity Charter-revision variant is strengthened as
 the regression; no case, fixture, matrix lane, role, permission, or package
-file is added. The editable current-SOURCE manifest is updated without changing
-either historical candidate manifest. This is working-tree SOURCE, evaluation,
-and documentation evidence only. It is not an exact candidate, model behavior
-pass, acceptance, installation, release, or Gate 3 authority. A future exact
-candidate must restart Gate 2 at A01 and receives no behavior credit from the
-sealed D30 batch.
+file is added. The editable current-SOURCE manifest was updated without
+changing either historical candidate manifest. These bytes were later
+committed as exact local D31 candidate `07a9f1c...`. The commit supplies no
+model behavior pass, acceptance, installation, release, or Gate 3 authority.
+D31 receives no behavior credit from the sealed D30 batch.
 
 Current offline checks pass: all three Skill validators; repository checker at
 199 text files / 14 cases / 12 fixtures; controller 11/11 historical, 32/32
@@ -1266,7 +1268,40 @@ hash guards with no failures; all 17 fixture checks; eight-file PowerShell
 parser sweep; strict five-file UTF-8/no-BOM/LF/final-newline/non-reparse audit;
 both Git whitespace checks; and a pre-commit Gitleaks scan of the 18-file
 tracked diff with zero findings. The P1 correction changes final bytes, so a
-later completed native review remains required before commit.
+later completed native review was required before the D31 commit.
+
+### 2026-08-10 — D31 mapping qualification and D33 transport stop
+
+An initial full-matrix D31 carrier exposed a pre-behavior qualification defect:
+all 75 candidate/control discovery mappings were absent although the then-
+current static gate passed. Its consumed A03 therefore remains a sealed
+controller/carrier failure with product semantics `UNKNOWN`; it is not evidence
+against the candidate and is not retried or rescored.
+
+Additive zero-turn D32 repaired only that qualification boundary. Its frozen
+evidence reports 77 rows: two native rows with absent mapping roots and 75
+candidate/control rows that all exist as Junctions and all target the expected
+catalogs. D32 froze 1,083 files at
+`cd8c0e255345cbea64e25aaa23fd4cd9c797f247bc45f7eedbe2b9bd02bb66d7`,
+preserved D31 and the clean tracked repository, and recorded zero
+`thread/start`, zero `turn/start`, and no model authorization. It proves
+mapping and frozen-input qualification only.
+
+D33 bound exact candidate `07a9f1c...` and a new A03 freeze
+`39ffdea02994c0f9ab44077b15e8a5f5f2b46c6760a8c3a93401aa884432b7a4`
+to D32. Its sole authorized turn failed at `SANDBOX_NETWORK_TRANSPORT` before
+any model output, token usage, command, candidate `SKILL.md` read, loaded-copy
+proof, or semantic assessment. The carrier sealed `SEALED_HARD_STOP`; semantic
+disposition is `UNKNOWN_NOT_ASSESSED`. There was one `thread/start`, one
+`turn/start`, zero controller retries, no second turn, no assessor, and nine
+Harness-internal retryable transport notifications inside the submitted turn.
+D31 and D32 remained unchanged.
+
+D33 is immutable infrastructure evidence, not a product defect, pass, or Gate 2
+acceptance. The approved Campaign permits one independently frozen additive
+replication packet only after a materially same-boundary non-product transport
+canary succeeds. That packet must bind and disclose D32/D33, receives no credit
+from them, and cannot overwrite or reinterpret either record.
 
 ## Required Checks
 
