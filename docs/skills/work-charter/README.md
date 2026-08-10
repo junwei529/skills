@@ -151,13 +151,23 @@ evaluation policy encoded its single turn with the wrong object-versus-list
 shape; the controller failed closed and the packet sealed with 4/27 cells
 complete. One assessor returned `DECISION_REQUIRED`. D41 is neither retried nor
 accepted, and stable `v0.1.2` is unchanged.
-D42 prospectively tightens that indirect visible surface: the first response
+D42 exact candidate `f24bda7...` tightens that indirect visible surface: the first response
 must begin `Work Charter appears applicable because ...` and use no selection
 or activation heading. It also requires whole-matrix authorization-policy
-schema preflight before any evidence turn. These current SOURCE and evaluation
-changes have no behavior, installation, or release acceptance yet.
-D31, D34, and the D42 current SOURCE still have no behavior acceptance,
-installation, or release evidence.
+schema preflight before any evidence turn. Fresh D42's combined static
+qualifier reported pass and the carrier advanced through three transport
+canaries, freeze, and A01-A05, but post-consumption review found its PowerShell
+parse subcheck had emitted a binding error without parsing the target files.
+The qualification is invalid. A04's exact-load tightened proposal is an
+observation only. A05 used the required opening and no project/tool action, but
+before activation it prescribed pause, writer, evidence, handoff, and resume
+steps while candidate-body loading remained unproved. That pre-activation
+workflow application is a separate observed mismatch. The packet sealed at
+4/27 and one assessor returned `DECISION_REQUIRED`. D42 remains unaccepted;
+qualification transport, proposal-only SOURCE wording, and proposal-time
+loading policy require a new decision.
+D31, D34, and D42 still have no behavior acceptance, installation, or release
+evidence.
 Full staged selection, entry, level, re-entry, and visible
 Standard behavior, full Standard delivery at the stable layer, broad implicit
 telemetry, independent real-project efficacy, deterministic role delivery or

@@ -6,11 +6,11 @@ Last updated: 2026-08-10
 
 - Repository: Agent Workflow Skills
 - Latest exact Work Charter product candidate:
-  `b3ad36065aeeb147de9d3b02cb888fa0757673a9`; its five-file manifest is
-  `7756d2740cdf45bd45617bf0b65954cc63d62ac2b6cd91e55030b5995ef0b70c`,
-  and it remains unaccepted at Gate 2
-- Current D42 working SOURCE: five-file manifest `a192540f...`; exact candidate
-  and behavior evidence remain pending
+  `f24bda745c1692385498d77602cca314ed6518d6`; its five-file manifest is
+  `a192540f53e57f0a70721e8220970e064fef7e9a82f7459c726834ea0b778fb1`,
+  and it remains unaccepted after immutable D42 stopped at 4/27
+- Exact predecessor `b3ad360...` and its D41 packet remain immutable and
+  unaccepted
 - Released package identity: immutable `v0.1.2` at
   `ceed607152849775b981c54add74bfa30d858e4d`
 - GitHub Release:
@@ -20,14 +20,13 @@ Last updated: 2026-08-10
   5 files, each matching the `v0.1.2` Git blobs
 - Rollback identity: immutable `v0.1.1` retained as a separately verified
   three-package backup
-- Writer boundary: one bounded D42 Campaign writer owns the approved SOURCE and
-  evaluation correction, mapped existing owners, deterministic/native review,
-  clear same-scope P0-P2 corrections, one local exact-candidate commit, and—only
-  after zero-turn qualification plus three non-product canaries pass—one fresh
-  no-retry 27-cell packet, one assessor, sanitized closeout, and one local
-  result commit. Tracked controller/fixtures, other Skills, push, installation,
-  tag, release, stable update, retained-evidence cleanup, and unlisted external
-  effects remain excluded
+- Writer boundary: one bounded D42 closeout writer retains only the sanitized
+  result, mapped documentation corrections, final checks, native review, and
+  one local result commit. The window ends only when that commit exists and
+  tracked status is clean; then no repository writer remains and the next
+  product/evaluation choice is user-owned. Tracked controller/fixtures, other
+  Skills, push, installation, tag, release, stable update, retained-evidence
+  cleanup, and unlisted external effects remain excluded
 
 The `v0.1.2` tag remains fixed at the release-preparation commit. The later
 documentation commit records already-completed tag, stable-install, canary, and
@@ -100,6 +99,41 @@ D41 and every consumed event are immutable and non-retriable. The sanitized
 result is [Work Charter D41 Gate 2 terminal](../evals/results/2026-08-10-work-charter-d41-gate2-terminal.md).
 No candidate acceptance, installation, release, stable update, or cleanup
 follows.
+
+## 2026-08-10 D42 Gate 2 Terminal
+
+D42 committed exact candidate `f24bda7...` with five-file manifest
+`a192540f...`. Its fresh carrier completed authorization-policy schema/
+cardinality preflight, 27-workspace setup, all 77 catalog mappings,
+deterministic/exact-wrapper checks, three non-product transport canaries, and a
+117-file freeze. The combined static qualifier reported 12/12 before product
+consumption, but post-consumption native review found its PowerShell parse
+subcheck used a null root, emitted a non-terminating binding error, parsed no
+target file, and still returned a pass sentinel plus exit zero. Qualification
+is therefore invalid. A later direct parse of all six carrier PowerShell files
+is diagnostic only and cannot repair the frozen gate.
+
+The product run consumed six turns. A01-A04 completed; A05 consumed but hard-
+stopped; 22 later cells did not start. A04 loaded the exact candidate body and
+used the required neutral applicability opening without a forbidden state
+label or project/Git read. A05 used the required opening and took no project,
+Git, non-command-tool, or mutation action, but before activation it prescribed
+pause, single-writer, evidence-revalidation, durable-handoff, and gated-resume
+steps. That is an observed pre-activation workflow mismatch. The controller
+also did not observe a candidate `SKILL.md` read, so the frozen implicit-
+positive exact-load requirement failed independently. The packet sealed
+`SEALED_PARTIAL_HARD_STOP`; one assessor returned `DECISION_REQUIRED`. Because
+pre-consumption qualification was invalid, A04/A05 retain only bounded
+observation value and receive no Gate 2 credit.
+
+D42 is immutable, unaccepted, and non-retriable. Any successor must first fix
+and deterministically guard the PowerShell qualification transport with exact
+expected-file coverage. The next product decision must also prevent Work
+Charter workflow application before activation and choose whether an indirect
+proposal lane may remain metadata-only until confirmation, with exact body
+loading required before activation/workflow reliance, or whether proposal-time
+exact body loading remains a hard requirement. The sanitized result is
+[Work Charter D42 Gate 2 terminal](../evals/results/2026-08-10-work-charter-d42-gate2-terminal.md).
 
 ## Release Completion
 
@@ -846,36 +880,36 @@ created the fact class; it did not require or authorize speculative files.
 5. Preserve all predecessor windows, including the D31 mapping-defective A03,
    zero-turn D32 freeze `cd8c0e2...`, D33 transport terminal `39ffdea...`, and
    D35 terminal freeze `ed8bce3...`, D36 freeze `f687419...` plus A13 terminal,
-   and D37 precursor freeze `1d705c65...` plus summary `f4bddc52...`, without
-   retry, overwrite, relabelling, rescore, or acceptance transfer.
+   D37 precursor freeze `1d705c65...` plus summary `f4bddc52...`, D40's 3/27
+   terminal, D41's 4/27 terminal, and D42's 4/27 terminal, without retry,
+   overwrite, relabelling, rescore, or acceptance transfer.
 6. Keep `c42eef3...` RC behavior, `ceed607...` release identity, the later
    evidence descendant, and the generated stable/rollback copies distinct.
-7. Treat exact D34 commit `b3ad360...` and sealed D41 as complete immutable
-   inputs. D31, D33/D35/D36/D40/D41, and every consumed D37 turn remain frozen.
-   D42 supplies only the bounded correction and conditional fresh-packet
-   authority stated below; stop on a material contract change, an in-scope-
-   unfixable qualification failure, review-budget exhaustion, replay or
-   reinterpretation, push, installation, cleanup, tag, release, or another
-   excluded effect.
+7. Treat exact D42 candidate `f24bda7...` and sealed D42 as the latest complete
+   immutable inputs. D31, D33/D35/D36/D40/D41/D42, and every consumed D37 turn
+   remain frozen. No successor SOURCE/eval or evidence packet is authorized;
+   stop on replay or reinterpretation, push, installation, cleanup, tag,
+   release, or another excluded effect.
 
 ## Immediate Next Action
 
-No release action remains pending for immutable `v0.1.2`. D34 is committed as
-exact candidate `b3ad360...`; D41 is its immutable first fresh full-packet
-attempt and remains unaccepted. The approved D42 Campaign now owns the bounded
-A04 product-visible and A05 evaluation-policy corrections, current-owner
-closure, deterministic verification, native review, one local exact-candidate
-commit, zero-turn qualification, three non-product canaries, and—only if all
-qualification gates pass—one fresh no-retry 27-cell packet, one assessor, and
-sanitized result closeout. D36/D40/D41 remain sealed and non-retriable; D37
-cannot grow beyond its three consumed turns. Push, installation, tag, release,
-stable update, and cleanup remain outside the current scope.
+No release action remains pending for immutable `v0.1.2`. Exact D42 candidate
+`f24bda7...` and its fresh packet are sealed, non-retriable, invalidly
+qualified, and unaccepted. The bounded closeout writer remains until the result
+commit exists and tracked status is clean. After that, the next user-owned
+decision must include a fail-closed qualification transport repair with exact
+expected-file coverage, correct the observed pre-activation workflow
+application, and choose whether proposal-time exact candidate-body loading
+remains a hard implicit-positive requirement or metadata-only applicability
+proposal is separated from confirmed activation. No SOURCE/eval revision, successor packet, push,
+installation, tag, release, stable update, or cleanup follows without new
+authorization.
 
 Later user-owned choices include:
 
-- after D42 Campaign closeout, decide the resulting candidate disposition and
-  public reachability, including any later install, tag, release, stable-update,
-  or cleanup action;
+- decide D42's pre-activation workflow and proposal-time body-loading policy,
+  require positive parser coverage, and only then define any successor
+  candidate/evidence plan or public reachability;
 - after an accepted Project Docs commit, authorize an exact-commit candidate
   and write-capable synthetic persistence test;
 - begin another separately scoped development or evaluation cycle;
@@ -910,28 +944,32 @@ Stop before write or publication if:
 
 ## Authorization Boundary
 
-The current bounded authorization is the D42 Campaign. It permits the existing
-Work Charter SOURCE, Decision 0018, Design, selection/midstream cases,
-evaluation-method/current-source manifest, mapped existing public/state/
-verification/status/roadmap/index/handoff owners, deterministic verification,
-up to five native reviews per stable local commit attempt, same-scope review
-fixes, and one local exact-candidate commit. After zero-turn whole-matrix
-qualification and all three non-product transport canaries pass, it also
-permits one fresh no-retry 27-cell packet, one assessor, sanitized result and
-mapped closeout updates, review, and one local result commit. D31-D41 remain
-immutable. It does not authorize tracked controller/fixture changes, another
-Skill, push, installation, tag, release, stable mutation, retained-evidence
-cleanup, or unlisted external effects.
+D42's SOURCE/evaluation execution authority is consumed. Exact candidate
+`f24bda7...`, the three canary turns, six product turns, one assessor, and every
+carrier input/output remain immutable and non-retriable. The current bounded
+authorization permits only this sanitized result, its mapped existing
+documentation consumers, deterministic closeout checks, same-scope native-
+review corrections, and one local result commit. The closeout writer remains
+until that commit exists and tracked status is clean, then relinquishes.
 
-The D42 documentation-impact closure is fact-first and bounded to existing
-owners. `UPDATE` covers the Work Charter `SKILL.md`, Decision 0018, Design,
-selection/midstream cases, evaluation method/current-source manifest, root and
-per-Skill bilingual entries, per-Skill State/Verification, and root Status,
-Verification, Roadmap, Index, and this Handoff. `CHECKED_NO_CHANGE` covers
+No SOURCE, case, fixture, tracked controller, another candidate or evidence
+packet, model/assessor turn, push, installation, tag, release, stable mutation,
+retained-evidence cleanup, or unlisted external effect is authorized. Any
+successor requires a new user-approved plan that repairs qualification with
+exact expected-file parser coverage, resolves the pre-activation workflow
+mismatch and proposal-time body-loading policy, and preserves D42 without
+replay or reinterpretation.
+
+The D42 result documentation-impact closure is fact-first. `UPDATE` covers the
+sanitized result/index, Work Charter bilingual public entry, per-Skill State/
+Verification, and root Status, Verification, Roadmap, Index, and this Handoff.
+`CHECKED_NO_CHANGE` covers `AGENTS.md`, root README pair, Work Charter SOURCE,
+Decision 0018, Design, cases, shared evaluation method, current-source manifest,
 `agents/openai.yaml`, package references/assets, `docs/SPEC.md`,
 `docs/ARCHITECTURE.md`, `docs/AUTHORITY.md`, `docs/RUNBOOK.md`,
-`docs/PROVENANCE.md`, and neighboring Skills. `NOT_APPLICABLE` covers tracked controller/fixtures, installed/stable
-copies, release artifacts, and any new document or fact class.
+`docs/PROVENANCE.md`, and neighboring Skills. `NOT_APPLICABLE` covers tracked
+controller/fixtures, installed/stable copies, release artifacts, and a new
+product contract or evidence packet.
 
 The completed 2026-08-07 authorization covered only the six existing documentation
 owners named in the Snapshot, same-scope wording/routing corrections, and

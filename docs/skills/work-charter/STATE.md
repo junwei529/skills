@@ -148,8 +148,8 @@ workspace under the same execution identity as model commands and qualify a
 normal read-only Git status before consumption.
 
 D31 was reviewed and committed as exact local candidate
-`07a9f1c436213a5c377610c9157b7c6a76c5d4c1`; its five-file package is the
-current `v0.2.0` product subject. A later full-matrix carrier exposed a
+`07a9f1c436213a5c377610c9157b7c6a76c5d4c1`; its five-file package is a
+historical `v0.2.0` product subject and predecessor of D34/D42. A later full-matrix carrier exposed a
 pre-behavior mapping-qualification defect: 75 candidate/control mappings were
 absent although the old static gate passed. That consumed A03 remains
 `HARD_STOP / UNKNOWN` and supplies no product finding. Zero-turn D32 corrected
@@ -218,16 +218,15 @@ SOURCE by itself.
 
 ## Current Writer
 
-One bounded D42 Campaign writer owns the approved indirect-entry product
-correction, A05 policy-shape correction in the fresh private carrier, whole-
-matrix policy-schema preflight, mapped existing owners, deterministic checks,
-native review and same-scope fixes, one local exact-candidate commit, and—only
-after all zero-turn qualification plus three non-product canaries pass—one
-fresh no-retry 27-cell packet, one assessor, sanitized closeout, review, and one
-local result commit. D31-D41 and their ignored carriers remain immutable.
-Tracked controller/fixtures, other Skills, push, installation, tag, release,
-stable-copy mutation, retained-evidence cleanup, and unlisted external effects
-remain outside this authorization.
+One bounded D42 closeout writer owns only the sanitized result, mapped
+documentation corrections, final deterministic checks, same-scope native-
+review fixes, and one local result commit. This window ends only when that
+commit exists and tracked status is clean; until then, do not infer writer
+relinquish from the intended closeout. After those conditions pass, no
+repository writer remains and the next product/evaluation choice is user-owned.
+SOURCE, eval/controller/fixture changes, another model or assessor turn, push,
+installation, release, stable-copy mutation, retained-evidence cleanup, and
+external changes remain outside this window.
 
 ## Evidence State
 
@@ -656,16 +655,33 @@ controller stayed `CONTROLLER_UNKNOWN`. A05 is therefore neither a behavior
 pass nor a Work Charter defect. D41 is immutable, unaccepted, and not retried
 or rescored.
 
-D42 prospectively corrects both independent findings without changing trigger,
+D42 exact candidate `f24bda745c1692385498d77602cca314ed6518d6`
+prospectively corrects both independent findings without changing trigger,
 project-read, adoption, role, write, Git, installation, or external-effect
 authority. An indirect positive must begin `Work Charter appears applicable
 because ...` and use no selection or activation heading. The fresh carrier must
 encode every cell policy as a non-empty per-turn list and, before any canary,
 model, assessor, or freeze activity, validate exact matrix keys, known policy
 modes, list cardinality against rendered prompt turns, and auxiliary-role
-policy topology. Current SOURCE manifest `a192540f...` records the modified
-five-file package. No D42 candidate or behavior evidence exists at this
-checkpoint.
+policy topology. Its five-file manifest is `a192540f...`.
+
+The fresh carrier completed that whole-matrix preflight, all 77 mappings, three
+non-product transport canaries, and a 117-file freeze. Its combined static
+qualifier reported 12/12, but post-consumption native review found the
+PowerShell parse subcheck received a null root, emitted a non-terminating
+binding error, parsed no target file, and still returned a pass sentinel and
+exit zero. Pre-consumption qualification is invalid. A later direct parse of
+all six carrier PowerShell files is diagnostic only.
+
+The product packet consumed six turns and completed A01-A04. A04 loaded the
+exact body and exhibited the tightened visible proposal boundary. A05 used the
+required opening and took no project/Git or mutation action, but before
+activation it prescribed pause, writer, evidence-revalidation, durable-handoff,
+and gated-resume workflow. That is an observed pre-activation product-surface
+mismatch. No candidate-body read was controller-observed, so the frozen exact-
+load requirement hard-stopped independently. The packet sealed at 4/27 and one
+assessor returned `DECISION_REQUIRED`. D42 is immutable, non-retriable,
+invalidly qualified, and unaccepted. A04/A05 receive no Gate 2 credit.
 
 ## Next Gate
 
@@ -675,13 +691,17 @@ freeze only; D33 and D35 are immutable infrastructure/controller
 `UNKNOWN_NOT_ASSESSED` records. D36 and D40 are incomplete product packets with
 independent `DECISION_REQUIRED`; neither transfers acceptance.
 
-The D34 package revision and its local commit are complete. D41 is the immutable
-first fresh full-packet attempt for those exact bytes. The approved D42 Campaign
-is now executing the bounded product/evaluation correction, deterministic
-verification, native review, and exact-candidate commit. Only a fully green
-zero-turn qualification and all three green non-product canaries permit its one
-fresh no-retry 27-cell packet and one assessor. D33, D35, D36, D40, and D41 may
-not be repaired, retried, rescored, or relabelled. Push, installation, release,
+The D42 product/evidence window is complete. Exact candidate `f24bda7...` and
+its six consumed turns remain immutable; no D31-D42 execution may be repaired,
+retried, rescored, or relabelled. The bounded result closeout remains active
+until its local commit exists and tracked status is clean. The next user-owned
+gate must require a fail-closed PowerShell qualification correction with the
+exact expected file set/cardinality and one positive parse receipt per file,
+correct the pre-activation workflow application, and choose whether controller-
+observed body loading remains a hard requirement during the indirect proposal
+turn or metadata-only applicability proposal is allowed with exact body loading
+required after confirmation and before activation/workflow reliance. Either
+path requires a new bounded evaluation plan. Push, installation, release,
 stable update, and cleanup remain separate gates.
 
 ## Recovery Entry
@@ -692,8 +712,8 @@ stable update, and cleanup remain separate gates.
    [Decision 0018](../../decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md),
    this state, and [Verification](VERIFICATION.md).
 3. Confirm live workspace, writer, and action authority.
-4. Confirm live `main` includes exact D34 candidate commit `b3ad360...` and the
-   D41 closeout commit `efeb8d8...`, then
+4. Confirm live `main` includes exact D42 candidate commit `f24bda7...` and its
+   sanitized result closeout commit, then
    resolve HEAD, index, any dirty scope, ignored carriers, and current writer
    instead of inferring them from an older handoff.
 5. Preserve the complete predecessor ledger, including the D31 mapping-
@@ -701,13 +721,17 @@ stable update, and cleanup remain separate gates.
    `39ffdea...`, D35 freeze `ed8bce3...` plus its one-turn controller-
    orchestration terminal, D36 freeze `f687419...` plus its A13 product
    terminal, D37 freeze `1d705c65...` plus summary `f4bddc52...`, and D40's
-   3/27-cell package-load/rubric mismatch terminal, and D41's 4/27 terminal with
-   A04 product and A05 evaluation-infrastructure findings, without retry,
-   overwrite, relabelling, rescore, or acceptance transfer.
-6. Treat D34 and D41 as complete immutable inputs. D42 supplies the currently
-   approved bounded correction and fresh-packet authority; stop on material
-   contract change, in-scope-unfixable qualification failure, native-review
-   budget exhaustion, or any excluded action.
+   3/27-cell package-load/rubric mismatch terminal, D41's 4/27 terminal with A04
+   product and A05 evaluation-infrastructure findings, and D42's invalidly
+   qualified 4/27 terminal with A05 pre-activation workflow and loaded-copy
+   findings, without retry, overwrite, relabelling, rescore, or acceptance
+   transfer.
+6. Treat D34, D41, and D42 as complete immutable evidence inputs. Treat D42's
+   pre-consumption qualification as invalid and its later six-file parser pass
+   as diagnostic only. No successor revision or evidence packet is authorized
+   until the user approves exact expected-file qualification coverage, resolves
+   the pre-activation workflow and proposal-time body-loading policy, and
+   approves the bounded evaluation plan.
 7. Read canonical SOURCE, current eval definitions, and only evidence matching
    the exact revision before changing behavior or claims.
 8. Preserve the independent-Skill and non-propagating-authorization boundary.

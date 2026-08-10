@@ -123,10 +123,18 @@ candidate，没有读取项目或 Git，回复也保持 proposal-only，但冻�
 没有项目/Git 读取或动作，但评测 policy 把单轮合同写成了错误的 object 而不是 list；
 controller 因此 fail closed，packet 以 4/27 个 cell 完成而封存。一个 assessor 返回
 `DECISION_REQUIRED`。D41 不被重试或追认接受，stable `v0.1.2` 保持不变。
-D42 对该间接可见表面作前瞻性收紧：首个回复必须以
+D42 精确 candidate `f24bda7...` 对该间接可见表面作出收紧：首个回复必须以
 `Work Charter appears applicable because ...` 开头，且不得使用 selection 或
 activation 标题；同时，任何证据 turn 前都必须完成整个矩阵的 authorization-policy
-schema 预检。D31、D34 与 D42 当前 SOURCE 均仍无行为接受、安装或发布证据。
+schema 预检。fresh D42 的组合静态 qualifier 曾报告通过，carrier 随后进入三个
+transport canary、freeze 和 A01-A05；但消费后 review 发现 PowerShell parse 子检查发生
+参数绑定错误，实际没有解析目标文件，资格因此无效。A04 的 exact-load 收紧提案只能
+保留为观察。A05 使用了要求的开头且没有项目/tool 动作，但在激活前就规定了 pause、
+writer、evidence、handoff 和 resume 步骤，同时 body loading 仍未得到证明；这是独立的
+pre-activation workflow mismatch。packet 在 4/27 处封存，一个 assessor 返回
+`DECISION_REQUIRED`。D42 仍未获接受；资格 transport、proposal-only SOURCE wording 与
+提案阶段 loading policy 都需要新的决策。D31、D34 与 D42 均仍无行为接受、安装或发布
+证据。
 完整分阶段 selection、entry、等级、
 重新接入和可见 Standard 行为，stable 层完整 Standard
 delivery、广泛隐式触发 telemetry、独立真实项目效果、确定性角色交付或 writer

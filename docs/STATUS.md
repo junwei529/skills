@@ -9,7 +9,7 @@ Last updated: 2026-08-10
 | Tested package identity | all three package byte sets independently reached exact-commit RC readiness at `c42eef392a5b9f58bbee64aa73ffb603a6fb6c29` and were re-proved at tag/stable identity `v0.1.2` | [Verification](VERIFICATION.md) |
 | Stable release identity | immutable [`v0.1.2`](https://github.com/junwei529/skills/releases/tag/v0.1.2) at `ceed607152849775b981c54add74bfa30d858e4d`; exact tag, stable loaded-copy, and GitHub Release proof pass for all three Skills | [Verification](VERIFICATION.md) |
 | Project Docs | immutable `v0.1.2` remains the released explicit-only control; local commit `776989f...` implements accepted Decision 0019 but is unreleased, and its evidence is `PARTIAL` because actual candidate selection, loaded-copy identity, and persistent writes remain `UNKNOWN` | [State](skills/manage-project-docs/STATE.md) |
-| Work Charter | released `v0.1.2` remains active; exact D34 candidate `b3ad360...` and immutable D41 remain unaccepted; approved D42 current SOURCE tightens the indirect visible proposal and adds whole-matrix policy-schema preflight, but has no candidate or behavior result yet | [State](skills/work-charter/STATE.md) |
+| Work Charter | released `v0.1.2` remains active; exact D42 candidate `f24bda7...` is unaccepted after post-consumption review invalidated its static qualification and found A05 applied workflow before activation; six consumed turns remain sealed observations, and qualification plus entry policy require a new decision | [State](skills/work-charter/STATE.md) |
 | PowerShell | released five-file `v0.1.2` stable copy; corrected loaded identity and guarded native/text diagnosis pass; live WSL remains unproved | [State](skills/use-powershell-safely/STATE.md) |
 | Release lifecycle | `v0.1.2` tag, stable update, tag-pinned canaries, and Latest GitHub Release complete; `v0.1.1` retained as rollback identity | [Runbook](RUNBOOK.md) |
 
@@ -94,13 +94,27 @@ object where the adapter and runner require a list. The controller failed
 closed, D41 sealed at 4/27, and one assessor returned `DECISION_REQUIRED`.
 D41 is immutable, unaccepted, and not retried or rescored.
 
-The approved D42 Campaign prospectively corrects both independent findings.
-Indirect positive responses must begin `Work Charter appears applicable because
-...` and use no selection or activation heading. Before any D42 model,
-assessor, canary, or freeze activity, the complete authorization-policy matrix
-must pass schema and cardinality preflight. Current SOURCE manifest
-`a192540f...` records the changed five-file package; no exact D42 candidate,
-behavior acceptance, installation, or release claim exists yet.
+The approved D42 revision became exact local candidate `f24bda7...`, with
+five-file package manifest `a192540f...`. Its fresh carrier completed whole-
+matrix policy-schema preflight, 27-workspace construction, 77 catalog mappings,
+three non-product transport canaries, and a freeze of 117 files. Its combined
+static qualifier reported 12/12, but post-consumption native review proved that
+the PowerShell parse subcheck received a null root, emitted a non-terminating
+binding error, parsed no target file, and still returned a pass sentinel plus
+exit zero. Pre-consumption qualification is therefore invalid; later direct
+parsing of all six carrier PowerShell files is diagnostic only.
+
+The product packet consumed six turns and completed A01-A04.
+A04 loaded the exact body and used the required neutral applicability opening
+without a forbidden state label or project/Git read. A05 used that opening and
+no tool action, but before activation it prescribed pause, writer, evidence,
+handoff, and resume workflow while exact candidate-body loading remained
+unproved. The frozen exact-load requirement failed independently, D42 sealed at
+4/27, and one assessor returned `DECISION_REQUIRED`. D42 is immutable and
+unaccepted. A04/A05 are bounded observations without Gate 2 credit;
+qualification transport needs exact expected-file coverage, and the
+pre-activation workflow plus proposal-time body-loading policy require a
+product/evaluation decision.
 
 The exact post-commit documentation scope, writer state, and recovery order are
 owned by [Repository Handoff](HANDOFF.md).
@@ -132,6 +146,12 @@ semantic assessment and the remaining Gate 2 matrix are still absent.
 Exact D34 candidate `b3ad360...` now has fresh D41 evidence, but not acceptance:
 A04 crossed the visible proposal-only boundary and A05 remained
 `CONTROLLER_UNKNOWN` because of a separate evaluation-construction defect.
+Exact D42 candidate `f24bda7...` produced the corrected visible surface at A04,
+but invalid pre-consumption qualification prevents Gate 2 credit. A05 exposes a
+different unresolved boundary: it applied pause/writer/evidence/handoff workflow
+before activation while controller-observed candidate-body loading remained
+`UNKNOWN`. The incomplete packet and assessor `DECISION_REQUIRED` provide no
+acceptance transfer.
 Exact counts, hashes, exclusions, and residual limits remain in the per-Skill
 ledgers rather than this dashboard.
 
@@ -285,17 +305,19 @@ decision.
 
 ## Next Gate
 
-No release action remains pending for immutable `v0.1.2`. D34 is committed as
-exact candidate `b3ad360...`, and D41 is its immutable first fresh full-packet
-attempt. The authorized D42 Campaign now owns the bounded product/evaluation
-correction, deterministic verification, native review, one local exact-
-candidate commit, zero-turn qualification, three non-product canaries, and—only
-if all qualification gates pass—one fresh no-retry 27-cell packet and one
-assessor. D33, D35, D36, D40, and D41 cannot be retried or rescored. Stop on a
-material contract change, an in-scope-unfixable qualification failure, native-
-review budget exhaustion, or any excluded action. Push, installation, tag,
-release, stable update, and cleanup remain separate gates. Project Docs keeps
-its own candidate and persistence-evidence sequence.
+No release action remains pending for immutable `v0.1.2`. D42 completed one
+no-retry product packet and assessor, but post-consumption review invalidated
+its claimed static qualification. Exact candidate `f24bda7...` remains
+unaccepted and the sealed D42 packet cannot be retried or rescored. A bounded
+closeout writer retains only result/documentation corrections, final checks,
+native review, and one local result commit until that commit exists and tracked
+status is clean. The next user-owned decision must require a fail-closed
+qualification transport repair with exact expected-file coverage, correct the
+pre-activation workflow application, and choose whether proposal-time exact
+body loading remains mandatory or metadata-only proposal is separated from
+confirmed activation. Any successor needs a new bounded authorization. Push,
+installation, tag, release, stable update, and cleanup remain separate gates.
+Project Docs keeps its own candidate and persistence-evidence sequence.
 
 ## Known Repository Gaps
 
@@ -323,8 +345,13 @@ its own candidate and persistence-evidence sequence.
   and unaccepted. Exact D34 candidate `b3ad360...` adds D41's fresh evidence:
   A04 violated proposal-only visible semantics, while A05 stayed semantically
   bounded but could not be admitted because its evaluation policy had the wrong
-  shape. D41 remains incomplete and unaccepted. All stopped matrices and sealed
-  bundles remain historical and cannot be retried, relabeled, or transferred.
+  shape. D42 corrected both issues and exhibited the new surface at A04, but its
+  A05 applied workflow before activation and did not produce controller-observed
+  candidate-body loading; the strict frozen rubric stopped at 4/27. Post-consumption review also
+  invalidated D42's static qualification because its PowerShell parse subcheck
+  accepted a binding error as pass. D41 and D42 remain incomplete and
+  unaccepted. All stopped matrices and sealed bundles remain historical and
+  cannot be retried, relabeled, or transferred.
 - The tracked controller now has one narrow isolated path-bound app-server
   compatibility pass. It does not establish natural-language Skill selection,
   semantic correctness, broad behavior, or Work Charter candidate acceptance;

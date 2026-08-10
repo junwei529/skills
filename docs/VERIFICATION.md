@@ -19,19 +19,19 @@ Sanitized detailed runs remain under [`evals/results`](../evals/results/README.m
 
 | Check | Purpose | Current result |
 |---|---|---|
-| Changed Skill validator | Validate frontmatter and package name without changing the package | D42 candidate-attempt SOURCE passes the bundled `skill-creator` validator |
-| Repository checker | Validate strict UTF-8/no BOM, whitespace, local links/fragments, publication safety, exact Skill/eval sets, federated docs, and bilingual navigation | D42 candidate-attempt diff passes at 201 text files / 14 cases / 12 fixtures |
-| Fixture checker | Validate synthetic starting states and their Git/reparse/ignored-result boundaries plus the tracked controller regression | D42 candidate-attempt diff passes all 17 checks; no fixture or controller-code bytes changed |
+| Changed Skill validator | Validate frontmatter and package name without changing the package | exact D42 candidate `f24bda7...` passes the bundled `skill-creator` validator; the result closeout does not change SOURCE |
+| Repository checker | Validate strict UTF-8/no BOM, whitespace, local links/fragments, publication safety, exact Skill/eval sets, federated docs, and bilingual navigation | D42 result closeout passes at 202 text files / 14 cases / 12 fixtures |
+| Fixture checker | Validate synthetic starting states and their Git/reparse/ignored-result boundaries plus the tracked controller regression | D42 result closeout passes all 17 checks; no fixture or controller-code bytes changed |
 | Codex evidence controller | Validate one shared core across four entry modes, strict required-read versus bounded auxiliary-observation attribution, structural PowerShell/Git/path classification, source-and-generated-contract-bound historical regressions, exact package manifests, candidate-identity and content-proof shape, record cardinality, completed exit typing, output-array shape, per-key single-capture sealed parsing and reuse, real-reparse rejection, fail-closed negatives, external-input types, independently resolved inner/wrapper command identity, Git-read and external-filter safety, profile-free PowerShell wrappers, culture-independent canonical ordering, metamorphic equivalence, output no-clobber, and canonical repeatability | D42 current SOURCE manifest `a192540f...` passes with exact package identity, 11/11 historical, 32/32 evidence-surface, 33/33 negative, 4/4 metamorphic, 3/3 manifest-hash guards, all reported structural guards, and zero external model or assessor calls |
-| CRG supplemental preflight | Sharpen structural review scope when the maintained index represents the intended diff | queried for D42 but not relied on because its indexed symbol result did not represent the Markdown-first product/evaluation diff; native review inspected the actual files |
-| Native Codex review | Review the exact uncommitted D42 product/evaluation/current-owner correction | `codex-current review --uncommitted` is the required gate; completed semantic results and cumulative finding dispositions are reported with the candidate commit rather than written into the reviewed diff |
+| CRG supplemental preflight | Sharpen structural review scope when the maintained index represents the intended diff | queried for the D42 candidate but not relied on because its indexed symbol result did not represent the Markdown-first product/evaluation diff; native review inspects the actual files |
+| Native Codex review | Review the exact uncommitted D42 sanitized result and mapped-current-owner closeout | `codex-current review --uncommitted` is the required gate; completed semantic results and cumulative finding dispositions are reported after the result commit rather than written into the reviewed diff |
 | Isolated controller canary | Record the bounded disposition of one private path-bound infrastructure check without broadening behavior claims | retained sealed `CANARY_PASS`; the public summary reports an exact-response pass and no command execution, omits private locator/artifact/runtime details, and leaves physical backend request count `UNKNOWN` |
-| Work Charter D36/D37/D40, D34/D41 predecessors, and D42 correction | Preserve additive predecessors and separate product behavior from route, tool, and eval-contract failures | D36 and D40 remain immutable incomplete `DECISION_REQUIRED` packets; D37 remains boundary-only evidence; D34 exact candidate `b3ad360...` separates native package loading from explicit activation; immutable D41 records the A04 product-visible and A05 evaluation-shape findings; D42 prospectively corrects both but has no candidate or behavior acceptance yet |
+| Work Charter D36/D37/D40, D34/D41 predecessors, and D42 terminal | Preserve additive predecessors and separate product behavior from route, tool, qualification, and eval-contract failures | D36 and D40 remain immutable incomplete `DECISION_REQUIRED` packets; D37 remains boundary-only evidence; D34 exact candidate `b3ad360...` separates native package loading from explicit activation; immutable D41 records the A04 product-visible and A05 evaluation-shape findings; exact D42 candidate `f24bda7...` consumed six turns but has invalid pre-consumption static qualification, bounded A04/A05 observations only, and no behavior acceptance |
 | PowerShell deterministic hardening | Validate cardinality, LF bytes, one-base paths, and Junction link-only removal | 15 assertions pass in PowerShell 7 and Windows PowerShell 5.1 |
-| PowerShell parser sweep | Parse all `evals/**/*.ps1` files and the tracked controller module | D42 candidate-attempt sweep passes all eight files/modules; no PowerShell/controller-code bytes changed |
+| PowerShell parser sweep | Parse all `evals/**/*.ps1` files and the tracked controller module | D42 result-closeout sweep passes all eight tracked files/modules; a later six-file ignored-carrier diagnostic also parses cleanly but does not restore the invalid pre-consumption check |
 | Markdown navigation and ownership | Verify local links/fragments, English/Chinese routes, expected per-Skill owners, and no orphan canonical owner | pass through repository checker |
-| `git diff --check` | Reject whitespace defects in the working revision | passes for the D42 candidate-attempt diff; index remains untouched |
-| Gitleaks | Detect secret-like content independently | exact 18-path D42 candidate-attempt changed-file projection passes with zero findings and its validated temporary copy was removed; the initial whole-repository scan traversed ignored/private evidence and is verification noise, not a D42 source finding |
+| `git diff --check` | Reject whitespace defects in the working revision | passes for the D42 result-closeout diff; index remains untouched |
+| Gitleaks | Detect secret-like content independently | exact 11-path D42 result-closeout projection passes with zero findings and its validated temporary copy was removed; the earlier whole-repository scan traversed ignored/private evidence and is verification noise, not a D42 source finding |
 
 ## Repository Claim Ledger
 
@@ -1397,16 +1397,45 @@ Skill-defect attribution, and D41 receives no retry, rescore, acceptance,
 installation, or release credit. The public evidence is
 [Work Charter D41 Gate 2 terminal](../evals/results/2026-08-10-work-charter-d41-gate2-terminal.md).
 
-### 2026-08-10 — Work Charter D42 current-source correction
+### 2026-08-10 — Work Charter D42 exact-candidate terminal
 
 The approved D42 revision makes the indirect visible proposal deterministic:
 it must begin `Work Charter appears applicable because ...` and use no
 selection or activation heading before confirmation. The evaluation method
 also requires whole-matrix authorization-policy schema and prompt-cardinality
-preflight before any canary, model, assessor, or freeze activity. The current
-five-file SOURCE manifest is `a192540f...`; no exact D42 candidate or behavior,
-installation, or release acceptance exists at this checkpoint. Immutable D41
-is not retried, rescored, or reinterpreted.
+preflight before any canary, model, assessor, or freeze activity. Exact local
+candidate `f24bda745c1692385498d77602cca314ed6518d6` has five-file manifest
+`a192540f...`. Its fresh carrier completed the policy preflight, 27-workspace
+setup, all 77 mappings, exact-wrapper probes, three non-product transport
+canaries, and a 117-file freeze. The combined static qualifier reported 12/12,
+but post-consumption native review found its PowerShell parse subcheck received
+a null root, emitted a non-terminating binding error, parsed no target file, and
+still returned a pass sentinel plus exit zero. Pre-consumption qualification is
+invalid. A later direct parser diagnostic passed all six carrier PowerShell
+files but cannot replace the frozen gate.
+
+The product run consumed six turns and completed A01-A04. A04 loaded the exact
+candidate body and exhibited the tightened proposal boundary without project
+or Git reads. A05 used the required opening and no tool action but prescribed
+pause, writer, evidence, handoff, and resume workflow before activation. That
+is an observed product-surface mismatch. Candidate-body loading was also not
+controller-observed, so the strict frozen exact-load requirement hard-stopped
+independently at 4/27. One assessor returned
+`DECISION_REQUIRED`. Invalid qualification independently blocks Gate 2 credit.
+D42 is immutable, non-retriable, and unaccepted; any successor must repair the
+qualification transport with exact expected-file coverage, prevent workflow
+application before activation, and resolve whether proposal-time exact body
+loading is mandatory. The sanitized evidence is
+[Work Charter D42 Gate 2 terminal](../evals/results/2026-08-10-work-charter-d42-gate2-terminal.md).
+
+The closeout passes the unchanged Skill validator, tracked controller at 11/11
+historical + 32/32 evidence-surface + 33/33 negative + 4/4 metamorphic plus
+structural guards, repository checker at 202 text files / 14 cases / 12
+fixtures, all 17 fixture checks, 8/8 PowerShell parser checks, `git diff
+--check`, and Gitleaks over the exact 11 changed paths. This verifies only the
+sanitized record and mapped documentation consistency.
+The separate six-file carrier parse is diagnostic only and does not restore the
+missing pre-consumption qualification.
 
 ### 2026-08-02 — Capability-delta decision and workflow
 

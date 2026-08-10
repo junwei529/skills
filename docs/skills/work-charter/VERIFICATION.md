@@ -7,7 +7,7 @@ Last updated: 2026-08-10
 | Claim | Status |
 |---|---|
 | `work-charter` is the sole current five-file package | verified structurally for current SOURCE |
-| Gate 1 protection, re-entry, convergence, and explicit-activation contract | implemented in exact D34 commit `b3ad360...`; native package availability is separate from user-visible activation and every project/action authority, while D31 and all prior candidate windows remain immutable and unaccepted |
+| Gate 1 protection, re-entry, convergence, and explicit-activation contract | implemented through exact D42 candidate `f24bda7...`; native package availability is separate from user-visible activation and every project/action authority, while D31-D42 candidate windows remain immutable and unaccepted |
 | Gate 1 evaluation definitions | 14 exact cases and 12 exact fixtures remain the intended repository shape; existing installed-Skills and symptom-only positives now require exact native package loading while their first responses stay proposal-only, and the existing installed-Skills confirmation turn adds no fresh run or matrix lane |
 | First `v0.2.0` exact candidate Gate 2 | `206c497...` stopped incomplete and is superseded for acceptance; its completed correction and consumed events remain historical |
 | Successor `v0.2.0` exact candidate Gate 2 | `92a8c045...` passed qualification and consumed A01-A04; A04 hard-stopped on an unproved selected/loaded claim, so no candidate acceptance or later cell exists |
@@ -28,6 +28,7 @@ Last updated: 2026-08-10
 | D37 A13 attribution precursor | typed normalization, exact-path prompts, 9/9 deterministic tests, and freeze `1d705c65...` preceded exactly three one-shot read-only turns; native completed 7/7 reads and released control/exact candidate each completed 9/9, all with zero non-command tools, no mutation, no retry, and no assessor; summary `f4bddc52...` is boundary-only evidence with semantics unassessed, not D36 rescore or candidate acceptance |
 | D40 A04 terminal and D34 correction | D40 completed A01-A03 and reached A04 with five behavior turns; its indirect first turn loaded exact D31 `SKILL.md`, made no project/Git read, and stayed proposal-only, but the frozen old no-command rubric stopped the packet at 3/27 and one assessor returned `DECISION_REQUIRED`; D34 prospectively corrects the package-load/activation contract without retry, rescore, or acceptance transfer |
 | Exact `b3ad360...` D41 terminal | D41 passed qualification, three non-product transport canaries, and freeze, then consumed six behavior turns; A01-A04 completed, A04 loaded the exact package but visibly claimed selected state before activation approval, and A05 produced a bounded proposal but stopped on an object-versus-list authorization-policy construction defect; the packet sealed at 4/27, one assessor returned `DECISION_REQUIRED`, and no retry, acceptance, installation, or release follows |
+| Exact `f24bda7...` D42 terminal | D42 consumed six turns and stopped at 4/27, but post-consumption review invalidated its static qualification and found A05 prescribed Work Charter workflow before activation while candidate-body loading remained unproved; A04/A05 are observations without Gate 2 credit, one assessor returned `DECISION_REQUIRED`, and qualification coverage plus entry policy require a new decision |
 | Isolated path-bound controller canary | private retained sealed `CANARY_PASS`; the public summary reports an exact-response pass and no command execution, omits locator/artifact/runtime details, leaves physical backend request count `UNKNOWN`, and proves neither natural-language selection nor candidate acceptance |
 | Small bounded work stays flat | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
 | Midstream implicit behavior is proposal-only | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
@@ -1535,8 +1536,59 @@ unknown-mode, and count-mismatch forms fail at zero turns. D41 remains immutable
 and receives no retry or rescore.
 
 The content-only current-SOURCE manifest is `a192540f...`. At this checkpoint
-there is no exact D42 candidate, model result, assessor result, behavior
-acceptance, installation, or release claim.
+the revision had no exact D42 candidate, model result, assessor result,
+behavior acceptance, installation, or release claim. The later exact-candidate
+result below supersedes only those pending-state statements.
+
+### 2026-08-10 — D42 exact-candidate terminal
+
+Exact local candidate `f24bda745c1692385498d77602cca314ed6518d6`
+preserves the five-file manifest
+`a192540f53e57f0a70721e8220970e064fef7e9a82f7459c726834ea0b778fb1`.
+Its fresh carrier rejected eight malformed policy-matrix variants at zero
+turns, then completed 27-workspace setup, all 77 catalog mappings, exact outer-
+wrapper probes, three one-shot non-product transport canaries, and a 117-file
+freeze. The combined static qualifier reported 12/12, but post-consumption
+native review found its PowerShell parse subcheck received a null root, emitted
+a non-terminating binding error, parsed no target file, and still returned its
+pass sentinel and exit zero. Pre-consumption qualification is therefore
+invalid. A later direct parser diagnostic found all six carrier PowerShell
+files syntactically valid, but it cannot replace the frozen gate.
+
+The product packet consumed six turns. A01-A04 completed; A05 consumed but
+hard-stopped; 22 cells did not start. A04 had a controller-observed exact body
+read and began with the required neutral applicability phrase, used no
+selection/activation heading or pre-confirmation state label, and made no
+project/Git read. This is a bounded observation, not Gate 2 credit.
+
+A05 used the required opening, made no project/Git read, non-command-tool call,
+or mutation, and used no forbidden state label. Before activation, however, it
+prescribed pause, writer, evidence-revalidation, durable-handoff, and gated-
+resume workflow. That exceeds the proposal-only surface and is an observed
+product mismatch under the current model/Harness, without isolating Skill text
+as the sole cause. The controller also observed no candidate `SKILL.md` read,
+so exact loaded-copy identity remained `UNKNOWN` and the frozen implicit-
+positive exact-load requirement failed independently. The packet sealed
+`SEALED_PARTIAL_HARD_STOP` at 4/27. One
+independent `Terra/high` assessor returned `DECISION_REQUIRED`; invalid
+qualification independently blocks acceptance, and D42 has no retry, rescore,
+acceptance, installation, or release transfer. Any successor must prevent
+workflow application before activation, decide whether the proposal turn may
+be metadata-only or must load the exact body, and repair qualification with
+the exact expected file set/cardinality plus one positive parse receipt per
+file. The sanitized result is
+[Work Charter D42 Gate 2 terminal](../../../evals/results/2026-08-10-work-charter-d42-gate2-terminal.md).
+
+D42 closeout verification passes the unchanged Work Charter validator, tracked
+controller at 11/11 historical + 32/32 evidence-surface + 33/33 negative + 4/4
+metamorphic plus structural guards, repository checker at 202 text files / 14
+cases / 12 fixtures, all 17 fixture checks, 8/8 PowerShell parser checks,
+`git diff --check`, and Gitleaks over the exact 11 changed paths. These checks
+validate the sanitized result and documentation closure, not candidate behavior
+acceptance or a successor turn.
+
+The separate post-consumption parse of all six ignored carrier PowerShell files
+passed. That diagnostic does not restore the missing pre-consumption gate.
 
 ## Required Checks
 
