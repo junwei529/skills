@@ -56,7 +56,11 @@ full Skill and claims activation only after the body is available in the current
 context; otherwise it reports degraded loading and stops without an activation
 claim. If the runtime does not expose the exact loaded path or revision, that
 identity remains `UNKNOWN` and Codex makes no exact-copy claim; this alone does
-not block ordinary activation. A generic installed-Skills request or
+not block ordinary activation. Loading the directly requested Skill and only
+the package references required by its active branch is part of activation,
+not project inspection. An exact project-read limit does not block those
+package reads, and the package load grants no additional project-read or
+action authority. A generic installed-Skills request or
 symptom-only match first receives a metadata-level proposal (a lightweight
 catalog match): Work Charter appears applicable, why it may help, the smallest
 proposed project read, and a question asking whether to activate it. That
@@ -114,8 +118,12 @@ an approved read after Git access failed. The latter also exposed runner
 ownership noise, which is not a product finding. Its independent assessor
 returned `DECISION_REQUIRED`. Current SOURCE now narrows metadata wording and
 adds an unavailable-read stop. Exact local product candidate `53d424c...`
-records those bytes, but it has no new behavior, installation, or release
-evidence yet.
+records those bytes. Its fresh Gate 2 batch completed A01-A11 but sealed at
+A12 after a direct invocation requested separate authority to load the Skill
+package; the independent assessor returned `DECISION_REQUIRED`. D31 is the
+current uncommitted correction distinguishing activation-required package
+reads from the exact project-read scope. It has no exact candidate, behavior
+acceptance, installation, or release evidence.
 Full staged selection, entry, level, re-entry, and visible
 Standard behavior, full Standard delivery at the stable layer, broad implicit
 telemetry, independent real-project efficacy, deterministic role delivery or

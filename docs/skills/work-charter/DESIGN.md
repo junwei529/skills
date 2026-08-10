@@ -1,6 +1,6 @@
 # Work Charter Design
 
-Last updated: 2026-08-04
+Last updated: 2026-08-10
 
 ## Purpose And Audience
 
@@ -20,6 +20,12 @@ Users may invoke `$work-charter` or explicitly ask in ordinary language to use
 Work Charter without knowing special syntax. That direct intent requests
 activation without another confirmation. The Harness must load the full body
 before the response makes activation visible or follows the Skill workflow.
+Direct intent or confirmation authorizes loading `SKILL.md` and only the
+package references required by the applicable branch. Those package reads are
+part of activation, not project inspection: an exact project-read limit
+constrains project and evidence sources but does not suppress required package
+loading. Package loading does not grant any additional project read, role,
+write, Git, or external-effect authority.
 
 An indirect request to choose among installed Skills, or observable
 continuity, control, authorization, recovery, writer, or independent-
@@ -165,8 +171,8 @@ deferred.
 
 | Source | Owner |
 |---|---|
-| [`SKILL.md`](../../../skills/work-charter/SKILL.md) | Metadata-state and selection/read boundary, degraded-load and unavailable-read stops, conditional role-reference routing, five-part contract, compact levels/carrier/re-entry workflow, authority, and stop boundary |
-| [`coordination-and-recovery.md`](../../../skills/work-charter/references/coordination-and-recovery.md) | Entry/re-entry order, L1/L2 durability, managed workstreams, multi-worktree reconciliation, re-entry precedence, L3, correction, and evidence |
+| [`SKILL.md`](../../../skills/work-charter/SKILL.md) | Metadata-state, direct package-load versus project-read boundary, degraded-load and unavailable-read stops, conditional role-reference routing, five-part contract, compact levels/carrier/re-entry workflow, authority, and stop boundary |
+| [`coordination-and-recovery.md`](../../../skills/work-charter/references/coordination-and-recovery.md) | Package-load timing versus project-read approval, entry/re-entry order, L1/L2 durability, managed workstreams, multi-worktree reconciliation, re-entry precedence, L3, correction, and evidence |
 | [`standard-ope.md`](../../../skills/work-charter/references/standard-ope.md) | L4 standing-policy reuse, control location, responsibilities, operating path, and honest degradation |
 | [`work-charter.md`](../../../skills/work-charter/assets/work-charter.md) | Optional no-existing-owner durable carrier |
 | [`openai.yaml`](../../../skills/work-charter/agents/openai.yaml) | Concise UI metadata and implicit-invocation policy |

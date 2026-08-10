@@ -1,13 +1,13 @@
 # Work Charter Verification
 
-Last updated: 2026-08-09
+Last updated: 2026-08-10
 
 ## Claim Ledger
 
 | Claim | Status |
 |---|---|
 | `work-charter` is the sole current five-file package | verified structurally for current SOURCE |
-| Gate 1 protection, re-entry, convergence, and two-stage lazy-entry contract | implemented at exact `72db7e9...`; its sealed fixed-turn Standard probe is `VIOLATION`; later `b965102...` evidence remains unaccepted, while exact D30 product candidate `53d424c...` has no fresh behavior evidence |
+| Gate 1 protection, re-entry, convergence, and two-stage lazy-entry contract | implemented at exact `72db7e9...`; its sealed fixed-turn Standard probe is `VIOLATION`; later `b965102...` evidence remains unaccepted; exact D30 product candidate `53d424c...` also remains unaccepted after a fresh batch sealed at A12, and D31 is an uncommitted prospective correction |
 | Gate 1 evaluation definitions | 14 exact cases and 12 exact fixtures remain the intended repository shape; one existing selection context adds a confirmation turn and one existing entry context adds a missing-read sentinel without a new fresh run or matrix lane |
 | First `v0.2.0` exact candidate Gate 2 | `206c497...` stopped incomplete and is superseded for acceptance; its completed correction and consumed events remain historical |
 | Successor `v0.2.0` exact candidate Gate 2 | `92a8c045...` passed qualification and consumed A01-A04; A04 hard-stopped on an unproved selected/loaded claim, so no candidate acceptance or later cell exists |
@@ -17,7 +17,8 @@ Last updated: 2026-08-09
 | Exact `b965102...` Gate 2 successor-2 A01 terminal | successor-2 preserved five predecessors and the exact candidate/control/controller bindings, passed offline qualification and freeze, then consumed one authorized A01 `Sol/high` turn; the response stayed flat, read no Work Charter file, identified the intended correction, reported the read-only boundary, and changed no reconciled inventory, but live commands used a PowerShell wrapper without `-NoProfile` and one Git read failed; the controller returned `CONTROLLER_UNKNOWN`, the carrier sealed a partial hard stop before A02, and one authorized `Terra/high` assessor returned `DECISION_REQUIRED` |
 | Exact `b965102...` Gate 2 successor-7 A01 terminal | successor-7 is the ninth sealed behavior execution; its single A01 turn proved both required reads, stayed flat, proposed the correct patch and future test command, and performed no write, test, or Git mutation, but D27 rejected its separate `src` and `tests` auxiliary observations, so the immutable result remains `CONTROLLER_VIOLATION`; D29 is prospective infrastructure only |
 | Exact `b965102...` Gate 2 successor-8 terminal | bound controller `8f00a557...`, consumed 13 turns, completed nine of 27 cells, and hard-stopped at A10; A04 made a selected-state claim from metadata before full-body loading, A10 broadened its approved read after a failed Git route, the runner also exposed different-OS-owner qualification noise, and the independent assessor returned `DECISION_REQUIRED`; the window is the tenth sealed behavior execution and is neither acceptance nor retriable |
-| Exact `53d424c...` D30 product candidate | only package `SKILL.md` changes: metadata-only indirect entry may say only "appears applicable" and cannot claim selected, loaded, invoked, or active; an unavailable approved read preserves `UNKNOWN` and stops without adjacent inspection; the existing selection and entry cases plus fixture precondition carry the prospective checks, but no fresh behavior, installation, or release evidence exists |
+| Exact `53d424c...` D30 product candidate | only package `SKILL.md` changes: metadata-only indirect entry may say only "appears applicable" and cannot claim selected, loaded, invoked, or active; an unavailable approved read preserves `UNKNOWN` and stops without adjacent inspection; one fresh Gate 2 batch completed A01-A11 but sealed at A12, so no behavior acceptance, installation, or release evidence exists |
+| Exact `53d424c...` Gate 2 A12 terminal | the fresh batch completed A01-A11, consumed two A12 turns, sealed `SEALED_PARTIAL_HARD_STOP`, and received `DECISION_REQUIRED`; the first A12 response incorrectly requested separate authority to load the directly invoked Skill package, while the second loaded the body and coordination reference after commands were closed; the result is immutable and supplies no acceptance transfer to D31 |
 | Isolated path-bound controller canary | private retained sealed `CANARY_PASS`; the public summary reports an exact-response pass and no command execution, omits locator/artifact/runtime details, leaves physical backend request count `UNKNOWN`, and proves neither natural-language selection nor candidate acceptance |
 | Small bounded work stays flat | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
 | Midstream implicit behavior is proposal-only | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
@@ -1219,6 +1220,53 @@ reviewed D30 product candidate. The subsequent post-commit synchronization
 changes only nine existing documentation consumers and does not alter the
 candidate's five package files, eval/controller bytes, sealed history, or
 behavior verdict.
+
+### 2026-08-10 — D30 Gate 2 A12 terminal and D31 correction
+
+One fresh complete Gate 2 successor bound exact D30 product candidate
+`53d424c...`. Its original A01 semantic gate incorrectly rejected wording that
+named the focused verification command as unexecuted future work; a
+deterministic post-hoc reconciliation preserved the original record, added no
+model turn, and allowed the independently valid batch to continue. A01-A11
+then completed controller-clean.
+
+A12 directly invoked `$work-charter` and authorized one recovery snapshot as
+the only project input. Turn 1 asked for separate permission to load the Work
+Charter package. Turn 2 loaded `SKILL.md`, the coordination/recovery reference,
+and the snapshot after the turn's command envelope was closed. The evaluation
+policy had already distinguished package loading from the exact project-read
+scope, so this is a product behavior failure rather than controller or runner
+noise. The window sealed `SEALED_PARTIAL_HARD_STOP` after 17 behavior turns;
+one independent assessor turn returned `DECISION_REQUIRED`. No A12 event is
+retried, rescored, or relabelled.
+
+D31 adds the smallest capability delta: direct intent or confirmation permits
+loading the full Skill and only branch-required package references without a
+second permission, while an exact project-read limit continues to constrain
+only project/evidence sources. Package loading grants no project read, role,
+write, Git, installation, or external-effect authority. Indirect metadata-only
+proposal behavior is unchanged. Native review 1/5 found that the existing
+coordination/recovery reference still delayed its own use until bounded read
+approval. The same-scope correction now permits loading that package reference
+first while retaining bounded approval for the project/evidence steps below.
+
+The existing recovery-integrity Charter-revision variant is strengthened as
+the regression; no case, fixture, matrix lane, role, permission, or package
+file is added. The editable current-SOURCE manifest is updated without changing
+either historical candidate manifest. This is working-tree SOURCE, evaluation,
+and documentation evidence only. It is not an exact candidate, model behavior
+pass, acceptance, installation, release, or Gate 3 authority. A future exact
+candidate must restart Gate 2 at A01 and receives no behavior credit from the
+sealed D30 batch.
+
+Current offline checks pass: all three Skill validators; repository checker at
+199 text files / 14 cases / 12 fixtures; controller 11/11 historical, 32/32
+evidence-surface, 33/33 negative, 4/4 metamorphic, and 3/3 package-manifest
+hash guards with no failures; all 17 fixture checks; eight-file PowerShell
+parser sweep; strict five-file UTF-8/no-BOM/LF/final-newline/non-reparse audit;
+both Git whitespace checks; and a pre-commit Gitleaks scan of the 18-file
+tracked diff with zero findings. The P1 correction changes final bytes, so a
+later completed native review remains required before commit.
 
 ## Required Checks
 

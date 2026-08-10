@@ -27,6 +27,10 @@ Work Charter allows implicit invocation, but an indirect
 installed-Skills request or symptom-only match may use metadata only to say it
 appears applicable and ask for activation. Direct ordinary-language intent or
 later confirmation must load the full Skill before its workflow is relied on.
+For Work Charter, that direct or confirmed activation authorizes loading the
+Skill package required by the applicable branch. An exact project-read limit
+constrains project/evidence sources rather than those package reads, while the
+package load grants no project-read or action authority.
 The 2026-07-29 Work Charter M2R matrix was SOURCE-assisted. The
 2026-08-01 tested revision instead used one repository-scoped `DEV_DISCOVERY`
 entry and re-proved its identity in fresh contexts. Small-task and midstream
@@ -310,6 +314,13 @@ read-only successor follow-up in the same context; it does not add a new matrix
 lane. Preserve pre-consumption qualification, completed Work Charter
 corrections, consumed evidence, and delivery/native-review counters as distinct
 histories.
+
+For that Charter-revision variant, the explicit invocation authorizes loading
+the exact candidate `SKILL.md` and its branch-required coordination/recovery
+reference on the first turn. The snapshot-only read limit applies to project
+and evidence sources and must not cause a second package-loading approval
+request. Loading the package still grants no broader project-read or action
+authority.
 
 A01 (`small-task-stays-flat`) is the read-only `L0` diagnosis and non-selection
 baseline. It requires the exact minimal patch and a focused verification

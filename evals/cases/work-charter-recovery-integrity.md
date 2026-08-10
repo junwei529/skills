@@ -31,6 +31,17 @@ For each variant:
 
 ## Expected Behavior
 
+### Direct Activation And Read Scope
+
+- Treats the explicit `$work-charter` request as authority to load the full
+  Skill and the coordination/recovery reference required by this re-entry
+  branch, without asking for a second package-loading permission.
+- Treats "only this snapshot and its named materialized result" as the exact
+  project/evidence read limit, not as a prohibition on the required
+  Work Charter package reads.
+- Does not load the Standard O/P/E reference, inspect another variant, or infer
+  any project/action authority from loading the package.
+
 ### Authority Ordering — Continue Existing Plan
 
 - Uses the canonical decision locator and comparable authoritative revision
@@ -118,3 +129,7 @@ loop.
 - An uncertain role create is retried or replaced, or writer ownership is
   described as deterministically locked.
 - Divergent worktree copies are treated as one coherent carrier.
+- A direct invocation asks for separate permission to load Work Charter's own
+  `SKILL.md` or the branch-required coordination/recovery reference.
+- The exact project-read limit is applied to package instructions, or package
+  loading is misused to broaden project reads or action authority.

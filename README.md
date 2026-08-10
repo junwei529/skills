@@ -64,8 +64,12 @@ claim only after the full body is available in the current context. If Codex
 cannot load the body, it reports degraded loading and stops without claiming
 activation. When the runtime does not expose the exact loaded path or revision,
 that identity remains `UNKNOWN` and Codex makes no exact-copy claim; this alone
-does not block ordinary activation. For an indirect installed-Skills request or
-concrete control or recovery symptoms, metadata may show that Work Charter
+does not block ordinary activation. Loading the directly requested Skill and
+its branch-required package references is part of activation, not project
+inspection: an exact project-read limit does not block those package reads,
+and they grant no broader project or action authority. For an indirect
+installed-Skills request or concrete control or recovery symptoms, metadata may
+show that Work Charter
 appears applicable. The first response explains why, proposes the smallest
 project read, and asks whether to activate it without claiming that it is
 selected, loaded, invoked, or active. After confirmation, the same load-or-stop

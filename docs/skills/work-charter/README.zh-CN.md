@@ -49,7 +49,9 @@ $work-charter 约束此项有后果的工作、权限、证据、恢复和最小
 用自然语言明确说“使用 Work Charter”就是直接激活意图，不必记住
 `$work-charter` 语法。Codex 只有在完整 Skill 正文已经进入当前上下文后才声称已经
 激活；否则会说明加载降级并停止，不作激活声明。若 runtime 不暴露精确加载路径或
-revision，该身份保留为 `UNKNOWN`，Codex 不声称具体副本；这本身不阻止普通激活。
+revision，该身份保留为 `UNKNOWN`，Codex 不声称具体副本；这本身不阻止普通激活。加载
+直接请求的 Skill 以及当前分支必需的 package references 属于激活，而不是项目检查。
+精确项目读取限制不会禁止这些 package reads，package 加载也不会增加项目读取或行动授权。
 泛化的“根据已安装 Skills 判断”请求或仅由症状触发的匹配，首先只得到元数据级
 proposal（即根据 Skill 简介做轻量候选判断）：说明 Work Charter 看起来可能适用、
 原因、建议的最小项目读取范围，并询问是否激活。此时不能声称 Skill 已经
@@ -97,7 +99,10 @@ execution window 与两条零 turn 资格记录均已封存且不可重试。suc
 A10 则在 Git 读取失败后扩大了批准读取范围；后者同时暴露 runner ownership 噪声，
 不能算作产品 finding。独立 assessor 返回 `DECISION_REQUIRED`。当前 SOURCE 已收紧
 metadata 措辞并加入 unavailable-read 停止规则；精确本地 product candidate
-`53d424c...` 已记录这些字节，但尚无新的行为、安装或发布证据。
+`53d424c...` 已记录这些字节。其 fresh Gate 2 batch 完成 A01-A11 后在 A12 封存，
+原因是直接调用仍要求另行授权加载 Skill package；独立 assessor 返回
+`DECISION_REQUIRED`。D31 是当前未提交修订，明确区分激活所需 package reads 与精确
+项目读取范围；它尚无 exact candidate、行为接受、安装或发布证据。
 完整分阶段 selection、entry、等级、
 重新接入和可见 Standard 行为，stable 层完整 Standard
 delivery、广泛隐式触发 telemetry、独立真实项目效果、确定性角色交付或 writer

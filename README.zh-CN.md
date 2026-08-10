@@ -57,7 +57,9 @@ Work Charter 也接受“调用 Work Charter，判断项目应该怎样继续”
 请求；这种直接请求会要求 Codex 加载完整 Skill，只有
 完整正文已经进入当前上下文后才能声称已经激活。如果正文无法加载，Codex 会说明
 加载降级并停止，不会声称已激活。若 runtime 不暴露精确加载路径或 revision，该
-身份保留为 `UNKNOWN`，Codex 不声称具体副本；这本身不阻止普通激活。对于泛化的
+身份保留为 `UNKNOWN`，Codex 不声称具体副本；这本身不阻止普通激活。直接请求所需的
+Skill 正文与当前分支必需 package references 属于激活，而不是项目检查：精确项目读取
+限制不会禁止这些 package reads，它们也不会扩大项目读取或行动授权。对于泛化的
 “根据已安装 Skills 判断”请求，或具体控制与恢复症状，系统首先只根据 metadata
 （Skill 简介）判断 Work Charter 看起来可能适用：说明原因、提出最小项目读取范围，
 并询问是否激活，但不能声称它已经 selected、loaded、invoked 或 active。用户确认

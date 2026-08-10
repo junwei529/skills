@@ -1,16 +1,16 @@
 # 0018: Work Charter Adoption, Protection Levels, And Re-entry Checkpoint
 
 Date: 2026-08-02
-Amended: 2026-08-08
-Status: accepted design; exact candidate `b965102...` remains unaccepted at Gate 2, every consumed execution remains sealed and non-retriable, and WC-AR-D30 hardens metadata-state wording plus unavailable-read recovery without retry or acceptance
+Amended: 2026-08-10
+Status: accepted design through WC-AR-D31; exact D30 candidate `53d424c...` remains unaccepted after a sealed A12 hard stop, and every consumed execution remains non-retriable
 
-- Planning checkpoint: 18 (metadata-state and unavailable-read hardening)
-- Last incorporated decision: `WC-AR-D30`
+- Planning checkpoint: 19 (direct activation package-load boundary)
+- Last incorporated decision: `WC-AR-D31`
 - Open decision IDs: none
 - Lifecycle authority: this Decision grants none; consult `docs/HANDOFF.md` for
   the live next gate
 - Checkpoint reason: completed product-design decision set plus the accepted
-  convergence and honest indirect-entry corrections
+  direct/indirect entry and package-load/project-read corrections
 
 ## Status And Evidence Boundary
 
@@ -1135,6 +1135,47 @@ remain unchanged. A future exact candidate requires a
 separately authorized commit, clean candidate materialization, and new Gate 2
 evidence that preserves every predecessor record. This decision authorizes no
 retry, model or assessor call, Git action, installation, release, or Gate 3.
+
+### WC-AR-D31 — Direct Activation Package-Load Boundary
+
+**Confirmed.** One fresh Gate 2 successor for exact D30 candidate
+`53d424c...` completed A01-A11 and then sealed a partial hard stop at A12. A12
+directly invoked `$work-charter` and authorized only its recovery snapshot as
+project input. The first response nevertheless asked for separate authority to
+load the Work Charter package. A second turn loaded `SKILL.md` and the
+coordination/recovery reference, but that turn allowed no command. The run had
+already crossed its consumption point; its result remains sealed and is not
+retried or rescored.
+
+The runner's authorization contract already distinguished the Work Charter
+package from the project snapshot. The product correction makes that boundary
+explicit:
+
+1. direct intent or confirmation authorizes loading the full `SKILL.md` and
+   only package references required by the applicable workflow branch;
+2. those package reads are activation, not project inspection, so an exact
+   project-read limit applies only to project or evidence sources and must not
+   trigger a second package-loading permission request;
+3. loading package instructions grants no project read, adoption, role,
+   write, Git, installation, external-effect, or other action authority; and
+4. the indirect metadata-only proposal remains unchanged and must not load the
+   body before confirmation.
+
+The existing recovery-integrity Charter-revision variant remains the
+regression. Its first turn must load the exact candidate body and the
+coordination/recovery reference, read only the authorized snapshot from the
+project, and return the re-entry route without another loading question. The
+reference's own entry timing must distinguish that package load from the
+bounded approval required before its project/evidence reconciliation steps.
+The existing read-only successor follow-up still performs no command. No case,
+fixture, matrix lane, product role, state machine, permission, or package file
+is added.
+
+Because this is a material behavior correction after a non-compensable
+authorization failure, a future exact candidate starts a new Gate 2 batch at
+A01. None of the predecessor's completed A01-A11 behavior transfers as
+acceptance evidence. This decision does not authorize commit, candidate
+materialization, model or assessor turns, installation, release, or Gate 3.
 
 ## Important Rejected Alternatives
 

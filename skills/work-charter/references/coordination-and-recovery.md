@@ -1,8 +1,12 @@
 # Coordination And Recovery
 
-Use this reference after bounded read approval for first adoption, re-entry,
-midstream adoption, durable single-agent work, Planner/Executor separation,
-interruption, recovery, or a same-scope correction loop.
+For direct intent or activation confirmation, load this Skill-package reference
+when the applicable branch requires it. That package read neither requires nor
+consumes target-project read approval. Obtain or reuse bounded read approval
+before following the project/evidence reconciliation steps below for first
+adoption, re-entry, midstream adoption, durable single-agent work,
+Planner/Executor separation, interruption, recovery, or a same-scope
+correction loop.
 
 ## Minimum Read And Reconciliation Order
 

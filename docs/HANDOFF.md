@@ -1,14 +1,15 @@
 # Repository Handoff
 
-Last updated: 2026-08-09
+Last updated: 2026-08-10
 
 ## Snapshot
 
 - Repository: Agent Workflow Skills
-- Exact D30 product candidate: local commit
+- Prior exact D30 product candidate: local commit
   `53d424c814a83515830993da1cd7e1a4c61ff01e`, whose parent is pushed D29
   controller/evaluation commit `8f00a55769123c8d03c1b7767ff94ec1144dce41`;
-  only `skills/work-charter/SKILL.md` changes inside the five-file package
+  only `skills/work-charter/SKILL.md` changes inside the five-file package;
+  its fresh Gate 2 batch completed A01-A11 but sealed at A12 without acceptance
 - Released package identity: immutable `v0.1.2` at
   `ceed607152849775b981c54add74bfa30d858e4d`
 - GitHub Release:
@@ -18,15 +19,12 @@ Last updated: 2026-08-09
   5 files, each matching the `v0.1.2` Git blobs
 - Rollback identity: immutable `v0.1.1` retained as a separately verified
   three-package backup
-- Writer boundary: the D30 SOURCE writer closed at `53d424c...`. The only
-  authorized follow-up writer window is the bounded nine-document
-  synchronization described below, its deterministic checks, native review,
-  and one local docs-only descendant commit. A dirty checkout with exactly that
-  diff may finish the window; a clean descendant containing this snapshot has
-  no active writer and stops for a user-owned push decision. The window includes
-  no Skill, eval, controller, Decision 0018, candidate
-  materialization, successor/model/assessor turn, installation, tag, release,
-  stable-copy, ignored-evidence mutation, cleanup, or cross-Skill authority
+- Writer boundary: one D31 writer owns the 18 existing files listed below for
+  the approved SOURCE, existing A12 regression, current-SOURCE manifest, and
+  mapped documentation correction. Deterministic checks, native review, and
+  clear same-scope fixes are in scope. Commit, push, candidate materialization,
+  another model or assessor turn, installation, tag, release, stable-copy or
+  ignored-evidence mutation, cleanup, and cross-Skill work are not authorized
 
 The `v0.1.2` tag remains fixed at the release-preparation commit. The later
 documentation commit records already-completed tag, stable-install, canary, and
@@ -637,55 +635,102 @@ controller files, root bilingual README pair, Work Charter `DESIGN.md`,
 Candidate materialization, fresh behavior/results, installation, release, and
 cleanup consumers are `NOT_APPLICABLE` to this state-only synchronization.
 
+## D30 A12 Terminal And D31 Working-Tree Correction
+
+One fresh complete Gate 2 successor for exact D30 candidate `53d424c...`
+completed A01-A11 and then sealed `SEALED_PARTIAL_HARD_STOP` at A12. A12
+directly invoked Work Charter and authorized only one recovery snapshot as
+project input. Turn 1 asked for separate authority to load the Work Charter
+package. Turn 2 loaded `SKILL.md` and the coordination/recovery reference after
+commands were closed. The independent assessor returned `DECISION_REQUIRED`.
+All 17 behavior turns and the assessor turn are immutable; no completed cell
+transfers to a future candidate.
+
+D31 makes the minimal product correction: direct intent or confirmation
+authorizes loading the full Skill and only branch-required package references;
+an exact project-read limit applies to project/evidence sources rather than
+those package instructions. The coordination/recovery reference now makes the
+same timing explicit before its project/evidence steps. Package loading grants
+no project-read or action authority, and the indirect metadata-only proposal
+remains unchanged.
+
+The D31 existing-file `UPDATE` envelope is:
+
+- `skills/work-charter/SKILL.md`;
+- `skills/work-charter/references/coordination-and-recovery.md`;
+- `evals/cases/work-charter-recovery-integrity.md`;
+- `evals/codex-evidence-controller-cases.json`;
+- `evals/README.md`;
+- `docs/decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md`;
+- `docs/skills/work-charter/DESIGN.md`;
+- `docs/skills/work-charter/STATE.md`;
+- `docs/skills/work-charter/VERIFICATION.md`;
+- `docs/skills/work-charter/README.md`;
+- `docs/skills/work-charter/README.zh-CN.md`;
+- `README.md`;
+- `README.zh-CN.md`;
+- `docs/STATUS.md`;
+- `docs/VERIFICATION.md`;
+- `docs/HANDOFF.md`;
+- `docs/INDEX.md`; and
+- `docs/ROADMAP.md`.
+
+The other three Work Charter package files, `agents/openai.yaml`,
+`assets/work-charter.md`, and `references/standard-ope.md`, plus all fixtures
+and checkers, other cases/results, `docs/SPEC.md`, `docs/ARCHITECTURE.md`,
+`docs/AUTHORITY.md`, `docs/RUNBOOK.md`, `docs/PROVENANCE.md`, and neighboring
+Skill owners are `CHECKED_NO_CHANGE` or `NOT_APPLICABLE`. No file, case,
+fixture, lane, role, permission, package component, or acceptance boundary is
+added.
+
+Current deterministic checks pass: all three Skill validators; repository
+checker at 199 text files / 14 cases / 12 fixtures; controller 11/11 historical,
+32/32 evidence-surface, 33/33 negative, 4/4 metamorphic, and 3/3 package-
+manifest hash guards; all 17 fixture checks; eight-file parser sweep; strict
+five-file package byte audit; both Git whitespace checks; and a pre-commit
+Gitleaks scan of the 18-file tracked diff with zero findings. Native review 1/5
+found one P1 timing conflict in the existing coordination/recovery reference;
+the same-scope correction is applied, and final-byte review remains required
+before commit.
+
 ## Resume Order
 
 1. Read `AGENTS.md`, `docs/INDEX.md`, and `docs/AUTHORITY.md`.
 2. Read [Repository Status](STATUS.md), this handoff, and the relevant per-Skill
    State and Verification owners.
 3. Read Decision 0017, Decision 0019, the capability-delta Runbook/eval owners,
-   Decision 0018 D30, and the current per-Skill State before changing shared
+   Decision 0018 through D31, and the current per-Skill State before changing shared
    development or Work Charter selection claims.
 4. Resolve local `main`, HEAD, index, all dirty and ignored scopes, writer
    ownership, and the exact Work Charter SOURCE/candidate/controller bindings
    rather than assuming this snapshot is still current.
-5. Preserve all ten sealed Work Charter behavior windows and both zero-turn
-   qualification records without retry, relabelling, or rescore. Keep prior
-   candidate `b965102...` separate from exact D30 candidate `53d424c...`.
+5. Preserve all ten `b965102...` behavior windows, both zero-turn qualification
+   records, and the separate sealed `53d424c...` Gate 2 window without retry,
+   relabelling, rescore, or acceptance transfer.
 6. Keep `c42eef3...` RC behavior, `ceed607...` release identity, the later
    evidence descendant, and the generated stable/rollback copies distinct.
-7. The D30 SOURCE authority ended with local commit `53d424c...`. The bounded
-   documentation synchronization ends with its own local descendant commit.
-   Before push, candidate construction, successor/model/assessor activity,
-   installation, cleanup, tag, or release, obtain its own explicit authority
-   and re-enter the corresponding Runbook procedure.
+7. The active D31 authority ends after the 18-file correction, checks, native
+   review, and clear same-scope fixes. Stop for explicit commit authority before
+   candidate construction, model/assessor activity, push, installation,
+   cleanup, tag, or release.
 
 ## Immediate Next Action
 
-No release action remains pending for immutable `v0.1.2`. Exact D30 product
-candidate `53d424c...` exists locally and passed its native-review and commit
-gates. This nine-document set is the post-commit synchronization payload. If
-the live checkout still carries exactly this dirty diff, finish its
-deterministic checks, native review, and one local docs-only descendant commit.
-If these bytes are already in a clean descendant of `53d424c...`, do not repeat
-the synchronization: stop and ask whether to make the candidate and its state
-record reachable through a fast-forward push. Push remains separate from
-materialization.
-
-Successor-9 is design-only at this checkpoint. A separate Gate 2 authorization
-must preserve all ten sealed behavior windows and two qualification records,
-bind exact candidate and controller `53d424c...`, create entry workspaces under
-the model command runner's OS identity, pass zero-turn qualification/freeze,
-and run serially with terminal failures sealed without retry. The unchanged
-19-run/27-cell matrix adds one same-context missing-read turn, for at most 40
-counted turns including the independent assessor. Project Docs, push,
-candidate materialization, model or assessor turns, installation, tag, release,
-stable copy, and cleanup remain outside the current window.
+No release action remains pending for immutable `v0.1.2`. Once the D31
+18-file correction, deterministic verification, and final-byte native review
+are complete, stop for explicit commit authority. Only a later exact commit can
+become the next candidate. That candidate must start a fresh Gate 2 batch at
+A01 and preserve
+the complete sealed `53d424c...` record without reusing A01-A11 behavior.
+Project Docs, commit, push, candidate materialization, model or assessor turns,
+installation, tag, release, stable copy, and cleanup remain outside the current
+window.
 
 Later user-owned choices include:
 
-- decide whether to fast-forward push the local candidate and documentation
-  descendant, then separately materialize exact candidate `53d424c...` and
-  authorize successor-9 without retrying any consumed predecessor event;
+- decide whether to authorize one D31 commit, then separately decide public
+  reachability, exact candidate materialization, and a fresh Gate 2 batch from
+  A01 without retrying or transferring any consumed predecessor event;
 - after an accepted Project Docs commit, authorize an exact-commit candidate
   and write-capable synthetic persistence test;
 - begin another separately scoped development or evaluation cycle;
@@ -702,12 +747,12 @@ Stop before write or publication if:
 
 - live local/public identity, worktree, dirty scope, or writer ownership differs
   from the expected state;
-- a future action treats the earlier state sync, local integration, or current
-  successor qualification as authority to change a `skills/work-charter` blob;
+- a future action treats the earlier state sync, local integration, or sealed
+  D30 batch as authority beyond the explicit D31 envelope;
 - any named sealed evidence input changes length or SHA-256;
-- a future action uses that completed window to add a file, change a model
-  behavior case, fixture, controller, or result, or introduce a product
-  contract, permission, side effect, or new consumer;
+- a future action uses the sealed D30 window or current correction to add a
+  file, new case, fixture, controller behavior, result, product contract,
+  permission, side effect, or new consumer beyond the D31 envelope;
 - correction history or consumed evidence would be reset through a new task,
   root, epoch, attempt, or candidate label;
 - a root summary would duplicate or contradict a per-Skill canonical owner;
@@ -720,16 +765,15 @@ Stop before write or publication if:
 
 ## Authorization Boundary
 
-The current correction authorization covered two existing local global-guidance
-consumers plus the seven existing tracked evidence/state consumers listed in
-the Snapshot and deterministic verification. That write/check portion is
-complete and its writer has relinquished. Remaining authority covers read-only
-continuation of the current native-review cycle and, only if that review returns
-a clear same-scope P0-P2 defect within those same consumers, reacquisition of one
-bounded writer plus affected checks. It changes no Skill SOURCE, case, fixture,
-accepted design, or release identity and authorizes no fresh behavior model or
-canary, Git/index mutation, candidate, installation, push, release,
-ignored-evidence cleanup, or other-Skill change.
+The current D31 authorization covers exactly the 18 existing files listed in
+the D31 section, deterministic verification, native review, and clear same-
+scope finding correction. It permits one active writer to change the Work
+Charter SOURCE, existing A12 regression, content-only current-SOURCE manifest,
+and mapped product/evidence/public-state consumers. It adds no file, case,
+fixture, lane, role, permission, package component, or acceptance boundary.
+It does not authorize commit, push, candidate materialization, a fresh behavior
+model or assessor turn, installation, release, stable or ignored-evidence
+mutation, cleanup, or another Skill.
 
 The completed 2026-08-07 authorization covered only the six existing documentation
 owners named in the Snapshot, same-scope wording/routing corrections, and

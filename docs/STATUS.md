@@ -1,6 +1,6 @@
 # Repository Status
 
-Last updated: 2026-08-09
+Last updated: 2026-08-10
 
 ## Dashboard
 
@@ -9,7 +9,7 @@ Last updated: 2026-08-09
 | Tested package identity | all three package byte sets independently reached exact-commit RC readiness at `c42eef392a5b9f58bbee64aa73ffb603a6fb6c29` and were re-proved at tag/stable identity `v0.1.2` | [Verification](VERIFICATION.md) |
 | Stable release identity | immutable [`v0.1.2`](https://github.com/junwei529/skills/releases/tag/v0.1.2) at `ceed607152849775b981c54add74bfa30d858e4d`; exact tag, stable loaded-copy, and GitHub Release proof pass for all three Skills | [Verification](VERIFICATION.md) |
 | Project Docs | immutable `v0.1.2` remains the released explicit-only control; local commit `776989f...` implements accepted Decision 0019 but is unreleased, and its evidence is `PARTIAL` because actual candidate selection, loaded-copy identity, and persistent writes remain `UNKNOWN` | [State](skills/manage-project-docs/STATE.md) |
-| Work Charter | released `v0.1.2` remains active; prior target `b965102...` is unaccepted with ten behavior windows and two zero-turn qualification records sealed; successor-8 stopped after 9/27 cells, and exact local D30 product candidate `53d424c...` now hardens metadata-state and unavailable-read boundaries without fresh behavior evidence | [State](skills/work-charter/STATE.md) |
+| Work Charter | released `v0.1.2` remains active; prior target `b965102...` is unaccepted with ten behavior windows and two zero-turn qualification records sealed; exact D30 candidate `53d424c...` also remains unaccepted after a fresh batch completed A01-A11 but sealed at A12, and D31 is the current uncommitted correction | [State](skills/work-charter/STATE.md) |
 | PowerShell | released five-file `v0.1.2` stable copy; corrected loaded identity and guarded native/text diagnosis pass; live WSL remains unproved | [State](skills/use-powershell-safely/STATE.md) |
 | Release lifecycle | `v0.1.2` tag, stable update, tag-pinned canaries, and Latest GitHub Release complete; `v0.1.1` retained as rollback identity | [Runbook](RUNBOOK.md) |
 
@@ -48,10 +48,17 @@ Exact local D30 product candidate `53d424c...` changes only Work Charter
 `SKILL.md` inside the five-file package: indirect metadata may say only
 "appears applicable" and cannot claim selected, loaded, invoked, or active; an
 unavailable approved read preserves `UNKNOWN` and stops without adjacent
-inspection. Existing selection/entry cases and the fixture precondition carry
-the prospective checks. This candidate is not `b965102...` and has no fresh
-model/assessor, installation, or release evidence. Exact history and residual
-limits belong to the
+inspection. Its fresh Gate 2 batch completed A01-A11 but sealed at A12 because
+the direct invocation asked for separate authority to load Work Charter's own
+package even though the exact read limit applied only to the project snapshot.
+The independent assessor returned `DECISION_REQUIRED`.
+
+D31 is the current working-tree correction. It makes required Skill-package
+loading part of direct or confirmed activation while keeping exact project
+reads and every action separately scoped. It updates the existing A12 case and
+current-SOURCE manifest and adds no case, fixture, lane, role, permission, or
+package file. It is not yet an exact candidate and has no model/assessor,
+installation, or release evidence. Exact history and residual limits belong to the
 [Work Charter State](skills/work-charter/STATE.md) and
 [Verification](skills/work-charter/VERIFICATION.md) ledgers.
 
@@ -78,8 +85,9 @@ and write-capable persistence remain `UNKNOWN`, so its overall evidence is
 `PARTIAL`. Work Charter target `v0.2.0` likewise remains unaccepted at
 Gate 2; its ten sealed behavior windows, two qualification records, and
 controller regressions do not establish product behavior acceptance. The
-exact D30 candidate `53d424c...` has offline definition and commit evidence only
-until separately authorized materialization and a fresh behavior window exist.
+separate D30 batch sealed at A12 after completing A01-A11; D31 remains a
+working-tree correction until its checks, native review, and an authorized
+commit create a new exact identity.
 Exact counts, hashes, exclusions, and residual limits remain in the per-Skill
 ledgers rather than this dashboard.
 
@@ -233,24 +241,15 @@ decision.
 
 ## Next Gate
 
-No release action remains pending for immutable `v0.1.2`. Native review 1/5
-found and corrected one P1 frontmatter trigger contradiction; review 3/5 found
-and corrected one P2 selection-prompt coverage gap. Reviews 2/5 and 4/5 found no
-actionable correctness issue, and review 4 covered the final 20-file diff. Local
-commit `53d424c...` now records that exact D30 product candidate. The bounded
-post-commit synchronization changes only nine existing documentation consumers
-and ends with one local docs-only descendant commit. Its next user-owned gate is
-whether to fast-forward push both local commits. No push, candidate
-materialization, model or assessor turn, installation, tag, release, stable
-update, or cleanup is presently authorized.
-
-Successor-9 remains a separate Gate 2 decision bound to exact candidate and
-controller `53d424c...`. Its design preserves all ten sealed behavior windows
-and two zero-turn qualification records, qualifies entry workspaces under the
-same OS identity as model commands, and tests the existing no-owner entry
-context with one exact unavailable-read sentinel. Product gates remain
-independent; Project Docs keeps its own candidate and persistence-evidence
-sequence.
+No release action remains pending for immutable `v0.1.2`. Complete the D31
+SOURCE, existing A12 regression, current-SOURCE manifest, mapped documentation,
+and native review. Current deterministic checks pass; native review remains
+pending. Then stop for explicit commit
+authority. A later exact candidate must be built from that commit and start a
+fresh Gate 2 batch at A01 without reusing the sealed D30 batch's A01-A11 cells.
+Push, candidate materialization, model or assessor turns, installation, tag,
+release, stable update, and cleanup remain separate gates. Project Docs keeps
+its own candidate and persistence-evidence sequence.
 
 ## Known Repository Gaps
 
@@ -267,9 +266,9 @@ sequence.
   standalone causality. Decision 0018's entry, level, re-entry, convergence,
   two-stage activation, and conditional role-read behavior remains unaccepted.
   D30 metadata-state and unavailable-read hardening has exact candidate
-  `53d424c...` but no fresh behavior evidence. The stopped matrices and sealed
-  fixed-turn bundle remain historical and cannot be relabeled for that
-  candidate.
+  `53d424c...`, but its fresh batch sealed at A12 after completing A01-A11.
+  D31 has no exact candidate or fresh behavior. All stopped matrices and sealed
+  bundles remain historical and cannot be relabeled or transferred.
 - The tracked controller now has one narrow isolated path-bound app-server
   compatibility pass. It does not establish natural-language Skill selection,
   semantic correctness, broad behavior, or Work Charter candidate acceptance;

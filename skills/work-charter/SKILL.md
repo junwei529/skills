@@ -1,6 +1,6 @@
 ---
 name: work-charter
-description: Bound consequential work by outcome, authority, evidence, recovery, and proportional coordination. Use for `$work-charter`, direct intent, or confirmation of its visible metadata proposal. Load the full Skill before claiming active; if unavailable, report degradation and stop. If exact copy identity is unexposed, keep it `UNKNOWN` with no revision claim. For an indirect installed-Skills choice or continuity/control, authority, recovery, writer, or assessment symptom, use metadata only to say Work Charter appears applicable and propose a minimal project read plus activation; never claim selected, loaded, invoked, or active. Inspect only approved scope. Initial adoption and first Standard policy need explicit approval. Do not use for bounded small work, new-task/one-failure/same-scope-correction signals, duration/file count alone, document governance, shell diagnosis, or non-Codex Harness adaptation. Activation never authorizes roles, writes, project rules, worktrees, Git, installation, or external effects.
+description: Bound consequential Codex work by outcome, authority, evidence, recovery, and proportional coordination. Use for `$work-charter`, direct intent, or confirmation of its metadata proposal. Direct activation loads the branch-required package; project-read limits constrain project/evidence sources, not package reads. Claim active only after the body loads; otherwise degrade and stop. Keep unexposed copy identity `UNKNOWN`; claim no revision. Indirect installed-Skills or continuity, authority, recovery, writer, or assessment symptoms permit metadata saying it appears applicable and proposing activation plus minimal read; never claim selected, loaded, invoked, or active. Inspect only approved scope. Initial adoption/first Standard policy need approval. Exclude small work, new-task/one-failure/same-scope-correction signals, size/duration alone, document or shell-only work, and non-Codex Harness adaptation. Activation never authorizes roles, writes, project rules, worktrees, Git, installation, or external effects.
 ---
 
 # Work Charter
@@ -22,6 +22,13 @@ Distinguish a lightweight catalog match from an activated Skill:
   applicable, explain why, and ask whether to activate it. Do not say it was
   selected, loaded, invoked, or active, and do not load the body merely to
   make the proposal.
+
+Direct intent or activation confirmation authorizes loading this `SKILL.md`
+and only the package references required by the applicable workflow branch.
+Those are Skill-package reads, not project inspection. An exact project-read
+limit constrains only project or evidence sources; do not ask for a second
+permission to load package instructions needed by the directly requested
+Skill. Package loading never expands project-read or action authority.
 
 For direct intent or confirmation, the activation boundary is the full Skill
 body being available in the current context. If only metadata is available or
