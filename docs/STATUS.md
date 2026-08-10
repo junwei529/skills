@@ -1,6 +1,6 @@
 # Repository Status
 
-Last updated: 2026-08-10
+Last updated: 2026-08-11
 
 ## Dashboard
 
@@ -9,7 +9,7 @@ Last updated: 2026-08-10
 | Tested package identity | all three package byte sets independently reached exact-commit RC readiness at `c42eef392a5b9f58bbee64aa73ffb603a6fb6c29` and were re-proved at tag/stable identity `v0.1.2` | [Verification](VERIFICATION.md) |
 | Stable release identity | immutable [`v0.1.2`](https://github.com/junwei529/skills/releases/tag/v0.1.2) at `ceed607152849775b981c54add74bfa30d858e4d`; exact tag, stable loaded-copy, and GitHub Release proof pass for all three Skills | [Verification](VERIFICATION.md) |
 | Project Docs | immutable `v0.1.2` remains the released explicit-only control; local commit `776989f...` implements accepted Decision 0019 but is unreleased, and its evidence is `PARTIAL` because actual candidate selection, loaded-copy identity, and persistent writes remain `UNKNOWN` | [State](skills/manage-project-docs/STATE.md) |
-| Work Charter | released `v0.1.2` remains active; exact D43 candidate `c481005...` passed corrected zero-model qualification but its first non-product canary stopped at `SANDBOX_NETWORK_TRANSPORT`; no product or assessor turn ran, so D43 is sealed `UNKNOWN_NOT_ASSESSED` and unaccepted | [State](skills/work-charter/STATE.md) |
+| Work Charter | released `v0.1.2` remains active; exact candidate `c481005...` is unchanged and unaccepted; approved D44 is an additive Gate 2 Campaign with a fresh ignored carrier, network-capable three-canary gate, conditional 27-cell packet, one assessor, and local result closeout | [State](skills/work-charter/STATE.md) |
 | PowerShell | released five-file `v0.1.2` stable copy; corrected loaded identity and guarded native/text diagnosis pass; live WSL remains unproved | [State](skills/use-powershell-safely/STATE.md) |
 | Release lifecycle | `v0.1.2` tag, stable update, tag-pinned canaries, and Latest GitHub Release complete; `v0.1.1` retained as rollback identity | [Runbook](RUNBOOK.md) |
 
@@ -127,6 +127,15 @@ final model message was produced. The other two canaries, all 27 product
 cells, and assessor did not start. D43 is immutable, unaccepted, and sealed
 `SEALED_HARD_STOP / UNKNOWN_NOT_ASSESSED`; this is an environment transport
 blocker, not a Work Charter product defect.
+
+Approved D44 preserves that terminal and the candidate unchanged. It first
+persists its bounded writer/authority state, then creates and qualifies one
+fresh ignored carrier against the current exact executable and network-capable
+outer route. Three `Sol/high`, `Sol/xhigh`, and `Terra/high` canaries gate the
+unchanged 27-cell matrix and one assessor. Small pre-consumption carrier and
+documentation defects are corrected automatically within the fixed budgets;
+material identity, contract, permission, evidence, or downstream-effect drift
+stops the Campaign.
 
 The exact post-commit documentation scope, writer state, and recovery order are
 owned by [Repository Handoff](HANDOFF.md).
@@ -316,17 +325,15 @@ decision.
 
 ## Next Gate
 
-No release action remains pending for immutable `v0.1.2`. D42 and its six
-consumed turns remain sealed, unaccepted, and non-retriable. The approved D43
-Campaign is the current writer window: close the mapped SOURCE/evaluation/docs
-revision, run deterministic checks and native review, and create one local
-exact-candidate commit. Then build a new ignored successor whose qualification
-proves the exact six-file PowerShell set with one receipt per file, empty
-stderr, and true exit zero. Only after that zero-model gate and three transport
-canaries pass may the one fresh 27-cell packet and assessor start. The same
-Campaign permits sanitized closeout and one local result commit. Push,
-installation, tag, release, stable update, cleanup, tracked controller/fixture
-expansion, and other-Skill changes remain excluded.
+No release action remains pending for immutable `v0.1.2`. D31-D43 remain
+sealed and non-retriable. Approved D44 is the current writer window: persist
+and commit its authority; build and zero-model qualify the fresh ignored
+carrier; run three canaries through the exact network-capable outer route;
+conditionally run the unchanged 27-cell packet and one assessor; then sanitize,
+verify, review, and locally commit the result. Small same-scope corrections are
+automatic. Push, installation, tag, release, stable update, cleanup, SOURCE/
+case/fixture/tracked-controller expansion, and other-Skill changes remain
+excluded.
 Project Docs keeps its own candidate and persistence-evidence sequence.
 
 ## Known Repository Gaps

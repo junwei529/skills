@@ -1,11 +1,11 @@
 # 0018: Work Charter Adoption, Protection Levels, And Re-entry Checkpoint
 
 Date: 2026-08-02
-Amended: 2026-08-10
-Status: accepted design through WC-AR-D43; D40-D42 are immutable under their frozen contracts, and no consumed execution is retried or rescored
+Amended: 2026-08-11
+Status: accepted design through WC-AR-D44; D40-D43 are immutable under their frozen contracts, and no consumed execution is retried or rescored
 
-- Planning checkpoint: 24 (metadata proposal, confirmed body load, and closed parser coverage)
-- Last incorporated decision: `WC-AR-D43`
+- Planning checkpoint: 25 (additive network-qualified Gate 2 packet)
+- Last incorporated decision: `WC-AR-D44`
 - Open decision IDs: none
 - Lifecycle authority: this Decision grants none; consult `docs/HANDOFF.md` for
   the live next gate
@@ -1416,6 +1416,81 @@ behavior turns, and one assessor, followed by sanitized result documentation,
 native review, and one local result commit. It authorizes no tracked controller
 or fixture expansion, push, installation, tag, release, stable update, cleanup,
 other-Skill change, or external publication.
+
+### WC-AR-D44 — Additive Network-Qualified Gate 2 Packet
+
+**Confirmed.** Exact D43 candidate
+`c4810057c3f28cca9f12004ca2018784cd21f449`, five-file manifest
+`04c382a48e43897a8806aa5ffd996984cb015d3d8cdc6e675e9181a6d94e6f44`,
+and released control `ceed607152849775b981c54add74bfa30d858e4d` remain the
+stable product subject. D43 passed corrected zero-model qualification, then
+consumed one non-product `Sol/high` canary turn that stopped at
+`SANDBOX_NETWORK_TRANSPORT`. D43 and every predecessor remain immutable;
+D44 is an additive replication packet, not a retry, replacement, rescore, or
+acceptance transfer.
+
+D44 pursues Gate 2 acceptance for the same exact candidate under the current
+model and Harness. Acceptance requires all three same-route non-product
+canaries, the frozen 27-cell D43 matrix and rubric with no missing required
+reference or hard-boundary failure, controller-admitted exact evidence for
+every required cell, one independent `gpt-5.6-terra/high` assessor returning
+`ACCEPTED`, and a clean deterministic/native-review closeout. A completed
+qualification, canary, commit, or aggregate score cannot substitute for those
+conditions.
+
+One approval authorizes these ordered tranches without command-by-command
+confirmation:
+
+1. persist this D44 authority and current writer/recovery state in the mapped
+   existing decision, State, Handoff, Status, Roadmap, and Index owners;
+   correct the stale root Status paragraph that still described D43 as active;
+   run documentation checks, native review, and one local authorization commit;
+2. create only fresh ignored carrier
+   `.eval-runs/work-charter-v0.2-c481005-gate2-d44-01`, derived from D43's
+   construction and tool inputs but excluding all D43 run, terminal, assessor,
+   and private-session outputs; bind exact candidate/control, the D43 terminal
+   ledger, current runtime identity, and clean tracked host state;
+3. complete zero-model qualification for 27 isolated workspaces, all 77
+   catalog mappings, the closed six-file PowerShell parser gate, controller and
+   authorization-policy checks, exact outer-launch success/failure dispatch,
+   frozen inputs, and the exact executable/auth/network/sandbox route;
+4. run one non-product canary each for `gpt-5.6-sol/high`,
+   `gpt-5.6-sol/xhigh`, and `gpt-5.6-terra/high` through the exact outer
+   network-capable product route; only three passes may start product evidence;
+5. freeze and consume the unchanged 27-cell matrix with at most 39 product
+   `turn/start` events and no controller retry, then automatically run at most
+   one read-only `gpt-5.6-terra/high` assessor after a complete or terminally
+   sealed product packet with at least one admitted product cell; and
+6. create a sanitized D44 result, synchronize its mapped existing consumers,
+   run deterministic checks and native review, and create one local result
+   commit.
+
+The Campaign permits the exact network-capable outer process required for the
+three canaries, product cells, and assessor while reusing existing
+authentication process-locally. It permits no user configuration, profile,
+registry, firewall, service, locale, code-page, WSL, installation, or stable-
+copy change. It budgets three canary turns, at most 39 product turns, one
+assessor turn, at most three pre-canary ignored-carrier qualification
+corrections, at most five completed native reviews per local commit attempt,
+and at most three hours of active execution. A canary, product, or assessor
+turn is consumed at `turn/start` and is never replayed.
+
+Before the first canary, the writer may automatically repair bounded carrier
+paths, arguments, stream/exit transport, output shape, and deterministic
+qualification defects while the stable subject, contract, rubric, permission,
+network route, and evidence meaning remain unchanged. It may automatically fix
+clear same-scope P0-P2 documentation/review findings. After any model turn,
+only result/documentation corrections that do not reinterpret, replace,
+rescore, or require replay of evidence remain automatic.
+
+Automatic advancement stops for identity or writer drift, a changed product
+contract/candidate/rubric/hard boundary, a required SOURCE/case/fixture/tracked-
+controller change, unavailable or changed permission/provider/network route,
+missing or conflicting evidence, a consumed-turn replay request, exceeded
+turn/assessor/correction/review/time budget, an assessor verdict other than
+`ACCEPTED`, or any push, installation, tag, release, stable update, cleanup, or
+other unlisted external effect. The result destination is
+`evals/results/2026-08-11-work-charter-d44-gate2-terminal.md`.
 
 ## Important Rejected Alternatives
 

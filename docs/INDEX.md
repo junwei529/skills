@@ -1,6 +1,6 @@
 # Documentation Index
 
-Last updated: 2026-08-10
+Last updated: 2026-08-11
 
 ## Core Documents
 
@@ -53,7 +53,7 @@ mirror.
 | [`docs/decisions/0015-federated-repository-documentation.md`](decisions/0015-federated-repository-documentation.md) | Root/per-Skill documentation ownership, bilingual public entries, and unchanged installable-package boundary | accepted |
 | [`docs/decisions/0016-work-charter-authority-assessment-and-evidence-integrity.md`](decisions/0016-work-charter-authority-assessment-and-evidence-integrity.md) | Work Charter authority finality, assessment recording, evidence invalidation, delivery degradation, and advisory writer recovery | accepted |
 | [`docs/decisions/0017-capability-delta-skill-development.md`](decisions/0017-capability-delta-skill-development.md) | Prospective capability-delta design, layer placement, matched evaluation, and upgrade/retirement rule for Skill development | accepted |
-| [`docs/decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md`](decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md) | Work Charter native-package/explicit-activation entry, proportional protection levels, durable re-entry, task convergence, evaluation, workspace, and lifecycle gates | accepted and implemented through exact D43 candidate `c481005...`; corrected qualification passed, but the first transport canary stopped before product evidence, so D43 remains unaccepted; see the Work Charter State and Verification ledgers |
+| [`docs/decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md`](decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md) | Work Charter native-package/explicit-activation entry, proportional protection levels, durable re-entry, task convergence, evaluation, workspace, and lifecycle gates | accepted through D44; D43 remains immutable and unaccepted, while D44 authorizes one fresh network-qualified additive Gate 2 packet for exact candidate `c481005...`; see the Work Charter State and Verification ledgers |
 | [`docs/decisions/0019-project-docs-implicit-discovery-and-demand-driven-modules.md`](decisions/0019-project-docs-implicit-discovery-and-demand-driven-modules.md) | Project Docs implicit discovery, proposal/write boundary, demand-driven modules, update modes, and persistent routing | accepted; current implementation is an unreleased working-tree revision; see Project Docs State |
 | [`docs/decisions/0020-bounded-campaign-authorization-and-evidence-convergence.md`](decisions/0020-bounded-campaign-authorization-and-evidence-convergence.md) | One bounded authorization for qualification, evidence, assessment, and closeout with same-boundary transport qualification and cumulative convergence | accepted |
 

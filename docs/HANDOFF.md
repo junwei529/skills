@@ -1,6 +1,6 @@
 # Repository Handoff
 
-Last updated: 2026-08-10
+Last updated: 2026-08-11
 
 ## Snapshot
 
@@ -20,12 +20,12 @@ Last updated: 2026-08-10
   5 files, each matching the `v0.1.2` Git blobs
 - Rollback identity: immutable `v0.1.1` retained as a separately verified
   three-package backup
-- Writer boundary: the D43 Campaign ends with the sanitized result commit
-  containing this handoff; no continuing repository writer remains afterward.
-  D42 and D43 evidence are immutable. Another model turn, tracked controller/
-  fixture expansion, other Skills, push, installation, tag, release, stable
-  update, retained-evidence cleanup, and unlisted external effects remain
-  excluded
+- Writer boundary: one bounded D44 Campaign writer owns the authorization/state
+  commit, fresh ignored carrier qualification, three network-capable canaries,
+  conditional 27-cell packet and one assessor, and sanitized result/review/local
+  commit. D31-D43 remain immutable. SOURCE, case, fixture, tracked controller,
+  other Skills, push, installation, tag, release, stable update, retained-
+  evidence cleanup, and unlisted external effects remain excluded
 
 D43 has resolved D42's open product choice: indirect proposals are metadata-
 sufficient and must not prescribe Work Charter workflow; direct intent or
@@ -36,6 +36,13 @@ missing/extra/duplicate/zero-file set, empty stderr, and true exit zero. Exact
 candidate `c481005...` passed that gate and all zero-model qualification. Its
 first `Sol/high` canary then stopped at `SANDBOX_NETWORK_TRANSPORT` before a
 model response; no other canary, product cell, or assessor started.
+
+Approved `WC-AR-D44` is a fresh additive packet for the unchanged candidate,
+not a D43 retry. After this durable authorization commit, it automatically
+qualifies a fresh ignored carrier and the exact network-capable outer route,
+then runs three canaries, the unchanged 27-cell matrix with at most 39 product
+turns, one assessor, and local result closeout only while all prerequisites
+pass. Bounded pre-canary carrier and documentation corrections are automatic.
 
 The `v0.1.2` tag remains fixed at the release-preparation commit. The later
 documentation commit records already-completed tag, stable-install, canary, and
@@ -881,7 +888,7 @@ created the fact class; it did not require or authorize speculative files.
 2. Read [Repository Status](STATUS.md), this handoff, and the relevant per-Skill
    State and Verification owners.
 3. Read Decisions 0017 and 0020, the capability-delta/Campaign Runbook and eval
-   owners, Decision 0018 through D43, and the current per-Skill State before
+   owners, Decision 0018 through D44, and the current per-Skill State before
    changing shared development or Work Charter selection claims.
 4. Resolve local `main`, HEAD, index, all dirty and ignored scopes, writer
    ownership, and the exact Work Charter SOURCE/candidate/controller bindings
@@ -895,22 +902,21 @@ created the fact class; it did not require or authorize speculative files.
 6. Keep `c42eef3...` RC behavior, `ceed607...` release identity, the later
    evidence descendant, and the generated stable/rollback copies distinct.
 7. Treat exact D43 candidate `c481005...`, its passing zero-model qualification,
-   and its one consumed transport-canary turn as the latest complete immutable
-   inputs. D31, D33/D35/D36/D40/D41/D42/D43, and every consumed D37 turn remain
-   frozen. Any additive successor, candidate disposition, installation,
-   cleanup, tag, or release needs new user authority.
+   and its one consumed transport-canary turn as immutable inputs. D31,
+   D33/D35/D36/D40/D41/D42/D43, and every consumed D37 turn remain frozen.
+   Continue only the approved D44 root and its declared automatic sequence;
+   stop on a material D44 condition or any unlisted downstream effect.
 
 ## Immediate Next Action
 
-No release action remains pending for immutable `v0.1.2`. Exact D43 candidate
-`c481005...` passed corrected zero-model qualification, then sealed at the
-first transport canary with product semantics `UNKNOWN_NOT_ASSESSED`. The D43
-Campaign is complete and non-retriable. The next action is user-owned: leave
-the candidate unaccepted, authorize a separately named additive behavior
-packet after the environment route is independently requalified, or choose a
-different candidate/release disposition. Push, installation, tag, release,
-stable update, cleanup, tracked controller/fixture expansion, and other-Skill
-changes remain unauthorized.
+No release action remains pending for immutable `v0.1.2`. D44 is active for
+exact candidate `c481005...`: commit this durable authorization, build and
+qualify its fresh ignored carrier, run all three network-capable canaries, then
+automatically run the frozen matrix and assessor only if the prerequisites
+pass. Complete sanitized result review and one local result commit. Do not
+pause for small same-scope corrections. Push, installation, tag, release,
+stable update, cleanup, SOURCE/case/fixture/controller expansion, and other-
+Skill changes remain unauthorized.
 
 Later user-owned choices include:
 
@@ -950,11 +956,11 @@ Stop before write or publication if:
 
 ## Authorization Boundary
 
-D42's SOURCE/evaluation execution authority is consumed. Exact D43 candidate
+D42 and D43 execution authority is consumed. Exact D43 candidate
 `c481005...`, its passing qualification, one consumed canary turn, and every
-carrier input/output are immutable and non-retriable. The D43 Campaign
-authority is consumed by the local sanitized result commit containing this
-paragraph; it grants no continuing writer or model-turn authority.
+carrier input/output are immutable and non-retriable. Approved D44 alone grants
+the bounded writer, ignored-carrier, network/model, assessor, documentation,
+native-review, and two-local-commit authority recorded in `WC-AR-D44`.
 
 No tracked controller or fixture expansion, other-Skill change, push,
 installation, tag, release, stable mutation, retained-evidence cleanup, or
@@ -996,6 +1002,16 @@ neighboring Skills. `NOT_APPLICABLE` covers another candidate, controller or
 fixture expansion, discovery mapping, installation, tag, release, stable
 update, cleanup, and external effects. The ignored carrier remains unpublished
 evidence.
+
+The D44 authorization documentation-impact closure is fact-first. `UPDATE`
+covers Decision 0018, Work Charter State, root Status, Roadmap, Index, and this
+Handoff. `CHECKED_NO_CHANGE` covers repository `AGENTS.md`, the root and Work
+Charter README pairs, Authority, SPEC, Architecture, Runbook, Provenance,
+Verification owners, Decisions 0017/0020, Work Charter SOURCE/Design/cases/
+fixtures/current-SOURCE manifest/tracked controller/package references/assets,
+and neighboring Skills. `NOT_APPLICABLE` covers a new product candidate,
+installation, push, tag, release, stable update, cleanup, or external
+publication. The fresh D44 root is ignored evidence infrastructure.
 
 The completed 2026-08-07 authorization covered only the six existing documentation
 owners named in the Snapshot, same-scope wording/routing corrections, and
