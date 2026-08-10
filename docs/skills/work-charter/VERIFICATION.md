@@ -22,6 +22,8 @@ Last updated: 2026-08-10
 | Exact `07a9f1c...` D31 product candidate | reviewed five-file package and mapped contract are committed locally; no package byte changes in D32/D33 or the current Campaign documentation diff; no Gate 2 acceptance, installation, or release evidence exists |
 | D32 mapping and freeze qualification | zero-turn `PASS`: 77 mapping rows, two absent native roots, 75 existing Junctions with exact normalized targets, 1,083 frozen files, freeze `cd8c0e2...`, D31 and tracked repository preserved; qualification only |
 | D33 A03 transport terminal | one `turn/start` consumed, zero controller retries, no second turn or assessor, and nine Harness-internal notifications inside that turn; `SEALED_HARD_STOP / UNKNOWN_NOT_ASSESSED` after sandbox/network failure before model output, tokens, commands, package reads, or loaded-copy proof; neither product defect nor acceptance |
+| Campaign non-product transport canary | first same-boundary provider-response canary passed with one non-product `turn/start`, no command, no Skill selection or loaded-copy claim, and zero assessor turns; it qualified the inner app-server/provider route but did not exercise the later outer PowerShell phase dispatcher |
+| D35 additive full-packet terminal | freeze `ed8bce3...` bound exact D31 candidate, all 77 mappings, 293 frozen files, and zero-turn three-model pre/post checks; A01 consumed one product turn and completed runner/controller-clean in the native flat baseline, but the outer launcher combined child stdout with its scalar exit code and skipped the required A01 semantic gate; the packet sealed `SEALED_PARTIAL_HARD_STOP`, one assessor returned `DECISION_REQUIRED`, product semantics are `UNKNOWN_NOT_ASSESSED`, and no retry or product finding is permitted |
 | Isolated path-bound controller canary | private retained sealed `CANARY_PASS`; the public summary reports an exact-response pass and no command execution, omits locator/artifact/runtime details, leaves physical backend request count `UNKNOWN`, and proves neither natural-language selection nor candidate acceptance |
 | Small bounded work stays flat | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
 | Midstream implicit behavior is proposal-only | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
@@ -1302,6 +1304,47 @@ acceptance. The approved Campaign permits one independently frozen additive
 replication packet only after a materially same-boundary non-product transport
 canary succeeds. That packet must bind and disclose D32/D33, receives no credit
 from them, and cannot overwrite or reinterpret either record.
+
+### 2026-08-10 — Campaign transport canary and D35 additive terminal
+
+The first non-product transport canary completed a model response through the
+pinned executable, isolated file authentication, model/provider, network, and
+app-server request path. It used one canary `thread/start` and one canary
+`turn/start`, executed no command, invoked no assessor, and supplies no Skill
+selection, loaded-copy, semantic, or acceptance evidence. Its retained result
+SHA-256 is `0d3869ebdaec158c35d07d11cc860c39485ad04c436c5ced3c3b4ab326bd44f1`.
+
+D35 then separated exact product candidate
+`07a9f1c436213a5c377610c9157b7c6a76c5d4c1` from documentation-policy host
+`18ffa988150c810a53945d1511fdba751541a564`. Candidate catalogs matched the
+candidate Git blobs; the policy-host delta changed no Skill package, case, or
+fixture. The new carrier re-proved 77 mapping rows, including 75 exact
+Junctions and two absent native roots; passed Sol/high, Sol/xhigh, and
+Terra/high prefreeze and postfreeze checks with zero product turns; and froze
+293 files at
+`ed8bce3c4a6cc2cd40e79cf695fe77023c35119b1572526c5765a8589e1ec8f6`.
+An observed external `config.toml` length/hash change was recorded without
+reading or publishing its contents, without modifying it, and with semantic
+equivalence `UNKNOWN`.
+
+The product launcher exposed a later, distinct boundary gap. Its `Invoke-Phase`
+function emitted child stdout as part of the PowerShell function return along
+with the integer exit code. A01 consumed one `Sol/high` product turn and its
+runner returned `COMPLETED_PENDING_SEMANTIC_SCORE` with no hard failure, but the
+array-valued return failed the scalar success branch, so the frozen A01
+semantic gate never ran and A02 never started. A01 is a native flat-baseline
+cell, so absence of a Work Charter package read is expected and supplies no
+candidate loaded-copy result.
+
+The controller sealed `SEALED_PARTIAL_HARD_STOP` with one reconciled behavior
+turn and a missing semantic-gate record. One authorized Terra/high assessor
+returned `DECISION_REQUIRED`; no second product turn, product correction, or
+retry occurred. The terminal disposition is
+`SEALED_CONTROLLER_ORCHESTRATION_HARD_STOP`, failure origin is
+`CONTROLLER_ORCHESTRATION_OUTPUT_CAPTURE`, and Work Charter semantic disposition
+is `UNKNOWN_NOT_ASSESSED`. D31, D32, and D33 hashes and tracked host HEAD were
+preserved. This result demonstrates that an inner provider-response canary
+does not qualify a different outer launcher or its phase-dispatch semantics.
 
 ## Required Checks
 

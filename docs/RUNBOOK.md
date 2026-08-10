@@ -365,7 +365,17 @@ same-boundary transport canary. Match every material transport dimension:
 - process-local home, authentication mode, and model/provider endpoint;
 - sandbox, network, escalation, and approval route;
 - login-shell and other execution-affecting configuration; and
-- request protocol through the point where a response can complete.
+- request protocol through the point where a response can complete;
+- the exact outer launcher, stream capture, scalar exit-status return, and
+  phase-dispatch branch used by the product run.
+
+Treat child stdout and stderr as captured evidence, never as the function's
+control-flow return. The launcher must expose exactly one typed scalar exit
+status, preserve nonzero status, and prove the expected next phase is invoked
+only on the declared status. When the model canary calls app-server more
+directly than the product launcher, record that reduced coverage and run a
+non-product wrapper canary or deterministic synthetic-child dispatch test for
+the exact outer wrapper before consuming a product turn.
 
 `skills/list`, a capability response, `thread/start`, successful local setup,
 or controller acceptance does not qualify the responses route. When completing

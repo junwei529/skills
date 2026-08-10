@@ -9,7 +9,7 @@ Last updated: 2026-08-10
 | Tested package identity | all three package byte sets independently reached exact-commit RC readiness at `c42eef392a5b9f58bbee64aa73ffb603a6fb6c29` and were re-proved at tag/stable identity `v0.1.2` | [Verification](VERIFICATION.md) |
 | Stable release identity | immutable [`v0.1.2`](https://github.com/junwei529/skills/releases/tag/v0.1.2) at `ceed607152849775b981c54add74bfa30d858e4d`; exact tag, stable loaded-copy, and GitHub Release proof pass for all three Skills | [Verification](VERIFICATION.md) |
 | Project Docs | immutable `v0.1.2` remains the released explicit-only control; local commit `776989f...` implements accepted Decision 0019 but is unreleased, and its evidence is `PARTIAL` because actual candidate selection, loaded-copy identity, and persistent writes remain `UNKNOWN` | [State](skills/manage-project-docs/STATE.md) |
-| Work Charter | released `v0.1.2` remains active; exact D31 candidate `07a9f1c...` is committed locally but unaccepted, with one canary-gated additive Gate 2 packet as the current Campaign path | [State](skills/work-charter/STATE.md) |
+| Work Charter | released `v0.1.2` remains active; exact D31 candidate `07a9f1c...` is committed locally but unaccepted; D35 sealed a controller-orchestration `UNKNOWN_NOT_ASSESSED` after one product turn and one assessor | [State](skills/work-charter/STATE.md) |
 | PowerShell | released five-file `v0.1.2` stable copy; corrected loaded identity and guarded native/text diagnosis pass; live WSL remains unproved | [State](skills/use-powershell-safely/STATE.md) |
 | Release lifecycle | `v0.1.2` tag, stable update, tag-pinned canaries, and Latest GitHub Release complete; `v0.1.1` retained as rollback identity | [Runbook](RUNBOOK.md) |
 
@@ -46,9 +46,11 @@ noise, not a product finding. The independent assessor returned
 
 Exact local D31 product candidate `07a9f1c...` incorporates the direct package-
 load/project-read correction and remains unaccepted. Its qualified and blocked
-evidence history is immutable; the current Campaign permits only a canary-
-gated additive Gate 2 packet, not replay or reinterpretation. Exact details and
-residual limits belong to the
+evidence history is immutable. The non-product provider-response canary passed,
+but D35's different outer launcher skipped the required A01 semantic gate after
+one controller-clean native-baseline turn. D35 sealed before A02 and its one
+assessor returned `DECISION_REQUIRED`; product semantics remain
+`UNKNOWN_NOT_ASSESSED`. Exact details and residual limits belong to the
 [Work Charter State](skills/work-charter/STATE.md) and
 [Verification](skills/work-charter/VERIFICATION.md) ledgers.
 
@@ -74,8 +76,9 @@ no-write observations only; actual candidate selection, loaded-copy attribution,
 and write-capable persistence remain `UNKNOWN`, so its overall evidence is
 `PARTIAL`. Work Charter target `v0.2.0` likewise remains unaccepted at Gate 2.
 Exact D31 candidate `07a9f1c...` has zero-turn D32 qualification, but D33
-supplies only an immutable infrastructure `UNKNOWN`; neither controller
-regressions nor transport qualification establish product behavior acceptance.
+and D35 supply only immutable infrastructure/controller `UNKNOWN` records;
+neither controller regressions nor transport qualification establish product
+behavior acceptance.
 Exact counts, hashes, exclusions, and residual limits remain in the per-Skill
 ledgers rather than this dashboard.
 
@@ -230,15 +233,12 @@ decision.
 ## Next Gate
 
 No release action remains pending for immutable `v0.1.2`. Complete the approved
-Campaign documentation/evidence-policy diff, final deterministic checks, and
-native review, then create the authorized local pre-run commit. Run up to three
-materially different same-boundary non-product transport canaries. Only a
-success opens one additive Gate 2 packet for exact D31 candidate `07a9f1c...`
-plus one assessor; terminal product evidence is sealed and reported without
-SOURCE repair. Then synchronize mapped evidence, complete the second review
-cycle, and create the authorized local result commit. Push, installation, tag,
-release, stable update, and cleanup remain separate gates. Project Docs keeps
-its own candidate and persistence-evidence sequence.
+Campaign result synchronization, final deterministic checks, and second native
+review, then create the authorized local result commit. That closes the current
+Campaign. A corrected outer launcher and another additive packet require one
+new user-owned Campaign decision; D35 cannot be retried or repaired. Push,
+installation, tag, release, stable update, and cleanup remain separate gates.
+Project Docs keeps its own candidate and persistence-evidence sequence.
 
 ## Known Repository Gaps
 
@@ -257,8 +257,8 @@ its own candidate and persistence-evidence sequence.
   D30 metadata-state and unavailable-read hardening has exact candidate
   `53d424c...`, but its fresh batch sealed at A12 after completing A01-A11.
   D31 has exact candidate `07a9f1c...` but no accepted fresh behavior. All
-  stopped matrices and sealed bundles remain historical and cannot be relabeled
-  or transferred.
+  stopped matrices and sealed bundles, including D35's one-turn launcher stop,
+  remain historical and cannot be retried, relabeled, or transferred.
 - The tracked controller now has one narrow isolated path-bound app-server
   compatibility pass. It does not establish natural-language Skill selection,
   semantic correctness, broad behavior, or Work Charter candidate acceptance;

@@ -124,6 +124,11 @@ Before changing this repository, read:
   approval. A new carrier or label never resets history; contract, candidate,
   permission, cost, workspace, consumed-evidence, installation, release, or
   cleanup changes return to the user as one complete decision.
+- Before scarce product evidence, qualify the exact outer launch and return
+  path as well as the inner provider response path. Child stdout/stderr are
+  evidence data, not a function return value; phase dispatch must consume one
+  typed scalar exit status. A direct app-server canary does not by itself
+  qualify a different PowerShell/Python wrapper or its next-phase branch.
 - Run the skill validator for every changed skill.
 - Check for unresolved scaffolding markers, broken local links, encoding
   problems, and publication-unsafe traces.

@@ -134,6 +134,16 @@ local freeze is not responses-path proof. A successful canary proves neither
 Skill selection nor a loaded copy. A failed canary is infrastructure evidence
 and stops before candidate behavior is consumed.
 
+Route coverage includes the outer product launcher. Record whether the canary
+used the same wrapper, stdout/stderr capture, scalar exit-status return, and
+conditional next-phase dispatch. A direct app-server canary qualifies only the
+inner response path when the product batch uses another PowerShell/Python
+wrapper. Before product consumption, exercise that exact wrapper with a non-
+product response or deterministic synthetic child and prove that output is
+captured as data, exactly one typed exit status controls the branch, nonzero
+status propagates, and the intended next phase is neither skipped nor entered
+twice.
+
 For each attempted product cell, record at least:
 
 - stable subject, exact candidate/control and carrier locator;
@@ -142,7 +152,7 @@ For each attempted product cell, record at least:
 - controller-initiated retries and second turns separately from Harness-
   internal reconnect or retryable-transport notifications inside one turn;
 - primary failure origin such as product, controller, runner, sandbox,
-  permission, transport, or `UNKNOWN`;
+  permission, transport, outer-launcher/phase-dispatch, or `UNKNOWN`;
 - semantic disposition such as pass, violation, unknown-not-assessed, or not
   applicable; and
 - terminal sealing, continuation eligibility, and non-transfer limits.

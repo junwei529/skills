@@ -167,18 +167,29 @@ a Work Charter defect nor Gate 2 acceptance. Under the approved bounded
 Campaign, any next Gate 2 run is an additive replication packet after a
 same-boundary non-product transport canary, not a retry or replacement of D33.
 
+The Campaign transport canary then completed one non-product response on the
+pinned app-server/provider route with one canary `turn/start`, no command, no
+Skill selection or loaded-copy claim, and no assessor. D35 independently froze
+the full 27-cell packet at `ed8bce3...`, re-proved all 77 mapping rows, and
+passed three-model prefreeze and postfreeze checks with zero product turns.
+Its outer PowerShell launcher nevertheless returned child stdout together with
+the scalar exit code. A01 itself completed controller-clean, stayed in the
+native flat baseline, and consumed one product turn, but the wrapper skipped
+the required A01 semantic gate. D35 therefore sealed
+`SEALED_PARTIAL_HARD_STOP`; one assessor returned `DECISION_REQUIRED`.
+Product semantics remain `UNKNOWN_NOT_ASSESSED`, no Work Charter defect is
+claimed, and D35 is immutable and non-retriable.
+
 ## Current Writer
 
-One bounded Campaign writer owns only the approved generic-method and Work
-Charter D32/D33 state/evidence synchronization, deterministic verification,
-native-review corrections, one local pre-run commit, up to three materially
-different same-boundary non-product transport canaries, one additive full
-Gate 2 replication packet after canary success, one independent assessor,
-mapped result synchronization, and one local result commit. The Work Charter
-five-file package and existing cases, fixtures, and controller are frozen.
-Push, installation, tag, release, stable-copy mutation, cleanup, cross-Skill
-product work, product correction after a failed cell, and any budget expansion
-remain outside this Campaign.
+One bounded Campaign writer now owns only mapped D35 result synchronization,
+deterministic verification, same-scope native-review corrections, and the
+authorized local result commit. The writer relinquishes after that commit. The
+Work Charter five-file package, cases, fixtures, tracked controller, D31-D33,
+the passed transport canary, and sealed D35 packet are frozen. Another product
+packet, launcher correction for execution, push, installation, tag, release,
+stable-copy mutation, cleanup, cross-Skill product work, and any budget
+expansion remain outside this Campaign.
 
 ## Evidence State
 
@@ -559,21 +570,16 @@ bytes. No Git closeout is authorized.
 
 Work Charter `v0.1.2` remains the released and installed stable revision.
 Exact D31 candidate `07a9f1c...` remains unaccepted. D32 qualifies mapping and
-freeze only; D33 is an immutable infrastructure `UNKNOWN`, not product
-evidence.
+freeze only; D33 and D35 are immutable infrastructure/controller
+`UNKNOWN_NOT_ASSESSED` records, not product evidence.
 
-Complete the approved documentation/evidence-policy diff, deterministic
-checks, and native review, then create the authorized local pre-run commit.
-Next run up to three same-boundary non-product transport canaries, stopping on
-success or exhausted risk-reducing alternatives. Only a successful canary
-opens one independently frozen additive full Gate 2 packet for the same exact
-candidate, capped at 39 product `turn/start` events plus one independent
-assessor. Seal and report any product failure without repairing SOURCE. After
-terminal evidence, synchronize mapped owners, complete the second review
-cycle, and create the authorized local result commit. Push, installation,
-release, stable update, and cleanup remain separate user gates. Gate 3 remains
-blocked until one complete exact-candidate packet receives independent
-`ACCEPTED`.
+Synchronize this sealed result, complete deterministic checks and the second
+native-review cycle, and create the authorized local result commit. That closes
+the current Campaign. Gate 3 remains blocked until one complete exact-candidate
+packet receives independent `ACCEPTED`. Any corrected outer launcher and new
+additive packet require one new user-owned Campaign decision; D35 itself may
+not be repaired, retried, rescored, or relabelled. Push, installation, release,
+stable update, and cleanup remain separate user gates.
 
 ## Recovery Entry
 
@@ -587,13 +593,13 @@ blocked until one complete exact-candidate packet receives independent
    HEAD, index, the Campaign dirty scope, ignored carriers, and current writer
    instead of inferring them from a run-root name or older handoff.
 5. Preserve the complete predecessor ledger, including the D31 mapping-
-   defective A03, zero-turn D32 freeze `cd8c0e2...`, and D33 transport terminal
-   `39ffdea...`, without retry, overwrite, relabelling, rescore, or acceptance
-   transfer.
-6. Resume only the currently authorized Campaign stage: pre-run documentation
-   closeout; same-boundary transport qualification; one additive Gate 2 packet
-   plus assessor; or post-run evidence closeout. Stop on a product correction,
-   budget expansion, or excluded external effect.
+   defective A03, zero-turn D32 freeze `cd8c0e2...`, D33 transport terminal
+   `39ffdea...`, and D35 freeze `ed8bce3...` plus its one-turn controller-
+   orchestration terminal, without retry, overwrite, relabelling, rescore, or
+   acceptance transfer.
+6. Resume only the post-run evidence closeout and local result commit. A fixed
+   launcher, another product packet, budget expansion, or excluded external
+   effect requires a new user decision.
 7. Read canonical SOURCE, current eval definitions, and only evidence matching
    the exact revision before changing behavior or claims.
 8. Preserve the independent-Skill and non-propagating-authorization boundary.

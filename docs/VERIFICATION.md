@@ -20,16 +20,17 @@ Sanitized detailed runs remain under [`evals/results`](../evals/results/README.m
 | Check | Purpose | Current result |
 |---|---|---|
 | Three Skill validators | Validate frontmatter and package names without changing packages | pass for all three packages with exact D31 candidate unchanged by the documentation-only Campaign sync |
-| Repository checker | Validate strict UTF-8/no BOM, whitespace, local links/fragments, publication safety, exact Skill/eval sets, federated docs, and bilingual navigation | current pre-run Campaign diff passes at 200 text files / 14 cases / 12 fixtures |
-| Fixture checker | Validate synthetic starting states and their Git/reparse/ignored-result boundaries plus the tracked controller regression | D31 candidate passed all 17 checks; no fixture/controller bytes changed in the current Campaign documentation diff |
+| Repository checker | Validate strict UTF-8/no BOM, whitespace, local links/fragments, publication safety, exact Skill/eval sets, federated docs, and bilingual navigation | current result-sync Campaign diff passes at 200 text files / 14 cases / 12 fixtures |
+| Fixture checker | Validate synthetic starting states and their Git/reparse/ignored-result boundaries plus the tracked controller regression | current result-sync Campaign diff passes all 17 checks; no fixture/controller bytes changed |
 | Codex evidence controller | Validate one shared core across four entry modes, strict required-read versus bounded auxiliary-observation attribution, structural PowerShell/Git/path classification, source-and-generated-contract-bound historical regressions, exact package manifests, candidate-identity and content-proof shape, record cardinality, completed exit typing, output-array shape, per-key single-capture sealed parsing and reuse, real-reparse rejection, fail-closed negatives, external-input types, independently resolved inner/wrapper command identity, Git-read and external-filter safety, profile-free PowerShell wrappers, culture-independent canonical ordering, metamorphic equivalence, output no-clobber, and canonical repeatability | exact D31 candidate qualification passed 11/11 historical, 32/32 evidence-surface, 33/33 negative, 4/4 metamorphic, 3/3 package-manifest hash guards, and every reported structural guard; no controller bytes changed in the current Campaign documentation diff |
 | CRG supplemental preflight | Sharpen structural review scope when the maintained index represents the intended diff | degraded for this commit attempt: the index was built at `763a15e...`, does not match current HEAD `07a9f1c...`, and indexes only PowerShell/Python rather than the 14 changed Markdown/rule files; it reported no code flow or test gap and is not relied on for coverage |
 | Isolated controller canary | Record the bounded disposition of one private path-bound infrastructure check without broadening behavior claims | retained sealed `CANARY_PASS`; the public summary reports an exact-response pass and no command execution, omits private locator/artifact/runtime details, and leaves physical backend request count `UNKNOWN` |
+| Work Charter Campaign route and D35 packet | Separate non-product route qualification from exact-candidate product evidence and preserve additive predecessors | provider-response canary passed; D35 freeze `ed8bce3...` passed strict mapping plus zero-turn pre/post checks, then sealed after one A01 product turn because the different outer launcher skipped its semantic gate; one assessor returned `DECISION_REQUIRED`, semantic status is `UNKNOWN_NOT_ASSESSED`, and no Work Charter defect or acceptance is claimed |
 | PowerShell deterministic hardening | Validate cardinality, LF bytes, one-base paths, and Junction link-only removal | 15 assertions pass in PowerShell 7 and Windows PowerShell 5.1 |
-| PowerShell parser sweep | Parse all `evals/**/*.ps1` files and the tracked controller module | all eight files parsed for exact D31 candidate; no PowerShell/controller bytes changed in the current Campaign documentation diff |
+| PowerShell parser sweep | Parse all `evals/**/*.ps1` files and the tracked controller module | all eight files/modules parse in the current result-sync Campaign diff; no PowerShell/controller bytes changed |
 | Markdown navigation and ownership | Verify local links/fragments, English/Chinese routes, expected per-Skill owners, and no orphan canonical owner | pass through repository checker |
 | `git diff --check` and cached diff check | Reject whitespace defects in unstaged or staged candidates | both pass; the cached check makes no empty-index claim |
-| Gitleaks | Detect secret-like content independently | `gitleaks git --staged` scanned the 14-file pre-run Campaign diff (~44.6 KB) with zero findings; ignored Gate 2 artifacts remain outside this scan |
+| Gitleaks | Detect secret-like content independently | `gitleaks git --staged` scanned the 14-file result-sync Campaign diff (~18.4 KB) with zero findings; ignored Gate 2 artifacts remain outside this scan |
 
 ## Repository Claim Ledger
 
@@ -1252,12 +1253,29 @@ or semantic assessment. The immutable terminal is
 second turn, no assessor, and nine Harness-internal notifications inside the
 single turn. This is neither a product defect nor acceptance.
 
-The current approved Campaign first closes the generic and Work Charter
-evidence-policy documentation, then permits up to three materially different
-same-boundary non-product transport canaries. A success may open one
-independently frozen additive Gate 2 packet plus one assessor. D33 remains in
-the cumulative ledger and cannot be overwritten, replaced, or converted into a
+The Campaign later completed one non-product provider-response canary and one
+independently frozen D35 additive packet plus assessor. D33 remains in the
+cumulative ledger and cannot be overwritten, replaced, or converted into a
 pass. Push, installation, tag, release, stable update, and cleanup are excluded.
+
+### 2026-08-10 — Work Charter Campaign canary and D35 controller stop
+
+The non-product canary passed on the pinned app-server/provider route with one
+canary turn, no command, no Skill selection or loaded-copy claim, and no
+assessor. D35 then independently bound exact candidate `07a9f1c...` apart from
+policy host `18ffa98...`, re-proved 77 mapping rows, passed three-model
+prefreeze and postfreeze checks with zero product turns, and froze 293 files at
+`ed8bce3c4a6cc2cd40e79cf695fe77023c35119b1572526c5765a8589e1ec8f6`.
+
+A01 consumed one product turn and returned a clean native-baseline runner/
+controller result. The outer PowerShell launcher, which the direct canary had
+not exercised, returned child stdout alongside its scalar exit code and skipped
+the required A01 semantic gate. The packet sealed
+`SEALED_PARTIAL_HARD_STOP` before A02; one assessor returned
+`DECISION_REQUIRED`. The bounded disposition is
+`CONTROLLER_ORCHESTRATION_OUTPUT_CAPTURE / UNKNOWN_NOT_ASSESSED`, not a product
+finding or acceptance. D31-D33 and tracked HEAD remained unchanged, and D35 is
+immutable and non-retriable.
 
 ### 2026-08-02 — Capability-delta decision and workflow
 

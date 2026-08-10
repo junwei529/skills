@@ -124,8 +124,11 @@ package; the independent assessor returned `DECISION_REQUIRED`. Exact local
 D31 candidate `07a9f1c...` distinguishes activation-required package reads from
 the exact project-read scope. D32 mapping/freeze qualification passed without
 model activity; D33 sealed one infrastructure `UNKNOWN` before model output or
-package loading. D31 has no behavior acceptance, installation, or release
-evidence.
+package loading. A later provider-response canary passed, but D35's different
+outer launcher skipped the required A01 semantic gate after one otherwise
+controller-clean native-baseline turn. D35 is sealed as a controller-
+orchestration `UNKNOWN_NOT_ASSESSED`; D31 still has no behavior acceptance,
+installation, or release evidence.
 Full staged selection, entry, level, re-entry, and visible
 Standard behavior, full Standard delivery at the stable layer, broad implicit
 telemetry, independent real-project efficacy, deterministic role delivery or

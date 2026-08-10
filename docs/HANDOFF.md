@@ -17,13 +17,12 @@ Last updated: 2026-08-10
   5 files, each matching the `v0.1.2` Git blobs
 - Rollback identity: immutable `v0.1.1` retained as a separately verified
   three-package backup
-- Writer boundary: one bounded Campaign writer owns the approved generic-method
-  and D32/D33 state/evidence synchronization, deterministic checks, native-
-  review fixes, one local pre-run commit, up to three materially different
-  same-boundary non-product transport canaries, one additive full Gate 2 packet
-  after canary success, one assessor, mapped result synchronization, and one
-  local result commit. Push, installation, tag, release, stable update,
-  cleanup, cross-Skill product work, and product correction are excluded
+- Writer boundary: one bounded Campaign writer now owns only the approved
+  post-run D35 state/evidence synchronization, deterministic checks, native-
+  review fixes, and one local result commit. The pre-run commit, transport
+  canary, additive packet, and assessor are complete. Push, installation, tag,
+  release, stable update, cleanup, cross-Skill product work, and product
+  correction are excluded
 
 The `v0.1.2` tag remains fixed at the release-preparation commit. The later
 documentation commit records already-completed tag, stable-install, canary, and
@@ -709,7 +708,7 @@ reads, loaded-copy proof, or semantic assessment. The immutable terminal is
 Harness-internal retryable transport notifications inside that turn. D33 is
 neither a product defect nor Gate 2 acceptance.
 
-The pre-run Campaign documentation-impact closure is:
+The completed Campaign documentation-impact closure is:
 
 - `UPDATE`: `AGENTS.md`, `docs/RUNBOOK.md`, `evals/README.md`, Decisions 0018
   and 0020, Work Charter `STATE.md`, `VERIFICATION.md`, and bilingual README
@@ -719,12 +718,11 @@ The pre-run Campaign documentation-impact closure is:
   `docs/ARCHITECTURE.md`, `docs/AUTHORITY.md`, `docs/PROVENANCE.md`, and the
   root bilingual README pair; and
 - `NOT_APPLICABLE`: Skill SOURCE, cases, fixtures, tracked controller, installed
-  or stable copies, release artifacts, neighboring Skill owners, and a
-  sanitized result file before new product evidence exists.
+  or stable copies, release artifacts, neighboring Skill owners, and a tracked
+  sanitized result file; the private ignored evidence remains outside source.
 
-The broad Campaign envelope permits a later mapped result update after new
-evidence, but it does not require or authorize speculative files before their
-fact class exists.
+The broad Campaign envelope permitted this mapped result update after D35
+created the fact class; it did not require or authorize speculative files.
 
 ## Resume Order
 
@@ -732,32 +730,31 @@ fact class exists.
 2. Read [Repository Status](STATUS.md), this handoff, and the relevant per-Skill
    State and Verification owners.
 3. Read Decisions 0017 and 0020, the capability-delta/Campaign Runbook and eval
-   owners, Decision 0018 through D33, and the current per-Skill State before changing shared
-   development or Work Charter selection claims.
+   owners, Decision 0018 through D35, and the current per-Skill State before
+   changing shared development or Work Charter selection claims.
 4. Resolve local `main`, HEAD, index, all dirty and ignored scopes, writer
    ownership, and the exact Work Charter SOURCE/candidate/controller bindings
    rather than assuming this snapshot is still current.
 5. Preserve all predecessor windows, including the D31 mapping-defective A03,
-   zero-turn D32 freeze `cd8c0e2...`, and D33 transport terminal `39ffdea...`,
-   without retry, overwrite, relabelling, rescore, or acceptance transfer.
+   zero-turn D32 freeze `cd8c0e2...`, D33 transport terminal `39ffdea...`, and
+   D35 terminal freeze `ed8bce3...`, without retry, overwrite, relabelling,
+   rescore, or acceptance transfer.
 6. Keep `c42eef3...` RC behavior, `ceed607...` release identity, the later
    evidence descendant, and the generated stable/rollback copies distinct.
-7. Resume only the active Campaign stage. The D31 package and controller/eval
-   definitions are frozen. Stop on product repair, replay or reinterpretation,
-   budget expansion, push, installation, cleanup, tag, or release.
+7. Resume only post-run documentation, verification, native review, and the
+   authorized local result commit. The D31 package, D35 packet, and controller/
+   eval definitions are frozen. Stop on launcher repair, another packet,
+   product repair, replay or reinterpretation, budget expansion, push,
+   installation, cleanup, tag, or release.
 
 ## Immediate Next Action
 
 No release action remains pending for immutable `v0.1.2`. Complete the current
-generic-method and D32/D33 documentation/evidence-policy diff, deterministic
-checks, and native review, then create the authorized local pre-run commit.
-Run up to three materially different same-boundary non-product transport
-canaries. On the first success, construct one independently frozen additive
-Gate 2 packet for exact candidate `07a9f1c...`, capped at 39 product
-`turn/start` events and one assessor. On a product failure, seal and report;
-do not repair SOURCE. Then synchronize mapped evidence owners, review the final
-diff, and create the authorized local result commit. Push, installation, tag,
-release, stable update, and cleanup remain outside the Campaign.
+D35 result synchronization, deterministic checks, native review, and authorized
+local result commit. D35 is sealed and non-retriable. A corrected outer launcher
+and another additive packet require a new user-owned Campaign decision. Push,
+installation, tag, release, stable update, and cleanup remain outside the
+current Campaign.
 
 Later user-owned choices include:
 
@@ -797,18 +794,15 @@ Stop before write or publication if:
 
 ## Authorization Boundary
 
-The current bounded Campaign authorization covers the generic process files,
-existing Work Charter evidence-policy/state owners and mapped root consumers,
-deterministic verification, up to five native reviews for each of two local
-commit attempts, one local pre-run commit, and one local result commit. After
-pre-run closeout it permits up to three materially different same-boundary
-non-product transport canaries. The first success may open one additive full
-Gate 2 packet for the frozen exact D31 candidate, capped at 39 product
-`turn/start` events plus one independent assessor. Same-scope ignored carriers,
-freezes, seals, and result synchronization are included. The Campaign does not
-authorize a Work Charter package, case, fixture, or tracked-controller change;
-product correction; replay or reinterpretation of D33; push; installation;
-tag; release; stable mutation; cleanup; or another Skill's product work.
+The current bounded Campaign authorization has completed its generic-method,
+pre-run commit, transport-canary, additive-packet, and assessor stages. Its
+remaining scope is limited to existing mapped D35 evidence-policy/state owners
+and root consumers, deterministic verification, up to five native reviews for
+the local result-commit attempt, same-scope review fixes, and one local result
+commit. The Campaign does not authorize a corrected launcher, another packet,
+a Work Charter package, case, fixture, or tracked-controller change; product
+correction; replay or reinterpretation of D33 or D35; push; installation; tag;
+release; stable mutation; cleanup; or another Skill's product work.
 
 The completed 2026-08-07 authorization covered only the six existing documentation
 owners named in the Snapshot, same-scope wording/routing corrections, and

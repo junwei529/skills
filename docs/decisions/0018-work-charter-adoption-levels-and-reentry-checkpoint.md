@@ -2,7 +2,7 @@
 
 Date: 2026-08-02
 Amended: 2026-08-10
-Status: accepted design through WC-AR-D33; exact D31 candidate `07a9f1c...` remains unaccepted after mapping qualification and one infrastructure-blocked A03 window, and every consumed execution remains immutable
+Status: accepted design through WC-AR-D33; exact D31 candidate `07a9f1c...` remains unaccepted after D33 and D35 infrastructure/controller stops, and every consumed execution remains immutable
 
 - Planning checkpoint: 21 (mapping qualification and additive replication boundary)
 - Last incorporated decision: `WC-AR-D33`
@@ -1219,6 +1219,24 @@ D33's infrastructure `UNKNOWN` into a pass. This Decision records the evidence
 treatment; the live bounded Campaign owns the exact calls, costs, Git actions,
 and stop conditions and grants no push, installation, release, stable update,
 or cleanup authority.
+
+#### Evidence update: Campaign canary and D35 additive packet
+
+The separately governed Campaign later passed one non-product response canary
+on the inner app-server/provider route and opened one independently frozen D35
+packet. D35 bound exact D31 product bytes separately from its documentation-
+policy host, passed strict mapping plus pre/post-freeze qualification, and then
+consumed one A01 product turn. A01's runner/controller result was clean, but a
+different outer PowerShell launcher combined child stdout with the scalar exit
+code and skipped the required A01 semantic gate. The packet sealed before A02;
+one assessor returned `DECISION_REQUIRED`.
+
+This is a controller-orchestration `UNKNOWN_NOT_ASSESSED`, not a new product-
+design decision, Work Charter defect, pass, or acceptance. D35 is immutable and
+non-retriable. It refines the general Campaign method in Decision 0020: a
+provider-response canary does not qualify an unexercised outer launcher or
+phase-dispatch path. Any corrected launcher and new additive packet require a
+new separately authorized Campaign.
 
 ## Important Rejected Alternatives
 

@@ -70,16 +70,26 @@ When a Campaign depends on a live model/provider route, qualification also
 requires an explicitly budgeted **same-boundary transport canary**. It must use
 the materially same executable/version, authentication mode, model/provider
 endpoint, network and sandbox route, process-local configuration, and request
-transport as the later product evidence. A catalog listing, capability read,
-`thread/start`, or successful local controller run does not prove that the
-responses path can complete.
+transport as the later product evidence. The route also includes the exact
+outer launcher, stdout/stderr capture, exit-status transport, and conditional
+phase-dispatch path used by the product batch. A catalog listing, capability
+read, `thread/start`, or successful local controller run does not prove that
+the responses path can complete.
+
+Child output is evidence data and must remain separate from one typed scalar
+exit status; the next phase may branch only on that status. If a non-product
+model canary uses a more direct launcher than the product batch, it qualifies
+only the inner provider response path. The Campaign must additionally exercise
+the exact outer wrapper with a non-product response or a deterministic
+synthetic child that proves output capture, nonzero propagation, scalar status,
+and intended next-phase dispatch before a product turn is consumed.
 
 A transport canary is deliberately non-product evidence. Its prompt and
 scoring must not be used to accept or reject the Skill, prove selection,
 attribute a loaded copy, or replace a required matrix cell. If the exact route
 cannot be canaried without a model call, that call and its cost must be present
-in the Campaign authorization. A failed canary stops before candidate evidence
-is consumed.
+in the Campaign authorization. A failed canary or launcher-dispatch
+qualification stops before candidate evidence is consumed.
 
 ### Evidence, Assessment, And Closeout
 

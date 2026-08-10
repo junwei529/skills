@@ -104,7 +104,10 @@ metadata 措辞并加入 unavailable-read 停止规则；精确本地 product ca
 `DECISION_REQUIRED`。精确本地 D31 candidate `07a9f1c...` 明确区分激活所需
 package reads 与精确项目读取范围。D32 mapping/freeze qualification 在无模型活动下
 通过；D33 在模型输出或 package loading 前封存为基础设施 `UNKNOWN`。D31 尚无行为
-接受、安装或发布证据。
+之后的 provider-response canary 通过，但 D35 使用的另一层外部 launcher 在一个
+本来 controller-clean 的 native-baseline turn 后跳过了必需的 A01 semantic gate。
+D35 已封存为 controller-orchestration `UNKNOWN_NOT_ASSESSED`；D31 仍无行为接受、
+安装或发布证据。
 完整分阶段 selection、entry、等级、
 重新接入和可见 Standard 行为，stable 层完整 Standard
 delivery、广泛隐式触发 telemetry、独立真实项目效果、确定性角色交付或 writer
