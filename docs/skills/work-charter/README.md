@@ -165,8 +165,16 @@ workflow application is a separate observed mismatch. The packet sealed at
 4/27 and one assessor returned `DECISION_REQUIRED`. D42 remains unaccepted;
 qualification transport, proposal-only SOURCE wording, and proposal-time
 loading policy require a new decision.
-D31, D34, and D42 still have no behavior acceptance, installation, or release
-evidence.
+Decision 0018 D43 resolved those prospective boundaries. Exact candidate
+`c481005...` makes indirect proposal metadata-sufficient, forbids applying the
+workflow before confirmation, and requires the exact body before confirmed
+activation. Its corrected carrier passed the closed six-file parser gate and
+all other zero-model qualification, but the first `Sol/high` non-product
+canary consumed one turn and failed at the sandbox/network transport boundary
+before any model message. The other canaries, all 27 product cells, and the
+assessor did not start. D43 is `UNKNOWN_NOT_ASSESSED`, unaccepted, and not
+retried. D31, D34, D42, and D43 still have no behavior acceptance,
+installation, or release evidence.
 Full staged selection, entry, level, re-entry, and visible
 Standard behavior, full Standard delivery at the stable layer, broad implicit
 telemetry, independent real-project efficacy, deterministic role delivery or

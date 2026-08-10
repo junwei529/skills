@@ -9,7 +9,7 @@ Last updated: 2026-08-10
 | Tested package identity | all three package byte sets independently reached exact-commit RC readiness at `c42eef392a5b9f58bbee64aa73ffb603a6fb6c29` and were re-proved at tag/stable identity `v0.1.2` | [Verification](VERIFICATION.md) |
 | Stable release identity | immutable [`v0.1.2`](https://github.com/junwei529/skills/releases/tag/v0.1.2) at `ceed607152849775b981c54add74bfa30d858e4d`; exact tag, stable loaded-copy, and GitHub Release proof pass for all three Skills | [Verification](VERIFICATION.md) |
 | Project Docs | immutable `v0.1.2` remains the released explicit-only control; local commit `776989f...` implements accepted Decision 0019 but is unreleased, and its evidence is `PARTIAL` because actual candidate selection, loaded-copy identity, and persistent writes remain `UNKNOWN` | [State](skills/manage-project-docs/STATE.md) |
-| Work Charter | released `v0.1.2` remains active; D42 is immutable and unaccepted; approved D43 separates metadata-sufficient proposal from confirmed exact-body activation, forbids pre-confirmation workflow instructions, and requires closed six-file parser qualification before any new evidence | [State](skills/work-charter/STATE.md) |
+| Work Charter | released `v0.1.2` remains active; exact D43 candidate `c481005...` passed corrected zero-model qualification but its first non-product canary stopped at `SANDBOX_NETWORK_TRANSPORT`; no product or assessor turn ran, so D43 is sealed `UNKNOWN_NOT_ASSESSED` and unaccepted | [State](skills/work-charter/STATE.md) |
 | PowerShell | released five-file `v0.1.2` stable copy; corrected loaded identity and guarded native/text diagnosis pass; live WSL remains unproved | [State](skills/use-powershell-safely/STATE.md) |
 | Release lifecycle | `v0.1.2` tag, stable update, tag-pinned canaries, and Latest GitHub Release complete; `v0.1.1` retained as rollback identity | [Runbook](RUNBOOK.md) |
 
@@ -116,6 +116,18 @@ qualification transport needs exact expected-file coverage, and the
 pre-activation workflow plus proposal-time body-loading policy require a
 product/evaluation decision.
 
+Accepted D43 was committed as exact local candidate `c481005...`, with
+five-file manifest `04c382a4...`. Its fresh successor passed 12/12 zero-model
+checks, all 77 catalog mappings, exact outer-launch routes, and the corrected
+closed six-file PowerShell parser gate with six positive receipts, empty
+stderr, and exit zero. The first required `Sol/high` non-product canary then
+consumed one turn and failed at `SANDBOX_NETWORK_TRANSPORT`: Windows socket
+access was denied with error `10013`, HTTP fallback could not connect, and no
+final model message was produced. The other two canaries, all 27 product
+cells, and assessor did not start. D43 is immutable, unaccepted, and sealed
+`SEALED_HARD_STOP / UNKNOWN_NOT_ASSESSED`; this is an environment transport
+blocker, not a Work Charter product defect.
+
 The exact post-commit documentation scope, writer state, and recovery order are
 owned by [Repository Handoff](HANDOFF.md).
 
@@ -146,12 +158,11 @@ semantic assessment and the remaining Gate 2 matrix are still absent.
 Exact D34 candidate `b3ad360...` now has fresh D41 evidence, but not acceptance:
 A04 crossed the visible proposal-only boundary and A05 remained
 `CONTROLLER_UNKNOWN` because of a separate evaluation-construction defect.
-Exact D42 candidate `f24bda7...` produced the corrected visible surface at A04,
-but invalid pre-consumption qualification prevents Gate 2 credit. A05 exposes a
-different unresolved boundary: it applied pause/writer/evidence/handoff workflow
-before activation while controller-observed candidate-body loading remained
-`UNKNOWN`. The incomplete packet and assessor `DECISION_REQUIRED` provide no
-acceptance transfer.
+Exact D43 candidate `c481005...` has admissible corrected qualification but no
+fresh product evidence: its first required transport canary stopped before a
+model response, and all product and assessor turns remained at zero. Product
+semantics are `UNKNOWN_NOT_ASSESSED`; no predecessor evidence or acceptance
+transfers.
 Exact counts, hashes, exclusions, and residual limits remain in the per-Skill
 ledgers rather than this dashboard.
 

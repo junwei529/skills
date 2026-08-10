@@ -22,16 +22,15 @@ clean pushed commit `72db7e9dfe920de5e2017421b22446cf5c8c75e6`, which implements
 the two-stage lazy entry accepted as `WC-AR-D25` while preserving all earlier
 correction and evidence-consumption history.
 
-Accepted `WC-AR-D43` is the current prospective contract. An indirect catalog
+Accepted `WC-AR-D43` is implemented in exact local candidate
+`c4810057c3f28cca9f12004ca2018784cd21f449`, with five-file manifest
+`04c382a48e43897a8806aa5ffd996984cb015d3d8cdc6e675e9181a6d94e6f44`. An indirect catalog
 or symptom match may remain metadata-only or load the body natively; its first
 response only explains applicability, proposes activation plus the smallest
 read, and asks for confirmation. It does not prescribe pause, writer,
 evidence-revalidation, handoff, resume, protection-level, or role workflow.
 Direct intent or same-context confirmation still requires the exact full body
-before activation or workflow reliance. The local commit containing this
-closed SOURCE/evaluation/documentation set becomes the D43 exact candidate;
-its hash is bound by the successor qualification and recorded in the result
-closeout rather than guessed inside the candidate commit.
+before activation or workflow reliance.
 
 The sealed fixed-turn Standard probe for `72db7e9...` returned `VIOLATION` and
 did not run its successor action. Decision 0018 `WC-AR-D26` preserves that
@@ -229,15 +228,13 @@ SOURCE by itself.
 
 ## Current Writer
 
-One bounded D43 Campaign writer owns the mapped Work Charter SOURCE,
-evaluation-contract and documentation correction; deterministic checks; at
-most five completed native reviews per local commit attempt; one local exact-
-candidate commit; the ignored successor qualification/canary/evidence run; and,
-if every prerequisite passes, sanitized closeout plus one local result commit.
-The window ends at the first material stop condition or after the result commit
-and clean tracked status. D42 remains immutable. Tracked controller/fixture
-expansion, other Skills, push, installation, tag, release, stable-copy mutation,
-retained-evidence cleanup, and external publication remain outside this window.
+The bounded D43 Campaign writer owns only this sanitized closeout, its checks,
+native review, and one local result commit. The window ends with that commit and
+clean tracked status; no continuing Work Charter writer remains afterward.
+D42 and D43 evidence remain immutable. Tracked controller/fixture expansion,
+another model turn, other Skills, push, installation, tag, release, stable-copy
+mutation, retained-evidence cleanup, and external publication remain outside
+this window.
 
 ## Evidence State
 
@@ -702,6 +699,17 @@ must prove exactly six expected carrier PowerShell paths, one positive parse
 receipt per path, fixed cardinality, no missing/extra/duplicate/zero-file set,
 empty stderr, and true exit zero before any canary or model turn.
 
+Exact D43 candidate `c481005...` passed that zero-model gate: 12/12 combined
+checks, all 77 mappings, exact outer-launch routes, and exactly six positive
+PowerShell parse receipts with empty stderr and exit zero. Its first required
+non-product `Sol/high` canary consumed one `turn/start` but produced no final
+model message because the WebSocket route was denied with Windows socket error
+`10013` and HTTP fallback could not connect. The batch stopped without retry.
+The other two canaries, 27-cell product packet, and assessor did not start.
+D43 is sealed `SEALED_HARD_STOP / UNKNOWN_NOT_ASSESSED` at
+`SANDBOX_NETWORK_TRANSPORT`; this is neither a Work Charter defect nor Gate 2
+acceptance.
+
 ## Next Gate
 
 Work Charter `v0.1.2` remains the released and installed stable revision.
@@ -710,16 +718,13 @@ freeze only; D33 and D35 are immutable infrastructure/controller
 `UNKNOWN_NOT_ASSESSED` records. D36 and D40 are incomplete product packets with
 independent `DECISION_REQUIRED`; neither transfers acceptance.
 
-The D42 product/evidence window is complete. Exact candidate `f24bda7...` and
-its six consumed turns remain immutable; no D31-D42 execution may be repaired,
-retried, rescored, or relabelled. The approved D43 Campaign now proceeds
-serially: SOURCE/evaluation/documentation closure and local candidate commit;
-new ignored-carrier closed-set qualification; three transport canaries; one
-fresh no-retry 27-cell packet plus assessor only if all prerequisites pass; and
-sanitized result closeout plus one local result commit. Stop for qualification
-uncertainty, product-contract change, native-review budget exhaustion, or scope
-expansion. Push, installation, release, stable update, and cleanup remain
-separate gates.
+The D42 and D43 evidence windows are complete. Exact D43 candidate
+`c481005...` remains unaccepted: its corrected qualification passed, but its
+first canary stopped at the environment transport boundary before product
+evidence. No D31-D43 execution may be repaired, retried, rescored, or
+relabelled. A fresh behavior packet, candidate disposition, installation,
+release, stable update, or cleanup is a new user-owned decision; none is
+authorized by this closeout.
 
 ## Recovery Entry
 
@@ -729,10 +734,10 @@ separate gates.
    [Decision 0018](../../decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md),
    this state, and [Verification](VERIFICATION.md).
 3. Confirm live workspace, writer, and action authority.
-4. Confirm live `main` includes exact D42 candidate commit `f24bda7...` and its
-   sanitized result closeout commit `b0d9708...`, then
-   resolve HEAD, index, any dirty scope, ignored carriers, and current writer
-   instead of inferring them from an older handoff.
+4. Confirm live `main` includes exact D43 candidate commit `c481005...` and the
+   descendant D43 sanitized result closeout, then resolve HEAD, index, any
+   dirty scope, ignored carriers, and current writer instead of inferring them
+   from an older handoff.
 5. Preserve the complete predecessor ledger, including the D31 mapping-
    defective A03, zero-turn D32 freeze `cd8c0e2...`, D33 transport terminal
    `39ffdea...`, D35 freeze `ed8bce3...` plus its one-turn controller-
@@ -743,11 +748,10 @@ separate gates.
    qualified 4/27 terminal with A05 pre-activation workflow and loaded-copy
    findings, without retry, overwrite, relabelling, rescore, or acceptance
    transfer.
-6. Treat D34, D41, and D42 as complete immutable evidence inputs. Treat D42's
+6. Treat D34, D41, D42, and D43 as complete immutable evidence inputs. Treat D42's
    pre-consumption qualification as invalid and its later six-file parser pass
-   as diagnostic only. D43 is the sole authorized successor: metadata is enough
-   for proposal, workflow waits for confirmation and exact body load, and the
-   six-file closed-set qualifier gates every canary or evidence turn.
+   as diagnostic only. Preserve D43's passing closed-set qualification and its
+   one consumed transport-canary turn without replay or acceptance transfer.
 7. Read canonical SOURCE, current eval definitions, and only evidence matching
    the exact revision before changing behavior or claims.
 8. Preserve the independent-Skill and non-propagating-authorization boundary.

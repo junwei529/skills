@@ -29,7 +29,7 @@ Last updated: 2026-08-10
 | D40 A04 terminal and D34 correction | D40 completed A01-A03 and reached A04 with five behavior turns; its indirect first turn loaded exact D31 `SKILL.md`, made no project/Git read, and stayed proposal-only, but the frozen old no-command rubric stopped the packet at 3/27 and one assessor returned `DECISION_REQUIRED`; D34 prospectively corrects the package-load/activation contract without retry, rescore, or acceptance transfer |
 | Exact `b3ad360...` D41 terminal | D41 passed qualification, three non-product transport canaries, and freeze, then consumed six behavior turns; A01-A04 completed, A04 loaded the exact package but visibly claimed selected state before activation approval, and A05 produced a bounded proposal but stopped on an object-versus-list authorization-policy construction defect; the packet sealed at 4/27, one assessor returned `DECISION_REQUIRED`, and no retry, acceptance, installation, or release follows |
 | Exact `f24bda7...` D42 terminal | D42 consumed six turns and stopped at 4/27, but post-consumption review invalidated its static qualification and found A05 prescribed Work Charter workflow before activation while candidate-body loading remained unproved; A04/A05 are observations without Gate 2 credit, one assessor returned `DECISION_REQUIRED`, and D43 changes only the prospective contract |
-| D43 candidate and successor qualification | current SOURCE/evaluation/docs closure separates metadata proposal from confirmed exact-body activation; before any D43 evidence, its new ignored successor must prove exactly six named PowerShell files with one parse receipt each, fixed cardinality, no missing/extra/duplicate/zero-file set, empty stderr, and true exit zero |
+| Exact `c481005...` D43 transport terminal | current SOURCE/evaluation/docs closure separates metadata proposal from confirmed exact-body activation; the ignored successor passed 12/12 zero-model checks including exactly six positive PowerShell parse receipts with empty stderr and exit zero, but its first `Sol/high` non-product canary consumed one turn and failed at `SANDBOX_NETWORK_TRANSPORT`; the other canaries, all product cells, and assessor did not start, so D43 is sealed `UNKNOWN_NOT_ASSESSED` and unaccepted |
 | Isolated path-bound controller canary | private retained sealed `CANARY_PASS`; the public summary reports an exact-response pass and no command execution, omits locator/artifact/runtime details, leaves physical backend request count `UNKNOWN`, and proves neither natural-language selection nor candidate acceptance |
 | Small bounded work stays flat | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
 | Midstream implicit behavior is proposal-only | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
@@ -1609,6 +1609,31 @@ missing/extra/duplicate/zero-file result, empty stderr, and true exit zero. The
 qualifier and three transport canaries remain zero-model prerequisites. This
 SOURCE closeout does not itself prove a candidate hash, qualification pass,
 model behavior, assessor verdict, installation, release, or stable update.
+
+### 2026-08-10 — D43 exact-candidate transport terminal
+
+Exact local candidate `c4810057c3f28cca9f12004ca2018784cd21f449`
+preserves five-file manifest
+`04c382a48e43897a8806aa5ffd996984cb015d3d8cdc6e675e9181a6d94e6f44`.
+Its fresh successor created 27 workspaces, proved all 77 catalog mappings,
+passed the exact outer-launch success/failure routes, and passed all 12
+zero-model checks. The corrected PowerShell gate observed exactly the six
+expected files, one successful parse receipt for each, expected/actual/unique
+cardinality six, no missing or extra path, empty stderr, and exit zero.
+
+The first required `Sol/high` non-product canary then consumed one
+`thread/start` and one `turn/start`. The app-server process started, but the
+turn ended `failed` without a final model message after Windows socket access
+was denied with error `10013` and HTTP fallback could not connect. The runner
+classified the route `FAIL` and the outer launcher stopped the batch. This is
+`SANDBOX_NETWORK_TRANSPORT`, not product behavior or a controller-contract
+failure. No controller retry occurred, and the consumed canary is not replayed.
+
+The `Sol/xhigh` and `Terra/high` canaries, product freeze, all 27 product cells,
+and assessor did not start. D43 is therefore sealed
+`SEALED_HARD_STOP / UNKNOWN_NOT_ASSESSED`; exact candidate behavior remains
+unassessed and Gate 2 remains unaccepted. The sanitized record is
+[Work Charter D43 transport-canary terminal](../../../evals/results/2026-08-10-work-charter-d43-transport-terminal.md).
 
 ## Required Checks
 

@@ -6,10 +6,9 @@ Last updated: 2026-08-10
 
 - Repository: Agent Workflow Skills
 - Latest exact Work Charter product candidate:
-  `f24bda745c1692385498d77602cca314ed6518d6`; its five-file manifest is
-  `a192540f53e57f0a70721e8220970e064fef7e9a82f7459c726834ea0b778fb1`,
-  and it remains unaccepted after immutable D42 stopped at 4/27; the commit
-  containing the closed D43 revision becomes the next exact candidate
+  `c4810057c3f28cca9f12004ca2018784cd21f449`; its five-file manifest is
+  `04c382a48e43897a8806aa5ffd996984cb015d3d8cdc6e675e9181a6d94e6f44`,
+  and it remains unaccepted after D43 stopped at its first transport canary
 - Exact predecessor `b3ad360...` and its D41 packet remain immutable and
   unaccepted
 - Released package identity: immutable `v0.1.2` at
@@ -21,20 +20,22 @@ Last updated: 2026-08-10
   5 files, each matching the `v0.1.2` Git blobs
 - Rollback identity: immutable `v0.1.1` retained as a separately verified
   three-package backup
-- Writer boundary: one bounded D43 Campaign writer owns the mapped Work Charter
-  SOURCE/evaluation/docs correction, deterministic checks, native review, one
-  local candidate commit, ignored-carrier qualification/canaries/evidence, and
-  conditional sanitized closeout plus one local result commit. D42 remains
-  immutable. Tracked controller/fixture expansion, other Skills, push,
-  installation, tag, release, stable update, retained-evidence cleanup, and
-  unlisted external effects remain excluded
+- Writer boundary: the D43 Campaign ends with the sanitized result commit
+  containing this handoff; no continuing repository writer remains afterward.
+  D42 and D43 evidence are immutable. Another model turn, tracked controller/
+  fixture expansion, other Skills, push, installation, tag, release, stable
+  update, retained-evidence cleanup, and unlisted external effects remain
+  excluded
 
 D43 has resolved D42's open product choice: indirect proposals are metadata-
 sufficient and must not prescribe Work Charter workflow; direct intent or
 same-context confirmation requires controller-observed exact body loading before
 activation or workflow reliance. Its qualification must close over exactly six
 named carrier PowerShell files with one receipt per file, cardinality six, no
-missing/extra/duplicate/zero-file set, empty stderr, and true exit zero.
+missing/extra/duplicate/zero-file set, empty stderr, and true exit zero. Exact
+candidate `c481005...` passed that gate and all zero-model qualification. Its
+first `Sol/high` canary then stopped at `SANDBOX_NETWORK_TRANSPORT` before a
+model response; no other canary, product cell, or assessor started.
 
 The `v0.1.2` tag remains fixed at the release-preparation commit. The later
 documentation commit records already-completed tag, stable-install, canary, and
@@ -893,25 +894,23 @@ created the fact class; it did not require or authorize speculative files.
    overwrite, relabelling, rescore, or acceptance transfer.
 6. Keep `c42eef3...` RC behavior, `ceed607...` release identity, the later
    evidence descendant, and the generated stable/rollback copies distinct.
-7. Treat exact D42 candidate `f24bda7...` and sealed D42 as the latest complete
-   immutable inputs. D31, D33/D35/D36/D40/D41/D42, and every consumed D37 turn
-   remain frozen. Continue only the approved D43 SOURCE/candidate/ignored-
-   carrier/evidence/closeout sequence; stop on replay or reinterpretation,
-   scope expansion, push, installation, cleanup, tag, release, or another
-   excluded effect.
+7. Treat exact D43 candidate `c481005...`, its passing zero-model qualification,
+   and its one consumed transport-canary turn as the latest complete immutable
+   inputs. D31, D33/D35/D36/D40/D41/D42/D43, and every consumed D37 turn remain
+   frozen. Any additive successor, candidate disposition, installation,
+   cleanup, tag, or release needs new user authority.
 
 ## Immediate Next Action
 
-No release action remains pending for immutable `v0.1.2`. Exact D42 candidate
-`f24bda7...` and its packet are sealed, non-retriable, invalidly qualified, and
-unaccepted. Continue the approved D43 sequence serially: finish mapped SOURCE/
-evaluation/docs closure and its local candidate commit; qualify a fresh ignored
-carrier against the exact six-file closed set; run three transport canaries;
-then, only if every zero-model prerequisite passes, consume one no-retry 27-
-cell packet plus one assessor and create the sanitized local result commit.
-Stop at the first material Campaign stop condition. Push, installation, tag,
-release, stable update, cleanup, tracked controller/fixture expansion, and
-other-Skill changes remain unauthorized.
+No release action remains pending for immutable `v0.1.2`. Exact D43 candidate
+`c481005...` passed corrected zero-model qualification, then sealed at the
+first transport canary with product semantics `UNKNOWN_NOT_ASSESSED`. The D43
+Campaign is complete and non-retriable. The next action is user-owned: leave
+the candidate unaccepted, authorize a separately named additive behavior
+packet after the environment route is independently requalified, or choose a
+different candidate/release disposition. Push, installation, tag, release,
+stable update, cleanup, tracked controller/fixture expansion, and other-Skill
+changes remain unauthorized.
 
 Later user-owned choices include:
 
@@ -951,15 +950,11 @@ Stop before write or publication if:
 
 ## Authorization Boundary
 
-D42's SOURCE/evaluation execution authority is consumed. Exact candidate
-`f24bda7...`, the three canary turns, six product turns, one assessor, and every
-carrier input/output remain immutable and non-retriable. The current bounded
-D43 authorization permits the mapped Work Charter SOURCE/evaluation/docs
-revision, deterministic checks, at most five completed native reviews per local
-commit attempt, one local candidate commit, one fresh ignored successor's
-zero-model qualification and three canaries, one conditional no-retry 27-cell
-packet with at most 39 behavior turns plus one assessor, sanitized closeout,
-and one local result commit.
+D42's SOURCE/evaluation execution authority is consumed. Exact D43 candidate
+`c481005...`, its passing qualification, one consumed canary turn, and every
+carrier input/output are immutable and non-retriable. The D43 Campaign
+authority is consumed by the local sanitized result commit containing this
+paragraph; it grants no continuing writer or model-turn authority.
 
 No tracked controller or fixture expansion, other-Skill change, push,
 installation, tag, release, stable mutation, retained-evidence cleanup, or
@@ -989,6 +984,18 @@ Skills. `NOT_APPLICABLE` covers a new tracked case, fixture, controller, package
 file, installed/stable copy, release artifact, or public lifecycle effect. The
 ignored D43 successor is evidence infrastructure inside the Campaign, not
 public SOURCE.
+
+The D43 result documentation-impact closure is fact-first. `UPDATE` covers the
+sanitized result/index, Work Charter bilingual public entry, per-Skill State/
+Verification, and root Status, Verification, Roadmap, Index, and this Handoff.
+`CHECKED_NO_CHANGE` covers repository `AGENTS.md`, the root README pair,
+Authority, SPEC, Architecture, Runbook, Provenance, Decisions 0017/0018/0020,
+Work Charter SOURCE, Design, cases, fixtures, shared evaluation method,
+current-SOURCE manifest, tracked controller, package references/assets, and
+neighboring Skills. `NOT_APPLICABLE` covers another candidate, controller or
+fixture expansion, discovery mapping, installation, tag, release, stable
+update, cleanup, and external effects. The ignored carrier remains unpublished
+evidence.
 
 The completed 2026-08-07 authorization covered only the six existing documentation
 owners named in the Snapshot, same-scope wording/routing corrections, and

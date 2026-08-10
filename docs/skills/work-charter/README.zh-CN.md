@@ -132,8 +132,13 @@ transport canary、freeze 和 A01-A05；但消费后 review 发现 PowerShell pa
 writer、evidence、handoff 和 resume 步骤，同时 body loading 仍未得到证明；这是独立的
 pre-activation workflow mismatch。packet 在 4/27 处封存，一个 assessor 返回
 `DECISION_REQUIRED`。D42 仍未获接受；资格 transport、proposal-only SOURCE wording 与
-提案阶段 loading policy 都需要新的决策。D31、D34 与 D42 均仍无行为接受、安装或发布
-证据。
+提案阶段 loading policy 都需要新的决策。Decision 0018 D43 已修正这些前瞻性边界：
+精确 candidate `c481005...` 允许仅凭 metadata 提出间接 proposal，禁止在确认前应用
+Work Charter 流程，并要求确认激活前加载精确正文。其新 carrier 通过了封闭六文件
+PowerShell parser gate 及全部零模型资格检查，但第一个 `Sol/high` 非产品 canary 消费
+一轮后在 sandbox/network transport 边界失败，未产生模型消息；其余两个 canary、全部
+27 个产品 cell 和 assessor 均未启动。D43 为 `UNKNOWN_NOT_ASSESSED`，未获接受且不重试。
+D31、D34、D42 与 D43 均仍无行为接受、安装或发布证据。
 完整分阶段 selection、entry、等级、
 重新接入和可见 Standard 行为，stable 层完整 Standard
 delivery、广泛隐式触发 telemetry、独立真实项目效果、确定性角色交付或 writer

@@ -20,18 +20,18 @@ Sanitized detailed runs remain under [`evals/results`](../evals/results/README.m
 | Check | Purpose | Current result |
 |---|---|---|
 | Changed Skill validator | Validate frontmatter and package name without changing the package | current D43 SOURCE passes the bundled `skill-creator` validator |
-| Repository checker | Validate strict UTF-8/no BOM, whitespace, local links/fragments, publication safety, exact Skill/eval sets, federated docs, and bilingual navigation | D43 candidate closure passes at 202 text files / 14 cases / 12 fixtures |
-| Fixture checker | Validate synthetic starting states and their Git/reparse/ignored-result boundaries plus the tracked controller regression | D43 candidate closure passes all 17 checks; no fixture or controller-code bytes changed |
+| Repository checker | Validate strict UTF-8/no BOM, whitespace, local links/fragments, publication safety, exact Skill/eval sets, federated docs, and bilingual navigation | D43 result closeout passes with 203 text files / 14 cases / 12 fixtures |
+| Fixture checker | Validate synthetic starting states and their Git/reparse/ignored-result boundaries plus the tracked controller regression | D43 result closeout retains all 17 passing checks; no fixture or controller-code bytes changed |
 | Codex evidence controller | Validate one shared core across four entry modes, strict required-read versus bounded auxiliary-observation attribution, structural PowerShell/Git/path classification, source-and-generated-contract-bound historical regressions, exact package manifests, candidate-identity and content-proof shape, record cardinality, completed exit typing, output-array shape, per-key single-capture sealed parsing and reuse, real-reparse rejection, fail-closed negatives, external-input types, independently resolved inner/wrapper command identity, Git-read and external-filter safety, profile-free PowerShell wrappers, culture-independent canonical ordering, metamorphic equivalence, output no-clobber, and canonical repeatability | D43 current SOURCE manifest `04c382a4...` passes with exact package identity, 11/11 historical, 32/32 evidence-surface, 33/33 negative, 4/4 metamorphic, 3/3 manifest-hash guards, all reported structural guards, and zero external model or assessor calls |
 | CRG supplemental preflight | Sharpen structural review scope when the maintained index represents the intended diff | not applicable: no maintained `.code-review-graph/` index exists; the separate CodeGraph source-navigation query did not represent the Markdown-first contract diff, so native review inspects the actual files |
-| Native Codex review | Review the exact uncommitted D43 SOURCE/evaluation/documentation closure | `codex-current review --uncommitted` is the required gate; completed semantic results and cumulative finding dispositions are reported after the candidate commit rather than written into the reviewed diff |
+| Native Codex review | Review the exact uncommitted D43 SOURCE/evaluation/documentation or result closure | the candidate attempt completed with no finding; the result closeout has a separate semantic-review gate whose final disposition is retained in the cumulative commit record rather than appended after review to the bytes it reviewed |
 | Isolated controller canary | Record the bounded disposition of one private path-bound infrastructure check without broadening behavior claims | retained sealed `CANARY_PASS`; the public summary reports an exact-response pass and no command execution, omits private locator/artifact/runtime details, and leaves physical backend request count `UNKNOWN` |
-| Work Charter D36/D37/D40, D34/D41 predecessors, D42 terminal, and D43 correction | Preserve additive predecessors and separate product behavior from route, tool, qualification, and eval-contract failures | D36 and D40 remain immutable incomplete `DECISION_REQUIRED` packets; D37 remains boundary-only evidence; D34 permits native package loading before confirmation; immutable D41 records A04 product-visible and A05 evaluation-shape findings; D42 remains invalidly qualified and unaccepted; D43 prospectively makes proposal metadata-sufficient, delays workflow until confirmed exact-body activation, and requires closed six-file qualification |
+| Work Charter D36/D37/D40, D34/D41 predecessors, D42, and D43 terminals | Preserve additive predecessors and separate product behavior from route, tool, qualification, and eval-contract failures | D36 and D40 remain immutable incomplete `DECISION_REQUIRED` packets; D37 remains boundary-only evidence; D34 permits native package loading before confirmation; D41 records A04 product-visible and A05 evaluation-shape findings; D42 remains invalidly qualified; exact D43 candidate `c481005...` passed corrected qualification but its first non-product canary stopped at `SANDBOX_NETWORK_TRANSPORT`, so no product or assessor turn ran and D43 remains unaccepted |
 | PowerShell deterministic hardening | Validate cardinality, LF bytes, one-base paths, and Junction link-only removal | 15 assertions pass in PowerShell 7 and Windows PowerShell 5.1 |
-| PowerShell parser sweep | Parse all `evals/**/*.ps1` files and the tracked controller module | D43 candidate closure passes all eight tracked files/modules; the future ignored-carrier six-file gate remains a separate pre-consumption requirement |
-| Markdown navigation and ownership | Verify local links/fragments, English/Chinese routes, expected per-Skill owners, and no orphan canonical owner | pass through repository checker |
-| `git diff --check` | Reject whitespace defects in the working revision | passes for the frozen D43 candidate diff; index remains untouched |
-| Gitleaks | Detect secret-like content independently | exact 18-path D43 candidate projection passes with zero findings and its validated temporary copy was removed; ignored/private evidence was not treated as public SOURCE |
+| PowerShell parser sweep | Parse all `evals/**/*.ps1` files and the tracked controller module | D43 result closeout retains all eight tracked parses; the ignored carrier independently passed its exact six-file pre-consumption gate |
+| Markdown navigation and ownership | Verify local links/fragments, English/Chinese routes, expected per-Skill owners, and no orphan canonical owner | passes through repository checker |
+| `git diff --check` | Reject whitespace defects in the working revision | passes for the D43 result diff with an untouched index |
+| Gitleaks | Detect secret-like content independently | exact 11-path D43 result projection passes with zero findings and its bounded temporary copy was removed; ignored/private evidence was not treated as public SOURCE |
 
 ## Repository Claim Ledger
 
@@ -1458,6 +1458,28 @@ checks establish SOURCE/evaluation consistency only. The D43 exact candidate is
 the local commit containing this closed set; a new ignored successor must still
 prove the exact six-file parser receipts and three transport canaries before
 any product or assessor turn.
+
+### 2026-08-10 — Work Charter D43 transport-canary terminal
+
+Exact local candidate `c4810057c3f28cca9f12004ca2018784cd21f449`
+preserves five-file manifest `04c382a4...`. Its fresh ignored successor passed
+all 12 zero-model checks, including 27-workspace setup, all 77 catalog mappings,
+exact outer-launch routes, and the corrected closed PowerShell gate. That gate
+observed exactly six expected files, one positive parse receipt per file,
+expected/actual/unique cardinality six, no missing or extra path, empty stderr,
+and exit zero.
+
+The first required `Sol/high` non-product canary consumed one `thread/start`
+and one `turn/start`, then ended `failed` without a final model message. The
+preserved diagnostics identify Windows socket denial `10013` followed by an
+unavailable HTTP fallback. This is `SANDBOX_NETWORK_TRANSPORT`; no controller
+retry or replay occurred. The `Sol/xhigh` and `Terra/high` canaries, product
+freeze, all 27 product cells, and assessor did not start.
+
+D43 is sealed `SEALED_HARD_STOP / UNKNOWN_NOT_ASSESSED` and remains unaccepted.
+The environment stop proves no D43 product behavior and does not transfer any
+predecessor result. The sanitized evidence is
+[Work Charter D43 transport-canary terminal](../evals/results/2026-08-10-work-charter-d43-transport-terminal.md).
 
 ### 2026-08-02 — Capability-delta decision and workflow
 
