@@ -189,29 +189,43 @@ fourth was separately approved and removed only two proven inherited
 `__pycache__` directories after preserving the zero-turn static failure.
 
 D36 then completed A01-A12 and consumed 21 behavior turns before A13
-hard-stopped. The A13 candidate copy was loaded, but the top-level coordination
-flow called `list_mcp_resources` even though the prompt authorized only a
-bounded Planner/Executor handoff and delegated role instantiation to the
-evaluation controller. The runner independently treated this non-command tool
-action as unauthorized. An adapter empty-command normalization error also
-produced a `CONTROLLER_UNKNOWN` diagnostic, but it is redundant to the directly
-observed tool-boundary failure and does not turn the result into infrastructure-
-only `UNKNOWN`. The packet sealed `SEALED_PARTIAL_HARD_STOP`; 12 of 27 available
-cells completed, 15 remained unexecuted, and one independent assessor returned
-`DECISION_REQUIRED`. D36 is immutable and non-retriable. The finding is bounded
-to exact candidate `07a9f1c...` under the current Harness and does not establish
-Skill-only causality.
+hard-stopped. The top-level A13 invocation loaded the candidate, stated the
+bounded L3 handoff, made no MCP call, and received an `ADMISSIBLE` tracked-
+controller result. The controller-instantiated Planner also stayed inside its
+read-only contract. The separate Executor first called `list_mcp_resources`,
+then loaded the candidate and coordination reference and returned a bounded
+proposal. The runner correctly treated the non-command tool as unauthorized.
+Normalization also placed that MCP item in the command stream, so the Executor's
+private controller terminated on an empty `ObservedCommand` and produced a
+secondary `CONTROLLER_UNKNOWN`; the top-level `ADMISSIBLE` projection is not an
+Executor result. The packet sealed `SEALED_PARTIAL_HARD_STOP`; 12 of 27
+available cells completed, 15 remained unexecuted, and one independent assessor
+returned `DECISION_REQUIRED`. D36 is immutable and non-retriable. The finding
+is bounded to exact candidate `07a9f1c...` under the current Harness and does
+not establish Skill-only causality.
+
+The later ignored D37 attribution precursor corrected only the evaluation
+route: typed normalization separates non-command tools from command rows, and
+selected-behavior prompts supply exact package paths and authorize only the
+named one-file reads. Nine deterministic tests passed before freeze
+`1d705c65...`. Native, `v0.1.2` control, and exact candidate each consumed one
+read-only `Sol/high` turn with no retry or assessor. Their exact-read counts
+were 7/7, 9/9, and 9/9; all three used zero non-command tools and left workspace
+and protected-home inventories unchanged. Summary `f4bddc52...` is
+`COMPLETE_BOUNDARY_PRECURSOR`. Semantics were not assessed, so D37 neither
+rescored D36 nor accepted the candidate and supplies no reason to change Skill
+SOURCE by itself.
 
 ## Current Writer
 
-One bounded Campaign writer now owns only mapped D36 result synchronization,
-deterministic verification, same-scope native-review corrections, and the
-authorized local result commit. The writer relinquishes after that commit. The
-Work Charter five-file package, cases, fixtures, tracked controller, D31-D33,
-the transport canaries, and sealed D35/D36 packets are frozen. A product or
-controller correction, another product packet, push, installation, tag, release,
-stable-copy mutation, cleanup, cross-Skill product work, and any budget
-expansion remain outside this Campaign.
+One bounded D37 attribution writer owns only the seven existing mapped
+documentation owners, deterministic verification, same-scope native-review
+corrections, and the authorized local documentation commit. The writer window
+ends with that commit. The Work Charter five-file package, tracked cases,
+fixtures, controller, D31-D36 evidence, and three consumed D37 turns are frozen.
+Another model or assessor turn, a full product packet, Skill SOURCE, push,
+installation, tag, release, stable-copy mutation, cleanup, cross-Skill product
+work, and any budget expansion remain outside this authorization.
 
 ## Evidence State
 
@@ -597,13 +611,14 @@ freeze only; D33 and D35 are immutable infrastructure/controller
 incomplete with a non-compensable A13 tool-authorization failure and independent
 `DECISION_REQUIRED`.
 
-Synchronize this sealed result, complete deterministic checks and native review,
-and create the authorized local result commit. That closes the current Campaign.
-Gate 3 remains blocked until one complete exact-candidate packet receives
-independent `ACCEPTED`. Any Skill behavior revision, controller-adapter fix, or
-new additive packet requires one new user-owned Campaign decision; D33, D35,
-and D36 may not be repaired, retried, rescored, or relabelled. Push,
-installation, release,
+Complete D37 attribution synchronization, deterministic checks, native review,
+and the authorized local documentation commit. That closes the current writer
+window. Gate 3 remains blocked until one complete exact-candidate packet
+receives independent `ACCEPTED`. The next user-owned product decision is
+whether to construct a fresh full packet using the corrected role prompt and
+typed normalization, or leave the candidate unaccepted; current evidence does
+not justify Skill SOURCE changes. D33, D35, and D36 may not be repaired,
+retried, rescored, or relabelled. Push, installation, release,
 stable update, and cleanup remain separate user gates.
 
 ## Recovery Entry
@@ -620,11 +635,12 @@ stable update, and cleanup remain separate user gates.
 5. Preserve the complete predecessor ledger, including the D31 mapping-
    defective A03, zero-turn D32 freeze `cd8c0e2...`, D33 transport terminal
    `39ffdea...`, D35 freeze `ed8bce3...` plus its one-turn controller-
-   orchestration terminal, and D36 freeze `f687419...` plus its A13 product
-   terminal, without retry, overwrite, relabelling, rescore, or acceptance
-   transfer.
-6. Resume only the post-run evidence closeout and local result commit. A Skill
-   or controller correction, another product packet, budget expansion, or excluded external
+   orchestration terminal, D36 freeze `f687419...` plus its A13 product
+   terminal, and D37 freeze `1d705c65...` plus summary `f4bddc52...`, without
+   retry, overwrite, relabelling, rescore, or acceptance transfer.
+6. Resume only the D37 documentation closeout and local commit. A Skill or
+   tracked-controller correction, another model/assessor turn, a full product
+   packet, budget expansion, or excluded external
    effect requires a new user decision.
 7. Read canonical SOURCE, current eval definitions, and only evidence matching
    the exact revision before changing behavior or claims.

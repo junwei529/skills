@@ -107,9 +107,13 @@ package reads 与精确项目读取范围。D32 mapping/freeze qualification 在
 provider-response canary 通过，但 D35 使用的另一层外部 launcher 在一个
 本来 controller-clean 的 native-baseline turn 后跳过了必需的 A01 semantic gate。
 D35 已封存为 controller-orchestration `UNKNOWN_NOT_ASSESSED`。Additive D36
-完成了 exact outer-wrapper qualification 和 A01-A12，但 A13 在加载 candidate 后
-调用了未授权的 `list_mcp_resources`。packet 以 12/27 个 cell 完成而封存，独立
-assessor 返回 `DECISION_REQUIRED`。D31 仍无行为接受、安装或发布证据。
+完成了 exact outer-wrapper qualification 和 A01-A12，但由评测 controller
+实例化的 A13 Executor 在加载 candidate 前调用了未授权的
+`list_mcp_resources`；top-level response 与 Planner 均保持在边界内。packet 以
+12/27 个 cell 完成而封存，独立 assessor 返回 `DECISION_REQUIRED`。之后的三
+turn D37 precursor 提供了精确 package 路径和分类型 tool normalization；native、
+released control 与 exact candidate 都遵守读取边界，但未评估 response semantics，
+也不转移任何 Gate 2 接受。D31 仍无行为接受、安装或发布证据。
 完整分阶段 selection、entry、等级、
 重新接入和可见 Standard 行为，stable 层完整 Standard
 delivery、广泛隐式触发 telemetry、独立真实项目效果、确定性角色交付或 writer

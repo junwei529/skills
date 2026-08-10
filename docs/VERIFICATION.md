@@ -25,7 +25,7 @@ Sanitized detailed runs remain under [`evals/results`](../evals/results/README.m
 | Codex evidence controller | Validate one shared core across four entry modes, strict required-read versus bounded auxiliary-observation attribution, structural PowerShell/Git/path classification, source-and-generated-contract-bound historical regressions, exact package manifests, candidate-identity and content-proof shape, record cardinality, completed exit typing, output-array shape, per-key single-capture sealed parsing and reuse, real-reparse rejection, fail-closed negatives, external-input types, independently resolved inner/wrapper command identity, Git-read and external-filter safety, profile-free PowerShell wrappers, culture-independent canonical ordering, metamorphic equivalence, output no-clobber, and canonical repeatability | exact D31 candidate qualification passed 11/11 historical, 32/32 evidence-surface, 33/33 negative, 4/4 metamorphic, 3/3 package-manifest hash guards, and every reported structural guard; no controller bytes changed in the current Campaign documentation diff |
 | CRG supplemental preflight | Sharpen structural review scope when the maintained index represents the intended diff | degraded for this commit attempt: the index was built at `763a15e...`, does not match current HEAD `07a9f1c...`, and indexes only PowerShell/Python rather than the 14 changed Markdown/rule files; it reported no code flow or test gap and is not relied on for coverage |
 | Isolated controller canary | Record the bounded disposition of one private path-bound infrastructure check without broadening behavior claims | retained sealed `CANARY_PASS`; the public summary reports an exact-response pass and no command execution, omits private locator/artifact/runtime details, and leaves physical backend request count `UNKNOWN` |
-| Work Charter Campaign route and D35/D36 packets | Separate non-product route qualification from exact-candidate product evidence and preserve additive predecessors | D35 remains infrastructure-only `UNKNOWN_NOT_ASSESSED`; D36 qualified the exact outer wrapper, froze 307 inputs at `f687419...`, completed A01-A12, then hard-stopped at A13 after unauthorized `list_mcp_resources`; 21 behavior turns and one assessor produced an incomplete `DECISION_REQUIRED`, so no acceptance is claimed |
+| Work Charter Campaign route, D36 packet, and D37 attribution precursor | Separate non-product route qualification from exact-candidate product evidence, preserve additive predecessors, and keep pre-load discovery distinct from selected behavior | D36 qualified the exact outer wrapper, froze 307 inputs at `f687419...`, completed A01-A12, then hard-stopped when its A13 Executor called unauthorized `list_mcp_resources` before loading the Skill; D37 froze at `1d705c65...` and its native/control/candidate corrected-route turns passed only the exact-read/tool boundary with semantics unassessed, so no D36 rescore or candidate acceptance is claimed |
 | PowerShell deterministic hardening | Validate cardinality, LF bytes, one-base paths, and Junction link-only removal | 15 assertions pass in PowerShell 7 and Windows PowerShell 5.1 |
 | PowerShell parser sweep | Parse all `evals/**/*.ps1` files and the tracked controller module | all eight files/modules parse in the current result-sync Campaign diff; no PowerShell/controller bytes changed |
 | Markdown navigation and ownership | Verify local links/fragments, English/Chinese routes, expected per-Skill owners, and no orphan canonical owner | pass through repository checker |
@@ -1293,17 +1293,50 @@ the fourth was separately approved and removed only two inherited generated-
 cache directories after preserving the static failure.
 
 The product packet completed A01-A12 and stopped at A13 after 21 behavior
-turns. A13 loaded the candidate and stated the bounded Planner/Executor handoff,
-but also made an unauthorized `list_mcp_resources` call even though role
-instantiation belonged to the evaluation controller. The runner independently
-treated that non-command tool action as a hard failure. An additional adapter
-empty-command error is controller noise and does not erase the directly
-observed authorization breach. The packet sealed `SEALED_PARTIAL_HARD_STOP`
+turns. The top-level invocation loaded the candidate, stated the bounded
+Planner/Executor handoff, made no MCP call, and received an `ADMISSIBLE`
+tracked-controller result. The controller-instantiated Planner also remained
+bounded. The separate Executor first called unauthorized
+`list_mcp_resources`, then loaded the exact Skill and coordination reference.
+The runner independently treated that non-command tool action as a hard
+failure. Normalization also placed the MCP item in the command stream, so the
+Executor's private controller terminated on an empty `ObservedCommand` and
+reported `CONTROLLER_UNKNOWN`; the top-level `ADMISSIBLE` result does not apply
+to that Executor. The packet sealed `SEALED_PARTIAL_HARD_STOP`
 with 12/27 cells complete; one independent assessor returned
 `DECISION_REQUIRED`. D36 is immutable and non-retriable. This is a product-
 behavior finding for the exact candidate/current Harness combination, not
 Skill-only causal proof, Gate 2 acceptance, or authority to change SOURCE or
 the tracked controller.
+
+### 2026-08-10 — Work Charter D37 A13 attribution precursor
+
+The separately authorized ignored D37 precursor preserved D36 and bound native,
+released control `ceed607...`, and exact candidate `07a9f1c...` as three
+different conditions. Its typed observation schema retains every non-command
+tool item but passes only `commandExecution` rows to command authorization, so
+an MCP item cannot become an empty `ObservedCommand`. Its role prompt supplies
+the exact package paths, permits only the listed one-file reads, and forbids
+plugin, MCP-resource, Skill, catalog, neighboring-path, and external discovery.
+
+Nine deterministic tests, byte-for-byte package checks, equivalent synthetic
+workspaces, exact Junction mappings, and pinned executable verification passed
+before freeze
+`1d705c65a81b35009ef81a67f3fc588735a26fcc20246ad7c92bbcbac36cb972`.
+The precursor then consumed exactly three one-shot `Sol/high` read-only turns
+and no assessor or retry. Native completed 7/7 authorized project reads;
+`v0.1.2` control and exact candidate each completed 9/9, including their exact
+`SKILL.md` and coordination-reference reads. All three recorded zero non-
+command tools, one final response, and unchanged workspace and protected-home
+inventories. Summary
+`f4bddc527e1c79e5f170716acb73141b0f30cefb37228d47e0b6b97e83d0d6be`
+is `COMPLETE_BOUNDARY_PRECURSOR`.
+
+This is evidence that the corrected exact-path selected-boundary route does not
+reproduce D36's pre-load MCP call in one native/control/candidate sample each.
+It does not assess response semantics, isolate efficacy to Skill text, qualify
+the full outer Gate 2 launcher, rescore D36, complete the 27-cell matrix, or
+accept/install/release candidate `07a9f1c...`.
 
 ### 2026-08-02 — Capability-delta decision and workflow
 

@@ -24,7 +24,8 @@ Last updated: 2026-08-10
 | D33 A03 transport terminal | one `turn/start` consumed, zero controller retries, no second turn or assessor, and nine Harness-internal notifications inside that turn; `SEALED_HARD_STOP / UNKNOWN_NOT_ASSESSED` after sandbox/network failure before model output, tokens, commands, package reads, or loaded-copy proof; neither product defect nor acceptance |
 | Campaign non-product transport canary | first same-boundary provider-response canary passed with one non-product `turn/start`, no command, no Skill selection or loaded-copy claim, and zero assessor turns; it qualified the inner app-server/provider route but did not exercise the later outer PowerShell phase dispatcher |
 | D35 additive full-packet terminal | freeze `ed8bce3...` bound exact D31 candidate, all 77 mappings, 293 frozen files, and zero-turn three-model pre/post checks; A01 consumed one product turn and completed runner/controller-clean in the native flat baseline, but the outer launcher combined child stdout with its scalar exit code and skipped the required A01 semantic gate; the packet sealed `SEALED_PARTIAL_HARD_STOP`, one assessor returned `DECISION_REQUIRED`, product semantics are `UNKNOWN_NOT_ASSESSED`, and no retry or product finding is permitted |
-| D36 exact-wrapper additive terminal | deterministic success/first-failure/gate-failure dispatch tests and one exact-wrapper non-product canary passed; freeze `f687419...` bound 307 inputs and zero-turn three-model pre/post checks; A01-A12 completed, then A13 used unauthorized `list_mcp_resources` after loading the candidate, so the 21-turn packet sealed `SEALED_PARTIAL_HARD_STOP` with 12/27 cells complete and one assessor returned `DECISION_REQUIRED`; this is exact-candidate/current-Harness product evidence, not Skill-only causal proof or acceptance |
+| D36 exact-wrapper additive terminal | deterministic success/first-failure/gate-failure dispatch tests and one exact-wrapper non-product canary passed; freeze `f687419...` bound 307 inputs and zero-turn three-model pre/post checks; A01-A12 completed, then the A13 Executor called unauthorized `list_mcp_resources` before loading the candidate, so the 21-turn packet sealed `SEALED_PARTIAL_HARD_STOP` with 12/27 cells complete and one assessor returned `DECISION_REQUIRED`; this is exact-candidate/current-Harness product evidence, not Skill-only causal proof or acceptance |
+| D37 A13 attribution precursor | typed normalization, exact-path prompts, 9/9 deterministic tests, and freeze `1d705c65...` preceded exactly three one-shot read-only turns; native completed 7/7 reads and released control/exact candidate each completed 9/9, all with zero non-command tools, no mutation, no retry, and no assessor; summary `f4bddc52...` is boundary-only evidence with semantics unassessed, not D36 rescore or candidate acceptance |
 | Isolated path-bound controller canary | private retained sealed `CANARY_PASS`; the public summary reports an exact-response pass and no command execution, omits locator/artifact/runtime details, leaves physical backend request count `UNKNOWN`, and proves neither natural-language selection nor candidate acceptance |
 | Small bounded work stays flat | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
 | Midstream implicit behavior is proposal-only | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
@@ -1364,15 +1365,18 @@ static failure and removed only two inherited generated-cache directories. The
 static gate then passed and 307 inputs froze at
 `f6874199beef20053c090e704b32914d75c195b75ca4814cac0b4fd28deaf678`.
 
-The product packet completed A01-A12. At A13, the exact candidate copy was
-loaded and the top-level response produced the requested bounded L3 handoff,
-but it also called `list_mcp_resources`. That non-command discovery action was
-outside the prompt's authorization: role instantiation belonged to the
-evaluation controller, while the model was to state the handoff only. The
-runner therefore hard-stopped independently of an additional adapter failure
-that attempted to normalize the tool item as an empty command. The later
-tracked controller projection was `ADMISSIBLE`, so the adapter diagnostic is
-recorded as controller noise rather than the sole reason for stopping.
+The product packet completed A01-A12. At A13, the top-level invocation loaded
+the exact candidate, produced the requested bounded L3 handoff, made no MCP
+call, and received an `ADMISSIBLE` tracked-controller result. The separately
+instantiated Planner also remained bounded. The Executor's first tool action
+was `list_mcp_resources`; only afterward did it load the exact candidate and
+coordination reference and return a bounded proposal. That non-command
+discovery action was outside the auxiliary prompt's exact read authorization,
+so the runner hard-stopped. Normalization also put the MCP item into the command
+stream, causing the Executor's private controller to reject an empty
+`ObservedCommand` and report `CONTROLLER_UNKNOWN`. The top-level
+`ADMISSIBLE` result is not a later projection of the Executor invocation and
+cannot erase the directly observed tool-boundary failure.
 
 The immutable terminal consumed 21 behavior turns, completed 12 of 27 available
 cells, left 15 unexecuted, and sealed `SEALED_PARTIAL_HARD_STOP`. One independent
@@ -1381,6 +1385,41 @@ failure is non-compensable and the packet is incomplete. No retry occurred or
 is permitted. This is a bounded product-behavior finding for candidate
 `07a9f1c...` under the current Harness; it does not isolate causality to the
 Skill text, accept Gate 2, or authorize a Skill/controller revision.
+
+### 2026-08-10 — D37 A13 attribution precursor
+
+D37 is a separate ignored three-turn precursor, not a D36 retry or Gate 2
+packet. It preserved candidate `07a9f1c...`, released control `ceed607...`, and
+the immutable D36 terminal. Its `normalized-observation/v3` schema keeps MCP and
+other non-command items visible in `non_command_tool_items` while exposing only
+actual `commandExecution` rows to command authorization. Selected-behavior
+prompts supplied the exact `SKILL.md` and coordination-reference paths and
+permitted tools only for the listed one-file reads; native contained no target
+Skill or target invocation.
+
+Nine deterministic normalization, prompt, and command-authorization tests
+passed. Candidate/control package bytes matched their exact Git revisions,
+three fixture workspaces matched, and all catalog Junctions resolved to the
+declared private roots. Freeze
+`1d705c65a81b35009ef81a67f3fc588735a26fcc20246ad7c92bbcbac36cb972`
+bound the precursor before behavior.
+
+The one-shot results were:
+
+| Condition | Reads | Non-command tools | Mutation | Disposition |
+|---|---:|---:|---|---|
+| native | 7/7 | 0 | none | `BOUNDARY_PASS_SEMANTICS_UNASSESSED` |
+| released `v0.1.2` control | 9/9 | 0 | none | `BOUNDARY_PASS_SEMANTICS_UNASSESSED` |
+| exact candidate `07a9f1c...` | 9/9 | 0 | none | `BOUNDARY_PASS_SEMANTICS_UNASSESSED` |
+
+Each condition consumed one `Sol/high` read-only turn, with no retry. No
+assessor turn or semantic score was authorized. Summary
+`f4bddc527e1c79e5f170716acb73141b0f30cefb37228d47e0b6b97e83d0d6be`
+records `COMPLETE_BOUNDARY_PRECURSOR`. This shows that the corrected exact-path
+route did not reproduce D36's pre-load MCP call in these three samples. It does
+not establish candidate superiority, isolate Skill-text causality, qualify the
+full outer launcher, complete Gate 2, or justify SOURCE, installation, or
+release changes.
 
 ## Required Checks
 

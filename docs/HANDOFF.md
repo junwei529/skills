@@ -17,12 +17,12 @@ Last updated: 2026-08-10
   5 files, each matching the `v0.1.2` Git blobs
 - Rollback identity: immutable `v0.1.1` retained as a separately verified
   three-package backup
-- Writer boundary: one bounded Campaign writer now owns only the approved
-  post-run D36 state/evidence synchronization, deterministic checks, native-
-  review fixes, and one local result commit. The pre-run commit, exact-wrapper
-  canary, additive packet, and assessor are complete. Push, installation, tag,
-  release, stable update, cleanup, cross-Skill product work, and product
-  correction are excluded
+- Writer boundary: the bounded D37 attribution writer owns only the seven
+  existing mapped documentation owners, deterministic checks, native-review
+  fixes, and one local documentation commit. D37's three one-shot turns are
+  complete. The writer window ends with that commit; push, installation, tag,
+  release, stable update, cleanup, full Gate 2, Skill SOURCE, and cross-Skill
+  product work remain excluded
 
 The `v0.1.2` tag remains fixed at the release-preparation commit. The later
 documentation commit records already-completed tag, stable-install, canary, and
@@ -716,24 +716,41 @@ passed the same three-phase path, all 77 mappings and zero-turn pre/post model
 checks passed, and 307 inputs froze at `f687419...`.
 
 D36 completed A01-A12 and consumed 21 behavior turns before A13 hard-stopped.
-The A13 top-level response loaded the candidate and stated the requested bounded
-handoff, but also called `list_mcp_resources`; role instantiation belonged to
-the evaluation controller, so this was an unauthorized non-command tool action.
-The runner's independent tool boundary is dispositive. A simultaneous adapter
-empty-command `CONTROLLER_UNKNOWN` is retained as controller noise, not used to
-erase or replace the product finding. The terminal sealed
+The A13 top-level response loaded the candidate, stated the requested bounded
+handoff, made no MCP call, and received an `ADMISSIBLE` tracked-controller
+result. The separately instantiated Planner also remained bounded. The
+Executor's first tool action was `list_mcp_resources`; only afterward did it
+load the candidate and coordination reference and return a bounded read-only
+proposal. The runner's independent non-command-tool boundary is dispositive.
+Normalization also placed that MCP item in the command stream, so the
+Executor's private controller terminated on an empty `ObservedCommand` and
+reported a secondary `CONTROLLER_UNKNOWN`; there is no later `ADMISSIBLE`
+projection for that Executor invocation. The terminal sealed
 `SEALED_PARTIAL_HARD_STOP` with 12/27 cells complete and 15 unavailable by
 termination. One independent assessor returned `DECISION_REQUIRED`. D36 is
 immutable and non-retriable, and exact D31 candidate `07a9f1c...` remains
 unaccepted.
 
-The D36 result documentation-impact closure is:
+D37 then created a separate ignored attribution precursor rather than replaying
+D36. It replaced the ambiguous "installed candidate" route with exact package
+paths, limited tools to the listed full-file reads, and split non-command tool
+items from `commandExecution` records. Nine deterministic tests passed before
+freeze `1d705c65...`. Native, `v0.1.2` control, and exact candidate each consumed
+one read-only turn with no retry; their read counts were 7/7, 9/9, and 9/9,
+respectively, with zero non-command tools and unchanged workspace/protected-
+home inventories. Summary `f4bddc52...` records
+`COMPLETE_BOUNDARY_PRECURSOR`. No assessor or semantic score was authorized.
+This narrows the observed gap to pre-load discovery/evaluation routing and does
+not rescore D36, prove causal efficacy, or accept the candidate.
+
+The D36 attribution correction and D37 precursor documentation-impact closure
+is:
 
 - `UPDATE`: Work Charter `STATE.md`, `VERIFICATION.md`, and bilingual README
-  pair, plus root `STATUS.md`, `HANDOFF.md`, `VERIFICATION.md`, `INDEX.md`, and
-  `ROADMAP.md`;
-- `CHECKED_NO_CHANGE`: `AGENTS.md`, `docs/RUNBOOK.md`, `evals/README.md`,
-  Decisions 0018 and 0020, Work Charter `DESIGN.md`,
+  pair, plus root `STATUS.md`, `HANDOFF.md`, and `VERIFICATION.md`;
+- `CHECKED_NO_CHANGE`: `AGENTS.md`, `docs/INDEX.md`, `docs/ROADMAP.md`,
+  `docs/RUNBOOK.md`, `evals/README.md`, Decisions 0017, 0018, and 0020,
+  Work Charter `DESIGN.md`,
   `docs/SPEC.md`, `docs/ARCHITECTURE.md`, `docs/AUTHORITY.md`,
   `docs/PROVENANCE.md`, and the root bilingual README pair; and
 - `NOT_APPLICABLE`: Skill SOURCE, cases, fixtures, tracked controller, installed
@@ -756,25 +773,26 @@ created the fact class; it did not require or authorize speculative files.
    rather than assuming this snapshot is still current.
 5. Preserve all predecessor windows, including the D31 mapping-defective A03,
    zero-turn D32 freeze `cd8c0e2...`, D33 transport terminal `39ffdea...`, and
-   D35 terminal freeze `ed8bce3...`, and D36 freeze `f687419...` plus A13
-   terminal, without retry, overwrite, relabelling, rescore, or acceptance
-   transfer.
+   D35 terminal freeze `ed8bce3...`, D36 freeze `f687419...` plus A13 terminal,
+   and D37 precursor freeze `1d705c65...` plus summary `f4bddc52...`, without
+   retry, overwrite, relabelling, rescore, or acceptance transfer.
 6. Keep `c42eef3...` RC behavior, `ceed607...` release identity, the later
    evidence descendant, and the generated stable/rollback copies distinct.
-7. Resume only post-run documentation, verification, native review, and the
-   authorized local result commit. The D31 package, D35/D36 packets, and
-   controller/eval definitions are frozen. Stop on Skill or controller repair,
-   another packet,
+7. Resume only D37 attribution documentation, verification, native review, and
+   the authorized local documentation commit. The D31 package, D35/D36 packets,
+   tracked controller/eval definitions, and consumed D37 turns are frozen. Stop
+   on Skill SOURCE work, a full packet, additional model/assessor turns,
    product repair, replay or reinterpretation, budget expansion, push,
    installation, cleanup, tag, or release.
 
 ## Immediate Next Action
 
 No release action remains pending for immutable `v0.1.2`. Complete the current
-D36 result synchronization, deterministic checks, native review, and authorized
-local result commit. D36 is sealed and non-retriable. A Skill behavior revision,
-controller-adapter correction, or another additive packet requires a new user-
-owned Campaign decision. Push,
+D37 attribution synchronization, deterministic checks, native review, and
+authorized local documentation commit. D36 remains sealed and non-retriable;
+D37 is complete and cannot grow beyond its three consumed turns. A Skill
+behavior revision or full additive packet requires a new user-owned decision.
+Push,
 installation, tag, release, stable update, and cleanup remain outside the
 current Campaign.
 
@@ -816,15 +834,14 @@ Stop before write or publication if:
 
 ## Authorization Boundary
 
-The current bounded Campaign authorization has completed its generic-method,
-pre-run commit, exact-wrapper canary, D36 additive packet, and assessor stages.
-Its remaining scope is limited to existing mapped D36 evidence-policy/state owners
-and root consumers, deterministic verification, up to five native reviews for
-the local result-commit attempt, same-scope review fixes, and one local result
-commit. The Campaign does not authorize a Skill or controller correction,
-another packet, a Work Charter package, case, fixture, or tracked-controller
-change; product correction; replay or reinterpretation of D33, D35, or D36;
-push; installation; tag;
+The current bounded authorization has completed the ignored D37 precursor and
+its three one-shot product turns. Its remaining scope is limited to the seven
+existing mapped documentation owners, deterministic verification, up to five
+native reviews for the local documentation-commit attempt, same-scope review
+fixes, and one local commit. It does not authorize Skill SOURCE, tracked cases,
+fixtures, controller modules, another model or assessor turn, a full packet,
+product correction, or replay/reinterpretation of D33, D35, or D36; push,
+installation, tag,
 release; stable mutation; cleanup; or another Skill's product work.
 
 The completed 2026-08-07 authorization covered only the six existing documentation

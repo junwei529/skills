@@ -9,7 +9,7 @@ Last updated: 2026-08-10
 | Tested package identity | all three package byte sets independently reached exact-commit RC readiness at `c42eef392a5b9f58bbee64aa73ffb603a6fb6c29` and were re-proved at tag/stable identity `v0.1.2` | [Verification](VERIFICATION.md) |
 | Stable release identity | immutable [`v0.1.2`](https://github.com/junwei529/skills/releases/tag/v0.1.2) at `ceed607152849775b981c54add74bfa30d858e4d`; exact tag, stable loaded-copy, and GitHub Release proof pass for all three Skills | [Verification](VERIFICATION.md) |
 | Project Docs | immutable `v0.1.2` remains the released explicit-only control; local commit `776989f...` implements accepted Decision 0019 but is unreleased, and its evidence is `PARTIAL` because actual candidate selection, loaded-copy identity, and persistent writes remain `UNKNOWN` | [State](skills/manage-project-docs/STATE.md) |
-| Work Charter | released `v0.1.2` remains active; exact D31 candidate `07a9f1c...` is committed locally but unaccepted; D36 completed A01-A12, then hard-stopped at A13 after an unauthorized resource-discovery tool call and received `DECISION_REQUIRED` | [State](skills/work-charter/STATE.md) |
+| Work Charter | released `v0.1.2` remains active; exact D31 candidate `07a9f1c...` is committed locally but unaccepted; D36 hard-stopped when its controller-instantiated Executor made a pre-load resource-discovery call, while the later D37 native/control/candidate precursor passed only that corrected exact-read boundary with semantics unassessed | [State](skills/work-charter/STATE.md) |
 | PowerShell | released five-file `v0.1.2` stable copy; corrected loaded identity and guarded native/text diagnosis pass; live WSL remains unproved | [State](skills/use-powershell-safely/STATE.md) |
 | Release lifecycle | `v0.1.2` tag, stable update, tag-pinned canaries, and Latest GitHub Release complete; `v0.1.1` retained as rollback identity | [Runbook](RUNBOOK.md) |
 
@@ -49,11 +49,25 @@ load/project-read correction and remains unaccepted. Its qualified and blocked
 evidence history is immutable. D35 remains an infrastructure-only
 `UNKNOWN_NOT_ASSESSED` record. Additive D36 qualified the exact outer launcher,
 froze 307 inputs at `f687419...`, completed A01-A12, and then hard-stopped at
-A13 after the top-level coordination response made an unauthorized
-`list_mcp_resources` call. The packet consumed 21 behavior turns, sealed
+A13. The top-level response stated the bounded L3 handoff and its tracked
+controller result was `ADMISSIBLE`; the controller-instantiated Planner also
+remained bounded. The separate Executor first called `list_mcp_resources`, then
+loaded the candidate package and returned a bounded proposal. Its runner
+therefore recorded the unauthorized non-command tool action, while an adapter
+also mis-normalized that item as an empty command and produced a secondary
+`CONTROLLER_UNKNOWN`. The packet consumed 21 behavior turns, sealed
 `SEALED_PARTIAL_HARD_STOP`, and its one independent assessor returned
-`DECISION_REQUIRED`. This is a product-behavior failure for the exact candidate
-under the current Harness, not causal proof that Skill text alone is defective.
+`DECISION_REQUIRED`.
+
+The later ignored D37 attribution precursor froze at `1d705c65...` and consumed
+exactly three one-shot read-only turns with no assessor or retry. Native made
+7/7 authorized reads; released `v0.1.2` control and exact candidate `07a9f1c...`
+each made 9/9, including their exact Skill and coordination-reference reads.
+All three used zero non-command tools and left workspace and protected-home
+inventories unchanged. This supports the corrected exact-path evaluation route
+and shows that candidate behavior did not reproduce D36 under that route. It
+does not rescore D36, assess response semantics, prove Skill-only causality, or
+provide Gate 2 acceptance.
 Exact details and residual limits belong to the
 [Work Charter State](skills/work-charter/STATE.md) and
 [Verification](skills/work-charter/VERIFICATION.md) ledgers.
@@ -81,8 +95,10 @@ and write-capable persistence remain `UNKNOWN`, so its overall evidence is
 `PARTIAL`. Work Charter target `v0.2.0` likewise remains unaccepted at Gate 2.
 Exact D31 candidate `07a9f1c...` has zero-turn D32 qualification; D33 and D35
 remain immutable infrastructure/controller `UNKNOWN` records. D36 adds fresh
-exact-candidate product evidence but not acceptance: A13 crossed the authorized
-tool boundary and left 15 available cells unexecuted.
+exact-candidate product evidence but not acceptance: its A13 Executor crossed
+the authorized tool boundary before loading the Skill and left 15 available
+cells unexecuted. D37 supplies only a three-turn corrected-route precursor;
+semantic assessment and the remaining Gate 2 matrix are still absent.
 Exact counts, hashes, exclusions, and residual limits remain in the per-Skill
 ledgers rather than this dashboard.
 
@@ -236,13 +252,16 @@ decision.
 
 ## Next Gate
 
-No release action remains pending for immutable `v0.1.2`. Complete the approved
-D36 result synchronization, deterministic checks, native review, and local
-result commit. That closes the current Campaign. A Work Charter behavior
-revision, controller-adapter correction, or another additive packet requires a
-new user-owned Campaign decision; D33, D35, and D36 cannot be retried. Push,
-installation, tag, release, stable update, and cleanup remain separate gates.
-Project Docs keeps its own candidate and persistence-evidence sequence.
+No release action remains pending for immutable `v0.1.2`. Complete the bounded
+D37 attribution closeout, deterministic checks, native review, and one local
+documentation commit. After that commit no continuing repository writer is
+authorized. The next Work Charter product decision is whether to construct a
+new full exact-candidate packet using the corrected role prompt and typed tool
+normalization, or leave candidate `07a9f1c...` unaccepted. Current evidence does
+not justify a Skill SOURCE change. D33, D35, and D36 cannot be retried. Push,
+installation, tag, release, stable update, cleanup, and a full Gate 2 packet
+remain separate gates. Project Docs keeps its own candidate and persistence-
+evidence sequence.
 
 ## Known Repository Gaps
 
@@ -261,10 +280,12 @@ Project Docs keeps its own candidate and persistence-evidence sequence.
   D30 metadata-state and unavailable-read hardening has exact candidate
   `53d424c...`, but its fresh batch sealed at A12 after completing A01-A11.
   D31 has exact candidate `07a9f1c...` but no accepted fresh behavior. D36
-  completed twelve cells before A13 used an unauthorized non-command tool; the
-  incomplete `DECISION_REQUIRED` packet cannot be compensated by earlier cell
-  quality. All stopped matrices and sealed bundles remain historical and cannot
-  be retried, relabeled, or transferred.
+  completed twelve cells before the A13 Executor used an unauthorized non-
+  command tool prior to loading the Skill; the incomplete `DECISION_REQUIRED`
+  packet cannot be compensated by earlier cell quality. D37's three corrected-
+  route boundary passes have no assessor, semantic score, full-matrix coverage,
+  or acceptance transfer. All stopped matrices and sealed bundles remain
+  historical and cannot be retried, relabeled, or transferred.
 - The tracked controller now has one narrow isolated path-bound app-server
   compatibility pass. It does not establish natural-language Skill selection,
   semantic correctness, broad behavior, or Work Charter candidate acceptance;

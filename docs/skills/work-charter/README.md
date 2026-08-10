@@ -128,9 +128,14 @@ package loading. A later provider-response canary passed, but D35's different
 outer launcher skipped the required A01 semantic gate after one otherwise
 controller-clean native-baseline turn. D35 is sealed as a controller-
 orchestration `UNKNOWN_NOT_ASSESSED`. Additive D36 qualified that exact outer
-wrapper and completed A01-A12, but A13 called unauthorized
-`list_mcp_resources` after loading the candidate. The packet sealed with 12/27
+wrapper and completed A01-A12, but its controller-instantiated A13 Executor
+called unauthorized `list_mcp_resources` before loading the candidate. The
+top-level response and Planner remained bounded. The packet sealed with 12/27
 cells complete and its independent assessor returned `DECISION_REQUIRED`.
+A later three-turn D37 precursor supplied exact package paths and typed tool
+normalization; native, released control, and exact candidate all stayed within
+their read boundary, but response semantics were not assessed and no Gate 2
+acceptance transfers.
 D31 still has no behavior acceptance, installation, or release evidence.
 Full staged selection, entry, level, re-entry, and visible
 Standard behavior, full Standard delivery at the stable layer, broad implicit
