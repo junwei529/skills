@@ -150,8 +150,11 @@ false negative。D44 在 0/27 处封存；carrier 随后在未满足“至少一
 与三个 canary，并接纳 fresh A10。A11 消耗一个 turn 后，private controller postprocessing
 因 fixture 文件不存在而停止，组合 packet 因此封存在 10/27。一个 assessor 只读取经验证
 与本地复核的脱敏视图，并返回 `DECISION_REQUIRED`。精确 candidate `c481005...` 仍未获接受，
-后续行为仍为 `UNKNOWN`，且没有已授权 continuation。D31、D34、D42、D43、D44、D45 与 D46
-均仍无行为接受、安装或发布证据。
+后续行为仍为 `UNKNOWN`，D46 保持不可变。`WC-AR-D47` 现已为同一 candidate 授权一个 fresh
+additive A11-A27 窗口，但新 ignored carrier 必须先在零模型条件下闭合全部剩余 fixture、
+postprocessing 与 terminal-branch 文件依赖。它只导入已接纳的 A01-A10，不作重放，并把已消费的
+D46 A11 保留为独立 `UNKNOWN`。尚无 D47 模型 turn 启动。D31、D34、D42、D43、D44、D45、
+D46 以及 D47 authority 均仍无行为接受、安装或发布证据。
 完整分阶段 selection、entry、等级、
 重新接入和可见 Standard 行为，stable 层完整 Standard
 delivery、广泛隐式触发 telemetry、独立真实项目效果、确定性角色交付或 writer

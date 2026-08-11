@@ -70,6 +70,17 @@ view and returned `DECISION_REQUIRED`. D46 is immutable and unaccepted; the
 A11 stop is controller/carrier or fixture-postprocessing evidence, while A11
 and later product behavior remain `UNKNOWN`.
 
+Approved `WC-AR-D47` opens one new infrastructure-first additive Campaign for
+that unchanged candidate. It imports only admitted A01-A10 as ten immutable
+rows representing 14 predecessor product turns; D46 A11 remains a separate
+consumed `UNKNOWN` and is neither imported nor repaired. Before any D47 model
+call, the fresh ignored carrier must enumerate and bind every A11-A27 fixture,
+workspace, postprocessor, auxiliary-role, terminal, and assessor-gate file
+dependency and exercise every applicable post-response branch synthetically.
+Only a complete zero-model closure may advance to three canaries, freeze, fresh
+A11-A27 evidence, and at most one assessor. No D47 model turn has started at
+this authority checkpoint.
+
 The sealed fixed-turn Standard probe for `72db7e9...` returned `VIOLATION` and
 did not run its successor action. Decision 0018 `WC-AR-D26` preserves that
 result and distinguishes the observed product gap from controller noise. The
@@ -266,13 +277,16 @@ SOURCE by itself.
 
 ## Current Writer
 
-No Work Charter writer, product-evidence window, or successor Campaign is
-active at this committed checkpoint. The bounded D46 closeout writer's final
-authorized verification, native review, and local result commit are consumed,
-and that writer relinquishes here. D31-D46 and every consumed turn remain
-immutable. SOURCE, case, fixture, matrix, rubric, tracked-controller, other-
-Skill, push, installation, tag, release, stable-copy, retained-evidence
-cleanup, and external-publication changes remain unauthorized.
+One bounded D47 Campaign writer is active from this authority checkpoint and
+owns the single repository lane. Its tracked scope is limited to this authority
+closeout and one later sanitized-result closeout; its execution scope is one
+fresh ignored D47 carrier, complete zero-model A11-A27 dependency closure,
+three predeclared canaries, the fresh A11-A27 evidence window, and at most one
+eligible assessor. No D47 model turn has started. D31-D46 and every consumed
+turn remain immutable. SOURCE, case, fixture, matrix, rubric, tracked-
+controller, other-Skill, push, installation, tag, release, stable-copy,
+retained-evidence cleanup, and external-publication changes remain
+unauthorized.
 
 ## Evidence State
 
@@ -773,9 +787,16 @@ The D42-D46 evidence windows are complete and immutable. Exact D43 candidate
 `c481005...` remains unaccepted and unchanged. D46 imported D45 A01-A09,
 admitted fresh A10, then sealed at combined 10/27 when private A11 fixture
 postprocessing stopped before admission. One allowlisted-view assessor returned
-`DECISION_REQUIRED`. This sanitized result commit consumes the final closeout
-action. A new user decision is required before any carrier/fixture correction,
-additive successor, SOURCE/candidate revision, installation, or release.
+`DECISION_REQUIRED`.
+
+The next gate is the authorized D47 ignored carrier. Before any canary or model
+evidence, it must bind the ten admitted A01-A10 imports, preserve D46 A11 as a
+separate consumed `UNKNOWN`, and pass the complete A11-A27 dependency and
+postprocessing branch closure plus all retained qualification checks. A failed
+or incomplete closure stops with zero D47 model turns. Only a pass may advance
+automatically through three canaries, freeze, the bounded fresh A11-A27 window,
+one eligible assessor, and sanitized local result closeout. Installation and
+release remain separate later decisions.
 
 ## Recovery Entry
 
@@ -810,11 +831,11 @@ additive successor, SOURCE/candidate revision, installation, or release.
    the D44 evidence ledger. Preserve D45's 9/27 terminal and D46's combined
    10/27 terminal, their independent canary/product/assessor consumption, and
    D46's allowlisted-view boundary without replay or raw-evidence transfer.
-7. Do not continue or mutate D44, D45, or D46. No D47 or other successor is
-   authorized. Any proposed additive continuation must use a new bounded user
-   decision, preserve the immutable imported/fresh provenance and consumed-
-   turn ledgers, correct only an explicitly accepted residual, and requalify
-   its own exact carrier before model consumption.
+7. Do not continue or mutate D44, D45, or D46. `WC-AR-D47` is the only active
+   successor authority. It imports admitted A01-A10 without replay, keeps D46
+   A11 outside the admitted import set as a consumed immutable `UNKNOWN`, and
+   must requalify its own exact carrier with complete A11-A27 dependency and
+   terminal-branch closure before any model consumption.
 8. Read canonical SOURCE, current eval definitions, and only evidence matching
    the exact revision before changing behavior or claims.
 9. Preserve the independent-Skill and non-propagating-authorization boundary.

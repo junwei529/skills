@@ -19,19 +19,19 @@ Sanitized detailed runs remain under [`evals/results`](../evals/results/README.m
 
 | Check | Purpose | Current result |
 |---|---|---|
-| Changed Skill validator | Validate frontmatter and package name without changing the package | unchanged exact `c481005...` Work Charter package passes the bundled `skill-creator` validator; D46 changes no Skill SOURCE |
-| Repository checker | Validate strict UTF-8/no BOM, whitespace, local links/fragments, publication safety, exact Skill/eval sets, federated docs, and bilingual navigation | D46 result closeout passes with 206 text files / 14 cases / 12 fixtures |
-| Fixture checker | Validate synthetic starting states and their Git/reparse/ignored-result boundaries plus the tracked controller regression | D46 result closeout retains all 17 passing checks; no fixture or controller-code bytes changed |
-| Codex evidence controller | Validate one shared core across four entry modes, strict required-read versus bounded auxiliary-observation attribution, structural PowerShell/Git/path classification, source-and-generated-contract-bound historical regressions, exact package manifests, candidate-identity and content-proof shape, record cardinality, completed exit typing, output-array shape, per-key single-capture sealed parsing and reuse, real-reparse rejection, fail-closed negatives, external-input types, independently resolved inner/wrapper command identity, Git-read and external-filter safety, profile-free PowerShell wrappers, culture-independent canonical ordering, metamorphic equivalence, output no-clobber, and canonical repeatability | D46 result closeout retains exact current-SOURCE package identity, 11/11 historical, 32/32 evidence-surface, 33/33 negative, 4/4 metamorphic, 3/3 manifest-hash guards, all reported structural guards, and zero external model or assessor calls |
-| CRG supplemental preflight | Sharpen structural review scope when the maintained index represents the intended diff | not applicable: no maintained `.code-review-graph/` index exists; the separate CodeGraph source-navigation query did not represent the Markdown-first contract diff, so native review inspects the actual files |
-| Native Codex review | Review the exact uncommitted Work Charter SOURCE/evaluation/documentation or result closure | D46 result closeout has a separate semantic-review gate whose final disposition is retained in the cumulative commit record rather than appended after review to the bytes it reviewed |
+| Changed Skill validator | Validate frontmatter and package name without changing the package | unchanged exact `c481005...` Work Charter package passes the bundled `skill-creator` validator; D47 authority changes no Skill SOURCE |
+| Repository checker | Validate strict UTF-8/no BOM, whitespace, local links/fragments, publication safety, exact Skill/eval sets, federated docs, and bilingual navigation | D47 authority closeout passes with 206 text files / 14 cases / 12 fixtures |
+| Fixture checker | Validate synthetic starting states and their Git/reparse/ignored-result boundaries plus the tracked controller regression | D47 authority closeout retains all 17 passing checks; no fixture or controller-code bytes changed |
+| Codex evidence controller | Validate one shared core across four entry modes, strict required-read versus bounded auxiliary-observation attribution, structural PowerShell/Git/path classification, source-and-generated-contract-bound historical regressions, exact package manifests, candidate-identity and content-proof shape, record cardinality, completed exit typing, output-array shape, per-key single-capture sealed parsing and reuse, real-reparse rejection, fail-closed negatives, external-input types, independently resolved inner/wrapper command identity, Git-read and external-filter safety, profile-free PowerShell wrappers, culture-independent canonical ordering, metamorphic equivalence, output no-clobber, and canonical repeatability | D47 authority closeout retains exact current-SOURCE package identity, 11/11 historical, 32/32 evidence-surface, 33/33 negative, 4/4 metamorphic, 3/3 manifest-hash guards, all reported structural guards, and zero external model or assessor calls |
+| CRG supplemental preflight | Sharpen structural review scope when the maintained index represents the intended diff | degraded: the local graph was built at `763a15e...`, does not match current HEAD, and indexes only 34 PowerShell/Python files; the exact ten-file Markdown authority target returned zero changed nodes or flows, so it cannot represent this diff and native review must inspect the actual files |
+| Native Codex review | Review the exact uncommitted Work Charter SOURCE/evaluation/documentation or result closure | D47 authority closeout has a separate semantic-review gate whose final disposition is retained in the cumulative commit record rather than appended after review to the bytes it reviewed |
 | Isolated controller canary | Record the bounded disposition of one private path-bound infrastructure check without broadening behavior claims | retained sealed `CANARY_PASS`; the public summary reports an exact-response pass and no command execution, omits private locator/artifact/runtime details, and leaves physical backend request count `UNKNOWN` |
-| Work Charter D36/D37/D40, D34/D41 predecessors, and D42-D46 terminals | Preserve additive predecessors and separate product behavior from route, tool, qualification, eval-contract, authorization, and private-carrier failures | D36 and D40 remain immutable incomplete `DECISION_REQUIRED` packets; D37 remains boundary-only evidence; D34 permits native package loading before confirmation; D41 records A04 product-visible and A05 evaluation-shape findings; D42 remains invalidly qualified; D43 stopped at `SANDBOX_NETWORK_TRANSPORT`; D44 sealed at 0/27 on a semantic-gate false negative; D45 sealed at 9/27 on missing-path diagnostic normalization; D46 imported D45 A01-A09, admitted fresh A10, and sealed at combined 10/27 after private A11 fixture postprocessing failed; one allowlisted-view assessor returned `DECISION_REQUIRED`, so exact candidate `c481005...` remains unaccepted |
+| Work Charter D36/D37/D40, D34/D41 predecessors, D42-D46 terminals, and D47 authority | Preserve additive predecessors and separate product behavior from route, tool, qualification, eval-contract, authorization, and private-carrier failures | D36 and D40 remain immutable incomplete `DECISION_REQUIRED` packets; D37 remains boundary-only evidence; D34 permits native package loading before confirmation; D41 records A04 product-visible and A05 evaluation-shape findings; D42 remains invalidly qualified; D43 stopped at `SANDBOX_NETWORK_TRANSPORT`; D44 sealed at 0/27 on a semantic-gate false negative; D45 sealed at 9/27 on missing-path diagnostic normalization; D46 imported D45 A01-A09, admitted fresh A10, and sealed at combined 10/27 after private A11 fixture postprocessing failed; `WC-AR-D47` authorizes a new full-lane zero-model qualification before any A11-A27 evidence, but consumes no model turn and does not accept exact candidate `c481005...` |
 | PowerShell deterministic hardening | Validate cardinality, LF bytes, one-base paths, and Junction link-only removal | 15 assertions pass in PowerShell 7 and Windows PowerShell 5.1 |
-| PowerShell parser sweep | Parse all `evals/**/*.ps1` files and the tracked controller module | D46 result closeout passes all eight tracked parses; the ignored carrier independently passed its exact six-file final pre-consumption gate |
+| PowerShell parser sweep | Parse all `evals/**/*.ps1` files and the tracked controller module | D47 authority closeout passes all eight tracked parses; the future ignored carrier must independently pass its closed qualification gate before model consumption |
 | Markdown navigation and ownership | Verify local links/fragments, English/Chinese routes, expected per-Skill owners, and no orphan canonical owner | passes through repository checker |
-| `git diff --check` | Reject whitespace defects in the working revision | passes for the D46 result diff with an untouched index |
-| Gitleaks | Detect secret-like content independently | exact 12-file D46 publication scope passes with zero findings; ignored/private evidence was not treated as public SOURCE |
+| `git diff --check` | Reject whitespace defects in the working revision | passes for the D47 authority diff with an untouched index |
+| Gitleaks | Detect secret-like content independently | exact ten-file D47 authority publication scope passes with zero findings; ignored/private evidence is not public SOURCE |
 
 ## Repository Claim Ledger
 
@@ -1584,6 +1584,31 @@ terminal failure was non-compensable. D46 is immutable, unaccepted, and not
 retried or rescored. A12-A19, B01-B04, and C01-C04 remain unexecuted. The
 sanitized evidence is
 [Work Charter D46 Gate 2 terminal](../evals/results/2026-08-11-work-charter-d46-gate2-terminal.md).
+
+### 2026-08-11 — Work Charter D47 Campaign authority
+
+`WC-AR-D47` preserves exact candidate `c481005...`, five-file manifest
+`04c382a4...`, released control `ceed607...`, the frozen evaluation contract,
+and every predecessor. It imports only admitted A01-A10 as ten provenance-bound
+rows representing 14 predecessor product turns. D46 A11 remains outside the
+admitted import set as a separately consumed immutable infrastructure
+`UNKNOWN`; no prior cell is replayed, replaced, rescored, or relabelled.
+
+Before any D47 model call, one fresh ignored carrier must inventory and bind
+every file dependency reachable by A11-A27 fixture setup, workspace execution,
+postprocessing, auxiliary roles, terminal sealing, and assessor gating. A
+synthetic zero-model sweep must exercise every applicable success, expected-
+failure, hard-stop, and terminal branch, including exact outer stream and typed
+scalar-exit dispatch. An incomplete or ambiguous closure stops before canaries
+and is infrastructure qualification rather than product evidence.
+
+Only a complete closure plus all retained qualification gates may start three
+same-route canaries, freeze, at most 22 fresh product contexts / 25 product
+turns for A11-A27, and at most one assessor. The total D47 fresh ceiling is 26
+contexts / 29 `turn/start` events. This authority record consumes zero D47
+model or assessor turns, changes no Work Charter SOURCE, case, fixture, matrix,
+rubric, tracked controller, candidate, installation, or stable release, and
+authorizes no push or publication.
 
 ### 2026-08-02 — Capability-delta decision and workflow
 

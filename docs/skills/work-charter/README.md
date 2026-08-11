@@ -189,9 +189,14 @@ admitted fresh A10. Private controller postprocessing then could not read an
 A11 fixture file after one turn was consumed, so the combined packet sealed at
 10/27. One assessor received only the validated redacted view and returned
 `DECISION_REQUIRED`. Exact candidate `c481005...` remains unaccepted, later
-behavior remains unknown, and no continuation is authorized.
-D31, D34, D42, D43, D44, D45, and D46 still
-have no behavior acceptance, installation, or release evidence.
+behavior remains unknown, and D46 is immutable. `WC-AR-D47` now authorizes one
+fresh additive A11-A27 window for the same candidate, but only after the new
+ignored carrier closes every remaining fixture, postprocessing, and terminal-
+branch file dependency without a model call. It imports admitted A01-A10
+without replay and leaves consumed D46 A11 as a separate `UNKNOWN`. No D47
+model turn has started. D31, D34, D42, D43, D44, D45, D46, and the D47
+authority still provide no behavior acceptance, installation, or release
+evidence.
 Full staged selection, entry, level, re-entry, and visible
 Standard behavior, full Standard delivery at the stable layer, broad implicit
 telemetry, independent real-project efficacy, deterministic role delivery or

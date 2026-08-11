@@ -2,10 +2,10 @@
 
 Date: 2026-08-02
 Amended: 2026-08-11
-Status: accepted design through WC-AR-D44; D40-D43 are immutable under their frozen contracts, and no consumed execution is retried or rescored
+Status: accepted design through WC-AR-D47; D40-D46 are immutable under their frozen contracts, and no consumed execution is retried or rescored
 
-- Planning checkpoint: 25 (additive network-qualified Gate 2 packet)
-- Last incorporated decision: `WC-AR-D44`
+- Planning checkpoint: 28 (full-lane dependency closure and additive continuation)
+- Last incorporated decision: `WC-AR-D47`
 - Open decision IDs: none
 - Lifecycle authority: this Decision grants none; consult `docs/HANDOFF.md` for
   the live next gate
@@ -1735,6 +1735,108 @@ controller terminal failure was non-compensable. D46 is immutable and
 unaccepted. No D47, carrier correction, SOURCE/candidate change, installation,
 or release is authorized by this result; any continuation is a new user
 decision.
+
+### WC-AR-D47 — Full-Lane Dependency Closure And Additive Continuation
+
+**Confirmed.** On 2026-08-11 the user selected option A and authorized one
+infrastructure-first D47 Campaign for the unchanged stable subject. Exact
+candidate `c4810057c3f28cca9f12004ca2018784cd21f449`, five-file manifest
+`04c382a48e43897a8806aa5ffd996984cb015d3d8cdc6e675e9181a6d94e6f44`,
+released control `ceed607152849775b981c54add74bfa30d858e4d`, product contract,
+cases, fixtures, matrix, rubric, tracked controller, model/reasoning
+assignments, workspace route, and permissions remain unchanged.
+
+D47 imports only the ten admitted A01-A10 cells: immutable D45 A01-A09 plus
+immutable D46 A10, representing 14 admitted predecessor product
+`turn/start` events. It executes, replaces, or rescores none of them and
+transfers no raw prompt, completion, session, terminal packet, mutable output,
+private path, assessor verdict, or acceptance. D46 A11 remains a separately
+consumed immutable `UNKNOWN`; it is not imported as an admitted row. A fresh
+D47 A11 observation belongs only to the new frozen D47 identity and cannot
+erase, repair, or relabel D46 A11.
+
+One approval authorizes these ordered tranches without command-by-command
+confirmation:
+
+1. record this D47 authority and current writer/recovery state in Decision
+   0018, the Work Charter public README pair, State and Verification, and the
+   root Status, Verification, Roadmap, Index, and Handoff owners; run
+   deterministic checks and native review; and create one local authority
+   commit;
+2. create one fresh ignored carrier under portable label `WC-AR-D47`, derived
+   from D46 construction and tool inputs while excluding D46 run, terminal,
+   assessor, private-session, and mutable result outputs; bind the exact
+   policy host, runtime, candidate/control identities, sealed D46 terminal,
+   and admitted A01-A10 provenance hashes;
+3. before any model call, close the complete A11-A27 execution dependency
+   surface. Enumerate every fixture, workspace, package, policy, postprocessor,
+   auxiliary-role, terminal-sealing, and assessor-gate file read reachable
+   after a model response. Bind each material input by portable relative
+   identity, required/optional or intentionally-absent semantics, consumer,
+   stage, encoding, length, and hash where applicable. Reject an undeclared,
+   ambiguous, missing-required, extra, reparse-routed, mutable-after-freeze, or
+   private-path input;
+4. exercise every A11-A27 cell and auxiliary-role topology with synthetic
+   zero-model receipts through its applicable successful, expected-failure,
+   hard-stop, and terminal-seal postprocessing branches. Prove that child
+   stdout/stderr remain evidence data, exactly one typed scalar exit status
+   controls dispatch, no terminal branch enters twice, and no post-response
+   file dependency lies outside the sealed dependency-closure manifest. Any
+   incomplete branch or dependency stops before canaries and is classified as
+   carrier/controller/preflight evidence rather than product behavior;
+5. after that full-lane closure and all retained qualification checks pass,
+   run exactly one non-product canary each for `gpt-5.6-sol/high`,
+   `gpt-5.6-sol/xhigh`, and `gpt-5.6-terra/high` through the exact outer
+   product route; only three passes may freeze and start product evidence;
+6. freeze the ten imported A01-A10 rows, the fresh A11-A27 inputs, the
+   dependency-closure manifest, and every declared material identity. Consume
+   only fresh A11-A19, B01-B04, and C01-C04 under the unchanged matrix/model
+   assignments, with at most 22 fresh product contexts comprising at most 25
+   product `turn/start` events and no controller retry;
+7. after complete or terminal sealing with at least one admitted product cell
+   in the combined packet, rebuild and validate the allowlisted assessor view,
+   perform its
+   bounded local review, and run at most one read-only
+   `gpt-5.6-terra/high` assessor. The assessor cannot compensate for a missing
+   required cell or a safety, authorization, evidence, recovery, provenance,
+   or infrastructure hard failure; and
+8. create one sanitized D47 result, synchronize mapped existing consumers,
+   run deterministic checks and native review, and create at most one local
+   result commit.
+
+The Campaign reuses existing authentication only process-locally through the
+same approved network-capable route. It permits the new ignored carrier and
+its bounded model/provider calls, plus at most two local commits: the authority
+commit and the result commit. It budgets three canary contexts and
+`turn/start` events, at most 22 fresh product contexts comprising at most 25
+product `turn/start` events, at most one assessor context and `turn/start`
+event, and therefore at most 26 fresh contexts and 29 fresh `turn/start`
+events overall. Decision 0020's default permits at most three pre-consumption
+zero-model carrier corrections, each with a recorded risk-reduction delta.
+Every canary, product, or assessor authorization is consumed at `turn/start`
+and is never replayed.
+
+Before the first canary, the writer may automatically repair bounded ignored-
+carrier dependency manifests, fixture materialization, paths, import plumbing,
+arguments, stream/exit transport, postprocessing, output shape, and
+qualification defects while the stable subject, tracked inputs, product
+contract, matrix, rubric, permission, network route, and evidence meaning
+remain unchanged. Clear same-scope P0-P2 documentation or review findings are
+automatic. After any model turn, only evidence-preserving result/documentation
+corrections that do not reinterpret, replace, rescore, or require replay remain
+automatic.
+
+Automatic advancement stops for identity or writer drift; incomplete or
+ambiguous full-lane dependency closure; a changed import, product contract,
+candidate, case, fixture, matrix, rubric, hard boundary, model assignment,
+workspace, permission, provider, or network route; a required SOURCE or
+tracked-controller change; missing or conflicting evidence; any predecessor
+replay or treatment change; failed assessor-view validation or local review;
+exceeded turn, assessor, correction, or native-review budget; an assessor
+verdict other than `ACCEPTED`; or any push, installation, tag, release, stable
+update, cleanup, other-Skill change, user-configuration mutation, or unlisted
+external effect. The result destination is
+`evals/results/2026-08-11-work-charter-d47-gate2-terminal.md`.
 
 ## Important Rejected Alternatives
 

@@ -9,7 +9,7 @@ Last updated: 2026-08-11
 | Tested package identity | all three package byte sets independently reached exact-commit RC readiness at `c42eef392a5b9f58bbee64aa73ffb603a6fb6c29` and were re-proved at tag/stable identity `v0.1.2` | [Verification](VERIFICATION.md) |
 | Stable release identity | immutable [`v0.1.2`](https://github.com/junwei529/skills/releases/tag/v0.1.2) at `ceed607152849775b981c54add74bfa30d858e4d`; exact tag, stable loaded-copy, and GitHub Release proof pass for all three Skills | [Verification](VERIFICATION.md) |
 | Project Docs | immutable `v0.1.2` remains the released explicit-only control; local commit `776989f...` implements accepted Decision 0019 but is unreleased, and its evidence is `PARTIAL` because actual candidate selection, loaded-copy identity, and persistent writes remain `UNKNOWN` | [State](skills/manage-project-docs/STATE.md) |
-| Work Charter | released `v0.1.2` remains active; exact candidate `c481005...` is unchanged and unaccepted; D46 imported D45 A01-A09 without replay, admitted fresh A10, then sealed at combined 10/27 after an A11 private fixture-postprocessing failure; one allowlisted-view assessor returned `DECISION_REQUIRED` and no continuation is authorized | [State](skills/work-charter/STATE.md) |
+| Work Charter | released `v0.1.2` remains active; exact candidate `c481005...` is unchanged and unaccepted; D46 remains immutable at combined 10/27 with A11 infrastructure `UNKNOWN`; `WC-AR-D47` authorizes one fresh additive A11-A27 window only after complete zero-model dependency/postprocessing closure, and no D47 model turn has started | [State](skills/work-charter/STATE.md) |
 | PowerShell | released five-file `v0.1.2` stable copy; corrected loaded identity and guarded native/text diagnosis pass; live WSL remains unproved | [State](skills/use-powershell-safely/STATE.md) |
 | Release lifecycle | `v0.1.2` tag, stable update, tag-pinned canaries, and Latest GitHub Release complete; `v0.1.1` retained as rollback identity | [Runbook](RUNBOOK.md) |
 
@@ -164,6 +164,17 @@ fresh and 15 combined product turns. One assessor received only the validated,
 locally reviewed redacted view and returned `DECISION_REQUIRED`. D46 is
 immutable and unaccepted; A11 and all later behavior remain `UNKNOWN`.
 
+The user then approved `WC-AR-D47`, an infrastructure-first additive Campaign
+for the same exact candidate. D47 may import only the ten admitted A01-A10 rows
+and their 14 predecessor product turns without replay. D46 A11 remains a
+separate consumed immutable `UNKNOWN`. Before any D47 model call, the new
+ignored carrier must enumerate and bind every A11-A27 fixture, workspace,
+postprocessor, auxiliary-role, terminal-sealing, and assessor-gate file
+dependency and synthetically exercise every applicable post-response branch.
+Only a complete zero-model closure may advance to three canaries, freeze, the
+fresh A11-A27 evidence window, and at most one assessor. No D47 carrier or
+model evidence exists at this authority checkpoint.
+
 The exact post-commit documentation scope, writer state, and recovery order are
 owned by [Repository Handoff](HANDOFF.md).
 
@@ -201,6 +212,10 @@ flat task, but the frozen semantic-gate false negative prevented admission and
 stopped the packet at 0/27. A later assessor turn was out of scope and is
 excluded from D44 assessment evidence; later-cell semantics remain
 `UNKNOWN_NOT_ASSESSED`, and no acceptance transfers.
+Later D45 and D46 evidence remains separately bounded as described above; D46
+ended at combined 10/27. `WC-AR-D47` is authority rather than behavior
+evidence: it preserves every predecessor and requires a new full-lane zero-
+model dependency closure before any fresh A11-A27 observation is consumed.
 Exact counts, hashes, exclusions, and residual limits remain in the per-Skill
 ledgers rather than this dashboard.
 
@@ -356,14 +371,15 @@ decision.
 
 No release action remains pending for immutable `v0.1.2`. D31-D46 are complete,
 sealed, and non-retriable. Exact candidate `c481005...` remains unaccepted at
-Gate 2. This local D46 result commit consumes and closes the final authorized
-writer action; no Work Charter Campaign writer or product-evidence window is
-active at this checkpoint. A new user decision is required before correcting
-the private A11
-carrier/fixture postprocessing path, importing admitted D46 evidence into an
-additive successor, changing SOURCE or the candidate, or pursuing installation
-or release. Push, installation, tag, release, stable update, cleanup, and
-other-Skill changes remain excluded.
+Gate 2. One bounded D47 Campaign writer is active under `WC-AR-D47`; no D47
+model turn has started. Its next action is to create the fresh ignored carrier
+and complete the entire A11-A27 dependency/postprocessing/terminal-branch
+qualification with zero model calls. An incomplete or ambiguous closure stops
+before canaries. A complete closure may advance automatically through the three
+authorized canaries, freeze, fresh A11-A27 evidence, one eligible assessor, and
+the local sanitized-result closeout. SOURCE or candidate changes, push,
+installation, tag, release, stable update, cleanup, and other-Skill changes
+remain excluded.
 Project Docs keeps its own candidate and persistence-evidence sequence.
 
 ## Known Repository Gaps

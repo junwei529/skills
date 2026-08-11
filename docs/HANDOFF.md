@@ -21,13 +21,14 @@ Last updated: 2026-08-11
   5 files, each matching the `v0.1.2` Git blobs
 - Rollback identity: immutable `v0.1.1` retained as a separately verified
   three-package backup
-- Writer boundary: no Work Charter writer, product-evidence window, or
-  successor Campaign is active at this committed checkpoint. The bounded D46
-  closeout writer's final checks, native review, and local result commit are
-  consumed, and that writer relinquishes here. D31-D46 and all consumed turns
-  remain immutable; SOURCE, cases, fixtures, matrix, rubric, tracked controller,
-  other Skills, push, installation, tag, release, stable update, retained-
-  evidence cleanup, and unlisted external effects remain excluded
+- Writer boundary: one bounded D47 Campaign writer owns the single repository
+  lane from this authority checkpoint. No D47 model turn has started. Its scope
+  is one fresh ignored carrier, full A11-A27 zero-model dependency closure,
+  three canaries, the bounded fresh evidence/assessor sequence, and one later
+  sanitized-result commit. D31-D46 and all consumed turns remain immutable;
+  SOURCE, cases, fixtures, matrix, rubric, tracked controller, other Skills,
+  push, installation, tag, release, stable update, retained-evidence cleanup,
+  and unlisted external effects remain excluded
 
 D43 has resolved D42's open product choice: indirect proposals are metadata-
 sufficient and must not prescribe Work Charter workflow; direct intent or
@@ -78,6 +79,16 @@ assessor received only the validated and locally reviewed redacted view and
 returned `DECISION_REQUIRED`. The A11 stop is controller/carrier or fixture-
 postprocessing evidence, not a Work Charter SOURCE or product-behavior finding;
 A11 and later behavior remain `UNKNOWN`.
+
+Approved `WC-AR-D47` is a new additive packet for the same exact candidate. It
+imports only admitted A01-A10 as ten rows representing 14 predecessor product
+turns. D46 A11 stays outside that admitted import as a consumed immutable
+`UNKNOWN`; fresh D47 A11 is a new observation, not a retry or repair. Before
+any model call, the new carrier must close every A11-A27 fixture, workspace,
+postprocessor, auxiliary-role, terminal, and assessor-gate file dependency and
+synthetically exercise every applicable post-response branch. Only a complete
+zero-model closure may advance to three canaries, freeze, the fresh A11-A27
+window, and at most one assessor.
 
 The `v0.1.2` tag remains fixed at the release-preparation commit. The later
 documentation commit records already-completed tag, stable-install, canary, and
@@ -944,28 +955,31 @@ created the fact class; it did not require or authorize speculative files.
    that assessor output from the D44 evidence ledger. Preserve D45's imported
    A01-A09 boundary and D46's independent fresh ledger, disclosure receipt, and
    one eligible assessor without raw predecessor-evidence transfer.
-8. Do not continue or mutate D44, D45, or D46. No D47 or other successor is
-   authorized. A future additive proposal must preserve every consumed-turn
-   and import-provenance ledger, identify the exact residual and correction,
-   and obtain a new bounded user decision before carrier construction or model
-   consumption.
+8. Do not continue or mutate D44, D45, or D46. `WC-AR-D47` is the sole active
+   successor authority. Import only admitted A01-A10; keep D46 A11 as a
+   separate consumed immutable `UNKNOWN`; and complete the entire A11-A27
+   dependency/postprocessing/terminal-branch closure before any canary or
+   product turn.
 
 ## Immediate Next Action
 
 No release action remains pending for immutable `v0.1.2`. D31-D46 are complete,
-sealed, and non-retriable. This local sanitized-result commit consumes D46's
-final closeout action, and no Work Charter Campaign writer is active. A new user
-decision is required before correcting the A11 carrier/fixture path,
-importing admitted D46 evidence into an additive successor, changing SOURCE or
-the candidate, or pursuing installation or release. Push, installation, tag,
-release, stable update, cleanup, and other-Skill changes remain unauthorized.
+sealed, and non-retriable. `WC-AR-D47` activates one bounded Campaign writer;
+no D47 model turn has started. After this authority commit, create the fresh
+ignored D47 carrier and prove the complete A11-A27 dependency manifest plus
+synthetic postprocessing and terminal branches with zero model calls. Stop
+before canaries on any incomplete, ambiguous, undeclared, missing-required, or
+mutable material input. A clean closure advances automatically through three
+canaries, freeze, the bounded fresh A11-A27 evidence window, at most one
+assessor, and the sanitized local result commit. SOURCE/candidate change,
+push, installation, tag, release, stable update, cleanup, and other-Skill
+changes remain unauthorized.
 
 Later user-owned choices include:
 
-- decide whether to authorize a bounded additive successor for the private A11
-  carrier/fixture residual, revise or retire the candidate, or leave the
-  current unaccepted state unchanged; installation, release, and public
-  reachability remain separate later decisions requiring applicable evidence;
+- after D47 closes, decide the exact candidate disposition from its cumulative
+  predecessor-aware result; installation, release, and public reachability
+  remain separate later decisions requiring applicable evidence;
 - after an accepted Project Docs commit, authorize an exact-commit candidate
   and write-capable synthetic persistence test;
 - begin another separately scoped development or evaluation cycle;
@@ -1001,17 +1015,23 @@ Stop before write or publication if:
 ## Authorization Boundary
 
 D42-D46 execution authority is consumed. Exact candidate `c481005...`, every
-qualification/canary/product receipt, the assessor-deviation receipt, and all
-consumed turns are immutable and non-retriable. The assessor output is excluded
-from the D44 evidence ledger. `WC-AR-D46` model, canary, assessor, correction,
-ignored-carrier, documentation, native-review, and two-local-commit authority
-is consumed at this checkpoint. No successor carrier, D47, SOURCE or candidate
-change, installation, release, or other external effect is authorized.
+predecessor qualification/canary/product/assessor receipt, the assessor-
+deviation receipt, and all consumed turns are immutable and non-retriable. The
+assessor output is excluded from the D44 evidence ledger. `WC-AR-D47` now
+authorizes one new ignored carrier, import of admitted A01-A10 only, complete
+zero-model A11-A27 dependency and terminal-branch qualification, three
+canaries, at most 22 fresh product contexts / 25 product turns, at most one
+assessor, mapped documentation/native-review closeout, and at most two local
+commits. D46 A11 remains a separate consumed `UNKNOWN`; no D47 model turn has
+started.
 
-No tracked controller or fixture expansion, other-Skill change, push,
+No SOURCE, case, fixture, matrix, rubric, tracked-controller, model assignment,
+workspace-route, permission, other-Skill, user-configuration, push,
 installation, tag, release, stable mutation, retained-evidence cleanup, or
-unlisted external effect is authorized. Stop for qualification uncertainty,
-product-contract change, native-review budget exhaustion, or scope expansion.
+unlisted external-effect change is authorized. Stop before canaries for an
+incomplete dependency closure and stop the Campaign for any material drift,
+predecessor evidence-treatment change, exhausted budget, non-`ACCEPTED`
+assessor verdict, or scope expansion.
 
 The D45 authorization documentation-impact closure is fact-first. `UPDATE`
 covers Decision 0018, Work Charter State and Verification, root Status,
@@ -1045,6 +1065,18 @@ rubric/current-SOURCE manifest/tracked controller/package references/assets,
 and neighboring Skills. `NOT_APPLICABLE` covers another candidate, installed or
 stable-copy changes, push, tag, release, cleanup, or external publication. The
 D45 and D46 raw carriers remain ignored and unpublished.
+
+The D47-authority documentation-impact closure is fact-first. `UPDATE` covers
+Decision 0018, the Work Charter bilingual README pair, State and Verification,
+root Status, Verification, Roadmap, Index, and this Handoff.
+`CHECKED_NO_CHANGE` covers repository `AGENTS.md`, the root README pair,
+Authority, SPEC, Architecture, Runbook, Provenance, Decisions 0017/0020, the
+shared evaluation method, Work Charter SOURCE/Design/cases/fixtures/matrix/
+rubric/current-SOURCE manifest/tracked controller/package references/assets,
+the immutable D46 result, and neighboring Skills. `NOT_APPLICABLE` covers
+another product candidate, installed or stable-copy changes, push, tag,
+release, cleanup, or external publication. The future D47 carrier is ignored
+evaluation infrastructure and its physical locator remains private.
 
 The D42 result documentation-impact closure is fact-first. `UPDATE` covers the
 sanitized result/index, Work Charter bilingual public entry, per-Skill State/

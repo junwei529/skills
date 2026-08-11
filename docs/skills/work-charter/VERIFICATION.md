@@ -31,6 +31,9 @@ Last updated: 2026-08-11
 | Exact `f24bda7...` D42 terminal | D42 consumed six turns and stopped at 4/27, but post-consumption review invalidated its static qualification and found A05 prescribed Work Charter workflow before activation while candidate-body loading remained unproved; A04/A05 are observations without Gate 2 credit, one assessor returned `DECISION_REQUIRED`, and D43 changes only the prospective contract |
 | Exact `c481005...` D43 transport terminal | current SOURCE/evaluation/docs closure separates metadata proposal from confirmed exact-body activation; the ignored successor passed 12/12 zero-model checks including exactly six positive PowerShell parse receipts with empty stderr and exit zero, but its first `Sol/high` non-product canary consumed one turn and failed at `SANDBOX_NETWORK_TRANSPORT`; the other canaries, all product cells, and assessor did not start, so D43 is sealed `UNKNOWN_NOT_ASSESSED` and unaccepted |
 | Exact `c481005...` D44 Gate 2 terminal | additive D44 used two zero-consumption carrier-only policy-host corrections, passed final 12/12 qualification, all three network-capable canaries, and freeze, then consumed one A01 product turn; the response stayed flat, proved the required reads, proposed the exact patch and focused command, and labelled it not run, while the tracked controller returned `ADMISSIBLE`, but the frozen semantic gate false-negatively rejected the split-emphasis heading, so D44 sealed at 0/27; one later assessor turn violated the admitted-cell prerequisite and is retained only as an excluded deviation; no retry, rescore, acceptance, installation, or release follows |
+| Exact `c481005...` D45 Gate 2 terminal | D45 admitted A01-A09, then sealed at 9/27 after a private matcher false-negatively rejected the exact equivalent `.\CHECKPOINT.md` missing-file diagnostic; 14 product turns and one eligible `DECISION_REQUIRED` assessor remain immutable, and D46 imported only the nine admitted rows without replay |
+| Exact `c481005...` D46 Gate 2 terminal | D46 imported D45 A01-A09, admitted fresh A10, then consumed A11 before private fixture postprocessing failed on absent `RECOVERY_STATE.json`; it sealed at combined 10/27 with 15 represented turns, one allowlisted-view assessor returned `DECISION_REQUIRED`, and A11 remains an immutable infrastructure `UNKNOWN` rather than a product finding |
+| `WC-AR-D47` additive Campaign authority | D47 may import only admitted A01-A10 as ten rows / 14 predecessor product turns; D46 A11 remains a separate consumed `UNKNOWN`; before any model call, a fresh ignored carrier must close all A11-A27 file dependencies and synthetic post-response/terminal branches, then may run three canaries, at most 22 product contexts / 25 product turns, and at most one assessor; no D47 model turn has started |
 | Isolated path-bound controller canary | private retained sealed `CANARY_PASS`; the public summary reports an exact-response pass and no command execution, omits locator/artifact/runtime details, leaves physical backend request count `UNKNOWN`, and proves neither natural-language selection nor candidate acceptance |
 | Small bounded work stays flat | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
 | Midstream implicit behavior is proposal-only | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
@@ -1772,6 +1775,35 @@ assessor calls; all eight tracked PowerShell parses; `git diff --check`; the
 exact 12-file publication-safety scan; and a fresh zero-model validation of the
 sealed assessor view. The native-review disposition belongs in the cumulative
 commit record rather than being appended after review to the bytes it reviewed.
+
+### 2026-08-11 — D47 full-lane qualification authority
+
+`WC-AR-D47` preserves exact candidate
+`c4810057c3f28cca9f12004ca2018784cd21f449`, five-file manifest
+`04c382a48e43897a8806aa5ffd996984cb015d3d8cdc6e675e9181a6d94e6f44`,
+released control `ceed607152849775b981c54add74bfa30d858e4d`, and every immutable
+predecessor. It may import only the ten admitted A01-A10 rows representing 14
+predecessor product turns. D46 A11 is excluded from the admitted import set and
+retained as one consumed infrastructure `UNKNOWN`; a fresh D47 A11 observation
+cannot replace or rescore it.
+
+Before any D47 model call, the fresh ignored carrier must produce a sealed
+dependency-closure manifest for every A11-A27 fixture, workspace, package,
+policy, postprocessor, auxiliary-role, terminal-sealing, and assessor-gate read.
+Synthetic zero-model receipts must exercise each applicable success, expected-
+failure, hard-stop, and terminal branch; preserve child streams as evidence;
+return one typed scalar exit status; prevent duplicate dispatch; and reject any
+undeclared, ambiguous, missing-required, extra, reparse-routed, or mutable
+material input. This gate is evaluation-infrastructure qualification only.
+
+Only a complete closure plus all retained qualification checks may start the
+three exact-route canaries and freeze. The fresh evidence budget is A11-A27,
+at most 22 product contexts / 25 product `turn/start` events, followed by at
+most one eligible assessor on the validated allowlisted view. Total fresh
+budget is at most 26 contexts / 29 `turn/start` events including three
+canaries and one assessor. At this authority checkpoint no D47 carrier has been
+frozen and no D47 model or assessor turn has started; candidate acceptance,
+installation, and release remain unproved and unauthorized.
 
 ## Required Checks
 
