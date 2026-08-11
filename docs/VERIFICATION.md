@@ -1507,8 +1507,10 @@ read-only `Terra/high` assessor even though D44 required at least one admitted
 cell. Its turn and `DECISION_REQUIRED` output are retained as an immutable
 authority deviation but excluded from the D44 evidence ledger. Exact candidate
 behavior remains unaccepted and later-cell semantics remain
-`UNKNOWN_NOT_ASSESSED`. Any prospective controller correction, launch-guard
-correction, and fresh additive packet require a new user decision. The sanitized evidence is
+`UNKNOWN_NOT_ASSESSED`. D44 itself remains immutable and non-retriable. The
+later `WC-AR-D45` decision separately authorizes one fresh additive packet for
+the two observed evaluation-gate corrections; it does not alter or rescore this
+D44 record. The sanitized evidence is
 [Work Charter D44 Gate 2 terminal](../evals/results/2026-08-11-work-charter-d44-gate2-terminal.md).
 
 ### 2026-08-02 — Capability-delta decision and workflow

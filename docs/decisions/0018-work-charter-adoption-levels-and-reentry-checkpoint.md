@@ -1492,6 +1492,84 @@ turn/assessor/correction/review/time budget, an assessor verdict other than
 other unlisted external effect. The result destination is
 `evals/results/2026-08-11-work-charter-d44-gate2-terminal.md`.
 
+### WC-AR-D45 — Evaluation-Gate Correction And Fresh Additive Packet
+
+**Confirmed.** The unchanged D43 candidate, its five-file manifest, the released
+`v0.1.2` control, and the immutable D44 terminal remain the stable subject. D44
+and every earlier qualification, canary, product, assessor, correction, and
+review event remain immutable. D45 is a fresh additive packet, not a D44 retry,
+replacement, rescore, relabelling, or acceptance transfer. Exact repository
+identities remain in bounded private evidence rather than this public decision.
+
+D45 changes only ignored evaluation infrastructure. The A01 semantic gate
+normalizes valid Markdown emphasis spans to their rendered prose before exact
+not-run matching while retaining the focused-command, structured no-action,
+ambiguity, hypothetical, partial, failed, and contradiction guards. One shared
+assessor-eligibility predicate requires a complete or terminally sealed packet
+with at least one admitted product cell. The outer fallback launcher, matrix
+driver, and direct assessor entry all enforce that predicate before any
+assessor `turn/start`. Work Charter SOURCE, cases, fixtures, matrix, rubric,
+tracked controller, candidate, and public behavior contract do not change.
+
+One approval authorizes these ordered tranches without command-by-command
+confirmation:
+
+1. persist this D45 authority and current writer/recovery state in Decision
+   0018, Work Charter State, root Status, Roadmap, Index, and Handoff; run
+   documentation checks and native review; and create one local authority
+   commit;
+2. create only one fresh ignored carrier under portable label `WC-AR-D45`,
+   derived from D44's construction and tool inputs but excluding all D44 run,
+   terminal, assessor, private-session, and result outputs; keep its physical
+   location in bounded private evidence and bind the exact stable subject,
+   complete predecessor ledger, current exact runtime identity, and clean
+   tracked policy host;
+3. implement the two declared gate corrections with deterministic regressions
+   covering the exact D44 split-emphasis form, retained negative forms, zero-
+   admitted assessor suppression at all three entry paths, direct-entry fail-
+   closed behavior, and one-or-more-admitted eligibility;
+4. complete zero-model qualification for 27 isolated workspaces, all 77 catalog
+   mappings, the closed six-file PowerShell parser gate, controller and policy
+   checks, exact outer-launch success/failure dispatch, assessor eligibility,
+   frozen inputs, and the exact executable/auth/network/sandbox route;
+5. run one non-product canary each for `gpt-5.6-sol/high`,
+   `gpt-5.6-sol/xhigh`, and `gpt-5.6-terra/high` through the exact outer product
+   route; only three passes may start product evidence;
+6. freeze and consume the unchanged 27-cell matrix with at most 39 product
+   `turn/start` events and no controller retry, then run at most one read-only
+   `gpt-5.6-terra/high` assessor only when the shared eligibility predicate
+   passes; a zero-admitted terminal records zero assessor turns and
+   `NOT_APPLICABLE`; and
+7. create a sanitized D45 result, synchronize its mapped existing consumers,
+   run deterministic checks and native review, and create one local result
+   commit.
+
+The Campaign reuses existing authentication only process-locally through the
+same approved network-capable outer route. It permits no user configuration,
+profile, registry, firewall, service, locale, code-page, WSL, installation, or
+stable-copy change. It budgets three canary turns, at most 39 product turns,
+at most one eligible assessor turn, at most three pre-canary ignored-carrier
+corrections, at most five completed native reviews per local commit attempt,
+and at most three hours of active execution. Every canary, product, or assessor
+turn is consumed at `turn/start` and is never replayed.
+
+Before the first canary, the writer may automatically repair bounded carrier
+paths, arguments, stream/exit transport, output shape, and deterministic
+qualification defects while the stable subject, product contract, cases,
+matrix, rubric, permission, network route, and evidence meaning remain
+unchanged. It may automatically fix clear same-scope P0-P2 documentation or
+review findings. After any model turn, only result/documentation corrections
+that do not reinterpret, replace, rescore, or require replay remain automatic.
+
+Automatic advancement stops for identity or writer drift, a changed product
+contract/candidate/case/fixture/matrix/rubric/hard boundary, a required SOURCE
+or tracked-controller change, unavailable or changed permission/provider/
+network route, missing or conflicting evidence, a consumed-turn replay request,
+exceeded turn/assessor/correction/review/time budget, an eligible assessor
+verdict other than `ACCEPTED`, or any push, installation, tag, release, stable
+update, cleanup, or other unlisted external effect. The result destination is
+`evals/results/2026-08-11-work-charter-d45-gate2-terminal.md`.
+
 ## Important Rejected Alternatives
 
 - Require exact `$work-charter` syntax from users.

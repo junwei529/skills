@@ -1666,9 +1666,10 @@ carrier subsequently launched one read-only `Terra/high` assessor even though
 D44 required at least one admitted product cell. The consumed turn and its
 `DECISION_REQUIRED` output are preserved as an immutable authority deviation
 but excluded from the D44 evidence ledger. Exact candidate behavior remains
-unaccepted; later-cell semantics are `UNKNOWN_NOT_ASSESSED`. Any prospective
-controller correction, launch-guard correction, and fresh additive packet
-require a new user decision. The sanitized record is
+unaccepted; later-cell semantics are `UNKNOWN_NOT_ASSESSED`. D44 itself remains
+immutable and non-retriable. The later `WC-AR-D45` decision separately
+authorizes one fresh additive packet for the two observed evaluation-gate
+corrections; it does not alter or rescore this D44 record. The sanitized record is
 [Work Charter D44 Gate 2 terminal](../../../evals/results/2026-08-11-work-charter-d44-gate2-terminal.md).
 
 ## Required Checks

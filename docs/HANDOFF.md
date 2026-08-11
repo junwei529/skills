@@ -21,11 +21,13 @@ Last updated: 2026-08-11
   5 files, each matching the `v0.1.2` Git blobs
 - Rollback identity: immutable `v0.1.1` retained as a separately verified
   three-package backup
-- Writer boundary: the D44 writer relinquished with its local result commit; no
-  Work Charter writer remains. D31-D44 and every consumed turn remain
-  immutable. SOURCE, case, fixture, tracked controller, another model packet,
-  other Skills, push, installation, tag, release, stable update, retained-
-  evidence cleanup, and unlisted external effects remain excluded
+- Writer boundary: one bounded D45 Campaign writer owns its mapped authority
+  commit, fresh ignored evaluation carrier, deterministic gate regressions,
+  qualification, three canaries, conditional unchanged product packet, at most
+  one eligible assessor, and local result closeout. D31-D44 remain immutable;
+  SOURCE, cases, fixtures, matrix, rubric, tracked controller, other Skills,
+  push, installation, tag, release, stable update, retained-evidence cleanup,
+  and unlisted external effects remain excluded
 
 D43 has resolved D42's open product choice: indirect proposals are metadata-
 sufficient and must not prescribe Work Charter workflow; direct intent or
@@ -46,6 +48,15 @@ false-negatively rejected the split-emphasis heading. D44 sealed at 0/27, and
 the carrier then launched one assessor outside D44's admitted-cell prerequisite.
 That turn is retained as a deviation record and excluded from D44 assessment
 evidence. D44 is not retried or rescored.
+
+Approved `WC-AR-D45` is a fresh additive packet for the same exact candidate.
+It changes only ignored evaluation infrastructure: rendered Markdown emphasis
+is normalized before A01's exact not-run match, and one shared eligibility
+predicate prevents outer-launcher, matrix-driver, or direct-entry assessor
+activity until a complete or terminally sealed packet has at least one admitted
+product cell. Deterministic qualification precedes three same-route canaries,
+freeze, the unchanged 27-cell matrix, an eligible assessor, and local result
+closeout. D45 transfers no credit from D44.
 
 The `v0.1.2` tag remains fixed at the release-preparation commit. The later
 documentation commit records already-completed tag, stable-install, canary, and
@@ -910,23 +921,25 @@ created the fact class; it did not require or authorize speculative files.
    turn without replay, rescore, relabelling, or acceptance transfer. Exclude
    that assessor output from the D44 evidence ledger. No D44 continuation is
    authorized.
+8. Continue only the fresh ignored carrier identified by portable label
+   `WC-AR-D45` after its authority commit. Resolve its physical location from
+   bounded private evidence, and keep both gate corrections, all qualification
+   and consumption, and its final seal separate from D44.
 
 ## Immediate Next Action
 
-No release action remains pending for immutable `v0.1.2`. D44 result closeout
-is complete and its writer has relinquished. The next Work Charter product
-action is a user decision on whether to authorize a prospective controller-only
-successor with deterministic regressions for the observed split-emphasis
-heading and the assessor-launch prerequisite, plus a fresh additive Campaign.
-Push, installation, tag, release, stable update, cleanup,
-SOURCE/case/fixture/controller changes, another model turn, and other-Skill
-changes remain unauthorized.
+No release action remains pending for immutable `v0.1.2`. D44 is complete and
+immutable. Approved D45 now proceeds through its authority commit, fresh
+ignored carrier, deterministic gate correction and qualification, three
+same-route canaries, unchanged frozen packet, eligible assessor, and sanitized
+local result commit. Small same-scope corrections are automatic. Push,
+installation, tag, release, stable update, cleanup, SOURCE/case/fixture/matrix/
+rubric/tracked-controller changes, and other-Skill changes remain unauthorized.
 
 Later user-owned choices include:
 
-- after D44 result closeout, decide whether to pursue a controller-only
-  successor, or leave the exact candidate unaccepted; candidate installation,
-  release, and public reachability remain separate choices;
+- after D45 result closeout, decide candidate disposition, installation,
+  release, or public reachability only from its exact sealed evidence;
 - after an accepted Project Docs commit, authorize an exact-commit candidate
   and write-capable synthetic persistence test;
 - begin another separately scoped development or evaluation cycle;
@@ -964,13 +977,25 @@ Stop before write or publication if:
 D42-D44 execution authority is consumed. Exact candidate `c481005...`, every
 qualification/canary/product receipt, the assessor-deviation receipt, and all
 consumed turns are immutable and non-retriable. The assessor output is excluded
-from the D44 evidence ledger. D44 result authority ended with its local result
-commit, and no Work Charter writer remains.
+from the D44 evidence ledger. `WC-AR-D45` separately authorizes only the bounded
+D45 writer, ignored evaluation carrier, declared network/model/assessor budget,
+mapped documentation, native review, and two local commits.
 
 No tracked controller or fixture expansion, other-Skill change, push,
 installation, tag, release, stable mutation, retained-evidence cleanup, or
 unlisted external effect is authorized. Stop for qualification uncertainty,
 product-contract change, native-review budget exhaustion, or scope expansion.
+
+The D45 authorization documentation-impact closure is fact-first. `UPDATE`
+covers Decision 0018, Work Charter State and Verification, root Status,
+Verification, Roadmap, Index, and this Handoff. `CHECKED_NO_CHANGE` covers
+repository `AGENTS.md`, the root and Work Charter README pairs, Authority, SPEC,
+Architecture, Runbook, Provenance, Decisions 0017/0020, Work Charter SOURCE/
+Design/cases/fixtures/matrix/rubric/current-SOURCE manifest/tracked controller/
+package references/assets, and neighboring Skills. `NOT_APPLICABLE` covers another
+candidate, installation, push, tag, release, stable update, cleanup, or external
+publication. The fresh `WC-AR-D45` carrier is ignored evidence infrastructure;
+its physical path remains private.
 
 The D42 result documentation-impact closure is fact-first. `UPDATE` covers the
 sanitized result/index, Work Charter bilingual public entry, per-Skill State/

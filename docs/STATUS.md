@@ -9,7 +9,7 @@ Last updated: 2026-08-11
 | Tested package identity | all three package byte sets independently reached exact-commit RC readiness at `c42eef392a5b9f58bbee64aa73ffb603a6fb6c29` and were re-proved at tag/stable identity `v0.1.2` | [Verification](VERIFICATION.md) |
 | Stable release identity | immutable [`v0.1.2`](https://github.com/junwei529/skills/releases/tag/v0.1.2) at `ceed607152849775b981c54add74bfa30d858e4d`; exact tag, stable loaded-copy, and GitHub Release proof pass for all three Skills | [Verification](VERIFICATION.md) |
 | Project Docs | immutable `v0.1.2` remains the released explicit-only control; local commit `776989f...` implements accepted Decision 0019 but is unreleased, and its evidence is `PARTIAL` because actual candidate selection, loaded-copy identity, and persistent writes remain `UNKNOWN` | [State](skills/manage-project-docs/STATE.md) |
-| Work Charter | released `v0.1.2` remains active; exact candidate `c481005...` is unchanged and unaccepted; D44 passed final qualification, three canaries, and freeze, then sealed at 0/27 because its frozen A01 semantic gate false-negatively rejected a visibly not-run command; a later out-of-scope assessor turn is excluded from D44 evidence | [State](skills/work-charter/STATE.md) |
+| Work Charter | released `v0.1.2` remains active; the current D43 candidate is unchanged and unaccepted; approved D45 is a fresh additive Campaign that corrects only the ignored A01 emphasis parser and admitted-cell assessor gate before rerunning the unchanged packet | [State](skills/work-charter/STATE.md) |
 | PowerShell | released five-file `v0.1.2` stable copy; corrected loaded identity and guarded native/text diagnosis pass; live WSL remains unproved | [State](skills/use-powershell-safely/STATE.md) |
 | Release lifecycle | `v0.1.2` tag, stable update, tag-pinned canaries, and Latest GitHub Release complete; `v0.1.1` retained as rollback identity | [Runbook](RUNBOOK.md) |
 
@@ -332,11 +332,13 @@ decision.
 
 No release action remains pending for immutable `v0.1.2`. D31-D44 and D44
 result closeout are complete, sealed, and non-retriable; the D44 writer has
-relinquished. The next product action is a user decision on a prospective
-controller-only successor and fresh additive Campaign. Push, installation,
-tag, release, stable update, cleanup, SOURCE/case/fixture/tracked-controller
-changes, fresh model turns, and other-Skill changes are not currently
-authorized.
+relinquished. Approved D45 is the current writer window: persist and commit its
+authority; build and qualify the fresh ignored carrier and both gate
+regressions; run three same-route canaries; conditionally run the unchanged
+packet and one eligible assessor; then sanitize, verify, review, and locally
+commit the result. Push, installation, tag, release, stable update, cleanup,
+SOURCE/case/fixture/matrix/rubric/tracked-controller changes, and other-Skill
+changes remain excluded.
 Project Docs keeps its own candidate and persistence-evidence sequence.
 
 ## Known Repository Gaps
