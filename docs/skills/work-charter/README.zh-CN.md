@@ -146,11 +146,12 @@ false negative。D44 在 0/27 处封存；carrier 随后在未满足“至少一
 启动了 assessor。该 turn 作为偏差保留，但排除在 D44 证据之外。冻结 gate 不会被重评分；
 随后 D45 修正两个 ignored gate，通过 qualification 与全部三个 canary，并接纳 A01-A09；
 但 private evaluator 未归一化 `.\CHECKPOINT.md`，在 A10 产生 diagnostic false negative，
-使 packet 封存在 9/27。一个 eligible assessor 返回 `DECISION_REQUIRED`。精确 candidate
-`c481005...` 仍未获接受；已批准 D46 在不重放的前提下导入 A01-A09，并从 A10 开始 fresh
-evidence；其 eligible assessor 只能读取经验证和本地复核的组合 packet 脱敏视图，不能读取
-raw predecessor evidence；该视图路径必须先通过 canary 前的 zero-model preflight，实际
-view 还须最终验证。D31、D34、D42、D43、D44 与 D45 均仍无行为接受、安装或发布证据。
+使 packet 封存在 9/27。D46 在不重放的前提下导入这九个 cell，通过 disclosure boundary
+与三个 canary，并接纳 fresh A10。A11 消耗一个 turn 后，private controller postprocessing
+因 fixture 文件不存在而停止，组合 packet 因此封存在 10/27。一个 assessor 只读取经验证
+与本地复核的脱敏视图，并返回 `DECISION_REQUIRED`。精确 candidate `c481005...` 仍未获接受，
+后续行为仍为 `UNKNOWN`，且没有已授权 continuation。D31、D34、D42、D43、D44、D45 与 D46
+均仍无行为接受、安装或发布证据。
 完整分阶段 selection、entry、等级、
 重新接入和可见 Standard 行为，stable 层完整 Standard
 delivery、广泛隐式触发 telemetry、独立真实项目效果、确定性角色交付或 writer

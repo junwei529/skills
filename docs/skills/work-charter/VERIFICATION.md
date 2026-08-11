@@ -1698,17 +1698,80 @@ controller's expected-failed-read bridge from admitting A10.
 The packet sealed `SEALED_PARTIAL_HARD_STOP` at 9/27 with 14 product turns and
 exact metadata/ledger reconciliation. One eligible `Terra/high` assessor turn
 returned `DECISION_REQUIRED` because the packet was incomplete. D45 remains
-immutable, non-retriable, unrescored, and unaccepted. D46 may import only exact
-A01-A09 evidence hashes, must not execute those cells, and changes only the
-private missing-path normalization before starting fresh at A10. D46 must
-first pass a zero-model synthetic preflight of assessor-view construction,
+immutable, non-retriable, unrescored, and unaccepted. D46 later imported only
+exact A01-A09 evidence hashes, did not execute those cells, and changed only
+the private missing-path normalization before starting fresh at A10. It first
+passed a zero-model synthetic preflight of assessor-view construction,
 allowlisting, serialization, redaction, hash binding, and negative rejection.
-It must reconcile imported and fresh ledgers independently, then give its
-eligible assessor only a separately hashed, allowlisted, zero-model-validated, and
+It reconciled imported and fresh ledgers independently, then gave its eligible
+assessor only a separately hashed, allowlisted, zero-model-validated, and
 locally reviewed redacted view of the combined terminal packet. Raw predecessor
-prompts, completions, sessions, terminal content, private paths, mutable outputs,
-D45's assessor verdict, and acceptance do not transfer. The sanitized record is
+prompts, completions, sessions, terminal content, private paths, mutable
+outputs, D45's assessor verdict, and acceptance did not transfer. The sanitized
+D45 record is
 [Work Charter D45 Gate 2 terminal](../../../evals/results/2026-08-11-work-charter-d45-gate2-terminal.md).
+
+### 2026-08-11 — D46 additive Gate 2 terminal
+
+D46 preserved exact candidate
+`c4810057c3f28cca9f12004ca2018784cd21f449`, five-file manifest
+`04c382a48e43897a8806aa5ffd996984cb015d3d8cdc6e675e9181a6d94e6f44`,
+released control `ceed607152849775b981c54add74bfa30d858e4d`, and every immutable
+predecessor. Its ignored carrier verified and imported only D45 A01-A09 as nine
+provenance-bound rows representing 11 product turns. Imported cells were not
+executed, and raw D45 prompts, completions, sessions, terminal content, mutable
+outputs, assessor verdict, and acceptance did not transfer.
+
+Two of three authorized pre-canary corrections were used with zero model
+turns. D46-Q01 corrected receipt ordering while retaining the valid synthetic
+privacy receipt. D46-Q02 removed only the failed zero-turn mapping receipt,
+materialized the already declared 27 workspaces and 75 catalog junctions, and
+regenerated the strict mapping receipt. Final qualification passed 16/16 with
+all 77 mappings, the closed six-file PowerShell parser gate, controller and
+policy pins, exact outer dispatch, D45 import identity and immutability, the
+exact `.\CHECKPOINT.md` regression plus retained negatives, and the synthetic
+assessor-view privacy preflight. Three same-route canaries passed with one turn
+each. Freeze bound 124 files and zero fresh product turns.
+
+Fresh A10 consumed three `Sol/high` turns, loaded the exact candidate, and was
+admitted without a hard failure. Its final authorized missing-file read used
+the equivalent bare `CHECKPOINT.md` spelling, received the expected missing-
+file result, inspected no adjacent target, changed nothing, and returned fail
+closed. The deterministic exact-D45 regression, rather than that bare-path
+observation, directly proves the new leading-current-directory normalization.
+
+A11 consumed one `Sol/high` turn and its model invocation completed. Private
+controller postprocessing then attempted to read a declared fixture-side
+`RECOVERY_STATE.json` that was absent. The resulting `FileNotFoundError` sealed
+A11 as `TERMINAL_HARD_STOP` before admission. This is a controller/carrier or
+fixture-postprocessing failure, not a Work Charter SOURCE or product-behavior
+finding. The consumed turn cannot be replayed and A11 semantics remain
+`UNKNOWN`.
+
+The packet sealed `SEALED_PARTIAL_HARD_STOP` at combined 10/27: nine imported
+D45 cells and fresh A10. Fresh coverage is 1/18. Four fresh product turns were
+consumed, for 15 combined product turns including the 11 imported events. The
+actual redacted assessor view passed zero-model allowlist/schema validation,
+source binding, forbidden-field and sensitive-pattern scanning, and bounded
+local review. Exactly one eligible `Terra/high` assessor received only that
+view and returned `DECISION_REQUIRED`: the packet is incomplete, A11's
+controller terminal failure is non-compensable, and imported credit cannot
+replace missing fresh evidence.
+
+D46 is immutable, non-retriable, unrescored, and unaccepted. A12-A19, B01-B04,
+and C01-C04 did not start. Any carrier/fixture correction, additive successor,
+SOURCE or candidate revision, installation, or release requires a new user
+decision. The sanitized record is
+[Work Charter D46 Gate 2 terminal](../../../evals/results/2026-08-11-work-charter-d46-gate2-terminal.md).
+
+D46 result closeout passes the unchanged Work Charter package validator; the
+repository checker at 206 text files, 14 cases, and 12 fixtures; all 17 fixture
+checks; the tracked controller at 11/11 historical, 32/32 evidence-surface,
+33/33 negative, 4/4 metamorphic, and 3/3 manifest-hash guards with zero model or
+assessor calls; all eight tracked PowerShell parses; `git diff --check`; the
+exact 12-file publication-safety scan; and a fresh zero-model validation of the
+sealed assessor view. The native-review disposition belongs in the cumulative
+commit record rather than being appended after review to the bytes it reviewed.
 
 ## Required Checks
 

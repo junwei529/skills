@@ -1706,6 +1706,36 @@ verdict other than `ACCEPTED`, or any push, installation, tag, release, stable
 update, cleanup, or other unlisted external effect. The result destination is
 `evals/results/2026-08-11-work-charter-d46-gate2-terminal.md`.
 
+#### D46 Terminal Disposition
+
+D46 consumed the approved Campaign without changing the candidate, SOURCE,
+tracked cases, fixtures, matrix, rubric, or controller. Two of three authorized
+pre-canary corrections fixed only zero-model receipt ordering and the declared
+workspace/catalog materialization. Final qualification passed 16/16, including
+the exact D45 missing-path regression, D45 A01-A09 import integrity, and the
+synthetic assessor-view privacy preflight. All three same-route canaries passed,
+and freeze bound 124 files with zero fresh product turns.
+
+The carrier imported D45 A01-A09 as nine immutable rows representing 11
+product turns without execution or raw-evidence transfer. Fresh A10 then
+consumed three turns, loaded the exact candidate, completed its bounded missing-
+file route, and was admitted. A11 consumed one turn and the model invocation
+completed, but private controller postprocessing attempted to read an absent
+fixture-side `RECOVERY_STATE.json`. The resulting `FileNotFoundError` sealed
+A11 before admission. Classify this as controller/carrier or fixture-
+postprocessing evidence, not a Work Charter SOURCE or product-behavior finding;
+A11 semantics remain `UNKNOWN` and its consumed turn is non-retriable.
+
+The combined packet sealed `SEALED_PARTIAL_HARD_STOP` at 10/27, with fresh
+coverage 1/18, four fresh product turns, and 15 combined product turns. The
+actual allowlisted assessor view passed zero-model validation and bounded local
+review. One eligible `Terra/high` assessor received only that redacted view and
+returned `DECISION_REQUIRED` because the packet was incomplete and the A11
+controller terminal failure was non-compensable. D46 is immutable and
+unaccepted. No D47, carrier correction, SOURCE/candidate change, installation,
+or release is authorized by this result; any continuation is a new user
+decision.
+
 ## Important Rejected Alternatives
 
 - Require exact `$work-charter` syntax from users.

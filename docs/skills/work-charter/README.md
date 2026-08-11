@@ -183,13 +183,14 @@ then launched one assessor outside the admitted-cell prerequisite; the turn is
 retained as a deviation and excluded from D44 evidence. The sealed gate is not
 rescored. D45 later corrected both ignored gates, passed qualification and all
 three canaries, and admitted A01-A09 before a private `.\CHECKPOINT.md`
-diagnostic-normalization false negative sealed it at 9/27. One eligible
-assessor returned `DECISION_REQUIRED`. Exact candidate `c481005...` remains
-unaccepted; approved D46 imports A01-A09 without replay, starts fresh at A10,
-and may give its eligible assessor only a preflight-qualified, finally
-validated, and locally reviewed redacted view of the combined packet rather
-than raw predecessor evidence.
-D31, D34, D42, D43, D44, and D45 still
+diagnostic-normalization false negative sealed it at 9/27. D46 imported those
+nine cells without replay, passed its disclosure boundary and canaries, and
+admitted fresh A10. Private controller postprocessing then could not read an
+A11 fixture file after one turn was consumed, so the combined packet sealed at
+10/27. One assessor received only the validated redacted view and returned
+`DECISION_REQUIRED`. Exact candidate `c481005...` remains unaccepted, later
+behavior remains unknown, and no continuation is authorized.
+D31, D34, D42, D43, D44, D45, and D46 still
 have no behavior acceptance, installation, or release evidence.
 Full staged selection, entry, level, re-entry, and visible
 Standard behavior, full Standard delivery at the stable layer, broad implicit

@@ -58,6 +58,18 @@ packet sealed at 9/27 after 14 product turns; one eligible assessor returned
 imports A01-A09 as immutable evidence without replay, corrects only that private
 diagnostic false negative, and starts fresh product evidence at A10.
 
+D46 completed its additive Campaign without changing Work Charter SOURCE or
+the tracked evaluation contract. It imported D45 A01-A09 without replay,
+passed 16/16 zero-model qualification, the assessor-view privacy preflight,
+three same-route canaries, and freeze, then admitted fresh A10. A11 consumed
+one turn before private controller postprocessing attempted to read an absent
+fixture-side `RECOVERY_STATE.json` and stopped before admission. The combined
+packet sealed at 10/27 with four fresh and 15 combined product turns. One
+eligible assessor received only the validated and locally reviewed redacted
+view and returned `DECISION_REQUIRED`. D46 is immutable and unaccepted; the
+A11 stop is controller/carrier or fixture-postprocessing evidence, while A11
+and later product behavior remain `UNKNOWN`.
+
 The sealed fixed-turn Standard probe for `72db7e9...` returned `VIOLATION` and
 did not run its successor action. Decision 0018 `WC-AR-D26` preserves that
 result and distinguishes the observed product gap from controller noise. The
@@ -254,15 +266,13 @@ SOURCE by itself.
 
 ## Current Writer
 
-One bounded D46 Campaign writer owns the combined D45-result/D46-authority
-commit; fresh ignored D46 carrier and deterministic missing-path regressions;
-zero-model qualification and import-integrity proof; three network-capable
-canaries; fresh A10-A27 evidence and at most one eligible assessor; and
-sanitized result checks, native review, and one local D46 result commit. D31-
-D45 and every consumed turn remain immutable.
-SOURCE, case, fixture, matrix, rubric, tracked-controller, other-Skill, push,
-installation, tag, release, stable-copy, retained-evidence cleanup, and
-external-publication changes remain outside this window.
+No Work Charter writer, product-evidence window, or successor Campaign is
+active at this committed checkpoint. The bounded D46 closeout writer's final
+authorized verification, native review, and local result commit are consumed,
+and that writer relinquishes here. D31-D46 and every consumed turn remain
+immutable. SOURCE, case, fixture, matrix, rubric, tracked-controller, other-
+Skill, push, installation, tag, release, stable-copy, retained-evidence
+cleanup, and external-publication changes remain unauthorized.
 
 ## Evidence State
 
@@ -759,20 +769,13 @@ freeze only; D33 and D35 are immutable infrastructure/controller
 `UNKNOWN_NOT_ASSESSED` records. D36 and D40 are incomplete product packets with
 independent `DECISION_REQUIRED`; neither transfers acceptance.
 
-The D42-D45 evidence windows are complete and immutable. The current D43
-candidate remains unaccepted and unchanged. Approved D46 proceeds serially:
-record D45 result plus D46 authority; create the fresh ignored carrier; bind
-D45 A01-A09 without replay; correct and qualify the private missing-path
-matcher; preflight the synthetic assessor-view privacy path with zero model
-turns; run all three same-route canaries; freeze and consume only A10-A27;
-then seal a D46 packet whose imported and fresh ledgers reconcile independently
-and derive a separately hashed allowlisted assessor view. After zero-model
-disclosure validation and bounded local review, run one assessor on only that
-redacted combined view when eligible. Raw predecessor prompt, completion,
-session, terminal, private path, mutable output, D45 assessor verdict, and
-acceptance do not transfer. Then sanitize, verify, review, and locally commit
-the result. Small same-scope corrections are automatic. Stop only on the
-material conditions in `WC-AR-D46`.
+The D42-D46 evidence windows are complete and immutable. Exact D43 candidate
+`c481005...` remains unaccepted and unchanged. D46 imported D45 A01-A09,
+admitted fresh A10, then sealed at combined 10/27 when private A11 fixture
+postprocessing stopped before admission. One allowlisted-view assessor returned
+`DECISION_REQUIRED`. This sanitized result commit consumes the final closeout
+action. A new user decision is required before any carrier/fixture correction,
+additive successor, SOURCE/candidate revision, installation, or release.
 
 ## Recovery Entry
 
@@ -783,9 +786,8 @@ material conditions in `WC-AR-D46`.
    this state, and [Verification](VERIFICATION.md).
 3. Confirm live workspace, writer, and action authority.
 4. Confirm live `main` includes the recorded D43 candidate and result closeout,
-   the D44 authorization and result closeout, and—after creation—the D45
-   authority descendant. Resolve exact identities from bounded private evidence,
-   then resolve
+   the D44/D45 result closeouts, and the D46 authority descendant. Resolve
+   exact identities from bounded private evidence, then resolve
    HEAD, index, dirty scope, ignored carriers, runtime identity, and writer
    instead of inferring them from an older handoff.
 5. Preserve the complete predecessor ledger, including the D31 mapping-
@@ -798,26 +800,21 @@ material conditions in `WC-AR-D46`.
    qualified 4/27 terminal with A05 pre-activation workflow and loaded-copy
    findings, without retry, overwrite, relabelling, rescore, or acceptance
    transfer.
-6. Treat D34 and D41-D44 as complete immutable evidence inputs. Treat D42's
+6. Treat D34 and D41-D46 as complete immutable evidence inputs. Treat D42's
    pre-consumption qualification as invalid and its later six-file parser pass
    as diagnostic only. Preserve D43's passing closed-set qualification and its
    one consumed transport-canary turn without replay or acceptance transfer.
    Preserve D44's two correction receipts, three canary turns, one product turn,
    false-negative semantic-gate stop, and one out-of-scope assessor turn without
    replay, rescore, or acceptance transfer. Exclude that assessor output from
-   the D44 evidence ledger.
-7. Do not continue or mutate D44 or D45. Continue only the approved fresh
-   `WC-AR-D46` carrier and its declared automatic sequence. Bind D45 A01-A09 as
-   immutable imported evidence, reject their execution, and preserve D46's
-   private identity, budgets, corrections, and fresh consumption separately.
-   Before canaries, qualify the synthetic assessor-view construction,
-   allowlisting, serialization, redaction, hash binding, and negative rejection
-   with zero model turns. Reconcile the later ledgers independently, then
-   derive, validate, hash, and locally review the redacted allowlisted view
-   presented to the eligible D46 assessor. Do not expose raw predecessor
-   prompts, completions, sessions,
-   terminal content, private paths, or mutable outputs, and do not import D45's
-   assessor verdict or acceptance.
+   the D44 evidence ledger. Preserve D45's 9/27 terminal and D46's combined
+   10/27 terminal, their independent canary/product/assessor consumption, and
+   D46's allowlisted-view boundary without replay or raw-evidence transfer.
+7. Do not continue or mutate D44, D45, or D46. No D47 or other successor is
+   authorized. Any proposed additive continuation must use a new bounded user
+   decision, preserve the immutable imported/fresh provenance and consumed-
+   turn ledgers, correct only an explicitly accepted residual, and requalify
+   its own exact carrier before model consumption.
 8. Read canonical SOURCE, current eval definitions, and only evidence matching
    the exact revision before changing behavior or claims.
 9. Preserve the independent-Skill and non-propagating-authorization boundary.

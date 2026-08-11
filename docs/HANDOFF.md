@@ -8,8 +8,8 @@ Last updated: 2026-08-11
 - Latest exact Work Charter product candidate:
   `c4810057c3f28cca9f12004ca2018784cd21f449`; its five-file manifest is
   `04c382a48e43897a8806aa5ffd996984cb015d3d8cdc6e675e9181a6d94e6f44`,
-  and it remains unaccepted after D44 sealed at A01 on a controller semantic-
-  gate false negative
+  and it remains unaccepted after D46 sealed at combined 10/27 on a private
+  A11 fixture-postprocessing failure
 - Exact predecessor `b3ad360...` and its D41 packet remain immutable and
   unaccepted
 - Released package identity: immutable `v0.1.2` at
@@ -21,19 +21,13 @@ Last updated: 2026-08-11
   5 files, each matching the `v0.1.2` Git blobs
 - Rollback identity: immutable `v0.1.1` retained as a separately verified
   three-package backup
-- Writer boundary: one bounded D46 Campaign writer owns the combined D45-result/
-  D46-authority commit, fresh ignored continuation carrier, missing-path and
-  import regressions, qualification including the synthetic privacy preflight,
-  three canaries, fresh A10-A27 evidence, at
-  most one eligible assessor only after the combined view passes zero-model
-  disclosure validation and bounded local review, and local D46 result closeout.
-  The user-approved budget-and-evidence Replan Delta retains 23 fresh product
-  contexts while authorizing their actual 28 product `turn/start` events and a
-  32-event fresh total including three canaries and at most one assessor.
-  D31-D45 remain immutable;
-  SOURCE, cases, fixtures, matrix, rubric, tracked controller, other Skills,
-  push, installation, tag, release, stable update, retained-evidence cleanup,
-  and unlisted external effects remain excluded
+- Writer boundary: no Work Charter writer, product-evidence window, or
+  successor Campaign is active at this committed checkpoint. The bounded D46
+  closeout writer's final checks, native review, and local result commit are
+  consumed, and that writer relinquishes here. D31-D46 and all consumed turns
+  remain immutable; SOURCE, cases, fixtures, matrix, rubric, tracked controller,
+  other Skills, push, installation, tag, release, stable update, retained-
+  evidence cleanup, and unlisted external effects remain excluded
 
 D43 has resolved D42's open product choice: indirect proposals are metadata-
 sufficient and must not prescribe Work Charter workflow; direct intent or
@@ -72,6 +66,18 @@ after 14 product turns. One eligible assessor returned `DECISION_REQUIRED`.
 D45 is immutable. Approved `WC-AR-D46` imports A01-A09 as provenance-bound
 evidence without replay, corrects only the private diagnostic matcher, and
 starts fresh at A10.
+
+D46 completed its authorized sequence. It used two of three zero-model carrier
+corrections, passed 16/16 qualification including the synthetic privacy
+preflight, completed all three canaries, and froze 124 files. It imported D45
+A01-A09 without replay, then admitted fresh A10 after three turns. A11 consumed
+one turn, but private controller postprocessing attempted to read an absent
+fixture-side `RECOVERY_STATE.json` and sealed before admission. The combined
+packet is immutable at 10/27 with four fresh and 15 combined product turns. One
+assessor received only the validated and locally reviewed redacted view and
+returned `DECISION_REQUIRED`. The A11 stop is controller/carrier or fixture-
+postprocessing evidence, not a Work Charter SOURCE or product-behavior finding;
+A11 and later behavior remain `UNKNOWN`.
 
 The `v0.1.2` tag remains fixed at the release-preparation commit. The later
 documentation commit records already-completed tag, stable-install, canary, and
@@ -926,47 +932,40 @@ created the fact class; it did not require or authorize speculative files.
    zero-turn D32 freeze `cd8c0e2...`, D33 transport terminal `39ffdea...`, and
    D35 terminal freeze `ed8bce3...`, D36 freeze `f687419...` plus A13 terminal,
    D37 precursor freeze `1d705c65...` plus summary `f4bddc52...`, D40's 3/27
-   terminal, D41's 4/27 terminal, and D42's 4/27 terminal, without retry,
-   overwrite, relabelling, rescore, or acceptance transfer.
+   terminal, D41's 4/27 terminal, D42's 4/27 terminal, D45's 9/27 terminal,
+   and D46's combined 10/27 terminal, without retry, overwrite, relabelling,
+   rescore, or acceptance transfer.
 6. Keep `c42eef3...` RC behavior, `ceed607...` release identity, the later
    evidence descendant, and the generated stable/rollback copies distinct.
-7. Treat exact candidate `c481005...` and D43-D44 as immutable inputs. Preserve
+7. Treat exact candidate `c481005...` and D43-D46 as immutable inputs. Preserve
    D44's two carrier-correction receipts, three canary turns, one A01 product
    turn, semantic-gate false-negative terminal, and one out-of-scope assessor
    turn without replay, rescore, relabelling, or acceptance transfer. Exclude
-   that assessor output from the D44 evidence ledger. No D44 continuation is
-   authorized.
-8. Treat D45 as immutable at 9/27 and continue only the fresh ignored carrier
-   identified by portable label `WC-AR-D46` after the combined D45-result/D46-
-   authority commit. Resolve its physical location from bounded private
-   evidence; bind A01-A09 hashes without executing them; and keep D46
-   qualification, canaries, fresh consumption, budgets, and sealing independently
-   accounted from D45. Before canaries, qualify assessor-view construction,
-   allowlisting, serialization, redaction, hash binding, and negative rejection
-   on synthetic inputs with zero model turns. The D46 terminal packet combines only those
-   provenance-bound D45 rows with fresh A10-A27 rows locally. Its eligible
-   assessor receives only a separately hashed, allowlisted, validated, and
-   locally reviewed redacted view of that combined packet; no raw predecessor
-   prompt, completion, session, terminal, private path, mutable output, D45
-   assessor verdict, or acceptance transfers.
+   that assessor output from the D44 evidence ledger. Preserve D45's imported
+   A01-A09 boundary and D46's independent fresh ledger, disclosure receipt, and
+   one eligible assessor without raw predecessor-evidence transfer.
+8. Do not continue or mutate D44, D45, or D46. No D47 or other successor is
+   authorized. A future additive proposal must preserve every consumed-turn
+   and import-provenance ledger, identify the exact residual and correction,
+   and obtain a new bounded user decision before carrier construction or model
+   consumption.
 
 ## Immediate Next Action
 
-No release action remains pending for immutable `v0.1.2`. D45 is complete and
-immutable. Approved D46 proceeds through the combined D45-result/D46-authority
-commit, fresh ignored carrier, import and path-normalization qualification,
-synthetic zero-model assessor-view privacy preflight, three same-route canaries,
-fresh A10-A27 packet, independently reconciled local
-seal, validated and locally reviewed redacted assessor view, eligible assessor
-on only that view, and sanitized local D46 result commit. Small same-scope
-corrections are automatic. Push,
-installation, tag, release, stable update, cleanup, SOURCE/case/fixture/matrix/
-rubric/tracked-controller changes, and other-Skill changes remain unauthorized.
+No release action remains pending for immutable `v0.1.2`. D31-D46 are complete,
+sealed, and non-retriable. This local sanitized-result commit consumes D46's
+final closeout action, and no Work Charter Campaign writer is active. A new user
+decision is required before correcting the A11 carrier/fixture path,
+importing admitted D46 evidence into an additive successor, changing SOURCE or
+the candidate, or pursuing installation or release. Push, installation, tag,
+release, stable update, cleanup, and other-Skill changes remain unauthorized.
 
 Later user-owned choices include:
 
-- after D46 result closeout, decide candidate disposition, installation,
-  release, or public reachability only from its exact sealed evidence;
+- decide whether to authorize a bounded additive successor for the private A11
+  carrier/fixture residual, revise or retire the candidate, or leave the
+  current unaccepted state unchanged; installation, release, and public
+  reachability remain separate later decisions requiring applicable evidence;
 - after an accepted Project Docs commit, authorize an exact-commit candidate
   and write-capable synthetic persistence test;
 - begin another separately scoped development or evaluation cycle;
@@ -1001,17 +1000,13 @@ Stop before write or publication if:
 
 ## Authorization Boundary
 
-D42-D45 execution authority is consumed. Exact candidate `c481005...`, every
+D42-D46 execution authority is consumed. Exact candidate `c481005...`, every
 qualification/canary/product receipt, the assessor-deviation receipt, and all
 consumed turns are immutable and non-retriable. The assessor output is excluded
-from the D44 evidence ledger. `WC-AR-D46` authorizes only the bounded D46
-writer, ignored continuation carrier, exact D45 A01-A09 imports, declared
-network/model/assessor budget, mapped documentation, native review, and two
-local commits starting with the combined D45-result/D46-authority commit.
-The user-approved bounded assessment-boundary Replan Delta adds only the
-pre-canary synthetic privacy preflight and the validated, locally reviewed
-redacted assessor view; it resets no review, attempt, correction, or consumed
-evidence and expands no other authority.
+from the D44 evidence ledger. `WC-AR-D46` model, canary, assessor, correction,
+ignored-carrier, documentation, native-review, and two-local-commit authority
+is consumed at this checkpoint. No successor carrier, D47, SOURCE or candidate
+change, installation, release, or other external effect is authorized.
 
 No tracked controller or fixture expansion, other-Skill change, push,
 installation, tag, release, stable mutation, retained-evidence cleanup, or
@@ -1037,8 +1032,19 @@ root README pair, Authority, SPEC, Architecture, Runbook, Provenance, Decisions
 0017/0020, Work Charter SOURCE/Design/cases/fixtures/matrix/rubric/current-
 SOURCE manifest/tracked controller/package references/assets, and neighboring
 Skills. `NOT_APPLICABLE` covers candidate or stable-copy changes, installation,
-push, tag, release, cleanup, or external publication. The D45 and future D46
-physical carrier paths remain private.
+push, tag, release, cleanup, or external publication. The D45 and D46 physical
+carrier paths remain private.
+
+The D46-result documentation-impact closure is fact-first. `UPDATE` covers the
+D46 report and result index, Decision 0018, Work Charter bilingual README,
+State and Verification, root Status, Verification, Roadmap, Index, and this
+Handoff. `CHECKED_NO_CHANGE` covers repository `AGENTS.md`, the root README
+pair, Authority, SPEC, Architecture, Runbook, Provenance, Decisions 0017/0020,
+the shared evaluation method, Work Charter SOURCE/Design/cases/fixtures/matrix/
+rubric/current-SOURCE manifest/tracked controller/package references/assets,
+and neighboring Skills. `NOT_APPLICABLE` covers another candidate, installed or
+stable-copy changes, push, tag, release, cleanup, or external publication. The
+D45 and D46 raw carriers remain ignored and unpublished.
 
 The D42 result documentation-impact closure is fact-first. `UPDATE` covers the
 sanitized result/index, Work Charter bilingual public entry, per-Skill State/
