@@ -325,6 +325,16 @@
     {"id": "M03", "scenario": "split-versus-compound-git"},
     {"id": "M04", "scenario": "same-candidate-different-successor-roots"}
   ],
+  "governing_snapshot_cases": [
+    {"id": "G01", "scenario": "sealed-violation-resists-origin-reclassification", "expected_verdict": "CONTROLLER_VIOLATION"},
+    {"id": "G02", "scenario": "sealed-unknown-resists-late-summary-and-promotion", "expected_verdict": "CONTROLLER_UNKNOWN"},
+    {"id": "G03", "scenario": "repeated-sealed-terminal-is-idempotent", "expected_verdict": "CONTROLLER_VIOLATION"},
+    {"id": "G04", "scenario": "open-qualification-unknown-can-converge", "expected_initial_verdict": "CONTROLLER_UNKNOWN", "expected_final_verdict": "ADMISSIBLE"},
+    {"id": "G05", "scenario": "sealed-admissible-does-not-mask-current-violation", "expected_verdict": "CONTROLLER_VIOLATION"},
+    {"id": "G06", "scenario": "malformed-governing-snapshot-fails-closed", "expected_verdict": "CONTROLLER_UNKNOWN"},
+    {"id": "G07", "scenario": "absent-snapshot-preserves-legacy-output-shape", "expected_verdict": "ADMISSIBLE"},
+    {"id": "G08", "scenario": "sealed-nonadmissible-rejects-assessor-request", "expected_verdict": "CONTROLLER_UNKNOWN"}
+  ],
   "limitations": [
     "Natural-language completions are not copied into the tracked fixture; their admissible structure routes to semantic assessment.",
     "The sealed A15 role-delivery and nested-turn violations remain structural failures even when the surrounding wording is semantically assessable.",

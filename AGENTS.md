@@ -42,6 +42,10 @@ Before changing this repository, read:
   already owns it, and keep only a demonstrated residual, an explicit product
   requirement, or a hard boundary in the Skill. Stop if no material residual
   remains.
+- Keep root instructions limited to repository development and evaluation
+  governance. Do not copy target-Skill workflow or expected-answer guidance
+  here. When target-derived guidance cannot be removed from a native baseline,
+  label it `ambient-guidance` and do not use it for a causal native claim.
 - Do not add a Plugin, MCP service, UI, database, remote registry, or generic
   adapter framework without an accepted project decision.
 
@@ -124,6 +128,24 @@ Before changing this repository, read:
   approval. A new carrier or label never resets history; contract, candidate,
   permission, cost, workspace, consumed-evidence, installation, release, or
   cleanup changes return to the user as one complete decision.
+- Apply the newest verified Campaign authority and terminal disposition before
+  diagnosing failure origin. Reclassifying a failure as operator, controller,
+  environment, transport, or verification origin never expands authority,
+  restores a consumed budget, converts an explicit stop into recovery, or
+  creates a successor. Only a newer approved authority revision may change
+  that disposition; sealed predecessors remain immutable.
+- Before review or replan, classify each observed path delta as canonical
+  source/documentation, a declared material evidence input or ignored carrier,
+  a generated/cache by-product, or unexplained/unowned. Cache-only churn such
+  as `__pycache__/`, `*.pyc`, or `.codegraph/` is non-source and does not
+  restabilize the semantic diff. A declared ignored carrier remains bound
+  evidence and must be reconciled; unexplained deltas fail closed.
+- Before a successor Campaign, candidate, or release claims a material lesson
+  is active, record it as `PROMOTED`, `DEFERRED`, or `REJECTED`. `PROMOTED`
+  names the canonical owner, writer, effective revision, and proving check;
+  `DEFERRED` names the owner and reconsideration trigger and is not described
+  as fixed; `REJECTED` retains the evidence and reason. Chat, result, or backlog
+  text alone is not an active rule.
 - Before scarce product evidence, qualify the exact outer launch and return
   path as well as the inner provider response path. Child stdout/stderr are
   evidence data, not a function return value; phase dispatch must consume one

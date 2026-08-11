@@ -1846,6 +1846,73 @@ function Add-UniqueText {
     }
 }
 
+function ConvertTo-ControllerGoverningSnapshot {
+    param([AllowNull()][object]$Value)
+
+    $errors = [System.Collections.Generic.List[string]]::new()
+    $propertyNames = @()
+    if ($Value -is [System.Collections.IDictionary]) {
+        $propertyNames = @($Value.Keys | ForEach-Object { [string]$_ })
+    }
+    elseif ($Value -is [System.Management.Automation.PSCustomObject]) {
+        $propertyNames = @(
+            $Value.PSObject.Properties | ForEach-Object { [string]$_.Name }
+        )
+    }
+    else {
+        $errors.Add('governing_snapshot_shape_invalid')
+    }
+
+    $expectedNames = @('authority_revision', 'sealed', 'disposition')
+    if ($errors.Count -eq 0 -and (
+            @($propertyNames | Where-Object { $_ -cnotin $expectedNames }).Count -gt 0 -or
+            @($expectedNames | Where-Object { $_ -cnotin $propertyNames }).Count -gt 0
+        )) {
+        $errors.Add('governing_snapshot_shape_invalid')
+    }
+
+    $authorityState = Get-ControllerPropertyState `
+        -Object $Value `
+        -Name 'authority_revision'
+    if (-not $authorityState.Present -or
+        $authorityState.Value -isnot [string] -or
+        [string]::IsNullOrWhiteSpace([string]$authorityState.Value)) {
+        $errors.Add('governing_authority_revision_invalid')
+    }
+
+    $sealedState = Get-ControllerPropertyState -Object $Value -Name 'sealed'
+    if (-not $sealedState.Present -or $sealedState.Value -isnot [bool]) {
+        $errors.Add('governing_sealed_type_invalid')
+    }
+
+    $dispositionState = Get-ControllerPropertyState `
+        -Object $Value `
+        -Name 'disposition'
+    if (-not $dispositionState.Present -or
+        $dispositionState.Value -isnot [string] -or
+        [string]$dispositionState.Value -cnotin @(
+            'ADMISSIBLE', 'CONTROLLER_VIOLATION', 'CONTROLLER_UNKNOWN'
+        )) {
+        $errors.Add('governing_disposition_invalid')
+    }
+
+    $valid = $errors.Count -eq 0
+    return [pscustomobject]@{
+        Valid = $valid
+        Normalized = if ($valid) {
+            [ordered]@{
+                authority_revision = [string]$authorityState.Value
+                sealed = [bool]$sealedState.Value
+                disposition = [string]$dispositionState.Value
+            }
+        }
+        else {
+            $null
+        }
+        Errors = @($errors)
+    }
+}
+
 function Invoke-ControllerCore {
     param([Parameter(Mandatory)][object]$InputObject)
 
@@ -1857,6 +1924,21 @@ function Invoke-ControllerCore {
     $declinedDiagnostics = [System.Collections.Generic.List[object]]::new()
     $failedDiagnostics = [System.Collections.Generic.List[object]]::new()
     $pendingAuxiliaryReads = [System.Collections.Generic.List[object]]::new()
+    $governingSnapshotState = Get-ControllerPropertyState `
+        -Object $InputObject `
+        -Name 'governing_snapshot'
+    $governingSnapshot = [pscustomobject]@{
+        Valid = $true
+        Normalized = $null
+        Errors = @()
+    }
+    if ($governingSnapshotState.Present) {
+        $governingSnapshot = ConvertTo-ControllerGoverningSnapshot `
+            -Value $governingSnapshotState.Value
+        foreach ($error in @($governingSnapshot.Errors)) {
+            Add-UniqueText -List $unknowns -Value ([string]$error)
+        }
+    }
 
     if ($null -eq $policy -or $null -eq $evidence) {
         Add-UniqueText -List $unknowns -Value 'policy_or_evidence_missing'
@@ -2587,12 +2669,26 @@ function Invoke-ControllerCore {
     else {
         'ADMISSIBLE'
     }
+    $governingSnapshotSealsNonAdmissible = (
+        $governingSnapshotState.Present -and
+        $governingSnapshot.Valid -and
+        [bool]$governingSnapshot.Normalized.sealed -and
+        [string]$governingSnapshot.Normalized.disposition -in @(
+            'CONTROLLER_VIOLATION', 'CONTROLLER_UNKNOWN'
+        )
+    )
+    $assessmentBoundaryVerdict = if ($governingSnapshotSealsNonAdmissible) {
+        [string]$governingSnapshot.Normalized.disposition
+    }
+    else {
+        $preliminaryVerdict
+    }
     if ($assessorRequested -is [bool] -and $assessorRequested -and
-        $preliminaryVerdict -ne 'ADMISSIBLE') {
+        $assessmentBoundaryVerdict -ne 'ADMISSIBLE') {
         Add-UniqueText -List $violations -Value 'assessor_requested_without_admissible_controller_result'
     }
 
-    $verdict = if ($violations.Count -gt 0) {
+    $computedVerdict = if ($violations.Count -gt 0) {
         'CONTROLLER_VIOLATION'
     }
     elseif ($unknowns.Count -gt 0) {
@@ -2600,6 +2696,12 @@ function Invoke-ControllerCore {
     }
     else {
         'ADMISSIBLE'
+    }
+    $verdict = $computedVerdict
+    $governingSnapshotApplied = $false
+    if ($governingSnapshotSealsNonAdmissible) {
+        $verdict = [string]$governingSnapshot.Normalized.disposition
+        $governingSnapshotApplied = $true
     }
     $semanticDisposition = if ($semanticRequired) {
         'SEMANTIC_ASSESSMENT_REQUIRED'
@@ -2611,7 +2713,7 @@ function Invoke-ControllerCore {
         'NOT_APPLICABLE'
     }
 
-    return [ordered]@{
+    $result = [ordered]@{
         schema_version = $script:ControllerSchema
         verdict = $verdict
         semantic_disposition = $semanticDisposition
@@ -2625,6 +2727,12 @@ function Invoke-ControllerCore {
         violations = @($violations | Sort-Object)
         unknowns = @($unknowns | Sort-Object)
     }
+    if ($governingSnapshotState.Present) {
+        $result['computed_verdict'] = $computedVerdict
+        $result['governing_snapshot'] = $governingSnapshot.Normalized
+        $result['governing_snapshot_applied'] = $governingSnapshotApplied
+    }
+    return $result
 }
 
 function Invoke-CodexEvidenceController {

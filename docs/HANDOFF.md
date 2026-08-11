@@ -21,13 +21,31 @@ Last updated: 2026-08-11
   5 files, each matching the `v0.1.2` Git blobs
 - Rollback identity: immutable `v0.1.1` retained as a separately verified
   three-package backup
-- Writer boundary: one bounded D49 closeout writer owns the single repository
-  lane for the sanitized D49 result, mapped documentation consumers,
-  deterministic verification, native review, and one local result commit.
-  D31-D49 and all consumed turns/carriers remain immutable. SOURCE, cases,
-  fixtures, tracked controller, other Skills, successor model/provider or
-  assessor calls, push, installation, tag, release, stable update, cleanup, and
-  unlisted external effects remain excluded
+- Writer handoff boundary: the current bounded governing-snapshot commit task
+  is the sole writer. The user explicitly authorized only staging the exact
+  eight-file set below and creating one local commit after the applicable
+  native-review gate. That one-time authority belongs only to this task, does
+  not transfer to a successor, and ends on commit success or a terminal stop.
+  Its starting baseline was local `main` at
+  `32db80ca42d3dbcc7f69b58c35670c765d858ed7` with an empty index. Its intended
+  commit has eight tracked files: inherited global-method changes in `AGENTS.md`
+  and `docs/RUNBOOK.md`; shared inherited plus controller-contract changes in
+  `evals/README.md`; and controller-task changes in `docs/HANDOFF.md`,
+  `docs/VERIFICATION.md`, `evals/check-codex-evidence-controller.ps1`,
+  `evals/codex-evidence-controller-cases.json`, and
+  `evals/codex-evidence-controller.psm1`. D31-D49 and all consumed turns/
+  carriers remain immutable. Skill SOURCE, behavior cases, fixtures, candidate
+  or acceptance state, successor model/provider or assessor calls, every Git
+  effect other than that exact stage-and-local-commit closeout, installation,
+  tag, release, stable update, cleanup, and unlisted external effects remain
+  excluded
+- Ignored-carrier boundary: one opaque ordinary controller-scratch directory
+  predates this writer window. Its provenance remains `UNKNOWN`; this task read
+  metadata only and did not open, reinterpret, or clean the carrier. Native
+  review also created the ordinary ignored scratch
+  `.eval-runs/review-sealed-unknown-assessor` for a bounded synthetic probe;
+  cleanup was not authorized and was not performed. Neither directory is
+  source or part of the intended commit
 
 D43 has resolved D42's open product choice: indirect proposals are metadata-
 sufficient and must not prescribe Work Charter workflow; direct intent or
@@ -978,11 +996,16 @@ created the fact class; it did not require or authorize speculative files.
 ## Immediate Next Action
 
 No release action remains pending for immutable `v0.1.2`. D31-D49 are complete,
-sealed or terminal, and non-retriable. Finish the approved D49 sanitized result
-and mapped documentation diff, run deterministic checks and native review, then
-create the single authorized local result commit. The next user gate is one
-product decision on the A18 released-control boundary; no successor model call
-starts before a new complete Campaign decision.
+sealed or terminal, and non-retriable; the D49 sanitized closeout was the
+starting HEAD for this change. The governing-snapshot controller guard entered
+one-time local-commit closeout after deterministic checks and native review.
+That authority covers only the exact eight paths above, terminates when the
+commit succeeds or this attempt stops, and conveys no Git authority to a future
+writer. Any successor must resolve current HEAD, index, dirty ownership, and
+ignored carriers, preserve the shared `evals/README.md` provenance, and obtain
+fresh authorization before another commit or Git effect. The next product gate
+remains a separate user decision on the A18 released-control boundary; no
+successor model call starts before a new complete Campaign decision.
 
 Later user-owned choices include:
 

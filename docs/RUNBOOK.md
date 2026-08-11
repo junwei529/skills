@@ -1,6 +1,6 @@
 # Development, Installation, And Release Runbook
 
-Last updated: 2026-08-10
+Last updated: 2026-08-11
 
 ## Quick Navigation
 
@@ -292,6 +292,29 @@ selection/behavior conditions. Record one explicit disposition: retain,
 simplify, delegate, or retire. Safety, authorization, evidence, and recovery
 cases remain independent hard gates.
 
+### Promote Observed Lessons
+
+A chat conclusion, result notice, historical decision, or backlog sentence is
+evidence of an observed lesson, not proof that future work is governed by it.
+Before a successor Campaign, candidate, or release claims that a material
+lesson is active, record exactly one disposition:
+
+- `PROMOTED`: name the existing canonical owner, responsible writer, effective
+  revision or boundary, and the check that proves the selected copy or
+  deterministic consumer implements it;
+- `DEFERRED`: name the owner and concrete reconsideration trigger, and carry the
+  gap as an unresolved risk or stop condition rather than describing it as
+  fixed; or
+- `REJECTED`: retain the evidence and concise reason without copying the rule
+  into another owner.
+
+Route portable semantic policy to the narrowest existing project, Skill, or
+repository owner and mechanical enforcement to the owning controller and
+tests. Freezing a candidate may justify deferring its SOURCE change, but a
+successor cannot rely on that lesson until the promoted revision is verified.
+This procedure is prospective and never retries, rescores, or relabels sealed
+evidence.
+
 Reuse an existing baseline only when its exact identity and all relevant
 conditions remain unchanged. Mark genuinely irrelevant dimensions as not
 applicable and rerun only affected conditions; proportional evaluation does
@@ -358,6 +381,14 @@ workspaces, establish a private test home, validate mappings, run deterministic
 controllers, reconcile predecessor evidence, and freeze inputs. It consumes no
 product-behavior cell.
 
+Before interpreting a manifest delta as product, controller, or workspace
+drift, classify every observed path as canonical source/documentation, a
+declared material evidence input or ignored carrier, a generated/cache by-
+product, or unexplained/unowned. Cache-only creation, modification, or removal
+does not restabilize the semantic review target or justify replan. A declared
+ignored carrier remains material evidence under its inventory and freeze
+contract; an unexplained delta fails qualification closed.
+
 Before relying on a live model/provider route, run one explicitly authorized
 same-boundary transport canary. Match every material transport dimension:
 
@@ -404,6 +435,12 @@ Campaign predeclares the remaining cells as independent. Stop the whole
 Campaign for candidate, controller, authorization, safety, shared workspace or
 input, or provenance drift. A missing required reference cell blocks
 acceptance even when other independent cells continue.
+
+Apply the newest verified Campaign authority and terminal disposition before
+using failure origin to choose a response. Reclassification as operator,
+controller, environment, transport, or verification origin may guide diagnosis
+only within actions that remain authorized; it never restores a consumed
+budget, converts an explicit stop into recovery, or creates a successor.
 
 Trigger the authorized independent assessment automatically only after at
 least one product-behavior cell is admitted and the required product packet

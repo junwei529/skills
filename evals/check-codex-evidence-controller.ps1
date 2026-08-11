@@ -4143,6 +4143,265 @@ function Test-LogicalCandidateIdentityGuards {
     return @($checks)
 }
 
+function Test-GoverningSnapshotGuards {
+    param([Parameter(Mandatory)][string]$GuardRoot)
+
+    $checks = [System.Collections.Generic.List[object]]::new()
+    foreach ($case in @($cases.governing_snapshot_cases)) {
+        $caseRoot = Join-Path $GuardRoot ([string]$case.id)
+        $passed = $false
+        $reportedVerdict = 'NOT_INVOKED'
+        $reportedHash = $null
+
+        switch ([string]$case.scenario) {
+            'sealed-violation-resists-origin-reclassification' {
+                $operatorInput = New-BaseControllerInput `
+                    -Candidate b965102 `
+                    -CaseRoot (Join-Path $caseRoot 'operator')
+                $operatorInput | Add-Member `
+                    -NotePropertyName governing_snapshot `
+                    -NotePropertyValue ([pscustomobject]@{
+                        authority_revision = 'synthetic-authority/v1'
+                        sealed = $true
+                        disposition = 'CONTROLLER_VIOLATION'
+                    })
+                $operatorInput | Add-Member `
+                    -NotePropertyName failure_origin `
+                    -NotePropertyValue 'operator'
+                $controllerInput = Copy-ControllerValue -Value $operatorInput
+                $controllerInput.failure_origin = 'controller'
+                $operatorResult = Invoke-CodexEvidenceController `
+                    -Mode terminal-stage `
+                    -InputObject $operatorInput
+                $controllerResult = Invoke-CodexEvidenceController `
+                    -Mode terminal-stage `
+                    -InputObject $controllerInput
+                $operatorJson = ConvertTo-CodexCanonicalJson `
+                    -InputObject $operatorResult.adjudication
+                $controllerJson = ConvertTo-CodexCanonicalJson `
+                    -InputObject $controllerResult.adjudication
+                $reportedVerdict = [string]$operatorResult.adjudication.verdict
+                $reportedHash = Get-CodexCanonicalHash `
+                    -InputObject $operatorResult.adjudication
+                $passed = (
+                    $reportedVerdict -ceq [string]$case.expected_verdict -and
+                    $operatorResult.adjudication.computed_verdict -ceq 'ADMISSIBLE' -and
+                    $operatorResult.adjudication.governing_snapshot_applied -eq $true -and
+                    $operatorJson -ceq $controllerJson
+                )
+            }
+            'sealed-unknown-resists-late-summary-and-promotion' {
+                $baseInput = New-BaseControllerInput `
+                    -Candidate b965102 `
+                    -CaseRoot (Join-Path $caseRoot 'base')
+                $baseInput | Add-Member `
+                    -NotePropertyName governing_snapshot `
+                    -NotePropertyValue ([pscustomobject]@{
+                        authority_revision = 'synthetic-authority/v2'
+                        sealed = $true
+                        disposition = 'CONTROLLER_UNKNOWN'
+                    })
+                $lateInput = Copy-ControllerValue -Value $baseInput
+                $lateInput | Add-Member `
+                    -NotePropertyName terminal_summary `
+                    -NotePropertyValue 'late-summary'
+                $lateInput | Add-Member `
+                    -NotePropertyName lesson_promotion `
+                    -NotePropertyValue 'PROMOTED'
+                $baseResult = Invoke-CodexEvidenceController `
+                    -Mode terminal-stage `
+                    -InputObject $baseInput
+                $lateResult = Invoke-CodexEvidenceController `
+                    -Mode terminal-stage `
+                    -InputObject $lateInput
+                $baseJson = ConvertTo-CodexCanonicalJson `
+                    -InputObject $baseResult.adjudication
+                $lateJson = ConvertTo-CodexCanonicalJson `
+                    -InputObject $lateResult.adjudication
+                $reportedVerdict = [string]$baseResult.adjudication.verdict
+                $reportedHash = Get-CodexCanonicalHash `
+                    -InputObject $baseResult.adjudication
+                $passed = (
+                    $reportedVerdict -ceq [string]$case.expected_verdict -and
+                    $baseResult.adjudication.computed_verdict -ceq 'ADMISSIBLE' -and
+                    $baseResult.adjudication.governing_snapshot_applied -eq $true -and
+                    $baseJson -ceq $lateJson
+                )
+            }
+            'repeated-sealed-terminal-is-idempotent' {
+                $inputObject = New-BaseControllerInput `
+                    -Candidate b965102 `
+                    -CaseRoot $caseRoot
+                $inputObject | Add-Member `
+                    -NotePropertyName governing_snapshot `
+                    -NotePropertyValue ([pscustomobject]@{
+                        authority_revision = 'synthetic-authority/v3'
+                        sealed = $true
+                        disposition = 'CONTROLLER_VIOLATION'
+                    })
+                $first = Invoke-CodexEvidenceController `
+                    -Mode terminal-stage `
+                    -InputObject $inputObject
+                $second = Invoke-CodexEvidenceController `
+                    -Mode terminal-stage `
+                    -InputObject $inputObject
+                $firstJson = ConvertTo-CodexCanonicalJson -InputObject $first.adjudication
+                $secondJson = ConvertTo-CodexCanonicalJson -InputObject $second.adjudication
+                $reportedVerdict = [string]$first.adjudication.verdict
+                $reportedHash = Get-CodexCanonicalHash -InputObject $first.adjudication
+                $passed = (
+                    $reportedVerdict -ceq [string]$case.expected_verdict -and
+                    $firstJson -ceq $secondJson -and
+                    @($first.adjudication.violations).Count -eq
+                        @($first.adjudication.violations | Select-Object -Unique).Count -and
+                    @($first.adjudication.unknowns).Count -eq
+                        @($first.adjudication.unknowns | Select-Object -Unique).Count -and
+                    $null -eq $first.adjudication.PSObject.Properties['terminal_count']
+                )
+            }
+            'open-qualification-unknown-can-converge' {
+                $initialInput = New-BaseControllerInput `
+                    -Candidate b965102 `
+                    -CaseRoot (Join-Path $caseRoot 'initial')
+                $initialInput | Add-Member `
+                    -NotePropertyName governing_snapshot `
+                    -NotePropertyValue ([pscustomobject]@{
+                        authority_revision = 'synthetic-authority/v4'
+                        sealed = $false
+                        disposition = 'CONTROLLER_UNKNOWN'
+                    })
+                $initialInput.evidence.assessor_requested = 'false'
+                $finalInput = Copy-ControllerValue -Value $initialInput
+                $finalInput.evidence.assessor_requested = $false
+                $initialResult = Invoke-CodexEvidenceController `
+                    -Mode preflight `
+                    -InputObject $initialInput
+                $finalResult = Invoke-CodexEvidenceController `
+                    -Mode preflight `
+                    -InputObject $finalInput
+                $reportedVerdict = [string]$finalResult.adjudication.verdict
+                $reportedHash = Get-CodexCanonicalHash `
+                    -InputObject $finalResult.adjudication
+                $passed = (
+                    $initialResult.adjudication.verdict -ceq
+                        [string]$case.expected_initial_verdict -and
+                    $finalResult.adjudication.verdict -ceq
+                        [string]$case.expected_final_verdict -and
+                    $initialResult.adjudication.governing_snapshot_applied -eq $false -and
+                    $finalResult.adjudication.governing_snapshot_applied -eq $false
+                )
+            }
+            'sealed-admissible-does-not-mask-current-violation' {
+                $inputObject = New-BaseControllerInput `
+                    -Candidate b965102 `
+                    -CaseRoot $caseRoot
+                $inputObject | Add-Member `
+                    -NotePropertyName governing_snapshot `
+                    -NotePropertyValue ([pscustomobject]@{
+                        authority_revision = 'synthetic-authority/v5'
+                        sealed = $true
+                        disposition = 'ADMISSIBLE'
+                    })
+                $inputObject.evidence.role_deliveries = @(
+                    [pscustomobject]@{ authorized = $false }
+                )
+                $result = Invoke-CodexEvidenceController `
+                    -Mode terminal-stage `
+                    -InputObject $inputObject
+                $reportedVerdict = [string]$result.adjudication.verdict
+                $reportedHash = Get-CodexCanonicalHash -InputObject $result.adjudication
+                $passed = (
+                    $reportedVerdict -ceq [string]$case.expected_verdict -and
+                    $result.adjudication.computed_verdict -ceq 'CONTROLLER_VIOLATION' -and
+                    $result.adjudication.governing_snapshot_applied -eq $false -and
+                    @($result.adjudication.violations) -contains 'unauthorized_role_delivery'
+                )
+            }
+            'malformed-governing-snapshot-fails-closed' {
+                $inputObject = New-BaseControllerInput `
+                    -Candidate b965102 `
+                    -CaseRoot $caseRoot
+                $inputObject | Add-Member `
+                    -NotePropertyName governing_snapshot `
+                    -NotePropertyValue ([pscustomobject]@{
+                        authority_revision = 'synthetic-authority/v6'
+                        sealed = 'true'
+                        disposition = 'CONTROLLER_UNKNOWN'
+                    })
+                $result = Invoke-CodexEvidenceController `
+                    -Mode terminal-stage `
+                    -InputObject $inputObject
+                $reportedVerdict = [string]$result.adjudication.verdict
+                $reportedHash = Get-CodexCanonicalHash -InputObject $result.adjudication
+                $passed = (
+                    $reportedVerdict -ceq [string]$case.expected_verdict -and
+                    @($result.adjudication.unknowns) -contains
+                        'governing_sealed_type_invalid' -and
+                    $null -eq $result.adjudication.governing_snapshot -and
+                    $result.adjudication.governing_snapshot_applied -eq $false
+                )
+            }
+            'absent-snapshot-preserves-legacy-output-shape' {
+                $inputObject = New-BaseControllerInput `
+                    -Candidate b965102 `
+                    -CaseRoot $caseRoot
+                $result = Invoke-CodexEvidenceController `
+                    -Mode runtime `
+                    -InputObject $inputObject
+                $reportedVerdict = [string]$result.adjudication.verdict
+                $reportedHash = Get-CodexCanonicalHash -InputObject $result.adjudication
+                $passed = (
+                    $reportedVerdict -ceq [string]$case.expected_verdict -and
+                    $null -eq $result.adjudication.PSObject.Properties['computed_verdict'] -and
+                    $null -eq $result.adjudication.PSObject.Properties['governing_snapshot'] -and
+                    $null -eq $result.adjudication.PSObject.Properties[
+                        'governing_snapshot_applied'
+                    ]
+                )
+            }
+            'sealed-nonadmissible-rejects-assessor-request' {
+                $inputObject = New-BaseControllerInput `
+                    -Candidate b965102 `
+                    -CaseRoot $caseRoot
+                $inputObject | Add-Member `
+                    -NotePropertyName governing_snapshot `
+                    -NotePropertyValue ([pscustomobject]@{
+                        authority_revision = 'synthetic-authority/v7'
+                        sealed = $true
+                        disposition = 'CONTROLLER_UNKNOWN'
+                    })
+                $inputObject.evidence.assessor_requested = $true
+                $result = Invoke-CodexEvidenceController `
+                    -Mode terminal-stage `
+                    -InputObject $inputObject
+                $reportedVerdict = [string]$result.adjudication.verdict
+                $reportedHash = Get-CodexCanonicalHash -InputObject $result.adjudication
+                $passed = (
+                    $reportedVerdict -ceq [string]$case.expected_verdict -and
+                    $result.adjudication.computed_verdict -ceq
+                        'CONTROLLER_VIOLATION' -and
+                    $result.adjudication.governing_snapshot_applied -eq $true -and
+                    @($result.adjudication.violations) -contains
+                        'assessor_requested_without_admissible_controller_result' -and
+                    $result.adjudication.may_request_semantic_assessment -eq $false
+                )
+            }
+            default {
+                throw "Unhandled governing snapshot scenario: $($case.scenario)"
+            }
+        }
+
+        $checks.Add([ordered]@{
+            id = [string]$case.id
+            passed = $passed
+            verdict = $reportedVerdict
+            hash = $reportedHash
+        })
+    }
+
+    return @($checks)
+}
+
 $final = $null
 $runRootReady = $false
 $scratchReady = $false
@@ -4218,6 +4477,9 @@ try {
     $logicalCandidateIdentityGuards = Test-LogicalCandidateIdentityGuards -GuardRoot (
         Join-Path $scratchFull 'logical-candidate-identity-guards'
     )
+    $governingSnapshotGuards = Test-GoverningSnapshotGuards -GuardRoot (
+        Join-Path $scratchFull 'governing-snapshot-guards'
+    )
     $runOneRoundTrip = $runOneJson | ConvertFrom-Json -Depth 100
     $historicalOutputShapeGuards = @([ordered]@{
         id = 'historical-violation-arrays-preserve-empty-shape'
@@ -4266,6 +4528,9 @@ try {
     $allLogicalCandidateIdentityGuards = @(
         $logicalCandidateIdentityGuards | Where-Object { -not $_.passed }
     ).Count -eq 0
+    $allGoverningSnapshotGuards = @(
+        $governingSnapshotGuards | Where-Object { -not $_.passed }
+    ).Count -eq 0
     $allHistoricalOutputShapeGuards = @(
         $historicalOutputShapeGuards | Where-Object { -not $_.passed }
     ).Count -eq 0
@@ -4298,6 +4563,7 @@ try {
         $allContentProofIdentityGuards -and
         $allRecordCardinalityAndExitGuards -and
         $allLogicalCandidateIdentityGuards -and
+        $allGoverningSnapshotGuards -and
         $allHistoricalOutputShapeGuards -and
         $allOutputNoClobberGuards -and
         $runOne.all_entry_modes_share_core -and
@@ -4329,6 +4595,7 @@ try {
         @($contentProofIdentityGuards | Where-Object { -not $_.passed } | ForEach-Object { "content-proof-identity-guard:$($_.id)" }) +
         @($recordCardinalityAndExitGuards | Where-Object { -not $_.passed } | ForEach-Object { "record-cardinality-and-exit-guard:$($_.id)" }) +
         @($logicalCandidateIdentityGuards | Where-Object { -not $_.passed } | ForEach-Object { "logical-candidate-identity-guard:$($_.id)" }) +
+        @($governingSnapshotGuards | Where-Object { -not $_.passed } | ForEach-Object { "governing-snapshot-guard:$($_.id)" }) +
         @($historicalOutputShapeGuards | Where-Object { -not $_.passed } | ForEach-Object { "historical-output-shape-guard:$($_.id)" }) +
         @($outputNoClobberGuards | Where-Object { -not $_.passed } | ForEach-Object { "output-no-clobber-guard:$($_.id)" })
     )
@@ -4456,6 +4723,11 @@ try {
             passed = @($logicalCandidateIdentityGuards | Where-Object passed).Count
             total = @($logicalCandidateIdentityGuards).Count
             identities = @($logicalCandidateIdentityGuards)
+        }
+        governing_snapshot_guards = [ordered]@{
+            passed = @($governingSnapshotGuards | Where-Object passed).Count
+            total = @($governingSnapshotGuards).Count
+            identities = @($governingSnapshotGuards)
         }
         historical_output_shape_guards = [ordered]@{
             passed = @($historicalOutputShapeGuards | Where-Object passed).Count

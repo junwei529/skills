@@ -163,6 +163,22 @@ admit an unchanged inventory while the transport still yields no model output;
 that is not product evidence. Likewise, environment noise does not erase a
 separately observed product-boundary violation.
 
+The newest verified Campaign authority and terminal disposition take
+precedence over failure-origin diagnosis. Reclassifying an event as operator,
+controller, environment, transport, or verification origin never expands
+authority, restores a consumed budget, converts an explicit stop into recovery,
+or creates a successor. Only a newer approved authority revision may change
+that disposition.
+
+Classify every observed artifact before interpreting a delta:
+
+| Artifact role | Evaluation treatment |
+|---|---|
+| Canonical source or documentation | Part of the semantic subject and review target when authorized |
+| Declared material evidence input or ignored carrier | Inventory, bind, freeze, and reconcile even when Git omits it |
+| Generated/cache by-product | Account for it, but do not treat cache-only churn as semantic drift or a new review target |
+| Unexplained or unowned artifact | Fail qualification closed until ownership and materiality are resolved |
+
 Once the declared consumption point is crossed, preserve the event exactly.
 Do not retry, replace, rescore, or relabel it through a new task, carrier,
 successor, epoch, attempt, or candidate name. A new candidate gets a new
@@ -522,6 +538,45 @@ Free-form natural-language equivalence is never decided by marker phrases: an
 otherwise admissible response is labelled `SEMANTIC_ASSESSMENT_REQUIRED`,
 while an explicitly exact-response protocol may be checked byte-for-byte.
 
+An optional top-level `governing_snapshot` provides a narrow monotonic merge
+with an already established controller disposition. It has exactly three
+fields: a nonempty opaque `authority_revision`, a Boolean `sealed`, and a
+`disposition` from the controller's existing three-verdict set. The revision is
+provenance, not authority created by this module. A malformed snapshot fails
+closed as `CONTROLLER_UNKNOWN`. When the snapshot is valid and seals
+`CONTROLLER_VIOLATION` or `CONTROLLER_UNKNOWN`, that governing disposition is
+preserved exactly; the newly computed verdict and diagnostics remain visible,
+but cannot reopen or admit the work. An open snapshot is not applied, so an
+intermediate qualification unknown can converge on legal new evidence. A
+sealed `ADMISSIBLE` snapshot cannot mask a newly computed unknown or violation.
+If assessment is requested while an applied snapshot seals a non-admissible
+disposition, the controller records
+`assessor_requested_without_admissible_controller_result` in the fresh
+diagnostics while preserving the exact sealed disposition as the effective
+verdict.
+When the field is absent, the legacy adjudication shape and behavior are
+unchanged. When present, the result also reports `computed_verdict`, the
+normalized snapshot or `null`, and `governing_snapshot_applied`.
+
+Failure-origin labels, late summaries, and lesson dispositions are deliberately
+outside this snapshot and do not change its result. The producer remains
+responsible for mapping any richer `STOP` or `HARD_STOP` contract into the
+existing controller disposition before invocation. This guard does not create
+a generic lifecycle state machine, successor, retry, recovery, or action
+authority. Eight deterministic governing-snapshot guards cover operator versus
+controller origin, late summary/promotion, repeat idempotency without counters,
+sealed violation and unknown, open-unknown convergence, sealed-admissible
+non-masking, malformed input, absent-field compatibility, and the assessment
+boundary for an applied non-admissible snapshot.
+
+The following broader lessons remain `DEFERRED`; G01-G08 do not claim them:
+
+| Deferred lesson | Owner | Trigger | Acceptance |
+|---|---|---|---|
+| Campaign cell and attempt cardinality across producers | The exact future Campaign runner/carrier contract, not this tracked module | A tracked producer is introduced or a reproducible zero/duplicate/extra-consumption false green recurs | Deterministic expected/actual/unique counts at the consumption boundary, with zero, duplicate, and extra negatives that stop before product evidence |
+| Exhaustive enumeration of producer states and dispositions | The producer schema and its adapter/validator | A closed enumeration becomes part of a tracked producer-consumer contract | Every allowed value has a positive case; missing and unknown values fail closed; producer and consumer use the same pinned schema revision |
+| Outer-launcher, phase-dispatch, and postprocessor ordering | The tracked outer runner or dispatcher that owns those steps | Such a pipeline becomes tracked or an ordering defect can bypass a terminal branch | One causal sequence proves typed child exit propagation and exactly-once branch entry; every stop branch prevents later consumption and postprocessing cannot rewrite the terminal |
+
 The tracked cases derive sanitized structural regressions from bounded sealed
 summaries and adjudication records. Each historical case consumes one
 versioned binding that couples a public logical source key, a hash-only
@@ -717,8 +772,9 @@ blank, malformed-observed, and malformed-expected inputs. The regression's
 historical violation fields remain arrays even when empty, with one output-
 shape guard proving `[]` rather than `[null]`.
 The terminal `failures` array enumerates every group and scalar gate used by the
-aggregate verdict, including command resolution, canonical repeat, baseline and
-package identities, candidate output identity, and sealed-input verification.
+aggregate verdict, including command resolution, governing snapshots,
+canonical repeat, baseline and package identities, candidate output identity,
+and sealed-input verification.
 Recomputing a generated-contract or binding hash after changing a command,
 effect, or expected result is not authorization for that change; the tracked
 case contract still requires its normal scoped review.

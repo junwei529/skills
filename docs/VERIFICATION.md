@@ -20,18 +20,18 @@ Sanitized detailed runs remain under [`evals/results`](../evals/results/README.m
 | Check | Purpose | Current result |
 |---|---|---|
 | Changed Skill validator | Validate frontmatter and package name without changing the package | unchanged exact `c481005...` Work Charter package passes the bundled `skill-creator` validator; this eval-contract revision changes no Skill SOURCE |
-| Repository checker | Validate strict UTF-8/no BOM, whitespace, local links/fragments, publication safety, exact Skill/eval sets, federated docs, and bilingual navigation | passes with 209 text files / 14 cases / 12 fixtures for the current D49 result closeout |
-| Fixture checker | Validate synthetic starting states and their Git/reparse/ignored-result boundaries plus the tracked controller regression | all 17 checks pass; the case contract changes but no fixture or controller-code byte changes |
-| Codex evidence controller | Validate one shared core across four entry modes, strict required-read versus bounded auxiliary-observation attribution, structural PowerShell/Git/path classification, source-and-generated-contract-bound historical regressions, exact package manifests, candidate-identity and content-proof shape, record cardinality, completed exit typing, output-array shape, per-key single-capture sealed parsing and reuse, real-reparse rejection, fail-closed negatives, external-input types, independently resolved inner/wrapper command identity, Git-read and external-filter safety, profile-free PowerShell wrappers, culture-independent canonical ordering, metamorphic equivalence, output no-clobber, and canonical repeatability | passes exact current-SOURCE package identity, 11/11 historical, 32/32 evidence-surface, 33/33 negative, 4/4 metamorphic, 3/3 manifest-hash guards, all reported structural guards, and zero external model or assessor calls; tracked controller and sealed carriers are unchanged |
-| CRG supplemental preflight | Sharpen structural review scope when the maintained index represents the intended diff | degraded: the local graph was built at `763a15e...`, does not match current HEAD, and indexes only 34 PowerShell/Python files; it cannot represent the current 12-file Markdown-only D49 result closure, so native review must inspect the actual diff |
-| Native Codex review | Review the exact uncommitted Work Charter SOURCE/evaluation/documentation or result closure | the current 12-file D49 result closure is subject to the native commit gate; its review disposition belongs outside the bytes under review, while the earlier SOURCE/evaluation correction and its cumulative finding history remain preserved by commit `81e7667...` |
+| Repository checker | Validate strict UTF-8/no BOM, whitespace, local links/fragments, publication safety, exact Skill/eval sets, federated docs, and bilingual navigation | passes with 209 text files / 14 cases / 12 fixtures for the current working revision |
+| Fixture checker | Validate synthetic starting states and their Git/reparse/ignored-result boundaries plus the tracked controller regression | all 17 checks pass; the governing-snapshot case contract and controller code change, while behavior fixtures remain unchanged |
+| Codex evidence controller | Validate one shared core across four entry modes, strict required-read versus bounded auxiliary-observation attribution, structural PowerShell/Git/path classification, source-and-generated-contract-bound historical regressions, exact package manifests, candidate-identity and content-proof shape, record cardinality, completed exit typing, optional sealed governing-disposition monotonicity, output-array shape, per-key single-capture sealed parsing and reuse, real-reparse rejection, fail-closed negatives, external-input types, independently resolved inner/wrapper command identity, Git-read and external-filter safety, profile-free PowerShell wrappers, culture-independent canonical ordering, metamorphic equivalence, output no-clobber, and canonical repeatability | passes exact current-SOURCE package identity, 11/11 historical, 32/32 evidence-surface, 33/33 negative, 4/4 metamorphic, 8/8 governing-snapshot guards, 3/3 manifest-hash guards, all reported structural guards, and zero external model or assessor calls; private sealed carriers remain unchanged |
+| CRG supplemental preflight | Sharpen structural review scope when the maintained index represents the intended diff | degraded for this change: exact-file queries did not surface the PowerShell module or checker, so direct source inspection was used; no graph claim substitutes for review of the current eight-file diff |
+| Native Codex review | Review the exact uncommitted controller/governance change before any commit | cycle 1 review 1/5 found one P2 assessment-boundary gap and review 3/5 found one P1 handoff-authority contradiction; G08 closes the former, the handoff now bounds one non-transferable exact local commit, and review 2/5 found no controller or regression issue after the first correction |
 | Isolated controller canary | Record the bounded disposition of one private path-bound infrastructure check without broadening behavior claims | retained sealed `CANARY_PASS`; the public summary reports an exact-response pass and no command execution, omits private locator/artifact/runtime details, and leaves physical backend request count `UNKNOWN` |
 | Work Charter D36/D37/D40, D34/D41 predecessors, and D42-D49 terminals | Preserve additive predecessors and separate product behavior from route, tool, qualification, eval-contract, authorization, environment, and private-carrier failures | D36 and D40 remain immutable incomplete `DECISION_REQUIRED` packets; D37 remains boundary-only evidence; D34 permits native package loading before confirmation; D41 records A04 product-visible and A05 evaluation-shape findings; D42 remains invalidly qualified; D43 stopped at `SANDBOX_NETWORK_TRANSPORT`; D44 sealed at 0/27 on a semantic-gate false negative; D45 sealed at 9/27 on missing-path normalization; D46 sealed at combined 10/27 after private fixture postprocessing failed; D47 stopped before product evidence on provider/account model availability; D48 sealed at combined 13/27 when A14 lacked frozen loaded-copy proof under an ambiguous prompt; D49 proved the corrected A14 route, then sealed at combined 17/28 when released-control A18 attempted an unauthorized direct file read; one eligible assessor returned `DECISION_REQUIRED`, A20/contrasts did not start, and exact candidate `c481005...` remains unaccepted |
 | PowerShell deterministic hardening | Validate cardinality, LF bytes, one-base paths, and Junction link-only removal | 15 assertions pass in PowerShell 7 and Windows PowerShell 5.1 |
-| PowerShell parser sweep | Parse all `evals/**/*.ps1` files and the tracked controller module | all eight tracked PowerShell files parse; no tracked PowerShell file changes |
+| PowerShell parser sweep | Parse all `evals/**/*.ps1` files and the tracked controller module | all eight tracked PowerShell files parse after the controller module and focused checker change |
 | Markdown navigation and ownership | Verify local links/fragments, English/Chinese routes, expected per-Skill owners, and no orphan canonical owner | passes through repository checker |
 | `git diff --check` | Reject whitespace defects in the working revision | passes for the current tracked diff with an untouched index |
-| Gitleaks | Detect secret-like content independently | exact 12-file D49 publication scan passes with zero findings; retained ignored private carriers remain outside the publication surface and no raw carrier content is published |
+| Gitleaks | Detect secret-like content independently | the exact historical D49 publication scan passed with zero findings; no Gitleaks run was authorized for the current eight-file diff, while repository publication-safety checks pass and no ignored-carrier content is published |
 
 ## Repository Claim Ledger
 
@@ -1682,6 +1682,36 @@ zero model or assessor calls; all eight tracked PowerShell parses; `git diff
 --check`; and an exact 12-file Gitleaks publication scan with zero findings.
 These checks validate the sanitized record and documentation closure, not the
 incomplete behavior packet or candidate acceptance.
+
+### 2026-08-11 — Governing-disposition monotonic controller guard
+
+The tracked controller now accepts one optional, strictly shaped external
+`governing_snapshot`. A valid snapshot can preserve a sealed
+`CONTROLLER_VIOLATION` or `CONTROLLER_UNKNOWN` against later origin
+reclassification, summary, lesson-promotion, or postprocessing metadata. The
+fresh computation and diagnostics remain visible, while the effective result
+stays non-admissible. Open snapshots do not lock an intermediate unknown, and a
+sealed admissible snapshot cannot suppress a newly computed failure. Missing
+snapshots retain the prior output shape; malformed snapshots fail closed. An
+assessor request against an applied non-admissible snapshot is diagnosed as a
+fresh controller violation without changing the exact sealed effective
+disposition.
+
+The focused regression passes 8/8 new governing-snapshot guards plus the
+unchanged 11/11 historical, 32/32 evidence-surface, 33/33 negative, and 4/4
+metamorphic inventories. The fixture checker passes all 17 checks, all eight
+tracked PowerShell files plus the module parse, the repository checker passes
+at 209 text files / 14 cases / 12 fixtures, and `git diff --check` passes. These
+are deterministic controller-infrastructure results with zero model or
+assessor calls. They do not change Work Charter SOURCE, behavior cases,
+fixtures, D31-D49 dispositions, candidate acceptance, installation, or release
+state. Cycle 1 review 1/5 found and this regression closes the
+assessment-boundary gap; review 2/5 completed with no further finding on the
+corrected controller and regression. Review 3/5 then found contradictory Git
+authority in the handoff; it now scopes the user's approval to one exact
+stage-and-local-commit closeout owned by this task and explicitly denies
+authority propagation to successors. Push, installation, tag, release, and
+cleanup remain separate effects.
 
 ### 2026-08-02 — Capability-delta decision and workflow
 
