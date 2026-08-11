@@ -37,6 +37,7 @@ Last updated: 2026-08-11
 | Exact `c481005...` D48 Gate 2 terminal | D48 imported admitted A01-A10 without replay, passed 17/17 qualification, three exact-route canaries, and a 187-file freeze, then completed fresh A11-A13; A14 safely failed closed after reading only its snapshot but lacked required candidate loaded-copy proof, so the packet sealed at combined 13/27 and one eligible assessor returned `DECISION_REQUIRED`; D48 is immutable and unaccepted |
 | `WC-AR-D49-EVAL-CONTRACT` prospective correction | matched A14/A19/B04/C04 distinguish target-project/evidence read scope from direct-invocation package loading; separate A20 directly denies package use plus project/evidence reads/actions while attributing any exact-invocation preload to the pre-context Harness, not activation; the contract is 20 reference runs / 28 full cells, changes no package byte or sealed result, and was later consumed only under the separate D49 Campaign |
 | Exact `c481005...` D49 Gate 2 terminal | D49 imported admitted D48 A01-A13 without replay, passed 17/17 final qualification, three exact-route canaries, and a 171-file freeze, then admitted fresh A14-A17; released-control A18 attempted an unauthorized direct `.git/index.lock` read and sealed the packet at combined 17/28, one eligible assessor returned `DECISION_REQUIRED`, A20 and both contrast groups did not start, and the candidate remains immutable and unaccepted |
+| `WC-AR-D50-FINAL-A18` bounded final route | authorized but not yet product-assessed at this checkpoint: D49 A01-A17 may be imported without replay; out-of-matrix `A18-CANDIDATE-CAL` and fresh scored released-control A18 must run first under one identical run-local safe-Git overlay after 23/23 qualification, three canaries, and freeze; twelve fresh product contexts comprise that calibration plus eleven scored matrix cells, while fourteen product turns, one eligible assessor, eighteen total external turns, two local commits, and no D51 are the hard ceilings |
 | Isolated path-bound controller canary | private retained sealed `CANARY_PASS`; the public summary reports an exact-response pass and no command execution, omits locator/artifact/runtime details, leaves physical backend request count `UNKNOWN`, and proves neither natural-language selection nor candidate acceptance |
 | Small bounded work stays flat | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
 | Midstream implicit behavior is proposal-only | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
@@ -1946,6 +1947,45 @@ zero model or assessor calls; all eight tracked PowerShell parses; `git diff
 --check`; and an exact 12-file Gitleaks publication scan with zero findings.
 These checks validate the sanitized record and documentation closure, not the
 incomplete behavior packet or candidate acceptance.
+
+### 2026-08-11 — D50 final A18 route authority
+
+Approved `WC-AR-D50-FINAL-A18` preserves exact candidate `c481005...`, its
+five-file manifest `04c382a4...`, released control `ceed607...`, D49 terminal
+hash `0d17dfba...`, and every predecessor disposition. It imports only D49's
+admitted A01-A17 rows and keeps D49 A18 separate and immutable. No SOURCE,
+tracked case, fixture, matrix, rubric, or controller byte changes.
+
+One identical ignored-carrier overlay must govern the D49-mapped candidate
+counterpart and fresh released-control A18. It admits five exact safe Git read
+shapes, derives the writer fact from `PROJECT.md` plus observable repository
+state, and hard-stops direct `.git/**`, lock, or adjacent-metadata reads. Before
+any model call the carrier must prove the exact counterpart and pass 23/23
+qualification guards. Exactly three non-product canaries precede freeze; no
+post-canary correction or operator-sequence recovery is available.
+
+If those gates pass, out-of-matrix `A18-CANDIDATE-CAL` and scored released-
+control A18 run first. D50 may then complete the remaining ten scored cells,
+A19-A20 plus B01-B04/C01-C04. D49's 17 imports plus those 11 fresh scored cells
+preserve the 28-cell matrix; the calibration is a non-scored twenty-ninth
+observation whose failure blocks acceptance and whose pass adds no score. The
+twelve fresh product contexts have at most fourteen product turns. At most one
+eligible read-only `Terra/high` assessor
+receives only a schema/hash/privacy-reviewed view. The Campaign ceiling is
+eighteen external `turn/start` calls and two local commits. All required cells
+plus assessor `ACCEPTED` records Gate 2 acceptance; every other terminal leaves
+the candidate unaccepted and stops the line without D51. At this authority
+checkpoint no D50 canary, product, or assessor evidence has been consumed.
+
+The authority checkpoint passes the unchanged Work Charter package validator;
+the repository checker at 209 text files / 14 cases / 12 fixtures; all 17
+fixture checks; the tracked controller's complete current regression including
+8/8 governing-snapshot and 9/9 Git-read-safety guards with zero external model
+or assessor calls; all 8 tracked PowerShell parses; `git diff --check`; and
+exact per-file Gitleaks scans of the nine intended authority paths with zero
+findings. The maintained CRG index is stale relative to current HEAD and
+provides no material-diff coverage for these Markdown paths. Native review
+remains the separate commit gate.
 
 ## Required Checks
 

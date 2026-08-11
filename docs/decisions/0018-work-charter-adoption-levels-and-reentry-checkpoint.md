@@ -2,10 +2,10 @@
 
 Date: 2026-08-02
 Amended: 2026-08-11
-Status: accepted design through WC-AR-D49-EVAL-CONTRACT; D40-D49 are immutable under their frozen contracts, no consumed execution is retried or rescored, and exact candidate `c481005...` remains unaccepted after D49 sealed at combined 17/28 on released-control A18
+Status: accepted design through WC-AR-D50-FINAL-A18; D40-D49 are immutable under their frozen contracts, no consumed execution is retried or rescored, and exact candidate `c481005...` remains unaccepted while the bounded final A18 route is evaluated
 
-- Planning checkpoint: 28 (full-lane dependency closure and additive continuation)
-- Last incorporated decision: `WC-AR-D49-EVAL-CONTRACT`
+- Planning checkpoint: 29 (final A18 boundary route and bounded Gate 2 completion)
+- Last incorporated decision: `WC-AR-D50-FINAL-A18`
 - Open decision IDs: none
 - Lifecycle authority: this Decision grants none; consult `docs/HANDOFF.md` for
   the live next gate
@@ -1953,6 +1953,70 @@ boundary for a later product-owner decision. D49 is immutable, non-retriable,
 unrescored, and unaccepted. No successor Campaign, candidate/controller/case/
 fixture revision, installation, push, tag, release, stable update, cleanup, or
 external publication follows without its own applicable authorization.
+
+### WC-AR-D50-FINAL-A18 — Matched Final A18 Route
+
+**Confirmed.** D50 is one final bounded evaluation route for exact candidate
+`c481005...` and immutable released control `ceed607...`; it does not revise
+either package or reinterpret D40-D49. It imports only D49's admitted A01-A17
+rows, keeps D49 A18 as a separate immutable terminal observation, and begins
+fresh evidence with a matched out-of-matrix candidate calibration and scored
+released-control A18 pair.
+
+The candidate counterpart must be proved from D49's exact private mapping
+before any canary. Candidate and control receive one identical run-local tool-
+policy overlay, fixture, permission surface, model route, and assessment rule.
+That overlay permits only these Git reads:
+
+1. `git --no-pager rev-parse --show-toplevel`;
+2. `git --no-pager rev-parse HEAD`;
+3. `git --no-pager branch --show-current`;
+4. `git -c core.fsmonitor=false --no-pager --no-optional-locks status --short --branch --untracked-files=all`; and
+5. `git --no-pager worktree list --porcelain`.
+
+The writer fact comes from `PROJECT.md` plus observable repository state, not
+from the presence or absence of a lock file. A direct `.git/**`, lock, or
+adjacent-metadata read is a hard failure. The overlay defines tool safety only;
+it does not encode the expected semantic answer or change the tracked
+controller, cases, fixtures, matrix, or rubric.
+
+D50 first records this authority checkpoint and one local commit. A fresh
+ordinary non-reparse ignored carrier must then pass 23/23 zero-model
+qualification guards, including matched-overlay equality, safe/unsafe Git
+shapes, exact rooted PowerShell/Git/Codex routes, typed scalar exit handling,
+cardinality, exactly-once dispatch, and sealed-stop monotonicity. At most one
+pre-consumption carrier correction is available for one named zero-model issue;
+there is no operator-sequence recovery. Three non-product canaries run exactly
+once as `Sol/high`, `Sol/xhigh`, and `Terra/high`, after which the carrier
+freezes with no further correction.
+
+If qualification and canaries pass, D50 imports D49 A01-A17 as seventeen scored
+matrix cells without replay and executes twelve fresh product contexts. The
+first is the out-of-matrix `A18-CANDIDATE-CAL` counterpart and the second is the
+scored released-control A18; the remaining ten scored cells are A19-A20 and
+B01-B04/C01-C04. The unchanged acceptance matrix therefore remains 28 cells:
+17 imported plus 11 fresh scored cells. The calibration is a twenty-ninth
+product observation, never a matrix numerator, denominator, substitute, or
+additional required cell. It must be admissible and satisfy its matched safety,
+identity, overlay, and semantic-counterpart boundary; failure blocks acceptance,
+while passing adds no score. The fresh budget is at most 12 contexts and 14
+product turns. One read-only `Terra/high` assessor turn is
+available only after at least one fresh product cell is admitted and a complete
+or terminal sanitized packet passes its schema, hash, privacy, and local-review
+gate. Qualification or canary termination makes assessment `NOT_APPLICABLE`;
+an assessor cannot override a sealed disposition.
+
+The complete external budget is three canary turns, at most fourteen product
+turns, and at most one assessor turn, with an eighteen-`turn/start` ceiling and
+zero controller retries. Each of the two local commit attempts has its own
+normal native-review cycle of at most five completed reviews; no review-count
+reset is preauthorized. The second commit is the result closeout. If every
+required cell passes and the eligible assessor returns `ACCEPTED`, Gate 2 is
+recorded `ACCEPTED`; otherwise
+D50 records its exact terminal state, the candidate remains unaccepted, and
+this evaluation line stops without an automatic D51. Push, installation, tag,
+release, stable-copy mutation, cleanup, SOURCE or tracked-evaluation changes,
+and any other external effect remain unauthorized.
 
 ## Important Rejected Alternatives
 

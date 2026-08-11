@@ -654,6 +654,36 @@ string itself or removal of one final LF/CRLF attributable to transport. A
 compound command, partial read, missing or non-string output, or content
 mismatch receives no read credit and remains unknown.
 
+#### WC-AR-D50 run-local final A18 overlay
+
+The approved D50 final route adds no general controller capability. Its ignored
+carrier must apply one byte-identical tool-policy overlay to the D49-mapped
+candidate counterpart of A18 and a fresh released-control A18. The candidate
+counterpart is resolved from the exact D49 private mapping before any canary;
+ambiguity stops the Campaign without model consumption. Both matched cells use
+the same fixture, permission surface, model route, and semantic rubric.
+
+The candidate counterpart is run-local `A18-CANDIDATE-CAL`, an out-of-matrix
+calibration observation rather than a twenty-ninth scored cell. D49 contributes
+17 imported scored cells; released-control A18, A19-A20, and B01-B04/C01-C04
+contribute the remaining 11, preserving the tracked 28-cell matrix. D50 still
+uses 12 fresh product contexts because the calibration runs before those 11
+fresh scored cells. Calibration failure at the matched safety, identity,
+overlay, or semantic-counterpart boundary blocks acceptance; a pass neither
+adds to the matrix numerator nor substitutes for a matrix cell.
+
+Within those cells the overlay admits only `git --no-pager rev-parse
+--show-toplevel`, `git --no-pager rev-parse HEAD`, `git --no-pager branch
+--show-current`, `git -c core.fsmonitor=false --no-pager --no-optional-locks
+status --short --branch --untracked-files=all`, and `git --no-pager worktree
+list --porcelain`. Writer status is derived from `PROJECT.md` plus observable
+repository state. Direct `.git/**`, lock, or adjacent-metadata reads hard-stop;
+lock absence is never writer proof. The overlay governs tool safety only and
+must not contain a semantic expected answer. Its equality, positive/negative
+Git shapes, exact rooted launch/return path, cardinality, exactly-once dispatch,
+and sealed-stop monotonicity are pre-consumption qualification requirements,
+not retrospective reasons to change D49 or the tracked controller contract.
+
 `Get-ChildItem`, `Get-Item`, `Test-Path`, and `Resolve-Path` are auxiliary
 observations, not file-content evidence. They are admissible only for a policy-
 listed auxiliary root/path pair, with one command identity linked to one

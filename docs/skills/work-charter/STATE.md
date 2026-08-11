@@ -104,6 +104,17 @@ and locally reviewed allowlisted view and returned `DECISION_REQUIRED`. A19-
 A20 and both contrast groups did not start. D49 is immutable and unaccepted;
 the A18 control stop does not by itself demonstrate a candidate SOURCE defect.
 
+Approved `WC-AR-D50-FINAL-A18` is the bounded final route for that unresolved
+control boundary. It keeps D49 immutable, imports only admitted A01-A17, and
+tests out-of-matrix `A18-CANDIDATE-CAL` and a fresh scored released-control A18
+first under one identical run-local tool-policy overlay. The overlay authorizes
+five exact safe Git read shapes and hard-stops direct `.git/**`, lock, or
+adjacent-metadata reads. D50 may then continue with A19-A20 and B01-B04/C01-C04
+only after 23/23 qualification, three exact-route canaries, and freeze. The
+calibration is a non-scored hard boundary; 17 imported plus 11 fresh scored
+cells preserve the 28-cell matrix. No D50 product or assessor evidence exists
+at this authority checkpoint.
+
 The sealed fixed-turn Standard probe for `72db7e9...` returned `VIOLATION` and
 did not run its successor action. Decision 0018 `WC-AR-D26` preserves that
 result and distinguishes the observed product gap from controller noise. The
@@ -300,20 +311,19 @@ SOURCE by itself.
 
 ## Current Writer
 
-One bounded D49 result-closeout writer owns the single repository lane until
-the exact authorized local result commit succeeds or this task stops. Its write
-scope is the sanitized D49 report plus the mapped existing decision, per-Skill,
-root, and result-index consumers recorded in that report. Deterministic
-verification, native review, same-scope review corrections, and one local
-result commit are in scope. On successful commit this writer relinquishes; no
-repository writer is then authorized for the next product-owner decision.
+One bounded D50 Campaign writer owns the single repository lane through the
+authorized authority checkpoint, ignored-carrier qualification/evidence window,
+sanitized result closeout, and relinquish. Its tracked write scope is the
+existing D50 authority/result owners and one new sanitized D50 result; its
+private write scope is one uniquely named ordinary ignored carrier. Two local
+commits are the maximum: one authority checkpoint and one result closeout.
 
-Work Charter SOURCE, Design, package manifest, cases, fixtures, tracked
-controller, other Skills, discovery mappings, user configuration, further D49
-product or assessor calls, push, installation, tag, release, stable-copy
-mutation, retained-evidence cleanup, and external publication remain
-unauthorized. D31-D49, every consumed turn, and all ignored carriers remain
-immutable.
+Work Charter SOURCE, Design, package manifest, tracked cases, fixtures, matrix,
+rubric, controller, other Skills, discovery mappings, user configuration,
+push, installation, tag, release, stable-copy mutation, retained-evidence
+cleanup, and external publication remain unauthorized. D31-D49, every consumed
+turn, and all predecessor ignored carriers remain immutable. The D50 writer
+relinquishes after the second commit or an earlier terminal closeout.
 
 ## Evidence State
 
@@ -821,14 +831,15 @@ released-control A18 crossed the exact file-read policy; it sealed at combined
 17/28 and its eligible assessor also returned `DECISION_REQUIRED`. A20 and the
 contrast groups remain `UNKNOWN_NOT_STARTED`.
 
-The current authorized gate is the D49 sanitized result and mapped
-documentation closeout, deterministic checks, native review, and one local
-result commit. After that closeout, the next product-owner decision must choose
-whether to authorize a new evaluation-infrastructure route for the A18 control
-boundary, accept the residual without Gate 2 completion, or stop this
-candidate/evaluation line. No successor Campaign, SOURCE/controller/case/
-fixture revision, installation, push, tag, release, stable update, or cleanup
-is authorized.
+The current authorized gate is D50: commit the authority checkpoint, prove its
+exact D49 candidate calibration counterpart and 23/23 zero-model qualification, run three
+non-product canaries, freeze, execute the matched candidate/control pair first,
+then finish the remaining ten scored cells when no hard stop occurs, perform at
+most one eligible read-only assessment, and close the sanitized result in a
+second local commit. Passing every required cell plus an `ACCEPTED` assessor
+records Gate 2 `ACCEPTED`; any other terminal keeps the candidate unaccepted and
+stops this evaluation line. No D51, SOURCE/controller/case/fixture revision,
+installation, push, tag, release, stable update, or cleanup is authorized.
 
 ## Recovery Entry
 
@@ -838,14 +849,11 @@ is authorized.
    [Decision 0018](../../decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md),
    this state, and [Verification](VERIFICATION.md).
 3. Confirm live workspace, writer, and action authority.
-4. Confirm live `main` includes the recorded D43 candidate and D44-D48 result
-   and eval-contract closeouts. Until the authorized D49 local result commit
-   exists, inventory the D49 result/documentation paths separately as the
-   expected dirty closeout scope and do not require `main` to contain them;
-   after that commit exists, verify its exact D49 scope is in `main` ancestry.
-   Resolve exact identities from bounded private evidence, then resolve HEAD,
-   index, dirty scope, ignored carriers, runtime identity, and writer instead
-   of inferring them from an older handoff.
+4. Confirm live `main` includes exact D43 candidate `c481005...`, all D44-D49
+   result/eval-contract closeouts, and governing-controller commit `c51552c...`.
+   Before D50 evidence, verify the D50 authority commit is in `main` ancestry;
+   resolve HEAD, index, dirty scope, ignored carriers, runtime identity, and
+   writer rather than inferring them from an older handoff.
 5. Preserve the complete predecessor ledger, including the D31 mapping-
    defective A03, zero-turn D32 freeze `cd8c0e2...`, D33 transport terminal
    `39ffdea...`, D35 freeze `ed8bce3...` plus its one-turn controller-
@@ -867,10 +875,10 @@ is authorized.
    terminal, D47's consumed environment canary, D48's combined 13/27 terminal,
    and D49's combined 17/28 control-boundary terminal without replay, raw-
    evidence transfer, rescore, or reinterpretation.
-7. Do not continue or mutate D44-D49. Finish only the approved D49 sanitized
-   result/documentation closeout and its deterministic/native-review/local-
-   commit gates. Do not construct or run a successor before a new complete
-   Campaign envelope is separately approved.
+7. Do not continue or mutate D44-D49. Execute only approved
+   `WC-AR-D50-FINAL-A18` within its recorded qualification, consumption,
+   assessment, two-commit, and terminal-stop budgets. Do not construct or run
+   D51.
 8. Read canonical SOURCE, current eval definitions, and only evidence matching
    the exact revision before changing behavior or claims.
 9. Preserve the independent-Skill and non-propagating-authorization boundary.
