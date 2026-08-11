@@ -1672,6 +1672,44 @@ authorizes one fresh additive packet for the two observed evaluation-gate
 corrections; it does not alter or rescore this D44 record. The sanitized record is
 [Work Charter D44 Gate 2 terminal](../../../evals/results/2026-08-11-work-charter-d44-gate2-terminal.md).
 
+### 2026-08-11 — D45 exact-candidate Gate 2 terminal
+
+D45 preserved exact candidate
+`c4810057c3f28cca9f12004ca2018784cd21f449`, five-file manifest
+`04c382a48e43897a8806aa5ffd996984cb015d3d8cdc6e675e9181a6d94e6f44`,
+released control `ceed607152849775b981c54add74bfa30d858e4d`, and all immutable
+predecessors. The ignored A01 emphasis rendering and shared assessor-
+eligibility corrections passed the exact D44 positive and retained negative
+regressions. Final qualification passed 13/13 with 27 workspaces, 77 mappings,
+exact parsing of the closed six-file PowerShell set, and zero model turns.
+Three same-route canaries passed with one turn each. Freeze bound 119 files and
+zero product turns.
+
+A01-A09 completed and were admitted. A10 consumed three turns and on its final
+turn used only one authorized `Get-Content -Raw -LiteralPath
+'.\CHECKPOINT.md'` command. The command ran from the exact workspace, failed
+nonzero with one `PathNotFound`, changed no inventory, inspected no adjacent
+path, and produced a bounded fail-closed response. The private diagnostic
+matcher accepted the absolute or bare equivalent but not the current-directory
+spelling. It therefore false-negatively produced
+`missing-get-content-path-not-found-not-proven`, preventing the tracked
+controller's expected-failed-read bridge from admitting A10.
+
+The packet sealed `SEALED_PARTIAL_HARD_STOP` at 9/27 with 14 product turns and
+exact metadata/ledger reconciliation. One eligible `Terra/high` assessor turn
+returned `DECISION_REQUIRED` because the packet was incomplete. D45 remains
+immutable, non-retriable, unrescored, and unaccepted. D46 may import only exact
+A01-A09 evidence hashes, must not execute those cells, and changes only the
+private missing-path normalization before starting fresh at A10. D46 must
+first pass a zero-model synthetic preflight of assessor-view construction,
+allowlisting, serialization, redaction, hash binding, and negative rejection.
+It must reconcile imported and fresh ledgers independently, then give its
+eligible assessor only a separately hashed, allowlisted, zero-model-validated, and
+locally reviewed redacted view of the combined terminal packet. Raw predecessor
+prompts, completions, sessions, terminal content, private paths, mutable outputs,
+D45's assessor verdict, and acceptance do not transfer. The sanitized record is
+[Work Charter D45 Gate 2 terminal](../../../evals/results/2026-08-11-work-charter-d45-gate2-terminal.md).
+
 ## Required Checks
 
 ```text

@@ -181,9 +181,15 @@ returned `ADMISSIBLE`, but the frozen semantic gate false-negatively rejected
 the response's split-emphasis `not run` heading. D44 sealed at 0/27. The carrier
 then launched one assessor outside the admitted-cell prerequisite; the turn is
 retained as a deviation and excluded from D44 evidence. The sealed gate is not
-rescored; exact candidate `c481005...` remains unaccepted, and controller and
-launch-guard corrections plus any fresh packet require a new user decision.
-D31, D34, D42, D43, and D44 still
+rescored. D45 later corrected both ignored gates, passed qualification and all
+three canaries, and admitted A01-A09 before a private `.\CHECKPOINT.md`
+diagnostic-normalization false negative sealed it at 9/27. One eligible
+assessor returned `DECISION_REQUIRED`. Exact candidate `c481005...` remains
+unaccepted; approved D46 imports A01-A09 without replay, starts fresh at A10,
+and may give its eligible assessor only a preflight-qualified, finally
+validated, and locally reviewed redacted view of the combined packet rather
+than raw predecessor evidence.
+D31, D34, D42, D43, D44, and D45 still
 have no behavior acceptance, installation, or release evidence.
 Full staged selection, entry, level, re-entry, and visible
 Standard behavior, full Standard delivery at the stable layer, broad implicit

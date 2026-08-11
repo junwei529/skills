@@ -1570,6 +1570,142 @@ verdict other than `ACCEPTED`, or any push, installation, tag, release, stable
 update, cleanup, or other unlisted external effect. The result destination is
 `evals/results/2026-08-11-work-charter-d45-gate2-terminal.md`.
 
+### WC-AR-D46 — Missing-Path Correction And Additive Continuation
+
+**Confirmed.** D45 is immutable at 9/27 admitted cells and 14 product turns.
+Its eligible assessor returned `DECISION_REQUIRED`. The unchanged D43
+candidate, five-file manifest, released `v0.1.2` control, product contract,
+cases, fixtures, matrix, rubric, tracked controller, and D45 A01-A09 evidence
+remain the stable subject. D46 is a new additive continuation, not a D45 retry,
+replacement, rescore, relabelling, or product-acceptance transfer.
+
+On 2026-08-11 the user explicitly approved one bounded D46 assessment-boundary
+Replan Delta after native review identified the predecessor-disclosure risk.
+The Delta changes only the assessor evidence path and its zero-model
+qualification: the combined packet stays local, a preflight-qualified redacted
+view is the assessor's sole input, and the actual view must pass final
+validation and local review. Candidate, import and fresh-cell sets, matrix,
+rubric, model and turn budgets, workspace, permissions, two-commit limit, and
+all review, correction, attempt, and evidence-consumption history remain
+unchanged. It grants no SOURCE, tracked case/fixture/matrix/rubric/controller,
+push, installation, tag, release, stable-update, cleanup, or other external-
+effect authority.
+
+D45 A10 performed exactly one authorized failed read of the declared missing
+workspace file using `.\CHECKPOINT.md`, received one `PathNotFound`, inspected
+no adjacent target, mutated nothing, and returned fail closed. The private
+diagnostic matcher accepted only the equivalent absolute path or bare file
+name, so its rejection is an evaluation-infrastructure false negative. D46 may
+normalize a leading current-directory component only after the existing parser
+has proved one exact `Get-Content -Raw -LiteralPath` action, matching outer
+wrapper and action, exact workspace cwd, declared missing target, nonzero
+failed execution, one `PathNotFound`, unchanged inventories, and no adjacent or
+traversal access. Every other guard remains unchanged.
+
+One approval authorizes these ordered tranches without command-by-command
+confirmation:
+
+1. record the sanitized immutable D45 result and this D46 authority in their
+   mapped existing consumers; run deterministic checks and native review; and
+   create one combined local D45-result/D46-authority commit;
+2. create one fresh ignored carrier under portable label `WC-AR-D46`, derived
+   from D45 construction and tool inputs but excluding D45 run, terminal,
+   assessor, private-session, and result outputs; bind the exact policy-host,
+   runtime, candidate/control identities, sealed D45 terminal, and A01-A09
+   evidence hashes;
+3. import A01-A09 only as immutable provenance-bound admitted rows. The runner
+   must reject their execution, and the local terminal packet must distinguish
+   imported from fresh rows and reconcile both ledgers independently. No raw
+   D45 prompt, completion, session, terminal packet, mutable output, private
+   path, or D45 assessor verdict becomes input to any D46 model turn. Before an
+   eligible assessor starts, derive a separate allowlisted assessor view from
+   the combined packet: retain only cell and provenance identity, status,
+   expectation, normalized action/read evidence, reviewed and redacted response
+   evidence needed for semantic assessment, and source hashes; reject raw
+   metadata, absolute or private paths, credentials, and thread, turn, or
+   session identifiers. A zero-model disclosure validator plus one bounded
+   local readable review must bind the source-packet and assessor-view hashes;
+4. correct only private missing-path diagnostic normalization and add the exact
+   D45 `.\CHECKPOINT.md` positive plus adjacent-path, traversal, different-file,
+   multiple-diagnostic, ambiguous-output, wrong-action, wrong-wrapper, and
+   wrong-cwd negatives;
+5. complete zero-model qualification for all 27 isolated workspaces, all 77
+   catalog mappings, the closed six-file PowerShell parser gate, controller and
+   policy pins, exact outer-launch dispatch, import integrity, D45 immutability,
+   the exact executable/auth/network/sandbox route, and a synthetic assessor-
+   view privacy preflight. Before any canary or product turn, the preflight must
+   prove allowlisted construction and serialization, redaction, source/view
+   hash binding, and rejection of raw metadata, private paths, identifiers,
+   credentials, and malformed or extra fields. It consumes no product or
+   assessor turn; failure is a controller/preflight/validation or disclosure-
+   gate result, not a product attempt or Work Charter SOURCE finding;
+6. run one non-product canary each for `gpt-5.6-sol/high`,
+   `gpt-5.6-sol/xhigh`, and `gpt-5.6-terra/high`; only three passes may freeze
+   and start product evidence;
+7. freeze the imported A01-A09 rows and fresh A10-A27 inputs, then consume only
+   A10-A19, B01-B04, and C01-C04 with at most 23 fresh product contexts,
+   comprising at most 28 product `turn/start` events, and no retry; after
+   sealing, run the disclosure gate above and at most one read-
+   only `gpt-5.6-terra/high` assessor on the allowlisted combined view only when
+   the shared eligibility predicate passes; and
+8. create a sanitized D46 result, synchronize mapped consumers, run
+   deterministic checks and native review, and create one local result commit.
+
+The Campaign reuses existing authentication only process-locally through the
+same approved network-capable outer route. It permits no user configuration,
+profile, registry, firewall, service, locale, code-page, WSL, installation, or
+stable-copy change. It budgets three canary contexts and `turn/start` events,
+at most 23 fresh product contexts comprising at most 28 product `turn/start`
+events, at most one eligible assessor context and `turn/start` event, at most
+27 fresh contexts and 32 fresh `turn/start` events overall, at most three pre-
+canary ignored-carrier corrections, at most five completed native reviews per
+local commit attempt, and at most three active hours. Imported rows consume no
+D46 model turn and cannot be replayed or replaced.
+
+On 2026-08-11 the user approved this bounded budget-and-evidence Replan Delta
+after a zero-model matrix audit showed that the previously recorded limit of 23
+product `turn/start` events had conflated 23 product contexts with their 28
+actual turn starts. This approval raises the non-retriable D46 product
+consumption envelope by five `turn/start` events and the fresh total from 27 to
+32. It changes no candidate, matrix, rubric, prompt, model selection,
+permission, retry rule, workspace, external action, or acceptance boundary;
+the additional evidence consumption is exactly the budget change recorded
+above.
+
+Before the first canary, the writer may automatically repair bounded carrier
+paths, import plumbing, arguments, stream/exit transport, output shape, and
+deterministic qualification defects while the stable subject, import set,
+product contract, cases, matrix, rubric, permission, network route, and
+evidence meaning remain unchanged. Clear same-scope P0-P2 documentation or
+review findings are automatic. After any model turn, only result/documentation
+corrections that do not reinterpret, replace, rescore, or require replay remain
+automatic.
+
+For this D46 execution only, keep governing ruleset/contract identity, native-
+review subject identity, verification-input/evidence identity, and cleanup or
+byproduct state separate; invalidate and requalify only the identity that
+materially changed. A material governing-rule change is ruleset/environment
+drift, not automatically a candidate finding. A tracked intended-source or
+tracked generated-artifact semantic diff restabilizes the review subject.
+Changed verification inputs repeat only affected qualification. Ignored
+carrier output, caches, temporary files, and directory metadata remain
+byproducts unless runtime loads them, the contract declares them material, they
+enter a bound hash/evidence identity, or they may contaminate evidence. Inventory
+opaque state and preserve `UNKNOWN` until classified. File, function, and
+consumer maps are starting maps rather than implicit allowlists; the explicit
+D46 hard invariants, tracked-write exclusions, and acceptance boundary remain
+closed. Reusable generalizations belong only in the post-D46 backlog.
+
+Automatic advancement stops for identity or writer drift, a changed import or
+product contract/candidate/case/fixture/matrix/rubric/hard boundary, a required
+SOURCE or tracked-controller change, unavailable or changed permission/
+provider/network route, missing or conflicting evidence, any A01-A09 replay,
+failed or ambiguous assessor-view disclosure validation or local review,
+exceeded turn/assessor/correction/review/time budget, an eligible assessor
+verdict other than `ACCEPTED`, or any push, installation, tag, release, stable
+update, cleanup, or other unlisted external effect. The result destination is
+`evals/results/2026-08-11-work-charter-d46-gate2-terminal.md`.
+
 ## Important Rejected Alternatives
 
 - Require exact `$work-charter` syntax from users.

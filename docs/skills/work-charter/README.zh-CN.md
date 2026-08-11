@@ -144,8 +144,13 @@ freeze。其唯一一个 A01 产品回复保持 flat、未加载 Work Charter �
 `ADMISSIBLE`，但冻结的 semantic gate 对分开使用强调标记的 `not run` 标题产生了
 false negative。D44 在 0/27 处封存；carrier 随后在未满足“至少一个 cell 获接纳”前提时
 启动了 assessor。该 turn 作为偏差保留，但排除在 D44 证据之外。冻结 gate 不会被重评分；
-精确 candidate `c481005...` 仍未获接受，controller、launch guard 修正和任何 fresh packet
-均需要新的用户决策。D31、D34、D42、D43 与 D44 均仍无行为接受、安装或发布证据。
+随后 D45 修正两个 ignored gate，通过 qualification 与全部三个 canary，并接纳 A01-A09；
+但 private evaluator 未归一化 `.\CHECKPOINT.md`，在 A10 产生 diagnostic false negative，
+使 packet 封存在 9/27。一个 eligible assessor 返回 `DECISION_REQUIRED`。精确 candidate
+`c481005...` 仍未获接受；已批准 D46 在不重放的前提下导入 A01-A09，并从 A10 开始 fresh
+evidence；其 eligible assessor 只能读取经验证和本地复核的组合 packet 脱敏视图，不能读取
+raw predecessor evidence；该视图路径必须先通过 canary 前的 zero-model preflight，实际
+view 还须最终验证。D31、D34、D42、D43、D44 与 D45 均仍无行为接受、安装或发布证据。
 完整分阶段 selection、entry、等级、
 重新接入和可见 Standard 行为，stable 层完整 Standard
 delivery、广泛隐式触发 telemetry、独立真实项目效果、确定性角色交付或 writer

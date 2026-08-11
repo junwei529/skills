@@ -21,10 +21,16 @@ Last updated: 2026-08-11
   5 files, each matching the `v0.1.2` Git blobs
 - Rollback identity: immutable `v0.1.1` retained as a separately verified
   three-package backup
-- Writer boundary: one bounded D45 Campaign writer owns its mapped authority
-  commit, fresh ignored evaluation carrier, deterministic gate regressions,
-  qualification, three canaries, conditional unchanged product packet, at most
-  one eligible assessor, and local result closeout. D31-D44 remain immutable;
+- Writer boundary: one bounded D46 Campaign writer owns the combined D45-result/
+  D46-authority commit, fresh ignored continuation carrier, missing-path and
+  import regressions, qualification including the synthetic privacy preflight,
+  three canaries, fresh A10-A27 evidence, at
+  most one eligible assessor only after the combined view passes zero-model
+  disclosure validation and bounded local review, and local D46 result closeout.
+  The user-approved budget-and-evidence Replan Delta retains 23 fresh product
+  contexts while authorizing their actual 28 product `turn/start` events and a
+  32-event fresh total including three canaries and at most one assessor.
+  D31-D45 remain immutable;
   SOURCE, cases, fixtures, matrix, rubric, tracked controller, other Skills,
   push, installation, tag, release, stable update, retained-evidence cleanup,
   and unlisted external effects remain excluded
@@ -57,6 +63,15 @@ activity until a complete or terminally sealed packet has at least one admitted
 product cell. Deterministic qualification precedes three same-route canaries,
 freeze, the unchanged 27-cell matrix, an eligible assessor, and local result
 closeout. D45 transfers no credit from D44.
+
+D45 completed that sequence and admitted A01-A09. A10's third turn performed
+only the authorized failed read of `.\CHECKPOINT.md`, received `PathNotFound`,
+changed nothing, and returned fail closed. The private evaluator did not
+normalize that equivalent current-directory spelling, so D45 sealed at 9/27
+after 14 product turns. One eligible assessor returned `DECISION_REQUIRED`.
+D45 is immutable. Approved `WC-AR-D46` imports A01-A09 as provenance-bound
+evidence without replay, corrects only the private diagnostic matcher, and
+starts fresh at A10.
 
 The `v0.1.2` tag remains fixed at the release-preparation commit. The later
 documentation commit records already-completed tag, stable-install, canary, and
@@ -921,24 +936,36 @@ created the fact class; it did not require or authorize speculative files.
    turn without replay, rescore, relabelling, or acceptance transfer. Exclude
    that assessor output from the D44 evidence ledger. No D44 continuation is
    authorized.
-8. Continue only the fresh ignored carrier identified by portable label
-   `WC-AR-D45` after its authority commit. Resolve its physical location from
-   bounded private evidence, and keep both gate corrections, all qualification
-   and consumption, and its final seal separate from D44.
+8. Treat D45 as immutable at 9/27 and continue only the fresh ignored carrier
+   identified by portable label `WC-AR-D46` after the combined D45-result/D46-
+   authority commit. Resolve its physical location from bounded private
+   evidence; bind A01-A09 hashes without executing them; and keep D46
+   qualification, canaries, fresh consumption, budgets, and sealing independently
+   accounted from D45. Before canaries, qualify assessor-view construction,
+   allowlisting, serialization, redaction, hash binding, and negative rejection
+   on synthetic inputs with zero model turns. The D46 terminal packet combines only those
+   provenance-bound D45 rows with fresh A10-A27 rows locally. Its eligible
+   assessor receives only a separately hashed, allowlisted, validated, and
+   locally reviewed redacted view of that combined packet; no raw predecessor
+   prompt, completion, session, terminal, private path, mutable output, D45
+   assessor verdict, or acceptance transfers.
 
 ## Immediate Next Action
 
-No release action remains pending for immutable `v0.1.2`. D44 is complete and
-immutable. Approved D45 now proceeds through its authority commit, fresh
-ignored carrier, deterministic gate correction and qualification, three
-same-route canaries, unchanged frozen packet, eligible assessor, and sanitized
-local result commit. Small same-scope corrections are automatic. Push,
+No release action remains pending for immutable `v0.1.2`. D45 is complete and
+immutable. Approved D46 proceeds through the combined D45-result/D46-authority
+commit, fresh ignored carrier, import and path-normalization qualification,
+synthetic zero-model assessor-view privacy preflight, three same-route canaries,
+fresh A10-A27 packet, independently reconciled local
+seal, validated and locally reviewed redacted assessor view, eligible assessor
+on only that view, and sanitized local D46 result commit. Small same-scope
+corrections are automatic. Push,
 installation, tag, release, stable update, cleanup, SOURCE/case/fixture/matrix/
 rubric/tracked-controller changes, and other-Skill changes remain unauthorized.
 
 Later user-owned choices include:
 
-- after D45 result closeout, decide candidate disposition, installation,
+- after D46 result closeout, decide candidate disposition, installation,
   release, or public reachability only from its exact sealed evidence;
 - after an accepted Project Docs commit, authorize an exact-commit candidate
   and write-capable synthetic persistence test;
@@ -974,12 +1001,17 @@ Stop before write or publication if:
 
 ## Authorization Boundary
 
-D42-D44 execution authority is consumed. Exact candidate `c481005...`, every
+D42-D45 execution authority is consumed. Exact candidate `c481005...`, every
 qualification/canary/product receipt, the assessor-deviation receipt, and all
 consumed turns are immutable and non-retriable. The assessor output is excluded
-from the D44 evidence ledger. `WC-AR-D45` separately authorizes only the bounded
-D45 writer, ignored evaluation carrier, declared network/model/assessor budget,
-mapped documentation, native review, and two local commits.
+from the D44 evidence ledger. `WC-AR-D46` authorizes only the bounded D46
+writer, ignored continuation carrier, exact D45 A01-A09 imports, declared
+network/model/assessor budget, mapped documentation, native review, and two
+local commits starting with the combined D45-result/D46-authority commit.
+The user-approved bounded assessment-boundary Replan Delta adds only the
+pre-canary synthetic privacy preflight and the validated, locally reviewed
+redacted assessor view; it resets no review, attempt, correction, or consumed
+evidence and expands no other authority.
 
 No tracked controller or fixture expansion, other-Skill change, push,
 installation, tag, release, stable mutation, retained-evidence cleanup, or
@@ -996,6 +1028,17 @@ package references/assets, and neighboring Skills. `NOT_APPLICABLE` covers anoth
 candidate, installation, push, tag, release, stable update, cleanup, or external
 publication. The fresh `WC-AR-D45` carrier is ignored evidence infrastructure;
 its physical path remains private.
+
+The D45-result/D46-authority documentation-impact closure is fact-first.
+`UPDATE` covers the D45 report and result index, Decision 0018, Work Charter
+bilingual README, State and Verification, root Status, Verification, Roadmap,
+Index, and this Handoff. `CHECKED_NO_CHANGE` covers repository `AGENTS.md`, the
+root README pair, Authority, SPEC, Architecture, Runbook, Provenance, Decisions
+0017/0020, Work Charter SOURCE/Design/cases/fixtures/matrix/rubric/current-
+SOURCE manifest/tracked controller/package references/assets, and neighboring
+Skills. `NOT_APPLICABLE` covers candidate or stable-copy changes, installation,
+push, tag, release, cleanup, or external publication. The D45 and future D46
+physical carrier paths remain private.
 
 The D42 result documentation-impact closure is fact-first. `UPDATE` covers the
 sanitized result/index, Work Charter bilingual public entry, per-Skill State/

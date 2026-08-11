@@ -1513,6 +1513,39 @@ the two observed evaluation-gate corrections; it does not alter or rescore this
 D44 record. The sanitized evidence is
 [Work Charter D44 Gate 2 terminal](../evals/results/2026-08-11-work-charter-d44-gate2-terminal.md).
 
+### 2026-08-11 — Work Charter D45 Gate 2 terminal
+
+D45 preserved exact candidate `c481005...`, five-file manifest
+`04c382a4...`, released control `ceed607...`, and all predecessors. Its ignored
+A01 rendering and shared assessor-eligibility corrections passed their exact
+positive and retained negative regressions. Final zero-model qualification
+passed 13/13 with 27 workspaces, all 77 mappings, the closed six-file
+PowerShell parser gate, exact outer dispatch, and zero model turns. All three
+network-capable canaries passed with one turn each, and the freeze bound 119
+files with zero product turns.
+
+A01-A09 completed and were admitted. A10 consumed three turns. Its final turn
+performed only the authorized failed read of missing `.\CHECKPOINT.md` from the
+exact workspace, received one `PathNotFound`, changed no inventory, inspected
+no adjacent target, and returned fail closed. The private diagnostic matcher
+accepted the absolute or bare equivalent but did not normalize the current-
+directory component. That evaluation-infrastructure false negative prevented
+the tracked controller's expected-failed-read bridge from admitting A10.
+
+D45 sealed `SEALED_PARTIAL_HARD_STOP` at 9/27 with 14 reconciled product turns.
+One eligible `Terra/high` assessor returned `DECISION_REQUIRED` because the
+packet was incomplete. D45 is immutable, unaccepted, and not retried or
+rescored. Approved D46 binds A01-A09 as immutable imported evidence, forbids
+their execution, corrects only the private missing-path diagnostic, and starts
+fresh at A10. Its full combined packet remains local: a zero-model disclosure
+preflight must qualify construction, allowlisting, redaction, serialization,
+hash binding, and negative rejection before canaries. After sealing, the gate
+must validate, hash, and locally review the actual redacted allowlisted assessor
+view before the eligible assessor can receive only that view. Raw predecessor
+prompts, completions, sessions, terminal content, private paths, mutable outputs,
+and D45's assessor verdict or acceptance do not transfer. The sanitized evidence is
+[Work Charter D45 Gate 2 terminal](../evals/results/2026-08-11-work-charter-d45-gate2-terminal.md).
+
 ### 2026-08-02 — Capability-delta decision and workflow
 
 An accepted documentation-only decision established a prospective rule for new

@@ -9,7 +9,7 @@ Last updated: 2026-08-11
 | Tested package identity | all three package byte sets independently reached exact-commit RC readiness at `c42eef392a5b9f58bbee64aa73ffb603a6fb6c29` and were re-proved at tag/stable identity `v0.1.2` | [Verification](VERIFICATION.md) |
 | Stable release identity | immutable [`v0.1.2`](https://github.com/junwei529/skills/releases/tag/v0.1.2) at `ceed607152849775b981c54add74bfa30d858e4d`; exact tag, stable loaded-copy, and GitHub Release proof pass for all three Skills | [Verification](VERIFICATION.md) |
 | Project Docs | immutable `v0.1.2` remains the released explicit-only control; local commit `776989f...` implements accepted Decision 0019 but is unreleased, and its evidence is `PARTIAL` because actual candidate selection, loaded-copy identity, and persistent writes remain `UNKNOWN` | [State](skills/manage-project-docs/STATE.md) |
-| Work Charter | released `v0.1.2` remains active; the current D43 candidate is unchanged and unaccepted; approved D45 is a fresh additive Campaign that corrects only the ignored A01 emphasis parser and admitted-cell assessor gate before rerunning the unchanged packet | [State](skills/work-charter/STATE.md) |
+| Work Charter | released `v0.1.2` remains active; current D43 candidate `c481005...` is unchanged and unaccepted; D45 is immutable at 9/27 after an A10 private diagnostic false negative, and approved D46 imports A01-A09 without replay before resuming fresh at A10 and gates assessment through a preflight-qualified, validated redacted view | [State](skills/work-charter/STATE.md) |
 | PowerShell | released five-file `v0.1.2` stable copy; corrected loaded identity and guarded native/text diagnosis pass; live WSL remains unproved | [State](skills/use-powershell-safely/STATE.md) |
 | Release lifecycle | `v0.1.2` tag, stable update, tag-pinned canaries, and Latest GitHub Release complete; `v0.1.1` retained as rollback identity | [Runbook](RUNBOOK.md) |
 
@@ -139,6 +139,16 @@ emphasis `not run` heading. D44 sealed at 0/27. The carrier then launched one
 assessor outside the admitted-cell prerequisite; that turn is retained as a
 deviation and excluded from D44 evidence. The gate is not rescored and D44 is
 not retried.
+
+D45 corrected both ignored evaluation gates, passed 13/13 zero-model
+qualification, all three same-route canaries, and a 119-file freeze. A01-A09
+were admitted. A10 then used its third turn only for the authorized missing
+`CHECKPOINT.md` read, received `PathNotFound`, inspected no adjacent target,
+changed nothing, and returned fail closed. The private matcher did not
+normalize the equivalent `.\CHECKPOINT.md` spelling, so D45 sealed at 9/27
+after 14 product turns. One eligible assessor returned `DECISION_REQUIRED`.
+D45 is immutable and unaccepted; this is evaluation-infrastructure noise, not
+a Work Charter SOURCE defect.
 
 The exact post-commit documentation scope, writer state, and recovery order are
 owned by [Repository Handoff](HANDOFF.md).
@@ -330,15 +340,18 @@ decision.
 
 ## Next Gate
 
-No release action remains pending for immutable `v0.1.2`. D31-D44 and D44
-result closeout are complete, sealed, and non-retriable; the D44 writer has
-relinquished. Approved D45 is the current writer window: persist and commit its
-authority; build and qualify the fresh ignored carrier and both gate
-regressions; run three same-route canaries; conditionally run the unchanged
-packet and one eligible assessor; then sanitize, verify, review, and locally
-commit the result. Push, installation, tag, release, stable update, cleanup,
-SOURCE/case/fixture/matrix/rubric/tracked-controller changes, and other-Skill
-changes remain excluded.
+No release action remains pending for immutable `v0.1.2`. D31-D45 are complete,
+sealed, and non-retriable. Approved D46 is the current writer window: record
+the D45 result and D46 authority in one local commit; build and qualify a fresh
+ignored continuation carrier; bind immutable D45 A01-A09 evidence without
+replay; correct only the private A10 path diagnostic; preflight the synthetic
+assessor-view privacy path with zero model turns; run three same-route canaries;
+freeze and run A10-A27; seal and independently reconcile the combined packet;
+validate and locally review its redacted allowlisted assessor view; run
+at most one eligible assessor on only that view; then sanitize, verify, review,
+and locally commit the D46 result. Push,
+installation, tag, release, stable update, cleanup, SOURCE/case/fixture/matrix/
+rubric/tracked-controller changes, and other-Skill changes remain excluded.
 Project Docs keeps its own candidate and persistence-evidence sequence.
 
 ## Known Repository Gaps
