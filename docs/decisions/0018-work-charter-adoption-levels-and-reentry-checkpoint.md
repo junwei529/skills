@@ -2,10 +2,10 @@
 
 Date: 2026-08-02
 Amended: 2026-08-11
-Status: accepted design through WC-AR-D47; D40-D46 are immutable under their frozen contracts, and no consumed execution is retried or rescored
+Status: accepted design through WC-AR-D49-EVAL-CONTRACT; D40-D48 are immutable under their frozen contracts, and no consumed execution is retried or rescored
 
 - Planning checkpoint: 28 (full-lane dependency closure and additive continuation)
-- Last incorporated decision: `WC-AR-D47`
+- Last incorporated decision: `WC-AR-D49-EVAL-CONTRACT`
 - Open decision IDs: none
 - Lifecycle authority: this Decision grants none; consult `docs/HANDOFF.md` for
   the live next gate
@@ -462,7 +462,7 @@ Use effect rather than origin when outside work touches the managed baseline:
 ### WC-AR-D16 — Minimum Staged Evaluation Matrix
 
 **Confirmed.** A material implementation of this checkpoint uses a staged
-19-run minimum matrix rather than a full product of model, reasoning level,
+20-run minimum matrix rather than a full product of model, reasoning level,
 protection level, trigger phrase, and workspace topology. Stop the matrix when
 a hard selection or authorization boundary fails instead of spending the
 remaining long-path budget.
@@ -473,7 +473,7 @@ remaining long-path budget.
 |---|---:|---|
 | Native baseline without the target Skill | 2 | Observe one ordinary task and one consequential continuation request under the strongest practical no-target-Skill condition |
 | Realistic catalog selection | 6 | Exercise three natural-language positives and three ordinary or peer-Skill negatives without preselection |
-| Exact candidate behavior | 7 | Exercise first adoption, `L1`/`L2`, all four re-entry routes, `L3`, and visible-policy `L4` behavior |
+| Exact candidate behavior | 8 | Exercise first adoption, `L1`/`L2`, all four re-entry routes, `L3`, visible-policy `L4` behavior, and direct package-denial/Harness-preload attribution |
 | Exact accepted-control comparison | 4 | Compare positive selection, negative selection, first-turn read authority, and ambiguous fail-closed behavior against the exact current control |
 
 The six selection runs are:
@@ -489,7 +489,7 @@ The six selection runs are:
 5. a Project Docs-only near neighbor; and
 6. a PowerShell-only near neighbor.
 
-The seven exact-candidate behavior runs are:
+The eight exact-candidate behavior runs are:
 
 1. existing-project first adoption with no pre-approval project read, followed
    by an approved bounded read and a durable single-agent recommendation;
@@ -503,7 +503,12 @@ The seven exact-candidate behavior runs are:
 6. `fail closed` on divergent carriers, unknown writer, or incomparable dirty
    state; and
 7. visible reuse of an approved Standard standing policy, followed by one
-   existing bounded `L4` O/P/E path with no automatic next phase.
+   existing bounded `L4` O/P/E path with no automatic next phase; and
+8. exact `$work-charter` intent paired with an explicit prohibition on package
+   use plus all project/evidence reads and actions. Controller-observed native
+   `SKILL.md` preloading is classified as a pre-context Harness event rather
+   than product activation or a violation; no additional reference loads,
+   activation claim, workflow application, project read, or action may follow.
 
 This covers `L0` through the selection negative, `L1` and `L2` through the
 first-adoption and resume cases, `L3` through the coupled coordination/P-E
@@ -543,7 +548,7 @@ matrix.
 **Confirmed.** Treat model and reasoning level as separate evaluation
 dimensions, but do not run their full Cartesian product.
 
-- Run the complete 19-run matrix on one exact reference combination.
+- Run the complete 20-run matrix on one exact reference combination.
 - When the same model exposes another materially different reasoning setting,
   change only that setting and run the four upgrade sentinels.
 - Run the same four sentinels on an alternate model only when that model is
@@ -576,12 +581,12 @@ four-sentinel contrasts:
 
 | Coverage | Runs | Claim boundary |
 |---|---:|---|
-| Exact reference model/reasoning cell | 19 | Full bounded candidate matrix for that cell |
+| Exact reference model/reasoning cell | 20 | Full bounded candidate matrix for that cell |
 | Same model, one different reasoning setting | 4 | Reasoning sensitivity smoke only |
 | Alternate intended model, one controlled reasoning setting | 4 | Model robustness smoke only |
 
-Thus a revision uses 19 runs for one exact tested cell, 23 with reasoning
-contrast, and at most 27 when one alternate intended model is also included.
+Thus a revision uses 20 runs for one exact tested cell, 24 with reasoning
+contrast, and at most 28 when one alternate intended model is also included.
 Tokens, latency, and interruption counts are compared only within matched
 model/reasoning conditions.
 
@@ -592,7 +597,7 @@ availability, use these exact evaluation cells:
 
 | Purpose | Model family | Reasoning setting | Fresh runs |
 |---|---|---|---:|
-| Full reference matrix | Sol | `high` | 19 |
+| Full reference matrix | Sol | `high` | 20 |
 | Same-model reasoning contrast | Sol | `xhigh` | 4 |
 | Alternate-model contrast | Terra | `high` | 4 |
 
@@ -611,7 +616,7 @@ inside the public Skill.
 If the `Sol/high` reference cell is unavailable, stop Gate 2, record it
 `UNVERIFIED`, and do not accept the candidate under this matrix. If a contrast
 cell is unavailable, record it `UNVERIFIED` and continue with the applicable
-19- or 23-run bounded result without claiming support for that contrast. Do not
+20- or 24-run bounded result without claiming support for that contrast. Do not
 silently substitute a setting above `xhigh`, a different model, or a different
 reasoning level while retaining the approved identity. This decision permits
 these model cells for a later bounded evaluation; it does not itself authorize
@@ -855,7 +860,7 @@ The lifecycle has seven gates:
 |---|---|---|
 | 0 — Documentation baseline | The accepted design becomes one clean, exact commit | Review and correct the existing documentation change set, pass its commit gate, and create a local documentation commit; no push, SOURCE, worktree, or installation |
 | 1 — Local implementation | The `v0.2.0` SOURCE and eval definitions exist in an isolated checkout | Create the approved branch/worktree and writer, make scoped SOURCE/eval/mapped-document changes, run deterministic checks and native review, and create local implementation commits; no push, model matrix, RC, tag, or installation |
-| 2 — Exact-candidate evaluation | One exact public candidate receives the bounded model and installed-copy assessment | Push the named candidate SHA to the named candidate branch, materialize an isolated `RC_INSTALL`, complete the required 19-run `Sol/high` reference plus each available approved four-run contrast for 19, 23, or 27 total runs, record any unavailable contrast `UNVERIFIED` without substitution, and use one authorized independent read-only assessor; an unavailable or incomplete reference stops without candidate acceptance, and no `main` integration, stable update, tag, or GitHub Release is authorized |
+| 2 — Exact-candidate evaluation | One exact public candidate receives the bounded model and installed-copy assessment | Push the named candidate SHA to the named candidate branch, materialize an isolated `RC_INSTALL`, complete the required 20-run `Sol/high` reference plus each available approved four-run contrast for 20, 24, or 28 total runs, record any unavailable contrast `UNVERIFIED` without substitution, and use one authorized independent read-only assessor; an unavailable or incomplete reference stops without candidate acceptance, and no `main` integration, stable update, tag, or GitHub Release is authorized |
 | 3 — Evidence and integration | Accepted results and one exact final candidate reach `main` | Write sanitized results and ledgers, review and commit the evidence/release-preparation snapshot, push and canary that exact commit, then fast-forward and push unchanged `main`; no tag, stable update, or GitHub Release |
 | 4 — Release publication | Immutable `v0.2.0` and its truthful public release exist | Create and push the exact immutable tag, run an empty-root tag-pinned full release-set smoke, publish the GitHub Release only after that smoke passes, and conditionally record and push the resulting release facts; no stable-install switch or cleanup |
 | 5 — Stable update and recovery | The approved active installed subset moves from `v0.1.2` to `v0.2.0` with a tested recovery path | Stage and verify the complete target manifest in isolation, preserve the complete `v0.1.2` rollback manifest, switch active discovery, verify loaded copies, record stable evidence, and conditionally restore the exact preserved manifest if the switch or canary fails; no deletion of `v0.1.2` or `v0.1.1` |
@@ -1837,6 +1842,79 @@ verdict other than `ACCEPTED`; or any push, installation, tag, release, stable
 update, cleanup, other-Skill change, user-configuration mutation, or unlisted
 external effect. The result destination is
 `evals/results/2026-08-11-work-charter-d47-gate2-terminal.md`.
+
+### WC-AR-D47 — Environment Stop
+
+D47 completed the authorized infrastructure qualification before product
+evidence. Its fresh ignored carrier used all three pre-consumption corrections,
+then passed 17/17 zero-model checks, including full-lane dependency and
+postprocessing closure. The first required `gpt-5.6-sol/high` non-product
+canary consumed one `turn/start` but returned no final model message because
+the provider/account route did not make the pinned model available. No product,
+selection, loaded-copy, or assessor evidence was created; the other two
+canaries and freeze did not start. This is an environment/provider-availability
+stop, not a Work Charter SOURCE or product finding. D47 is immutable,
+unaccepted, and not retried.
+
+### WC-AR-D48 — Additive Gate 2 Terminal
+
+The separately approved D48 Campaign preserved exact candidate `c481005...`,
+five-file manifest `04c382a4...`, released control `ceed607...`, and every
+predecessor. It imported only admitted A01-A10 as ten provenance-bound rows
+representing 14 predecessor product turns; D46 A11 and the failed D47 canary
+remained separate immutable records. D48 passed 17/17 zero-model qualification,
+all three exact-route canaries, and a 187-file freeze before product evidence.
+
+Fresh A11-A13 completed. A14 consumed one `gpt-5.6-sol/high` turn, read only the
+authorized recovery snapshot, changed nothing, and returned a semantically safe
+fail-closed answer for divergent carriers and unknown finality. It did not load
+the candidate body because the private prompt said only the snapshot was
+authorized. The frozen selected-behavior contract required controller-observed
+candidate loading, so A14 hard-stopped on missing loaded-copy proof. D48 sealed
+`SEALED_PARTIAL_HARD_STOP` at combined 13/27: ten imported cells plus three
+fresh completed cells, eight fresh and 22 combined product turns. One eligible
+`gpt-5.6-terra/high` assessor received only the validated redacted view and
+returned `DECISION_REQUIRED`. D48 is immutable, unaccepted, and not rescored.
+
+The A14 response respected its literal read restriction and the current Work
+Charter SOURCE already distinguishes package loading from project/evidence
+read authority. The stop is therefore an evaluation-contract ambiguity rather
+than evidence that SOURCE should be changed.
+
+### WC-AR-D49-EVAL-CONTRACT — Separate Project Read Scope From Package Denial
+
+**Confirmed.** On 2026-08-11 the user approved the recommended prospective
+evaluation correction while keeping Work Charter SOURCE and D48 unchanged.
+The ambiguous re-entry prompt shared by candidate A14, accepted-control A19,
+same-model contrast B04, and alternate-model contrast C04 must explicitly state
+that target-project and evidence reads are limited to the named snapshot while
+the Work Charter package instructions required by the direct invocation may
+load. This keeps all four matched cells on the same authority contract and
+prevents package-read ambiguity from being scored as product behavior.
+
+One separate exact-candidate boundary, A20, directly invokes `$work-charter`
+while prohibiting package use plus project/evidence reads and actions. Exact
+native invocation may already have caused the Harness to load `SKILL.md` before
+the model can act on the denial. Controller evidence classifies that as a pre-
+context Harness instruction load, not model-selected activation or a product
+violation. No additional package reference, activation claim, workflow, project
+read, or action may follow; if no body load occurred, availability remains
+unavailable. This tests that loading grants no downstream authority, not that a
+Skill can suppress the Harness loader. The minimum reference matrix therefore
+grows from 19 to 20 runs;
+with the two four-cell contrast sets, a fully authorized private matrix grows
+from 27 to 28 cells. No existing sealed packet is renamed, rescored, or
+reinterpreted, and no fixture is added.
+
+This decision authorizes only the existing-file evaluation-contract and mapped
+documentation revision, deterministic verification, and native review. It
+does not authorize a commit, D49 carrier or model/provider call, assessor,
+installation, push, tag, release, stable update, cleanup, or external
+publication. Any D49 Campaign must first bind the exact 28-cell contract,
+candidate/control and policy identities, predecessor imports, model and turn
+budgets, correction and assessor limits, workspace, permissions, consumption
+points, automatic transitions, stop conditions, and closeout effects in one
+complete user-approved envelope.
 
 ## Important Rejected Alternatives
 

@@ -189,14 +189,25 @@ admitted fresh A10. Private controller postprocessing then could not read an
 A11 fixture file after one turn was consumed, so the combined packet sealed at
 10/27. One assessor received only the validated redacted view and returned
 `DECISION_REQUIRED`. Exact candidate `c481005...` remains unaccepted, later
-behavior remains unknown, and D46 is immutable. `WC-AR-D47` now authorizes one
-fresh additive A11-A27 window for the same candidate, but only after the new
-ignored carrier closes every remaining fixture, postprocessing, and terminal-
-branch file dependency without a model call. It imports admitted A01-A10
-without replay and leaves consumed D46 A11 as a separate `UNKNOWN`. No D47
-model turn has started. D31, D34, D42, D43, D44, D45, D46, and the D47
-authority still provide no behavior acceptance, installation, or release
-evidence.
+behavior remains unknown, and D46 is immutable. D47 subsequently passed 17/17
+zero-model full-lane qualification, but its first non-product `Sol/high`
+canary stopped on provider/account model availability before a final response;
+no product evidence started. D48 then passed 17/17 qualification, all three
+canaries, and a 187-file freeze. It combined immutable A01-A10 imports with
+fresh A11-A13 before A14 safely failed closed but lacked the exact candidate-
+load proof required by the frozen contract. The private prompt's “only the
+snapshot” wording was ambiguous about package loading, so the immutable D48
+packet sealed at 13/27 and one assessor returned `DECISION_REQUIRED`.
+
+Current SOURCE already separates Skill-package loading from target-project/
+evidence read authority. The prospective evaluation contract now says so
+explicitly for matched candidate/control/contrast re-entry cells and adds a
+direct package-denial boundary. Exact native invocation may preload
+`SKILL.md` before the model can act on that denial; controller evidence treats
+it as a pre-context Harness event, not activation or authority, and permits no
+additional reference, workflow, project read, or action. The reference matrix
+is 20 runs and the full two-contrast matrix 28 cells. D48 is not rescored, and
+no D49 Campaign, behavior acceptance, installation, or release is authorized.
 Full staged selection, entry, level, re-entry, and visible
 Standard behavior, full Standard delivery at the stable layer, broad implicit
 telemetry, independent real-project efficacy, deterministic role delivery or

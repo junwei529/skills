@@ -8,7 +8,7 @@ Last updated: 2026-08-11
 |---|---|
 | `work-charter` is the sole current five-file package | verified structurally for current SOURCE |
 | Gate 1 protection, re-entry, convergence, and explicit-activation contract | D43 SOURCE correction is implemented in the current revision: indirect proposal is metadata-sufficient and workflow-free, while direct or confirmed activation requires the exact body; the commit containing the closed set becomes the exact D43 candidate, and D31-D42 remain immutable and unaccepted |
-| Gate 1 evaluation definitions | 14 exact cases and 12 exact fixtures remain the intended repository shape; installed-Skills and symptom-only proposals may be metadata-only or package-loaded without changing their proposal score, while the same-context confirmation requires exact body loading before activation and adds no fresh run or matrix lane |
+| Gate 1 evaluation definitions | 14 exact cases and 12 exact fixtures remain the intended repository shape; installed-Skills and symptom-only proposals may be metadata-only or package-loaded without changing their proposal score, while same-context confirmation requires exact body loading before activation; the prospective reference matrix is 20 runs and the full two-contrast matrix 28 cells, with separate direct-invocation project-read and package-denial/Harness-preload boundaries |
 | First `v0.2.0` exact candidate Gate 2 | `206c497...` stopped incomplete and is superseded for acceptance; its completed correction and consumed events remain historical |
 | Successor `v0.2.0` exact candidate Gate 2 | `92a8c045...` passed qualification and consumed A01-A04; A04 hard-stopped on an unproved selected/loaded claim, so no candidate acceptance or later cell exists |
 | Exact `72db7e9...` fixed-turn Standard probe | one one-shot bundle completed four fresh primary sessions, sealed `VIOLATION`, created no subagent activity, left A16 unexecuted, and permits no retry or retrospective rescore |
@@ -33,7 +33,9 @@ Last updated: 2026-08-11
 | Exact `c481005...` D44 Gate 2 terminal | additive D44 used two zero-consumption carrier-only policy-host corrections, passed final 12/12 qualification, all three network-capable canaries, and freeze, then consumed one A01 product turn; the response stayed flat, proved the required reads, proposed the exact patch and focused command, and labelled it not run, while the tracked controller returned `ADMISSIBLE`, but the frozen semantic gate false-negatively rejected the split-emphasis heading, so D44 sealed at 0/27; one later assessor turn violated the admitted-cell prerequisite and is retained only as an excluded deviation; no retry, rescore, acceptance, installation, or release follows |
 | Exact `c481005...` D45 Gate 2 terminal | D45 admitted A01-A09, then sealed at 9/27 after a private matcher false-negatively rejected the exact equivalent `.\CHECKPOINT.md` missing-file diagnostic; 14 product turns and one eligible `DECISION_REQUIRED` assessor remain immutable, and D46 imported only the nine admitted rows without replay |
 | Exact `c481005...` D46 Gate 2 terminal | D46 imported D45 A01-A09, admitted fresh A10, then consumed A11 before private fixture postprocessing failed on absent `RECOVERY_STATE.json`; it sealed at combined 10/27 with 15 represented turns, one allowlisted-view assessor returned `DECISION_REQUIRED`, and A11 remains an immutable infrastructure `UNKNOWN` rather than a product finding |
-| `WC-AR-D47` additive Campaign authority | D47 may import only admitted A01-A10 as ten rows / 14 predecessor product turns; D46 A11 remains a separate consumed `UNKNOWN`; before any model call, a fresh ignored carrier must close all A11-A27 file dependencies and synthetic post-response/terminal branches, then may run three canaries, at most 22 product contexts / 25 product turns, and at most one assessor; no D47 model turn has started |
+| Exact `c481005...` D47 environment terminal | D47 passed 17/17 zero-model full-lane qualification, then its first required non-product `Sol/high` canary consumed one turn and returned no final response because the provider/account route did not make the pinned model available; no product, selection, loaded-copy, freeze, or assessor evidence followed, so D47 is an immutable environment stop rather than a product finding |
+| Exact `c481005...` D48 Gate 2 terminal | D48 imported admitted A01-A10 without replay, passed 17/17 qualification, three exact-route canaries, and a 187-file freeze, then completed fresh A11-A13; A14 safely failed closed after reading only its snapshot but lacked required candidate loaded-copy proof, so the packet sealed at combined 13/27 and one eligible assessor returned `DECISION_REQUIRED`; D48 is immutable and unaccepted |
+| `WC-AR-D49-EVAL-CONTRACT` prospective correction | matched A14/A19/B04/C04 now distinguish target-project/evidence read scope from direct-invocation package loading; separate A20 directly denies package use plus project/evidence reads/actions while attributing any exact-invocation preload to the pre-context Harness, not activation; the contract is 20 reference runs / 28 full cells, changes no package byte or sealed result, and authorizes no D49 Campaign or model call |
 | Isolated path-bound controller canary | private retained sealed `CANARY_PASS`; the public summary reports an exact-response pass and no command execution, omits locator/artifact/runtime details, leaves physical backend request count `UNKNOWN`, and proves neither natural-language selection nor candidate acceptance |
 | Small bounded work stays flat | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
 | Midstream implicit behavior is proposal-only | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
@@ -1174,11 +1176,11 @@ and its fixture precondition now proves that file absent. A future runner must
 materialize the entry workspace under the same execution identity as model
 commands and qualify normal read-only Git before a counted turn.
 
-This changes only `SKILL.md` inside the five-file package and reuses existing
-cases, fixture, and checker. It adds no public state, package file, fresh run,
-matrix lane, fixture, or result document. The future reference matrix remains
-19 runs and 27 cells, with one additional same-context turn for a maximum of 40
-counted turns including the independent assessor. Exact local D30 product
+At this D30 checkpoint, the change touched only `SKILL.md` inside the five-file
+package and reused existing cases, fixture, and checker. It added no public
+state, package file, fresh run, matrix lane, fixture, or result document. The
+then-current reference matrix remained 19 runs and 27 cells, with one additional
+same-context turn for a maximum of 40 counted turns including the independent assessor. Exact local D30 product
 candidate `53d424c...` has no model/assessor result, Gate 2 acceptance,
 installation, or release evidence.
 
@@ -1804,6 +1806,97 @@ budget is at most 26 contexts / 29 `turn/start` events including three
 canaries and one assessor. At this authority checkpoint no D47 carrier has been
 frozen and no D47 model or assessor turn has started; candidate acceptance,
 installation, and release remain unproved and unauthorized.
+
+### 2026-08-11 — D47 environment terminal
+
+D47 used all three authorized zero-model carrier corrections and passed 17/17
+final qualification checks, including the complete A11-A27 dependency and
+postprocessing closure. Qualification receipt
+`980d78d0cff53f65fbc104932c6ff45a7752d4a3fe48b4e1eea0d3268b200cbe`
+records zero product and assessor turns.
+
+The first required `gpt-5.6-sol/high` non-product canary consumed one
+`turn/start` and returned no final model message because the provider/account
+route did not make the pinned model available. Its receipt is
+`b862f51bddf8702a9941c73e79d14c1c355ba81806dd8438d3f276c34ec647fd`;
+the failed one-route batch receipt is
+`1de2541bc424cc3cf75e3a7251e343a21c1159f67b3682f786b16f2471f3fcae`.
+The other two canaries, freeze, every product cell, and assessor did not start.
+D47 provides no product, selection, or loaded-copy evidence. It is an immutable
+environment/provider-availability stop, not a Work Charter SOURCE defect. The
+sanitized record is
+[Work Charter D47 Gate 2 environment terminal](../../../evals/results/2026-08-11-work-charter-d47-gate2-terminal.md).
+
+### 2026-08-11 — D48 additive Gate 2 terminal
+
+D48 preserved exact candidate `c481005...`, five-file manifest `04c382a4...`,
+released control `ceed607...`, and every predecessor. It imported only admitted
+A01-A10 as ten provenance-bound rows representing 14 predecessor product turns.
+Final zero-model qualification passed 17/17 after one pre-consumption carrier
+correction. All three exact-route canaries passed; freeze bound 187 files and
+zero fresh product turns. Qualification, mapping, canary-batch, and freeze-
+receipt SHA-256 values are respectively `263e41df...`, `e81e9ee4...`,
+`c09bb5b1...`, and `6c55014e...`.
+
+Fresh A11-A13 completed. A14 consumed one `Sol/high` turn, read only the
+authorized snapshot, performed no write or external action, and returned the
+safe fail-closed route for divergent carriers and unknown finality. It did not
+load candidate `SKILL.md` because the private prompt said only that snapshot
+was authorized. The frozen selected-behavior gate therefore hard-stopped on
+missing controller-observed loaded-copy proof. Current SOURCE already separates
+package loading from project/evidence read authority; this is an evaluation-
+contract ambiguity, not a demonstrated SOURCE defect.
+
+The terminal sealed `SEALED_PARTIAL_HARD_STOP` at combined 13/27: ten imports
+plus fresh A11-A13. Six fresh contexts consumed eight product turns, for 16
+combined contexts and 22 combined product turns. One eligible `Terra/high`
+assessor received only the validated redacted view and returned
+`DECISION_REQUIRED`. Terminal, assessor-view, and assessment SHA-256 values are
+`0acaf6b2...`, `0a8103f7...`, and `2f929c77...`. D48 is immutable,
+non-retriable, unrescored, and unaccepted. The sanitized record is
+[Work Charter D48 Gate 2 terminal](../../../evals/results/2026-08-11-work-charter-d48-gate2-terminal.md).
+
+### 2026-08-11 — Prospective read-scope evaluation correction
+
+Accepted `WC-AR-D49-EVAL-CONTRACT` changes no Work Charter package byte. The
+recovery-integrity case now makes two distinct boundaries executable:
+
+- matched ambiguous re-entry cells limit target-project/evidence reads to the
+  named snapshot while allowing the Work Charter package instructions required
+  by direct invocation; and
+- one separate direct-invocation boundary denies package use plus project/
+  evidence reads and actions, attributes any unavoidable exact-invocation
+  `SKILL.md` preload to the pre-context Harness, and permits no additional
+  reference, activation, workflow application, or effect.
+
+The first correction applies symmetrically to candidate A14, accepted-control
+A19, same-model contrast B04, and alternate-model contrast C04. The second adds
+A20, increasing the reference matrix from 19 to 20 runs and the full two-
+contrast matrix from 27 to 28 cells. D48 is not retried, rescored, or
+reinterpreted. Deterministic verification and native review are authorized;
+commit and D49 model/assessor activity are not.
+
+The tracked closeout passes the unchanged Work Charter package validator;
+repository checker at 208 text files / 14 cases / 12 fixtures; all 17 fixture
+checks; the tracked controller at 11/11 historical, 32/32 evidence-surface,
+33/33 negative, 4/4 metamorphic, and 3/3 manifest-hash guards with zero model
+or assessor calls; all eight tracked PowerShell parses; `git diff --check`; and
+an exact 15-file Gitleaks publication scan with zero findings. A separate broad
+root scan included about 941 MB of ignored private carriers and reported 756
+non-public-scope findings; it is verification-scope noise, not publication
+evidence, and no raw finding is copied into source. Native-review disposition
+belongs outside the bytes it reviews.
+
+Native review cycle 1 review 1/5 returned two clear same-scope findings. P1
+found that the rule had changed while the recovery case's actual six-variant
+prompt still used the ambiguous old read limit; that prompt now contains the
+package-instruction allowance. P2 found that A20 did not exercise direct intent;
+it now uses exact `$work-charter` invocation and explicitly separates possible
+pre-context Harness loading from forbidden activation, workflow, project reads,
+and actions. A whitespace-tolerant focused contract probe passes 7/7, the
+repository and all 17 fixture checks pass again, `git diff --check` remains
+clean, and the exact 15-file Gitleaks scan remains at zero findings. Another
+native review is required because the intended diff changed.
 
 ## Required Checks
 

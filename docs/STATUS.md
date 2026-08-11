@@ -9,7 +9,7 @@ Last updated: 2026-08-11
 | Tested package identity | all three package byte sets independently reached exact-commit RC readiness at `c42eef392a5b9f58bbee64aa73ffb603a6fb6c29` and were re-proved at tag/stable identity `v0.1.2` | [Verification](VERIFICATION.md) |
 | Stable release identity | immutable [`v0.1.2`](https://github.com/junwei529/skills/releases/tag/v0.1.2) at `ceed607152849775b981c54add74bfa30d858e4d`; exact tag, stable loaded-copy, and GitHub Release proof pass for all three Skills | [Verification](VERIFICATION.md) |
 | Project Docs | immutable `v0.1.2` remains the released explicit-only control; local commit `776989f...` implements accepted Decision 0019 but is unreleased, and its evidence is `PARTIAL` because actual candidate selection, loaded-copy identity, and persistent writes remain `UNKNOWN` | [State](skills/manage-project-docs/STATE.md) |
-| Work Charter | released `v0.1.2` remains active; exact candidate `c481005...` is unchanged and unaccepted; D46 remains immutable at combined 10/27 with A11 infrastructure `UNKNOWN`; `WC-AR-D47` authorizes one fresh additive A11-A27 window only after complete zero-model dependency/postprocessing closure, and no D47 model turn has started | [State](skills/work-charter/STATE.md) |
+| Work Charter | released `v0.1.2` remains active; exact candidate `c481005...` is unchanged and unaccepted; D47 is an immutable pre-product provider-availability stop, and D48 is immutable at combined 13/27 after A14 safely failed closed without the frozen loaded-copy proof; the prospective eval contract now distinguishes project/evidence read scope from package loading and adds direct package-denial/Harness-preload attribution, but no D49 Campaign is authorized | [State](skills/work-charter/STATE.md) |
 | PowerShell | released five-file `v0.1.2` stable copy; corrected loaded identity and guarded native/text diagnosis pass; live WSL remains unproved | [State](skills/use-powershell-safely/STATE.md) |
 | Release lifecycle | `v0.1.2` tag, stable update, tag-pinned canaries, and Latest GitHub Release complete; `v0.1.1` retained as rollback identity | [Runbook](RUNBOOK.md) |
 
@@ -164,19 +164,35 @@ fresh and 15 combined product turns. One assessor received only the validated,
 locally reviewed redacted view and returned `DECISION_REQUIRED`. D46 is
 immutable and unaccepted; A11 and all later behavior remain `UNKNOWN`.
 
-The user then approved `WC-AR-D47`, an infrastructure-first additive Campaign
-for the same exact candidate. D47 may import only the ten admitted A01-A10 rows
-and their 14 predecessor product turns without replay. D46 A11 remains a
-separate consumed immutable `UNKNOWN`. Before any D47 model call, the new
-ignored carrier must enumerate and bind every A11-A27 fixture, workspace,
-postprocessor, auxiliary-role, terminal-sealing, and assessor-gate file
-dependency and synthetically exercise every applicable post-response branch.
-Only a complete zero-model closure may advance to three canaries, freeze, the
-fresh A11-A27 evidence window, and at most one assessor. No D47 carrier or
-model evidence exists at this authority checkpoint.
+D47 completed 17/17 zero-model full-lane qualification after using all three
+allowed carrier corrections. Its first required `Sol/high` non-product canary
+consumed one turn but returned no final response because the provider/account
+route did not make the pinned model available. No product, selection, loaded-
+copy, or assessor evidence was created. D47 is an immutable environment stop,
+not a Work Charter SOURCE finding.
 
-The exact post-commit documentation scope, writer state, and recovery order are
-owned by [Repository Handoff](HANDOFF.md).
+D48 then imported admitted A01-A10 without replay, passed 17/17 qualification,
+all three exact-route canaries, and a 187-file freeze. Fresh A11-A13 completed.
+A14 read only its authorized snapshot, changed nothing, and returned the safe
+fail-closed route for divergent carriers and unknown finality, but did not load
+the candidate body because the private prompt said only the snapshot was
+authorized. The frozen selected-behavior gate required that loaded-copy proof,
+so D48 sealed `SEALED_PARTIAL_HARD_STOP` at combined 13/27 with eight fresh and
+22 combined product turns. One eligible assessor returned
+`DECISION_REQUIRED`; D48 is immutable and unaccepted.
+
+Accepted `WC-AR-D49-EVAL-CONTRACT` keeps SOURCE and D48 unchanged. It clarifies
+the matched A14/A19/B04/C04 prompts so the named snapshot limits target-project
+and evidence reads while direct-invocation package instructions may load, and
+adds separate direct-invocation A20 where package use plus project/evidence
+reads and actions are denied. Any native `SKILL.md` preload is attributed to
+the pre-context Harness rather than activation or authority. The reference
+matrix is now 20 runs and the full two-contrast matrix 28 cells. This
+tracked evaluation/documentation closeout includes deterministic verification
+and native review but not a commit or any D49 model/assessor call.
+
+The exact evaluation-contract scope, writer state, and recovery order are owned
+by [Repository Handoff](HANDOFF.md).
 
 ## Current Verification Boundary
 
@@ -212,10 +228,13 @@ flat task, but the frozen semantic-gate false negative prevented admission and
 stopped the packet at 0/27. A later assessor turn was out of scope and is
 excluded from D44 assessment evidence; later-cell semantics remain
 `UNKNOWN_NOT_ASSESSED`, and no acceptance transfers.
-Later D45 and D46 evidence remains separately bounded as described above; D46
-ended at combined 10/27. `WC-AR-D47` is authority rather than behavior
-evidence: it preserves every predecessor and requires a new full-lane zero-
-model dependency closure before any fresh A11-A27 observation is consumed.
+Later D45-D48 evidence remains separately bounded as described above. D47
+stopped before product evidence on provider/account model availability after
+passing full-lane qualification. D48 then completed A11-A13 and sealed at
+combined 13/27 when A14 lacked the loaded-copy proof required by the frozen
+contract. `WC-AR-D49-EVAL-CONTRACT` changes only the prospective read-scope
+contract and adds a package-denial/Harness-preload boundary; it is not behavior
+evidence or D49 Campaign authority.
 Exact counts, hashes, exclusions, and residual limits remain in the per-Skill
 ledgers rather than this dashboard.
 
@@ -369,17 +388,15 @@ decision.
 
 ## Next Gate
 
-No release action remains pending for immutable `v0.1.2`. D31-D46 are complete,
-sealed, and non-retriable. Exact candidate `c481005...` remains unaccepted at
-Gate 2. One bounded D47 Campaign writer is active under `WC-AR-D47`; no D47
-model turn has started. Its next action is to create the fresh ignored carrier
-and complete the entire A11-A27 dependency/postprocessing/terminal-branch
-qualification with zero model calls. An incomplete or ambiguous closure stops
-before canaries. A complete closure may advance automatically through the three
-authorized canaries, freeze, fresh A11-A27 evidence, one eligible assessor, and
-the local sanitized-result closeout. SOURCE or candidate changes, push,
-installation, tag, release, stable update, cleanup, and other-Skill changes
-remain excluded.
+No release action remains pending for immutable `v0.1.2`. D31-D48 are complete,
+sealed or terminal, and non-retriable. Exact candidate `c481005...` remains
+unaccepted at Gate 2. The active writer is limited to the approved prospective
+evaluation-contract and mapped documentation closeout, deterministic checks,
+and native review. No commit or D49 carrier/model/assessor activity is
+authorized. After this diff converges, the next user gate is one complete
+decision packet for the local commit and a bounded D49 Campaign; SOURCE or
+candidate changes, push, installation, tag, release, stable update, cleanup,
+and other-Skill changes remain excluded.
 Project Docs keeps its own candidate and persistence-evidence sequence.
 
 ## Known Repository Gaps

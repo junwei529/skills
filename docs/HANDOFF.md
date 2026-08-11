@@ -8,8 +8,8 @@ Last updated: 2026-08-11
 - Latest exact Work Charter product candidate:
   `c4810057c3f28cca9f12004ca2018784cd21f449`; its five-file manifest is
   `04c382a48e43897a8806aa5ffd996984cb015d3d8cdc6e675e9181a6d94e6f44`,
-  and it remains unaccepted after D46 sealed at combined 10/27 on a private
-  A11 fixture-postprocessing failure
+  and it remains unaccepted after D48 sealed at combined 13/27 when A14 safely
+  failed closed but lacked the frozen candidate loaded-copy proof
 - Exact predecessor `b3ad360...` and its D41 packet remain immutable and
   unaccepted
 - Released package identity: immutable `v0.1.2` at
@@ -21,14 +21,14 @@ Last updated: 2026-08-11
   5 files, each matching the `v0.1.2` Git blobs
 - Rollback identity: immutable `v0.1.1` retained as a separately verified
   three-package backup
-- Writer boundary: one bounded D47 Campaign writer owns the single repository
-  lane from this authority checkpoint. No D47 model turn has started. Its scope
-  is one fresh ignored carrier, full A11-A27 zero-model dependency closure,
-  three canaries, the bounded fresh evidence/assessor sequence, and one later
-  sanitized-result commit. D31-D46 and all consumed turns remain immutable;
-  SOURCE, cases, fixtures, matrix, rubric, tracked controller, other Skills,
-  push, installation, tag, release, stable update, retained-evidence cleanup,
-  and unlisted external effects remain excluded
+- Writer boundary: one bounded `WC-AR-D49-EVAL-CONTRACT` writer owns the single
+  repository lane for the existing recovery-integrity case, shared evaluation
+  definition, sanitized D47/D48 reports, mapped documentation consumers,
+  deterministic verification, and native review. D31-D48 and all consumed
+  turns/carriers remain immutable. SOURCE, fixtures, tracked controller, other
+  Skills, model/provider or assessor calls, commit, push, installation, tag,
+  release, stable update, cleanup, and unlisted external effects remain
+  excluded
 
 D43 has resolved D42's open product choice: indirect proposals are metadata-
 sufficient and must not prescribe Work Charter workflow; direct intent or
@@ -80,15 +80,27 @@ returned `DECISION_REQUIRED`. The A11 stop is controller/carrier or fixture-
 postprocessing evidence, not a Work Charter SOURCE or product-behavior finding;
 A11 and later behavior remain `UNKNOWN`.
 
-Approved `WC-AR-D47` is a new additive packet for the same exact candidate. It
-imports only admitted A01-A10 as ten rows representing 14 predecessor product
-turns. D46 A11 stays outside that admitted import as a consumed immutable
-`UNKNOWN`; fresh D47 A11 is a new observation, not a retry or repair. Before
-any model call, the new carrier must close every A11-A27 fixture, workspace,
-postprocessor, auxiliary-role, terminal, and assessor-gate file dependency and
-synthetically exercise every applicable post-response branch. Only a complete
-zero-model closure may advance to three canaries, freeze, the fresh A11-A27
-window, and at most one assessor.
+D47 completed 17/17 zero-model full-lane qualification after all three allowed
+carrier corrections. Its first required `Sol/high` non-product canary consumed
+one turn but produced no final response because the provider/account route did
+not make the pinned model available. No product, selection, loaded-copy, or
+assessor evidence followed. D47 is an immutable environment stop.
+
+D48 then imported admitted A01-A10 without replay, passed 17/17 qualification,
+all three exact-route canaries, and a 187-file freeze. Fresh A11-A13 completed.
+A14 read only its authorized snapshot and returned the safe fail-closed route,
+but the private “only the snapshot” prompt led it not to load candidate
+`SKILL.md`; the frozen contract required that proof. D48 sealed at combined
+13/27 with eight fresh and 22 combined product turns, and one eligible assessor
+returned `DECISION_REQUIRED`. D48 is immutable and unaccepted.
+
+Accepted `WC-AR-D49-EVAL-CONTRACT` changes no SOURCE or sealed evidence. It
+clarifies the matched A14/A19/B04/C04 project/evidence read scope while allowing
+direct-invocation package instructions. Separate direct-invocation A20 denies
+package use plus project/evidence reads and actions; any native `SKILL.md`
+preload is a pre-context Harness event, not activation or authority. The
+prospective reference/full matrices are 20 runs / 28 cells. No D49 Campaign or
+model call is authorized.
 
 The `v0.1.2` tag remains fixed at the release-preparation commit. The later
 documentation commit records already-completed tag, stable-install, canary, and
@@ -934,7 +946,7 @@ created the fact class; it did not require or authorize speculative files.
 2. Read [Repository Status](STATUS.md), this handoff, and the relevant per-Skill
    State and Verification owners.
 3. Read Decisions 0017 and 0020, the capability-delta/Campaign Runbook and eval
-   owners, Decision 0018 through D44, and the current per-Skill State before
+   owners, Decision 0018 through `WC-AR-D49-EVAL-CONTRACT`, and the current per-Skill State before
    changing shared development or Work Charter selection claims.
 4. Resolve local `main`, HEAD, index, all dirty and ignored scopes, writer
    ownership, and the exact Work Charter SOURCE/candidate/controller bindings
@@ -944,42 +956,41 @@ created the fact class; it did not require or authorize speculative files.
    D35 terminal freeze `ed8bce3...`, D36 freeze `f687419...` plus A13 terminal,
    D37 precursor freeze `1d705c65...` plus summary `f4bddc52...`, D40's 3/27
    terminal, D41's 4/27 terminal, D42's 4/27 terminal, D45's 9/27 terminal,
-   and D46's combined 10/27 terminal, without retry, overwrite, relabelling,
-   rescore, or acceptance transfer.
+   D46's combined 10/27 terminal, D47's consumed environment canary, and D48's
+   combined 13/27 terminal, without retry, overwrite, relabelling, rescore,
+   reinterpretation, or acceptance transfer.
 6. Keep `c42eef3...` RC behavior, `ceed607...` release identity, the later
    evidence descendant, and the generated stable/rollback copies distinct.
-7. Treat exact candidate `c481005...` and D43-D46 as immutable inputs. Preserve
+7. Treat exact candidate `c481005...` and D43-D48 as immutable inputs. Preserve
    D44's two carrier-correction receipts, three canary turns, one A01 product
    turn, semantic-gate false-negative terminal, and one out-of-scope assessor
    turn without replay, rescore, relabelling, or acceptance transfer. Exclude
    that assessor output from the D44 evidence ledger. Preserve D45's imported
    A01-A09 boundary and D46's independent fresh ledger, disclosure receipt, and
    one eligible assessor without raw predecessor-evidence transfer.
-8. Do not continue or mutate D44, D45, or D46. `WC-AR-D47` is the sole active
-   successor authority. Import only admitted A01-A10; keep D46 A11 as a
-   separate consumed immutable `UNKNOWN`; and complete the entire A11-A27
-   dependency/postprocessing/terminal-branch closure before any canary or
-   product turn.
+8. Do not continue or mutate D44-D48. Complete only the approved prospective
+   evaluation-contract/documentation closeout and its deterministic/native-
+   review gates. Do not construct or run D49 until one complete Campaign
+   envelope is separately approved.
 
 ## Immediate Next Action
 
-No release action remains pending for immutable `v0.1.2`. D31-D46 are complete,
-sealed, and non-retriable. `WC-AR-D47` activates one bounded Campaign writer;
-no D47 model turn has started. After this authority commit, create the fresh
-ignored D47 carrier and prove the complete A11-A27 dependency manifest plus
-synthetic postprocessing and terminal branches with zero model calls. Stop
-before canaries on any incomplete, ambiguous, undeclared, missing-required, or
-mutable material input. A clean closure advances automatically through three
-canaries, freeze, the bounded fresh A11-A27 evidence window, at most one
-assessor, and the sanitized local result commit. SOURCE/candidate change,
-push, installation, tag, release, stable update, cleanup, and other-Skill
-changes remain unauthorized.
+No release action remains pending for immutable `v0.1.2`. D31-D48 are complete,
+sealed or terminal, and non-retriable. Finish the approved evaluation-contract
+and mapped documentation diff, run deterministic checks, then run native review.
+Do not commit. If those gates converge, present one complete decision packet
+that bundles the proposed local commit and a separately bounded D49 Campaign,
+including exact 28-cell identity, predecessor imports, model/turn/correction/
+assessor budgets, workspace, permissions, consumption points, transitions,
+stop conditions, and closeout effects. No D49 model call starts before that
+decision.
 
 Later user-owned choices include:
 
-- after D47 closes, decide the exact candidate disposition from its cumulative
-  predecessor-aware result; installation, release, and public reachability
-  remain separate later decisions requiring applicable evidence;
+- after the eval-contract/native-review closeout, decide whether to commit it
+  and authorize one complete D49 Campaign; candidate disposition,
+  installation, release, and public reachability remain later decisions
+  requiring applicable evidence;
 - after an accepted Project Docs commit, authorize an exact-commit candidate
   and write-capable synthetic persistence test;
 - begin another separately scoped development or evaluation cycle;
@@ -999,9 +1010,10 @@ Stop before write or publication if:
 - a future action treats a prior state sync, sealed predecessor, or Campaign
   approval as authority beyond its exact envelope;
 - any named sealed evidence input changes length or SHA-256;
-- a future action uses D32/D33 or the Campaign to change the frozen product,
-  case, fixture, controller behavior, contract, permission, or acceptance
-  boundary;
+- a future action uses a sealed Campaign to change the frozen product, case,
+  fixture, controller behavior, contract, permission, or acceptance boundary,
+  or exceeds the separately approved prospective A14/A19/B04/C04 plus A20
+  evaluation correction;
 - correction history or consumed evidence would be reset through a new task,
   root, epoch, attempt, or candidate label;
 - a root summary would duplicate or contradict a per-Skill canonical owner;
@@ -1014,24 +1026,21 @@ Stop before write or publication if:
 
 ## Authorization Boundary
 
-D42-D46 execution authority is consumed. Exact candidate `c481005...`, every
+D42-D48 execution authority is consumed. Exact candidate `c481005...`, every
 predecessor qualification/canary/product/assessor receipt, the assessor-
 deviation receipt, and all consumed turns are immutable and non-retriable. The
-assessor output is excluded from the D44 evidence ledger. `WC-AR-D47` now
-authorizes one new ignored carrier, import of admitted A01-A10 only, complete
-zero-model A11-A27 dependency and terminal-branch qualification, three
-canaries, at most 22 fresh product contexts / 25 product turns, at most one
-assessor, mapped documentation/native-review closeout, and at most two local
-commits. D46 A11 remains a separate consumed `UNKNOWN`; no D47 model turn has
-started.
+assessor output is excluded from the D44 evidence ledger. The current approval
+authorizes only the prospective evaluation-contract and mapped documentation
+revision, deterministic checks, and native review. It does not authorize a
+commit, ignored D49 carrier, model/provider call, or assessor.
 
-No SOURCE, case, fixture, matrix, rubric, tracked-controller, model assignment,
-workspace-route, permission, other-Skill, user-configuration, push,
+No SOURCE, fixture, tracked-controller, model assignment, workspace-route,
+permission, other-Skill, user-configuration, commit, push,
 installation, tag, release, stable mutation, retained-evidence cleanup, or
-unlisted external-effect change is authorized. Stop before canaries for an
-incomplete dependency closure and stop the Campaign for any material drift,
-predecessor evidence-treatment change, exhausted budget, non-`ACCEPTED`
-assessor verdict, or scope expansion.
+unlisted external-effect change is authorized. The only case/matrix-contract
+change is the approved A14/A19/B04/C04 read-scope clarification plus A20
+package-denial/Harness-preload boundary. Any D49 Campaign or material drift requires a new
+complete user decision.
 
 The D45 authorization documentation-impact closure is fact-first. `UPDATE`
 covers Decision 0018, Work Charter State and Verification, root Status,
@@ -1075,8 +1084,8 @@ shared evaluation method, Work Charter SOURCE/Design/cases/fixtures/matrix/
 rubric/current-SOURCE manifest/tracked controller/package references/assets,
 the immutable D46 result, and neighboring Skills. `NOT_APPLICABLE` covers
 another product candidate, installed or stable-copy changes, push, tag,
-release, cleanup, or external publication. The future D47 carrier is ignored
-evaluation infrastructure and its physical locator remains private.
+release, cleanup, or external publication. The then-future D47 carrier was
+ignored evaluation infrastructure and its physical locator remains private.
 
 The D42 result documentation-impact closure is fact-first. `UPDATE` covers the
 sanitized result/index, Work Charter bilingual public entry, per-Skill State/

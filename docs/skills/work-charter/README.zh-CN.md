@@ -150,11 +150,21 @@ false negative。D44 在 0/27 处封存；carrier 随后在未满足“至少一
 与三个 canary，并接纳 fresh A10。A11 消耗一个 turn 后，private controller postprocessing
 因 fixture 文件不存在而停止，组合 packet 因此封存在 10/27。一个 assessor 只读取经验证
 与本地复核的脱敏视图，并返回 `DECISION_REQUIRED`。精确 candidate `c481005...` 仍未获接受，
-后续行为仍为 `UNKNOWN`，D46 保持不可变。`WC-AR-D47` 现已为同一 candidate 授权一个 fresh
-additive A11-A27 窗口，但新 ignored carrier 必须先在零模型条件下闭合全部剩余 fixture、
-postprocessing 与 terminal-branch 文件依赖。它只导入已接纳的 A01-A10，不作重放，并把已消费的
-D46 A11 保留为独立 `UNKNOWN`。尚无 D47 模型 turn 启动。D31、D34、D42、D43、D44、D45、
-D46 以及 D47 authority 均仍无行为接受、安装或发布证据。
+后续行为仍为 `UNKNOWN`，D46 保持不可变。D47 随后通过 17/17 零模型 full-lane
+qualification，但第一个非产品 `Sol/high` canary 在生成最终回复前因 provider/account
+模型可用性停止，未开始任何产品证据。D48 继而通过 17/17 qualification、全部三个 canary
+和 187 文件 freeze。它把不可变的 A01-A10 导入与 fresh A11-A13 组合起来；A14 虽然安全地
+fail closed，却没有满足冻结合同要求的精确 candidate-load 证明。private prompt 中“只授权
+snapshot”的措辞对 package loading 存在歧义，因此不可变的 D48 packet 封存在 13/27，
+一个 assessor 返回 `DECISION_REQUIRED`。
+
+当前 SOURCE 已区分 Skill package loading 与 target-project/evidence read authority。
+prospective eval contract 现对匹配的 candidate/control/contrast re-entry cell 显式写明这一区分，
+并新增一条 direct package-denial boundary。精确原生调用可能在模型处理禁止语句前预加载
+`SKILL.md`；controller 必须把它归因为 pre-context Harness event，而不是 activation 或 authority，
+且不得再读取 reference、应用 workflow、读取项目或执行 action。reference matrix 现为 20 个
+run，含两组 contrast 的完整 matrix 为 28 个 cell。D48 不会被重评分，D49 Campaign、行为接受、
+安装与发布均未获授权。
 完整分阶段 selection、entry、等级、
 重新接入和可见 Standard 行为，stable 层完整 Standard
 delivery、广泛隐式触发 telemetry、独立真实项目效果、确定性角色交付或 writer

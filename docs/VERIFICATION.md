@@ -19,19 +19,19 @@ Sanitized detailed runs remain under [`evals/results`](../evals/results/README.m
 
 | Check | Purpose | Current result |
 |---|---|---|
-| Changed Skill validator | Validate frontmatter and package name without changing the package | unchanged exact `c481005...` Work Charter package passes the bundled `skill-creator` validator; D47 authority changes no Skill SOURCE |
-| Repository checker | Validate strict UTF-8/no BOM, whitespace, local links/fragments, publication safety, exact Skill/eval sets, federated docs, and bilingual navigation | D47 authority closeout passes with 206 text files / 14 cases / 12 fixtures |
-| Fixture checker | Validate synthetic starting states and their Git/reparse/ignored-result boundaries plus the tracked controller regression | D47 authority closeout retains all 17 passing checks; no fixture or controller-code bytes changed |
-| Codex evidence controller | Validate one shared core across four entry modes, strict required-read versus bounded auxiliary-observation attribution, structural PowerShell/Git/path classification, source-and-generated-contract-bound historical regressions, exact package manifests, candidate-identity and content-proof shape, record cardinality, completed exit typing, output-array shape, per-key single-capture sealed parsing and reuse, real-reparse rejection, fail-closed negatives, external-input types, independently resolved inner/wrapper command identity, Git-read and external-filter safety, profile-free PowerShell wrappers, culture-independent canonical ordering, metamorphic equivalence, output no-clobber, and canonical repeatability | D47 authority closeout retains exact current-SOURCE package identity, 11/11 historical, 32/32 evidence-surface, 33/33 negative, 4/4 metamorphic, 3/3 manifest-hash guards, all reported structural guards, and zero external model or assessor calls |
-| CRG supplemental preflight | Sharpen structural review scope when the maintained index represents the intended diff | degraded: the local graph was built at `763a15e...`, does not match current HEAD, and indexes only 34 PowerShell/Python files; the exact ten-file Markdown authority target returned zero changed nodes or flows, so it cannot represent this diff and native review must inspect the actual files |
-| Native Codex review | Review the exact uncommitted Work Charter SOURCE/evaluation/documentation or result closure | D47 authority closeout has a separate semantic-review gate whose final disposition is retained in the cumulative commit record rather than appended after review to the bytes it reviewed |
+| Changed Skill validator | Validate frontmatter and package name without changing the package | unchanged exact `c481005...` Work Charter package passes the bundled `skill-creator` validator; this eval-contract revision changes no Skill SOURCE |
+| Repository checker | Validate strict UTF-8/no BOM, whitespace, local links/fragments, publication safety, exact Skill/eval sets, federated docs, and bilingual navigation | passes with 208 text files / 14 cases / 12 fixtures for the D47/D48 result plus prospective eval-contract closeout |
+| Fixture checker | Validate synthetic starting states and their Git/reparse/ignored-result boundaries plus the tracked controller regression | all 17 checks pass; the case contract changes but no fixture or controller-code byte changes |
+| Codex evidence controller | Validate one shared core across four entry modes, strict required-read versus bounded auxiliary-observation attribution, structural PowerShell/Git/path classification, source-and-generated-contract-bound historical regressions, exact package manifests, candidate-identity and content-proof shape, record cardinality, completed exit typing, output-array shape, per-key single-capture sealed parsing and reuse, real-reparse rejection, fail-closed negatives, external-input types, independently resolved inner/wrapper command identity, Git-read and external-filter safety, profile-free PowerShell wrappers, culture-independent canonical ordering, metamorphic equivalence, output no-clobber, and canonical repeatability | passes exact current-SOURCE package identity, 11/11 historical, 32/32 evidence-surface, 33/33 negative, 4/4 metamorphic, 3/3 manifest-hash guards, all reported structural guards, and zero external model or assessor calls; tracked controller and sealed carriers are unchanged |
+| CRG supplemental preflight | Sharpen structural review scope when the maintained index represents the intended diff | degraded: the local graph was built at `763a15e...`, does not match current HEAD, and indexes only 34 PowerShell/Python files; the exact 15-file Markdown target returned zero changed symbols, affected flows, or test gaps, so it cannot represent this diff and native review must inspect the actual files including both untracked reports |
+| Native Codex review | Review the exact uncommitted Work Charter SOURCE/evaluation/documentation or result closure | cycle 1 review 1/5 used `gpt-5.6-terra/high` and returned one P1 plus one P2: the actual six-variant prompt still had the ambiguous read limit, and A20 did not exercise direct intent; both are fixed by updating the prompt and using exact invocation with pre-context Harness-load attribution; the focused contract probe passes 7/7 and repository/fixture/diff/publication checks pass again, so review 2/5 is required; final disposition remains outside the bytes reviewed and no commit is authorized |
 | Isolated controller canary | Record the bounded disposition of one private path-bound infrastructure check without broadening behavior claims | retained sealed `CANARY_PASS`; the public summary reports an exact-response pass and no command execution, omits private locator/artifact/runtime details, and leaves physical backend request count `UNKNOWN` |
-| Work Charter D36/D37/D40, D34/D41 predecessors, D42-D46 terminals, and D47 authority | Preserve additive predecessors and separate product behavior from route, tool, qualification, eval-contract, authorization, and private-carrier failures | D36 and D40 remain immutable incomplete `DECISION_REQUIRED` packets; D37 remains boundary-only evidence; D34 permits native package loading before confirmation; D41 records A04 product-visible and A05 evaluation-shape findings; D42 remains invalidly qualified; D43 stopped at `SANDBOX_NETWORK_TRANSPORT`; D44 sealed at 0/27 on a semantic-gate false negative; D45 sealed at 9/27 on missing-path diagnostic normalization; D46 imported D45 A01-A09, admitted fresh A10, and sealed at combined 10/27 after private A11 fixture postprocessing failed; `WC-AR-D47` authorizes a new full-lane zero-model qualification before any A11-A27 evidence, but consumes no model turn and does not accept exact candidate `c481005...` |
+| Work Charter D36/D37/D40, D34/D41 predecessors, D42-D48 terminals, and D49 eval contract | Preserve additive predecessors and separate product behavior from route, tool, qualification, eval-contract, authorization, environment, and private-carrier failures | D36 and D40 remain immutable incomplete `DECISION_REQUIRED` packets; D37 remains boundary-only evidence; D34 permits native package loading before confirmation; D41 records A04 product-visible and A05 evaluation-shape findings; D42 remains invalidly qualified; D43 stopped at `SANDBOX_NETWORK_TRANSPORT`; D44 sealed at 0/27 on a semantic-gate false negative; D45 sealed at 9/27 on missing-path normalization; D46 sealed at combined 10/27 after private fixture postprocessing failed; D47 stopped before product evidence on provider/account model availability; D48 sealed at combined 13/27 when A14 lacked frozen loaded-copy proof under an ambiguous prompt; `WC-AR-D49-EVAL-CONTRACT` corrects the prospective read-scope contract and adds A20 package-denial/Harness-preload attribution without authorizing a model call or accepting exact candidate `c481005...` |
 | PowerShell deterministic hardening | Validate cardinality, LF bytes, one-base paths, and Junction link-only removal | 15 assertions pass in PowerShell 7 and Windows PowerShell 5.1 |
-| PowerShell parser sweep | Parse all `evals/**/*.ps1` files and the tracked controller module | D47 authority closeout passes all eight tracked parses; the future ignored carrier must independently pass its closed qualification gate before model consumption |
+| PowerShell parser sweep | Parse all `evals/**/*.ps1` files and the tracked controller module | all eight tracked PowerShell files parse; no tracked PowerShell file changes |
 | Markdown navigation and ownership | Verify local links/fragments, English/Chinese routes, expected per-Skill owners, and no orphan canonical owner | passes through repository checker |
-| `git diff --check` | Reject whitespace defects in the working revision | passes for the D47 authority diff with an untouched index |
-| Gitleaks | Detect secret-like content independently | exact ten-file D47 authority publication scope passes with zero findings; ignored/private evidence is not public SOURCE |
+| `git diff --check` | Reject whitespace defects in the working revision | passes for the current tracked diff with an untouched index |
+| Gitleaks | Detect secret-like content independently | exact 15-file publication scan passes with zero findings; a separate broad root scan included about 941 MB of ignored private carriers and reported 756 non-public-scope findings, so it is retained only as scope-noise evidence and no raw finding is published |
 
 ## Repository Claim Ledger
 
@@ -1166,8 +1166,10 @@ unavailable, the affected fact remains `UNKNOWN`; the Skill stops and presents
 any different route as a new visible proposal instead of inspecting adjacent
 paths or metadata. Existing selection and entry cases carry the prospective
 checks, and the existing entry fixture checker proves the missing sentinel.
-The reference matrix remains 19 runs and 27 cells; one same-context third turn
-raises only the complete turn envelope to at most 40 including the assessor.
+At that D30 checkpoint the reference matrix remained 19 runs and 27 cells; one
+same-context third turn raised only the complete turn envelope to at most 40
+including the assessor. The later D49 evaluation-contract decision
+prospectively supersedes those matrix counts without changing D30.
 
 The initial fixture/controller pass reported package drift because its live-
 package check was still bound to historical candidate `b965102...`. That
@@ -1609,6 +1611,48 @@ contexts / 29 `turn/start` events. This authority record consumes zero D47
 model or assessor turns, changes no Work Charter SOURCE, case, fixture, matrix,
 rubric, tracked controller, candidate, installation, or stable release, and
 authorizes no push or publication.
+
+### 2026-08-11 — Work Charter D47 environment terminal
+
+D47 used all three allowed zero-model carrier corrections, then passed 17/17
+qualification checks including the full A11-A27 dependency/postprocessing
+closure. The first required `Sol/high` non-product canary consumed one
+`turn/start` but returned no final model message because the provider/account
+route did not make the pinned model available. No other canary, freeze,
+product, selection, loaded-copy, or assessor evidence followed. D47 is an
+immutable environment/provider-availability stop and remains
+`UNKNOWN_NOT_ASSESSED`, not a Work Charter SOURCE defect. The sanitized result
+is [Work Charter D47 Gate 2 environment terminal](../evals/results/2026-08-11-work-charter-d47-gate2-terminal.md).
+
+### 2026-08-11 — Work Charter D48 Gate 2 terminal and eval correction
+
+D48 preserved exact candidate `c481005...`, five-file manifest `04c382a4...`,
+released control `ceed607...`, and every predecessor. It imported admitted
+A01-A10 as ten rows / 14 product turns without replay, passed 17/17 zero-model
+qualification after one carrier correction, passed all three exact-route
+canaries, and froze 187 files with zero fresh product turns.
+
+Fresh A11-A13 completed. A14 consumed one `Sol/high` turn, read only its
+authorized snapshot, changed nothing, and safely failed closed on divergent
+carriers and unknown finality. Because the private prompt said only the
+snapshot was authorized, it did not load the candidate body; the frozen exact-
+load requirement therefore hard-stopped. D48 sealed
+`SEALED_PARTIAL_HARD_STOP` at combined 13/27 with eight fresh and 22 combined
+product turns. One eligible assessor received only the validated redacted view
+and returned `DECISION_REQUIRED`. D48 is immutable, unaccepted, and not
+rescored. The sanitized result is
+[Work Charter D48 Gate 2 terminal](../evals/results/2026-08-11-work-charter-d48-gate2-terminal.md).
+
+Current SOURCE already distinguishes Skill-package loading from project/
+evidence read authority. Accepted `WC-AR-D49-EVAL-CONTRACT` therefore changes
+only the prospective evaluation contract: A14, A19, B04, and C04 must state
+that the named snapshot limits target-project/evidence reads while direct-
+invocation package instructions may load; separate direct-invocation A20 denies
+package use plus project/evidence reads/actions and attributes any native
+`SKILL.md` preload to the pre-context Harness rather than activation. The
+reference matrix is now 20 runs and the full two-
+contrast matrix 28 cells. No D49 model/assessor call or commit is authorized by
+this documentation/evaluation revision.
 
 ### 2026-08-02 — Capability-delta decision and workflow
 
