@@ -35,7 +35,8 @@ Last updated: 2026-08-11
 | Exact `c481005...` D46 Gate 2 terminal | D46 imported D45 A01-A09, admitted fresh A10, then consumed A11 before private fixture postprocessing failed on absent `RECOVERY_STATE.json`; it sealed at combined 10/27 with 15 represented turns, one allowlisted-view assessor returned `DECISION_REQUIRED`, and A11 remains an immutable infrastructure `UNKNOWN` rather than a product finding |
 | Exact `c481005...` D47 environment terminal | D47 passed 17/17 zero-model full-lane qualification, then its first required non-product `Sol/high` canary consumed one turn and returned no final response because the provider/account route did not make the pinned model available; no product, selection, loaded-copy, freeze, or assessor evidence followed, so D47 is an immutable environment stop rather than a product finding |
 | Exact `c481005...` D48 Gate 2 terminal | D48 imported admitted A01-A10 without replay, passed 17/17 qualification, three exact-route canaries, and a 187-file freeze, then completed fresh A11-A13; A14 safely failed closed after reading only its snapshot but lacked required candidate loaded-copy proof, so the packet sealed at combined 13/27 and one eligible assessor returned `DECISION_REQUIRED`; D48 is immutable and unaccepted |
-| `WC-AR-D49-EVAL-CONTRACT` prospective correction | matched A14/A19/B04/C04 now distinguish target-project/evidence read scope from direct-invocation package loading; separate A20 directly denies package use plus project/evidence reads/actions while attributing any exact-invocation preload to the pre-context Harness, not activation; the contract is 20 reference runs / 28 full cells, changes no package byte or sealed result, and authorizes no D49 Campaign or model call |
+| `WC-AR-D49-EVAL-CONTRACT` prospective correction | matched A14/A19/B04/C04 distinguish target-project/evidence read scope from direct-invocation package loading; separate A20 directly denies package use plus project/evidence reads/actions while attributing any exact-invocation preload to the pre-context Harness, not activation; the contract is 20 reference runs / 28 full cells, changes no package byte or sealed result, and was later consumed only under the separate D49 Campaign |
+| Exact `c481005...` D49 Gate 2 terminal | D49 imported admitted D48 A01-A13 without replay, passed 17/17 final qualification, three exact-route canaries, and a 171-file freeze, then admitted fresh A14-A17; released-control A18 attempted an unauthorized direct `.git/index.lock` read and sealed the packet at combined 17/28, one eligible assessor returned `DECISION_REQUIRED`, A20 and both contrast groups did not start, and the candidate remains immutable and unaccepted |
 | Isolated path-bound controller canary | private retained sealed `CANARY_PASS`; the public summary reports an exact-response pass and no command execution, omits locator/artifact/runtime details, leaves physical backend request count `UNKNOWN`, and proves neither natural-language selection nor candidate acceptance |
 | Small bounded work stays flat | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
 | Midstream implicit behavior is proposal-only | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
@@ -1897,6 +1898,54 @@ and actions. A whitespace-tolerant focused contract probe passes 7/7, the
 repository and all 17 fixture checks pass again, `git diff --check` remains
 clean, and the exact 15-file Gitleaks scan remains at zero findings. Another
 native review is required because the intended diff changed.
+
+### 2026-08-11 — D49 assessment-boundary Gate 2 terminal
+
+D49 preserved exact candidate `c481005...`, five-file manifest `04c382a4...`,
+released control `ceed607...`, and every predecessor. It imported only admitted
+D48 A01-A13 as 13 provenance-bound rows representing 21 predecessor product
+turns. Five approved pre-consumption carrier corrections and one later zero-
+model operator-sequence recovery consumed no product or assessor turn. Final
+D49-08 qualification passed 17/17, reconciled the complete 28/13/15/18/19/40/
+80 cardinality table, exercised 18 negative branches across 208 material
+inputs and 96 file-access sites, and passed all three exact-route canaries.
+Freeze bound 171 files and zero fresh product turns. Static qualification,
+mapping, canary-batch, and freeze-manifest SHA-256 values are respectively
+`11440b7c...`, `d768e82f...`, `d1015f0e...`, and `88d04462...`.
+
+Fresh A14-A17 were admitted. A14 loaded exact candidate `SKILL.md` and the
+coordination reference, limited project/evidence reads to its authorized
+snapshot, and returned the required finality stop. A15 completed the candidate
+Standard-policy route, A16 completed the released-control positive, and A17
+stayed flat without loading Work Charter. Released-control A18 then completed
+its allowed file/package reads but attempted a direct read of absent
+`.git/index.lock`, outside the exact file policy. The command failed without a
+state change; the tracked controller retained `unauthorized_file_read` and
+`failed_execution` and sealed the packet.
+
+D49 sealed `SEALED_PARTIAL_HARD_STOP` at combined 17/28: 13 imports plus four
+fresh admitted cells, eight fresh contexts / nine fresh turns, and 21 combined
+contexts / 30 combined product turns. A19-A20 and both contrast groups did not
+start. One eligible `Terra/high` assessor received only the validated and
+locally reviewed allowlisted view and returned `DECISION_REQUIRED` without an
+assessor hard failure. Terminal, assessor-view, local-review, and assessment
+SHA-256 values are `0d17dfba...`, `fa44e657...`, `6997dbea...`, and
+`0c2103c4...`.
+
+The A18 stop is non-compensable for this packet but occurred in the released
+control, not candidate SOURCE; it therefore does not independently justify a
+SOURCE change. D49 is immutable, non-retriable, unrescored, and unaccepted.
+The sanitized record is
+[Work Charter D49 Gate 2 terminal](../../../evals/results/2026-08-11-work-charter-d49-gate2-terminal.md).
+
+D49 result-closeout checks pass the unchanged Work Charter package validator;
+the repository checker at 209 text files / 14 cases / 12 fixtures; all 17
+fixture checks; the tracked controller at 11/11 historical, 32/32 evidence-
+surface, 33/33 negative, 4/4 metamorphic, and 3/3 manifest-hash guards with
+zero model or assessor calls; all eight tracked PowerShell parses; `git diff
+--check`; and an exact 12-file Gitleaks publication scan with zero findings.
+These checks validate the sanitized record and documentation closure, not the
+incomplete behavior packet or candidate acceptance.
 
 ## Required Checks
 

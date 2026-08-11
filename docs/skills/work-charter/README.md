@@ -200,14 +200,16 @@ snapshot” wording was ambiguous about package loading, so the immutable D48
 packet sealed at 13/27 and one assessor returned `DECISION_REQUIRED`.
 
 Current SOURCE already separates Skill-package loading from target-project/
-evidence read authority. The prospective evaluation contract now says so
-explicitly for matched candidate/control/contrast re-entry cells and adds a
-direct package-denial boundary. Exact native invocation may preload
-`SKILL.md` before the model can act on that denial; controller evidence treats
-it as a pre-context Harness event, not activation or authority, and permits no
-additional reference, workflow, project read, or action. The reference matrix
-is 20 runs and the full two-contrast matrix 28 cells. D48 is not rescored, and
-no D49 Campaign, behavior acceptance, installation, or release is authorized.
+evidence read authority. D49 tested the corrected matched route without
+changing SOURCE: candidate A14 loaded the exact package and coordination
+reference, read only its authorized snapshot, and returned the required safe
+stop. Candidate A15, released-control A16, and ordinary negative A17 were also
+admitted. Released-control A18 then attempted a direct `.git/index.lock` read
+outside its exact file policy, so the controller sealed D49 at combined 17/28
+and one eligible assessor returned `DECISION_REQUIRED`. A20 and both contrast
+groups did not start. D49 is immutable and unaccepted; the A18 control stop
+does not by itself establish a candidate SOURCE defect, behavior acceptance,
+installation, or release readiness.
 Full staged selection, entry, level, re-entry, and visible
 Standard behavior, full Standard delivery at the stable layer, broad implicit
 telemetry, independent real-project efficacy, deterministic role delivery or

@@ -159,12 +159,13 @@ snapshot”的措辞对 package loading 存在歧义，因此不可变的 D48 pa
 一个 assessor 返回 `DECISION_REQUIRED`。
 
 当前 SOURCE 已区分 Skill package loading 与 target-project/evidence read authority。
-prospective eval contract 现对匹配的 candidate/control/contrast re-entry cell 显式写明这一区分，
-并新增一条 direct package-denial boundary。精确原生调用可能在模型处理禁止语句前预加载
-`SKILL.md`；controller 必须把它归因为 pre-context Harness event，而不是 activation 或 authority，
-且不得再读取 reference、应用 workflow、读取项目或执行 action。reference matrix 现为 20 个
-run，含两组 contrast 的完整 matrix 为 28 个 cell。D48 不会被重评分，D49 Campaign、行为接受、
-安装与发布均未获授权。
+D49 在不修改 SOURCE 的前提下测试了修正后的匹配路径：candidate A14 加载精确 package 与
+coordination reference，只读取获授权的 snapshot，并返回所需的安全停止。candidate A15、
+released-control A16 与 ordinary negative A17 也获得接纳。随后 released-control A18 尝试直接
+读取其精确文件策略之外的 `.git/index.lock`，controller 因而把 D49 封存在组合 17/28，且一个
+合格 assessor 返回 `DECISION_REQUIRED`。A20 与两组 contrast 均未开始。D49 不可变且未获
+接受；A18 control stop 本身不能证明 candidate SOURCE 存在缺陷，也不构成行为接受、安装或
+发布就绪证据。
 完整分阶段 selection、entry、等级、
 重新接入和可见 Standard 行为，stable 层完整 Standard
 delivery、广泛隐式触发 telemetry、独立真实项目效果、确定性角色交付或 writer

@@ -89,15 +89,20 @@ proof, so D48 sealed `SEALED_PARTIAL_HARD_STOP` at combined 13/27 with eight
 fresh and 22 combined product turns. One eligible assessor returned
 `DECISION_REQUIRED`. D48 is immutable and unaccepted.
 
-Accepted `WC-AR-D49-EVAL-CONTRACT` corrects that prospective evaluation
-ambiguity without changing Work Charter SOURCE or D48. Matched A14, A19, B04,
-and C04 prompts must distinguish target-project/evidence read scope from the
-package instructions required by direct invocation. Separate A20 directly
-denies package use plus project/evidence reads and actions; any exact-invocation
-`SKILL.md` preload is attributed to the pre-context Harness rather than product
-activation, and no additional reference, workflow, or effect may follow. The
-minimum reference matrix is now 20 runs and the full two-contrast matrix 28 cells. No
-D49 Campaign or model call is authorized at this checkpoint.
+Accepted `WC-AR-D49-EVAL-CONTRACT` corrected that prospective evaluation
+ambiguity without changing Work Charter SOURCE or D48. The separately approved
+D49 Campaign then imported admitted A01-A13 without replay, used five approved
+zero-model carrier corrections plus one zero-model operator-sequence recovery,
+passed 17/17 final qualification, all three exact-route canaries, and a 171-
+file freeze. Fresh candidate A14-A15, released-control A16, and ordinary
+negative A17 were admitted. A14 proved the corrected matched-read route by
+loading exact candidate instructions while limiting project/evidence reads to
+the snapshot. Released-control A18 then attempted a direct read of absent
+`.git/index.lock` outside its exact file policy, so the tracked controller
+sealed D49 at combined 17/28. One eligible assessor received only the validated
+and locally reviewed allowlisted view and returned `DECISION_REQUIRED`. A19-
+A20 and both contrast groups did not start. D49 is immutable and unaccepted;
+the A18 control stop does not by itself demonstrate a candidate SOURCE defect.
 
 The sealed fixed-turn Standard probe for `72db7e9...` returned `VIOLATION` and
 did not run its successor action. Decision 0018 `WC-AR-D26` preserves that
@@ -295,17 +300,20 @@ SOURCE by itself.
 
 ## Current Writer
 
-One bounded evaluation-contract writer owns the single repository lane for the
-approved `WC-AR-D49-EVAL-CONTRACT` closeout. Its write scope is the existing
-recovery-integrity case, shared evaluation definition, two sanitized D47/D48
-reports, and their mapped existing decision, per-Skill, and root documentation
-consumers. Deterministic verification and native review are in scope. D31-D48,
-every consumed turn, and all ignored carriers remain immutable.
+One bounded D49 result-closeout writer owns the single repository lane until
+the exact authorized local result commit succeeds or this task stops. Its write
+scope is the sanitized D49 report plus the mapped existing decision, per-Skill,
+root, and result-index consumers recorded in that report. Deterministic
+verification, native review, same-scope review corrections, and one local
+result commit are in scope. On successful commit this writer relinquishes; no
+repository writer is then authorized for the next product-owner decision.
 
-Work Charter SOURCE, Design, package manifest, fixtures, tracked controller,
-other Skills, discovery mappings, user configuration, commits, model/provider
-or assessor calls, push, installation, tag, release, stable-copy mutation,
-retained-evidence cleanup, and external publication remain unauthorized.
+Work Charter SOURCE, Design, package manifest, cases, fixtures, tracked
+controller, other Skills, discovery mappings, user configuration, further D49
+product or assessor calls, push, installation, tag, release, stable-copy
+mutation, retained-evidence cleanup, and external publication remain
+unauthorized. D31-D49, every consumed turn, and all ignored carriers remain
+immutable.
 
 ## Evidence State
 
@@ -802,19 +810,25 @@ freeze only; D33 and D35 are immutable infrastructure/controller
 `UNKNOWN_NOT_ASSESSED` records. D36 and D40 are incomplete product packets with
 independent `DECISION_REQUIRED`; neither transfers acceptance.
 
-The D42-D48 evidence windows are complete and immutable. Exact D43 candidate
+The D42-D49 evidence windows are complete and immutable. Exact D43 candidate
 `c481005...` remains unaccepted and unchanged. D47 stopped before product
 evidence on provider/account model availability after passing full-lane
 qualification. D48 imported A01-A10, completed fresh A11-A13, then sealed at
 combined 13/27 when A14 lacked frozen loaded-copy proof under an ambiguous
 private read-scope prompt. One eligible assessor returned
-`DECISION_REQUIRED`.
+`DECISION_REQUIRED`. D49 then admitted corrected-route A14 plus A15-A17 before
+released-control A18 crossed the exact file-read policy; it sealed at combined
+17/28 and its eligible assessor also returned `DECISION_REQUIRED`. A20 and the
+contrast groups remain `UNKNOWN_NOT_STARTED`.
 
-The next gate is completion of the approved prospective evaluation-contract
-and mapped documentation diff, deterministic checks, and native review. It
-clarifies matched A14/A19/B04/C04 and adds explicit-denial A20 without changing
-SOURCE or D48. Commit and D49 carrier/model/assessor activity require the next
-complete user decision. Installation and release remain separate later gates.
+The current authorized gate is the D49 sanitized result and mapped
+documentation closeout, deterministic checks, native review, and one local
+result commit. After that closeout, the next product-owner decision must choose
+whether to authorize a new evaluation-infrastructure route for the A18 control
+boundary, accept the residual without Gate 2 completion, or stop this
+candidate/evaluation line. No successor Campaign, SOURCE/controller/case/
+fixture revision, installation, push, tag, release, stable update, or cleanup
+is authorized.
 
 ## Recovery Entry
 
@@ -824,11 +838,14 @@ complete user decision. Installation and release remain separate later gates.
    [Decision 0018](../../decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md),
    this state, and [Verification](VERIFICATION.md).
 3. Confirm live workspace, writer, and action authority.
-4. Confirm live `main` includes the recorded D43 candidate and D44-D46 result
-   closeouts, then separately inventory the current uncommitted D47/D48 result
-   and eval-contract scope. Resolve exact identities from bounded private evidence, then resolve
-   HEAD, index, dirty scope, ignored carriers, runtime identity, and writer
-   instead of inferring them from an older handoff.
+4. Confirm live `main` includes the recorded D43 candidate and D44-D48 result
+   and eval-contract closeouts. Until the authorized D49 local result commit
+   exists, inventory the D49 result/documentation paths separately as the
+   expected dirty closeout scope and do not require `main` to contain them;
+   after that commit exists, verify its exact D49 scope is in `main` ancestry.
+   Resolve exact identities from bounded private evidence, then resolve HEAD,
+   index, dirty scope, ignored carriers, runtime identity, and writer instead
+   of inferring them from an older handoff.
 5. Preserve the complete predecessor ledger, including the D31 mapping-
    defective A03, zero-turn D32 freeze `cd8c0e2...`, D33 transport terminal
    `39ffdea...`, D35 freeze `ed8bce3...` plus its one-turn controller-
@@ -839,7 +856,7 @@ complete user decision. Installation and release remain separate later gates.
    qualified 4/27 terminal with A05 pre-activation workflow and loaded-copy
    findings, without retry, overwrite, relabelling, rescore, or acceptance
    transfer.
-6. Treat D34 and D41-D48 as complete immutable evidence inputs. Treat D42's
+6. Treat D34 and D41-D49 as complete immutable evidence inputs. Treat D42's
    pre-consumption qualification as invalid and its later six-file parser pass
    as diagnostic only. Preserve D43's passing closed-set qualification and its
    one consumed transport-canary turn without replay or acceptance transfer.
@@ -847,12 +864,13 @@ complete user decision. Installation and release remain separate later gates.
    false-negative semantic-gate stop, and one out-of-scope assessor turn without
    replay, rescore, or acceptance transfer. Exclude that assessor output from
    the D44 evidence ledger. Preserve D45's 9/27 terminal, D46's combined 10/27
-   terminal, D47's consumed environment canary, and D48's combined 13/27
-   terminal without replay, raw-evidence transfer, rescore, or reinterpretation.
-7. Do not continue or mutate D44-D48. Finish only the approved prospective
-   eval-contract/documentation closeout and its deterministic/native-review
-   gates. Do not construct or run D49 before one complete Campaign envelope is
-   separately approved.
+   terminal, D47's consumed environment canary, D48's combined 13/27 terminal,
+   and D49's combined 17/28 control-boundary terminal without replay, raw-
+   evidence transfer, rescore, or reinterpretation.
+7. Do not continue or mutate D44-D49. Finish only the approved D49 sanitized
+   result/documentation closeout and its deterministic/native-review/local-
+   commit gates. Do not construct or run a successor before a new complete
+   Campaign envelope is separately approved.
 8. Read canonical SOURCE, current eval definitions, and only evidence matching
    the exact revision before changing behavior or claims.
 9. Preserve the independent-Skill and non-propagating-authorization boundary.

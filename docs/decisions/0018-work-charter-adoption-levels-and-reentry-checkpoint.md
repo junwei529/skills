@@ -2,7 +2,7 @@
 
 Date: 2026-08-02
 Amended: 2026-08-11
-Status: accepted design through WC-AR-D49-EVAL-CONTRACT; D40-D48 are immutable under their frozen contracts, and no consumed execution is retried or rescored
+Status: accepted design through WC-AR-D49-EVAL-CONTRACT; D40-D49 are immutable under their frozen contracts, no consumed execution is retried or rescored, and exact candidate `c481005...` remains unaccepted after D49 sealed at combined 17/28 on released-control A18
 
 - Planning checkpoint: 28 (full-lane dependency closure and additive continuation)
 - Last incorporated decision: `WC-AR-D49-EVAL-CONTRACT`
@@ -1915,6 +1915,44 @@ candidate/control and policy identities, predecessor imports, model and turn
 budgets, correction and assessor limits, workspace, permissions, consumption
 points, automatic transitions, stop conditions, and closeout effects in one
 complete user-approved envelope.
+
+### WC-AR-D49 — Assessment-Boundary Gate 2 Terminal
+
+**Recorded.** The separately approved D49 Campaign preserved exact candidate
+`c481005...`, five-file manifest `04c382a4...`, released control `ceed607...`,
+and every predecessor. It imported only admitted D48 A01-A13 as 13 rows
+representing 21 predecessor product turns; D48 A14 and D47's failed canary
+remained excluded immutable observations.
+
+Five approved pre-consumption carrier corrections and one zero-model operator-
+sequence recovery preceded D49-08. None consumed model or assessor evidence.
+The final carrier passed 17/17 static qualification, complete 15-cell/18-
+context full-lane closure, all 80 mapping rows, and three exact-route canaries;
+freeze bound 171 files and zero fresh product turns.
+
+Fresh A14-A17 were admitted. A14 proved the prospective matched-read boundary:
+it loaded exact candidate package instructions and the coordination reference,
+read only the authorized snapshot, and returned the safe fail-closed finality
+route. A18 was a released-control reference cell. After its bounded second-turn
+read approval, it completed the allowed project/package reads but also attempted
+a direct read of absent `.git/index.lock`, outside the exact file policy. The
+failed command changed nothing; the tracked controller nevertheless retained
+`unauthorized_file_read` and `failed_execution` and sealed the packet.
+
+D49 sealed `SEALED_PARTIAL_HARD_STOP` at combined 17/28: 13 imported plus four
+fresh completed cells, eight fresh contexts / nine fresh turns, and 21 combined
+contexts / 30 combined product turns. A19-A20 and both contrast groups did not
+start. One eligible `Terra/high` assessor received only the validated and
+locally reviewed allowlisted view and returned `DECISION_REQUIRED` without an
+assessor hard failure.
+
+The A18 stop is non-compensable for the frozen packet but occurred under the
+released control, not candidate SOURCE. It therefore does not justify a SOURCE
+change by itself and leaves the exact control-behavior/evaluation-authority
+boundary for a later product-owner decision. D49 is immutable, non-retriable,
+unrescored, and unaccepted. No successor Campaign, candidate/controller/case/
+fixture revision, installation, push, tag, release, stable update, cleanup, or
+external publication follows without its own applicable authorization.
 
 ## Important Rejected Alternatives
 

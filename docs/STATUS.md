@@ -9,7 +9,7 @@ Last updated: 2026-08-11
 | Tested package identity | all three package byte sets independently reached exact-commit RC readiness at `c42eef392a5b9f58bbee64aa73ffb603a6fb6c29` and were re-proved at tag/stable identity `v0.1.2` | [Verification](VERIFICATION.md) |
 | Stable release identity | immutable [`v0.1.2`](https://github.com/junwei529/skills/releases/tag/v0.1.2) at `ceed607152849775b981c54add74bfa30d858e4d`; exact tag, stable loaded-copy, and GitHub Release proof pass for all three Skills | [Verification](VERIFICATION.md) |
 | Project Docs | immutable `v0.1.2` remains the released explicit-only control; local commit `776989f...` implements accepted Decision 0019 but is unreleased, and its evidence is `PARTIAL` because actual candidate selection, loaded-copy identity, and persistent writes remain `UNKNOWN` | [State](skills/manage-project-docs/STATE.md) |
-| Work Charter | released `v0.1.2` remains active; exact candidate `c481005...` is unchanged and unaccepted; D47 is an immutable pre-product provider-availability stop, and D48 is immutable at combined 13/27 after A14 safely failed closed without the frozen loaded-copy proof; the prospective eval contract now distinguishes project/evidence read scope from package loading and adds direct package-denial/Harness-preload attribution, but no D49 Campaign is authorized | [State](skills/work-charter/STATE.md) |
+| Work Charter | released `v0.1.2` remains active; exact candidate `c481005...` is unchanged and unaccepted; D49 passed 17/17 qualification, three canaries, and freeze, admitted corrected-route A14 plus A15-A17, then sealed at combined 17/28 when released-control A18 attempted an unauthorized direct `.git/index.lock` read; one assessor returned `DECISION_REQUIRED`, while A20 and both contrast groups did not start | [State](skills/work-charter/STATE.md) |
 | PowerShell | released five-file `v0.1.2` stable copy; corrected loaded identity and guarded native/text diagnosis pass; live WSL remains unproved | [State](skills/use-powershell-safely/STATE.md) |
 | Release lifecycle | `v0.1.2` tag, stable update, tag-pinned canaries, and Latest GitHub Release complete; `v0.1.1` retained as rollback identity | [Runbook](RUNBOOK.md) |
 
@@ -181,15 +181,19 @@ so D48 sealed `SEALED_PARTIAL_HARD_STOP` at combined 13/27 with eight fresh and
 22 combined product turns. One eligible assessor returned
 `DECISION_REQUIRED`; D48 is immutable and unaccepted.
 
-Accepted `WC-AR-D49-EVAL-CONTRACT` keeps SOURCE and D48 unchanged. It clarifies
-the matched A14/A19/B04/C04 prompts so the named snapshot limits target-project
-and evidence reads while direct-invocation package instructions may load, and
-adds separate direct-invocation A20 where package use plus project/evidence
-reads and actions are denied. Any native `SKILL.md` preload is attributed to
-the pre-context Harness rather than activation or authority. The reference
-matrix is now 20 runs and the full two-contrast matrix 28 cells. This
-tracked evaluation/documentation closeout includes deterministic verification
-and native review but not a commit or any D49 model/assessor call.
+Accepted `WC-AR-D49-EVAL-CONTRACT` kept SOURCE and D48 unchanged. The separately
+approved D49 Campaign then imported admitted A01-A13 without replay, used five
+approved zero-model carrier corrections and one zero-model operator-sequence
+recovery, passed 17/17 final qualification, all three exact-route canaries, and
+a 171-file freeze. Fresh A14-A17 were admitted. A14 proved the corrected
+matched-read route by loading exact candidate instructions while reading only
+its named snapshot. Released-control A18 then attempted a direct read of absent
+`.git/index.lock` outside its exact file policy. The tracked controller sealed
+D49 `SEALED_PARTIAL_HARD_STOP` at combined 17/28 with 21 combined contexts and
+30 product turns. One eligible assessor received only the validated allowlisted
+view and returned `DECISION_REQUIRED`. A19-A20 and both contrast groups did not
+start. D49 is immutable and unaccepted; the control-cell stop does not by
+itself establish a candidate SOURCE defect.
 
 The exact evaluation-contract scope, writer state, and recovery order are owned
 by [Repository Handoff](HANDOFF.md).
@@ -228,13 +232,13 @@ flat task, but the frozen semantic-gate false negative prevented admission and
 stopped the packet at 0/27. A later assessor turn was out of scope and is
 excluded from D44 assessment evidence; later-cell semantics remain
 `UNKNOWN_NOT_ASSESSED`, and no acceptance transfers.
-Later D45-D48 evidence remains separately bounded as described above. D47
+Later D45-D49 evidence remains separately bounded as described above. D47
 stopped before product evidence on provider/account model availability after
 passing full-lane qualification. D48 then completed A11-A13 and sealed at
 combined 13/27 when A14 lacked the loaded-copy proof required by the frozen
-contract. `WC-AR-D49-EVAL-CONTRACT` changes only the prospective read-scope
-contract and adds a package-denial/Harness-preload boundary; it is not behavior
-evidence or D49 Campaign authority.
+contract. D49 proved the corrected A14 route and admitted A15-A17, then sealed
+at combined 17/28 on released-control A18's unauthorized file-read attempt.
+A20 and the contrast groups remain `UNKNOWN_NOT_STARTED`.
 Exact counts, hashes, exclusions, and residual limits remain in the per-Skill
 ledgers rather than this dashboard.
 
@@ -388,15 +392,16 @@ decision.
 
 ## Next Gate
 
-No release action remains pending for immutable `v0.1.2`. D31-D48 are complete,
+No release action remains pending for immutable `v0.1.2`. D31-D49 are complete,
 sealed or terminal, and non-retriable. Exact candidate `c481005...` remains
-unaccepted at Gate 2. The active writer is limited to the approved prospective
-evaluation-contract and mapped documentation closeout, deterministic checks,
-and native review. No commit or D49 carrier/model/assessor activity is
-authorized. After this diff converges, the next user gate is one complete
-decision packet for the local commit and a bounded D49 Campaign; SOURCE or
-candidate changes, push, installation, tag, release, stable update, cleanup,
-and other-Skill changes remain excluded.
+unaccepted at Gate 2. The active writer is limited to the approved D49
+sanitized result and mapped documentation closeout, deterministic checks,
+native review, and one local result commit. After that closeout, the next user
+gate is one complete decision on the released-control A18 boundary: authorize
+a new evaluation-infrastructure route, accept the residual without Gate 2
+completion, or stop this candidate/evaluation line. No successor Campaign,
+SOURCE/controller/case/fixture change, push, installation, tag, release,
+stable update, cleanup, or other-Skill change is authorized.
 Project Docs keeps its own candidate and persistence-evidence sequence.
 
 ## Known Repository Gaps
