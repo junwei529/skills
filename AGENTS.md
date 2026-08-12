@@ -151,6 +151,16 @@ Before changing this repository, read:
   evidence data, not a function return value; phase dispatch must consume one
   typed scalar exit status. A direct app-server canary does not by itself
   qualify a different PowerShell/Python wrapper or its next-phase branch.
+- Before exposing an allowed native command to a model in scarce evidence,
+  define its argv in one canonical operation table and render the exact rooted
+  executable through the same wrapper, observation adapter, and controller
+  path used by the product run. Qualification must round-trip every allowed
+  operation and prove that rooted forms are admissible while corresponding bare
+  names and shadow paths fail closed. Establish the trusted executable from an
+  approved policy or independently authenticated platform anchor before PATH or
+  name resolution; PATH may be checked for drift but cannot define trust. A
+  shadow negative is rejected before launch. Component-only parsing, identity-
+  tuple, or classifier checks do not qualify the composite command route.
 - Run the skill validator for every changed skill.
 - Check for unresolved scaffolding markers, broken local links, encoding
   problems, and publication-unsafe traces.

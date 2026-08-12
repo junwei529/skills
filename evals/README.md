@@ -654,6 +654,34 @@ string itself or removal of one final LF/CRLF attributable to transport. A
 compound command, partial read, missing or non-string output, or content
 mismatch receives no read credit and remains unknown.
 
+#### Path-bound native command round-trip
+
+For scarce evidence, a model-visible native allowlist is not qualified merely
+because its arguments are read-only and the runtime separately reports a
+trusted executable identity. Define each allowed operation as argv in one
+canonical tracked table. Render it with the policy-pinned rooted executable,
+then pass that exact text through the production wrapper, observation adapter,
+AST/action classification, resolved-command binding, and controller. The
+qualifier must prove every rooted operation `ADMISSIBLE` and the corresponding
+bare-name and shadow-path variants fail closed. A component-only parser,
+classifier, or identity-tuple test cannot substitute for this composite
+round-trip.
+
+`codex-evidence-controller-cases.json` owns the five-operation Git read table
+used by the D51 route. The checker validates the closed table, includes the
+previously failing `branch --show-current` shape, renders all five operations
+from a platform-anchored, ordinary non-reparse Git identity rather than PATH,
+executes each through the resolved PowerShell wrapper using the same rendered
+call-operator text and a typed exit code, feeds the observed outer wrapper plus
+inner action through the controller, and reports their canonical hash. On
+Windows the anchor also requires a valid Authenticode signature. A synthetic
+PATH-first shadow proves that command lookup can drift without changing the
+anchor, and the shadow is rejected before launch. A zero exit does not require
+nonempty stdout; `branch --show-current` is valid in detached HEAD. The carrier must consume
+that same table and bind the rendered prompt/config hash before any canary or
+product turn; copying the displayed command strings into a second allowlist is
+not equivalent. The tracked controller module remains unchanged.
+
 #### WC-AR-D50 run-local final A18 overlay
 
 The approved D50 final route adds no general controller capability. Its ignored

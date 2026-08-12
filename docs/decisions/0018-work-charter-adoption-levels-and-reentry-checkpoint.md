@@ -2,13 +2,13 @@
 
 Date: 2026-08-02
 Amended: 2026-08-12
-Status: accepted design through WC-AR-D50-POST-TERMINAL-DIAGNOSIS; D40-D50 are immutable under their frozen contracts, no consumed execution is retried or rescored, and exact candidate `c481005...` remains unaccepted after the final A18 route sealed partial
+Status: accepted through WC-AR-D51-Q2-OUTPUT-CONTAINMENT; D40-D50 and D51-01/D51-02 are immutable under their evidence contracts, no consumed execution is retried or rescored, and exact candidate `c481005...` remains unaccepted while D51 has one correction used and one final pre-canary correction reserved for D51-03
 
-- Planning checkpoint: 30 (bounded post-terminal read-only diagnosis)
-- Last incorporated decision: `WC-AR-D50-POST-TERMINAL-DIAGNOSIS`
+- Planning checkpoint: 32 (final qualification output-containment recovery)
+- Last incorporated decision: `WC-AR-D51-Q2-OUTPUT-CONTAINMENT`
 - Open decision IDs: none
-- Lifecycle authority: this Decision grants none; consult `docs/HANDOFF.md` for
-  the live next gate
+- Lifecycle authority: D51 is limited to the exact Campaign envelope recorded
+  below; consult `docs/HANDOFF.md` for the live tranche and exclusions
 - Checkpoint reason: completed product-design decision set plus the accepted
   native-package/user-activation, project-read, mapping-qualification, and
   immutable-evidence boundaries
@@ -17,8 +17,9 @@ Status: accepted design through WC-AR-D50-POST-TERMINAL-DIAGNOSIS; D40-D50 are i
 
 This document preserves the accepted outcome of the Work Charter product
 discussion. Each item marked **Confirmed** reflects an explicit user decision.
-No open product-design decision remains in this scope. Implementation and every
-lifecycle gate below still require their own future authority.
+No open product-design decision remains in this scope. D51 has its own bounded
+implementation/evidence/closeout authority; every unlisted lifecycle gate still
+requires future authority.
 
 It does not describe current executable behavior. The current five-file SOURCE
 and the immutable `v0.1.2` stable package remain governed by
@@ -28,10 +29,11 @@ and the immutable `v0.1.2` stable package remain governed by
 trigger-accuracy, model-adaptation, real-project, or enforcement claim follows
 from this discussion record.
 
-Except for the bounded D34 implementation authorization recorded below, this
-checkpoint authorizes no Skill SOURCE or evaluation change, project or user-
-environment mutation, role delivery, worktree, Git action, installation,
-release, external effect, or private-global-rule change.
+Except for the bounded D34 implementation authorization and D51 Campaign
+authority recorded below, this checkpoint authorizes no Skill SOURCE or
+evaluation change, project or user-environment mutation, role delivery,
+worktree, Git action, installation, release, external effect, or private-
+global-rule change.
 
 ## Context
 
@@ -2063,6 +2065,141 @@ bounded successor. Any controller repair, new evidence, successor Campaign,
 SOURCE or evaluation-contract change, Git effect, installation, release, or
 cleanup remains a later explicit decision. This revision grants no acceptance
 credit and changes no D50 terminal fact.
+
+### WC-AR-D51-PATH-BOUND-COMMAND-ROUNDTRIP — Deterministic Gate And Additive Completion
+
+**Confirmed.** The bounded D50 diagnosis found a primary evaluation-contract
+and instruction mismatch: its run-local overlay displayed bare `git`
+invocations although the already-governing controller requires a rooted native
+invocation to equal the policy-pinned executable. D50 A18's observed identity,
+hash, wrapper, completed exit, and Git-read semantics otherwise matched, but
+the outer and action command text retained the bare name. A secondary
+qualification gap allowed component checks to pass without round-tripping the
+model-visible command through the complete renderer, wrapper, observation
+adapter, and controller. This is not a candidate or released-control product
+finding, a core-controller defect, or evidence of environment, wrapper,
+executable-identity, or Git-read-classification failure. D50 remains immutable.
+
+The lesson is `PROMOTED` prospectively. Repository `AGENTS.md` and
+`evals/README.md` own the semantic rule; the tracked cases table and checker
+own deterministic enforcement. The current writer implements it under this
+authority revision, and the proving check is the exact five-row canonical
+operation-table hash plus 12/12 command-resolution guards. The controller
+module, Work Charter SOURCE, behavior cases, fixtures, matrix, and rubric remain
+unchanged. Broader controller generalization, exhaustive producer ordering,
+and unrelated carrier refactoring are `DEFERRED`; reconsider only after a
+separate observed failure against their actual owner and an accepted scope.
+
+D51 is one bounded serial Campaign against unchanged exact candidate
+`c4810057c3f28cca9f12004ca2018784cd21f449`, its five-file manifest
+`04c382a48e43897a8806aa5ffd996984cb015d3d8cdc6e675e9181a6d94e6f44`,
+and released control `ceed607152849775b981c54add74bfa30d858e4d`. D40-D50,
+their carriers, turns, assessments, and dispositions remain immutable. D51 may
+import only D49 A01-A17; D50's out-of-matrix calibration does not transfer
+because the tool-policy overlay changes.
+
+The ordered tranches are:
+
+1. record this authority and the generic round-trip rule, add one canonical
+   five-operation argv table plus deterministic renderer/controller guards,
+   complete documentation-impact closure and native review, and create local
+   authority commit 1;
+2. construct one fresh ordinary ignored carrier, resolve and bind the exact
+   trusted Git application, consume the tracked table to render the prompt and
+   configuration, qualify the exact outer launcher and typed return path, and
+   prove all five rooted shapes admissible while their bare and shadow variants
+   fail closed;
+3. run exactly three non-product canaries, freeze the carrier, then execute
+   fresh `A18-CANDIDATE-CAL` followed by scored released-control A18 and, only
+   if the matched pair is clean, A19-A20 and B01-B04/C01-C04;
+4. run at most one read-only assessor after at least one fresh product
+   observation is admitted and the complete or terminal allowlisted packet
+   passes schema, hash, privacy, and local-review gates; and
+5. write one sanitized result closeout, complete deterministic verification
+   and native review, create local result commit 2, and relinquish the writer.
+
+The canonical table contains only the D50 five-operation argv shapes and marks
+each as requiring a path-bound native invocation. The private carrier may
+render a local rooted executable path, but tracked documentation and assessor
+views must omit that physical path. Its trusted identity must come from the
+frozen policy or an independently authenticated platform anchor before PATH
+lookup; a PATH-first shadow cannot redefine trust and is rejected before
+launch. The prompt, overlay, synthetic probes, and controller input must derive
+from the same table and bound rendered hash.
+Component-only success does not qualify the route. After final qualification,
+no correction is permitted after the first canary or freeze.
+
+One zero-model same-contract carrier correction is available before canary and
+must identify the uncertainty removed. Repeating the same failure, changing
+the contract, or requiring a controller-module delta stops the Campaign. D51
+has no operator recovery after certification. It budgets three canary turns,
+at most fourteen product turns across the calibration plus eleven scored
+contexts, and at most one assessor turn, for an eighteen-`turn/start` ceiling
+with zero controller retries. Each local commit attempt has one ordinary
+native-review cycle of at most five completed semantic reviews; no reset is
+preauthorized.
+
+The fourteen product turns are exhaustively allocated rather than fungible:
+`A18-CANDIDATE-CAL` and scored A18 each own exactly two ordered turns, first for
+the minimum-inspection proposal and then for the explicit bounded-read
+authorization plus identical tool-policy overlay; A19-A20 and B01-B04/C01-C04
+each own exactly one turn. A terminal first turn prevents its second turn, and
+any unused turn expires rather than transferring to another cell, retry,
+clarification, or recovery.
+
+Any consumed product or assessor hard stop seals D51 terminally without retry,
+rescore, replacement, or automatic D52. Gate 2 is `ACCEPTED` only if the
+calibration and all eleven fresh scored cells pass, yielding the complete
+28-cell matrix with D49's 17 imports, and the eligible assessor returns
+`ACCEPTED`. Otherwise the exact terminal state is recorded and the candidate
+remains unaccepted. This Campaign authorizes its named tracked owners, one
+fresh ignored carrier, declared model/assessor calls, two local commits, and
+same-scope corrections inside those limits. It excludes push, installation,
+tag, release, stable update, cleanup, SOURCE, behavior cases, fixtures, matrix,
+rubric, controller-module changes, other Skills, and automatic D52.
+
+### WC-AR-D51-Q2-OUTPUT-CONTAINMENT — Final Pre-Canary Qualification Correction
+
+**Confirmed.** The first D51 materialization, D51-01, stopped before formal
+qualification because Python startup produced one generated cache file inside
+the carrier. That zero-model by-product and carrier remain preserved. The
+authorized first same-contract correction created D51-02 without transferring
+dynamic outputs. D51-02 passed formal qualification stages 1-7 and then failed
+stage 8 before any canary, product, or assessor turn.
+
+The stage-8 failure is a qualification/controller-adapter route defect, not a
+Work Charter product or SOURCE finding. The private path-bound round-trip
+helper created its controller-output target under the system temporary root,
+while the existing adapter correctly requires every such output to be
+contained by the carrier's `execution/` attempt root. The correction receipt
+and failed stage log remain immutable. No product evidence was consumed, and
+D51-02 is not retried, overwritten, relabelled, or treated as a new product
+attempt.
+
+The D51 qualification-correction maximum is amended from one to two. D51-02
+used the first; the second is authorized and irrevocably reserved only for one
+fresh ordinary ignored D51-03 carrier from the amended authority commit. It is
+recorded as used 2/2 only when D51-03 is materialized and cannot be reassigned
+to another carrier or action. D51-03 changes only the
+private carrier's temporary controller-output containment and the corresponding
+prequalification invariant: the output target must resolve under the D51-03
+`execution/` attempt root before the adapter is invoked. It may update the
+private carrier identity, hashes, correction history, and policy-host binding
+required by that fresh materialization. It must not copy D51-02 dynamic
+qualification outputs or change Work Charter SOURCE, tracked controller code,
+behavior cases, fixtures, matrix, rubric, model or turn budgets, workspace,
+permission, or acceptance semantics.
+
+The existing local authority commit is amended under one new ordinary native-
+review cycle of at most five completed semantic reviews, with no reset
+preauthorized. D51-03 must be built only after that amended commit becomes the
+new policy-host identity. It then reruns the complete deterministic
+qualification from a clean carrier. A pass advances automatically through the
+already approved three canaries, freeze, product matrix, eligible assessor,
+sanitized closeout, and result commit. Any further qualification correction,
+repeat of the same failure, material anomaly, controller-module delta, or
+change to the approved Campaign envelope stops before model consumption and
+returns one complete decision. There is no third correction or automatic D52.
 
 ## Important Rejected Alternatives
 

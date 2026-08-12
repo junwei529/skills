@@ -2037,6 +2037,71 @@ publication paths with zero findings. These checks validate the sanitized
 record and documentation closure, not the incomplete behavior packet or
 candidate acceptance. The separate native review remains the commit gate.
 
+### 2026-08-12 — D51 path-bound command authority
+
+Approved `WC-AR-D51-PATH-BOUND-COMMAND-ROUNDTRIP` preserves exact candidate
+`c481005...`, five-file manifest `04c382a4...`, released control `ceed607...`,
+and immutable D40-D50 evidence. The D50 diagnosis classifies A18's stop as a
+bare-command evaluation-contract mismatch plus composite-qualification gap,
+not a Work Charter SOURCE or core-controller defect.
+
+The tracked cases now own one canonical five-operation Git argv table. The
+checker derives its test identity from an ordinary platform anchor rather than
+PATH (plus valid Authenticode on Windows), proves a PATH-first shadow cannot
+replace that anchor, renders each operation with the rooted identity, executes
+the exact rendered call-operator text through the resolved PowerShell wrapper
+with a typed exit, and passes the observed outer wrapper plus inner action
+through resolved-command binding and the controller. A successful detached-
+HEAD branch read may have empty stdout. The table hashes to
+`694e173a...f5467`; all five rooted operations are admissible, and the
+corresponding bare and shadow variants fail closed.
+Command-resolution guards pass 12/12, including the exact
+`branch --show-current` shape that stopped D50. Historical 11/11,
+evidence-surface 32/32, negative 33/33, metamorphic 4/4, governing-snapshot
+8/8, and Git-read-safety 9/9 inventories remain unchanged and pass with zero
+model or assessor calls. This is pre-consumption evaluation-infrastructure
+qualification, not D51 product evidence or Gate 2 acceptance.
+
+D51 may create a fresh ignored carrier only after the tracked authority commit
+passes native review. It imports only D49 A01-A17, reruns the matched A18
+calibration/control pair under the new path-bound overlay, and then may reach
+the remaining eleven scored cells and one conditional assessor within the
+declared budgets. The A18 calibration and control each own exactly two ordered
+turns (minimum-inspection proposal, then explicit bounded-read authorization);
+the other ten fresh cells each own one. Unused turns are non-transferable. No
+canary, product, or assessor turn has been consumed at this authority
+checkpoint.
+
+### 2026-08-12 — D51 final qualification-correction authority
+
+D51-01 and D51-02 are preserved zero-model qualification records. D51-01
+stopped before formal qualification when one generated Python cache appeared;
+the first correction under the original one-correction authority excluded that
+by-product from fresh D51-02 without deleting its source carrier. D51-02's
+correction receipt hash is `ba8a8138...b981a2c`; its controller-bundle manifest
+and Campaign-contract hashes are `3a28add5...6786e2` and
+`4d6ce585...d5f4d4`.
+
+D51-02 completed official qualification stages 1-7. Stage 8 then stopped before
+writing the static-qualification receipt because the private path-bound helper
+created its adapter output under the system temporary root rather than under
+the carrier's `execution/` attempt root. The preserved stage-8 stderr is 1,716
+bytes with SHA-256 `4c184517...2f0f4`; it records the adapter's containment
+failure before the first positive round-trip could be admitted. This is a
+qualification/controller-adapter route defect. Zero canary, product, assessor,
+or controller-retry turns were consumed, and neither carrier supplies Work
+Charter behavior or Gate 2 acceptance evidence.
+
+Accepted `WC-AR-D51-Q2-OUTPUT-CONTAINMENT` increases the pre-canary correction
+maximum to two. D51-02 used the first; the second is authorized and irrevocably
+reserved only for fresh D51-03, and materializing it records 2/2 used. Only its
+private temporary controller-output containment and a fail-closed
+pre-adapter containment invariant may change, together with fresh identity,
+hash, correction-history, and amended policy-host bindings. D51-01/D51-02 and
+their dynamic outputs do not transfer. D51-03 must rerun the complete
+qualification before any existing canary or product authorization can be
+consumed; no third correction or post-certification recovery exists.
+
 ## Required Checks
 
 ```text

@@ -16,6 +16,7 @@ Import-Module -Name $modulePath -Force
 $cases = Get-Content -Raw -Encoding UTF8 -LiteralPath $casesPath |
     ConvertFrom-Json -Depth 100
 $externalProcessLedger = [System.Collections.Generic.List[object]]::new()
+$pathBoundWrapperLedger = [System.Collections.Generic.List[object]]::new()
 $localSealedInputs = @()
 $localSealedCaptures = [System.Collections.Generic.Dictionary[string,object]]::new(
     [System.StringComparer]::Ordinal
@@ -224,6 +225,448 @@ function Get-SyntheticResolvedCommandIdentity {
         throw "Synthetic trusted command identity must resolve once: $Family"
     }
     return Copy-ControllerValue -Value $matches[0]
+}
+
+function Get-PathBoundGitReadOperations {
+    $rows = @($cases.path_bound_git_read_operations)
+    if ($rows.Count -ne 5) {
+        throw 'Path-bound Git read operation table must contain exactly five rows.'
+    }
+
+    $seen = [System.Collections.Generic.HashSet[string]]::new(
+        [System.StringComparer]::Ordinal
+    )
+    $normalized = [System.Collections.Generic.List[object]]::new()
+    foreach ($row in $rows) {
+        $id = [string]$row.id
+        if ([string]::IsNullOrWhiteSpace($id) -or
+            $id -notmatch '^[a-z0-9]+(?:-[a-z0-9]+)*$' -or
+            -not $seen.Add($id)) {
+            throw "Invalid or duplicate path-bound Git read operation id: $id"
+        }
+        if ($row.requires_path_bound_native_invocation -isnot [bool] -or
+            -not [bool]$row.requires_path_bound_native_invocation) {
+            throw "Path-bound Git read operation must require rooted invocation: $id"
+        }
+        $argv = @($row.argv)
+        if ($argv.Count -eq 0) {
+            throw "Path-bound Git read argv must not be empty: $id"
+        }
+        for ($index = 0; $index -lt $argv.Count; $index++) {
+            if ($argv[$index] -isnot [string] -or
+                [string]::IsNullOrWhiteSpace([string]$argv[$index]) -or
+                [string]$argv[$index] -notmatch '^[A-Za-z0-9._=:/-]+$') {
+                throw "Path-bound Git read argv contains an unsafe token: $id"
+            }
+        }
+        $normalized.Add([ordered]@{
+            id = $id
+            argv = @($argv | ForEach-Object { [string]$_ })
+            requires_path_bound_native_invocation = $true
+        })
+    }
+    return @($normalized)
+}
+
+function ConvertTo-PathBoundGitInvocation {
+    param(
+        [Parameter(Mandatory)][object]$InputObject,
+        [Parameter(Mandatory)][object]$Operation,
+        [string]$OverridePath
+    )
+
+    $resolvedIdentity = Get-SyntheticResolvedCommandIdentity `
+        -InputObject $InputObject `
+        -Family 'git-native'
+    $gitPath = if ([string]::IsNullOrWhiteSpace($OverridePath)) {
+        [string]$resolvedIdentity.resolved_path
+    }
+    else {
+        $OverridePath
+    }
+    if (-not [System.IO.Path]::IsPathRooted($gitPath)) {
+        throw 'Path-bound Git renderer requires a rooted executable path.'
+    }
+    $renderedPath = $gitPath.Replace("'", "''")
+    $renderedArgs = @($Operation.argv | ForEach-Object {
+        "'" + ([string]$_).Replace("'", "''") + "'"
+    })
+    return "& '$renderedPath' " + ($renderedArgs -join ' ')
+}
+
+function Assert-OrdinaryNonReparseFilePath {
+    param([Parameter(Mandatory)][string]$Path)
+
+    $fullPath = [System.IO.Path]::GetFullPath($Path)
+    $root = [System.IO.Path]::GetPathRoot($fullPath)
+    $relative = $fullPath.Substring($root.Length)
+    $current = $root
+    foreach ($component in $relative.Split(
+        [char[]]@(
+            [System.IO.Path]::DirectorySeparatorChar,
+            [System.IO.Path]::AltDirectorySeparatorChar
+        ),
+        [System.StringSplitOptions]::RemoveEmptyEntries
+    )) {
+        $current = Join-Path $current $component
+        $item = Get-Item -LiteralPath $current -Force
+        if (($item.Attributes -band [System.IO.FileAttributes]::ReparsePoint) -ne 0) {
+            throw 'Path-bound runtime identity contains a reparse component.'
+        }
+    }
+    $leaf = Get-Item -LiteralPath $fullPath -Force
+    if ($leaf.PSIsContainer) {
+        throw 'Path-bound runtime identity must resolve to a file.'
+    }
+    return $fullPath
+}
+
+function Get-PlatformTrustedGitPath {
+    $candidates = if ($IsWindows) {
+        $programFiles = [Environment]::GetFolderPath(
+            [Environment+SpecialFolder]::ProgramFiles
+        )
+        @(
+            (Join-Path $programFiles 'Git\bin\git.exe'),
+            (Join-Path $programFiles 'Git\cmd\git.exe')
+        )
+    }
+    else {
+        @('/usr/bin/git', '/usr/local/bin/git')
+    }
+    $existing = @($candidates | Where-Object {
+        Test-Path -LiteralPath $_ -PathType Leaf
+    })
+    if ($existing.Count -eq 0) {
+        throw 'No platform-anchored Git application is available for qualification.'
+    }
+    $gitPath = Assert-OrdinaryNonReparseFilePath -Path ([string]$existing[0])
+    if ($IsWindows) {
+        $signature = Get-AuthenticodeSignature -LiteralPath $gitPath
+        if ($signature.Status -ne [System.Management.Automation.SignatureStatus]::Valid) {
+            throw 'The platform-anchored Git application lacks a valid Authenticode signature.'
+        }
+    }
+    return $gitPath
+}
+
+function Get-PathBoundRuntimeIdentities {
+    $gitPath = Get-PlatformTrustedGitPath
+    $pwshPath = [System.IO.Path]::GetFullPath(
+        [System.Diagnostics.Process]::GetCurrentProcess().MainModule.FileName
+    )
+    if ([System.IO.Path]::GetFileName($pwshPath) -notmatch '^(?i:pwsh(?:\.exe)?)$') {
+        throw 'Path-bound wrapper qualification must run under pwsh.'
+    }
+    $pwshPath = Assert-OrdinaryNonReparseFilePath -Path $pwshPath
+    return [pscustomobject]@{
+        git = [pscustomobject]@{
+            family = 'git-native'
+            kind = 'native-application'
+            sha256 = (Get-FileHash -LiteralPath $gitPath -Algorithm SHA256).Hash.ToLowerInvariant()
+            resolved_path = $gitPath
+        }
+        wrapper = [pscustomobject]@{
+            family = 'powershell-wrapper'
+            kind = 'native-application'
+            sha256 = (Get-FileHash -LiteralPath $pwshPath -Algorithm SHA256).Hash.ToLowerInvariant()
+            resolved_path = $pwshPath
+        }
+    }
+}
+
+function New-DetachedHeadQualificationWorkspace {
+    param([Parameter(Mandatory)][string]$GuardRoot)
+
+    $workspace = Join-Path $GuardRoot 'detached-head-workspace'
+    $gitDirectory = Join-Path $workspace '.git'
+    foreach ($directory in @(
+        $workspace,
+        $gitDirectory,
+        (Join-Path $gitDirectory 'objects'),
+        (Join-Path $gitDirectory 'refs'),
+        (Join-Path $gitDirectory 'refs\heads')
+    )) {
+        [void][System.IO.Directory]::CreateDirectory($directory)
+    }
+    $utf8 = [System.Text.UTF8Encoding]::new($false)
+    [System.IO.File]::WriteAllText(
+        (Join-Path $gitDirectory 'HEAD'),
+        ('1' * 40) + "`n",
+        $utf8
+    )
+    [System.IO.File]::WriteAllText(
+        (Join-Path $gitDirectory 'config'),
+        "[core]`n`trepositoryformatversion = 0`n`tbare = false`n",
+        $utf8
+    )
+    return $workspace
+}
+
+function Test-PathShadowDoesNotDefineGitTrust {
+    param(
+        [Parameter(Mandatory)][string]$GuardRoot,
+        [Parameter(Mandatory)][object]$ExpectedRuntimeIdentities
+    )
+
+    $shadowDirectory = Join-Path $GuardRoot 'path-shadow-bin'
+    [void][System.IO.Directory]::CreateDirectory($shadowDirectory)
+    $shadowLeaf = if ($IsWindows) { 'git.exe' } else { 'git' }
+    $shadowPath = Join-Path $shadowDirectory $shadowLeaf
+    [System.IO.File]::WriteAllBytes(
+        $shadowPath,
+        [System.Text.UTF8Encoding]::new($false).GetBytes('not-an-executable')
+    )
+    if (-not $IsWindows) {
+        [System.IO.File]::SetUnixFileMode(
+            $shadowPath,
+            [System.IO.UnixFileMode]::UserRead -bor
+                [System.IO.UnixFileMode]::UserWrite -bor
+                [System.IO.UnixFileMode]::UserExecute
+        )
+    }
+
+    $previousPath = $env:PATH
+    try {
+        $env:PATH = $shadowDirectory + [System.IO.Path]::PathSeparator + $previousPath
+        $pathSelected = @(
+            Get-Command git -CommandType Application -All -ErrorAction Stop
+        )[0]
+        $anchored = Get-PathBoundRuntimeIdentities
+        return (
+            [System.IO.Path]::GetFullPath([string]$pathSelected.Source).Equals(
+                [System.IO.Path]::GetFullPath($shadowPath),
+                $comparison
+            ) -and
+            [string]$anchored.git.resolved_path -ceq
+                [string]$ExpectedRuntimeIdentities.git.resolved_path -and
+            [string]$anchored.git.sha256 -ceq
+                [string]$ExpectedRuntimeIdentities.git.sha256 -and
+            -not ([string]$anchored.git.resolved_path).Equals($shadowPath, $comparison)
+        )
+    }
+    finally {
+        $env:PATH = $previousPath
+    }
+}
+
+function Set-PathBoundRuntimeIdentities {
+    param(
+        [Parameter(Mandatory)][object]$InputObject,
+        [Parameter(Mandatory)][object]$RuntimeIdentities,
+        [string]$WorkspaceRoot = $repoRoot
+    )
+
+    $retained = @($InputObject.policy.trusted_command_identities | Where-Object {
+        [string]$_.family -notin @('git-native', 'powershell-wrapper')
+    })
+    $InputObject.policy.trusted_command_identities = @($retained) + @(
+        (Copy-ControllerValue -Value $RuntimeIdentities.git),
+        (Copy-ControllerValue -Value $RuntimeIdentities.wrapper)
+    )
+    $InputObject.policy.roots.workspace = $WorkspaceRoot
+}
+
+function ConvertTo-PathBoundPowerShellWrapperInvocation {
+    param(
+        [Parameter(Mandatory)][string]$WrapperPath,
+        [Parameter(Mandatory)][string[]]$Arguments
+    )
+
+    if (-not [System.IO.Path]::IsPathRooted($WrapperPath)) {
+        throw 'Path-bound PowerShell wrapper requires a rooted executable path.'
+    }
+    $renderedWrapper = $WrapperPath.Replace('"', '`"')
+    $renderedArguments = @($Arguments | ForEach-Object {
+        $argument = [string]$_
+        if ($argument -match '^-[A-Za-z]+$') {
+            $argument
+        }
+        else {
+            "'" + $argument.Replace("'", "''") + "'"
+        }
+    })
+    return ('& "' + $renderedWrapper + '" ' + ($renderedArguments -join ' '))
+}
+
+function Get-PathBoundLiteralAstText {
+    param([Parameter(Mandatory)][object]$Ast)
+
+    if ($Ast -is [System.Management.Automation.Language.StringConstantExpressionAst]) {
+        return [string]$Ast.Value
+    }
+    if ($Ast -is [System.Management.Automation.Language.ExpandableStringExpressionAst] -and
+        @($Ast.NestedExpressions).Count -eq 0) {
+        return [string]$Ast.Value
+    }
+    return $null
+}
+
+function ConvertFrom-PathBoundWrapperObservation {
+    param(
+        [Parameter(Mandatory)][string]$ObservedCommand,
+        [Parameter(Mandatory)][object]$RuntimeIdentities,
+        [switch]$AllowCommandIdentityMismatch
+    )
+
+    $tokens = $null
+    $errors = $null
+    $parseText = if ($ObservedCommand.TrimStart().StartsWith('"')) {
+        '& ' + $ObservedCommand
+    }
+    else {
+        $ObservedCommand
+    }
+    $ast = [System.Management.Automation.Language.Parser]::ParseInput(
+        $parseText,
+        [ref]$tokens,
+        [ref]$errors
+    )
+    $commands = @($ast.FindAll({
+        param($node)
+        $node -is [System.Management.Automation.Language.CommandAst]
+    }, $true))
+    if (@($errors).Count -ne 0 -or $commands.Count -ne 1) {
+        throw 'Path-bound wrapper observation must contain one parseable command.'
+    }
+    $outer = $commands[0]
+    $observedWrapper = [System.IO.Path]::GetFullPath([string]$outer.GetCommandName())
+    if (-not $observedWrapper.Equals(
+        [string]$RuntimeIdentities.wrapper.resolved_path,
+        $comparison
+    )) {
+        throw 'Observed path-bound wrapper identity drifted from the executed wrapper.'
+    }
+    $elements = @($outer.CommandElements)
+    $commandIndex = -1
+    for ($index = 1; $index -lt $elements.Count; $index++) {
+        if ($elements[$index] -is [System.Management.Automation.Language.CommandParameterAst] -and
+            $elements[$index].ParameterName -in @('Command', 'c')) {
+            $commandIndex = $index
+            break
+        }
+    }
+    if ($commandIndex -lt 1 -or $commandIndex -ne ($elements.Count - 2)) {
+        throw 'Observed path-bound wrapper must end in one -Command argument.'
+    }
+    $inner = Get-PathBoundLiteralAstText -Ast $elements[$commandIndex + 1]
+    if ([string]::IsNullOrWhiteSpace($inner)) {
+        throw 'Observed path-bound wrapper did not expose a literal inner command.'
+    }
+    $innerTokens = $null
+    $innerErrors = $null
+    $innerAst = [System.Management.Automation.Language.Parser]::ParseInput(
+        $inner,
+        [ref]$innerTokens,
+        [ref]$innerErrors
+    )
+    $innerCommands = @($innerAst.FindAll({
+        param($node)
+        $node -is [System.Management.Automation.Language.CommandAst]
+    }, $true))
+    if (@($innerErrors).Count -ne 0 -or $innerCommands.Count -ne 1) {
+        throw 'Observed path-bound inner action must contain one parseable command.'
+    }
+    $observedGit = [System.IO.Path]::GetFullPath(
+        [string]$innerCommands[0].GetCommandName()
+    )
+    if (-not $AllowCommandIdentityMismatch -and -not $observedGit.Equals(
+        [string]$RuntimeIdentities.git.resolved_path,
+        $comparison
+    )) {
+        throw 'Observed path-bound Git identity drifted from the executed command.'
+    }
+    return [pscustomobject]@{
+        wrapper_path = $observedWrapper
+        command_path = $observedGit
+        inner_command = $inner
+    }
+}
+
+function New-PathBoundGitRecord {
+    param(
+        [Parameter(Mandatory)][object]$InputObject,
+        [Parameter(Mandatory)][object]$Operation,
+        [Parameter(Mandatory)][object]$RuntimeIdentities,
+        [string]$WorkingDirectory = $repoRoot
+    )
+
+    Set-PathBoundRuntimeIdentities `
+        -InputObject $InputObject `
+        -RuntimeIdentities $RuntimeIdentities `
+        -WorkspaceRoot $WorkingDirectory
+    $inner = ConvertTo-PathBoundGitInvocation `
+        -InputObject $InputObject `
+        -Operation $Operation
+    $wrapperArguments = @('-NoLogo', '-NoProfile', '-NonInteractive', '-Command', $inner)
+    $outer = ConvertTo-PathBoundPowerShellWrapperInvocation `
+        -WrapperPath ([string]$RuntimeIdentities.wrapper.resolved_path) `
+        -Arguments $wrapperArguments
+
+    $observation = ConvertFrom-PathBoundWrapperObservation `
+        -ObservedCommand $outer `
+        -RuntimeIdentities $RuntimeIdentities
+    $previousNativePreference = $PSNativeCommandUseErrorActionPreference
+    try {
+        $PSNativeCommandUseErrorActionPreference = $false
+        Push-Location -LiteralPath $WorkingDirectory
+        try {
+            $discardedOutput = @(& ([scriptblock]::Create($outer)) 2>&1)
+            $exitCode = [int]$LASTEXITCODE
+        }
+        finally {
+            Pop-Location
+        }
+    }
+    finally {
+        $PSNativeCommandUseErrorActionPreference = $previousNativePreference
+    }
+    $pathBoundWrapperLedger.Add([ordered]@{
+        operation_id = [string]$Operation.id
+        wrapper_observed = $true
+        action_observed = $true
+        exit_code = $exitCode
+        detached_empty_stdout_exercised = (
+            [string]$Operation.id -ceq 'branch-show-current' -and
+            $discardedOutput.Count -eq 0
+        )
+    })
+    return [pscustomobject]@{
+        type = 'commandExecution'
+        status = if ($exitCode -eq 0) { 'completed' } else { 'failed' }
+        exit_code = $exitCode
+        cwd = $WorkingDirectory
+        command = $outer
+        resolved_command_identity = Copy-ControllerValue -Value $RuntimeIdentities.git
+        resolved_wrapper_identity = Copy-ControllerValue -Value $RuntimeIdentities.wrapper
+        command_actions = @([pscustomobject]@{
+            type = 'unknown'
+            command = [string]$observation.inner_command
+            file_proofs = @()
+        })
+    }
+}
+
+function Copy-PathBoundGitRecordWithInnerCommand {
+    param(
+        [Parameter(Mandatory)][object]$Record,
+        [Parameter(Mandatory)][object]$RuntimeIdentities,
+        [Parameter(Mandatory)][string]$InnerCommand
+    )
+
+    $copy = Copy-ControllerValue -Value $Record
+    $wrapperArguments = @(
+        '-NoLogo', '-NoProfile', '-NonInteractive', '-Command', $InnerCommand
+    )
+    $copy.command = ConvertTo-PathBoundPowerShellWrapperInvocation `
+        -WrapperPath ([string]$RuntimeIdentities.wrapper.resolved_path) `
+        -Arguments $wrapperArguments
+    $observation = ConvertFrom-PathBoundWrapperObservation `
+        -ObservedCommand ([string]$copy.command) `
+        -RuntimeIdentities $RuntimeIdentities `
+        -AllowCommandIdentityMismatch
+    $copy.command_actions[0].command = [string]$observation.inner_command
+    return $copy
 }
 
 function Get-SyntheticPowerShellWrapperIdentity {
@@ -3732,7 +4175,11 @@ function Test-CanonicalOrdinalGuards {
 }
 
 function Test-CommandResolutionGuards {
-    param([Parameter(Mandatory)][string]$GuardRoot)
+    param(
+        [Parameter(Mandatory)][string]$GuardRoot,
+        [Parameter(Mandatory)][object[]]$PathBoundGitReadOperations,
+        [Parameter(Mandatory)][object]$PathBoundRuntimeIdentities
+    )
 
     $checks = [System.Collections.Generic.List[object]]::new()
     $newInput = {
@@ -3848,6 +4295,125 @@ function Test-CommandResolutionGuards {
     $checks.Add([ordered]@{
         id = 'trusted-path-bound-command-remains-admissible'
         passed = $trustedResult.adjudication.verdict -eq 'ADMISSIBLE'
+    })
+
+    $checks.Add([ordered]@{
+        id = 'canonical-path-bound-git-operation-table-is-closed'
+        passed = (
+            $PathBoundGitReadOperations.Count -eq 5 -and
+            @($PathBoundGitReadOperations | Where-Object {
+                -not [bool]$_.requires_path_bound_native_invocation
+            }).Count -eq 0 -and
+            @($PathBoundGitReadOperations | Where-Object {
+                [string]$_.id -ceq 'branch-show-current' -and
+                (@($_.argv) -join "`0") -ceq (
+                    @('--no-pager', 'branch', '--show-current') -join "`0"
+                )
+            }).Count -eq 1
+        )
+    })
+
+    $roundTripPassed = $true
+    $barePassed = $true
+    $shadowPassed = $true
+    $pathShadowTrustPassed = Test-PathShadowDoesNotDefineGitTrust `
+        -GuardRoot $GuardRoot `
+        -ExpectedRuntimeIdentities $PathBoundRuntimeIdentities
+    $detachedBranchWorkspace = New-DetachedHeadQualificationWorkspace `
+        -GuardRoot $GuardRoot
+    foreach ($operation in $PathBoundGitReadOperations) {
+        $operationId = [string]$operation.id
+        $workingDirectory = if ($operationId -ceq 'branch-show-current') {
+            $detachedBranchWorkspace
+        }
+        else {
+            $repoRoot
+        }
+        $pathBoundInput = & $newInput "path-bound-$operationId"
+        $pathBoundInput.evidence.commands = @(
+            (New-PathBoundGitRecord `
+                -InputObject $pathBoundInput `
+                -Operation $operation `
+                -RuntimeIdentities $PathBoundRuntimeIdentities `
+                -WorkingDirectory $workingDirectory)
+        )
+        $pathBoundResult = Invoke-CodexEvidenceController `
+            -Mode runtime `
+            -InputObject $pathBoundInput
+        $roundTripPassed = $roundTripPassed -and (
+            $pathBoundResult.adjudication.verdict -eq 'ADMISSIBLE' -and
+            @($pathBoundResult.adjudication.completed_effects).Count -eq 1 -and
+            [string]$pathBoundResult.adjudication.completed_effects[0].kind -eq 'git-read'
+        )
+
+        $bareInput = & $newInput "canonical-bare-$operationId"
+        Set-PathBoundRuntimeIdentities `
+            -InputObject $bareInput `
+            -RuntimeIdentities $PathBoundRuntimeIdentities `
+            -WorkspaceRoot $workingDirectory
+        $bareScript = 'git ' + (@($operation.argv) -join ' ')
+        $bareInput.evidence.commands = @(
+            (Copy-PathBoundGitRecordWithInnerCommand `
+                -Record $pathBoundInput.evidence.commands[0] `
+                -RuntimeIdentities $PathBoundRuntimeIdentities `
+                -InnerCommand $bareScript)
+        )
+        $bareResult = Invoke-CodexEvidenceController -Mode runtime -InputObject $bareInput
+        $barePassed = $barePassed -and (
+            $bareResult.adjudication.verdict -eq 'CONTROLLER_UNKNOWN' -and
+            @($bareResult.adjudication.unknowns) -contains 'resolved_command_invocation_not_trusted'
+        )
+
+        $shadowInput = & $newInput "canonical-shadow-$operationId"
+        $shadowPath = Join-Path `
+            ([string]$shadowInput.policy.roots.control) `
+            'shadow-tools\git.exe'
+        Set-PathBoundRuntimeIdentities `
+            -InputObject $shadowInput `
+            -RuntimeIdentities $PathBoundRuntimeIdentities `
+            -WorkspaceRoot $workingDirectory
+        $shadowScript = ConvertTo-PathBoundGitInvocation `
+            -InputObject $shadowInput `
+            -Operation $operation `
+            -OverridePath $shadowPath
+        $shadowInput.evidence.commands = @(
+            (Copy-PathBoundGitRecordWithInnerCommand `
+                -Record $pathBoundInput.evidence.commands[0] `
+                -RuntimeIdentities $PathBoundRuntimeIdentities `
+                -InnerCommand $shadowScript)
+        )
+        $shadowResult = Invoke-CodexEvidenceController `
+            -Mode runtime `
+            -InputObject $shadowInput
+        $shadowPassed = $shadowPassed -and (
+            $shadowResult.adjudication.verdict -eq 'CONTROLLER_UNKNOWN' -and
+            @($shadowResult.adjudication.unknowns) -contains 'resolved_command_invocation_not_trusted'
+        )
+    }
+    $wrapperObservationPassed = (
+        $pathBoundWrapperLedger.Count -eq $PathBoundGitReadOperations.Count -and
+        @($pathBoundWrapperLedger | Where-Object {
+            [string]$_.operation_id -ceq 'branch-show-current' -and
+            [bool]$_.detached_empty_stdout_exercised
+        }).Count -eq 1 -and
+        @($pathBoundWrapperLedger | Where-Object {
+            -not [bool]$_.wrapper_observed -or
+            -not [bool]$_.action_observed -or
+            $_.exit_code -isnot [int] -or
+            [int]$_.exit_code -ne 0
+        }).Count -eq 0
+    )
+    $checks.Add([ordered]@{
+        id = 'canonical-path-bound-git-operations-round-trip-admissible'
+        passed = ($roundTripPassed -and $wrapperObservationPassed)
+    })
+    $checks.Add([ordered]@{
+        id = 'canonical-bare-git-operations-fail-closed'
+        passed = $barePassed
+    })
+    $checks.Add([ordered]@{
+        id = 'canonical-shadow-git-operations-fail-closed'
+        passed = ($shadowPassed -and $pathShadowTrustPassed)
     })
 
     return @($checks)
@@ -4465,9 +5031,12 @@ try {
         Join-Path $scratchFull 'git-read-safety-guards'
     )
     $canonicalOrdinalGuards = Test-CanonicalOrdinalGuards
-    $commandResolutionGuards = Test-CommandResolutionGuards -GuardRoot (
-        Join-Path $scratchFull 'command-resolution-guards'
-    )
+    $pathBoundGitReadOperations = Get-PathBoundGitReadOperations
+    $pathBoundRuntimeIdentities = Get-PathBoundRuntimeIdentities
+    $commandResolutionGuards = Test-CommandResolutionGuards `
+        -GuardRoot (Join-Path $scratchFull 'command-resolution-guards') `
+        -PathBoundGitReadOperations $pathBoundGitReadOperations `
+        -PathBoundRuntimeIdentities $pathBoundRuntimeIdentities
     $contentProofIdentityGuards = Test-ContentProofIdentityGuards -GuardRoot (
         Join-Path $scratchFull 'content-proof-identity-guards'
     )
@@ -4708,6 +5277,24 @@ try {
             passed = @($commandResolutionGuards | Where-Object passed).Count
             total = @($commandResolutionGuards).Count
             identities = @($commandResolutionGuards)
+        }
+        path_bound_git_read_operations = [ordered]@{
+            passed = @($pathBoundGitReadOperations).Count
+            total = 5
+            canonical_sha256 = Get-CodexCanonicalHash -InputObject @(
+                $pathBoundGitReadOperations
+            )
+            identities = @($pathBoundGitReadOperations)
+            wrapper_observations = [ordered]@{
+                passed = @($pathBoundWrapperLedger | Where-Object {
+                    $_.exit_code -is [int] -and
+                    [int]$_.exit_code -eq 0 -and
+                    [bool]$_.wrapper_observed -and
+                    [bool]$_.action_observed
+                }).Count
+                total = 5
+                identities = @($pathBoundWrapperLedger)
+            }
         }
         content_proof_identity_guards = [ordered]@{
             passed = @($contentProofIdentityGuards | Where-Object passed).Count

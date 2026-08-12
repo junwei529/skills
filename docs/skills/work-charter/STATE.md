@@ -115,6 +115,40 @@ controller `UNKNOWN` for `resolved_command_invocation_not_trusted`. D50 sealed
 complete. One eligible assessor returned `DECISION_REQUIRED`; D50 is immutable
 and exact candidate `c481005...` remains unaccepted.
 
+Approved `WC-AR-D51-PATH-BOUND-COMMAND-ROUNDTRIP` preserves that candidate,
+released control, and every sealed predecessor. It promotes D50's invocation-
+trust lesson into repository/evaluation policy plus a deterministic five-row
+argv table and composite wrapper/observation/controller regression. All five
+rooted forms execute as the same callable outer text through the resolved
+PowerShell wrapper with typed zero exits, including detached-HEAD empty output,
+while bare and shadow variants fail closed; Work Charter SOURCE,
+the controller module, behavior cases, fixtures, matrix, and rubric remain
+unchanged. After local authority commit 1, one fresh ignored carrier may run
+the predeclared qualification, canary, product, assessor, result-closeout, and
+local commit 2 sequence without further command-level approval. Its fourteen
+product turns are fully assigned: two each to the ordered A18 calibration and
+control interactions and one each to the other ten cells; unused turns expire.
+
+Accepted `WC-AR-D51-Q2-OUTPUT-CONTAINMENT` preserves D51-01 and D51-02 as
+zero-model qualification records. D51-01 stopped before formal qualification
+after one generated Python cache appeared inside its carrier. The first
+same-contract correction created D51-02, which completed official stages 1-7
+and then failed stage 8 because its private round-trip helper placed controller
+outputs under the system temporary root rather than the carrier `execution/`
+attempt root required by the adapter. No canary, product, or assessor turn was
+consumed. This is a qualification/controller-adapter route defect, not a Work
+Charter SOURCE or product finding.
+
+The D51 correction maximum is now two. D51-02 used the first; the second is
+authorized and irrevocably reserved only for one fresh ordinary ignored D51-03
+carrier, and materializing it records 2/2 used. That carrier may change only
+the private temporary-output containment, prove that target is inside its
+`execution/` root before adapter invocation, bind the amended authority commit,
+and rerun the complete
+deterministic qualification. D51-01/D51-02 and their receipts remain
+immutable; dynamic outputs do not transfer. All model, turn, acceptance, and
+exclusion boundaries remain unchanged. D51 has no third correction.
+
 The sealed fixed-turn Standard probe for `72db7e9...` returned `VIOLATION` and
 did not run its successor action. Decision 0018 `WC-AR-D26` preserves that
 result and distinguishes the observed product gap from controller noise. The
@@ -311,16 +345,20 @@ SOURCE by itself.
 
 ## Current Writer
 
-The bounded D50 Campaign writer completed the ignored-carrier evidence window
-and owns only this second local result-closeout commit until it succeeds. That
-commit consumes the remaining D50 Git authority and relinquishes the repository
-writer; D50 grants no successor writer or automatic D51.
+The D51 Campaign owns the sole repository writer from clean
+`main@5605906993942b5283cc77deb59aee32e6f5327e`. That commit completed the
+original tracked round-trip authority gate. The current bounded window records
+`WC-AR-D51-Q2-OUTPUT-CONTAINMENT`, completes deterministic verification and one
+new ordinary native-review cycle, and amends local authority commit 1. If that
+gate passes, the same writer constructs only fresh D51-03 against the amended
+policy-host commit and continues through the predeclared Campaign tranches.
 
-Work Charter SOURCE, Design, package manifest, tracked cases, fixtures, matrix,
-rubric, controller, other Skills, discovery mappings, user configuration,
-push, installation, tag, release, stable-copy mutation, retained-evidence
-cleanup, and external publication remain unauthorized. D31-D50, every consumed
-turn, and all predecessor ignored carriers remain immutable.
+Work Charter SOURCE, Design, package manifest, behavior cases, fixtures,
+matrix, rubric, controller module, other Skills, discovery mappings, user
+configuration, push, installation, tag, release, stable-copy mutation,
+retained-evidence cleanup, and external publication remain excluded. D31-D50,
+every consumed turn, and D51-01/D51-02 plus all earlier ignored carriers remain
+immutable.
 
 ## Evidence State
 
@@ -832,13 +870,14 @@ returned `CONTROLLER_UNKNOWN`. Its eligible assessor also returned
 `DECISION_REQUIRED`; A19-A20 and both contrast groups remain
 `UNKNOWN_NOT_STARTED`.
 
-The current gate is the bounded read-only diagnosis authorized by
-`WC-AR-D50-POST-TERMINAL-DIAGNOSIS`, followed by a user-owned product decision:
-stop this evaluation line, or authorize a separately defined successor. The
-diagnosis may inspect sealed controller metadata and tracked controller inputs,
-but it cannot mutate them, read raw prompts or complete private outputs, retry,
-or start D51. No SOURCE/controller/case/fixture revision, model call,
-installation, push, tag, release, stable update, or cleanup is authorized.
+The current gate is the D51 authority amendment: freeze the mapped
+output-containment authority/current-state diff, complete deterministic checks
+and one new native-review cycle, and amend local authority commit 1. A passing
+gate automatically advances to fresh D51-03 and the complete zero-model
+qualification. Failure after that second and final correction, or identity,
+contract, disclosure, review-budget, or controller-module drift, returns one
+complete decision before model consumption. Push, installation, tag, release,
+stable update, cleanup, and automatic D52 remain unauthorized.
 
 ## Recovery Entry
 
@@ -874,8 +913,11 @@ installation, push, tag, release, stable update, or cleanup is authorized.
    D49's combined 17/28 control-boundary terminal, and D50's scored 17/28
    controller-unknown terminal without replay, raw-evidence transfer, rescore,
    or reinterpretation.
-7. Do not continue or mutate D44-D50. No D51 is authorized. Diagnose D50 A18
-   read-only before proposing any successor contract or tracked change.
+7. Do not continue or mutate D44-D50 or D51-01/D51-02. Apply D51 only under
+   `WC-AR-D51-PATH-BOUND-COMMAND-ROUNDTRIP` as amended by
+   `WC-AR-D51-Q2-OUTPUT-CONTAINMENT`: amend authority commit 1, construct fresh
+   D51-03 from that new policy host, and advance only after its complete
+   deterministic qualification passes. No third correction exists.
 8. Read canonical SOURCE, current eval definitions, and only evidence matching
    the exact revision before changing behavior or claims.
 9. Preserve the independent-Skill and non-propagating-authorization boundary.

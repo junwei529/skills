@@ -22,13 +22,16 @@ Last updated: 2026-08-12
   5 files, each matching the `v0.1.2` Git blobs
 - Rollback identity: immutable `v0.1.1` retained as a separately verified
   three-package backup
-- Writer handoff boundary: the bounded D50 Campaign created its authority
-  checkpoint at `3249e416772ff887928b2b559ade05be8e1ab84e` and completed its
-  ignored-carrier evidence window. This sanitized result closeout is its second
-  and final local commit; that commit consumes the remaining writer authority
-  and relinquishes the repository lane. No D51 or successor writer is
-  authorized. D31-D50 and all consumed turns/carriers remain immutable. Skill
-  SOURCE, tracked cases, fixtures, matrix, rubric, controller, other Skills,
+- Writer handoff boundary: approved D51 reacquired the sole repository writer
+  at clean `main@5605906993942b5283cc77deb59aee32e6f5327e` after D51-02's
+  zero-model qualification stop. Its current tranche records authority for the
+  reserved second and final output-containment correction, repeats deterministic
+  checks and one bounded native-review cycle, and amends local authority commit 1. On a
+  passing gate the same writer builds only fresh D51-03 from the amended policy
+  host and continues to the predeclared qualification/evidence/closeout
+  tranches. D31-D50, D51-01/D51-02, and all consumed turns/carriers remain
+  immutable. Skill SOURCE,
+  behavior cases, fixtures, matrix, rubric, controller module, other Skills,
   user configuration, push, installation, tag, release, stable update, cleanup,
   and unlisted external effects remain excluded
 - Ignored-carrier boundary: one opaque ordinary controller-scratch directory
@@ -124,6 +127,62 @@ tracked controller returned `CONTROLLER_UNKNOWN` for
 0/11 fresh scored cells complete. One eligible assessor returned
 `DECISION_REQUIRED`; A19-A20 and both contrast groups did not start. D50 is
 immutable and unaccepted.
+
+Approved `WC-AR-D51-PATH-BOUND-COMMAND-ROUNDTRIP` preserves D50 and the exact
+candidate/control identities. It first promotes a canonical five-operation Git
+argv table and composite rooted renderer-to-controller regression; only after
+that tracked authority commit passes may a fresh ignored D51 carrier qualify,
+canary, freeze, run the matched A18 pair and remaining cells, assess, record a
+sanitized result, and create local commit 2. No D51 product evidence exists at
+this checkpoint.
+
+The original authority gate was committed locally as `5605906...`. D51-01
+then stopped before formal qualification because one generated Python cache
+appeared inside its carrier. The first same-contract correction preserved that
+carrier and built D51-02 without its dynamic output. D51-02 completed official
+pre-canary stages 1-7 and failed stage 8 when the private path-bound helper
+placed controller outputs under the system temporary root rather than the
+carrier `execution/` attempt root required by the adapter. Its correction
+receipt and stage-8 stderr hashes are `ba8a8138...b981a2c` and
+`4c184517...2f0f4`. No canary, product, assessor, or controller-retry turn was
+consumed.
+
+Accepted `WC-AR-D51-Q2-OUTPUT-CONTAINMENT` preserves D51-01/D51-02, changes the
+qualification-correction maximum to two, records D51-02 as the first used
+correction, and irrevocably reserves the second and final correction for one
+fresh D51-03 only. Materializing it records 2/2 used. That carrier may change
+the private temporary controller-output containment and add a fail-closed
+pre-adapter containment check, plus
+the fresh identity/hash/history and amended policy-host bindings. Dynamic
+D51-02 outputs do not transfer. No third correction exists.
+
+The D51-authority documentation-impact closure is fact-first. `UPDATE` covers
+repository `AGENTS.md`, the tracked controller cases/checkers, including the
+existing fixture-checker consumer, `evals/README.md`,
+Decision 0018, Work Charter State and Verification, root Status, Verification,
+Roadmap, Index, and this Handoff. `CHECKED_NO_CHANGE` covers Work Charter SOURCE,
+Design and bilingual README pair, behavior cases, fixtures, matrix/rubric,
+controller module, current-SOURCE manifest, root README pair, Authority, SPEC,
+Architecture, Runbook, Provenance, Decisions 0017/0020, package references and
+assets, neighboring Skills, and all sealed D40-D50 results/carriers.
+`NOT_APPLICABLE` covers candidate or stable-copy mutation, discovery mapping,
+installation, push, tag, release, stable update, cleanup, external publication,
+and automatic D52. The actual review target is the exact thirteen-path tracked
+diff reported by Git before native review.
+
+The D51 qualification-correction documentation-impact closure is separately
+fact-first. `UPDATE` covers Decision 0018, Work Charter State and Verification,
+root Status, Verification, Roadmap, Index, and this Handoff. `CHECKED_NO_CHANGE`
+covers repository `AGENTS.md`, Work Charter SOURCE/Design/README pair, root
+README pair, Authority, SPEC, Architecture, Runbook, Provenance, Decisions
+0017/0020, `evals/README.md`, tracked controller/checkers/cases, behavior cases,
+fixtures, matrix/rubric, package manifest/references/assets, neighboring Skills,
+and every sealed D40-D50 or preserved D51-01/D51-02 artifact: the amendment
+changes Campaign authority, current state, evidence, and recovery only.
+`NOT_APPLICABLE` covers candidate or stable-copy mutation, discovery mapping,
+installation, push, tag, release, stable update, cleanup, external publication,
+and automatic D52. The review target is the exact final eight-path tracked
+`UPDATE` set.
 
 The `v0.1.2` tag remains fixed at the release-preparation commit. The later
 documentation commit records already-completed tag, stable-install, canary, and
@@ -969,7 +1028,7 @@ created the fact class; it did not require or authorize speculative files.
 2. Read [Repository Status](STATUS.md), this handoff, and the relevant per-Skill
    State and Verification owners.
 3. Read Decisions 0017 and 0020, the capability-delta/Campaign Runbook and eval
-   owners, Decision 0018 through the D50 terminal, and the current per-Skill
+   owners, Decision 0018 through the D51 authority, and the current per-Skill
    State before changing shared development or Work Charter selection claims.
 4. Resolve local `main`, HEAD, index, all dirty and ignored scopes, writer
    ownership, and the exact Work Charter SOURCE/candidate/controller bindings
@@ -992,26 +1051,27 @@ created the fact class; it did not require or authorize speculative files.
    that assessor output from the D44 evidence ledger. Preserve D45's imported
    A01-A09 boundary and D46's independent fresh ledger, disclosure receipt, and
    one eligible assessor without raw predecessor-evidence transfer.
-8. Do not continue or mutate D44-D50. No D51 is authorized. Under
-   `WC-AR-D50-POST-TERMINAL-DIAGNOSIS`, diagnose D50 A18 read-only before
-   proposing any successor or tracked correction.
+8. Do not continue or mutate D44-D50 or D51-01/D51-02. Apply D51 only under
+   `WC-AR-D51-PATH-BOUND-COMMAND-ROUNDTRIP` as amended by
+   `WC-AR-D51-Q2-OUTPUT-CONTAINMENT`, preserving its ordered authority,
+   qualification, evidence, assessment, and closeout tranches. Its correction
+   ledger is 1/2 used plus one reserved; materializing D51-03 records 2/2 used.
 
 ## Immediate Next Action
 
-No release action remains pending for immutable `v0.1.2`. D31-D50 are complete,
-sealed or terminal, and non-retriable. After this result-closeout commit, first
-perform the bounded read-only diagnosis authorized by
-`WC-AR-D50-POST-TERMINAL-DIAGNOSIS` for D50 A18's
-`resolved_command_invocation_not_trusted` result. Return one complete product-
-owner proposal that distinguishes stop from a separately bounded successor.
-Do not read raw prompts or complete private outputs, create or run D51, change
-tracked files, consume model evidence, or retain writer authority while
-diagnosing.
+No release action remains pending for immutable `v0.1.2`. D31-D50 and
+D51-01/D51-02 are complete, sealed, or preserved and non-retriable. Freeze and
+verify the D51 qualification-correction authority diff, complete its bounded
+native-review cycle, and amend local authority commit 1. If it passes, build
+only fresh D51-03 against that amended HEAD and rerun the complete deterministic
+qualification. A pass continues automatically through the remaining declared
+Campaign tranches. Stop on another qualification failure, a material identity,
+contract, permission, disclosure, review-budget, or controller-module boundary.
 
 Later user-owned choices include:
 
 - decide whether the Work Charter evaluation line stops or a separately
-  bounded successor is warranted after the read-only A18 diagnosis;
+  bounded D52 is warranted only after D51 reaches its terminal closeout;
 - decide any installation, release, or public-reachability action only from the
   recorded Gate 2 disposition and applicable later authorization;
 - after an accepted Project Docs commit, authorize an exact-commit candidate
@@ -1055,14 +1115,22 @@ assessor output is excluded from the D44 evidence ledger. D50 consumed eight
 external turns: three canaries, four product turns across the calibration and
 released-control A18, and one assessor. Its second local result-closeout commit
 consumes the last D50 Git effect. No controller retry, operator recovery,
-replay, rescore, D51, or successor writer is authorized.
+replay, rescore, or D50 successor authority remains. D51 is separately
+authorized with zero controller retries and two pre-canary same-contract
+carrier corrections: D51-02 used the first, while the second is reserved only
+for D51-03 and becomes used 2/2 on materialization. It has no post-certification
+operator recovery, fourteen exhaustively allocated product turns, at most
+eighteen external turns, and two local commits. The A18 calibration/control
+pair owns two ordered turns per context; the other ten fresh cells own one each,
+and unused turns are non-transferable.
+D51-01/D51-02 remain immutable zero-model records; no third correction exists.
 
-No SOURCE, case, fixture, tracked-controller, model assignment, workspace-
-route, permission, other-Skill, user-configuration, push, installation, tag,
-release, stable mutation, retained-evidence cleanup, or unlisted external-
-effect change is authorized. After the result-closeout commit, the D50 writer
-relinquishes. Any material drift or successor requires a new complete user
-decision.
+No SOURCE, behavior-case, fixture, controller-module, model assignment beyond
+the declared D51 cells, workspace-route, permission, other-Skill, user-
+configuration, push, installation, tag, release, stable mutation, retained-
+evidence cleanup, or unlisted external-effect change is authorized. D51
+relinquishes after its terminal local closeout. Any material drift or successor
+requires one new complete user decision.
 
 The D50-authority documentation-impact closure is fact-first. `UPDATE` covers
 Decision 0018, `evals/README.md`, Work Charter State and Verification, root

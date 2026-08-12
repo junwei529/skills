@@ -1,6 +1,33 @@
 {
   "schema_version": "codex-evidence-controller-cases/v1",
   "stable_subject": "Work Charter v0.2 exact-candidate behavioral acceptance",
+  "path_bound_git_read_operations": [
+    {
+      "id": "rev-parse-show-toplevel",
+      "argv": ["--no-pager", "rev-parse", "--show-toplevel"],
+      "requires_path_bound_native_invocation": true
+    },
+    {
+      "id": "rev-parse-head",
+      "argv": ["--no-pager", "rev-parse", "HEAD"],
+      "requires_path_bound_native_invocation": true
+    },
+    {
+      "id": "branch-show-current",
+      "argv": ["--no-pager", "branch", "--show-current"],
+      "requires_path_bound_native_invocation": true
+    },
+    {
+      "id": "status-short-branch-all-untracked",
+      "argv": ["-c", "core.fsmonitor=false", "--no-pager", "--no-optional-locks", "status", "--short", "--branch", "--untracked-files=all"],
+      "requires_path_bound_native_invocation": true
+    },
+    {
+      "id": "worktree-list-porcelain",
+      "argv": ["--no-pager", "worktree", "list", "--porcelain"],
+      "requires_path_bound_native_invocation": true
+    }
+  ],
   "entry_baseline": {
     "branch": "codex/work-charter-v0.2",
     "head": "b965102ea58f9cc1ef3c73e8dea515731fec12a6",

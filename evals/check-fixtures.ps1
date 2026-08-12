@@ -839,6 +839,20 @@ $realReparseGuard = @(
     $controllerRecord.sealed_locator_guards.identities |
         Where-Object { [string]$_.id -ceq 'real-reparse-component' }
 )
+$pathBoundBranchOperation = @(
+    $controllerRecord.path_bound_git_read_operations.identities |
+        Where-Object { [string]$_.id -ceq 'branch-show-current' }
+)
+$pathBoundBranchObservation = @(
+    $controllerRecord.path_bound_git_read_operations.wrapper_observations.identities |
+        Where-Object { [string]$_.operation_id -ceq 'branch-show-current' }
+)
+$pathShadowAnchorGuard = @(
+    $controllerRecord.command_resolution_guards.identities |
+        Where-Object {
+            [string]$_.id -ceq 'canonical-shadow-git-operations-fail-closed'
+        }
+)
 $expectedReparsePrimitive = if ($IsWindows) { 'Junction' } else { 'SymbolicLink' }
 $expectedUnexecutedBranch = if ($IsWindows) {
     'non-Windows/SymbolicLink:UNKNOWN'
@@ -896,8 +910,24 @@ Add-Check `
         $controllerRecord.git_read_safety_guards.total -eq 9 -and
         $controllerRecord.canonical_ordinal_guards.passed -eq 1 -and
         $controllerRecord.canonical_ordinal_guards.total -eq 1 -and
-        $controllerRecord.command_resolution_guards.passed -eq 8 -and
-        $controllerRecord.command_resolution_guards.total -eq 8 -and
+        $controllerRecord.command_resolution_guards.passed -eq 12 -and
+        $controllerRecord.command_resolution_guards.total -eq 12 -and
+        $pathShadowAnchorGuard.Count -eq 1 -and
+        $pathShadowAnchorGuard[0].passed -eq $true -and
+        $controllerRecord.path_bound_git_read_operations.passed -eq 5 -and
+        $controllerRecord.path_bound_git_read_operations.total -eq 5 -and
+        $controllerRecord.path_bound_git_read_operations.canonical_sha256 -ceq
+            '694e173a1aff2cbb0e9bdc955d6b3c5cb5ebfbfe0e0bc9a363caeeeaa38f5467' -and
+        $controllerRecord.path_bound_git_read_operations.wrapper_observations.passed -eq 5 -and
+        $controllerRecord.path_bound_git_read_operations.wrapper_observations.total -eq 5 -and
+        @($controllerRecord.path_bound_git_read_operations.identities).Count -eq 5 -and
+        $pathBoundBranchOperation.Count -eq 1 -and
+        $pathBoundBranchOperation[0].requires_path_bound_native_invocation -eq $true -and
+        (@($pathBoundBranchOperation[0].argv) -join "`0") -ceq
+            (@('--no-pager', 'branch', '--show-current') -join "`0") -and
+        $pathBoundBranchObservation.Count -eq 1 -and
+        $pathBoundBranchObservation[0].exit_code -eq 0 -and
+        $pathBoundBranchObservation[0].detached_empty_stdout_exercised -eq $true -and
         $controllerRecord.content_proof_identity_guards.passed -eq 6 -and
         $controllerRecord.content_proof_identity_guards.total -eq 6 -and
         $controllerRecord.record_cardinality_and_exit_guards.passed -eq 3 -and

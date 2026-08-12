@@ -19,19 +19,19 @@ Sanitized detailed runs remain under [`evals/results`](../evals/results/README.m
 
 | Check | Purpose | Current result |
 |---|---|---|
-| Changed Skill validator | Validate frontmatter and package name without changing the package | unchanged exact `c481005...` Work Charter package passes the bundled `skill-creator` validator; D50 changes no Skill SOURCE |
-| Repository checker | Validate strict UTF-8/no BOM, whitespace, local links/fragments, publication safety, exact Skill/eval sets, federated docs, and bilingual navigation | passes with 210 text files / 14 cases / 12 fixtures for the D50 result-closeout revision |
-| Fixture checker | Validate synthetic starting states and their Git/reparse/ignored-result boundaries plus the tracked controller regression | all 17 checks pass at governing-controller commit `c51552c...`; D50 changes no tracked fixture or controller input |
-| Codex evidence controller | Validate one shared core across four entry modes, strict required-read versus bounded auxiliary-observation attribution, structural PowerShell/Git/path classification, source-and-generated-contract-bound historical regressions, exact package manifests, candidate-identity and content-proof shape, record cardinality, completed exit typing, optional sealed governing-disposition monotonicity, output-array shape, per-key single-capture sealed parsing and reuse, real-reparse rejection, fail-closed negatives, external-input types, independently resolved inner/wrapper command identity, Git-read and external-filter safety, profile-free PowerShell wrappers, culture-independent canonical ordering, metamorphic equivalence, output no-clobber, and canonical repeatability | passes exact current-SOURCE package identity, 11/11 historical, 32/32 evidence-surface, 33/33 negative, 4/4 metamorphic, 8/8 governing-snapshot guards, 3/3 manifest-hash guards, all reported structural guards, and zero external model or assessor calls; private sealed carriers remain unchanged |
-| CRG supplemental preflight | Sharpen structural review scope when the maintained index represents the intended diff | degraded: the maintained graph was built at `763a15e...` and predates D50 authority checkpoint `3249e416...` plus this result diff; it supplies no material-diff coverage claim, so direct canonical-owner inspection and native review remain required |
-| Native Codex review | Review the exact uncommitted change before either D50 commit | governing-controller commit `c51552c...` retains its completed review history; D50 authority and result-closeout diffs are separate commit attempts and each is admitted only after its own completed native review; review evidence does not become Gate 2 product evidence |
+| Changed Skill validator | Validate frontmatter and package name without changing the package | unchanged exact `c481005...` Work Charter package passes the bundled `skill-creator` validator; D51 changes no Skill SOURCE |
+| Repository checker | Validate strict UTF-8/no BOM, whitespace, local links/fragments, publication safety, exact Skill/eval sets, federated docs, and bilingual navigation | passes for the final D51 qualification-correction authority amendment with 210 text files / 14 cases / 12 fixtures |
+| Fixture checker | Validate synthetic starting states and their Git/reparse/ignored-result boundaries plus the tracked controller regression | all 17 checks pass; the existing fixture-checker consumer binds the D51 12/12 command-resolution guards, 5/5 exact callable-wrapper observations, independent PATH-shadow rejection, the detached-HEAD empty-output branch case, and the exact five-operation table hash without changing behavior fixtures |
+| Codex evidence controller | Validate one shared core across four entry modes, strict required-read versus bounded auxiliary-observation attribution, structural PowerShell/Git/path classification, source-and-generated-contract-bound historical regressions, exact package manifests, candidate-identity and content-proof shape, record cardinality, completed exit typing, optional sealed governing-disposition monotonicity, output-array shape, per-key single-capture sealed parsing and reuse, real-reparse rejection, fail-closed negatives, external-input types, independently resolved inner/wrapper command identity, canonical model-visible Git argv rendering, Git-read and external-filter safety, profile-free PowerShell wrappers, culture-independent canonical ordering, metamorphic equivalence, output no-clobber, and canonical repeatability | passes exact current-SOURCE package identity, 11/11 historical, 32/32 evidence-surface, 33/33 negative, 4/4 metamorphic, 8/8 governing-snapshot, 12/12 command-resolution, and 9/9 Git-read-safety guards; the trusted Git anchor is independent of PATH and survives a synthetic PATH-first shadow, all 5/5 rooted forms execute through the resolved PowerShell wrapper with typed zero exits and are admissible, bare/shadow variants fail closed, the table hashes to `694e173a...f5467`, and zero external model or assessor calls occurred |
+| CRG supplemental preflight | Sharpen structural review scope when the maintained index represents the intended diff | degraded: the maintained code-only graph was built at `763a15e...`, predates amendment baseline `5605906...`, and does not represent the eight changed Markdown owners; it supplies no material-diff coverage claim, so direct canonical-owner inspection and native review remain required |
+| Native Codex review | Review each exact D51 commit target | the original D51 authority attempt completed and committed; its approved qualification-correction amendment receives one new ordinary cycle of at most five completed semantic reviews, while the result-closeout diff remains a separate attempt; no reset is preauthorized, and review evidence does not become Gate 2 product evidence |
 | Isolated controller canary | Record the bounded disposition of one private path-bound infrastructure check without broadening behavior claims | retained sealed `CANARY_PASS`; the public summary reports an exact-response pass and no command execution, omits private locator/artifact/runtime details, and leaves physical backend request count `UNKNOWN` |
 | Work Charter D36/D37/D40, D34/D41 predecessors, and D42-D50 terminals | Preserve additive predecessors and separate product behavior from route, tool, qualification, eval-contract, authorization, environment, and private-carrier failures | D36-D50 remain immutable with their recorded dispositions; D50 imported D49 A01-A17, admitted the non-scored calibration, then sealed at scored 17/28 when released-control A18 returned controller `UNKNOWN` for `resolved_command_invocation_not_trusted`; one assessor returned `DECISION_REQUIRED`, 0/11 fresh scored cells completed, and exact candidate `c481005...` remains unaccepted |
 | PowerShell deterministic hardening | Validate cardinality, LF bytes, one-base paths, and Junction link-only removal | 15 assertions pass in PowerShell 7 and Windows PowerShell 5.1 |
-| PowerShell parser sweep | Parse all `evals/**/*.ps1` files and the tracked controller module | all eight tracked PowerShell files parse after the controller module and focused checker change |
+| PowerShell parser sweep | Parse all `evals/**/*.ps1` files and the tracked controller module | all eight tracked PowerShell files parse after the D51 checker changes; the controller module is unchanged |
 | Markdown navigation and ownership | Verify local links/fragments, English/Chinese routes, expected per-Skill owners, and no orphan canonical owner | passes through repository checker |
-| `git diff --check` | Reject whitespace defects in the working revision | passes for the 12-file D50 result-closeout diff with an untouched index |
-| Gitleaks | Detect secret-like content independently | exact per-file scans of the 12-path D50 result-closeout publication diff pass with zero findings; no ignored-carrier content is published |
+| `git diff --check` | Reject whitespace defects in the working revision | passes for the exact eight-path D51 qualification-correction amendment; index remains untouched |
+| Gitleaks | Detect secret-like content independently | exact per-file scans of the eight-path D51 qualification-correction amendment pass with zero findings; no ignored-carrier content is eligible for publication |
 
 ## Repository Claim Ledger
 
@@ -1739,6 +1739,54 @@ This is a controller-trust unknown, not proof of a candidate SOURCE defect or
 authority for an automatic D51. Separately approved
 `WC-AR-D50-POST-TERMINAL-DIAGNOSIS` permits only a post-closeout read-only
 failure-origin review and one complete product-owner decision packet.
+
+### 2026-08-12 — Work Charter D51 path-bound command authority
+
+Approved `WC-AR-D51-PATH-BOUND-COMMAND-ROUNDTRIP` promotes the D50 diagnosis
+without changing exact candidate `c481005...`, released control `ceed607...`,
+Work Charter SOURCE, the controller module, behavior cases, fixtures, matrix,
+or rubric. One canonical tracked table owns the five Git argv shapes. The
+checker renders their trusted rooted executable and round-trips the exact text
+through the resolved PowerShell wrapper, observed inner action, identity
+binding, and controller path: the exact callable outer text yields typed zero
+exits for 5/5 rooted operations and is admissible, including an empty-output
+detached-HEAD branch read; bare and shadow variants fail closed, command-
+resolution guards pass 12/12, and table hash is `694e173a...f5467`.
+
+This is the pre-consumption authority checkpoint for a fresh ignored D51
+carrier. No D51 canary, product, or assessor turn has occurred. After native
+review and local commit 1, the Campaign may proceed automatically within its
+declared eighteen-turn ceiling and stop boundaries. Its fourteen product turns
+are exhaustively bound to two turns each for the A18 calibration/control pair
+and one turn each for the other ten cells; unused turns are non-transferable.
+D40-D50 stay immutable;
+push, installation, tag, release, stable update, cleanup, and automatic D52
+remain excluded.
+
+The original authority checkpoint was committed locally as `5605906...`.
+D51-01 then stopped before formal qualification on one generated Python cache;
+the first same-contract correction preserved it and constructed D51-02. That
+fresh carrier completed official pre-canary stages 1-7 and then failed stage 8
+before producing `static-qualification.json`: its private path-bound helper
+created controller-output paths beneath the system temporary root, but the
+adapter requires them beneath the carrier `execution/` attempt root. The
+preserved D51-02 correction receipt, manifest, Campaign contract, and stage-8
+stderr hashes are respectively `ba8a8138...b981a2c`,
+`3a28add5...6786e2`, `4d6ce585...d5f4d4`, and
+`4c184517...2f0f4`.
+
+Accepted `WC-AR-D51-Q2-OUTPUT-CONTAINMENT` classifies this as a zero-model
+qualification/controller-adapter route defect, not Work Charter behavior. No
+canary, product, assessor, or controller-retry turn was consumed. D51-01 and
+D51-02 stay immutable. The correction maximum is now two: D51-02 used the first,
+and the second is authorized and irrevocably reserved only for fresh D51-03.
+Materializing it records 2/2 used. That carrier may alter only private temporary
+controller-output containment plus a fail-closed pre-adapter containment
+invariant and the fresh identity, hash, correction-history, and amended
+policy-host bindings that follow. The authority commit must be amended after a
+fresh bounded native-review cycle;
+D51-03 then reruns every deterministic qualification stage. A further
+qualification correction is not authorized.
 
 ### 2026-08-11 — Governing-disposition monotonic controller guard
 
