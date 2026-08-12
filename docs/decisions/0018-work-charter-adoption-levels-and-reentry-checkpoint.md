@@ -2,15 +2,17 @@
 
 Date: 2026-08-02
 Amended: 2026-08-12
-Status: accepted through WC-AR-D51-Q2-OUTPUT-CONTAINMENT; D40-D50 and D51-01/D51-02 remain immutable, D51-03 used the final correction and stopped on an outer-launch route anomaly after three inner-only canary turns, and exact candidate `c481005...` remains unaccepted with no automatic D52
+Status: accepted through WC-AR-D52-TRACKED-OUTER-DISPATCH; D40-D50 and D51-01 through D51-03 remain immutable, D51's three inner-only canary turns remain consumed, and exact candidate `c481005...` remains unaccepted while D52 is limited to the Campaign below
 
-- Planning checkpoint: 33 (D51 route-invalid closeout and prospective outer-dispatch guard)
-- Last incorporated decision: `WC-AR-D51-Q2-OUTPUT-CONTAINMENT`
-- Open decision: stop the evaluation line or separately authorize one bounded
-  D52 whose first zero-model tranche implements and qualifies the outer-runner
-  guard before any canary, product, or assessor `thread/start`
-- Lifecycle authority: D51 is limited to the exact Campaign envelope recorded
-  below; consult `docs/HANDOFF.md` for the live tranche and exclusions
+- Planning checkpoint: 34 (bounded D52 tracked outer-dispatch Campaign)
+- Last incorporated decision: `WC-AR-D52-TRACKED-OUTER-DISPATCH`
+- Open decision: none at the D52 local-commit-1 review gate; the user explicitly
+  approved a first native-review budget reset after cycle-1 review 5/5 and a
+  second reset after reset-cycle review 5/5 plus its completion-correlation
+  correction, while any later reset, replan, D53,
+  installation, release, or cleanup remains user-owned
+- Lifecycle authority: D52 is limited to the exact Campaign envelope recorded
+  below; consult `docs/HANDOFF.md` for the live tranche, writer, and exclusions
 - Checkpoint reason: completed product-design decision set plus the accepted
   native-package/user-activation, project-read, mapping-qualification, and
   immutable-evidence boundaries
@@ -31,7 +33,7 @@ and the immutable `v0.1.2` stable package remain governed by
 trigger-accuracy, model-adaptation, real-project, or enforcement claim follows
 from this discussion record.
 
-Except for the bounded D34 implementation authorization and D51 Campaign
+Except for the bounded D34 implementation authorization and D52 Campaign
 authority recorded below, this checkpoint authorizes no Skill SOURCE or
 evaluation change, project or user-environment mutation, role delivery,
 worktree, Git action, installation, release, external effect, or private-
@@ -2232,6 +2234,140 @@ v0.2.0 outer runner. A separately authorized D52 may include that implementation
 as its first zero-model tranche, but may not consume canary, product, or
 assessor evidence until the owner passes outer-positive plus direct-inner and
 invalid-receipt regressions under a fresh ruleset identity.
+
+### WC-AR-D52-TRACKED-OUTER-DISPATCH — Bounded Gate 2 Campaign
+
+**Confirmed.** D52 is one bounded serial Campaign against unchanged exact
+candidate `c4810057c3f28cca9f12004ca2018784cd21f449` and five-file manifest
+`04c382a48e43897a8806aa5ffd996984cb015d3d8cdc6e675e9181a6d94e6f44`.
+Released control remains `ceed607152849775b981c54add74bfa30d858e4d`.
+D49's A01-A17 import terminal
+`0d17dfba319d84455df9be6738e7be1268c212ec582830021debc7e200f362ec`,
+D51 qualification receipt
+`8e91071866a67a4bcbca1483fa2d9f933b18e385fb5f3d5e57c09f8db76a2002`,
+and D51 inner-canary receipt
+`78b41a197f0868d3a7dfa4a57c8d7cc03ae6638faee718440b8c3b80039e8489`
+remain predecessor identities only. D51 stays
+`CANARY_ROUTE_INVALID / PRODUCT_UNKNOWN`; none of its three consumed canary
+turns is replayed, replaced, retried, rescored, or credited to D52.
+
+The first tranche is zero-model and creates the tracked single entry
+`evals/invoke-work-charter-gate2.ps1` plus its deterministic checker. The
+runner owns phase-specific, hash-bound, one-shot receipts; exact child
+executable, argv, working directory, and following dispatch; separate child
+stdout/stderr capture; one integer exit status; nonzero propagation; and
+exactly-once transition through the same outer entry. Outer and Inner execute
+inside one runner process and share one fresh object capability whose reference
+identity is never serialized; a receipt records its hash for audit but cannot
+recreate that capability. Qualification must pass
+the outer positive and child-nonzero paths plus duplicate-dispatch,
+direct-inner, absent, stale, wrong-phase, wrong-hash, and reused-receipt
+negatives before model consumption. Its checker is also a bounded consumer of
+`evals/check-fixtures.ps1`. This tranche consumes zero model contexts, zero
+`turn/start`, and zero assessor turns.
+
+The first local commit is authorized only after the tracked diff is stable,
+the mapped documentation-impact closure passes, all required deterministic
+checks pass, and the applicable native-review cycle completes without an
+unresolved finding. The two user-approved resets recorded at their checkpoints
+are part of that applicable cycle authority; neither resets finding history or
+authorizes a third reset. The exact commit message is
+`evals: add tracked Work Charter Gate 2 dispatcher`. A tracked runner defect
+found after that commit stops D52; it is not a private-carrier correction.
+
+Only after that commit may the owner create one fresh ordinary non-reparse
+ignored carrier at logical root
+`.eval-runs/work-charter-v0.2-c481005-gate2-d52-single-entry/`. It must bind the
+tracked runner commit and exact launcher hash, Campaign contract, fresh loaded
+ruleset hashes, candidate/control, carrier manifest, frozen inputs, phase, and
+remaining budget. It must begin absent and is never copied from, merged with,
+or substituted for D51. At least D51's retained 24 deterministic conditions
+plus the twenty-four runner conditions, including native-review-required argv-
+cardinality and byte-snapshot isolation, independently authenticated
+executable/shadow regressions, exact static Campaign/candidate identity,
+tracked operation-table rejection, authenticated carrier/authority artifact
+rejection, committed runner commit/blob binding, exact signed/hash-pinned Codex
+plus bidirectional app-server round-trips, forged-production-policy rejection,
+wrong-model input rejection, and a simulated authorized protocol positive must
+pass as one D52 qualification result (at least 48/48). The additional runner
+condition rejects a failed terminal turn before phase completion or successor
+dispatch.
+At most two pre-canary private-carrier-only corrections are available. They do
+not permit tracked runner, SOURCE, case, fixture, matrix, rubric, controller,
+candidate, permission, workspace, cost, or acceptance changes. No third
+correction, operator recovery, or post-canary correction exists.
+
+Receipt consumption and scarce-evidence consumption are separate events. The
+tracked inner entry consumes its route receipt exactly once before starting
+the bound child and before that child may submit `thread/start`; that proves
+route provenance only. It also requires the live object capability from the
+currently executing Outer, so a direct caller cannot self-issue matching files.
+A canary, product cell, or assessor consumes its fresh
+model budget exactly when the receipt-bound client submits that cell's first
+`turn/start`. A completed `thread/start` without `turn/start` supplies no
+product credit, and no later label, task, or carrier can undo either event.
+
+After successful qualification, the same tracked runner transitions
+automatically and serially through three same-boundary non-product canaries in
+this exact order: Sol/high, Sol/xhigh, Terra/high. They consume at most three
+fresh model contexts and three `turn/start` events. Only a complete canary gate
+may freeze and start product evidence. Product evidence has twelve fresh
+contexts and fourteen `turn/start`: two turns for the candidate calibration,
+two for scored released-control A18, and one each for A19, A20, B01-B04, and
+C01-C04. Imported D49 A01-A17 remain immutable and are not replayed. One
+Terra/high assessor context and one assessor `turn/start` is available only
+for the complete admitted packet. Total D52 fresh budget is therefore sixteen
+contexts and eighteen `turn/start`; unused turns expire and do not transfer.
+
+Local commit 1 is the immutable production authorization record, not merely a
+launcher implementation. Its runner commits this exact phase order:
+`canary-sol-high`, `canary-sol-xhigh`, `canary-terra-high`,
+`candidate-calibration`, `released-control-a18`, `candidate-a19`,
+`candidate-a20`, `candidate-b01` through `candidate-b04`, `candidate-c01`
+through `candidate-c04`, and `assessor-terra-high`. Canary and `A` phases use
+the model/effort named by the phase (`Sol/high` except the explicit xhigh and
+Terra phases); `B01-B04` use `Sol/xhigh`; `C01-C04` and the assessor use
+`Terra/high`. Calibration and A18 each authorize exactly two `turn/start`
+requests; every other phase authorizes one. Before issuing a production
+receipt, the runner must match the phase ordinal, exact model/effort, per-phase
+turn count, pre-phase remaining total budget, canonical private artifact paths,
+signed/hash-pinned app-server operation, and exact successor against that
+committed table. Qualification-only and test operation IDs are rejected for
+every production phase even when their remaining artifacts are self-consistent.
+A production app-server stream must contain exactly one
+tracked `initialize`, one matching `thread/start` with provider fallback
+disabled, and the phase's exact number of matching model/effort `turn/start`
+requests. Only after the carrier has observed that phase's completion may it
+send the runner-local phase-complete control; that control is not forwarded to
+app-server. The runner independently correlates every request ID to one error-
+free result, sends the required `initialized` notification after the initialize
+result, binds each turn to the returned thread, and requires the matching
+`turn/completed` notification to carry terminal status `completed` before
+accepting that control. The runner then starts the exact committed successor inside the
+same top-level invocation, so a caller cannot enter a later phase directly.
+Mutually consistent private hashes never substitute for this committed policy;
+a mismatch fails before the first `turn/start` is forwarded.
+
+D52 acceptance requires the scored combined packet to reach 28/28, the
+non-scored candidate calibration to pass, and the sole eligible assessor to
+return `ACCEPTED`. Any canary, shared qualification, identity, authority,
+runner, freeze, controller, workspace, permission, or evidence-consumption
+hard stop seals D52 under its observed terminal disposition before further
+scarce evidence. Cell-local continuation is allowed only where the frozen
+Campaign contract declared independence. No automatic retry, replay, rescore,
+replacement assessor, D53, installation, release, or acceptance inference
+follows from another terminal.
+
+Terminal closeout may add one sanitized D52 result, update its mapped
+canonical documentation owners, run a separate normal native-review cycle,
+and create at most one second local commit with exact message
+`docs: record Work Charter D52 Gate 2 result`. The owner then relinquishes the
+repository writer with exact HEAD/index/dirty/private-carrier state. No native
+review budget reset is preauthorized. Push, PR, merge, installation, tag,
+release, stable-copy change, cleanup, SOURCE, behavior case, fixture, matrix,
+rubric, controller module, other-Skill, user configuration, hidden predecessor
+read, raw prompt/completion publication, and unlisted external effect remain
+excluded.
 
 ## Important Rejected Alternatives
 

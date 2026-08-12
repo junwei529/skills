@@ -19,19 +19,20 @@ Sanitized detailed runs remain under [`evals/results`](../evals/results/README.m
 
 | Check | Purpose | Current result |
 |---|---|---|
-| Changed Skill validator | Validate frontmatter and package name without changing the package | unchanged exact `c481005...` Work Charter package passes the bundled `skill-creator` validator; D51 changes no Skill SOURCE |
-| Repository checker | Validate strict UTF-8/no BOM, whitespace, local links/fragments, publication safety, exact Skill/eval sets, federated docs, and bilingual navigation | passes for the final D51 qualification-correction authority amendment with 210 text files / 14 cases / 12 fixtures |
-| Fixture checker | Validate synthetic starting states and their Git/reparse/ignored-result boundaries plus the tracked controller regression | all 17 checks pass; the existing fixture-checker consumer binds the D51 12/12 command-resolution guards, 5/5 exact callable-wrapper observations, independent PATH-shadow rejection, the detached-HEAD empty-output branch case, and the exact five-operation table hash without changing behavior fixtures |
+| Changed Skill validator | Validate frontmatter and package name without changing the package | unchanged exact `c481005...` Work Charter package passes the bundled `skill-creator` validator; D52 changes no Skill SOURCE |
+| Repository checker | Validate strict UTF-8/no BOM, whitespace, local links/fragments, publication safety, exact Skill/eval sets, federated docs, and bilingual navigation | passes the D52 tracked-runner target with 212 text files / 14 cases / 12 fixtures |
+| Fixture checker | Validate synthetic starting states and their Git/reparse/ignored-result boundaries plus tracked controller and runner regressions | all 18 checks pass; the new consumer binds the D52 runner's corrected 24/24 outer-positive, typed-nonzero, byte-snapshot and empty/singleton argv, exactly-once successor, exact static Campaign/candidate identity, tracked operation and actual carrier/authority artifact rejection, committed runner-blob and forged-production-policy rejection, wrong-model input rejection, simulated production-protocol positive and failed-terminal negative, exact Codex and bidirectional app-server round-trips, wrong-anchor/shadow rejection, direct-inner, duplicate, absent, stale, wrong-phase, wrong-hash, and reused-receipt assertions without changing behavior fixtures |
+| Work Charter Gate 2 outer runner | Validate one tracked consuming entry, exact static Campaign/candidate identity, committed sixteen-phase authorization policy, canonical operation ID/anchor/argv policy, actual carrier/frozen/authority snapshots, committed runner identity, independently authenticated executable anchors, bidirectional app-server transport and request policy, correlated successful terminal completion, one-shot receipt bindings, separate child streams, argv cardinality and byte snapshots, typed exit propagation, and receipt-bound successor dispatch before model evidence | corrected focused checker passes 24/24 with zero model, product, or assessor turns; deterministic gates pass, but reset-cycle review 5/5 exhausted the approved cycle before its completion-correlation fix could receive a later clean review |
 | Codex evidence controller | Validate one shared core across four entry modes, strict required-read versus bounded auxiliary-observation attribution, structural PowerShell/Git/path classification, source-and-generated-contract-bound historical regressions, exact package manifests, candidate-identity and content-proof shape, record cardinality, completed exit typing, optional sealed governing-disposition monotonicity, output-array shape, per-key single-capture sealed parsing and reuse, real-reparse rejection, fail-closed negatives, external-input types, independently resolved inner/wrapper command identity, canonical model-visible Git argv rendering, Git-read and external-filter safety, profile-free PowerShell wrappers, culture-independent canonical ordering, metamorphic equivalence, output no-clobber, and canonical repeatability | passes exact current-SOURCE package identity, 11/11 historical, 32/32 evidence-surface, 33/33 negative, 4/4 metamorphic, 8/8 governing-snapshot, 12/12 command-resolution, and 9/9 Git-read-safety guards; the trusted Git anchor is independent of PATH and survives a synthetic PATH-first shadow, all 5/5 rooted forms execute through the resolved PowerShell wrapper with typed zero exits and are admissible, bare/shadow variants fail closed, the table hashes to `694e173a...f5467`, and zero external model or assessor calls occurred |
 | CRG supplemental preflight | Sharpen structural review scope when the maintained index represents the intended diff | degraded: the maintained code-only graph was built at `763a15e...`, predates amendment baseline `5605906...`, and does not represent the eight changed Markdown owners; it supplies no material-diff coverage claim, so direct canonical-owner inspection and native review remain required |
-| Native Codex review | Review each exact D51 commit target | the original D51 authority attempt completed and committed; its approved qualification-correction amendment receives one new ordinary cycle of at most five completed semantic reviews, while the result-closeout diff remains a separate attempt; no reset is preauthorized, and review evidence does not become Gate 2 product evidence |
+| Native Codex review | Review each exact D52 commit target | local commit 1 reviews 1-5/5 found three P2s and three P1s, all corrected before the first user-approved reset; reset-cycle reviews 1-4/5 found the recorded evidence, committed-route, production-policy, qualification-operation, and Outer-to-Inner provenance findings; review 5/5 found one P1 because phase completion did not require a correlated successful terminal turn; all findings are corrected through actual snapshots, exact ruleset/contract validation, committed `HEAD`/blob/working-byte binding, the sixteen-phase policy, production-only Codex operation admission, a live same-process object capability, and request/response/terminal correlation; the user approved a second reset and a clean second-reset-cycle review remains required, while review evidence is not Gate 2 product evidence |
 | Isolated controller canary | Record the bounded disposition of one private path-bound infrastructure check without broadening behavior claims | retained sealed `CANARY_PASS`; the public summary reports an exact-response pass and no command execution, omits private locator/artifact/runtime details, and leaves physical backend request count `UNKNOWN` |
 | Work Charter D36/D37/D40, D34/D41 predecessors, and D42-D50 terminals | Preserve additive predecessors and separate product behavior from route, tool, qualification, eval-contract, authorization, environment, and private-carrier failures | D36-D50 remain immutable with their recorded dispositions; D50 imported D49 A01-A17, admitted the non-scored calibration, then sealed at scored 17/28 when released-control A18 returned controller `UNKNOWN` for `resolved_command_invocation_not_trusted`; one assessor returned `DECISION_REQUIRED`, 0/11 fresh scored cells completed, and exact candidate `c481005...` remains unaccepted |
 | PowerShell deterministic hardening | Validate cardinality, LF bytes, one-base paths, and Junction link-only removal | 15 assertions pass in PowerShell 7 and Windows PowerShell 5.1 |
-| PowerShell parser sweep | Parse all `evals/**/*.ps1` files and the tracked controller module | all eight tracked PowerShell files parse after the D51 checker changes; the controller module is unchanged |
+| PowerShell parser sweep | Parse all `evals/**/*.ps1` files and the tracked controller module | all nine tracked PowerShell scripts plus the unchanged controller module parse after the D52 runner changes |
 | Markdown navigation and ownership | Verify local links/fragments, English/Chinese routes, expected per-Skill owners, and no orphan canonical owner | passes through repository checker |
-| `git diff --check` | Reject whitespace defects in the working revision | passes for the exact eight-path D51 qualification-correction amendment; index remains untouched |
-| Gitleaks | Detect secret-like content independently | exact per-file scans of the eight-path D51 qualification-correction amendment pass with zero findings; no ignored-carrier content is eligible for publication |
+| `git diff --check` | Reject whitespace defects in the working revision | passes for the exact twelve-path D52 tracked target; index remains untouched |
+| Gitleaks | Detect secret-like content independently | exact per-file scans of the twelve-path D52 tracked target pass with zero findings; no ignored-carrier content was scanned or is eligible for publication |
 
 ## Repository Claim Ledger
 
@@ -1814,6 +1815,105 @@ There is no Work Charter behavior, Gate 2 acceptance, assessor, automatic D52,
 installation, release, or cleanup evidence. The prospective semantic guard is
 promoted in Decision 0020 and the Runbook; deterministic single-entry and
 launch-receipt enforcement remains deferred to the exact future outer runner.
+
+### 2026-08-12 — Work Charter D52 tracked-runner zero-model tranche
+
+Approved `WC-AR-D52-TRACKED-OUTER-DISPATCH` keeps every preceding identity and
+terminal immutable while adding the tracked single-entry runner as its first
+zero-model tranche. The corrected focused checker passes 24/24 and its fixture-checker
+consumer passes as the eighteenth repository fixture check. The runner binds
+the exact candidate and carrier identities plus its own revision, Campaign,
+ruleset, frozen inputs, remaining budget, child executable/argv/working
+directory, phase, and successor descriptor. The outer positive path consumes
+one receipt, preserves stdout/stderr separately, consumes one integer zero
+status, and creates a fresh receipt through the same runner for the successor.
+Child exit 37 propagates exactly and suppresses that successor. Direct-inner,
+duplicate, absent, stale, wrong-phase, wrong-hash, and reused paths all reject
+before the synthetic child starts.
+
+Native review 1/5 materially inspected the new runner and found one P2: a
+legal empty JSON argv collapsed to `$null` and a singleton collapsed to a
+scalar at the PowerShell pipeline boundary. The runner now parses JSON with
+`-NoEnumerate`, preserves the returned typed string array without pipeline
+enumeration, and accepts empty collections at the exact native-process
+boundary. New end-to-end empty and singleton probes pass, raising the focused
+gate from the required minimum 9 to 11 conditions. Post-fix native review is
+still required before local commit 1. Review 2/5 then found two further P2s.
+The fixture consumer now invokes an ordinary non-reparse executable rooted at
+`$PSHOME` instead of resolving `pwsh` through PATH. The wrong-phase negative
+now leaves its binding and requested phase valid while changing only the
+receipt phase, so it exercises the inner receipt-mismatch guard rather than an
+earlier binding check. Focused 11/11 and fixture 18/18 reruns passed after both
+fixes. Review 3/5 then found one P1: caller-provided executable hashes proved
+only self-consistency, not executable trust. The runner now resolves one
+tracked canonical anchor ID independently, requires an ordinary non-reparse
+file, validates its Authenticode publisher, additionally pins the D52 Codex
+binary SHA-256, and rejects a wrong valid executable or path shadow before
+receipt creation. Those two new negatives plus an exact signed/hash-pinned
+Codex `--version` round-trip raised the focused result to 14/14 without a model
+call. Review 4/5 then found a P1 time-of-check/time-of-use gap: the child argv
+path was hashed before receipt consumption and reread afterward. Binding,
+argv, state, receipt, and successor JSON now enter each phase as one strict
+byte snapshot, and the executable anchor is revalidated immediately before
+launch. A post-consumption argv mutation regression proves the bound snapshot
+runs instead of the changed path, raising the focused result to 15/15. The
+tracked policy then pins Campaign ID, stable subject, candidate commit, candidate
+manifest, and maximum remaining budget rather than accepting caller-selected
+static labels; a four-field rejection aggregate raised the focused result to
+16/16. Review 5/5 then found the remaining P1: a caller could choose a different
+PowerShell argv, self-hash it into the binding, and still obtain a receipt.
+The tracked canonical operation table now resolves each operation ID to one
+executable anchor and exact argv before receipt issuance. A self-hashed caller-
+selected argv negative fails before state or receipt creation, raising the
+focused result to 17/17. The review cycle was exhausted; the user explicitly
+approved one reset. Reset-cycle review 1/5 then found a P1 because carrier, contract,
+ruleset, and frozen-input hashes were still caller-declared, plus a P2 because
+the governing commit clause still prohibited a reset. The runner now reads and
+binds actual authority, carrier, and frozen snapshots before receipt issuance,
+validates the exact Decision 0018 path/content and all five expected normalized
+ruleset hashes, contains production artifacts under the exact D52 private root,
+and rejects four self-rehashed mismatch families. The Campaign clause now
+explicitly incorporates this one approved reset. Reset-cycle review 2/5 then
+found two P1 gaps: self-hashed working runner bytes were not tied to the
+committed runner commit/blob, and the app-server operation buffered a long-lived
+process without a stdin/response bridge. The runner now verifies signed and
+hash-pinned Git, `HEAD`, committed blob, working bytes, binding, and carrier
+before any production receipt, and the exact signed/hash-pinned app-server
+operation relays stdin/stdout/stderr through outer and inner. A zero-budget
+`initialize` round-trip and a committed-runner negative raise the focused result
+to 20/20. Reset-cycle review 3/5 then found that the binding/carrier/frozen set
+could remain mutually self-authenticated. The runner now owns a committed exact
+sixteen-phase order with model/effort, per-phase and remaining budgets, canonical
+paths, route, and successor semantics, and validates production app-server
+initialize/thread/turn requests against it. Forged-policy and wrong-model-input
+negatives plus a simulated production-protocol positive raise the focused result
+to 23/23. Reset-cycle review 4/5 found two further P1s. A qualification-only
+protocol adapter could be selected under an authorized production phase, and a
+direct caller could forge the old file-backed outer/inner token along with its
+state and receipt. The trusted-operation gate now admits only
+`d52-codex-app-server` for every committed production phase. Outer invokes Inner
+in the same process with a fresh object whose reference identity is never
+serialized; the receipt binds only its hash for audit, while direct Inner lacks
+the live object even when every file is forged consistently. The direct-inner
+negative and the absent, stale, wrong-phase, wrong-hash, and reused negatives
+now prove that distinction from authentic Outer issuance. Focused verification
+remains 23/23. Reset-cycle review 5/5 found that phase completion checked only
+submitted requests, not successful app-server responses or terminal turn state.
+The runner now correlates every response ID, rejects response errors, sends the
+required `initialized` notification after a successful initialize response,
+binds turn requests to the returned thread, and accepts only the matching
+`turn/completed` notification with status `completed`. A failed-terminal
+negative raises focused verification to 24/24. The approved reset cycle was
+exhausted; the user explicitly approved a second reset for the same commit
+attempt, and a clean second-reset-cycle review remains required before local
+commit 1.
+
+These checks consumed zero model contexts, zero `turn/start`, and zero
+assessor turns. They are implementation qualification, not a D52 carrier
+qualification receipt, app-server canary, product result, freeze, assessor
+result, acceptance, or release claim. The private D52 root remains absent and
+may be created only after the full local-commit-1 deterministic and native-
+review gates pass.
 
 ### 2026-08-11 — Governing-disposition monotonic controller guard
 

@@ -11,6 +11,13 @@ else {
 }
 $env:PYTHONDONTWRITEBYTECODE = '1'
 $checks = [System.Collections.Generic.List[object]]::new()
+$pwshName = if ($IsWindows) { 'pwsh.exe' } else { 'pwsh' }
+$pwshPath = Join-Path $PSHOME $pwshName
+$pwshItem = Get-Item -LiteralPath $pwshPath -Force -ErrorAction Stop
+if ($pwshItem.PSIsContainer -or
+    ($pwshItem.Attributes -band [System.IO.FileAttributes]::ReparsePoint)) {
+    throw 'The fixture-checker PowerShell runtime must be an ordinary non-reparse file.'
+}
 
 function Add-Check {
     param(
@@ -938,6 +945,59 @@ Add-Check `
         $controllerRecord.canonical_repeat.equal -eq $true
     ) `
     -Expectation 'tracked controller binds immutable historical candidates separately from the current SOURCE manifest, separates strict evidence reads from bounded auxiliary observations, captures sealed bytes once, rejects real reparse and scratch-topology drift, safely cleans validated scratch, and passes historical, negative, metamorphic, and repeatability checks without recursive self-invocation'
+
+$gate2RunnerCheck = Join-Path $repoRoot 'evals\check-work-charter-gate2-runner.ps1'
+$gate2RunnerOutput = & $pwshItem.FullName -NoProfile -NonInteractive -File $gate2RunnerCheck 2>&1
+$gate2RunnerExit = $LASTEXITCODE
+$gate2RunnerRecord = $null
+try {
+    $gate2RunnerRecord = ($gate2RunnerOutput | Out-String) | ConvertFrom-Json
+}
+catch {
+    $gate2RunnerRecord = $null
+}
+$gate2RunnerNames = @(
+    $gate2RunnerRecord.checks |
+        ForEach-Object { [string]$_.name }
+)
+Add-Check `
+    -Name 'Work Charter Gate 2 outer runner regression' `
+    -Passed (
+        $gate2RunnerExit -eq 0 -and
+        $null -ne $gate2RunnerRecord -and
+        [string]$gate2RunnerRecord.verdict -ceq 'PASS' -and
+        [int]$gate2RunnerRecord.passed -eq 24 -and
+        [int]$gate2RunnerRecord.total -eq 24 -and
+        (@($gate2RunnerRecord.checks | Where-Object { -not $_.passed })).Count -eq 0 -and
+        (@($gate2RunnerNames | Sort-Object) -join "`0") -ceq
+            (@(
+                'absent-receipt',
+                'app-server-zero-model-qualification',
+                'argv-snapshot',
+                'child-nonzero',
+                'codex-trust-anchor',
+                'committed-runner-binding',
+                'direct-inner',
+                'duplicate-dispatch',
+                'empty-argv',
+                'forged-production-authorization',
+                'outer-positive',
+                'production-failed-completion',
+                'production-input-policy',
+                'production-protocol-positive',
+                'reused-receipt',
+                'shadow-executable',
+                'singleton-argv',
+                'stale-receipt',
+                'wrong-evidence-artifact',
+                'wrong-executable-anchor',
+                'wrong-hash',
+                'wrong-operation-argv',
+                'wrong-phase',
+                'wrong-static-identity'
+            ) -join "`0")
+    ) `
+    -Expectation 'the tracked single-entry runner preserves one bound argv byte snapshot and separate streams, binds production to its committed blob, round-trips the exact bidirectional app-server operation without model evidence, requires a correlated successful terminal turn before phase completion, propagates one typed child exit, dispatches the next receipt-bound phase exactly once, and rejects direct, absent, stale, wrong-phase, wrong-hash, duplicate, failed-terminal, and reused launches before child start'
 
 $checks | Format-Table -AutoSize
 

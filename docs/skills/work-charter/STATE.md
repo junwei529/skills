@@ -151,6 +151,14 @@ replacement, reinterpretation, third correction, or automatic D52 is allowed.
 D51-01 through D51-03 and every predecessor carrier and consumption record remain
 preserved under their exact boundaries.
 
+The user has since separately authorized
+`WC-AR-D52-TRACKED-OUTER-DISPATCH`. D52 preserves that terminal and exact
+candidate while implementing the mechanical guard first. The tracked outer
+runner and checker now pass the corrected focused 24/24 zero-model scenarios, and
+the repository fixture consumer passes 18/18. Local commit 1 has not occurred;
+the D52 private root remains absent, and no fresh model context, `turn/start`,
+assessor, freeze, or product evidence has been consumed.
+
 The sealed fixed-turn Standard probe for `72db7e9...` returned `VIOLATION` and
 did not run its successor action. Decision 0018 `WC-AR-D26` preserves that
 result and distinguishes the observed product gap from controller noise. The
@@ -347,11 +355,13 @@ SOURCE by itself.
 
 ## Current Writer
 
-D51 no longer owns an execution writer. The repository-governance closeout
-window owns only the tracked lesson-promotion and factual-state diff against
-`main@6d4b5e9c3722d9c0805792bc9a7b079de2507090`; it does not own D52, a carrier,
-product evidence, or Work Charter SOURCE. On closeout it leaves that exact
-tracked diff unstaged and relinquishes the writer for a later user decision.
+D51 no longer owns an execution writer. The D52 Campaign writer owns only the
+authorized tracked outer-runner/checker, fixture-checker consumer, and mapped
+documentation diff against
+`main@cf11dcf374ef2f2a09c9a0bc22c42267d667cf3e`. The current diff is unstaged
+and before local commit 1; it does not yet own a materialized private carrier
+or any model evidence. After the exact commit gate passes, the same writer may
+create and qualify only the authorized fresh D52 ignored carrier.
 
 Work Charter SOURCE, Design, package manifest, behavior cases, fixtures,
 matrix, rubric, controller module, other Skills, discovery mappings, user
@@ -870,14 +880,43 @@ returned `CONTROLLER_UNKNOWN`. Its eligible assessor also returned
 `DECISION_REQUIRED`; A19-A20 and both contrast groups remain
 `UNKNOWN_NOT_STARTED`.
 
-The current gate is governance closeout only: verify the portable lesson and
-D51 factual-state diff, then relinquish the writer without staging or commit.
-The next product-owned choice is whether to stop the Work Charter evaluation
-line or authorize a separately bounded D52 whose first zero-model tranche
-implements and qualifies single-entry launch receipts under a fresh ruleset;
-no canary, product, or assessor turn may start before that tranche passes.
-No existing D51 canary may be replayed or reused. Push, installation, tag,
-release, stable update, cleanup, SOURCE changes, and automatic D52 remain
+The current gate is the user-approved native-review reset for D52 local commit
+1. Completed review 5/5 found the caller-selected operation-binding P1; the
+same-scope tracked operation table and rejection regression now pass. The user
+explicitly reset the exhausted cycle for this same attempt. Reset-cycle review
+1/5 then found self-declared evidence hashes plus the stale no-reset commit
+clause; actual one-read carrier/frozen/authority snapshots now bind the exact
+Campaign contract and five-source ruleset, and the clause is reconciled. Reset-
+cycle review 2/5 found that a self-hashed working runner was not bound to its
+committed blob and that the app-server operation was not bidirectional. The
+runner now validates `HEAD`, committed blob, working bytes, binding, and carrier
+before a production receipt, while the exact app-server operation round-trips a
+zero-budget `initialize` request through outer and inner. Reset-cycle review
+3/5 then found that internally consistent production artifacts could still
+self-authorize. Every scarce phase now matches the committed sixteen-phase
+policy, exact model/effort and budgets, canonical artifact paths, app-server
+request shape, and successor. Forged authorization and wrong-model input
+regressions fail before `turn/start`; a simulated production-protocol positive
+also proves exact request counting and local phase completion without a model
+call. Reset-cycle review 4/5 found that a qualification protocol adapter could
+enter a production phase and that the old serialized Outer-to-Inner token could
+be forged with matching state and receipt. Production phases now accept only
+the exact Codex app-server operation, and Inner requires the live same-process
+object created by its authentic Outer. Direct-inner forgery and authentic-
+Outer receipt-mutation negatives pass within the corrected 23/23 gate. Reset-
+cycle review 5/5 then found that submitted requests, rather than correlated
+successful responses and terminal turns, could satisfy phase completion. The
+runner now validates each response, emits the required initialized notification,
+binds turns to the returned thread, and accepts only matching successful
+`turn/completed`; the failed-terminal negative raises the focused gate to 24/24.
+The approved reset cycle was exhausted. The user explicitly approved a second
+reset for this same commit attempt. Do not commit until a second-reset-cycle
+review covers these final bytes cleanly;
+only then commit
+exactly `evals: add tracked Work Charter Gate 2 dispatcher`. No private carrier,
+canary, product, or assessor turn may start before that gate passes. No
+existing D51 canary may be replayed or reused. Push, installation, tag,
+release, stable update, cleanup, SOURCE changes, and automatic D53 remain
 unauthorized.
 
 ## Recovery Entry
@@ -917,7 +956,9 @@ unauthorized.
 7. Do not continue or mutate D44-D50 or D51-01 through D51-03. Preserve D51-03's
    24/24 qualification and three inner-only canary turns as route-incomplete,
    non-product evidence. Do not create a post-hoc outer receipt, retry a
-   canary, freeze, run product cells or an assessor, or infer D52 authority.
+   D51 canary, or transfer a freeze, product cell, assessor, or acceptance into
+   D52. Apply only the explicit D52 Campaign and its live tranche; do not infer
+   any authority beyond it.
 8. Read canonical SOURCE, current eval definitions, and only evidence matching
    the exact revision before changing behavior or claims.
 9. Preserve the independent-Skill and non-propagating-authorization boundary.

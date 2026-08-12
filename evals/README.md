@@ -156,6 +156,32 @@ the exact tracked runner does not yet implement this guard, record mechanical
 enforcement as `DEFERRED` and do not treat an inner canary as qualification of
 the consuming path.
 
+The approved `WC-AR-D52-TRACKED-OUTER-DISPATCH` Campaign promotes that
+mechanical guard through tracked `invoke-work-charter-gate2.ps1`. Its first
+zero-model tranche binds the candidate, carrier manifest, tracked launcher
+revision, Campaign contract, active ruleset, frozen inputs, phase, remaining
+budget, exact child route, and following dispatch.
+`check-work-charter-gate2-runner.ps1` currently passes 24/24 deterministic
+scenarios: outer positive, post-consumption argv-mutation isolation, typed
+child nonzero, empty and singleton argv,
+exact signed/hash-pinned Codex round-trip, authenticated executable anchor and
+shadow-path rejection, exact static Campaign/candidate identity rejection,
+caller-selected argv rejection against the tracked operation table, self-
+rehashed carrier/authority artifact rejection, committed runner-blob rejection,
+forged production-authorization rejection, wrong-model production-input
+rejection, one simulated authorized production-protocol positive, one exact
+bidirectional app-server `initialize` round-trip, one failed-terminal-turn
+rejection before phase completion or successor dispatch, duplicate dispatch,
+production-phase rejection of every qualification/test operation, direct inner
+with forged files but no live same-process Outer object capability, and absent,
+stale, wrong-phase, wrong-hash, and reused receipts mutated after authentic
+Outer issuance. The positive path also proves that the following phase re-enters the
+same tracked outer runner and receives its own one-shot receipt. This is runner
+qualification only: it consumes no model turn, supplies no Gate 2 product
+credit, and does not make candidate `c481005...` accepted. The private D52
+carrier and all scarce evidence remain blocked until the first tracked local
+commit and its prerequisite native-review gate complete.
+
 For each attempted product cell, record at least:
 
 - stable subject, exact candidate/control and carrier locator;

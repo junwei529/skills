@@ -39,6 +39,7 @@ Last updated: 2026-08-12
 | Exact `c481005...` D49 Gate 2 terminal | D49 imported admitted D48 A01-A13 without replay, passed 17/17 final qualification, three exact-route canaries, and a 171-file freeze, then admitted fresh A14-A17; released-control A18 attempted an unauthorized direct `.git/index.lock` read and sealed the packet at combined 17/28, one eligible assessor returned `DECISION_REQUIRED`, A20 and both contrast groups did not start, and the candidate remains immutable and unaccepted |
 | Exact `c481005...` D50 Gate 2 terminal | D50 cold-certified its reusable controller bundle, passed 23/23 official qualification, three exact-route canaries, and a 178-file / 83-mapping freeze, then imported D49 A01-A17 without replay; non-scored candidate calibration passed, but fresh scored released-control A18 returned controller `UNKNOWN` for `resolved_command_invocation_not_trusted`, so D50 sealed at scored 17/28 with 0/11 fresh scored cells complete; one eligible assessor returned `DECISION_REQUIRED`, and the immutable candidate remains unaccepted |
 | Exact `c481005...` D51 route-invalid closeout | D51-03 used its final correction and passed 24/24 deterministic qualification; three non-product canary turns then ran through the inner batch instead of the declared outer launcher, so the required typed-scalar launch receipt is absent and freeze/product/assessor never started; the turns remain immutable inner-route evidence only, the candidate remains unaccepted, and no automatic D52 follows |
+| `WC-AR-D52-TRACKED-OUTER-DISPATCH` zero-model tranche | the tracked single-entry runner and focused checker pass corrected 24/24 required outer/typed-exit/exactly-once/direct-inner/invalid-receipt plus argv-snapshot, empty/singleton-argv, exact static Campaign/candidate identity, tracked operation policy, authenticated carrier/authority artifacts, committed runner-blob and production-policy binding, wrong-model input rejection, simulated production-protocol positive and failed-terminal negative, exact Codex and bidirectional app-server round-trips, and authenticated-executable/shadow scenarios, and the fixture consumer passes 18/18 with zero model or assessor turns; reset-cycle review 5/5's completion-correlation P1 is fixed and the user approved a second reset, while local commit 1, private carrier, and scarce evidence remain blocked pending a clean second-reset-cycle review |
 | Isolated path-bound controller canary | private retained sealed `CANARY_PASS`; the public summary reports an exact-response pass and no command execution, omits locator/artifact/runtime details, leaves physical backend request count `UNKNOWN`, and proves neither natural-language selection nor candidate acceptance |
 | Small bounded work stays flat | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
 | Midstream implicit behavior is proposal-only | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
@@ -2126,6 +2127,76 @@ evidence. Work Charter SOURCE, cases, fixtures, matrix, rubric, controller
 module, candidate, and every predecessor remain unchanged. Mechanical single-
 entry and launch-receipt prevention is a Work Charter v0.2.0 outer-runner gap,
 not an implemented controller capability; no D52 is authorized.
+
+### 2026-08-12 — D52 tracked-runner zero-model tranche
+
+The user separately authorized `WC-AR-D52-TRACKED-OUTER-DISPATCH` without
+altering D51 or the candidate. Tracked `invoke-work-charter-gate2.ps1` now
+creates and consumes phase-specific one-shot receipts, hashes its exact child
+executable, argv, working directory, and next-dispatch descriptor into the
+binding, preserves stdout/stderr as separate evidence data, and exposes one
+integer process exit for control flow. A successful following phase must
+re-enter the same tracked outer runner and receive its own receipt.
+
+`check-work-charter-gate2-runner.ps1` passes corrected 24/24: outer positive, byte-snapshot
+argv isolation from a post-consumption path mutation, child exit 37 propagation
+with no successor, empty and singleton argv preservation,
+exact signed/hash-pinned Codex round-trip, authenticated executable anchor and
+shadow rejection, exact static Campaign/subject/candidate rejection, caller-
+selected argv rejection against the tracked operation table, self-rehashed
+carrier/frozen/ruleset/contract rejection against actual source snapshots,
+committed runner-blob rejection, forged production-policy and wrong-model-input
+rejection, simulated production-protocol positive, exact bidirectional
+app-server `initialize` round-trip, duplicate dispatch,
+direct inner with fully forged file artifacts but no live Outer object
+capability, and absent, stale, wrong-phase, wrong-hash, and reused receipts
+mutated only after authentic Outer issuance. The
+fixture-checker consumer passes as check 18/18. Every negative fails before
+the synthetic child's sentinel output is produced. The positive path records
+exactly one successor dispatch and both receipt consumptions.
+
+This tranche used zero model contexts, zero `turn/start`, and zero assessor
+turns. Completed native review 5/5 found the caller-selected operation-binding
+P1. The embedded canonical operation table now binds operation ID, executable
+anchor, and exact argv before receipt issuance; the new self-hashed wrong-argv
+negative fails before state or receipt creation. Cycle 1 is exhausted, so the
+current unstaged diff has not completed local commit 1 or its native-review
+gate. The user explicitly approved one reset for the same attempt. Reset-cycle
+review 1/5 found one P1 self-declared evidence-hash route and one P2 stale no-
+reset commit clause. Authority snapshots now validate the exact Decision 0018
+path/content and all five normalized fresh-ruleset sources; carrier and frozen
+manifests bind those snapshots, phase, candidate, and launcher, and production
+routes are contained under the exact D52 private root. A four-family self-
+rehash negative passes before receipt issuance, and Decision 0018 now includes
+the approved reset. Reset-cycle review 2/5 found two P1 gaps in committed runner
+identity and the actual app-server transport. The runner now requires matching
+`HEAD`, committed blob, working bytes, binding, and carrier before production
+receipt issuance, and proxies the exact app-server operation bidirectionally.
+Its zero-budget `initialize` and committed-runner regressions pass. Reset-cycle
+review 3/5 found one P1 mutually self-authenticated production route. The
+runner now commits the exact sixteen-phase order, model/effort and budgets,
+canonical paths, protocol request shape, and successor policy. Forged-policy
+and wrong-model-input negatives pass before `turn/start`; a simulated positive
+proves exact request counting and phase completion without a model call, raising
+the focused result to 23/23. Reset-cycle review 4/5 found two P1s: a
+qualification protocol adapter could be classified as a production operation,
+and the former file-backed outer/inner token could be forged with matching
+state and receipt. The operation gate now allows only the exact Codex app-server
+operation in all committed production phases. Outer and Inner share one live
+same-process object capability whose reference identity is not serializable;
+the direct-inner and five authentic-Outer receipt-mutation negatives prove the
+route fails closed before child start. Focused verification remains 23/23. The
+reset-cycle review 5/5 finding is also fixed: every app-server request now
+requires a matching successful response, initialize emits the required
+`initialized` notification, turn input matches the returned thread, and only a
+matching terminal `turn/completed` with status `completed` admits phase
+completion. The failed-terminal negative raises the result to 24/24. The
+approved cycle was exhausted; the user explicitly approved a second reset, and
+a clean second-reset-cycle review remains pending. The D52
+private root remains absent.
+Therefore no D52
+carrier qualification, same-boundary app-server canary, product cell, freeze,
+assessment, acceptance, installation, or release claim exists yet.
 
 ## Required Checks
 

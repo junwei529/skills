@@ -10,7 +10,9 @@ Last updated: 2026-08-12
   `04c382a48e43897a8806aa5ffd996984cb015d3d8cdc6e675e9181a6d94e6f44`,
   and it remains unaccepted after D51-03 passed deterministic qualification
   but three inner-only canaries bypassed the required outer launcher; freeze,
-  product, and assessor phases did not start
+  product, and assessor phases did not start. Bounded D52 is now authorized,
+  but remains in its first zero-model tracked-runner tranche before local
+  commit 1
 - Exact predecessor `b3ad360...` and its D41 packet remain immutable and
   unaccepted
 - Released package identity: immutable `v0.1.2` at
@@ -22,15 +24,20 @@ Last updated: 2026-08-12
   5 files, each matching the `v0.1.2` Git blobs
 - Rollback identity: immutable `v0.1.1` retained as a separately verified
   three-package backup
-- Writer handoff boundary: D51 execution is stopped and has no active carrier
-  writer. One repository-governance closeout window owns only the current
-  tracked lesson-promotion and factual-state diff against
-  `main@6d4b5e9c3722d9c0805792bc9a7b079de2507090`; it will leave the diff unstaged
-  and relinquish on closeout. D31-D50, D51-01 through D51-03, and every consumed
-  turn/carrier remain immutable. Skill SOURCE, behavior cases, fixtures,
-  matrix, rubric, controller module, other Skills, user configuration, push,
-  installation, tag, release, stable update, cleanup, D52, and unlisted
-  external effects remain excluded
+- Writer handoff boundary: one D52 Campaign writer owns only the authorized
+  tracked outer-runner/checker, fixture-checker consumer, and mapped D52
+  documentation diff against
+  `main@cf11dcf374ef2f2a09c9a0bc22c42267d667cf3e`. The focused runner and fixture
+  regressions pass corrected 24/24 and 18/18 with zero model or assessor turns;
+  review cycle 1 was exhausted after the operation-binding P1 correction, the
+  user approved the first reset, reset-cycle review 5/5's completion-correlation
+  P1 is fixed, and the user approved a second reset for the required clean review; the
+  diff is unstaged, and local commit 1 has not
+  occurred. D31-D50, D51-01 through D51-03,
+  and every consumed turn/carrier remain immutable. Skill SOURCE, behavior
+  cases, fixtures, matrix, rubric, controller module, other Skills, user
+  configuration, push, installation, tag, release, stable update, cleanup,
+  D53, and unlisted external effects remain excluded
 - Ignored-carrier boundary: one opaque ordinary controller-scratch directory
   predates this writer window. Its provenance remains `UNKNOWN`; this task read
   metadata only and did not open, reinterpret, or clean the carrier. Native
@@ -1078,19 +1085,33 @@ created the fact class; it did not require or authorize speculative files.
 ## Immediate Next Action
 
 No release action remains pending for immutable `v0.1.2`. D31-D50 and D51-01
-through D51-03 are complete, sealed, or preserved and non-retriable. Stabilize
-and review the current governance/factual-state diff, leave it unstaged, and
-relinquish the repository writer. The next Work Charter product decision is
-whether to stop the evaluation line or authorize a separately bounded D52 only
-as a new Campaign whose first zero-model tranche implements and qualifies
-single-entry launch receipts under a fresh ruleset. Its canary, product, and
-assessor tranches remain blocked until that gate passes. Do not resume D51.
+through D51-03 are complete, sealed, or preserved and non-retriable. D52 is
+authorized under `WC-AR-D52-TRACKED-OUTER-DISPATCH` and is currently inside its
+first zero-model tranche. Its review cycle 1 is exhausted after completed
+review 5/5 found the operation-binding P1; the correction and focused
+regression pass. The user explicitly approved one review-budget reset. Reset-
+cycle review 1/5 found and triggered actual evidence-snapshot authentication
+plus a reset-clause reconciliation. Review 2/5 then required committed runner-
+blob enforcement and a bidirectional exact app-server route. Review 3/5 then
+required every production artifact and app-server request to match the
+committed sixteen-phase policy. Review 4/5 excluded every qualification-only
+operation from production phases and replaced the forgeable file token with a
+live same-process Outer-to-Inner object capability. All fixes pass the focused
+23/23 checks. Review 5/5 then required successful app-server response and
+matching terminal-turn correlation before phase completion. That fix and its
+failed-terminal negative pass corrected 24/24, but the only approved reset cycle
+was exhausted. The user explicitly approved a second reset for the same commit
+attempt. Complete a clean second-reset-cycle review before making exact local commit 1
+`evals: add tracked Work Charter Gate 2 dispatcher`. Only that successful
+commit permits creation of the fresh D52 ignored carrier and its complete
+qualification. Canary, product, and assessor tranches remain blocked. Do not
+resume or reinterpret D51.
 
 Later user-owned choices include:
 
-- decide whether the Work Charter evaluation line stops or a separately
-  bounded D52 is warranted after the D51 route-invalid closeout, with mechanical
-  outer-runner hardening as D52's mandatory first zero-model tranche;
+- decide any material D52 replan, native-review budget reset, non-accepted
+  terminal disposition, D53, or stop-line action not already resolved by the
+  approved Campaign;
 - decide any installation, release, or public-reachability action only from the
   recorded Gate 2 disposition and applicable later authorization;
 - after an accepted Project Docs commit, authorize an exact-commit candidate
@@ -1127,7 +1148,7 @@ Stop before write or publication if:
 
 ## Authorization Boundary
 
-D42-D50 execution authority is consumed. Exact candidate `c481005...`, every
+D42-D51 execution authority is consumed. Exact candidate `c481005...`, every
 predecessor qualification/canary/product/assessor receipt, the assessor-
 deviation receipt, and all consumed turns are immutable and non-retriable. The
 assessor output is excluded from the D44 evidence ledger. D50 consumed eight
@@ -1139,15 +1160,38 @@ pre-canary corrections. D51-03 passed deterministic qualification, then
 consumed three inner-only non-product canary turns without the required outer
 receipt. Its product and assessor budgets remain unconsumed but expire with the
 route-invalid stop rather than transferring to a retry or successor. D51-01
-through D51-03 and all three canary turns remain immutable; no third correction
-or automatic D52 exists.
+through D51-03 and all three canary turns remain immutable; no third D51
+correction or evidence transfer exists.
+
+Explicit `WC-AR-D52-TRACKED-OUTER-DISPATCH` authority now permits only its
+serial tracked-runner, private qualification, exact canary/product/assessor,
+sanitized closeout, two-local-commit, and writer-relinquish envelope. The
+current writer is inside the user-approved second reset cycle before local
+commit 1, has fixed reset-cycle review 5/5's completion-correlation P1, and has consumed zero fresh model
+contexts, zero `turn/start`, and zero assessor turns. The fresh ignored D52
+carrier root must remain absent until that commit. A tracked runner defect
+after commit 1, correction exhaustion, shared identity drift, review-budget
+exhaustion, or any unlisted permission/cost/workspace/acceptance change stops
+and returns one complete decision.
 
 No SOURCE, behavior-case, fixture, controller-module, model assignment beyond
-the declared D51 cells, workspace-route, permission, other-Skill, user-
+the declared D52 cells, workspace-route, permission, other-Skill, user-
 configuration, push, installation, tag, release, stable mutation, retained-
-evidence cleanup, or unlisted external-effect change is authorized. The
-governance closeout relinquishes after stabilizing its unstaged tracked diff.
-Any D52 or other successor requires one new complete user decision.
+evidence cleanup, or unlisted external-effect change is authorized. Any D53 or
+other successor requires one new complete user decision.
+
+The D52 local-commit-1 documentation-impact closure is fact-first. `UPDATE`
+covers the tracked runner and focused checker, the fixture-checker consumer,
+`evals/README.md`, Decision 0018, Work Charter State and Verification, root
+Status, Verification, Roadmap, Index, and this Handoff. `CHECKED_NO_CHANGE`
+covers repository `AGENTS.md`, the root and Work Charter README pairs,
+Authority, SPEC, Architecture, Runbook, Provenance, Decisions 0017/0020, Work
+Charter SOURCE/Design/cases/fixtures/matrix/rubric/current-SOURCE manifest/
+tracked controller/package references/assets, the result index, and neighboring
+Skills. `NOT_APPLICABLE` before local commit 1 covers a D52 terminal report,
+result-index update, private carrier materialization, candidate or stable-copy
+change, installation, push, PR, merge, tag, release, cleanup, and external
+publication.
 
 The D50-authority documentation-impact closure is fact-first. `UPDATE` covers
 Decision 0018, `evals/README.md`, Work Charter State and Verification, root
