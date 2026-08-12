@@ -178,9 +178,12 @@ stale, wrong-phase, wrong-hash, and reused receipts mutated after authentic
 Outer issuance. The positive path also proves that the following phase re-enters the
 same tracked outer runner and receives its own one-shot receipt. This is runner
 qualification only: it consumes no model turn, supplies no Gate 2 product
-credit, and does not make candidate `c481005...` accepted. The private D52
-carrier and all scarce evidence remain blocked until the first tracked local
-commit and its prerequisite native-review gate complete.
+credit, and does not make candidate `c481005...` accepted. Local commit
+`410b0bd...` completed that tracked prerequisite. The later private D52 carrier
+used both authorized corrections and failed official qualification stage 7
+before the aggregate 48/48 receipt; no scarce evidence started. D52 is sealed
+as `QUALIFICATION_FAILED / PRODUCT_UNKNOWN`, and the candidate remains
+unaccepted.
 
 For each attempted product cell, record at least:
 

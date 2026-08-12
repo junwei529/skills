@@ -39,7 +39,7 @@ Last updated: 2026-08-12
 | Exact `c481005...` D49 Gate 2 terminal | D49 imported admitted D48 A01-A13 without replay, passed 17/17 final qualification, three exact-route canaries, and a 171-file freeze, then admitted fresh A14-A17; released-control A18 attempted an unauthorized direct `.git/index.lock` read and sealed the packet at combined 17/28, one eligible assessor returned `DECISION_REQUIRED`, A20 and both contrast groups did not start, and the candidate remains immutable and unaccepted |
 | Exact `c481005...` D50 Gate 2 terminal | D50 cold-certified its reusable controller bundle, passed 23/23 official qualification, three exact-route canaries, and a 178-file / 83-mapping freeze, then imported D49 A01-A17 without replay; non-scored candidate calibration passed, but fresh scored released-control A18 returned controller `UNKNOWN` for `resolved_command_invocation_not_trusted`, so D50 sealed at scored 17/28 with 0/11 fresh scored cells complete; one eligible assessor returned `DECISION_REQUIRED`, and the immutable candidate remains unaccepted |
 | Exact `c481005...` D51 route-invalid closeout | D51-03 used its final correction and passed 24/24 deterministic qualification; three non-product canary turns then ran through the inner batch instead of the declared outer launcher, so the required typed-scalar launch receipt is absent and freeze/product/assessor never started; the turns remain immutable inner-route evidence only, the candidate remains unaccepted, and no automatic D52 follows |
-| `WC-AR-D52-TRACKED-OUTER-DISPATCH` zero-model tranche | the tracked single-entry runner and focused checker pass corrected 24/24 required outer/typed-exit/exactly-once/direct-inner/invalid-receipt plus argv-snapshot, empty/singleton-argv, exact static Campaign/candidate identity, tracked operation policy, authenticated carrier/authority artifacts, committed runner-blob and production-policy binding, wrong-model input rejection, simulated production-protocol positive and failed-terminal negative, exact Codex and bidirectional app-server round-trips, and authenticated-executable/shadow scenarios, and the fixture consumer passes 18/18 with zero model or assessor turns; reset-cycle review 5/5's completion-correlation P1 is fixed and the user approved a second reset, while local commit 1, private carrier, and scarce evidence remain blocked pending a clean second-reset-cycle review |
+| Exact `c481005...` D52 qualification terminal | local commit `410b0bd...` records the tracked single-entry runner and corrected 24/24 focused result; one fresh private carrier used both corrections, passed official stages 1-6, then failed stage 7 `model_authorization_envelope` because the frozen policy did not require the post-freeze authorization gate; no aggregate 48/48 receipt, outer phase receipt, canary, freeze, product, or assessor turn followed, so D52 is `QUALIFICATION_FAILED / PRODUCT_UNKNOWN` and the candidate remains unaccepted |
 | Isolated path-bound controller canary | private retained sealed `CANARY_PASS`; the public summary reports an exact-response pass and no command execution, omits locator/artifact/runtime details, leaves physical backend request count `UNKNOWN`, and proves neither natural-language selection nor candidate acceptance |
 | Small bounded work stays flat | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
 | Midstream implicit behavior is proposal-only | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
@@ -2191,12 +2191,25 @@ requires a matching successful response, initialize emits the required
 `initialized` notification, turn input matches the returned thread, and only a
 matching terminal `turn/completed` with status `completed` admits phase
 completion. The failed-terminal negative raises the result to 24/24. The
-approved cycle was exhausted; the user explicitly approved a second reset, and
-a clean second-reset-cycle review remains pending. The D52
-private root remains absent.
-Therefore no D52
-carrier qualification, same-boundary app-server canary, product cell, freeze,
-assessment, acceptance, installation, or release claim exists yet.
+approved cycle was exhausted; the user explicitly approved a second reset,
+whose first completed review was clean. Local commit `410b0bd...` records the
+exact tracked dispatcher target.
+
+The subsequently materialized D52 carrier finalized a 157-file bundle with
+manifest SHA-256 `10499be1...a7b6`. Both private corrections were consumed
+before scarce evidence. Official qualification stages 1-6 passed. Stage 7's
+full-lane deterministic gate failed `model_authorization_envelope` because the
+frozen run policy did not require the post-freeze authorization gate. The
+aggregate 48/48 receipt was not created, and private static stage 8 plus fresh
+tracked-runner stage 9 did not start inside the official sequence. No production
+phase descriptor or receipt, canary, freeze, product cell, assessor, model
+context, or `turn/start` followed.
+
+D52 is sealed as `QUALIFICATION_FAILED / PRODUCT_UNKNOWN`; terminal receipt
+SHA-256 is `7c12bbdb...abd4d`. This is a private-carrier qualification-contract
+mismatch, not a Work Charter SOURCE, candidate-behavior, tracked-runner, or
+provider finding. No third correction, retry, operator recovery, replay,
+rescore, automatic D53, acceptance, installation, or release claim exists.
 
 ## Required Checks
 

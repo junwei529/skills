@@ -2,17 +2,19 @@
 
 Date: 2026-08-02
 Amended: 2026-08-12
-Status: accepted through WC-AR-D52-TRACKED-OUTER-DISPATCH; D40-D50 and D51-01 through D51-03 remain immutable, D51's three inner-only canary turns remain consumed, and exact candidate `c481005...` remains unaccepted while D52 is limited to the Campaign below
+Status: accepted through terminal WC-AR-D52-TRACKED-OUTER-DISPATCH; D40-D50 and D51-01 through D51-03 remain immutable, D51's three inner-only canary turns remain consumed, D52 is `QUALIFICATION_FAILED / PRODUCT_UNKNOWN`, and exact candidate `c481005...` remains unaccepted
 
-- Planning checkpoint: 34 (bounded D52 tracked outer-dispatch Campaign)
-- Last incorporated decision: `WC-AR-D52-TRACKED-OUTER-DISPATCH`
-- Open decision: none at the D52 local-commit-1 review gate; the user explicitly
-  approved a first native-review budget reset after cycle-1 review 5/5 and a
-  second reset after reset-cycle review 5/5 plus its completion-correlation
-  correction, while any later reset, replan, D53,
-  installation, release, or cleanup remains user-owned
-- Lifecycle authority: D52 is limited to the exact Campaign envelope recorded
-  below; consult `docs/HANDOFF.md` for the live tranche, writer, and exclusions
+- Planning checkpoint: 35 (D52 qualification terminal and sanitized closeout)
+- Last incorporated decision: `WC-AR-D52-TRACKED-OUTER-DISPATCH`; its terminal
+  disposition is an observed fail-closed fact, not new successor authority
+- Open decision: none inside D52; the authorized terminal documentation review,
+  exact local commit 2, and writer relinquishment remain. After that closeout,
+  the evaluation line stays stopped unless the user authorizes one new complete
+  successor Campaign. Any D53, installation, release, or cleanup is user-owned
+- Lifecycle authority: D52 now permits only sanitized closeout, exact local
+  commit 2, and writer relinquishment; repair, retry, operator recovery, scarce
+  evidence, and every unlisted effect remain excluded. Consult
+  `docs/HANDOFF.md` for the live writer and recovery boundary
 - Checkpoint reason: completed product-design decision set plus the accepted
   native-package/user-activation, project-read, mapping-qualification, and
   immutable-evidence boundaries
@@ -2368,6 +2370,36 @@ release, stable-copy change, cleanup, SOURCE, behavior case, fixture, matrix,
 rubric, controller module, other-Skill, user configuration, hidden predecessor
 read, raw prompt/completion publication, and unlisted external effect remain
 excluded.
+
+### D52 terminal disposition
+
+D52 created local commit 1
+`410b0bd1f361688e4444ced48e0e9451be1787d6` with the tracked runner and
+its zero-model evidence, then materialized one fresh private carrier from the
+D50 certified credential-free bundle. The carrier used both authorized private
+corrections before scarce evidence: `D52-P01` removed an offline-generated
+Python cache, and `D52-P02` corrected rooted Windows Git command rendering.
+The corrected path-bound round-trip passed five rooted positives and rejected
+five bare-name plus five shadow-path variants. Neither correction changed the
+tracked runner, SOURCE, candidate, permissions, or budgets.
+
+The official carrier qualification completed stages 1-6. Stage 7's full-lane
+deterministic gate then failed `model_authorization_envelope` because the frozen
+run policy did not require the post-freeze authorization gate. This is a
+private-carrier qualification-contract mismatch, not a Work Charter SOURCE,
+candidate-behavior, tracked-runner, or provider finding. The required aggregate
+48/48 qualification receipt was not created. No production phase descriptor or
+receipt, canary, freeze, product cell, assessor, fresh model context, or
+`turn/start` followed.
+
+D52 is therefore sealed as `QUALIFICATION_FAILED / PRODUCT_UNKNOWN`; exact
+candidate `c481005...` remains `UNACCEPTED_AT_GATE_2`. The terminal receipt
+hash is
+`7c12bbdb8901b3ec825a8e671b43d21fa6c7b1a78761a7df4b824cb9397abd4d`.
+There is no third private correction, retry, operator recovery, replay,
+rescore, replacement assessor, automatic D53, or transfer of unused budget.
+The evaluation line stops unless the user later authorizes one new complete
+successor Campaign.
 
 ## Important Rejected Alternatives
 

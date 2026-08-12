@@ -9,7 +9,7 @@ Last updated: 2026-08-12
 | Tested package identity | all three package byte sets independently reached exact-commit RC readiness at `c42eef392a5b9f58bbee64aa73ffb603a6fb6c29` and were re-proved at tag/stable identity `v0.1.2` | [Verification](VERIFICATION.md) |
 | Stable release identity | immutable [`v0.1.2`](https://github.com/junwei529/skills/releases/tag/v0.1.2) at `ceed607152849775b981c54add74bfa30d858e4d`; exact tag, stable loaded-copy, and GitHub Release proof pass for all three Skills | [Verification](VERIFICATION.md) |
 | Project Docs | immutable `v0.1.2` remains the released explicit-only control; local commit `776989f...` implements accepted Decision 0019 but is unreleased, and its evidence is `PARTIAL` because actual candidate selection, loaded-copy identity, and persistent writes remain `UNKNOWN` | [State](skills/manage-project-docs/STATE.md) |
-| Work Charter | released `v0.1.2` remains active; exact candidate `c481005...` is unchanged and unaccepted; bounded D52 is authorized, its tracked single-entry runner passes corrected 24/24, reset-cycle review 5/5's completion-correlation P1 is fixed, and the user approved a second reset; private carrier and scarce evidence remain blocked pending a clean second-reset-cycle review and commit | [State](skills/work-charter/STATE.md) |
+| Work Charter | released `v0.1.2` remains active; exact candidate `c481005...` is unchanged and unaccepted; D52 committed its tracked single-entry runner, then exhausted both private corrections and failed full-lane zero-model qualification before the required 48/48 receipt; no canary, freeze, product, or assessor turn started, so D52 is `QUALIFICATION_FAILED / PRODUCT_UNKNOWN` | [State](skills/work-charter/STATE.md) |
 | PowerShell | released five-file `v0.1.2` stable copy; corrected loaded identity and guarded native/text diagnosis pass; live WSL remains unproved | [State](skills/use-powershell-safely/STATE.md) |
 | Release lifecycle | `v0.1.2` tag, stable update, tag-pinned canaries, and Latest GitHub Release complete; `v0.1.1` retained as rollback identity | [Runbook](RUNBOOK.md) |
 
@@ -227,17 +227,17 @@ phases did not start. D51 is therefore fail-closed as
 `CANARY_ROUTE_INVALID / PRODUCT_UNKNOWN`; its canaries are not retried or
 reinterpreted, and exact candidate `c481005...` remains unaccepted.
 
-Approved `WC-AR-D52-TRACKED-OUTER-DISPATCH` preserves that complete D51
-terminal and starts a new bounded Campaign at the mandatory zero-model gate.
-Tracked `invoke-work-charter-gate2.ps1` now owns one-shot phase receipts,
-frozen child and successor route hashes, separate streams, typed nonzero
-propagation, and same-runner exactly-once transition. Its focused checker and
-the fixture-checker consumer pass all eighteen outer/direct/invalid-route,
-argv-cardinality/snapshot, exact static identity, independently anchored
-executable, shadow-path, tracked-operation, and authenticated-evidence scenarios
-with zero model or assessor turns. This is an in-progress tracked
-diff, not local commit 1, carrier authority in use, product evidence, or Gate 2
-acceptance.
+Approved `WC-AR-D52-TRACKED-OUTER-DISPATCH` preserved that complete D51
+terminal and committed the tracked single-entry runner at `410b0bd...`. Its
+focused checker passed corrected 24/24, and the fixture consumer passed 18/18,
+with zero model or assessor turns. One fresh private carrier then used both
+authorized corrections and began its serial zero-model qualification. Stages
+1-6 passed; stage 7 failed the deterministic `model_authorization_envelope`
+because its frozen run policy did not require the post-freeze authorization
+gate. The aggregate 48/48 receipt was never created. No outer production
+receipt, canary, freeze, product, or assessor turn started. D52 is sealed as
+`QUALIFICATION_FAILED / PRODUCT_UNKNOWN`, not as a SOURCE or candidate-
+behavior finding.
 
 The exact evaluation-contract scope, writer state, and recovery order are owned
 by [Repository Handoff](HANDOFF.md).
@@ -436,37 +436,22 @@ decision.
 
 ## Next Gate
 
-No release action remains pending for immutable `v0.1.2`. D31-D50 and D51-01
-through D51-03 are complete, sealed, or preserved and non-retriable. Exact
-candidate `c481005...` remains unaccepted at Gate 2. Bounded D52 is active only
-inside `WC-AR-D52-TRACKED-OUTER-DISPATCH`; its corrected focused 24/24 zero-model
-runner gate passes. Reset-cycle review 1/5 found self-declared evidence hashes
-and the stale no-reset commit clause; actual carrier/frozen/authority snapshots
-now bind the exact source chain and the approved-reset clause is reconciled.
-Review 2/5 found and triggered committed runner-blob enforcement plus exact
-bidirectional app-server qualification; both new regressions pass. Local commit
-Review 3/5 found mutually self-authenticated production artifacts. The runner
-now binds every phase, model/effort, exact turn budget, remaining total budget,
-canonical artifact path, route, and successor to the committed D52 policy and
-rejects wrong-model app-server input before `turn/start`. Review 4/5 found that
-a qualification protocol operation could be admitted under a production phase
-and that a caller could forge the old file-backed outer/inner token. Production
-phases now admit only the exact Codex app-server operation, while Inner requires
-the live same-process object capability created by its authentic Outer; forged
-direct-inner artifacts and all five receipt mutations fail before child start.
-Review 5/5 then found that request submission alone could satisfy the phase
-gate before an app-server terminal result. The runner now correlates every
-request response, sends the required post-initialize notification, and accepts
-only a matching `turn/completed` with status `completed`; the failed-terminal
-negative raises the gate to 24/24. The reset cycle was exhausted and the fixes
-changed reviewed bytes. The user explicitly approved a second reset for this
-same commit attempt; finding and evidence history remain cumulative. Local
-commit 1 now requires a clean second-reset-cycle review.
-Until that exact commit
-passes, no D52 private carrier, canary, product, assessor, freeze, or evidence
-consumption may start. Push, installation, tag, release, stable update,
-cleanup, SOURCE, controller-module, case, fixture, matrix, rubric, other-Skill,
-and automatic D53 changes remain excluded.
+No release action remains pending for immutable `v0.1.2`. D31-D50, D51-01
+through D51-03, and D52 are complete, sealed, or preserved and non-retriable.
+Exact candidate `c481005...` remains unaccepted at Gate 2. D52's tracked runner
+is recorded by local commit `410b0bd...` and retains its corrected 24/24
+zero-model result. The fresh carrier bundle was finalized, but the official
+qualification stopped at stage 7 before the mandatory aggregate 48/48 receipt:
+the private frozen run-policy contract disagreed with the deterministic post-
+freeze authorization gate. Both private corrections are consumed, and no third
+correction or operator recovery exists. D52 is
+`QUALIFICATION_FAILED / PRODUCT_UNKNOWN`; it consumed zero fresh contexts and
+zero `turn/start`. No production phase receipt, canary, freeze, product, or assessor
+evidence exists. The evaluation line is stopped. Only one new complete
+successor Campaign, if explicitly authorized by the user, may reopen it. Push,
+installation, tag,
+release, stable update, cleanup, SOURCE, controller-module, case, fixture,
+matrix, rubric, other-Skill, and automatic D53 changes remain excluded.
 Project Docs keeps its own candidate and persistence-evidence sequence.
 
 ## Known Repository Gaps
