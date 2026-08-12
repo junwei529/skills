@@ -145,6 +145,17 @@ captured as data, exactly one typed exit status controls the branch, nonzero
 status propagates, and the intended next phase is neither skipped nor entered
 twice.
 
+For a multi-stage carrier, qualification also requires one declared outer
+entry and a phase-specific, hash-bound, one-shot launch receipt before the
+inner worker's first `thread/start`. The receipt binds the stable subject,
+carrier, launcher, Campaign contract, active ruleset, frozen inputs, phase, and
+budget. Test the complete outer positive path and reject direct-inner, absent,
+stale, wrong-phase, wrong-hash, and reused receipts before consumption. The
+receipt establishes route provenance only; it grants no action authority. If
+the exact tracked runner does not yet implement this guard, record mechanical
+enforcement as `DEFERRED` and do not treat an inner canary as qualification of
+the consuming path.
+
 For each attempted product cell, record at least:
 
 - stable subject, exact candidate/control and carrier locator;
@@ -178,6 +189,15 @@ Classify every observed artifact before interpreting a delta:
 | Declared material evidence input or ignored carrier | Inventory, bind, freeze, and reconcile even when Git omits it |
 | Generated/cache by-product | Account for it, but do not treat cache-only churn as semantic drift or a new review target |
 | Unexplained or unowned artifact | Fail qualification closed until ownership and materiality are resolved |
+
+A frozen evaluation round records lesson candidates without mutating its
+governing rules. At terminal closeout, disposition each candidate as
+`PROMOTED`, `DEFERRED`, or `REJECTED` under the Runbook. After a material
+`AGENTS.md` or mapped-reference change, the next affected evidence run must be
+a fresh Codex run or Session that records the applicable instruction-source
+chain and normalized-text ruleset hashes. A read performed later in the old
+Session is not fresh-loaded ruleset evidence. Requalify only affected
+conditions; do not relabel or replay sealed evidence.
 
 Once the declared consumption point is crossed, preserve the event exactly.
 Do not retry, replace, rescore, or relabel it through a new task, carrier,
@@ -575,7 +595,7 @@ The following broader lessons remain `DEFERRED`; G01-G08 do not claim them:
 |---|---|---|---|
 | Campaign cell and attempt cardinality across producers | The exact future Campaign runner/carrier contract, not this tracked module | A tracked producer is introduced or a reproducible zero/duplicate/extra-consumption false green recurs | Deterministic expected/actual/unique counts at the consumption boundary, with zero, duplicate, and extra negatives that stop before product evidence |
 | Exhaustive enumeration of producer states and dispositions | The producer schema and its adapter/validator | A closed enumeration becomes part of a tracked producer-consumer contract | Every allowed value has a positive case; missing and unknown values fail closed; producer and consumer use the same pinned schema revision |
-| Outer-launcher, phase-dispatch, and postprocessor ordering | The tracked outer runner or dispatcher that owns those steps | Such a pipeline becomes tracked or an ordering defect can bypass a terminal branch | One causal sequence proves typed child exit propagation and exactly-once branch entry; every stop branch prevents later consumption and postprocessing cannot rewrite the terminal |
+| Mechanically enforced single-entry outer dispatch and launch receipts | The exact Work Charter v0.2.0 outer runner or another tracked dispatcher that owns the consuming pipeline | Before the next scarce multi-stage Campaign, or when that runner becomes tracked; an observed direct-inner bypass has already promoted the semantic stop rule in Decision 0020 and the Runbook | Outer-positive and direct-inner/absent/stale/wrong-phase/wrong-hash/reused-receipt negatives prove rejection before `thread/start`; one causal sequence proves typed child exit propagation, exactly-once branch entry, and immutable terminal stop |
 
 The tracked cases derive sanitized structural regressions from bounded sealed
 summaries and adjudication records. Each historical case consumes one

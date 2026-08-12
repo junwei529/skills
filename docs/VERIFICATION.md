@@ -1788,6 +1788,33 @@ fresh bounded native-review cycle;
 D51-03 then reruns every deterministic qualification stage. A further
 qualification correction is not authorized.
 
+### 2026-08-12 — Work Charter D51-03 route-invalid closeout
+
+Fresh D51-03 used the second and final correction. The pre-adapter containment
+guard and official deterministic qualification passed 24/24. The qualification
+receipt SHA-256 is `8e91071866a67a4bcbca1483fa2d9f933b18e385fb5f3d5e57c09f8db76a2002`;
+the bound controller-bundle manifest and Campaign-contract hashes are
+`bc9e650b1ae1430f602cc770d3130839a24f18761353a09b414bc0fe729af88b`
+and `a334b5be125ece84e09d58848172ead42b27b135155b6f4597f2a8713cc7aa8f`.
+Qualification consumed zero model or assessor turns.
+
+The transport-canary batch itself returned `PASS` for three non-product turns;
+its receipt SHA-256 is
+`78b41a197f0868d3a7dfa4a57c8d7cc03ae6638faee718440b8c3b80039e8489`.
+However, the operator invoked the inner batch rather than the declared outer
+`launch-gate2.ps1` transport-canary mode. The required outer
+`transport-canaries-launch-result.json` is absent. Freeze manifest, model-
+activity authorization, product runs, terminal packet, and assessment are also
+absent.
+
+D51 therefore stops fail closed as `CANARY_ROUTE_INVALID / PRODUCT_UNKNOWN`.
+The three canary turns are preserved and non-retriable; they prove only the
+inner provider-response path and cannot be upgraded by a post-hoc receipt.
+There is no Work Charter behavior, Gate 2 acceptance, assessor, automatic D52,
+installation, release, or cleanup evidence. The prospective semantic guard is
+promoted in Decision 0020 and the Runbook; deterministic single-entry and
+launch-receipt enforcement remains deferred to the exact future outer runner.
+
 ### 2026-08-11 — Governing-disposition monotonic controller guard
 
 The tracked controller now accepts one optional, strictly shaped external

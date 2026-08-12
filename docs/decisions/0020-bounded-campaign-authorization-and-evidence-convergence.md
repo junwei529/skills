@@ -1,6 +1,7 @@
 # 0020: Bounded Campaign Authorization And Evidence Convergence
 
 Date: 2026-08-10
+Amended: 2026-08-12
 Status: accepted
 
 ## Context
@@ -58,6 +59,26 @@ step. Unlisted effects remain unauthorized. Authority does not transfer across
 Skills, stable subjects, candidates, repositories, workspaces, providers, or
 release targets.
 
+### Lesson Promotion And Ruleset Activation
+
+One Campaign, successor, or explicitly bounded evidence tranche is one lesson-
+promotion round. Frozen execution records lesson candidates but does not edit
+its governing rules, controller contract, rubric, or acceptance target in
+place. At the terminal boundary, every candidate is deduplicated and recorded
+as `PROMOTED`, `DEFERRED`, or `REJECTED`. Promotion names the canonical semantic
+owner and, for a mechanical boundary, the owning deterministic consumer and
+proving check. When that consumer does not yet exist, semantic policy may be
+promoted while enforcement remains explicitly deferred; prose alone does not
+make the boundary mechanically active.
+
+A material governing-rule change is prospective. The current run may finish
+an authorized closeout against its old ruleset, but it cannot prove that Codex
+reloaded the new rules. The next affected scarce-evidence round starts in a
+fresh run or Session, binds the applicable instruction-source chain and
+normalized-text ruleset identities, rereads its mapped references, and
+requalifies the affected boundary. Renaming a carrier or manually rereading a
+file in the old Session is not fresh-loaded ruleset evidence.
+
 ### Qualification Before Product Evidence
 
 Qualification proves that the intended evidence route is capable of carrying
@@ -83,6 +104,22 @@ only the inner provider response path. The Campaign must additionally exercise
 the exact outer wrapper with a non-product response or a deterministic
 synthetic child that proves output capture, nonzero propagation, scalar status,
 and intended next-phase dispatch before a product turn is consumed.
+
+For a multi-stage carrier, one declared outer dispatcher owns every consuming
+phase. It creates a phase-specific, hash-bound, one-shot launch receipt before
+the inner worker can call `thread/start`; the inner worker rejects an absent,
+stale, mismatched, wrong-phase, or reused receipt before consumption. The
+runner's deterministic qualification covers the complete producer-to-receipt
+path, including an outer positive and direct-inner negatives. This receipt is
+route provenance, not authority or a security boundary. Until an exact tracked
+runner owns and tests the guard, mechanical enforcement remains `DEFERRED` and
+the affected scarce-evidence path is not qualified.
+
+When a carrier is transformed before a separate finalizer, importer, or
+postprocessor consumes it, qualification rehearses the complete production
+chain in a disposable mirror before the last correction, canary, or freeze.
+The rehearsal proves containment, schema and hash handoff, and the actual
+consumer entry point; passing isolated components is insufficient.
 
 A transport canary is deliberately non-product evidence. Its prompt and
 scoring must not be used to accept or reject the Skill, prove selection,

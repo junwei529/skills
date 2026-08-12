@@ -146,11 +146,29 @@ Before changing this repository, read:
   `DEFERRED` names the owner and reconsideration trigger and is not described
   as fixed; `REJECTED` retains the evidence and reason. Chat, result, or backlog
   text alone is not an active rule.
+- Treat one Campaign, successor, or explicitly bounded evidence tranche as one
+  lesson-promotion round, not each command or chat turn. While its inputs or
+  evidence are frozen, record lesson candidates without changing the governing
+  `AGENTS.md`, references, controller contract, or acceptance target. At the
+  terminal boundary, deduplicate and disposition the whole batch before a
+  successor relies on it.
+- After a material governing-rule change, the current Codex run may close out
+  the old ruleset but cannot prove that the new one was loaded. Before affected
+  scarce evidence, start a fresh run or Session, identify the applicable
+  instruction sources and normalized-text ruleset hashes, reread the mapped
+  references, and requalify the affected boundary. A manual reread in the old
+  Session is useful context, not Harness reload evidence.
 - Before scarce product evidence, qualify the exact outer launch and return
   path as well as the inner provider response path. Child stdout/stderr are
   evidence data, not a function return value; phase dispatch must consume one
   typed scalar exit status. A direct app-server canary does not by itself
   qualify a different PowerShell/Python wrapper or its next-phase branch.
+- For a multi-stage scarce-evidence carrier, expose one declared outer entry
+  point and bind each consuming phase to a phase-specific, hash-bound, one-shot
+  launch receipt. An inner worker must fail before its first `thread/start`
+  when that receipt is absent, stale, mismatched, or already consumed. Include
+  direct-inner and wrong-receipt negatives in the owning runner's tests; a
+  receipt proves route provenance, not new action authority.
 - Before exposing an allowed native command to a model in scarce evidence,
   define its argv in one canonical operation table and render the exact rooted
   executable through the same wrapper, observation adapter, and controller

@@ -139,15 +139,17 @@ attempt root required by the adapter. No canary, product, or assessor turn was
 consumed. This is a qualification/controller-adapter route defect, not a Work
 Charter SOURCE or product finding.
 
-The D51 correction maximum is now two. D51-02 used the first; the second is
-authorized and irrevocably reserved only for one fresh ordinary ignored D51-03
-carrier, and materializing it records 2/2 used. That carrier may change only
-the private temporary-output containment, prove that target is inside its
-`execution/` root before adapter invocation, bind the amended authority commit,
-and rerun the complete
-deterministic qualification. D51-01/D51-02 and their receipts remain
-immutable; dynamic outputs do not transfer. All model, turn, acceptance, and
-exclusion boundaries remain unchanged. D51 has no third correction.
+Fresh D51-03 used the second and final correction, passed complete 24/24
+deterministic qualification, and consumed zero model or assessor turns during
+that gate. The subsequent operator action invoked the inner canary batch rather
+than the declared outer launcher. All three non-product canaries completed, but
+their three `turn/start` events prove only the inner provider-response path;
+the required outer typed-scalar launch receipt is absent. Freeze, product, and
+assessor phases did not start. D51 stops fail closed as
+`CANARY_ROUTE_INVALID / PRODUCT_UNKNOWN`; no post-hoc receipt, retry,
+replacement, reinterpretation, third correction, or automatic D52 is allowed.
+D51-01 through D51-03 and every predecessor carrier and consumption record remain
+preserved under their exact boundaries.
 
 The sealed fixed-turn Standard probe for `72db7e9...` returned `VIOLATION` and
 did not run its successor action. Decision 0018 `WC-AR-D26` preserves that
@@ -345,19 +347,17 @@ SOURCE by itself.
 
 ## Current Writer
 
-The D51 Campaign owns the sole repository writer from clean
-`main@5605906993942b5283cc77deb59aee32e6f5327e`. That commit completed the
-original tracked round-trip authority gate. The current bounded window records
-`WC-AR-D51-Q2-OUTPUT-CONTAINMENT`, completes deterministic verification and one
-new ordinary native-review cycle, and amends local authority commit 1. If that
-gate passes, the same writer constructs only fresh D51-03 against the amended
-policy-host commit and continues through the predeclared Campaign tranches.
+D51 no longer owns an execution writer. The repository-governance closeout
+window owns only the tracked lesson-promotion and factual-state diff against
+`main@6d4b5e9c3722d9c0805792bc9a7b079de2507090`; it does not own D52, a carrier,
+product evidence, or Work Charter SOURCE. On closeout it leaves that exact
+tracked diff unstaged and relinquishes the writer for a later user decision.
 
 Work Charter SOURCE, Design, package manifest, behavior cases, fixtures,
 matrix, rubric, controller module, other Skills, discovery mappings, user
 configuration, push, installation, tag, release, stable-copy mutation,
 retained-evidence cleanup, and external publication remain excluded. D31-D50,
-every consumed turn, and D51-01/D51-02 plus all earlier ignored carriers remain
+every consumed turn, and D51-01 through D51-03 plus all earlier ignored carriers remain
 immutable.
 
 ## Evidence State
@@ -870,14 +870,15 @@ returned `CONTROLLER_UNKNOWN`. Its eligible assessor also returned
 `DECISION_REQUIRED`; A19-A20 and both contrast groups remain
 `UNKNOWN_NOT_STARTED`.
 
-The current gate is the D51 authority amendment: freeze the mapped
-output-containment authority/current-state diff, complete deterministic checks
-and one new native-review cycle, and amend local authority commit 1. A passing
-gate automatically advances to fresh D51-03 and the complete zero-model
-qualification. Failure after that second and final correction, or identity,
-contract, disclosure, review-budget, or controller-module drift, returns one
-complete decision before model consumption. Push, installation, tag, release,
-stable update, cleanup, and automatic D52 remain unauthorized.
+The current gate is governance closeout only: verify the portable lesson and
+D51 factual-state diff, then relinquish the writer without staging or commit.
+The next product-owned choice is whether to stop the Work Charter evaluation
+line or authorize a separately bounded D52 whose first zero-model tranche
+implements and qualifies single-entry launch receipts under a fresh ruleset;
+no canary, product, or assessor turn may start before that tranche passes.
+No existing D51 canary may be replayed or reused. Push, installation, tag,
+release, stable update, cleanup, SOURCE changes, and automatic D52 remain
+unauthorized.
 
 ## Recovery Entry
 
@@ -913,11 +914,10 @@ stable update, cleanup, and automatic D52 remain unauthorized.
    D49's combined 17/28 control-boundary terminal, and D50's scored 17/28
    controller-unknown terminal without replay, raw-evidence transfer, rescore,
    or reinterpretation.
-7. Do not continue or mutate D44-D50 or D51-01/D51-02. Apply D51 only under
-   `WC-AR-D51-PATH-BOUND-COMMAND-ROUNDTRIP` as amended by
-   `WC-AR-D51-Q2-OUTPUT-CONTAINMENT`: amend authority commit 1, construct fresh
-   D51-03 from that new policy host, and advance only after its complete
-   deterministic qualification passes. No third correction exists.
+7. Do not continue or mutate D44-D50 or D51-01 through D51-03. Preserve D51-03's
+   24/24 qualification and three inner-only canary turns as route-incomplete,
+   non-product evidence. Do not create a post-hoc outer receipt, retry a
+   canary, freeze, run product cells or an assessor, or infer D52 authority.
 8. Read canonical SOURCE, current eval definitions, and only evidence matching
    the exact revision before changing behavior or claims.
 9. Preserve the independent-Skill and non-propagating-authorization boundary.

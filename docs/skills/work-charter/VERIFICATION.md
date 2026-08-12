@@ -38,6 +38,7 @@ Last updated: 2026-08-12
 | `WC-AR-D49-EVAL-CONTRACT` prospective correction | matched A14/A19/B04/C04 distinguish target-project/evidence read scope from direct-invocation package loading; separate A20 directly denies package use plus project/evidence reads/actions while attributing any exact-invocation preload to the pre-context Harness, not activation; the contract is 20 reference runs / 28 full cells, changes no package byte or sealed result, and was later consumed only under the separate D49 Campaign |
 | Exact `c481005...` D49 Gate 2 terminal | D49 imported admitted D48 A01-A13 without replay, passed 17/17 final qualification, three exact-route canaries, and a 171-file freeze, then admitted fresh A14-A17; released-control A18 attempted an unauthorized direct `.git/index.lock` read and sealed the packet at combined 17/28, one eligible assessor returned `DECISION_REQUIRED`, A20 and both contrast groups did not start, and the candidate remains immutable and unaccepted |
 | Exact `c481005...` D50 Gate 2 terminal | D50 cold-certified its reusable controller bundle, passed 23/23 official qualification, three exact-route canaries, and a 178-file / 83-mapping freeze, then imported D49 A01-A17 without replay; non-scored candidate calibration passed, but fresh scored released-control A18 returned controller `UNKNOWN` for `resolved_command_invocation_not_trusted`, so D50 sealed at scored 17/28 with 0/11 fresh scored cells complete; one eligible assessor returned `DECISION_REQUIRED`, and the immutable candidate remains unaccepted |
+| Exact `c481005...` D51 route-invalid closeout | D51-03 used its final correction and passed 24/24 deterministic qualification; three non-product canary turns then ran through the inner batch instead of the declared outer launcher, so the required typed-scalar launch receipt is absent and freeze/product/assessor never started; the turns remain immutable inner-route evidence only, the candidate remains unaccepted, and no automatic D52 follows |
 | Isolated path-bound controller canary | private retained sealed `CANARY_PASS`; the public summary reports an exact-response pass and no command execution, omits locator/artifact/runtime details, leaves physical backend request count `UNKNOWN`, and proves neither natural-language selection nor candidate acceptance |
 | Small bounded work stays flat | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
 | Midstream implicit behavior is proposal-only | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
@@ -2101,6 +2102,30 @@ hash, correction-history, and amended policy-host bindings. D51-01/D51-02 and
 their dynamic outputs do not transfer. D51-03 must rerun the complete
 qualification before any existing canary or product authorization can be
 consumed; no third correction or post-certification recovery exists.
+
+### 2026-08-12 — D51-03 route-invalid closeout
+
+D51-03 used the final correction and passed official 24/24 deterministic
+qualification. Its qualification receipt is
+`8e91071866a67a4bcbca1483fa2d9f933b18e385fb5f3d5e57c09f8db76a2002`;
+the controller-bundle manifest and Campaign contract are bound by
+`bc9e650b1ae1430f602cc770d3130839a24f18761353a09b414bc0fe729af88b`
+and `a334b5be125ece84e09d58848172ead42b27b135155b6f4597f2a8713cc7aa8f`.
+No model or assessor turn was consumed during qualification.
+
+Three non-product canary turns later completed inside the direct canary batch,
+whose receipt hash is
+`78b41a197f0868d3a7dfa4a57c8d7cc03ae6638faee718440b8c3b80039e8489`.
+They did not pass through the declared outer `launch-gate2.ps1` mode, and the
+required typed-scalar outer launch receipt is absent. No freeze, model-activity
+authorization, product run, terminal packet, or assessment exists.
+
+D51 remains fail-closed as `CANARY_ROUTE_INVALID / PRODUCT_UNKNOWN`. The three
+turns cannot be retried, replaced, or counted as product or full-route canary
+evidence. Work Charter SOURCE, cases, fixtures, matrix, rubric, controller
+module, candidate, and every predecessor remain unchanged. Mechanical single-
+entry and launch-receipt prevention is a Work Charter v0.2.0 outer-runner gap,
+not an implemented controller capability; no D52 is authorized.
 
 ## Required Checks
 

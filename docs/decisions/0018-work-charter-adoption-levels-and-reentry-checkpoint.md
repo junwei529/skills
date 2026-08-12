@@ -2,11 +2,13 @@
 
 Date: 2026-08-02
 Amended: 2026-08-12
-Status: accepted through WC-AR-D51-Q2-OUTPUT-CONTAINMENT; D40-D50 and D51-01/D51-02 are immutable under their evidence contracts, no consumed execution is retried or rescored, and exact candidate `c481005...` remains unaccepted while D51 has one correction used and one final pre-canary correction reserved for D51-03
+Status: accepted through WC-AR-D51-Q2-OUTPUT-CONTAINMENT; D40-D50 and D51-01/D51-02 remain immutable, D51-03 used the final correction and stopped on an outer-launch route anomaly after three inner-only canary turns, and exact candidate `c481005...` remains unaccepted with no automatic D52
 
-- Planning checkpoint: 32 (final qualification output-containment recovery)
+- Planning checkpoint: 33 (D51 route-invalid closeout and prospective outer-dispatch guard)
 - Last incorporated decision: `WC-AR-D51-Q2-OUTPUT-CONTAINMENT`
-- Open decision IDs: none
+- Open decision: stop the evaluation line or separately authorize one bounded
+  D52 whose first zero-model tranche implements and qualifies the outer-runner
+  guard before any canary, product, or assessor `thread/start`
 - Lifecycle authority: D51 is limited to the exact Campaign envelope recorded
   below; consult `docs/HANDOFF.md` for the live tranche and exclusions
 - Checkpoint reason: completed product-design decision set plus the accepted
@@ -2200,6 +2202,36 @@ sanitized closeout, and result commit. Any further qualification correction,
 repeat of the same failure, material anomaly, controller-module delta, or
 change to the approved Campaign envelope stops before model consumption and
 returns one complete decision. There is no third correction or automatic D52.
+
+### D51-03 Route Observation — No Authority Revision
+
+Fresh D51-03 used the second and final correction. Its pre-adapter containment
+guard and complete deterministic qualification passed 24/24 with zero model or
+assessor turns. A local finalizer-shape error occurred and was corrected before
+that official qualification; it creates no product observation and is retained
+only as qualification history.
+
+The next operator action invoked the inner transport-canary batch directly
+instead of the declared outer `launch-gate2.ps1` transport-canary mode. Three
+non-product canary `turn/start` events completed and establish only the inner
+provider-response path. The required outer typed-scalar launch receipt is
+absent. Freeze, product execution, terminal assessment, and assessor execution
+did not start.
+
+D51 therefore stops fail closed as `CANARY_ROUTE_INVALID / PRODUCT_UNKNOWN`.
+The three canaries are immutable consumption and cannot be retried, replaced,
+or reinterpreted as full-route qualification. No post-hoc receipt is created.
+This observation changes no Work Charter SOURCE, case, fixture, matrix, rubric,
+controller module, candidate, acceptance target, or prior evidence. It grants
+no D52, installation, release, cleanup, or other external authority.
+
+The portable semantic lesson is promoted through Decision 0020, the Runbook,
+repository guidance, and the evaluation contract. Mechanical single-entry and
+launch-receipt enforcement is `DEFERRED` to the exact tracked Work Charter
+v0.2.0 outer runner. A separately authorized D52 may include that implementation
+as its first zero-model tranche, but may not consume canary, product, or
+assessor evidence until the owner passes outer-positive plus direct-inner and
+invalid-receipt regressions under a fresh ruleset identity.
 
 ## Important Rejected Alternatives
 

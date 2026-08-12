@@ -315,6 +315,36 @@ successor cannot rely on that lesson until the promoted revision is verified.
 This procedure is prospective and never retries, rescores, or relabels sealed
 evidence.
 
+Use one **lesson-promotion round** for a Campaign, successor, or explicitly
+bounded evidence tranche. Do not create a new round for each command, carrier
+label, chat turn, or same-scope correction. While a round's inputs or evidence
+are frozen, keep new observations in its authorized non-governing result or
+recovery record; do not edit the governing `AGENTS.md`, reference set,
+controller contract, rubric, or acceptance target in place. An explicit stop
+still stops the round. At its terminal boundary:
+
+1. collect and deduplicate every observed lesson, including problems fixed
+   locally and proposals that were never implemented;
+2. distinguish the failure origin, the sealed evidence disposition, and the
+   prospective lesson disposition;
+3. promote only the portable minimum to its existing semantic owner, and route
+   deterministic prevention to the component that owns the failing boundary;
+4. when semantic policy is promoted but no owning mechanical consumer exists,
+   mark that enforcement `DEFERRED`, name its owner, trigger, and acceptance,
+   and do not describe the workflow as mechanically protected; and
+5. reject duplicates already covered by a verified rule instead of adding a
+   second wording or incident log to `AGENTS.md`.
+
+After a material `AGENTS.md` or mapped-reference change, finish any permitted
+closeout against the old ruleset, then use a fresh Codex run or Session before
+the next affected scarce-evidence action. Record the applicable instruction
+source chain and normalized-text SHA-256 identities for its material project
+rules and references, reread those mapped sources, and rerun only the affected
+qualification. A manual reread in the old Session can guide editing and
+closeout, but it is not proof that the Harness rebuilt its instruction chain.
+Do not restart for an editorial change that cannot alter selection, authority,
+execution, evidence, or recovery behavior.
+
 Reuse an existing baseline only when its exact identity and all relevant
 conditions remain unchanged. Mark genuinely irrelevant dimensions as not
 applicable and rerun only affected conditions; proportional evaluation does
@@ -408,12 +438,35 @@ directly than the product launcher, record that reduced coverage and run a
 non-product wrapper canary or deterministic synthetic-child dispatch test for
 the exact outer wrapper before consuming a product turn.
 
+For a multi-stage carrier, declare one outer dispatcher as the only consuming
+entry point. Before any inner worker may call `thread/start`, require a phase-
+specific launch receipt created by that dispatcher and bound to the stable
+subject, carrier, launcher revision, Campaign contract, active ruleset, frozen
+inputs, phase, and remaining budget. Validate and consume it exactly once.
+Missing, stale, wrong-phase, wrong-hash, or reused receipts fail before model
+consumption. The owning runner must test the outer positive path plus direct-
+inner and invalid-receipt negatives through the complete producer, wrapper,
+consumer, and receipt chain. The receipt records causal route provenance; it
+does not create permission, expand authority, or defend against a malicious
+writer. If no tracked runner owns this mechanism yet, keep mechanical
+enforcement `DEFERRED` and do not begin scarce evidence that depends on it.
+
 `skills/list`, a capability response, `thread/start`, successful local setup,
 or controller acceptance does not qualify the responses route. When completing
 the route requires a model call, budget one non-product call in the Campaign.
 Use a synthetic prompt and keep its result out of Skill selection, loaded-copy,
 semantic, and acceptance scoring. If the canary fails, seal its infrastructure
 result and stop before candidate evidence.
+
+When materialization transforms a carrier and a later finalizer, importer, or
+postprocessor consumes the transformed shape, rehearse that complete chain in
+a disposable mirror before spending the final correction, canary, or frozen
+evidence budget. Use the production transformation and consumer entry points,
+assert containment and exact schema/hash handoff, and prove that no write
+escapes the mirror. Component tests or a successful materializer alone do not
+qualify the composed path. Preserve the mirror only when the Campaign declares
+it material evidence. Otherwise treat it as temporary non-product output and
+remove it only under the Campaign's declared cleanup authority.
 
 Run at most three pre-consumption qualification correction rounds for one
 stable subject unless the Campaign declares a smaller limit. Before every

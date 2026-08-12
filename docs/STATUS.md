@@ -9,7 +9,7 @@ Last updated: 2026-08-12
 | Tested package identity | all three package byte sets independently reached exact-commit RC readiness at `c42eef392a5b9f58bbee64aa73ffb603a6fb6c29` and were re-proved at tag/stable identity `v0.1.2` | [Verification](VERIFICATION.md) |
 | Stable release identity | immutable [`v0.1.2`](https://github.com/junwei529/skills/releases/tag/v0.1.2) at `ceed607152849775b981c54add74bfa30d858e4d`; exact tag, stable loaded-copy, and GitHub Release proof pass for all three Skills | [Verification](VERIFICATION.md) |
 | Project Docs | immutable `v0.1.2` remains the released explicit-only control; local commit `776989f...` implements accepted Decision 0019 but is unreleased, and its evidence is `PARTIAL` because actual candidate selection, loaded-copy identity, and persistent writes remain `UNKNOWN` | [State](skills/manage-project-docs/STATE.md) |
-| Work Charter | released `v0.1.2` remains active; exact candidate `c481005...` is unchanged and unaccepted; D50 and zero-model D51-01/D51-02 are immutable, and approved D51 is at the authority gate for one reserved second and final qualification-only output-containment correction before any fresh canary or product evidence | [State](skills/work-charter/STATE.md) |
+| Work Charter | released `v0.1.2` remains active; exact candidate `c481005...` is unchanged and unaccepted; D51-03 passed 24/24 deterministic qualification but three inner-only canaries bypassed the required outer launcher, so no freeze, product, assessor, acceptance, or automatic D52 follows | [State](skills/work-charter/STATE.md) |
 | PowerShell | released five-file `v0.1.2` stable copy; corrected loaded identity and guarded native/text diagnosis pass; live WSL remains unproved | [State](skills/use-powershell-safely/STATE.md) |
 | Release lifecycle | `v0.1.2` tag, stable update, tag-pinned canaries, and Latest GitHub Release complete; `v0.1.1` retained as rollback identity | [Runbook](RUNBOOK.md) |
 
@@ -218,6 +218,15 @@ D51-03. Materializing that carrier records 2/2 used. Its allowed delta remains
 private output containment plus a pre-adapter containment check before complete
 deterministic requalification.
 
+D51-03 used that final correction and passed the complete 24/24 deterministic
+qualification with zero model or assessor turns. A later operator action ran
+the inner canary batch directly instead of the declared outer launcher. Three
+non-product canaries completed and consumed three `turn/start` events, but the
+outer typed-scalar launch receipt is absent. Freeze, product, and assessor
+phases did not start. D51 is therefore fail-closed as
+`CANARY_ROUTE_INVALID / PRODUCT_UNKNOWN`; its canaries are not retried or
+reinterpreted, and exact candidate `c481005...` remains unaccepted.
+
 The exact evaluation-contract scope, writer state, and recovery order are owned
 by [Repository Handoff](HANDOFF.md).
 
@@ -415,17 +424,18 @@ decision.
 
 ## Next Gate
 
-No release action remains pending for immutable `v0.1.2`. D31-D50 and D51-01/
-D51-02 are complete, sealed, or preserved and non-retriable. Exact candidate
-`c481005...` remains unaccepted at Gate 2. Approved D51 is serial: first amend
-local authority commit 1 after the mapped documentation checks and a fresh
-native-review cycle; then construct D51-03 only from that policy host and rerun
-the complete deterministic qualification. A pass advances automatically
-through three canaries, the frozen product packet, conditional assessor,
-sanitized closeout, and local commit 2. A further qualification correction or
-material anomaly stops before model consumption. Push, installation, tag,
-release, stable update, cleanup, SOURCE, controller-module, case, fixture,
-matrix, rubric, other-Skill, and automatic D52 changes remain excluded.
+No release action remains pending for immutable `v0.1.2`. D31-D50 and D51-01
+through D51-03 are complete, sealed, or preserved and non-retriable. Exact
+candidate `c481005...` remains unaccepted at Gate 2. The current closeout
+promotes the portable outer-dispatch stop rule while deferring mechanical
+single-entry and receipt enforcement to the exact Work Charter v0.2.0 outer
+runner. The next product decision is to stop the evaluation line or authorize
+a separately bounded D52 whose first zero-model tranche implements and passes
+pre-consumption outer-positive and direct-inner/invalid-receipt regressions
+under a fresh ruleset; only then may its canary/product/assessor tranches start.
+Push, installation, tag, release, stable update, cleanup, SOURCE, controller-
+module, case, fixture, matrix, rubric, other-Skill, and automatic D52 changes
+remain excluded.
 Project Docs keeps its own candidate and persistence-evidence sequence.
 
 ## Known Repository Gaps
