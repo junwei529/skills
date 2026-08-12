@@ -166,6 +166,13 @@ released-control A16 与 ordinary negative A17 也获得接纳。随后 released
 合格 assessor 返回 `DECISION_REQUIRED`。A20 与两组 contrast 均未开始。D49 不可变且未获
 接受；A18 control stop 本身不能证明 candidate SOURCE 存在缺陷，也不构成行为接受、安装或
 发布就绪证据。
+D50 随后通过 cold controller-bundle certification、精确 carrier 的 23/23 qualification、
+全部三个必要 canary 与 178 文件 freeze，并在不重放的前提下导入 D49 A01-A17。非评分的
+candidate calibration 通过，但 fresh scored released-control A18 因一个 resolved command
+invocation 无法被 controller 信任而以 `CONTROLLER_UNKNOWN` 结束。D50 封存在 scored
+17/28；一个合格 assessor 返回 `DECISION_REQUIRED`，11 个 fresh scored cell 未完成，精确
+candidate `c481005...` 仍未获接受。D50 不可变，本身不能证明 candidate SOURCE 存在缺陷，
+也不会自动创建 successor。
 完整分阶段 selection、entry、等级、
 重新接入和可见 Standard 行为，stable 层完整 Standard
 delivery、广泛隐式触发 telemetry、独立真实项目效果、确定性角色交付或 writer

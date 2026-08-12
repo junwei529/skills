@@ -1,6 +1,6 @@
 # Repository Verification
 
-Last updated: 2026-08-11
+Last updated: 2026-08-12
 
 ## Scope
 
@@ -20,18 +20,18 @@ Sanitized detailed runs remain under [`evals/results`](../evals/results/README.m
 | Check | Purpose | Current result |
 |---|---|---|
 | Changed Skill validator | Validate frontmatter and package name without changing the package | unchanged exact `c481005...` Work Charter package passes the bundled `skill-creator` validator; D50 changes no Skill SOURCE |
-| Repository checker | Validate strict UTF-8/no BOM, whitespace, local links/fragments, publication safety, exact Skill/eval sets, federated docs, and bilingual navigation | passes with 209 text files / 14 cases / 12 fixtures for the current working revision |
+| Repository checker | Validate strict UTF-8/no BOM, whitespace, local links/fragments, publication safety, exact Skill/eval sets, federated docs, and bilingual navigation | passes with 210 text files / 14 cases / 12 fixtures for the D50 result-closeout revision |
 | Fixture checker | Validate synthetic starting states and their Git/reparse/ignored-result boundaries plus the tracked controller regression | all 17 checks pass at governing-controller commit `c51552c...`; D50 changes no tracked fixture or controller input |
 | Codex evidence controller | Validate one shared core across four entry modes, strict required-read versus bounded auxiliary-observation attribution, structural PowerShell/Git/path classification, source-and-generated-contract-bound historical regressions, exact package manifests, candidate-identity and content-proof shape, record cardinality, completed exit typing, optional sealed governing-disposition monotonicity, output-array shape, per-key single-capture sealed parsing and reuse, real-reparse rejection, fail-closed negatives, external-input types, independently resolved inner/wrapper command identity, Git-read and external-filter safety, profile-free PowerShell wrappers, culture-independent canonical ordering, metamorphic equivalence, output no-clobber, and canonical repeatability | passes exact current-SOURCE package identity, 11/11 historical, 32/32 evidence-surface, 33/33 negative, 4/4 metamorphic, 8/8 governing-snapshot guards, 3/3 manifest-hash guards, all reported structural guards, and zero external model or assessor calls; private sealed carriers remain unchanged |
-| CRG supplemental preflight | Sharpen structural review scope when the maintained index represents the intended diff | degraded: the maintained graph was built at `763a15e...`, not current HEAD `c51552c...`; it enumerated all nine documentation/eval-method paths but surfaced zero code symbols or test gaps, so it supplies no coverage claim and direct canonical-owner plus native review remain required |
-| Native Codex review | Review the exact uncommitted change before either D50 commit | governing-controller commit `c51552c...` retains its completed review history; the exact D50 authority diff and later result diff each require their own bounded native review before commit |
+| CRG supplemental preflight | Sharpen structural review scope when the maintained index represents the intended diff | degraded: the maintained graph was built at `763a15e...` and predates D50 authority checkpoint `3249e416...` plus this result diff; it supplies no material-diff coverage claim, so direct canonical-owner inspection and native review remain required |
+| Native Codex review | Review the exact uncommitted change before either D50 commit | governing-controller commit `c51552c...` retains its completed review history; D50 authority and result-closeout diffs are separate commit attempts and each is admitted only after its own completed native review; review evidence does not become Gate 2 product evidence |
 | Isolated controller canary | Record the bounded disposition of one private path-bound infrastructure check without broadening behavior claims | retained sealed `CANARY_PASS`; the public summary reports an exact-response pass and no command execution, omits private locator/artifact/runtime details, and leaves physical backend request count `UNKNOWN` |
-| Work Charter D36/D37/D40, D34/D41 predecessors, D42-D49 terminals, and D50 route | Preserve additive predecessors and separate product behavior from route, tool, qualification, eval-contract, authorization, environment, and private-carrier failures | D36-D49 remain immutable with their recorded dispositions; D49 sealed at combined 17/28 on released-control A18, and approved D50 may import only A01-A17 before out-of-matrix `A18-CANDIDATE-CAL` and fresh scored released-control A18 run under one identical safe-Git overlay; 11 fresh scored cells preserve the 28-cell matrix, no D50 evidence exists yet, and exact candidate `c481005...` remains unaccepted |
+| Work Charter D36/D37/D40, D34/D41 predecessors, and D42-D50 terminals | Preserve additive predecessors and separate product behavior from route, tool, qualification, eval-contract, authorization, environment, and private-carrier failures | D36-D50 remain immutable with their recorded dispositions; D50 imported D49 A01-A17, admitted the non-scored calibration, then sealed at scored 17/28 when released-control A18 returned controller `UNKNOWN` for `resolved_command_invocation_not_trusted`; one assessor returned `DECISION_REQUIRED`, 0/11 fresh scored cells completed, and exact candidate `c481005...` remains unaccepted |
 | PowerShell deterministic hardening | Validate cardinality, LF bytes, one-base paths, and Junction link-only removal | 15 assertions pass in PowerShell 7 and Windows PowerShell 5.1 |
 | PowerShell parser sweep | Parse all `evals/**/*.ps1` files and the tracked controller module | all eight tracked PowerShell files parse after the controller module and focused checker change |
 | Markdown navigation and ownership | Verify local links/fragments, English/Chinese routes, expected per-Skill owners, and no orphan canonical owner | passes through repository checker |
-| `git diff --check` | Reject whitespace defects in the working revision | passes for the current tracked diff with an untouched index |
-| Gitleaks | Detect secret-like content independently | exact per-file scans of the nine-path D50 authority diff pass with zero findings; no ignored-carrier content is published |
+| `git diff --check` | Reject whitespace defects in the working revision | passes for the 12-file D50 result-closeout diff with an untouched index |
+| Gitleaks | Detect secret-like content independently | exact per-file scans of the 12-path D50 result-closeout publication diff pass with zero findings; no ignored-carrier content is published |
 
 ## Repository Claim Ledger
 
@@ -1707,6 +1707,38 @@ and grants no acceptance. Full-cell pass plus assessor `ACCEPTED` records Gate
 2 acceptance; any other terminal keeps the candidate unaccepted and stops the
 line without D51. SOURCE, tracked controller/cases/fixtures/matrix/rubric,
 installation, push, tag, release, stable mutation, and cleanup remain excluded.
+
+### 2026-08-12 — Work Charter D50 Gate 2 terminal
+
+D50 used a reusable controller bundle qualified through three cold shadow
+materializations. The first two preserved zero-model qualification failures;
+the third and exact carrier each passed eight stages / 23 checks with zero
+pre-product model or assessor turns. Exact-carrier certification, bundle,
+official qualification, canary-batch, freeze, and authorization hashes are
+`1bd67583...`, `8b3abba4...`, `6f65c5e1...`, `9b761316...`, `a33e61ff...`, and
+`f9f00575...`. All three required non-product canaries passed; freeze bound 178
+files and 83 mapping rows.
+
+D50 imported immutable D49 A01-A17 as 17 scored cells / 28 product turns.
+Out-of-matrix `A18-CANDIDATE-CAL` passed in two turns. Fresh scored released-
+control A18 loaded the exact control package and consumed two turns, then the
+tracked controller returned `CONTROLLER_UNKNOWN` with unknown
+`resolved_command_invocation_not_trusted` and no violation. D50 sealed
+`SEALED_PARTIAL_HARD_STOP` at scored 17/28 with 0/11 fresh scored cells complete.
+Fresh consumption was two contexts / four turns; combined consumption was 19
+contexts / 32 turns and reconciled exactly. A19-A20 and both contrast groups
+did not start. Terminal hash is `f49544ce...`.
+
+The allowlisted assessor view and local disclosure review passed at
+`2dbdf719...` and `43fa4b85...`. Exactly one read-only `Terra/high` assessor
+returned `DECISION_REQUIRED` without an assessor hard failure; assessment hash
+is `76daaac4...`. D50 is immutable, non-retriable, unrescored, and unaccepted.
+The sanitized evidence is
+[Work Charter D50 Gate 2 terminal](../evals/results/2026-08-12-work-charter-d50-gate2-terminal.md).
+This is a controller-trust unknown, not proof of a candidate SOURCE defect or
+authority for an automatic D51. Separately approved
+`WC-AR-D50-POST-TERMINAL-DIAGNOSIS` permits only a post-closeout read-only
+failure-origin review and one complete product-owner decision packet.
 
 ### 2026-08-11 — Governing-disposition monotonic controller guard
 

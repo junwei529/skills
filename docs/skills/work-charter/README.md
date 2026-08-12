@@ -210,6 +210,15 @@ and one eligible assessor returned `DECISION_REQUIRED`. A20 and both contrast
 groups did not start. D49 is immutable and unaccepted; the A18 control stop
 does not by itself establish a candidate SOURCE defect, behavior acceptance,
 installation, or release readiness.
+D50 then passed cold controller-bundle certification, 23/23 exact-carrier
+qualification, all three required canaries, and a 178-file freeze. It imported
+D49 A01-A17 without replay. The non-scored candidate calibration passed, but
+fresh scored released-control A18 ended `CONTROLLER_UNKNOWN` because one
+resolved command invocation could not be trusted. D50 sealed at scored 17/28;
+one eligible assessor returned `DECISION_REQUIRED`, the 11 fresh scored cells
+did not complete, and exact candidate `c481005...` remains unaccepted. D50 is
+immutable and does not by itself establish a candidate SOURCE defect or create
+an automatic successor.
 Full staged selection, entry, level, re-entry, and visible
 Standard behavior, full Standard delivery at the stable layer, broad implicit
 telemetry, independent real-project efficacy, deterministic role delivery or

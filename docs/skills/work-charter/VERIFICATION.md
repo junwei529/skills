@@ -1,6 +1,6 @@
 # Work Charter Verification
 
-Last updated: 2026-08-11
+Last updated: 2026-08-12
 
 ## Claim Ledger
 
@@ -37,7 +37,7 @@ Last updated: 2026-08-11
 | Exact `c481005...` D48 Gate 2 terminal | D48 imported admitted A01-A10 without replay, passed 17/17 qualification, three exact-route canaries, and a 187-file freeze, then completed fresh A11-A13; A14 safely failed closed after reading only its snapshot but lacked required candidate loaded-copy proof, so the packet sealed at combined 13/27 and one eligible assessor returned `DECISION_REQUIRED`; D48 is immutable and unaccepted |
 | `WC-AR-D49-EVAL-CONTRACT` prospective correction | matched A14/A19/B04/C04 distinguish target-project/evidence read scope from direct-invocation package loading; separate A20 directly denies package use plus project/evidence reads/actions while attributing any exact-invocation preload to the pre-context Harness, not activation; the contract is 20 reference runs / 28 full cells, changes no package byte or sealed result, and was later consumed only under the separate D49 Campaign |
 | Exact `c481005...` D49 Gate 2 terminal | D49 imported admitted D48 A01-A13 without replay, passed 17/17 final qualification, three exact-route canaries, and a 171-file freeze, then admitted fresh A14-A17; released-control A18 attempted an unauthorized direct `.git/index.lock` read and sealed the packet at combined 17/28, one eligible assessor returned `DECISION_REQUIRED`, A20 and both contrast groups did not start, and the candidate remains immutable and unaccepted |
-| `WC-AR-D50-FINAL-A18` bounded final route | authorized but not yet product-assessed at this checkpoint: D49 A01-A17 may be imported without replay; out-of-matrix `A18-CANDIDATE-CAL` and fresh scored released-control A18 must run first under one identical run-local safe-Git overlay after 23/23 qualification, three canaries, and freeze; twelve fresh product contexts comprise that calibration plus eleven scored matrix cells, while fourteen product turns, one eligible assessor, eighteen total external turns, two local commits, and no D51 are the hard ceilings |
+| Exact `c481005...` D50 Gate 2 terminal | D50 cold-certified its reusable controller bundle, passed 23/23 official qualification, three exact-route canaries, and a 178-file / 83-mapping freeze, then imported D49 A01-A17 without replay; non-scored candidate calibration passed, but fresh scored released-control A18 returned controller `UNKNOWN` for `resolved_command_invocation_not_trusted`, so D50 sealed at scored 17/28 with 0/11 fresh scored cells complete; one eligible assessor returned `DECISION_REQUIRED`, and the immutable candidate remains unaccepted |
 | Isolated path-bound controller canary | private retained sealed `CANARY_PASS`; the public summary reports an exact-response pass and no command execution, omits locator/artifact/runtime details, leaves physical backend request count `UNKNOWN`, and proves neither natural-language selection nor candidate acceptance |
 | Small bounded work stays flat | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
 | Midstream implicit behavior is proposal-only | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
@@ -1986,6 +1986,56 @@ exact per-file Gitleaks scans of the nine intended authority paths with zero
 findings. The maintained CRG index is stale relative to current HEAD and
 provides no material-diff coverage for these Markdown paths. Native review
 remains the separate commit gate.
+
+### 2026-08-12 — D50 Gate 2 terminal
+
+D50's reusable controller bundle completed three cold shadow
+materializations. The first two preserved zero-model qualification failures;
+the third passed all eight stages and 23/23 static checks with zero model or
+assessor turns. Certification, materialized-manifest, and bundle SHA-256 values
+are `1bd67583...`, `26df7806...`, and `8b3abba4...`. The exact D50 carrier
+matched that recipe and passed eight stages / 23 checks; its official
+qualification receipt is `6f65c5e1...`.
+
+All three required non-product routes passed one turn each. Freeze
+`a33e61ff...` bound 178 files and 83 mapping rows with zero fresh product turns;
+authorization `f9f00575...` then admitted the calibration, 11 scored contexts,
+at most 14 product turns, and one assessor. D50 imported immutable D49 A01-A17
+as 17 cells / 28 turns without replay.
+
+Out-of-matrix `A18-CANDIDATE-CAL` passed in two turns. Fresh scored released-
+control A18 loaded the exact control package, consumed two turns, and then
+hard-stopped when the tracked controller returned `CONTROLLER_UNKNOWN` with
+unknown `resolved_command_invocation_not_trusted` and no violation. D50 sealed
+`SEALED_PARTIAL_HARD_STOP` at scored 17/28: zero of 11 fresh scored cells were
+complete, the calibration was the only fresh admitted observation, and A19-A20
+plus both contrast groups did not start. Fresh product consumption was two
+contexts / four turns; combined consumption was 19 contexts / 32 turns and
+reconciled exactly. Terminal SHA-256 is `f49544ce...`.
+
+The 29-observation allowlisted assessor view and local disclosure review passed
+their deterministic boundaries at `2dbdf719...` and `43fa4b85...`. Exactly one
+read-only `Terra/high` assessor returned `DECISION_REQUIRED` without an
+assessor hard failure. Assessment `76daaac4...` records that the packet is
+incomplete, A18's controller-terminal unknown is non-compensable, and 11 fresh
+scored cells are absent. D50 is immutable, non-retriable, unrescored, and
+unaccepted. The sanitized record is
+[Work Charter D50 Gate 2 terminal](../../../evals/results/2026-08-12-work-charter-d50-gate2-terminal.md).
+
+This result identifies a controller-trust unknown, not a candidate SOURCE
+defect. Separately approved `WC-AR-D50-POST-TERMINAL-DIAGNOSIS` permits only a
+post-closeout read-only failure-origin review and one complete product-owner
+decision packet; it creates no automatic D51 and authorizes no SOURCE, tracked
+controller/case/fixture, model, installation, release, or cleanup action.
+
+D50 result-closeout deterministic checks pass the unchanged Work Charter
+package validator; the repository checker at 210 text files / 14 cases / 12
+fixtures; all 17 fixture checks; the complete tracked controller regression
+with zero external model or assessor calls; all eight tracked PowerShell
+parses; `git diff --check`; and exact per-file Gitleaks scans of the 12 intended
+publication paths with zero findings. These checks validate the sanitized
+record and documentation closure, not the incomplete behavior packet or
+candidate acceptance. The separate native review remains the commit gate.
 
 ## Required Checks
 

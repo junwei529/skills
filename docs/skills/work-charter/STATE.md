@@ -1,6 +1,6 @@
 # Work Charter State
 
-Last updated: 2026-08-11
+Last updated: 2026-08-12
 
 ## Current Implementation
 
@@ -104,16 +104,16 @@ and locally reviewed allowlisted view and returned `DECISION_REQUIRED`. A19-
 A20 and both contrast groups did not start. D49 is immutable and unaccepted;
 the A18 control stop does not by itself demonstrate a candidate SOURCE defect.
 
-Approved `WC-AR-D50-FINAL-A18` is the bounded final route for that unresolved
-control boundary. It keeps D49 immutable, imports only admitted A01-A17, and
-tests out-of-matrix `A18-CANDIDATE-CAL` and a fresh scored released-control A18
-first under one identical run-local tool-policy overlay. The overlay authorizes
-five exact safe Git read shapes and hard-stops direct `.git/**`, lock, or
-adjacent-metadata reads. D50 may then continue with A19-A20 and B01-B04/C01-C04
-only after 23/23 qualification, three exact-route canaries, and freeze. The
-calibration is a non-scored hard boundary; 17 imported plus 11 fresh scored
-cells preserve the 28-cell matrix. No D50 product or assessor evidence exists
-at this authority checkpoint.
+Approved `WC-AR-D50-FINAL-A18` completed without changing SOURCE or tracked
+evaluation inputs. Its reusable controller bundle passed its third cold shadow
+at eight stages / 23 checks; the exact carrier then passed 23/23 qualification,
+all three exact-route canaries, and a 178-file / 83-mapping freeze. It imported
+D49 A01-A17 without replay. Out-of-matrix `A18-CANDIDATE-CAL` passed in two
+turns, but fresh scored released-control A18 consumed two turns and returned
+controller `UNKNOWN` for `resolved_command_invocation_not_trusted`. D50 sealed
+`SEALED_PARTIAL_HARD_STOP` at scored 17/28 with zero of 11 fresh scored cells
+complete. One eligible assessor returned `DECISION_REQUIRED`; D50 is immutable
+and exact candidate `c481005...` remains unaccepted.
 
 The sealed fixed-turn Standard probe for `72db7e9...` returned `VIOLATION` and
 did not run its successor action. Decision 0018 `WC-AR-D26` preserves that
@@ -311,19 +311,16 @@ SOURCE by itself.
 
 ## Current Writer
 
-One bounded D50 Campaign writer owns the single repository lane through the
-authorized authority checkpoint, ignored-carrier qualification/evidence window,
-sanitized result closeout, and relinquish. Its tracked write scope is the
-existing D50 authority/result owners and one new sanitized D50 result; its
-private write scope is one uniquely named ordinary ignored carrier. Two local
-commits are the maximum: one authority checkpoint and one result closeout.
+The bounded D50 Campaign writer completed the ignored-carrier evidence window
+and owns only this second local result-closeout commit until it succeeds. That
+commit consumes the remaining D50 Git authority and relinquishes the repository
+writer; D50 grants no successor writer or automatic D51.
 
 Work Charter SOURCE, Design, package manifest, tracked cases, fixtures, matrix,
 rubric, controller, other Skills, discovery mappings, user configuration,
 push, installation, tag, release, stable-copy mutation, retained-evidence
-cleanup, and external publication remain unauthorized. D31-D49, every consumed
-turn, and all predecessor ignored carriers remain immutable. The D50 writer
-relinquishes after the second commit or an earlier terminal closeout.
+cleanup, and external publication remain unauthorized. D31-D50, every consumed
+turn, and all predecessor ignored carriers remain immutable.
 
 ## Evidence State
 
@@ -820,7 +817,7 @@ freeze only; D33 and D35 are immutable infrastructure/controller
 `UNKNOWN_NOT_ASSESSED` records. D36 and D40 are incomplete product packets with
 independent `DECISION_REQUIRED`; neither transfers acceptance.
 
-The D42-D49 evidence windows are complete and immutable. Exact D43 candidate
+The D42-D50 evidence windows are complete and immutable. Exact D43 candidate
 `c481005...` remains unaccepted and unchanged. D47 stopped before product
 evidence on provider/account model availability after passing full-lane
 qualification. D48 imported A01-A10, completed fresh A11-A13, then sealed at
@@ -828,17 +825,19 @@ combined 13/27 when A14 lacked frozen loaded-copy proof under an ambiguous
 private read-scope prompt. One eligible assessor returned
 `DECISION_REQUIRED`. D49 then admitted corrected-route A14 plus A15-A17 before
 released-control A18 crossed the exact file-read policy; it sealed at combined
-17/28 and its eligible assessor also returned `DECISION_REQUIRED`. A20 and the
-contrast groups remain `UNKNOWN_NOT_STARTED`.
+17/28 and its eligible assessor also returned `DECISION_REQUIRED`. D50 then
+passed its cold certification, qualification, canaries, and freeze, admitted
+the non-scored calibration, and sealed at scored 17/28 when fresh control A18
+returned `CONTROLLER_UNKNOWN`. Its eligible assessor also returned
+`DECISION_REQUIRED`; A19-A20 and both contrast groups remain
+`UNKNOWN_NOT_STARTED`.
 
-The current authorized gate is D50: commit the authority checkpoint, prove its
-exact D49 candidate calibration counterpart and 23/23 zero-model qualification, run three
-non-product canaries, freeze, execute the matched candidate/control pair first,
-then finish the remaining ten scored cells when no hard stop occurs, perform at
-most one eligible read-only assessment, and close the sanitized result in a
-second local commit. Passing every required cell plus an `ACCEPTED` assessor
-records Gate 2 `ACCEPTED`; any other terminal keeps the candidate unaccepted and
-stops this evaluation line. No D51, SOURCE/controller/case/fixture revision,
+The current gate is the bounded read-only diagnosis authorized by
+`WC-AR-D50-POST-TERMINAL-DIAGNOSIS`, followed by a user-owned product decision:
+stop this evaluation line, or authorize a separately defined successor. The
+diagnosis may inspect sealed controller metadata and tracked controller inputs,
+but it cannot mutate them, read raw prompts or complete private outputs, retry,
+or start D51. No SOURCE/controller/case/fixture revision, model call,
 installation, push, tag, release, stable update, or cleanup is authorized.
 
 ## Recovery Entry
@@ -849,10 +848,9 @@ installation, push, tag, release, stable update, or cleanup is authorized.
    [Decision 0018](../../decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md),
    this state, and [Verification](VERIFICATION.md).
 3. Confirm live workspace, writer, and action authority.
-4. Confirm live `main` includes exact D43 candidate `c481005...`, all D44-D49
+4. Confirm live `main` includes exact D43 candidate `c481005...`, all D44-D50
    result/eval-contract closeouts, and governing-controller commit `c51552c...`.
-   Before D50 evidence, verify the D50 authority commit is in `main` ancestry;
-   resolve HEAD, index, dirty scope, ignored carriers, runtime identity, and
+   Resolve HEAD, index, dirty scope, ignored carriers, runtime identity, and
    writer rather than inferring them from an older handoff.
 5. Preserve the complete predecessor ledger, including the D31 mapping-
    defective A03, zero-turn D32 freeze `cd8c0e2...`, D33 transport terminal
@@ -864,7 +862,7 @@ installation, push, tag, release, stable update, or cleanup is authorized.
    qualified 4/27 terminal with A05 pre-activation workflow and loaded-copy
    findings, without retry, overwrite, relabelling, rescore, or acceptance
    transfer.
-6. Treat D34 and D41-D49 as complete immutable evidence inputs. Treat D42's
+6. Treat D34 and D41-D50 as complete immutable evidence inputs. Treat D42's
    pre-consumption qualification as invalid and its later six-file parser pass
    as diagnostic only. Preserve D43's passing closed-set qualification and its
    one consumed transport-canary turn without replay or acceptance transfer.
@@ -873,12 +871,11 @@ installation, push, tag, release, stable update, or cleanup is authorized.
    replay, rescore, or acceptance transfer. Exclude that assessor output from
    the D44 evidence ledger. Preserve D45's 9/27 terminal, D46's combined 10/27
    terminal, D47's consumed environment canary, D48's combined 13/27 terminal,
-   and D49's combined 17/28 control-boundary terminal without replay, raw-
-   evidence transfer, rescore, or reinterpretation.
-7. Do not continue or mutate D44-D49. Execute only approved
-   `WC-AR-D50-FINAL-A18` within its recorded qualification, consumption,
-   assessment, two-commit, and terminal-stop budgets. Do not construct or run
-   D51.
+   D49's combined 17/28 control-boundary terminal, and D50's scored 17/28
+   controller-unknown terminal without replay, raw-evidence transfer, rescore,
+   or reinterpretation.
+7. Do not continue or mutate D44-D50. No D51 is authorized. Diagnose D50 A18
+   read-only before proposing any successor contract or tracked change.
 8. Read canonical SOURCE, current eval definitions, and only evidence matching
    the exact revision before changing behavior or claims.
 9. Preserve the independent-Skill and non-propagating-authorization boundary.

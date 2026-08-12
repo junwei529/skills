@@ -1,11 +1,11 @@
 # 0018: Work Charter Adoption, Protection Levels, And Re-entry Checkpoint
 
 Date: 2026-08-02
-Amended: 2026-08-11
-Status: accepted design through WC-AR-D50-FINAL-A18; D40-D49 are immutable under their frozen contracts, no consumed execution is retried or rescored, and exact candidate `c481005...` remains unaccepted while the bounded final A18 route is evaluated
+Amended: 2026-08-12
+Status: accepted design through WC-AR-D50-POST-TERMINAL-DIAGNOSIS; D40-D50 are immutable under their frozen contracts, no consumed execution is retried or rescored, and exact candidate `c481005...` remains unaccepted after the final A18 route sealed partial
 
-- Planning checkpoint: 29 (final A18 boundary route and bounded Gate 2 completion)
-- Last incorporated decision: `WC-AR-D50-FINAL-A18`
+- Planning checkpoint: 30 (bounded post-terminal read-only diagnosis)
+- Last incorporated decision: `WC-AR-D50-POST-TERMINAL-DIAGNOSIS`
 - Open decision IDs: none
 - Lifecycle authority: this Decision grants none; consult `docs/HANDOFF.md` for
   the live next gate
@@ -2017,6 +2017,52 @@ D50 records its exact terminal state, the candidate remains unaccepted, and
 this evaluation line stops without an automatic D51. Push, installation, tag,
 release, stable-copy mutation, cleanup, SOURCE or tracked-evaluation changes,
 and any other external effect remain unauthorized.
+
+### D50 Terminal Result — Matched Final A18 Route
+
+**Recorded.** D50 used a reusable controller bundle certified through three
+cold shadow materializations. The final shadow and exact carrier each passed
+eight stages and 23/23 zero-model checks; the exact outer route then passed all
+three required non-product canaries. Freeze bound 178 files and 83 mapping rows
+before any fresh product turn. D50 imported D49 A01-A17 as 17 scored cells / 28
+predecessor turns without replay.
+
+Out-of-matrix `A18-CANDIDATE-CAL` passed in two turns and remains a non-scored
+observation. Fresh scored released-control A18 loaded the exact control package
+and consumed two turns, but the tracked controller returned
+`CONTROLLER_UNKNOWN` with unknown
+`resolved_command_invocation_not_trusted`. D50 therefore sealed
+`SEALED_PARTIAL_HARD_STOP` at scored 17/28: zero of 11 fresh scored cells were
+completed, while the calibration was the only fresh admitted observation.
+A19-A20 and both contrast groups did not start.
+
+One eligible `Terra/high` assessor received only the validated allowlisted
+view and returned `DECISION_REQUIRED` with no assessor hard failure. The packet
+is incomplete, A18's controller-terminal unknown is non-compensable, and the
+missing fresh scored evidence cannot be inferred from predecessors. D50 is
+immutable, non-retriable, unrescored, and unaccepted. It does not demonstrate a
+candidate SOURCE defect, authorize a controller change, or create an automatic
+D51. Any successor or stop decision remains user-owned and requires its own
+applicable authority.
+
+### WC-AR-D50-POST-TERMINAL-DIAGNOSIS — Read-Only Failure-Origin Review
+
+**Confirmed.** After D50 sealed, the user approved option A: first complete the
+sanitized D50 result-closeout commit and relinquish its writer, then perform one
+bounded read-only diagnosis of A18's
+`resolved_command_invocation_not_trusted` result. The diagnosis may inspect the
+sealed terminal/A18 controller metadata and adjudication, current tracked
+controller/checker/cases, and applicable governing guidance. It must not read
+raw prompts or complete private outputs, mutate a sealed carrier or tracked
+file, reinterpret D50, retry a turn, call a model or assessor, create a writer,
+or start D51.
+
+The only output is one complete product-owner decision packet that identifies
+the failure origin and proposes either stopping the line or a separately
+bounded successor. Any controller repair, new evidence, successor Campaign,
+SOURCE or evaluation-contract change, Git effect, installation, release, or
+cleanup remains a later explicit decision. This revision grants no acceptance
+credit and changes no D50 terminal fact.
 
 ## Important Rejected Alternatives
 

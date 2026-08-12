@@ -1,6 +1,6 @@
 # Repository Status
 
-Last updated: 2026-08-11
+Last updated: 2026-08-12
 
 ## Dashboard
 
@@ -9,7 +9,7 @@ Last updated: 2026-08-11
 | Tested package identity | all three package byte sets independently reached exact-commit RC readiness at `c42eef392a5b9f58bbee64aa73ffb603a6fb6c29` and were re-proved at tag/stable identity `v0.1.2` | [Verification](VERIFICATION.md) |
 | Stable release identity | immutable [`v0.1.2`](https://github.com/junwei529/skills/releases/tag/v0.1.2) at `ceed607152849775b981c54add74bfa30d858e4d`; exact tag, stable loaded-copy, and GitHub Release proof pass for all three Skills | [Verification](VERIFICATION.md) |
 | Project Docs | immutable `v0.1.2` remains the released explicit-only control; local commit `776989f...` implements accepted Decision 0019 but is unreleased, and its evidence is `PARTIAL` because actual candidate selection, loaded-copy identity, and persistent writes remain `UNKNOWN` | [State](skills/manage-project-docs/STATE.md) |
-| Work Charter | released `v0.1.2` remains active; exact candidate `c481005...` is unchanged and unaccepted; D49 is immutable at combined 17/28, and approved D50 now owns one final out-of-matrix candidate-calibration/scored-control A18 pair under an identical safe-Git overlay, followed conditionally by ten remaining scored cells and one assessor | [State](skills/work-charter/STATE.md) |
+| Work Charter | released `v0.1.2` remains active; exact candidate `c481005...` is unchanged and unaccepted; D50 passed cold certification, 23/23 qualification, three canaries, and freeze, admitted the non-scored calibration, then sealed at scored 17/28 on released-control A18 controller `UNKNOWN`; its assessor returned `DECISION_REQUIRED` and no D51 is authorized | [State](skills/work-charter/STATE.md) |
 | PowerShell | released five-file `v0.1.2` stable copy; corrected loaded identity and guarded native/text diagnosis pass; live WSL remains unproved | [State](skills/use-powershell-safely/STATE.md) |
 | Release lifecycle | `v0.1.2` tag, stable update, tag-pinned canaries, and Latest GitHub Release complete; `v0.1.1` retained as rollback identity | [Runbook](RUNBOOK.md) |
 
@@ -195,15 +195,15 @@ view and returned `DECISION_REQUIRED`. A19-A20 and both contrast groups did not
 start. D49 is immutable and unaccepted; the control-cell stop does not by
 itself establish a candidate SOURCE defect.
 
-Approved `WC-AR-D50-FINAL-A18` keeps that candidate, released control, D49, and
-all tracked product/evaluation sources unchanged. It first records its authority
-checkpoint, then must prove the exact D49-mapped candidate counterpart, 23/23
-zero-model qualification, three exact-route canaries, and freeze. The matched
-candidate-calibration/scored-control A18 pair runs first under one identical
-run-local safe-Git overlay; only then may A19-A20 and B01-B04/C01-C04 continue.
-The calibration is outside the score, so 17 imported plus 11 fresh scored cells
-preserve the 28-cell matrix. No D50 model or assessor evidence has been consumed
-at this checkpoint.
+Approved `WC-AR-D50-FINAL-A18` kept that candidate, released control, D49, and
+all tracked product/evaluation sources unchanged. D50's reusable controller
+bundle passed its third cold shadow; the exact carrier then passed 23/23
+qualification, three exact-route canaries, and a 178-file / 83-mapping freeze.
+It imported D49 A01-A17 without replay. The non-scored candidate calibration
+passed, but fresh scored released-control A18 returned controller `UNKNOWN` for
+`resolved_command_invocation_not_trusted`. D50 sealed at scored 17/28 with
+0/11 fresh scored cells complete. One eligible assessor returned
+`DECISION_REQUIRED`; A19-A20 and both contrast groups did not start.
 
 The exact evaluation-contract scope, writer state, and recovery order are owned
 by [Repository Handoff](HANDOFF.md).
@@ -402,17 +402,14 @@ decision.
 
 ## Next Gate
 
-No release action remains pending for immutable `v0.1.2`. D31-D49 are complete,
+No release action remains pending for immutable `v0.1.2`. D31-D50 are complete,
 sealed or terminal, and non-retriable. Exact candidate `c481005...` remains
-unaccepted at Gate 2. The active D50 writer is authorized to create one
-authority commit, one ignored carrier, the bounded qualification/canary/
-12-context product sequence comprising one calibration and 11 scored cells,
-one conditional assessor, and one sanitized result
-commit. It continues automatically inside those fixed budgets and stops on a
-hard failure or any material identity, permission, contract, workspace, cost,
-or evidence-boundary drift. No D51, SOURCE/controller/case/fixture change,
-push, installation, tag, release, stable update, cleanup, or other-Skill change
-is authorized.
+unaccepted at Gate 2. The remaining action authorized in this work item is a
+bounded read-only diagnosis under `WC-AR-D50-POST-TERMINAL-DIAGNOSIS` of D50
+A18's invocation-trust unknown and one complete successor-or-stop proposal. No
+D51, SOURCE/controller/case/fixture
+change, model call, push, installation, tag, release, stable update, cleanup,
+or other-Skill change is authorized.
 Project Docs keeps its own candidate and persistence-evidence sequence.
 
 ## Known Repository Gaps

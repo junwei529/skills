@@ -1,6 +1,6 @@
 # Repository Handoff
 
-Last updated: 2026-08-11
+Last updated: 2026-08-12
 
 ## Snapshot
 
@@ -8,8 +8,9 @@ Last updated: 2026-08-11
 - Latest exact Work Charter product candidate:
   `c4810057c3f28cca9f12004ca2018784cd21f449`; its five-file manifest is
   `04c382a48e43897a8806aa5ffd996984cb015d3d8cdc6e675e9181a6d94e6f44`,
-  and it remains unaccepted after D49 sealed at combined 17/28 when released-
-  control A18 attempted an unauthorized direct `.git/index.lock` read
+  and it remains unaccepted after D50 sealed at scored 17/28 when fresh
+  released-control A18 returned controller `UNKNOWN` for an untrusted resolved
+  command invocation
 - Exact predecessor `b3ad360...` and its D41 packet remain immutable and
   unaccepted
 - Released package identity: immutable `v0.1.2` at
@@ -21,15 +22,12 @@ Last updated: 2026-08-11
   5 files, each matching the `v0.1.2` Git blobs
 - Rollback identity: immutable `v0.1.1` retained as a separately verified
   three-package backup
-- Writer handoff boundary: one bounded D50 Campaign task is the sole writer.
-  Its clean starting baseline is local `main` at
-  `c51552c939d6cbedfa17c031247cf30cac90c320` with an empty index. It may make
-  at most two local commits: the current authority checkpoint over existing
-  mapped owners, then one sanitized D50 result closeout. Between them it may
-  create and mutate only one uniquely named ordinary ignored D50 carrier and
-  consume evidence inside the fixed Campaign budget. The authority ends after
-  the second commit or an earlier terminal closeout and does not transfer.
-  D31-D49 and all predecessor consumed turns/carriers remain immutable. Skill
+- Writer handoff boundary: the bounded D50 Campaign created its authority
+  checkpoint at `3249e416772ff887928b2b559ade05be8e1ab84e` and completed its
+  ignored-carrier evidence window. This sanitized result closeout is its second
+  and final local commit; that commit consumes the remaining writer authority
+  and relinquishes the repository lane. No D51 or successor writer is
+  authorized. D31-D50 and all consumed turns/carriers remain immutable. Skill
   SOURCE, tracked cases, fixtures, matrix, rubric, controller, other Skills,
   user configuration, push, installation, tag, release, stable update, cleanup,
   and unlisted external effects remain excluded
@@ -115,17 +113,17 @@ matched-read route. Released-control A18 then attempted a direct read of absent
 17/28. One eligible assessor returned `DECISION_REQUIRED`; A19-A20 and both
 contrast groups did not start. D49 is immutable and unaccepted.
 
-Approved `WC-AR-D50-FINAL-A18` is one final bounded route for that unresolved
-control boundary. Its authority checkpoint changes only existing design/eval-
-method, state, verification, navigation, milestone, and recovery owners. The
-ignored carrier must prove the exact D49-mapped candidate counterpart, pass
-23/23 zero-model qualification and three exact-route canaries, then freeze. It
-applies one identical run-local safe-Git overlay to out-of-matrix
-`A18-CANDIDATE-CAL` and fresh scored released-control A18, and runs that pair
-first. Only a clean continuation may reach A19-A20 and B01-B04/C01-C04. The
-calibration adds no score; 17 imported plus 11 fresh scored cells preserve the
-28-cell matrix. No D50 model or assessor evidence has been consumed at this
-checkpoint.
+Approved `WC-AR-D50-FINAL-A18` completed without changing SOURCE or tracked
+evaluation inputs. Its reusable controller bundle passed the third cold shadow;
+the exact carrier then passed 23/23 qualification, three exact-route canaries,
+and a 178-file / 83-mapping freeze. It imported D49 A01-A17 without replay.
+Out-of-matrix `A18-CANDIDATE-CAL` passed in two turns. Fresh scored released-
+control A18 consumed two turns and loaded the exact control package, but the
+tracked controller returned `CONTROLLER_UNKNOWN` for
+`resolved_command_invocation_not_trusted`. D50 sealed at scored 17/28 with
+0/11 fresh scored cells complete. One eligible assessor returned
+`DECISION_REQUIRED`; A19-A20 and both contrast groups did not start. D50 is
+immutable and unaccepted.
 
 The `v0.1.2` tag remains fixed at the release-preparation commit. The later
 documentation commit records already-completed tag, stable-install, canary, and
@@ -971,8 +969,8 @@ created the fact class; it did not require or authorize speculative files.
 2. Read [Repository Status](STATUS.md), this handoff, and the relevant per-Skill
    State and Verification owners.
 3. Read Decisions 0017 and 0020, the capability-delta/Campaign Runbook and eval
-   owners, Decision 0018 through `WC-AR-D50-FINAL-A18`, and the current per-Skill State before
-   changing shared development or Work Charter selection claims.
+   owners, Decision 0018 through the D50 terminal, and the current per-Skill
+   State before changing shared development or Work Charter selection claims.
 4. Resolve local `main`, HEAD, index, all dirty and ignored scopes, writer
    ownership, and the exact Work Charter SOURCE/candidate/controller bindings
    rather than assuming this snapshot is still current.
@@ -982,38 +980,40 @@ created the fact class; it did not require or authorize speculative files.
    D37 precursor freeze `1d705c65...` plus summary `f4bddc52...`, D40's 3/27
    terminal, D41's 4/27 terminal, D42's 4/27 terminal, D45's 9/27 terminal,
    D46's combined 10/27 terminal, D47's consumed environment canary, D48's
-   combined 13/27 terminal, and D49's combined 17/28 control-boundary terminal,
-   without retry, overwrite, relabelling, rescore, reinterpretation, or
-   acceptance transfer.
+   combined 13/27 terminal, D49's combined 17/28 control-boundary terminal, and
+   D50's scored 17/28 controller-unknown terminal, without retry, overwrite,
+   relabelling, rescore, reinterpretation, or acceptance transfer.
 6. Keep `c42eef3...` RC behavior, `ceed607...` release identity, the later
    evidence descendant, and the generated stable/rollback copies distinct.
-7. Treat exact candidate `c481005...` and D43-D49 as immutable inputs. Preserve
+7. Treat exact candidate `c481005...` and D43-D50 as immutable inputs. Preserve
    D44's two carrier-correction receipts, three canary turns, one A01 product
    turn, semantic-gate false-negative terminal, and one out-of-scope assessor
    turn without replay, rescore, relabelling, or acceptance transfer. Exclude
    that assessor output from the D44 evidence ledger. Preserve D45's imported
    A01-A09 boundary and D46's independent fresh ledger, disclosure receipt, and
    one eligible assessor without raw predecessor-evidence transfer.
-8. Do not continue or mutate D44-D49. Execute only approved D50 within its
-   exact qualification, correction, canary, consumption, assessment, two-
-   commit, and terminal-stop envelope. Do not construct or run D51.
+8. Do not continue or mutate D44-D50. No D51 is authorized. Under
+   `WC-AR-D50-POST-TERMINAL-DIAGNOSIS`, diagnose D50 A18 read-only before
+   proposing any successor or tracked correction.
 
 ## Immediate Next Action
 
-No release action remains pending for immutable `v0.1.2`. D31-D49 are complete,
-sealed or terminal, and non-retriable. Governing-controller commit `c51552c...`
-is the clean D50 starting point. Complete the authority checkpoint's
-deterministic/native-review/local-commit gate, construct and qualify the one
-ignored D50 carrier, run the three canaries, freeze, then execute the matched
-A18 pair first and continue automatically only while all hard gates pass. Close
-the exact terminal or accepted result through the second deterministic/native-
-review/local-commit gate and relinquish. No D51 starts automatically.
+No release action remains pending for immutable `v0.1.2`. D31-D50 are complete,
+sealed or terminal, and non-retriable. After this result-closeout commit, first
+perform the bounded read-only diagnosis authorized by
+`WC-AR-D50-POST-TERMINAL-DIAGNOSIS` for D50 A18's
+`resolved_command_invocation_not_trusted` result. Return one complete product-
+owner proposal that distinguishes stop from a separately bounded successor.
+Do not read raw prompts or complete private outputs, create or run D51, change
+tracked files, consume model evidence, or retain writer authority while
+diagnosing.
 
 Later user-owned choices include:
 
-- after D50 terminal closeout, decide any installation, release, or public-
-  reachability action only from the recorded Gate 2 disposition and applicable
-  later authorization;
+- decide whether the Work Charter evaluation line stops or a separately
+  bounded successor is warranted after the read-only A18 diagnosis;
+- decide any installation, release, or public-reachability action only from the
+  recorded Gate 2 disposition and applicable later authorization;
 - after an accepted Project Docs commit, authorize an exact-commit candidate
   and write-capable synthetic persistence test;
 - begin another separately scoped development or evaluation cycle;
@@ -1048,23 +1048,21 @@ Stop before write or publication if:
 
 ## Authorization Boundary
 
-D42-D49 execution authority is consumed. Exact candidate `c481005...`, every
+D42-D50 execution authority is consumed. Exact candidate `c481005...`, every
 predecessor qualification/canary/product/assessor receipt, the assessor-
 deviation receipt, and all consumed turns are immutable and non-retriable. The
-assessor output is excluded from the D44 evidence ledger. The current approval
-authorizes only `WC-AR-D50-FINAL-A18`: one authority commit, one ignored
-carrier, its 23/23 qualification, three canaries, twelve fresh product contexts
-comprising one out-of-matrix calibration plus eleven scored cells within
-fourteen product turns, at most one eligible assessor, and one sanitized result
-commit. Total external `turn/start` calls may not exceed eighteen; no controller
-retry, operator recovery, or D51 is authorized.
+assessor output is excluded from the D44 evidence ledger. D50 consumed eight
+external turns: three canaries, four product turns across the calibration and
+released-control A18, and one assessor. Its second local result-closeout commit
+consumes the last D50 Git effect. No controller retry, operator recovery,
+replay, rescore, D51, or successor writer is authorized.
 
 No SOURCE, case, fixture, tracked-controller, model assignment, workspace-
 route, permission, other-Skill, user-configuration, push, installation, tag,
 release, stable mutation, retained-evidence cleanup, or unlisted external-
-effect change is authorized. The only Git effects are the two bounded local
-D50 commits after their separate deterministic and native-review gates pass.
-Any material drift requires a new complete user decision.
+effect change is authorized. After the result-closeout commit, the D50 writer
+relinquishes. Any material drift or successor requires a new complete user
+decision.
 
 The D50-authority documentation-impact closure is fact-first. `UPDATE` covers
 Decision 0018, `evals/README.md`, Work Charter State and Verification, root
@@ -1075,8 +1073,16 @@ Charter SOURCE/Design/cases/fixtures/matrix/rubric/current-SOURCE manifest/
 tracked controller/package references/assets, the result index, and neighboring
 Skills. `NOT_APPLICABLE` covers a new product concept or candidate, installed
 or stable-copy changes, push, tag, release, cleanup, and external publication.
-The future D50 result closeout owns its own fact-first update over the new
-sanitized result and mapped current-state consumers.
+The D50-result documentation-impact closure is fact-first. `UPDATE` covers the
+D50 report and result index, Decision 0018, Work Charter bilingual README,
+State and Verification, root Status, Verification, Roadmap, Index, and this
+Handoff. `CHECKED_NO_CHANGE` covers repository `AGENTS.md`, the root README
+pair, Authority, SPEC, Architecture, Runbook, Provenance, Decisions 0017/0020,
+`evals/README.md`, Work Charter SOURCE/Design/cases/fixtures/matrix/rubric/
+current-SOURCE manifest/tracked controller/package references/assets, and
+neighboring Skills. `NOT_APPLICABLE` covers another candidate, installed or
+stable-copy changes, push, tag, release, cleanup, or external publication. D50
+raw carriers remain ignored and unpublished.
 
 The D49-result documentation-impact closure is fact-first. `UPDATE` covers the
 D49 report and result index, Decision 0018, Work Charter bilingual README,
