@@ -8,13 +8,19 @@ Status: accepted through terminal WC-AR-D53-LAYERED-AUTHORIZATION-LIFECYCLE; D40
 - Last incorporated decision: `WC-AR-D53-LAYERED-AUTHORIZATION-LIFECYCLE`; its
   terminal disposition is an observed fail-closed fact, not new successor authority
 - Open decision: none inside D53; the authorized terminal documentation review,
-  exact local commit 2, and writer relinquishment remain. After that closeout,
-  the evaluation line stays stopped unless the user authorizes one new complete
+  exact local commit 2 `8e658f18...`, and writer relinquishment are complete.
+  The evaluation line stays stopped unless the user authorizes one new complete
   successor Campaign. Any D54, installation, release, or cleanup is user-owned
-- Lifecycle authority: D53 now permits only sanitized closeout, exact local
-  commit 2, and writer relinquishment; repair, retry, operator recovery, scarce
-  evidence, and every unlisted effect remain excluded. Consult
-  `docs/HANDOFF.md` for the live writer and recovery boundary
+- Lifecycle authority: D53's sanitized-closeout authority ended with local
+  commit 2 and writer relinquishment. The separately authorized bounded factual
+  reconciliation may only synchronize that observed closure state. Its durable
+  lease `post-D53-factual-reconciliation@main/8e658f18` remains `ACTIVE` through
+  the exact terminal commit and becomes `RELINQUISHED` only after live
+  reconciliation finds no attributable diff in any registered worktree; one
+  clean checkout is insufficient, and missing or conflicting evidence is
+  `UNKNOWN`. Repair, retry, operator recovery, scarce evidence, and every
+  unlisted effect remain excluded. Consult `docs/HANDOFF.md` for the exact
+  commit, path-set, all-worktree, and recovery boundary
 - Checkpoint reason: completed product-design decision set plus the accepted
   native-package/user-activation, project-read, mapping-qualification, and
   immutable-evidence boundaries

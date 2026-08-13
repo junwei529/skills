@@ -36,14 +36,27 @@ Last updated: 2026-08-13
   5 files, each matching the `v0.1.2` Git blobs
 - Rollback identity: immutable `v0.1.1` retained as a separately verified
   three-package backup
-- Writer handoff boundary: one terminal-documentation writer owns only the D53
-  sanitized result and mapped canonical consumers through local commit 2
-  `docs: record Work Charter D53 Gate 2 result`. D52 commit `410b0bd...`, D53
-  lifecycle commit `4ab8a025...`, D31-D50, D51-01 through D51-03, all four D53
-  rehearsal attempts, and every consumed correction/turn remain immutable.
-  Skill SOURCE, behavior cases, fixtures, matrix, rubric, scorer/controller
-  module, other Skills, user configuration, push, installation, tag, release,
-  stable update, cleanup, D54, and unlisted external effects remain excluded
+- Writer handoff boundary: D53 execution and terminal-documentation writers
+  have relinquished. Local commit 2 `8e658f18...` records the sanitized result
+  and mapped canonical consumers. The durable writer lease
+  `post-D53-factual-reconciliation@main/8e658f18` owns only the bounded diff in
+  `docs/HANDOFF.md`, `docs/STATUS.md`,
+  `docs/decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md`,
+  and `docs/skills/work-charter/STATE.md`, plus one local commit with subject
+  `docs: close Work Charter D53 writer handoff`. Its live state must be
+  reconciled across every registered worktree; one clean checkout is never
+  writer proof. The lease is `ACTIVE` until `main` contains a direct child of
+  `8e658f18...` with that exact subject and four-path change set, the main
+  checkout has no attributable index or worktree delta, and every registered
+  worktree has been enumerated with no attributable copy of the diff. All three
+  facts make it `RELINQUISHED`; missing or conflicting evidence makes it
+  `UNKNOWN` and fails closed. D52 commit `410b0bd...`, D53 lifecycle commit
+  `4ab8a025...`,
+  D31-D50, D51-01 through D51-03, all four D53 rehearsal attempts, and every
+  consumed correction/turn remain immutable. Skill SOURCE, behavior cases,
+  fixtures, matrix, rubric, scorer/controller module, other Skills, user
+  configuration, push, installation, tag, release, stable update, cleanup,
+  D54, and unlisted external effects remain excluded
 - Ignored-carrier boundary: one opaque ordinary controller-scratch directory
   predates this writer window. Its provenance remains `UNKNOWN`; this task read
   metadata only and did not open, reinterpret, or clean the carrier. Native
@@ -1102,10 +1115,16 @@ lifecycle. Its fresh Layer A used all three authorized private corrections,
 passed materialization/finalization and official qualification stages 1-6,
 then failed stage 7 predecessor import before aggregate 56/56 or scarce
 evidence. No production phase receipt, canary, freeze, product, assessor, model
-context, or `turn/start` followed. Complete the sanitized documentation review
-and exact local commit 2 `docs: record Work Charter D53 Gate 2 result`, then
-relinquish the writer. Do not repair or rerun D53, and do not resume or
-reinterpret D51/D52.
+context, or `turn/start` followed. Local commit 2 `8e658f18...` records the
+sanitized terminal result. This bounded post-commit reconciliation records
+the final writer and next-gate state. Its named lease stays `ACTIVE` through the
+terminal local commit and becomes `RELINQUISHED` only after the exact commit and
+all-worktree reconciliation above pass; the derived lease rule needs no
+follow-up documentation mutation.
+Do not repair or rerun D53, and do not resume or reinterpret D51/D52. The only
+next Work Charter product choice is to leave the evaluation line stopped or
+explicitly authorize one complete successor Campaign; no D54 follows from this
+closeout.
 
 Later user-owned choices include:
 
@@ -1169,8 +1188,9 @@ terminal. Commit 1 and the ignored carrier remain preserved. The carrier's
 stage-7 qualification mismatch sealed D52 as
 `QUALIFICATION_FAILED / PRODUCT_UNKNOWN`; both private corrections are
 consumed, and fresh model contexts, `turn/start`, and assessor turns remain
-zero. The current writer may complete only sanitized closeout, the separate
-normal native-review cycle, exact local commit 2, and writer relinquishment.
+zero. That D52 writer was limited to sanitized closeout, its separate normal
+native-review cycle, exact local commit 2, and writer relinquishment; those
+actions are historical and grant no current writer authority.
 
 No SOURCE, behavior-case, fixture, controller-module, model assignment beyond
 the declared D52 cells, workspace-route, permission, other-Skill, user-

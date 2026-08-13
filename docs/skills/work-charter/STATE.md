@@ -383,11 +383,17 @@ SOURCE by itself.
 
 ## Current Writer
 
-D51-D53 no longer own an execution writer. One terminal-documentation writer
-owns only the sanitized D53 result and mapped canonical consumers through exact
-local commit 2 `docs: record Work Charter D53 Gate 2 result`. It owns no
-rehearsal repair, formal carrier, SOURCE, candidate, release, installation,
-push, cleanup, or D54 mutation.
+D51-D53 no longer own an execution writer. The terminal-documentation writer
+completed exact local commit 2 `8e658f18...` and relinquished. The separately
+authorized writer has durable identity
+`post-D53-factual-reconciliation@main/8e658f18` and owns only the four-document
+factual-reconciliation diff plus the exact terminal local commit named in
+Handoff. Its state is `ACTIVE` through that commit, `RELINQUISHED` only after
+the commit identity and every registered worktree are reconciled with no
+attributable diff, and `UNKNOWN` on missing or conflicting evidence. One clean
+checkout never proves writer relinquishment. It owns no rehearsal repair,
+formal carrier, SOURCE, candidate, release, installation, push, cleanup, or D54
+mutation.
 
 Work Charter SOURCE, Design, package manifest, behavior cases, fixtures,
 matrix, rubric, controller module, other Skills, discovery mappings, user
@@ -949,7 +955,9 @@ unauthorized.
 3. Confirm live workspace, writer, and action authority.
 4. Confirm live `main` includes exact D43 candidate `c481005...`, all D44-D50
    result/eval-contract closeouts, governing-controller commit `c51552c...`,
-   and D52 tracked-runner commit `410b0bd...`.
+   D52 tracked-runner commit `410b0bd...`, D53 lifecycle commit `4ab8a025...`,
+   terminal-documentation commit `8e658f18...`, and the post-commit writer/
+   next-gate reconciliation.
    Resolve HEAD, index, dirty scope, ignored carriers, runtime identity, and
    writer rather than inferring them from an older handoff.
 5. Preserve the complete predecessor ledger, including the D31 mapping-

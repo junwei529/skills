@@ -437,21 +437,25 @@ decision.
 ## Next Gate
 
 No release action remains pending for immutable `v0.1.2`. D31-D50, D51-01
-through D51-03, and D52 are complete, sealed, or preserved and non-retriable.
-Exact candidate `c481005...` remains unaccepted at Gate 2. D52's tracked runner
-is recorded by local commit `410b0bd...` and retains its corrected 24/24
-zero-model result. The fresh carrier bundle was finalized, but the official
-qualification stopped at stage 7 before the mandatory aggregate 48/48 receipt:
-the private frozen run-policy contract disagreed with the deterministic post-
-freeze authorization gate. Both private corrections are consumed, and no third
-correction or operator recovery exists. D52 is
-`QUALIFICATION_FAILED / PRODUCT_UNKNOWN`; it consumed zero fresh contexts and
-zero `turn/start`. No production phase receipt, canary, freeze, product, or assessor
-evidence exists. The evaluation line is stopped. Only one new complete
-successor Campaign, if explicitly authorized by the user, may reopen it. Push,
-installation, tag,
-release, stable update, cleanup, SOURCE, controller-module, case, fixture,
-matrix, rubric, other-Skill, and automatic D53 changes remain excluded.
+through D51-03, D52, and D53 are complete, sealed, or preserved and non-
+retriable. Exact candidate `c481005...` remains unaccepted at Gate 2. D53's
+reviewed tracked lifecycle is recorded by local commit `4ab8a025...`; local
+commit `8e658f18...` records its sanitized terminal result. Fresh Layer A used
+all three private corrections and failed stage 7 predecessor import before
+Layer B, aggregate 56/56, or scarce evidence. D53 is
+`QUALIFICATION_FAILED / PRODUCT_UNKNOWN`; it consumed zero model contexts and
+zero `turn/start`. No production phase receipt, canary, freeze, product, or
+assessor evidence exists. The evaluation line is stopped and no D53 execution
+or terminal-documentation writer remains. The bounded post-D53 factual-
+reconciliation uses the durable lease
+`post-D53-factual-reconciliation@main/8e658f18`: it is `ACTIVE` until its exact
+terminal commit and an all-registered-worktree reconciliation pass,
+`RELINQUISHED` only after both pass, and `UNKNOWN` on incomplete or conflicting
+evidence. One clean checkout is not writer proof; Handoff owns the exact test.
+Only one new complete successor Campaign, if explicitly authorized by the
+user, may reopen the evaluation line. Push, installation, tag, release, stable
+update, cleanup, SOURCE, controller-module, case, fixture, matrix, rubric,
+other-Skill, and automatic D54 changes remain excluded.
 Project Docs keeps its own candidate and persistence-evidence sequence.
 
 ## Known Repository Gaps
