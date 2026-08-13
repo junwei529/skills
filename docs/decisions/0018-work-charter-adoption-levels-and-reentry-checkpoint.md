@@ -1,17 +1,17 @@
 # 0018: Work Charter Adoption, Protection Levels, And Re-entry Checkpoint
 
 Date: 2026-08-02
-Amended: 2026-08-12
-Status: accepted through terminal WC-AR-D52-TRACKED-OUTER-DISPATCH; D40-D50 and D51-01 through D51-03 remain immutable, D51's three inner-only canary turns remain consumed, D52 is `QUALIFICATION_FAILED / PRODUCT_UNKNOWN`, and exact candidate `c481005...` remains unaccepted
+Amended: 2026-08-13
+Status: accepted through terminal WC-AR-D53-LAYERED-AUTHORIZATION-LIFECYCLE; D40-D50 and D51-01 through D51-03 remain immutable, D51's three inner-only canary turns remain consumed, D52 and D53 are `QUALIFICATION_FAILED / PRODUCT_UNKNOWN`, and exact candidate `c481005...` remains unaccepted
 
-- Planning checkpoint: 35 (D52 qualification terminal and sanitized closeout)
-- Last incorporated decision: `WC-AR-D52-TRACKED-OUTER-DISPATCH`; its terminal
-  disposition is an observed fail-closed fact, not new successor authority
-- Open decision: none inside D52; the authorized terminal documentation review,
+- Planning checkpoint: 36 (D53 Layer A qualification terminal and sanitized closeout)
+- Last incorporated decision: `WC-AR-D53-LAYERED-AUTHORIZATION-LIFECYCLE`; its
+  terminal disposition is an observed fail-closed fact, not new successor authority
+- Open decision: none inside D53; the authorized terminal documentation review,
   exact local commit 2, and writer relinquishment remain. After that closeout,
   the evaluation line stays stopped unless the user authorizes one new complete
-  successor Campaign. Any D53, installation, release, or cleanup is user-owned
-- Lifecycle authority: D52 now permits only sanitized closeout, exact local
+  successor Campaign. Any D54, installation, release, or cleanup is user-owned
+- Lifecycle authority: D53 now permits only sanitized closeout, exact local
   commit 2, and writer relinquishment; repair, retry, operator recovery, scarce
   evidence, and every unlisted effect remain excluded. Consult
   `docs/HANDOFF.md` for the live writer and recovery boundary
@@ -2661,6 +2661,41 @@ release, stable-copy change, cleanup, public publication, SOURCE behavior
 change, predecessor mutation, and automatic D54. Those effects remain
 excluded, as do raw prompt/completion/session publication, hidden predecessor
 reinterpretation, replacement assessment, and any unlisted external effect.
+
+#### D53 observed terminal
+
+New-cycle review 3/5 returned no actionable issue against the final tracked
+lifecycle bytes. Local commit
+`4ab8a025d54105f802077c385b0824cd97446e23` records the 32/32 runner,
+18/18 fixture consumer, mapped authority, and lifecycle policy SHA-256
+`b21518530b2990bada6364e6dd25aeda99efd26fceebe6107ad2ebdfe656eeb4`.
+This is zero-model infrastructure proof only.
+
+Layer A then created one fresh rehearsal from the certified D50 source bundle
+without transferring predecessor receipts or credit. `r00`, `r01`, `r02`, and
+`r03` are retained. Their three corrections respectively bound reusable same-
+path templates by bytes, added one missing declared private pin, and supplied
+an explicit repository root to nested setup consumers. Final `r03` passed
+materialization, finalization, and official stages 1-6. Stage 7 failed before
+its first full-lane child could import immutable D49 evidence because an
+inherited importer inferred the predecessor carrier from nested directory
+depth. The launch returned typed scalar exit 1, disabled retry, and consumed
+zero behavior `turn/start`.
+
+All three Layer A corrections are exhausted. Layer B, `f00`, aggregate 56/56,
+the lifecycle consumer, production receipts, canary, freeze, product, assessor,
+model context, and `turn/start` did not start. Terminal receipt SHA-256 is
+`e8e9fb645b83beaa9c64cd5ccf3d8fc3e283d21cdbb964cde8c72adb8849882b`.
+D53 is therefore sealed `QUALIFICATION_FAILED / PRODUCT_UNKNOWN`; candidate
+`c481005...` remains unaccepted.
+
+The tracked lifecycle and terminal guards are `PROMOTED` through commit
+`4ab8a025...` and focused 32/32. The nested predecessor-root lesson is
+`DEFERRED`, owned by any separately authorized successor's private builder and
+reconsidered only under that successor; D53 does not claim it is fixed.
+Repairing, moving, copying, or crediting a sealed predecessor carrier to bypass
+the failed rehearsal is `REJECTED`. No retry, replay, rescore, automatic D54,
+installation, release, cleanup, or other external effect follows.
 
 ## Important Rejected Alternatives
 

@@ -13,54 +13,18 @@ Last updated: 2026-08-13
   then exhausted both private corrections and failed full-lane zero-model
   qualification before the aggregate 48/48 receipt; no canary, freeze, product,
   or assessor turn started. D52 is `QUALIFICATION_FAILED / PRODUCT_UNKNOWN`
-- Explicitly authorized successor `WC-AR-D53-LAYERED-AUTHORIZATION-LIFECYCLE`
-  preserves that terminal and is active only in its tracked zero-model tranche.
-  Its existing outer runner must expose and enforce the exact six-state
-  lifecycle, keep canary/product/assessor in separate dispatch segments, bind
-  the 56/56 -> canary -> freeze -> Campaign-activation evidence chain, and pass
-  32/32 before any private rehearsal, formal 56/56 receipt, canary, freeze,
-  product, or assessor activity. Its first native-review cycle is now exhausted:
-  review 5/5 found and the writer corrected an unbound accepted-assessor route
-  and a hard-coded receipt-age revalidation. Focused 32/32 passes after those
-  fixes, but final-byte review, local commit 1, and every private/model tranche
-  were blocked at the review-budget gate. The user explicitly approved one
-  reset for this exact twelve-file commit attempt. Reset-cycle review 1/5
-  found two P1 gaps: no deterministic proof that one stdin could carry a full
-  multi-phase segment, and no accepted-terminal validation of all twelve
-  product dispatches. The runner now owns one persistent segment reader, the
-  focused gate completes a three-phase test-only qualification segment, and acceptance requires
-  a twelve-route product ledger plus each bound completed dispatch. Focused
-  32/32 passes. Review 2/5 then found that the simulator had been admitted
-  under production phase names; it is now confined to `qualification-segment-*`,
-  while a new negative proves every real production phase rejects it before
-  receipt/state creation. Review 3/5 found that completed-route acceptance
-  skipped the static production-policy assertion. The corrected path suppresses
-  only recursive lifecycle re-entry and still revalidates phase, model, effort,
-  turn budget, successor, and policy hash. Review 4/5 found one P1: across
-  segment boundaries, writable carrier JSON could not authenticate a prior live
-  dispatch without a surviving controller capability or external trust anchor.
-  Its P2 terminal-state/disposition mismatch is corrected. On 2026-08-13 the
-  user explicitly approved the material live-controller Replan Delta. One
-  tracked `Campaign` process now retains an unpersisted segment-order and phase-
-  fingerprint ledger across canary, product, assessor, and accepted-terminal
-  validation; direct production `Outer`, diagnostic action provenance, self-
-  consistent JSON, and product-first dispatch fail closed. Focused 32/32 passes.
-  Reset-cycle review 5/5 then stopped on one P1 alleging that initial segment
-  completion checked the live ledger before recording it. The call omitted
-  that switch and its default was false, so the claimed path was not reproduced;
-  the hard stop still applied. The user authorized one new review cycle for the
-  same twelve-file attempt. Initial completion now passes the false switch
-  explicitly. New-cycle review 1/5 then found that non-accepting terminals did
-  not validate their predecessor chain and that child nonzero exited before
-  live terminal closeout. Both are corrected: every terminal validates its
-  predecessor, while a failed segment retains the controller, emits its typed
-  exit, waits for a matching terminal, and returns the original exit only after
-  validation. New-cycle review 2/5 then found that `validate_terminal` could
-  arrive before any failure or completion of all three segments. The controller
-  now requires its live `NextSegment` to be `terminal`; the focused gate rejects
-  the early command and remains 32/32. Three reviews remain. A clean new-cycle
-  final-byte review permits local commit 1 and Layer A; all previous findings
-  and budgets remain cumulative
+- Explicit successor `WC-AR-D53-LAYERED-AUTHORIZATION-LIFECYCLE` preserved D51
+  and D52 and committed the reviewed hash-bound lifecycle at `4ab8a025...`.
+  Focused 32/32 covers its live cross-segment Campaign capability, evidence
+  chain, typed failure closeout, and early-terminal rejection with zero model
+  evidence. Fresh Layer A then preserved `r00-r03` and consumed all three
+  private corrections. Final `r03` passed materialization, finalization, and
+  stages 1-6, then failed stage 7 because an inherited predecessor importer
+  inferred immutable D49 evidence from the nested rehearsal's directory depth.
+  Layer B, aggregate 56/56, lifecycle consumer, canary, freeze, product, and
+  assessor did not start; model contexts and `turn/start` remain zero. D53 is
+  sealed `QUALIFICATION_FAILED / PRODUCT_UNKNOWN`; the candidate remains
+  unaccepted and no automatic D54 follows
 - Exact predecessor `b3ad360...` and its D41 packet remain immutable and
   unaccepted
 - Released package identity: immutable `v0.1.2` at
@@ -72,17 +36,14 @@ Last updated: 2026-08-13
   5 files, each matching the `v0.1.2` Git blobs
 - Rollback identity: immutable `v0.1.1` retained as a separately verified
   three-package backup
-- Writer handoff boundary: one D53 Campaign writer owns the three tracked
-  runner/checker files and mapped authorization documentation through local
-  commit 1 `evals: bind Work Charter Gate 2 authorization lifecycle`. D53's
-  private root must remain absent until that commit succeeds. D52 local runner
-  commit `410b0bd1f361688e4444ced48e0e9451be1787d6` and its failed private
-  carrier remain immutable with both corrections consumed and zero
-  `turn/start`. D31-D50, D51-01 through D51-03, and every consumed turn/carrier
-  remain immutable. Skill SOURCE, behavior cases, fixtures, matrix, rubric,
-  scorer/controller module, other Skills, user configuration, push,
-  installation, tag, release, stable update, cleanup, D54, and unlisted
-  external effects remain excluded
+- Writer handoff boundary: one terminal-documentation writer owns only the D53
+  sanitized result and mapped canonical consumers through local commit 2
+  `docs: record Work Charter D53 Gate 2 result`. D52 commit `410b0bd...`, D53
+  lifecycle commit `4ab8a025...`, D31-D50, D51-01 through D51-03, all four D53
+  rehearsal attempts, and every consumed correction/turn remain immutable.
+  Skill SOURCE, behavior cases, fixtures, matrix, rubric, scorer/controller
+  module, other Skills, user configuration, push, installation, tag, release,
+  stable update, cleanup, D54, and unlisted external effects remain excluded
 - Ignored-carrier boundary: one opaque ordinary controller-scratch directory
   predates this writer window. Its provenance remains `UNKNOWN`; this task read
   metadata only and did not open, reinterpret, or clean the carrier. Native
@@ -1127,25 +1088,28 @@ created the fact class; it did not require or authorize speculative files.
    transfer. Preserve D52's committed outer runner, two consumed private
    corrections, failed aggregate qualification, zero `turn/start`, and
    `QUALIFICATION_FAILED / PRODUCT_UNKNOWN` terminal without repair or replay.
+   Preserve D53's reviewed lifecycle commit, four Layer A attempts, three
+   consumed private corrections, failed stage 7 predecessor import, zero model
+   evidence, and `QUALIFICATION_FAILED / PRODUCT_UNKNOWN` terminal without
+   repair or replay. Any successor requires a new complete user decision.
 
 ## Immediate Next Action
 
 No release action remains pending for immutable `v0.1.2`. D31-D50, D51-01
-through D51-03, and D52 are complete, sealed, or preserved and non-retriable.
-D52 local commit 1 `410b0bd...` records the clean reviewed tracked dispatcher.
-Its fresh carrier used both authorized private corrections, passed official
-qualification stages 1-6, and failed stage 7
-`model_authorization_envelope` because the frozen run policy did not require
-the post-freeze authorization gate. The aggregate 48/48 receipt was not
-created. No production phase receipt, canary, freeze, product, assessor, model
+through D51-03, D52, and D53 are complete, sealed, or preserved and non-
+retriable. D53 local commit 1 `4ab8a025...` records the clean reviewed tracked
+lifecycle. Its fresh Layer A used all three authorized private corrections,
+passed materialization/finalization and official qualification stages 1-6,
+then failed stage 7 predecessor import before aggregate 56/56 or scarce
+evidence. No production phase receipt, canary, freeze, product, assessor, model
 context, or `turn/start` followed. Complete the sanitized documentation review
-and exact local commit 2 `docs: record Work Charter D52 Gate 2 result`, then
-relinquish the writer. Do not repair or rerun D52, and do not resume or
-reinterpret D51.
+and exact local commit 2 `docs: record Work Charter D53 Gate 2 result`, then
+relinquish the writer. Do not repair or rerun D53, and do not resume or
+reinterpret D51/D52.
 
 Later user-owned choices include:
 
-- authorize one new complete successor Campaign, including any D53 or other
+- authorize one new complete successor Campaign, including any D54 or other
   attempt, before reopening the stopped evaluation line;
 - decide any future native-review budget reset only if an authorized commit
   attempt exhausts its own cycle;

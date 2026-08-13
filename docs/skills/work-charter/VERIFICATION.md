@@ -40,7 +40,7 @@ Last updated: 2026-08-13
 | Exact `c481005...` D50 Gate 2 terminal | D50 cold-certified its reusable controller bundle, passed 23/23 official qualification, three exact-route canaries, and a 178-file / 83-mapping freeze, then imported D49 A01-A17 without replay; non-scored candidate calibration passed, but fresh scored released-control A18 returned controller `UNKNOWN` for `resolved_command_invocation_not_trusted`, so D50 sealed at scored 17/28 with 0/11 fresh scored cells complete; one eligible assessor returned `DECISION_REQUIRED`, and the immutable candidate remains unaccepted |
 | Exact `c481005...` D51 route-invalid closeout | D51-03 used its final correction and passed 24/24 deterministic qualification; three non-product canary turns then ran through the inner batch instead of the declared outer launcher, so the required typed-scalar launch receipt is absent and freeze/product/assessor never started; the turns remain immutable inner-route evidence only, the candidate remains unaccepted, and no automatic D52 follows |
 | Exact `c481005...` D52 qualification terminal | local commit `410b0bd...` records the tracked single-entry runner and corrected 24/24 focused result; one fresh private carrier used both corrections, passed official stages 1-6, then failed stage 7 `model_authorization_envelope` because the frozen policy did not require the post-freeze authorization gate; no aggregate 48/48 receipt, outer phase receipt, canary, freeze, product, or assessor turn followed, so D52 is `QUALIFICATION_FAILED / PRODUCT_UNKNOWN` and the candidate remains unaccepted |
-| Exact `c481005...` D53 tracked authorization lifecycle | explicitly authorized Campaign `WC-AR-D53-LAYERED-AUTHORIZATION-LIFECYCLE` preserves the D52 terminal and binds qualification, canary, freeze, activation, product, and terminal authority to one hash-bound six-state lifecycle; its approved live-controller Replan Delta retains an unpersisted completion/fingerprint capability across separate canary, product, and assessor segments, while real entry validates the required 56/56-to-canary-to-freeze-to-Campaign-activation evidence prefix; the tracked runner/checker passes 32/32 with direct-JSON, product-first, forged-failure-terminal, and early-terminal negatives plus failed-segment terminal-wait guards, the repository checker passes for 213 text files / 14 cases / 12 fixtures, the full fixture suite passes 18/18, and zero model use occurred; new-cycle reviews 1-2/5's terminal-closeout and early-terminal P1s are corrected, three reviews remain, and local commit 1 plus every private/model phase remain pending a clean final-byte review |
+| Exact `c481005...` D53 qualification terminal | explicitly authorized Campaign `WC-AR-D53-LAYERED-AUTHORIZATION-LIFECYCLE` preserves D51/D52 and records the reviewed hash-bound lifecycle in local commit `4ab8a025...`; the tracked runner/checker passes 32/32 with direct-JSON, product-first, forged-failure-terminal, early-terminal, and typed failed-segment closeout guards; fresh Layer A preserved `r00-r03`, used all three private corrections, passed materialization/finalization and official stages 1-6, then failed stage 7 predecessor import because an inherited nested-path inference could not locate immutable D49 evidence; Layer B, aggregate 56/56, canary, freeze, product, assessor, model context, and `turn/start` did not start, so D53 is `QUALIFICATION_FAILED / PRODUCT_UNKNOWN` and the candidate remains unaccepted |
 | Isolated path-bound controller canary | private retained sealed `CANARY_PASS`; the public summary reports an exact-response pass and no command execution, omits locator/artifact/runtime details, leaves physical backend request count `UNKNOWN`, and proves neither natural-language selection nor candidate acceptance |
 | Small bounded work stays flat | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
 | Midstream implicit behavior is proposal-only | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
@@ -2212,7 +2212,7 @@ mismatch, not a Work Charter SOURCE, candidate-behavior, tracked-runner, or
 provider finding. No third correction, retry, operator recovery, replay,
 rescore, automatic D53, acceptance, installation, or release claim exists.
 
-### 2026-08-12 — D53 tracked authorization lifecycle
+### 2026-08-12 — D53 authorization lifecycle and terminal
 
 The user explicitly authorized
 `WC-AR-D53-LAYERED-AUTHORIZATION-LIFECYCLE` against candidate
@@ -2361,8 +2361,9 @@ guard rejects restoration of the direct-return shape. New-cycle review 2/5 then
 found that `validate_terminal` could arrive before a failure or all three
 successful segments. The controller now accepts that command only after its
 live `NextSegment` reaches `terminal`; an initial terminal command is rejected
-before evidence validation. Focused 32/32 passes and three new-cycle reviews
-remain.
+before evidence validation. Focused 32/32 passes. New-cycle review 3/5 found no
+actionable issue against the final tracked bytes, and local commit
+`4ab8a025d54105f802077c385b0824cd97446e23` records that target.
 
 The runner's sixteen model phases are three independent dispatch segments:
 three canaries, twelve product contexts, and one assessor. The final canary and
@@ -2380,13 +2381,26 @@ provenance. `TERMINAL` requires a typed bounded terminal receipt, with the full
 product/eligibility/accepted-assessor chain additionally required for
 `ACCEPTED`.
 
-This is tracked zero-model implementation evidence only. The corrected final
-bytes require a clean completed review in the newly authorized cycle; local
-commit 1 and Layer A rehearsal remain blocked until that gate passes.
-Layer B must independently pass the retained/reexecuted private 24 plus the
-tracked 32 as an aggregate 56/56 before any canary is authorized. D52 remains
-sealed; D53 does not replay or rescore predecessor evidence and does not imply
-candidate acceptance, installation, release, or any automatic D54.
+Fresh Layer A then materialized from the certified D50 credential-free source
+bundle without copying or crediting predecessor receipts. `r00` stopped on an
+existing reusable-template destination; `r01` stopped on one missing declared
+private pin; `r02` stopped because setup inferred the nested rehearsal as the
+repository root. Each next attempt named and implemented one bounded private
+risk reduction. Final `r03` passed materialization and finalization, produced a
+154-file bundle with manifest SHA-256 `5cdcbe74...a871`, and completed official
+qualification stages 1-6. Stage 7's full-lane first child returned typed scalar
+exit 1 because an inherited predecessor importer inferred the immutable D49
+carrier from nested directory depth and could not open its terminal packet.
+Retry was false and behavior `turn/start` remained zero.
+
+All three Layer A corrections are consumed. Layer B, `f00`, formal corrections,
+aggregate 56/56, lifecycle consumer, production phase receipts, canary, freeze,
+product, assessor, model context, and `turn/start` did not start. Terminal
+receipt SHA-256 is `e8e9fb64...9882b`; D53 is sealed
+`QUALIFICATION_FAILED / PRODUCT_UNKNOWN`. This is a private-builder nested-path
+qualification mismatch, not SOURCE or product-behavior evidence. D51/D52 remain
+immutable, the candidate remains unaccepted, and no repair, replay, rescore,
+installation, release, or automatic D54 follows.
 
 ## Required Checks
 

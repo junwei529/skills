@@ -243,11 +243,20 @@ the same terminal without qualification evidence. These are zero-model runner
 checks. New-cycle review 2/5 additionally found that `validate_terminal` could
 arrive before a failed segment or completion of all three successful segments.
 The controller now requires its live `NextSegment` to equal `terminal`, and the
-focused gate rejects an initial terminal command before evidence validation:
-they
+focused gate rejects an initial terminal command before evidence validation.
+New-cycle review 3/5 found no actionable issue against the final tracked bytes;
+local commit `4ab8a025...` records that 32/32 zero-model target.
+
+Fresh D53 Layer A then preserved `r00` through `r03` and consumed all three
+private corrections. Its final attempt passed materialization, finalization,
+and qualification stages 1-6, then failed stage 7 because an inherited
+predecessor importer inferred a sealed carrier from the nested rehearsal's
+directory depth. Layer B, aggregate 56/56, the lifecycle consumer, canary,
+freeze, product, and assessor did not start. Zero model contexts and zero
+`turn/start` were consumed. D53 is sealed
+`QUALIFICATION_FAILED / PRODUCT_UNKNOWN`; these runner and rehearsal records
 supply no Gate 2 product credit and do not make candidate `c481005...`
-accepted. D53 private rehearsal and the formal 56/56 gate cannot begin before
-the tracked lifecycle commit.
+accepted. No automatic D54 follows.
 
 For each attempted product cell, record at least:
 
