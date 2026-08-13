@@ -198,8 +198,14 @@ one composed disposable DEV path passed through materialization, finalization,
 predecessor import, private 24/24, aggregate 56/56, lifecycle consumption, and
 synthetic dispatch, stopping before the first `thread/start`. Model calls,
 `thread/start`, `turn/start`, and writes outside the mirror were all zero. This
-is DEV-only implementation qualification; formal evidence remains pending a
-reviewed committed revision and Fresh Evidence Session.
+is DEV-only implementation qualification. Local commit `9fe27bb...` records
+the reviewed Build target and its clean all-worktree reconciliation
+relinquished the Build writer. The Fresh Evidence Session rebound the final
+identities, then its only formal qualification failed at ignored-orchestrator
+`bootstrap` with exit 86 before materialization or any 24/24, 32/32, 56/56,
+lifecycle, canary, product, or assessor work. All model/start counts are zero.
+D54 is sealed `QUALIFICATION_FAILED / PRODUCT_UNKNOWN`; the failure is a
+controller/bootstrap defect, not a candidate or product finding.
 
 The sealed fixed-turn Standard probe for `72db7e9...` returned `VIOLATION` and
 did not run its successor action. Decision 0018 `WC-AR-D26` preserves that
@@ -397,19 +403,26 @@ SOURCE by itself.
 
 ## Current Writer
 
-D51-D53 no longer own an execution writer. The D54 Build Session has durable
+D51-D53 and the D54 Build Session no longer own an execution writer. Build
 lease
 `D54-explicit-root-build@main/d4374b381444b85fff4941e73cf7a8d32f18a96e`
-and is the sole repository writer through the authorized local commit. It owns
-only the two D54 runner/checker changes, mapped documentation consumers, and
-ignored DEV root
-`.eval-runs/work-charter-v0.2-c481005-gate2-d54-explicit-root/`. The lease is
-`RELINQUISHED` only after that commit and attributable index/worktree
-reconciliation across every registered worktree; one clean checkout never
-proves relinquishment, and missing or conflicting evidence is `UNKNOWN`. One clean checkout never proves writer relinquishment.
-The predecessor lease `post-D53-factual-reconciliation@main/8e658f18` is
-relinquished and conveys no D54 authority. The post-commit Fresh Evidence
-Session receives no repository writer authority.
+is `RELINQUISHED` after commit `9fe27bb...`, empty index, no attributable main-
+worktree diff, and reconciliation of both registered worktrees. The Fresh
+Evidence Session completed its formal result without repository writer
+authority.
+The predecessor lease `post-D53-factual-reconciliation@main/8e658f18` remains
+relinquished and conveys no D54 authority.
+
+User-approved bounded lease
+`D54-failure-only-closeout@main/9fe27bbd22cda34938e3e91c6c09ea72bf5a18e7`
+is the sole current repository writer only for one sanitized D54 terminal
+report, its result index, and already mapped factual, authority, verification,
+recovery, and writer consumers. It may create one local commit with subject
+`docs: record Work Charter D54 Gate 2 result`. It becomes `RELINQUISHED` only
+after that commit and attributable index/worktree reconciliation across every
+registered worktree; one clean checkout is insufficient, and missing or
+conflicting evidence is `UNKNOWN`. One clean checkout never proves writer
+relinquishment.
 
 Work Charter SOURCE, Design, package manifest, behavior cases, fixtures,
 matrix, rubric, controller module, other Skills, discovery mappings, user
@@ -968,22 +981,25 @@ used actual materializer, finalizer, importer, qualification, lifecycle, and
 synthetic dispatch boundaries and stopped before the first scarce event.
 Correction-08 restored repository-checker-required D53 historical fragments
 without weakening D54's separate authority boundary. Two of the five most
-recently added correction rounds remain unused; they do not
-reset or transfer any earlier correction history.
+recently added correction rounds remained unused and transferred no formal or
+successor authority.
 
-Build closeout requires documentation closure, final ruleset/diff rebinding,
-one complete full-diff DEV stability pass, and native review at `Terra/high` with at most
-five completed semantic reviews and no reset. A finding-related code change
-requires the affected complete DEV route before the next review. Gate success
-permits one local commit with subject
-`evals: bind Work Charter D54 explicit roots`, all-worktree reconciliation,
-writer relinquishment, and mechanical creation of a Fresh Evidence Session.
-Only that fresh Session may create the formal carrier. Formal qualification is
-fresh 56/56 with no correction; a failure seals D54 before canaries. A passing
-receipt permits three canaries, then twelve product contexts/fourteen product
-starts, then at most one assessor, within sixteen contexts/eighteen starts.
-Qualification or canary failure forbids product and assessor. Candidate
-`c481005...` remains unaccepted until that downstream evidence succeeds.
+Build closeout completed at local commit `9fe27bb...`; both registered
+worktrees reconciled clean and the Build writer relinquished. The Fresh
+Evidence Session then created only `formal-f00`. Its single formal attempt
+returned exit 86 at `bootstrap`. Three positional pin rows embedded
+`Join-Path` calls so PowerShell bound each hash and label as extra `ChildPath`
+arguments; `$pin[2]` then exceeded the single-value result. The failure
+preceded source materialization, finalization, predecessor import, private
+24/24, tracked 32/32, aggregate 56/56, lifecycle consumption, and synthetic
+dispatch. No lifecycle terminal exists and the failed summary records
+`terminal=null`.
+
+D54 is `QUALIFICATION_FAILED / PRODUCT_UNKNOWN`. Model contexts,
+`thread/start`, `turn/start`, and assessor starts are 0/0/0/0. Canary, product,
+and assessor were neither authorized nor started. `formal-f00` remains byte-
+bound and immutable; no repair, replacement, retry, cleanup, or automatic D55
+is authorized. Candidate `c481005...` remains unaccepted.
 
 ## Recovery Entry
 
@@ -996,8 +1012,8 @@ Qualification or canary failure forbids product and assessor. Candidate
 4. Confirm live `main` includes exact D43 candidate `c481005...`, all D44-D50
    result/eval-contract closeouts, governing-controller commit `c51552c...`,
    D52 tracked-runner commit `410b0bd...`, D53 lifecycle commit `4ab8a025...`,
-   terminal-documentation commit `8e658f18...`, the D54 explicit-root commit,
-   and its post-commit writer/next-gate reconciliation.
+   terminal-documentation commit `8e658f18...`, D54 explicit-root Build commit
+   `9fe27bb...`, and the current D54 terminal closeout state.
    Resolve HEAD, index, dirty scope, ignored carriers, runtime identity, and
    writer rather than inferring them from an older handoff.
 5. Preserve the complete predecessor ledger, including the D31 mapping-
@@ -1031,9 +1047,11 @@ Qualification or canary failure forbids product and assessor. Candidate
    Preserve D53's tracked commit, four Layer A attempts, three consumed private
    corrections, failed stage 7 predecessor import, zero model evidence, and
    `QUALIFICATION_FAILED / PRODUCT_UNKNOWN` terminal without repair or replay.
-   Treat D54 DEV records only as implementation qualification. A Fresh Evidence
-   Session must bind final committed identities and create a new formal carrier;
-   it must not reuse DEV credit or mutate any predecessor.
+   Treat D54 DEV records only as implementation qualification. Preserve its
+   only formal carrier `formal-f00`, bootstrap exit 86, zero model/start counts,
+   absent lifecycle terminal, and `QUALIFICATION_FAILED / PRODUCT_UNKNOWN`
+   disposition without repair, replacement, retry, cleanup, or product/
+   assessor continuation. No D55 follows automatically.
 8. Read canonical SOURCE, current eval definitions, and only evidence matching
    the exact revision before changing behavior or claims.
 9. Preserve the independent-Skill and non-propagating-authorization boundary.

@@ -31,9 +31,14 @@ Last updated: 2026-08-13
   carrier, source-bundle, evidence, and predecessor roots through materializer,
   finalizer, importer, private 24/24, aggregate 56/56, lifecycle consumer, and
   synthetic dispatch. Dispatch stopped before first `thread/start`; model calls,
-  starts, and mirror-external writes were zero. This is DEV-only. Formal 56/56,
-  canary, product, assessor, and acceptance evidence remain pending a reviewed
-  commit and Fresh Evidence Session
+  starts, and mirror-external writes were zero. This remains DEV-only. Local
+  commit `9fe27bb...` records the reviewed Build and both registered worktrees
+  reconciled clean. The Fresh Evidence Session then created only `formal-f00`;
+  its single formal invocation returned exit 86 at ignored-orchestrator
+  `bootstrap` before materialization or any 24/24, 32/32, 56/56, lifecycle,
+  canary, product, or assessor work. All model/start counts are zero. D54 is
+  sealed `QUALIFICATION_FAILED / PRODUCT_UNKNOWN`, the candidate remains
+  unaccepted, and no D55 follows automatically
 - Exact predecessor `b3ad360...` and its D41 packet remain immutable and
   unaccepted
 - Released package identity: immutable `v0.1.2` at
@@ -45,22 +50,24 @@ Last updated: 2026-08-13
   5 files, each matching the `v0.1.2` Git blobs
 - Rollback identity: immutable `v0.1.1` retained as a separately verified
   three-package backup
-- Writer handoff boundary: D53 writers and the post-D53 reconciliation writer
-  have relinquished. The sole D54 Build lease is
-  `D54-explicit-root-build@main/d4374b381444b85fff4941e73cf7a8d32f18a96e`.
-  It owns only the authorized runner/checker and mapped documentation diff plus
-  ignored DEV root
-  `.eval-runs/work-charter-v0.2-c481005-gate2-d54-explicit-root/` through one
-  local commit with subject `evals: bind Work Charter D54 explicit roots`.
-  Reconciliation must bind that commit, empty index, no attributable main-
-  worktree diff, and every registered worktree; one clean checkout is never writer proof.
-  All facts make the lease `RELINQUISHED`; missing or conflicting
-  evidence makes it `UNKNOWN` and fails closed. The mechanically created Fresh
-  Evidence Session has no repository writer. D51-D53, every prior carrier,
-  correction, and consumed turn remain immutable. Skill SOURCE, behavior cases,
-  fixtures, matrix, rubric, scorer/controller module, other Skills, user
-  configuration, push, installation, tag, release, stable update, cleanup,
-  automatic D55, and unlisted external effects remain excluded
+- Writer handoff boundary: D53 writers, the post-D53 reconciliation writer,
+  and D54 Build lease
+  `D54-explicit-root-build@main/d4374b381444b85fff4941e73cf7a8d32f18a96e`
+  have relinquished. The Fresh Evidence Session completed its formal result
+  without repository writer authority. Sole bounded lease
+  `D54-failure-only-closeout@main/9fe27bbd22cda34938e3e91c6c09ea72bf5a18e7`
+  owns only the sanitized D54 terminal report, its result index, and existing
+  mapped factual, authority, verification, recovery, and writer consumers
+  through one local commit with subject
+  `docs: record Work Charter D54 Gate 2 result`. Reconciliation must bind that
+  commit, empty index, no attributable main-worktree diff, and every registered
+  worktree; one clean checkout is never writer proof. All facts make the lease
+  `RELINQUISHED`; missing or conflicting evidence makes it `UNKNOWN` and fails
+  closed. D51-D54, every carrier, correction, and consumed event remain
+  immutable. Skill SOURCE, runner/checker/controller, behavior cases, fixtures,
+  matrix, rubric, other Skills, user configuration, push, installation, tag,
+  release, stable update, cleanup, automatic D55, and unlisted external effects
+  remain excluded
 - Ignored-carrier boundary: one opaque ordinary controller-scratch directory
   predates this writer window. Its provenance remains `UNKNOWN`; this task read
   metadata only and did not open, reinterpret, or clean the carrier. Native
@@ -1109,31 +1116,34 @@ created the fact class; it did not require or authorize speculative files.
    consumed private corrections, failed stage 7 predecessor import, zero model
    evidence, and `QUALIFICATION_FAILED / PRODUCT_UNKNOWN` terminal without
    repair or replay. Treat D54 DEV mirrors only as implementation qualification.
-   Formal D54 evidence must use a new post-commit carrier and final committed
-   hashes; it cannot inherit DEV credit or repository writer authority.
+   Preserve the single `formal-f00` bootstrap failure, zero model/start counts,
+   absent lifecycle terminal, and sealed `QUALIFICATION_FAILED / PRODUCT_UNKNOWN`
+   disposition without repair, replacement, retry, cleanup, or successor
+   inference.
 
 ## Immediate Next Action
 
 No release action remains pending for immutable `v0.1.2`. D31-D50, D51-01
 through D51-03, D52, and D53 are complete, sealed, or preserved and non-
-lifecycle and local commit 2 `8e658f18...` records its sanitized terminal.
+retriable. D53's tracked lifecycle and local commit 2 `8e658f18...` record its
+sanitized terminal.
 D53 remains `QUALIFICATION_FAILED / PRODUCT_UNKNOWN`. Do not repair or rerun D53,
 and do not reinterpret it.
 
-Authorized D54 has passed focused and composed zero-model DEV qualification.
-Its Build closeout is valid only when the final documentation/ruleset and
-entire tracked subject are rebound, the complete disposable DEV route and
-stable-diff checks pass, and `Terra/high` native review completes within five
-reviews with no reset. The revision containing this statement is the authorized
-local commit only if that gate passes. Its all-worktree reconciliation then
-relinquishes the writer and permits mechanical creation of a Fresh Evidence Session. The fresh
-Session rereads final rules, rebinds commit/ruleset/runner/checker/workspace/
-writer/permission identities, and creates a new formal carrier. It runs formal
-56/56 once with no correction. Only a pass permits three canaries, then twelve
-product contexts/fourteen product starts, then at most one assessor, bounded by
-sixteen contexts and eighteen `turn/start`. Qualification or canary failure
-seals D54 before product and assessor. Build DEV evidence supplies no formal
-credit, and no automatic D55 follows.
+Authorized D54 completed its reviewed Build at local commit `9fe27bb...` and
+relinquished that writer after both registered worktrees reconciled clean. The
+Fresh Evidence Session rebound the final identities and created only
+`formal-f00`. Its single formal qualification returned exit 86 at `bootstrap`
+because three `Join-Path` calls embedded in positional pin arrays collapsed the
+intended hash/label rows; `$pin[2]` then failed. No materializer, finalizer,
+importer, private 24/24, tracked 32/32, aggregate 56/56, lifecycle consumer,
+synthetic dispatch, canary, product, or assessor phase started. Model contexts,
+`thread/start`, `turn/start`, and assessor starts are 0/0/0/0.
+
+D54 and `formal-f00` are sealed `QUALIFICATION_FAILED / PRODUCT_UNKNOWN` and
+immutable. Do not repair, replace, rerun, rescore, assess, or clean the carrier.
+The next Work Charter action is a separate user decision about any successor;
+no D55 follows automatically.
 
 The only next Work Charter product choice at the D53 closeout was a separately
 authorized successor; no D54 follows from this closeout. Current D54 authority
@@ -1156,6 +1166,17 @@ Later user-owned choices include:
 - remove the retained rollback or ignored evidence only under explicit cleanup
   authorization; or
 - leave the verified release state unchanged.
+
+The D54 terminal documentation-impact closure is fact-first. `UPDATE` covers
+the sanitized result and result index, `evals/README.md`, Decision 0018, Work
+Charter State and Verification, root Status, Verification, Roadmap, Index, and
+this Handoff. `CHECKED_NO_CHANGE` covers repository `AGENTS.md`, root and Work
+Charter README pairs, Authority, SPEC, Architecture, Runbook, Provenance,
+Decisions 0017/0020, Work Charter SOURCE/Design/cases/fixtures/matrix/rubric/
+runner/checker/generic controller/package references/assets, neighboring
+Skills, and immutable D31-D53 evidence. `NOT_APPLICABLE` covers SOURCE,
+candidate, stable-copy, discovery, installation, push, PR, merge, tag, release,
+cleanup, public publication, product assessment, and automatic D55.
 
 ## Stop Conditions
 

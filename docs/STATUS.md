@@ -9,7 +9,7 @@ Last updated: 2026-08-13
 | Tested package identity | all three package byte sets independently reached exact-commit RC readiness at `c42eef392a5b9f58bbee64aa73ffb603a6fb6c29` and were re-proved at tag/stable identity `v0.1.2` | [Verification](VERIFICATION.md) |
 | Stable release identity | immutable [`v0.1.2`](https://github.com/junwei529/skills/releases/tag/v0.1.2) at `ceed607152849775b981c54add74bfa30d858e4d`; exact tag, stable loaded-copy, and GitHub Release proof pass for all three Skills | [Verification](VERIFICATION.md) |
 | Project Docs | immutable `v0.1.2` remains the released explicit-only control; local commit `776989f...` implements accepted Decision 0019 but is unreleased, and its evidence is `PARTIAL` because actual candidate selection, loaded-copy identity, and persistent writes remain `UNKNOWN` | [State](skills/manage-project-docs/STATE.md) |
-| Work Charter | released `v0.1.2` remains active; exact candidate `c481005...` is unchanged and unaccepted; D51-D53 remain immutable and D53 stays `QUALIFICATION_FAILED / PRODUCT_UNKNOWN`; explicitly authorized D54 implements authenticated explicit roots and passes focused 32/32 plus a disposable composed DEV 56/56/lifecycle/dispatch path with zero model or start events and no mirror-external write; this is implementation qualification only, and formal evidence is gated by the final reviewed local commit plus a Fresh Evidence Session | [State](skills/work-charter/STATE.md) |
+| Work Charter | released `v0.1.2` remains active; exact candidate `c481005...` is unchanged and unaccepted; D51-D53 remain immutable; D54 committed its reviewed explicit-root Build, then its only formal qualification failed at ignored-orchestrator bootstrap before materialization or any 24/24, 32/32, 56/56, lifecycle, canary, product, or assessor work; D54 is `QUALIFICATION_FAILED / PRODUCT_UNKNOWN` with zero model/start events and no automatic D55 | [State](skills/work-charter/STATE.md) |
 | PowerShell | released five-file `v0.1.2` stable copy; corrected loaded identity and guarded native/text diagnosis pass; live WSL remains unproved | [State](skills/use-powershell-safely/STATE.md) |
 | Release lifecycle | `v0.1.2` tag, stable update, tag-pinned canaries, and Latest GitHub Release complete; `v0.1.1` retained as rollback identity | [Runbook](RUNBOOK.md) |
 
@@ -443,22 +443,28 @@ retriable. Exact candidate `c481005...` remains unaccepted at Gate 2. D53 is
 `turn/start`. Under that sealed closeout, automatic D54 changes remain excluded;
 D54 exists only under the separate user authority below.
 
-Explicitly authorized `WC-AR-D54-EXPLICIT-ROOT-CONTRACT` has passed focused
-32/32 and one real composed disposable DEV path through materializer,
-finalizer, importer, private 24/24, aggregate 56/56, lifecycle consumer, and
-synthetic dispatch. The route stopped before first `thread/start`; model calls,
-`thread/start`, `turn/start`, and writes outside the mirror were zero. This is
-DEV-only implementation qualification. The next gate is final ruleset/diff
-rebinding, a complete stable DEV rerun, and at most five `Terra/high` native
-reviews with no reset, followed by one local commit. Clean all-worktree
-reconciliation relinquishes lease
-`D54-explicit-root-build@main/d4374b381444b85fff4941e73cf7a8d32f18a96e`
-and permits mechanical creation of a Fresh Evidence Session with no repository
-writer. One clean checkout is not writer proof; Handoff owns the all-worktree
-test. Formal 56/56 has no correction; only its fresh receipt can authorize
-three canaries and the bounded product/assessor sequence. Push, installation,
-tag, release, stable update, cleanup, SOURCE, controller-module, case, fixture,
-matrix, rubric, other-Skill, and automatic D55 changes remain excluded.
+Explicitly authorized `WC-AR-D54-EXPLICIT-ROOT-CONTRACT` passed focused 32/32
+and one composed disposable DEV path through aggregate 56/56/lifecycle/
+synthetic dispatch. Local commit `9fe27bb...` records that reviewed Build and
+clean reconciliation of both registered worktrees relinquished its writer.
+The Fresh Evidence Session then rebound the final identities and created only
+`formal-f00`. Its single formal qualification returned exit 86 at `bootstrap`
+because three `Join-Path` calls embedded in positional pin arrays collapsed the
+intended hash/label rows and `$pin[2]` exceeded the resulting single value.
+
+The failure preceded materializer, finalizer, importer, private 24/24, tracked
+32/32, aggregate 56/56, lifecycle consumption, and synthetic dispatch. No root
+contract or lifecycle terminal exists. Model contexts, `thread/start`,
+`turn/start`, and assessor starts are 0/0/0/0; canary, product, and assessor
+were not authorized or started. D54 is sealed
+`QUALIFICATION_FAILED / PRODUCT_UNKNOWN`. The formal carrier is immutable and
+cannot be repaired, replaced, retried, or cleaned. The only next Work Charter
+gate is a separate user decision about any successor; no D55 follows
+automatically. One clean checkout is not writer proof; Handoff owns the
+all-worktree reconciliation rule. Push, installation, tag, release, stable
+update, cleanup,
+SOURCE, runner/checker/controller, case, fixture, matrix, rubric, and other-
+Skill changes remain excluded.
 Project Docs keeps its own candidate and persistence-evidence sequence.
 
 ## Known Repository Gaps

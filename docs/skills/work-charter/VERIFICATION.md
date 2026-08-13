@@ -41,7 +41,7 @@ Last updated: 2026-08-13
 | Exact `c481005...` D51 route-invalid closeout | D51-03 used its final correction and passed 24/24 deterministic qualification; three non-product canary turns then ran through the inner batch instead of the declared outer launcher, so the required typed-scalar launch receipt is absent and freeze/product/assessor never started; the turns remain immutable inner-route evidence only, the candidate remains unaccepted, and no automatic D52 follows |
 | Exact `c481005...` D52 qualification terminal | local commit `410b0bd...` records the tracked single-entry runner and corrected 24/24 focused result; one fresh private carrier used both corrections, passed official stages 1-6, then failed stage 7 `model_authorization_envelope` because the frozen policy did not require the post-freeze authorization gate; no aggregate 48/48 receipt, outer phase receipt, canary, freeze, product, or assessor turn followed, so D52 is `QUALIFICATION_FAILED / PRODUCT_UNKNOWN` and the candidate remains unaccepted |
 | Exact `c481005...` D53 qualification terminal | explicitly authorized Campaign `WC-AR-D53-LAYERED-AUTHORIZATION-LIFECYCLE` preserves D51/D52 and records the reviewed hash-bound lifecycle in local commit `4ab8a025...`; the tracked runner/checker passes 32/32 with direct-JSON, product-first, forged-failure-terminal, early-terminal, and typed failed-segment closeout guards; fresh Layer A preserved `r00-r03`, used all three private corrections, passed materialization/finalization and official stages 1-6, then failed stage 7 predecessor import because an inherited nested-path inference could not locate immutable D49 evidence; Layer B, aggregate 56/56, canary, freeze, product, assessor, model context, and `turn/start` did not start, so D53 is `QUALIFICATION_FAILED / PRODUCT_UNKNOWN` and the candidate remains unaccepted |
-| Exact `c481005...` D54 explicit-root Build qualification | explicitly authorized `WC-AR-D54-EXPLICIT-ROOT-CONTRACT` preserves D51-D53 and changes only evaluation infrastructure plus mapped docs; focused deterministic coverage passes 32/32 for explicit authenticated repository, carrier, source-bundle, evidence, and predecessor roots plus nested-positive, decoy-sibling, wrong/outside/reparse/missing/hash/schema negatives; one disposable composed DEV path passes materializer, finalizer, importer, private 24/24, aggregate 56/56, lifecycle consumer, and synthetic dispatch before first `thread/start`, with zero model calls, zero starts, and zero mirror-external writes; this is DEV-only, not formal Gate 2, product, assessor, or acceptance evidence, and the candidate remains unaccepted |
+| Exact `c481005...` D54 explicit-root terminal | explicitly authorized `WC-AR-D54-EXPLICIT-ROOT-CONTRACT` preserves D51-D53 and records the reviewed explicit-root Build at local commit `9fe27bb...`; focused 32/32 and one composed disposable DEV path through aggregate 56/56/lifecycle/synthetic dispatch remain implementation-only. The only fresh formal carrier then returned exit 86 at ignored-orchestrator `bootstrap` before materializer, finalizer, importer, private 24/24, tracked 32/32, aggregate 56/56, lifecycle, canary, product, or assessor; all model/start counts are zero, D54 is `QUALIFICATION_FAILED / PRODUCT_UNKNOWN`, and the candidate remains unaccepted |
 | Isolated path-bound controller canary | private retained sealed `CANARY_PASS`; the public summary reports an exact-response pass and no command execution, omits locator/artifact/runtime details, leaves physical backend request count `UNKNOWN`, and proves neither natural-language selection nor candidate acceptance |
 | Small bounded work stays flat | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
 | Midstream implicit behavior is proposal-only | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
@@ -2461,6 +2461,34 @@ requires ordinal equality with the exact seven-locator set before ruleset
 assignment or hashing; a duplicate-locator/omitted-source negative rejects the
 contract before lifecycle initialization. This correction also requires the
 complete DEV route before the next review.
+
+### 2026-08-13 — D54 formal qualification terminal
+
+Local commit `9fe27bbd22cda34938e3e91c6c09ea72bf5a18e7` records the reviewed
+explicit-root Build target. Clean index/main state and reconciliation of both
+registered worktrees relinquished the Build writer. The Fresh Evidence Session
+then independently rebound the final ruleset, runner/checker, candidate/control,
+workspace/writer, permission, and predecessor identities and created only the
+fresh formal carrier `formal-f00`.
+
+The single authorized formal qualification returned exit 86 at `bootstrap`
+with `Index was outside the bounds of the array.` It did not enter source
+materialization, finalization, predecessor import, private 24/24, tracked
+32/32, aggregate 56/56, lifecycle consumption, or synthetic dispatch. Three
+formal-orchestrator pin rows placed `Join-Path` directly inside positional
+arrays. PowerShell consumed the intended hash and label as additional
+`ChildPath` arguments, leaving one path value; the subsequent `$pin[2]` access
+failed. This is a controller/bootstrap defect, not SOURCE, candidate, or
+product evidence.
+
+No root contract or lifecycle `d54-terminal.json` was created; the sealed
+summary records `terminal=null`. Model contexts, `thread/start`, `turn/start`,
+and assessor starts are all zero, and canary/product/assessor were not
+authorized or started. The sealed orchestrator, failure JSON, and failed
+summary SHA-256 values are respectively `b0ca7a5b...a2b5`,
+`d406e856...9d81`, and `f94c511b...2b39`. D54 is
+`QUALIFICATION_FAILED / PRODUCT_UNKNOWN`; `formal-f00` is immutable and may not
+be repaired, replaced, retried, or cleaned. No automatic D55 follows.
 
 ## Required Checks
 

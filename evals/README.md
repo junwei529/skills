@@ -337,6 +337,23 @@ total. Qualification or canary failure seals the Campaign before product and
 assessor. The Build Session supplies no formal evidence and D51-D53 remain
 immutable.
 
+Local commit `9fe27bb...` recorded that reviewed Build target and clean all-
+worktree reconciliation relinquished its writer. The Fresh Evidence Session
+then rebound the final identities and created only `formal-f00`. Its single
+formal qualification returned exit 86 at `bootstrap` before materialization,
+private 24/24, tracked 32/32, aggregate 56/56, lifecycle consumption, or
+synthetic dispatch. Three `Join-Path` expressions embedded in positional pin
+arrays bound the hash and label as extra `ChildPath` arguments; the resulting
+single-value pin made the subsequent `$pin[2]` access fail. This ignored-
+orchestrator bootstrap defect is not a candidate or product finding.
+
+D54 is therefore sealed `QUALIFICATION_FAILED / PRODUCT_UNKNOWN`. Model
+contexts, `thread/start`, `turn/start`, and assessor starts are all zero;
+canary, product, and assessor were not authorized or started. The sealed
+orchestrator, failure JSON, and failed summary remain byte-bound and immutable.
+Do not repair, replace, rerun, or clean `formal-f00`; no D55 follows
+automatically.
+
 A qualification-only or transport-canary-only stop receives no independent
 product assessor. A sealed carrier/result is not repaired or reviewed in place;
 only changed tracked implementation for a successor or a tracked closeout diff

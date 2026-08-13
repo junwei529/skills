@@ -2,24 +2,24 @@
 
 Date: 2026-08-02
 Amended: 2026-08-13
-Status: accepted through authorized D54 explicit-root Build and post-commit Evidence transition; D40-D50 and D51-01 through D51-03 remain immutable, D51's three inner-only canary turns remain consumed, D52 and D53 are `QUALIFICATION_FAILED / PRODUCT_UNKNOWN`, D54 DEV qualification is non-formal, and exact candidate `c481005...` remains unaccepted
+Status: accepted through the sealed D54 formal-qualification terminal; D40-D50 and D51-01 through D51-03 remain immutable, D51's three inner-only canary turns remain consumed, D52-D54 are `QUALIFICATION_FAILED / PRODUCT_UNKNOWN`, and exact candidate `c481005...` remains unaccepted
 
-- Planning checkpoint: 37 (D54 explicit-root Build and Fresh Evidence transition)
-- Last incorporated decision: `WC-AR-D54-EXPLICIT-ROOT-CONTRACT`; it is a new
-  successor Campaign and does not repair, retry, rescore, or reinterpret D53
-- Open decision: none inside the authorized D54 path. The Build Session may
-  complete its bounded commit and mechanically create one Fresh Evidence
-  Session. Formal qualification and later scarce evidence remain governed by
-  the stop conditions below
-- Lifecycle authority: the D54 Build lease
-  `D54-explicit-root-build@main/d4374b381444b85fff4941e73cf7a8d32f18a96e`
-  owns only the named implementation, mapped documentation, and ignored DEV
-  root through the authorized local commit. It becomes `RELINQUISHED` only
-  after that commit and attributable reconciliation across every registered
-  worktree; one clean checkout is insufficient, and missing or conflicting
-  evidence is `UNKNOWN`. The Fresh Evidence Session receives no repository
-  writer authority. Consult `docs/HANDOFF.md` for the exact
-  commit, path-set, all-worktree, and recovery boundary
+- Planning checkpoint: 38 (D54 formal failure-only closeout)
+- Last incorporated decision: the user-approved D54 failure-only closeout;
+  it records the sealed result and creates no repair, retry, product evidence,
+  or successor authority
+- Open decision: none inside this closeout. Any successor remains a separate
+  user decision; no D55 follows automatically
+- Lifecycle authority: the D54 Build lease is `RELINQUISHED` after local
+  commit `9fe27bb...` and clean reconciliation across both registered
+  worktrees. The Fresh Evidence Session completed its formal result without
+  repository writer authority.
+  Bounded lease
+  `D54-failure-only-closeout@main/9fe27bbd22cda34938e3e91c6c09ea72bf5a18e7`
+  owns only the sanitized terminal report and existing mapped factual,
+  authority, verification, recovery, and writer consumers through one local
+  closeout commit. Consult `docs/HANDOFF.md` for its exact path-set,
+  all-worktree test, and relinquishment boundary
 - Checkpoint reason: completed product-design decision set plus the accepted
   native-package/user-activation, project-read, mapping-qualification, and
   immutable-evidence boundaries
@@ -2768,6 +2768,30 @@ Formal qualification or canary failure seals the Campaign and forbids product
 and assessor. Ruleset, candidate, workspace, writer, permission, budget, or
 other material-boundary drift returns to the user; no automatic D55 or review-
 budget reset follows.
+
+The Build gate completed and local commit
+`9fe27bbd22cda34938e3e91c6c09ea72bf5a18e7` recorded the reviewed explicit-
+root target. Clean reconciliation across both registered worktrees
+relinquished its writer, and the mechanically created Fresh Evidence Session
+rebound the final ruleset, runner/checker, candidate/control, workspace/writer,
+permission, and predecessor identities without obtaining repository writer
+authority.
+
+That Session created only `formal-f00`. Its single formal qualification
+returned exit 86 at `bootstrap`, before materialization, finalization,
+predecessor import, private 24/24, tracked 32/32, aggregate 56/56, lifecycle
+consumption, or synthetic dispatch. Three `Join-Path` calls embedded in
+positional pin arrays bound each expected hash and label as additional
+`ChildPath` arguments; the resulting single-value pin made `$pin[2]` fail.
+This is an ignored formal-orchestrator bootstrap defect, not a Work Charter
+candidate or product finding.
+
+No root contract or lifecycle terminal was created. Model contexts,
+`thread/start`, `turn/start`, and assessor starts are all zero; canary, product,
+and assessor were not authorized or started. D54 is sealed
+`QUALIFICATION_FAILED / PRODUCT_UNKNOWN`. The `formal-f00` orchestrator,
+failure JSON, and failed summary are byte-bound and immutable. They are not
+repaired, replaced, rerun, or cleaned, and D55 does not start automatically.
 
 ## Important Rejected Alternatives
 
