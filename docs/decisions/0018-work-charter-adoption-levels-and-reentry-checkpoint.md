@@ -2401,6 +2401,267 @@ rescore, replacement assessor, automatic D53, or transfer of unused budget.
 The evaluation line stops unless the user later authorizes one new complete
 successor Campaign.
 
+### WC-AR-D53-LAYERED-AUTHORIZATION-LIFECYCLE — Successor Gate 2 Campaign
+
+**Confirmed.** On 2026-08-12 the user explicitly authorized one complete D53
+successor Campaign for the unchanged stable subject. Exact candidate
+`c4810057c3f28cca9f12004ca2018784cd21f449`, five-file manifest
+`04c382a48e43897a8806aa5ffd996984cb015d3d8cdc6e675e9181a6d94e6f44`,
+and released control `ceed607152849775b981c54add74bfa30d858e4d` remain
+unchanged. The required starting HEAD is
+`0d63818bcbca78ff5e7f5b54a1fb2eaa2b518994` on clean `main` with an empty
+index and no repository writer. D31-D50, D51-01 through D51-03, and D52 remain
+immutable. D52's terminal receipt
+`7c12bbdb8901b3ec825a8e671b43d21fa6c7b1a78761a7df4b824cb9397abd4d`,
+both consumed corrections, and zero `turn/start` remain predecessor facts; D53
+is a successor authority revision, not a retry, correction-budget reset,
+replay, rescore, or acceptance transfer.
+
+D53's outcome is one evaluation-infrastructure-only Gate 2 attempt that binds
+the existing tracked outer runner and every private producer/consumer to this
+single authorization lifecycle, in order:
+
+1. `ZERO_MODEL_QUALIFICATION_PENDING`;
+2. `CANARY_AUTHORIZED_AFTER_QUALIFICATION`;
+3. `FREEZE_PENDING_AFTER_CANARIES`;
+4. `PRE_PRODUCT_FROZEN_AWAITING_CAMPAIGN_ACTIVATION`;
+5. `PRODUCT_AUTHORIZED_BY_APPROVED_CAMPAIGN`; and
+6. `TERMINAL`.
+
+The tracked runner is the canonical deterministic policy owner. It exposes the
+six-state policy and one hash so private materialization derives it and every
+binding, authority snapshot, carrier manifest, and frozen-input manifest
+validates the same policy. D52-only pending/freeze states, a stale `23/23`
+threshold, a missing or altered transition, and a wrong lifecycle hash fail
+before receipt issuance or child start. The lifecycle records authority state;
+it neither validates itself nor transfers action authority from installed
+Work Charter `v0.1.2` to the candidate.
+
+The runner divides the sixteen model phases into three independent dispatch
+segments: three canaries, twelve product contexts, and one assessor. No next-
+dispatch descriptor may cross a segment boundary. A real canary segment also
+requires the exact formal 56/56 receipt. A real product or assessor segment
+recursively validates that receipt, the exact three-route canary gate, the
+post-canary freeze manifest, and a product-activation receipt bound to both the
+freeze and this Campaign contract. Assessor entry additionally requires an
+exact 28/28 admitted product packet, a packet-bound assessor view, a passing
+local disclosure review, and an eligibility receipt bound to all three. The
+zero-model lifecycle validator accepts an explicit evidence root only as a
+diagnostic and returns no action authority. The action-provenance path accepts
+only the exact D53 evidence root and recursively revalidates each canary's
+binding, authority/carrier/frozen artifacts, argv and successor descriptor,
+consumed receipt, completed typed-zero dispatch state, and committed runner
+identity, including the inner no-clobber consumption claim bound to dispatch
+and phase. Reset-cycle review 4/5 established that this persisted chain does not
+by itself authenticate action provenance against a process that can write the
+exact private root after the live outer capability has expired. At that review
+boundary product remained blocked until a newer authority either preserved one
+tracked live controller capability across segment boundaries or named an
+independently trusted external anchor; merely adding another carrier hash was
+not a correction.
+The `TERMINAL` transition requires a typed, lifecycle-bound terminal receipt
+with bounded correction/model counters and a non-accepting disposition, or, for
+`ACCEPTED` only, the complete product, eligibility, and accepted-assessor chain.
+Every non-accepting disposition must match its immediately preceding lifecycle
+state; the frozen pre-product activation boundary has the distinct terminal
+`ACTIVATION_FAILED / PRODUCT_UNKNOWN`.
+An accepted assessment is hash-bound to the assessor eligibility and view plus
+the consumed `assessor-terra-high` outer receipt, inner consumption claim, and
+typed-zero completed dispatch state; diagnostic validation without exact-root
+action provenance cannot validate acceptance. The canary gate also records the
+configured receipt maximum age, and every later action-provenance check must
+reuse that exact value rather than reverting to a default.
+Within one segment the outer process owns one persistent input reader. Each
+phase reads exactly its own initialize/thread/turn requests through its local
+`phase_complete`, returns one typed exit, and only then dispatches its bound
+successor, which continues from the same reader without replaying or consuming
+another phase's lines. The tracked positive executes the complete three-phase
+protocol shape under a distinct `qualification-segment-*` namespace. Synthetic
+adapters remain forbidden for all real canary/product/assessor phase names and
+cannot create production receipt evidence. Before assessor eligibility, the admitted packet must list all
+twelve product phases in policy order with exact model, effort, turn count,
+verdict, outer-receipt hash, dispatch-state hash, and inner-consumption hash.
+An accepted terminal reopens every referenced product artifact and revalidates
+all twelve completed one-shot dispatches; aggregate score fields alone cannot
+authorize acceptance. That reopening does not recursively re-enter lifecycle
+transition validation, but it always reapplies the committed static production
+policy to each binding/carrier/frozen set: policy hash, phase ordinal, model,
+effort, turn and remaining budgets, successor, operation, and executable anchor
+must still match the exact phase policy.
+
+**Material Replan Delta confirmed 2026-08-13.** The user explicitly authorized
+the live-controller resolution under this same D53 Campaign. It preserves the
+outcome, exact candidate/control/evidence identities, twelve tracked paths,
+private root, correction and model budgets, acceptance, integration policy,
+and excluded effects above; it resets no review, correction, model, canary,
+product, or assessor history. The tracked runner now exposes one `Campaign`
+entry that stays alive across canary, product, assessor, and terminal control.
+Its unpersisted object capability owns the exact next segment, completed-
+segment set, and full phase-evidence fingerprints. The private carrier may send
+only exact newline-delimited `dispatch_segment` commands for `canary`,
+`product`, or `assessor` in that order, followed by `validate_terminal`; the
+controller derives every route, phase root, operation, and executable anchor
+from tracked policy and rejects caller-supplied execution or lifecycle paths.
+
+Within each segment the existing one-shot receipts, typed exits, same-reader
+successors, and artifact checks remain unchanged. After a typed-zero segment
+return, the live controller reopens every phase artifact, reapplies the static
+production policy, hashes the binding, authority, carrier, frozen inputs, argv,
+receipt, consumption claim, dispatch state, and successor descriptor, and
+records those fingerprints only in memory. Product entry requires the live
+canary completion plus byte-identical current fingerprints; assessor entry
+requires the live product completion and twelve-route packet; accepted terminal
+validation requires all live canary, product, and assessor fingerprints. A
+direct production `Outer`, direct action-provenance validator, product-first
+command, self-consistent persisted JSON chain, stale fingerprint, or caller-
+selected route therefore cannot advance action. Persisted records remain audit
+evidence, not an independent action capability, and this controller is not a
+signature service or transferable authorization anchor.
+
+The focused gate remains 32/32 and now includes rejection of direct diagnostic
+JSON as action provenance and product-first Campaign dispatch. Reset-cycle
+review 5/5 completed and returned one P1 alleging that initial segment
+completion requested live-fingerprint validation before recording those
+fingerprints. The reviewed call did not pass `RequireLiveCampaignEvidence`,
+whose switch default was false, so direct source adjudication did not reproduce
+the alleged control path. The predeclared finding stop nevertheless applied:
+no correction, repeat review, commit, private root, or Layer A action followed.
+
+**Review-finding disposition/reset confirmed 2026-08-13.** The user explicitly
+authorized one new native-review cycle of at most five completed semantic
+reviews for this same twelve-file D53 commit attempt. All earlier reviews,
+findings, approvals, and budgets remain cumulative. The only initial correction
+is to make the existing behavior explicit with
+`-RequireLiveCampaignEvidence:$false` during the static initial-completion
+pass; live revalidation remains mandatory only after the controller records the
+phase fingerprint. The existing zero-model gates must pass against those final
+bytes before review. Clear same-scope findings may be corrected within this
+new review cycle; exhausted review budget, a repeated material finding, or any
+change to outcome, tracked/private scope, candidate, authority, evidence
+consumption, correction/model budgets, acceptance, integration, or excluded
+effects stops at another user decision. A clean completed final-byte review
+permits local commit 1 and the already authorized Layer A transition.
+
+New-cycle review 1/5 found two same-scope P1 terminal-closeout gaps. First, a
+non-accepting terminal returned before validating the evidence chain for its
+declared `previous_state`. Every terminal now validates that predecessor before
+acceptance-specific checks; the focused gate accepts a canary-failure terminal
+with the exact formal qualification and rejects the same terminal when that
+receipt is absent. Second, a typed nonzero child exit ended the `Campaign`
+process before the private carrier could send `validate_terminal`. The live
+controller now records the failed segment and typed exit, advances only to a
+terminal-wait state, emits a `segment_failed` control result, and continues
+reading. Terminal validation must match the live failed segment; only after it
+passes does the controller return the original nonzero exit. The focused gate
+remains 32/32, including an AST guard against the prior early-return shape.
+New-cycle review 2/5 then found that `validate_terminal` could run while the
+live controller still expected `canary`, `product`, or `assessor`, allowing an
+early non-accepting terminal to bypass segment progression. Terminal validation
+now requires `NextSegment == terminal`, which is reached only by a recorded
+segment failure or successful completion of all three segments. The focused
+gate rejects an initial terminal command and remains 32/32. Three reviews remain
+in the new cycle.
+
+The sole tracked writer owns only
+`evals/invoke-work-charter-gate2.ps1`,
+`evals/check-work-charter-gate2-runner.ps1`, and
+`evals/check-fixtures.ps1`, plus the mapped documentation files named below.
+It reuses the existing tracked owner and creates no new tracked runner, case,
+fixture, matrix, rubric, scorer, or controller module. Private writes are
+contained under ignored root
+`.eval-runs/work-charter-v0.2-c481005-gate2-d53-layered-authorization/`.
+No other tracked or private path is writable by this Campaign.
+
+The first tranche is zero-model tracked implementation and qualification. The
+focused runner gate must pass 32/32: all retained D52 outer-positive, typed
+child-exit, exactly-once dispatch, direct-inner, absent, stale, wrong-phase,
+wrong-hash, reused-receipt, executable, argv, artifact, protocol, and committed-
+runner conditions plus eight D53 lifecycle conditions: exact positive;
+wrong qualification state; wrong canary transition; wrong freeze state; wrong
+activation state; stale `23/23` threshold; predecessor-only state leakage; and
+lifecycle policy/hash mismatch. Fixture consumption remains 18/18. PowerShell
+AST parsing, repository checker, diff check, Gitleaks, and one normal native-
+review cycle of at most five completed reviews must pass. No review-count reset
+is preauthorized. On success the writer creates exactly one local commit with
+message `evals: bind Work Charter Gate 2 authorization lifecycle` before any
+private rehearsal or formal carrier exists.
+
+Private qualification is deliberately layered. Layer A is a disposable full-
+chain rehearsal mirror: `r00`, followed only when each repeat names a concrete
+risk reduction by at most `r01`, `r02`, and `r03`. These are three private
+rehearsal correction rounds, distinct from D52 and from formal Layer B. Removal
+of a generated cache under the rehearsal root before its manifest/freeze does
+not consume a formal correction; recurrence of the same cache indicates a
+builder defect and stops unchanged repetition. Layer A must exercise the real
+materializer, finalizer, lifecycle producer/consumer handoff, qualification
+gate, containment, and absence of model calls without writing outside its
+declared mirror.
+
+Layer B begins only after Layer A passes. It owns fresh formal carrier `f00`
+and at most two formal corrections, `f01` and `f02`. A formal correction may
+change only private policy, configuration, or materialization under the D53
+root. It cannot change tracked files, SOURCE, candidate, cases, fixtures,
+matrix, rubric, scorer/controller contract, permissions, workspace, model or
+cost budget, or acceptance. Formal qualification is one indivisible 56/56
+receipt: the retained 24 private deterministic conditions are re-executed in
+the fresh D53 carrier and combined with the current tracked 32/32 runner gate.
+No predecessor receipt or partial result supplies D53 credit. A repeated
+material failure, exhausted Layer A or B budget, unexplained delta, containment
+failure, contract drift, or inability to produce the exact 56/56 receipt seals
+D53 `QUALIFICATION_FAILED / PRODUCT_UNKNOWN` with no scarce evidence.
+
+Only the formal 56/56 receipt authorizes the same outer runner to dispatch the
+three-phase non-product canary segment in order: `Sol/high`, `Sol/xhigh`, and
+`Terra/high`. They consume at most three fresh contexts and three `turn/start`.
+The third canary has no product successor descriptor. A complete canary gate advances to
+`FREEZE_PENDING_AFTER_CANARIES`; successful freeze records
+`PRE_PRODUCT_FROZEN_AWAITING_CAMPAIGN_ACTIVATION`; the already approved D53
+Campaign plus matching frozen evidence then permits
+`PRODUCT_AUTHORIZED_BY_APPROVED_CAMPAIGN` and a separate twelve-phase product
+segment. The assessor is a third one-phase segment after its eligibility packet
+exists. No separate chat approval is needed for these predeclared transitions,
+but every model dispatch and transition-evidence validation passes through the
+same tracked outer runner and lifecycle hash. Receipt consumption occurs once
+inside the tracked inner entry before the child starts. Scarce evidence is
+consumed only when the receipt-bound client submits that phase's first
+`turn/start`.
+
+D49 A01-A17 may be imported only through their immutable provenance rows and
+are not replayed. Fresh product evidence has twelve contexts and fourteen
+`turn/start`: two for candidate calibration, two for scored released-control
+A18, and one each for A19, A20, B01-B04, and C01-C04. One eligible `Terra/high`
+assessor has one context and one `turn/start` only after the required admitted
+packet. Total D53 fresh budget is sixteen contexts and eighteen `turn/start`.
+Unused budget expires and does not transfer. The scored combined packet must
+reach 28/28, candidate calibration must pass, and the sole assessor must return
+`ACCEPTED`; aggregate scoring cannot compensate for an authorization, safety,
+identity, route, freeze, or evidence-integrity failure.
+
+Terminal closeout may create one sanitized
+`evals/results/2026-08-12-work-charter-d53-gate2-terminal.md`, update the mapped
+canonical consumers, run their deterministic checks and a separate normal
+native-review cycle of at most five completed reviews with no preauthorized
+reset, then create exactly one second local commit with message
+`docs: record Work Charter D53 Gate 2 result`. Recovery preserves exact HEAD,
+index, dirty paths, ignored D53 inventory, lifecycle/qualification receipts,
+correction use, every consumed context/turn, and current writer before any
+continuation or handoff. Any unsupported host/model route, ruleset/HEAD/branch/
+cwd/dirty/writer/candidate/freeze/evidence drift, unowned write, ambiguous
+consumption, material permission/cost/acceptance change, exhausted budget, or
+native-review blocker stops at the applicable terminal or user decision.
+
+Mapped documentation disposition for the tracked tranche is `UPDATE` for this
+decision, `evals/README.md`, Work Charter State and Verification, root Status,
+Verification, Roadmap, Index, and Handoff. `CHECKED_NO_CHANGE` applies to root
+and Skill README pairs, Authority, SPEC, Architecture, Runbook, Provenance,
+Decisions 0017/0020, Work Charter SOURCE/Design/cases/fixtures/matrix/rubric/
+scorer/controller/package files, and the result index before a terminal result
+exists. `NOT_APPLICABLE` covers discovery, installation, push, PR, merge, tag,
+release, stable-copy change, cleanup, public publication, SOURCE behavior
+change, predecessor mutation, and automatic D54. Those effects remain
+excluded, as do raw prompt/completion/session publication, hidden predecessor
+reinterpretation, replacement assessment, and any unlisted external effect.
+
 ## Important Rejected Alternatives
 
 - Require exact `$work-charter` syntax from users.

@@ -1,6 +1,6 @@
 # Repository Handoff
 
-Last updated: 2026-08-12
+Last updated: 2026-08-13
 
 ## Snapshot
 
@@ -13,6 +13,54 @@ Last updated: 2026-08-12
   then exhausted both private corrections and failed full-lane zero-model
   qualification before the aggregate 48/48 receipt; no canary, freeze, product,
   or assessor turn started. D52 is `QUALIFICATION_FAILED / PRODUCT_UNKNOWN`
+- Explicitly authorized successor `WC-AR-D53-LAYERED-AUTHORIZATION-LIFECYCLE`
+  preserves that terminal and is active only in its tracked zero-model tranche.
+  Its existing outer runner must expose and enforce the exact six-state
+  lifecycle, keep canary/product/assessor in separate dispatch segments, bind
+  the 56/56 -> canary -> freeze -> Campaign-activation evidence chain, and pass
+  32/32 before any private rehearsal, formal 56/56 receipt, canary, freeze,
+  product, or assessor activity. Its first native-review cycle is now exhausted:
+  review 5/5 found and the writer corrected an unbound accepted-assessor route
+  and a hard-coded receipt-age revalidation. Focused 32/32 passes after those
+  fixes, but final-byte review, local commit 1, and every private/model tranche
+  were blocked at the review-budget gate. The user explicitly approved one
+  reset for this exact twelve-file commit attempt. Reset-cycle review 1/5
+  found two P1 gaps: no deterministic proof that one stdin could carry a full
+  multi-phase segment, and no accepted-terminal validation of all twelve
+  product dispatches. The runner now owns one persistent segment reader, the
+  focused gate completes a three-phase test-only qualification segment, and acceptance requires
+  a twelve-route product ledger plus each bound completed dispatch. Focused
+  32/32 passes. Review 2/5 then found that the simulator had been admitted
+  under production phase names; it is now confined to `qualification-segment-*`,
+  while a new negative proves every real production phase rejects it before
+  receipt/state creation. Review 3/5 found that completed-route acceptance
+  skipped the static production-policy assertion. The corrected path suppresses
+  only recursive lifecycle re-entry and still revalidates phase, model, effort,
+  turn budget, successor, and policy hash. Review 4/5 found one P1: across
+  segment boundaries, writable carrier JSON could not authenticate a prior live
+  dispatch without a surviving controller capability or external trust anchor.
+  Its P2 terminal-state/disposition mismatch is corrected. On 2026-08-13 the
+  user explicitly approved the material live-controller Replan Delta. One
+  tracked `Campaign` process now retains an unpersisted segment-order and phase-
+  fingerprint ledger across canary, product, assessor, and accepted-terminal
+  validation; direct production `Outer`, diagnostic action provenance, self-
+  consistent JSON, and product-first dispatch fail closed. Focused 32/32 passes.
+  Reset-cycle review 5/5 then stopped on one P1 alleging that initial segment
+  completion checked the live ledger before recording it. The call omitted
+  that switch and its default was false, so the claimed path was not reproduced;
+  the hard stop still applied. The user authorized one new review cycle for the
+  same twelve-file attempt. Initial completion now passes the false switch
+  explicitly. New-cycle review 1/5 then found that non-accepting terminals did
+  not validate their predecessor chain and that child nonzero exited before
+  live terminal closeout. Both are corrected: every terminal validates its
+  predecessor, while a failed segment retains the controller, emits its typed
+  exit, waits for a matching terminal, and returns the original exit only after
+  validation. New-cycle review 2/5 then found that `validate_terminal` could
+  arrive before any failure or completion of all three segments. The controller
+  now requires its live `NextSegment` to be `terminal`; the focused gate rejects
+  the early command and remains 32/32. Three reviews remain. A clean new-cycle
+  final-byte review permits local commit 1 and Layer A; all previous findings
+  and budgets remain cumulative
 - Exact predecessor `b3ad360...` and its D41 packet remain immutable and
   unaccepted
 - Released package identity: immutable `v0.1.2` at
@@ -24,15 +72,17 @@ Last updated: 2026-08-12
   5 files, each matching the `v0.1.2` Git blobs
 - Rollback identity: immutable `v0.1.1` retained as a separately verified
   three-package backup
-- Writer handoff boundary: one D52 Campaign writer owns only the mapped
-  sanitized closeout diff and local commit 2 gate. Local commit 1 is
-  `410b0bd1f361688e4444ced48e0e9451be1787d6`; the fresh private carrier is
-  retained at its failed zero-model qualification terminal with both corrections
-  consumed and zero `turn/start`. D31-D50, D51-01 through D51-03,
-  and every consumed turn/carrier remain immutable. Skill SOURCE, behavior
-  cases, fixtures, matrix, rubric, controller module, other Skills, user
-  configuration, push, installation, tag, release, stable update, cleanup,
-  D53, and unlisted external effects remain excluded
+- Writer handoff boundary: one D53 Campaign writer owns the three tracked
+  runner/checker files and mapped authorization documentation through local
+  commit 1 `evals: bind Work Charter Gate 2 authorization lifecycle`. D53's
+  private root must remain absent until that commit succeeds. D52 local runner
+  commit `410b0bd1f361688e4444ced48e0e9451be1787d6` and its failed private
+  carrier remain immutable with both corrections consumed and zero
+  `turn/start`. D31-D50, D51-01 through D51-03, and every consumed turn/carrier
+  remain immutable. Skill SOURCE, behavior cases, fixtures, matrix, rubric,
+  scorer/controller module, other Skills, user configuration, push,
+  installation, tag, release, stable update, cleanup, D54, and unlisted
+  external effects remain excluded
 - Ignored-carrier boundary: one opaque ordinary controller-scratch directory
   predates this writer window. Its provenance remains `UNKNOWN`; this task read
   metadata only and did not open, reinterpret, or clean the carrier. Native

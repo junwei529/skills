@@ -1,36 +1,26 @@
 [CmdletBinding()]
 param(
-    [ValidateSet('Outer', 'Inner')]
+    [ValidateSet('Campaign', 'Outer', 'Inner', 'DescribeLifecycle', 'ValidateLifecycle')]
     [string]$Mode = 'Outer',
 
-    [Parameter(Mandatory)]
     [string]$BindingPath,
 
-    [Parameter(Mandatory)]
     [string]$AuthoritySnapshotPath,
 
-    [Parameter(Mandatory)]
     [string]$CarrierManifestPath,
 
-    [Parameter(Mandatory)]
     [string]$FrozenInputsPath,
 
-    [Parameter(Mandatory)]
     [string]$ReceiptPath,
 
-    [Parameter(Mandatory)]
     [string]$DispatchStatePath,
 
-    [Parameter(Mandatory)]
     [string]$ExpectedPhase,
 
-    [Parameter(Mandatory)]
     [string]$ChildExecutablePath,
 
-    [Parameter(Mandatory)]
     [string]$ChildOperationId,
 
-    [Parameter(Mandatory)]
     [ValidateSet(
         'd52-powershell-current',
         'd52-windows-whoami',
@@ -39,12 +29,25 @@ param(
     )]
     [string]$ChildExecutableAnchorId,
 
-    [Parameter(Mandatory)]
     [string]$ChildArgumentsPath,
 
     [string]$ChildWorkingDirectory,
 
     [string]$NextDispatchPath,
+
+    [string]$LifecycleEvidenceRoot,
+
+    [ValidateSet(
+        'ZERO_MODEL_QUALIFICATION_PENDING',
+        'CANARY_AUTHORIZED_AFTER_QUALIFICATION',
+        'FREEZE_PENDING_AFTER_CANARIES',
+        'PRE_PRODUCT_FROZEN_AWAITING_CAMPAIGN_ACTIVATION',
+        'PRODUCT_AUTHORIZED_BY_APPROVED_CAMPAIGN',
+        'TERMINAL'
+    )]
+    [string]$ExpectedLifecycleState,
+
+    [switch]$RequireActionProvenance,
 
     [ValidateRange(1, 3600)]
     [int]$ReceiptMaxAgeSeconds = 300
@@ -53,7 +56,7 @@ param(
 $ErrorActionPreference = 'Stop'
 $script:RunnerFailureExitCode = 86
 $script:StrictUtf8 = [System.Text.UTF8Encoding]::new($false, $true)
-$script:CampaignId = 'WC-AR-D52-TRACKED-OUTER-DISPATCH'
+$script:CampaignId = 'WC-AR-D53-LAYERED-AUTHORIZATION-LIFECYCLE'
 $script:StableSubject = 'Work Charter v0.2.0 exact candidate'
 $script:CandidateCommit = 'c4810057c3f28cca9f12004ca2018784cd21f449'
 $script:CandidateManifestSha256 = '04c382a48e43897a8806aa5ffd996984cb015d3d8cdc6e675e9181a6d94e6f44'
@@ -62,11 +65,15 @@ $script:UserProfileRoot = $env:USERPROFILE
 $script:CampaignContractPath = Join-Path $script:RepositoryRoot `
     'docs\decisions\0018-work-charter-adoption-levels-and-reentry-checkpoint.md'
 $script:PrivateCarrierRoot = Join-Path $script:RepositoryRoot `
-    '.eval-runs\work-charter-v0.2-c481005-gate2-d52-single-entry'
+    '.eval-runs\work-charter-v0.2-c481005-gate2-d53-layered-authorization'
 $script:RunnerRepositoryPath = 'evals/invoke-work-charter-gate2.ps1'
 $script:ZeroModelQualificationPhase = 'runner-zero-model-qualification'
+$script:PredecessorTerminalReceiptSha256 = `
+    '7c12bbdb8901b3ec825a8e671b43d21fa6c7b1a78761a7df4b824cb9397abd4d'
 $script:ProductionDispatchDepth = 0
 $script:OuterInnerCapability = $null
+$script:ActiveCampaignController = $null
+$script:SegmentInputReader = [Console]::In
 $script:RulesetSources = @(
     [pscustomobject]@{
         Locator = '~/.codex/AGENTS.md'
@@ -350,6 +357,745 @@ function Get-RulesetSha256 {
     return Get-TextSha256 -Text ($rows -join "`n")
 }
 
+function Get-AuthorizationLifecycleStates {
+    $definitions = @(
+        @(
+            'ZERO_MODEL_QUALIFICATION_PENDING',
+            'CANARY_AUTHORIZED_AFTER_QUALIFICATION',
+            'tracked-zero-model-gate'
+        ),
+        @(
+            'CANARY_AUTHORIZED_AFTER_QUALIFICATION',
+            'FREEZE_PENDING_AFTER_CANARIES',
+            'three-canary-chain'
+        ),
+        @(
+            'FREEZE_PENDING_AFTER_CANARIES',
+            'PRE_PRODUCT_FROZEN_AWAITING_CAMPAIGN_ACTIVATION',
+            'post-canary-freeze'
+        ),
+        @(
+            'PRE_PRODUCT_FROZEN_AWAITING_CAMPAIGN_ACTIVATION',
+            'PRODUCT_AUTHORIZED_BY_APPROVED_CAMPAIGN',
+            'campaign-activation-gate'
+        ),
+        @(
+            'PRODUCT_AUTHORIZED_BY_APPROVED_CAMPAIGN',
+            'TERMINAL',
+            'product-and-assessor-chain'
+        ),
+        @('TERMINAL', '', 'terminal-closeout')
+    )
+    $result = [System.Collections.Generic.List[object]]::new()
+    for ($index = 0; $index -lt $definitions.Count; $index++) {
+        $definition = $definitions[$index]
+        $result.Add([pscustomobject]@{
+            Ordinal = $index + 1
+            State = [string]$definition[0]
+            NextState = [string]$definition[1]
+            Boundary = [string]$definition[2]
+        })
+    }
+    return $result.ToArray()
+}
+
+function Get-AuthorizationLifecyclePolicySha256 {
+    $rows = [System.Collections.Generic.List[string]]::new()
+    foreach ($row in @(
+        'work-charter-d53-authorization-lifecycle/v1',
+        $script:CampaignId,
+        $script:StableSubject,
+        $script:CandidateCommit,
+        $script:CandidateManifestSha256,
+        $script:PredecessorTerminalReceiptSha256,
+        'qualification|56|56',
+        'evidence|formal-qualification.json|work-charter-d53-formal-qualification/v1',
+        'evidence|transport-canary-batch-result.json|work-charter-d53-canary-gate/v1',
+        'evidence|freeze-manifest.json|work-charter-d53-freeze/v1',
+        'evidence|model-activity-authorization.json|work-charter-d53-product-activation/v1',
+        'evidence|terminal-packet.json|work-charter-d53-admitted-product-packet/v1',
+        'evidence|assessor-view.json|work-charter-d53-assessor-view/v1',
+        'evidence|assessor-view-local-review.json|work-charter-d53-assessor-view-review/v1',
+        'evidence|assessor-eligibility.json|work-charter-d53-assessor-eligibility/v1',
+        'evidence|d53-terminal.json|work-charter-d53-terminal/v1',
+        "production-policy|$(Get-ProductionPolicySha256)"
+    )) {
+        $rows.Add([string]$row)
+    }
+    foreach ($state in Get-AuthorizationLifecycleStates) {
+        $rows.Add((@(
+            'state', $state.Ordinal, $state.State, $state.NextState, $state.Boundary
+        ) -join '|'))
+    }
+    return Get-TextSha256 -Text ($rows.ToArray() -join "`n")
+}
+
+function Get-AuthorizationLifecycleActiveState {
+    param([AllowEmptyString()][string]$Phase)
+
+    if (Test-IsAuthorizedProductionPhase -Phase $Phase) {
+        if ($Phase.StartsWith('canary-', [StringComparison]::Ordinal)) {
+            return 'CANARY_AUTHORIZED_AFTER_QUALIFICATION'
+        }
+        return 'PRODUCT_AUTHORIZED_BY_APPROVED_CAMPAIGN'
+    }
+    return 'ZERO_MODEL_QUALIFICATION_PENDING'
+}
+
+function Get-AuthorizationLifecycleEnvelope {
+    param([AllowEmptyString()][string]$Phase)
+
+    return [ordered]@{
+        schema_version = 'work-charter-d53-authorization-lifecycle/v1'
+        campaign_id = $script:CampaignId
+        stable_subject = $script:StableSubject
+        candidate_commit = $script:CandidateCommit
+        candidate_manifest_sha256 = $script:CandidateManifestSha256
+        predecessor_terminal_receipt_sha256 = $script:PredecessorTerminalReceiptSha256
+        policy_sha256 = Get-AuthorizationLifecyclePolicySha256
+        qualification = [ordered]@{
+            required_passed = [long]56
+            required_total = [long]56
+        }
+        active_state = if ([string]::IsNullOrEmpty($Phase)) {
+            $null
+        }
+        else {
+            Get-AuthorizationLifecycleActiveState -Phase $Phase
+        }
+        states = @(
+            Get-AuthorizationLifecycleStates | ForEach-Object {
+                [ordered]@{
+                    ordinal = [long]$_.Ordinal
+                    state = $_.State
+                    next_state = $_.NextState
+                    boundary = $_.Boundary
+                }
+            }
+        )
+    }
+}
+
+function Assert-NoPredecessorAuthorizationState {
+    param(
+        [Parameter(Mandatory)][object]$Artifact,
+        [Parameter(Mandatory)][string]$Purpose
+    )
+
+    $rendered = ConvertTo-Json -InputObject $Artifact -Depth 100 -Compress
+    foreach ($predecessorState in @(
+        'PENDING_D52_TRACKED_OUTER_QUALIFICATION',
+        'PENDING_POST_FREEZE_CAMPAIGN_ACTIVATION',
+        'PRE_MODEL_FROZEN_AWAITING_CAMPAIGN_ACTIVATION',
+        'PRE_MODEL_FROZEN_AWAITING_MODEL_AUTHORIZATION'
+    )) {
+        if ($rendered.Contains($predecessorState, [StringComparison]::Ordinal)) {
+            throw "$Purpose contains a predecessor-only authorization state."
+        }
+    }
+}
+
+function Assert-AuthorizationLifecycleArtifact {
+    param(
+        [Parameter(Mandatory)][object]$Artifact,
+        [Parameter(Mandatory)][AllowEmptyString()][string]$Phase,
+        [Parameter(Mandatory)][string]$Purpose
+    )
+
+    Assert-NoPredecessorAuthorizationState -Artifact $Artifact -Purpose $Purpose
+    $observed = $Artifact.authorization_lifecycle
+    if ($null -eq $observed) {
+        throw "$Purpose omits the D53 authorization lifecycle."
+    }
+    $expected = Get-AuthorizationLifecycleEnvelope -Phase $Phase
+    foreach ($field in @(
+        'schema_version', 'campaign_id', 'stable_subject', 'candidate_commit',
+        'candidate_manifest_sha256', 'predecessor_terminal_receipt_sha256',
+        'policy_sha256', 'active_state'
+    )) {
+        if ([string]$observed.$field -cne [string]$expected.$field) {
+            throw "$Purpose authorization lifecycle field is mismatched: $field"
+        }
+    }
+    if ($null -eq $observed.qualification -or
+        [long]$observed.qualification.required_passed -ne 56 -or
+        [long]$observed.qualification.required_total -ne 56) {
+        throw "$Purpose authorization lifecycle qualification threshold is not 56/56."
+    }
+    $observedStates = @($observed.states)
+    $expectedStates = @($expected.states)
+    if ($observedStates.Count -ne $expectedStates.Count) {
+        throw "$Purpose authorization lifecycle state count is mismatched."
+    }
+    for ($index = 0; $index -lt $expectedStates.Count; $index++) {
+        foreach ($field in @('ordinal', 'state', 'next_state', 'boundary')) {
+            if ([string]$observedStates[$index].$field -cne
+                [string]$expectedStates[$index].$field) {
+                throw "$Purpose authorization lifecycle transition is mismatched at ordinal $($index + 1)."
+            }
+        }
+    }
+}
+
+function Assert-LifecycleEvidenceCommon {
+    param(
+        [Parameter(Mandatory)][object]$Record,
+        [Parameter(Mandatory)][string]$SchemaVersion,
+        [Parameter(Mandatory)][string]$State,
+        [Parameter(Mandatory)][string]$Purpose
+    )
+
+    Assert-NoPredecessorAuthorizationState -Artifact $Record -Purpose $Purpose
+    if ([string]$Record.schema_version -cne $SchemaVersion -or
+        [string]$Record.campaign_id -cne $script:CampaignId -or
+        [string]$Record.candidate_commit -cne $script:CandidateCommit -or
+        [string]$Record.candidate_manifest_sha256 -cne $script:CandidateManifestSha256 -or
+        [string]$Record.authorization_lifecycle_policy_sha256 -cne
+            (Get-AuthorizationLifecyclePolicySha256) -or
+        [string]$Record.state -cne $State) {
+        throw "$Purpose does not bind the authorized D53 lifecycle state."
+    }
+}
+
+function Get-LifecycleEvidenceSnapshots {
+    param([Parameter(Mandatory)][string]$EvidenceRoot)
+
+    $root = (Get-OrdinaryDirectory -Path $EvidenceRoot -Purpose 'lifecycle evidence root').FullName
+    return [ordered]@{
+        Root = $root
+        Qualification = Read-JsonSnapshot `
+            -Path (Join-Path $root 'formal-qualification.json') `
+            -Purpose 'formal qualification receipt'
+        Canary = if (Test-Path -LiteralPath (Join-Path $root 'transport-canary-batch-result.json')) {
+            Read-JsonSnapshot `
+                -Path (Join-Path $root 'transport-canary-batch-result.json') `
+                -Purpose 'transport canary gate receipt'
+        }
+        else { $null }
+        Freeze = if (Test-Path -LiteralPath (Join-Path $root 'freeze-manifest.json')) {
+            Read-JsonSnapshot `
+                -Path (Join-Path $root 'freeze-manifest.json') `
+                -Purpose 'freeze manifest'
+        }
+        else { $null }
+        Activation = if (Test-Path -LiteralPath (Join-Path $root 'model-activity-authorization.json')) {
+            Read-JsonSnapshot `
+                -Path (Join-Path $root 'model-activity-authorization.json') `
+                -Purpose 'product activation receipt'
+        }
+        else { $null }
+    }
+}
+
+function Assert-LifecycleTransitionEvidence {
+    param(
+        [Parameter(Mandatory)][string]$EvidenceRoot,
+        [Parameter(Mandatory)][string]$State,
+        [Parameter(Mandatory)][string]$RunnerPath,
+        [switch]$RequireActionProvenance
+    )
+
+    if ($RequireActionProvenance) {
+        [void](Get-LiveCampaignController)
+        Assert-ExactPathIdentity `
+            -Actual $EvidenceRoot `
+            -Expected (Join-Path $script:PrivateCarrierRoot 'execution\evidence') `
+            -Purpose 'action-provenance lifecycle evidence root'
+    }
+    if ($State -ceq 'TERMINAL') {
+        Assert-TerminalLifecycleEvidence `
+            -EvidenceRoot $EvidenceRoot `
+            -RunnerPath $RunnerPath `
+            -RequireActionProvenance:$RequireActionProvenance
+        return
+    }
+    if ($State -ceq 'ZERO_MODEL_QUALIFICATION_PENDING') {
+        return
+    }
+    $snapshots = Get-LifecycleEvidenceSnapshots -EvidenceRoot $EvidenceRoot
+    $qualification = $snapshots.Qualification.Value
+    Assert-LifecycleEvidenceCommon `
+        -Record $qualification `
+        -SchemaVersion 'work-charter-d53-formal-qualification/v1' `
+        -State 'CANARY_AUTHORIZED_AFTER_QUALIFICATION' `
+        -Purpose 'Formal qualification receipt'
+    if ([string]$qualification.previous_state -cne 'ZERO_MODEL_QUALIFICATION_PENDING' -or
+        [long]$qualification.qualification.passed -ne 56 -or
+        [long]$qualification.qualification.total -ne 56 -or
+        [long]$qualification.qualification.private_passed -ne 24 -or
+        [long]$qualification.qualification.private_total -ne 24 -or
+        [long]$qualification.qualification.tracked_passed -ne 32 -or
+        [long]$qualification.qualification.tracked_total -ne 32 -or
+        [string]$qualification.tracked_runner_sha256 -cne (Get-FileSha256 -Path $RunnerPath)) {
+        throw 'Formal qualification receipt is not the exact D53 56/56 gate.'
+    }
+    if ($State -ceq 'CANARY_AUTHORIZED_AFTER_QUALIFICATION') {
+        return
+    }
+
+    if ($null -eq $snapshots.Canary) {
+        throw 'D53 lifecycle is missing the canary gate receipt.'
+    }
+    $canary = $snapshots.Canary.Value
+    Assert-LifecycleEvidenceCommon `
+        -Record $canary `
+        -SchemaVersion 'work-charter-d53-canary-gate/v1' `
+        -State 'FREEZE_PENDING_AFTER_CANARIES' `
+        -Purpose 'Canary gate receipt'
+    if ([string]$canary.previous_state -cne 'CANARY_AUTHORIZED_AFTER_QUALIFICATION' -or
+        [string]$canary.formal_qualification_sha256 -cne $snapshots.Qualification.Sha256 -or
+        [long]$canary.model_contexts -ne 3 -or
+        [long]$canary.turn_starts -ne 3 -or
+        $canary.receipt_max_age_seconds -isnot [long] -or
+        [long]$canary.receipt_max_age_seconds -ne $ReceiptMaxAgeSeconds) {
+        throw 'Canary gate receipt does not follow the D53 qualification state.'
+    }
+    $expectedCanaries = @(Get-AuthorizedProductionPhases | Where-Object { $_.Segment -ceq 'canary' })
+    $observedCanaries = @($canary.routes)
+    if ($observedCanaries.Count -ne $expectedCanaries.Count) {
+        throw 'Canary gate receipt route count is mismatched.'
+    }
+    for ($index = 0; $index -lt $expectedCanaries.Count; $index++) {
+        $expected = $expectedCanaries[$index]
+        $observed = $observedCanaries[$index]
+        $carrierRoot = Split-Path -Parent (Split-Path -Parent $snapshots.Root)
+        $phaseRoot = Join-Path (Join-Path $carrierRoot 'phases') $expected.DirectoryName
+        $receiptSnapshot = Read-JsonSnapshot `
+            -Path (Join-Path $phaseRoot 'receipt.json') `
+            -Purpose 'canary outer receipt'
+        $stateSnapshot = Read-JsonSnapshot `
+            -Path (Join-Path $phaseRoot 'dispatch-state.json') `
+            -Purpose 'canary dispatch state'
+        $receipt = $receiptSnapshot.Value
+        $dispatchState = $stateSnapshot.Value
+        if ([string]$observed.phase -cne $expected.Phase -or
+            [string]$observed.model -cne $expected.Model -or
+            [string]$observed.reasoning_effort -cne $expected.Effort -or
+            [long]$observed.turn_starts -ne 1 -or
+            [string]$observed.verdict -cne 'PASS' -or
+            [string]$observed.outer_receipt_sha256 -cne $receiptSnapshot.Sha256 -or
+            [string]$observed.dispatch_state_sha256 -cne $stateSnapshot.Sha256 -or
+            [string]$observed.inner_consumption_sha256 -cnotmatch '^[0-9a-f]{64}$' -or
+            [string]$receipt.schema_version -cne 'work-charter-d53-launch-receipt/v1' -or
+            [string]$receipt.campaign_id -cne $script:CampaignId -or
+            [string]$receipt.phase -cne $expected.Phase -or
+            [string]$receipt.status -cne 'consumed' -or
+            [string]$dispatchState.schema_version -cne 'work-charter-d53-dispatch-state/v1' -or
+            [string]$dispatchState.campaign_id -cne $script:CampaignId -or
+            [string]$dispatchState.phase -cne $expected.Phase -or
+            [string]$dispatchState.status -cne 'completed' -or
+            [long]$dispatchState.child_exit_code -ne 0 -or
+            [long]$dispatchState.next_dispatch_count -ne
+                $(if ([string]::IsNullOrEmpty($expected.NextPhase)) { 0 } else { 1 })) {
+            throw "Canary gate receipt route is mismatched at ordinal $($index + 1)."
+        }
+        if ($RequireActionProvenance) {
+            Assert-CompletedModelOuterDispatch `
+                -RunnerPath $RunnerPath `
+                -PhaseRoot $phaseRoot `
+                -Policy $expected `
+                -ReceiptSnapshot $receiptSnapshot `
+                -StateSnapshot $stateSnapshot `
+                -ExpectedConsumptionSha256 ([string]$observed.inner_consumption_sha256) `
+                -MaxAgeSeconds $ReceiptMaxAgeSeconds `
+                -RequireLiveCampaignEvidence
+        }
+    }
+    if ($State -ceq 'FREEZE_PENDING_AFTER_CANARIES') {
+        return
+    }
+
+    if ($null -eq $snapshots.Freeze) {
+        throw 'D53 lifecycle is missing the freeze manifest.'
+    }
+    $freeze = $snapshots.Freeze.Value
+    Assert-LifecycleEvidenceCommon `
+        -Record $freeze `
+        -SchemaVersion 'work-charter-d53-freeze/v1' `
+        -State 'PRE_PRODUCT_FROZEN_AWAITING_CAMPAIGN_ACTIVATION' `
+        -Purpose 'Freeze manifest'
+    if ([string]$freeze.previous_state -cne 'FREEZE_PENDING_AFTER_CANARIES' -or
+        [string]$freeze.canary_gate_sha256 -cne $snapshots.Canary.Sha256 -or
+        $freeze.model_activity_authorized -isnot [bool] -or
+        [bool]$freeze.model_activity_authorized) {
+        throw 'Freeze manifest does not follow the complete D53 canary gate.'
+    }
+    if ($State -ceq 'PRE_PRODUCT_FROZEN_AWAITING_CAMPAIGN_ACTIVATION') {
+        return
+    }
+
+    if ($null -eq $snapshots.Activation) {
+        throw 'D53 lifecycle is missing the post-freeze product activation receipt.'
+    }
+    $activation = $snapshots.Activation.Value
+    Assert-LifecycleEvidenceCommon `
+        -Record $activation `
+        -SchemaVersion 'work-charter-d53-product-activation/v1' `
+        -State 'PRODUCT_AUTHORIZED_BY_APPROVED_CAMPAIGN' `
+        -Purpose 'Product activation receipt'
+    if ([string]$activation.previous_state -cne
+            'PRE_PRODUCT_FROZEN_AWAITING_CAMPAIGN_ACTIVATION' -or
+        $activation.authorized -isnot [bool] -or
+        -not [bool]$activation.authorized -or
+        [string]$activation.freeze_manifest_sha256 -cne $snapshots.Freeze.Sha256 -or
+        [string]$activation.campaign_contract_sha256 -cne
+            (Get-FileSha256 -Path $script:CampaignContractPath)) {
+        throw 'Product activation receipt is not bound to the approved D53 Campaign and freeze.'
+    }
+    if ($State -cne 'PRODUCT_AUTHORIZED_BY_APPROVED_CAMPAIGN') {
+        throw 'D53 lifecycle state is not supported by the transition evidence chain.'
+    }
+}
+
+function Assert-TerminalLifecycleEvidence {
+    param(
+        [Parameter(Mandatory)][string]$EvidenceRoot,
+        [Parameter(Mandatory)][string]$RunnerPath,
+        [switch]$RequireActionProvenance
+    )
+
+    $evidenceDirectory = (
+        Get-OrdinaryDirectory -Path $EvidenceRoot -Purpose 'terminal evidence root'
+    ).FullName
+    $terminalSnapshot = Read-JsonSnapshot `
+        -Path (Join-Path $evidenceDirectory 'd53-terminal.json') `
+        -Purpose 'D53 terminal receipt'
+    $terminal = $terminalSnapshot.Value
+    Assert-LifecycleEvidenceCommon `
+        -Record $terminal `
+        -SchemaVersion 'work-charter-d53-terminal/v1' `
+        -State 'TERMINAL' `
+        -Purpose 'D53 terminal receipt'
+    $dispositionsByPreviousState = @{
+        ZERO_MODEL_QUALIFICATION_PENDING = @(
+            'QUALIFICATION_FAILED / PRODUCT_UNKNOWN'
+        )
+        CANARY_AUTHORIZED_AFTER_QUALIFICATION = @(
+            'CANARY_FAILED / PRODUCT_UNKNOWN'
+        )
+        FREEZE_PENDING_AFTER_CANARIES = @(
+            'FREEZE_FAILED / PRODUCT_UNKNOWN'
+        )
+        PRE_PRODUCT_FROZEN_AWAITING_CAMPAIGN_ACTIVATION = @(
+            'ACTIVATION_FAILED / PRODUCT_UNKNOWN'
+        )
+        PRODUCT_AUTHORIZED_BY_APPROVED_CAMPAIGN = @(
+            'PRODUCT_FAILED / NOT_ACCEPTED',
+            'ASSESSOR_FAILED / NOT_ACCEPTED',
+            'ACCEPTED'
+        )
+    }
+    $previousState = [string]$terminal.previous_state
+    $terminalDisposition = [string]$terminal.terminal_disposition
+    if (-not $dispositionsByPreviousState.ContainsKey($previousState) -or
+        $terminalDisposition -notin @($dispositionsByPreviousState[$previousState]) -or
+        $terminal.candidate_accepted -isnot [bool] -or
+        $terminal.model_contexts -isnot [long] -or
+        [long]$terminal.model_contexts -lt 0 -or
+        [long]$terminal.model_contexts -gt 16 -or
+        $terminal.turn_starts -isnot [long] -or
+        [long]$terminal.turn_starts -lt 0 -or
+        [long]$terminal.turn_starts -gt 18 -or
+        $terminal.rehearsal_corrections_used -isnot [long] -or
+        [long]$terminal.rehearsal_corrections_used -lt 0 -or
+        [long]$terminal.rehearsal_corrections_used -gt 3 -or
+        $terminal.formal_corrections_used -isnot [long] -or
+        [long]$terminal.formal_corrections_used -lt 0 -or
+        [long]$terminal.formal_corrections_used -gt 2) {
+        throw 'D53 terminal receipt disposition does not match its predecessor state or budget.'
+    }
+    $accepted = [bool]$terminal.candidate_accepted
+    if (($accepted -and [string]$terminal.terminal_disposition -cne 'ACCEPTED') -or
+        (-not $accepted -and [string]$terminal.terminal_disposition -ceq 'ACCEPTED')) {
+        throw 'D53 terminal receipt acceptance flag and disposition disagree.'
+    }
+    Assert-LifecycleTransitionEvidence `
+        -EvidenceRoot $evidenceDirectory `
+        -State $previousState `
+        -RunnerPath $RunnerPath `
+        -RequireActionProvenance:$RequireActionProvenance
+    if (-not $accepted) {
+        return
+    }
+    if (-not $RequireActionProvenance) {
+        throw 'Accepted D53 terminal receipt requires action provenance.'
+    }
+    if ([string]$terminal.previous_state -cne 'PRODUCT_AUTHORIZED_BY_APPROVED_CAMPAIGN' -or
+        [long]$terminal.model_contexts -ne 16 -or
+        [long]$terminal.turn_starts -ne 18) {
+        throw 'Accepted D53 terminal receipt lacks the complete authorized evidence budget.'
+    }
+    Assert-AssessorEligibility -EvidenceRoot $evidenceDirectory
+    $carrierRoot = Split-Path -Parent (Split-Path -Parent $evidenceDirectory)
+    $productPacketSnapshot = Read-JsonSnapshot `
+        -Path (Join-Path (Join-Path $carrierRoot 'execution\terminal') 'terminal-packet.json') `
+        -Purpose 'accepted admitted product packet'
+    $productRoutes = @(Get-ValidatedProductRoutes -Packet $productPacketSnapshot.Value)
+    $productPolicies = @(Get-AuthorizedProductionPhases | Where-Object {
+        $_.Segment -ceq 'product'
+    })
+    for ($index = 0; $index -lt $productPolicies.Count; $index++) {
+        $policy = $productPolicies[$index]
+        $route = $productRoutes[$index]
+        $phaseRoot = Join-Path `
+            (Join-Path $carrierRoot 'phases') `
+            $policy.DirectoryName
+        $receiptSnapshot = Read-JsonSnapshot `
+            -Path (Join-Path $phaseRoot 'receipt.json') `
+            -Purpose 'product outer receipt'
+        $stateSnapshot = Read-JsonSnapshot `
+            -Path (Join-Path $phaseRoot 'dispatch-state.json') `
+            -Purpose 'product dispatch state'
+        if ([string]$route.outer_receipt_sha256 -cne $receiptSnapshot.Sha256 -or
+            [string]$route.dispatch_state_sha256 -cne $stateSnapshot.Sha256) {
+            throw "Accepted D53 product route evidence is mismatched at ordinal $($index + 1)."
+        }
+        Assert-CompletedModelOuterDispatch `
+            -RunnerPath $RunnerPath `
+            -PhaseRoot $phaseRoot `
+            -Policy $policy `
+            -ReceiptSnapshot $receiptSnapshot `
+            -StateSnapshot $stateSnapshot `
+            -ExpectedConsumptionSha256 ([string]$route.inner_consumption_sha256) `
+            -MaxAgeSeconds $ReceiptMaxAgeSeconds `
+            -RequireLiveCampaignEvidence
+    }
+    $assessmentSnapshot = Read-JsonSnapshot `
+        -Path (Join-Path (Join-Path $carrierRoot 'execution\assessor') 'assessment.json') `
+        -Purpose 'D53 assessor result'
+    $assessment = $assessmentSnapshot.Value
+    Assert-LifecycleEvidenceCommon `
+        -Record $assessment `
+        -SchemaVersion 'work-charter-d53-assessment/v1' `
+        -State 'PRODUCT_AUTHORIZED_BY_APPROVED_CAMPAIGN' `
+        -Purpose 'D53 assessor result'
+    $assessorPolicy = Get-AuthorizedProductionPhase -Phase 'assessor-terra-high'
+    $assessorPhaseRoot = Join-Path `
+        (Join-Path $carrierRoot 'phases') `
+        $assessorPolicy.DirectoryName
+    $assessorReceiptSnapshot = Read-JsonSnapshot `
+        -Path (Join-Path $assessorPhaseRoot 'receipt.json') `
+        -Purpose 'assessor outer receipt'
+    $assessorStateSnapshot = Read-JsonSnapshot `
+        -Path (Join-Path $assessorPhaseRoot 'dispatch-state.json') `
+        -Purpose 'assessor dispatch state'
+    $eligibilitySnapshot = Read-JsonSnapshot `
+        -Path (Join-Path $evidenceDirectory 'assessor-eligibility.json') `
+        -Purpose 'assessor eligibility receipt'
+    $viewSnapshot = Read-JsonSnapshot `
+        -Path (Join-Path (Join-Path $carrierRoot 'execution\terminal') 'assessor-view.json') `
+        -Purpose 'assessor view'
+    if ([string]$assessment.verdict -cne 'ACCEPTED' -or
+        [string]$assessment.assessor_phase -cne $assessorPolicy.Phase -or
+        [string]$assessment.assessor_outer_receipt_sha256 -cne $assessorReceiptSnapshot.Sha256 -or
+        [string]$assessment.assessor_dispatch_state_sha256 -cne $assessorStateSnapshot.Sha256 -or
+        [string]$assessment.assessor_inner_consumption_sha256 -cnotmatch '^[0-9a-f]{64}$' -or
+        [string]$assessment.assessor_eligibility_sha256 -cne $eligibilitySnapshot.Sha256 -or
+        [string]$assessment.assessor_view_sha256 -cne $viewSnapshot.Sha256 -or
+        [string]$terminal.assessment_sha256 -cne $assessmentSnapshot.Sha256) {
+        throw 'Accepted D53 terminal receipt is not bound to the eligible consumed assessor result.'
+    }
+    Assert-CompletedModelOuterDispatch `
+        -RunnerPath $RunnerPath `
+        -PhaseRoot $assessorPhaseRoot `
+        -Policy $assessorPolicy `
+        -ReceiptSnapshot $assessorReceiptSnapshot `
+        -StateSnapshot $assessorStateSnapshot `
+        -ExpectedConsumptionSha256 ([string]$assessment.assessor_inner_consumption_sha256) `
+        -MaxAgeSeconds $ReceiptMaxAgeSeconds `
+        -RequireLiveCampaignEvidence
+}
+
+function Get-ValidatedProductRoutes {
+    param([Parameter(Mandatory)][object]$Packet)
+
+    $expected = @(Get-AuthorizedProductionPhases | Where-Object {
+        $_.Segment -ceq 'product'
+    })
+    $observed = @($Packet.routes)
+    if ($observed.Count -ne $expected.Count) {
+        throw 'Assessor admitted product packet does not contain all twelve product routes.'
+    }
+    for ($index = 0; $index -lt $expected.Count; $index++) {
+        $policy = $expected[$index]
+        $route = $observed[$index]
+        if ([string]$route.phase -cne $policy.Phase -or
+            [string]$route.model -cne $policy.Model -or
+            [string]$route.reasoning_effort -cne $policy.Effort -or
+            [long]$route.model_contexts -ne 1 -or
+            [long]$route.turn_starts -ne [long]$policy.TurnStarts -or
+            [string]$route.verdict -cne 'PASS' -or
+            [string]$route.outer_receipt_sha256 -cnotmatch '^[0-9a-f]{64}$' -or
+            [string]$route.dispatch_state_sha256 -cnotmatch '^[0-9a-f]{64}$' -or
+            [string]$route.inner_consumption_sha256 -cnotmatch '^[0-9a-f]{64}$') {
+            throw "Assessor admitted product route is incomplete at ordinal $($index + 1)."
+        }
+    }
+    return $observed
+}
+
+function Assert-LiveCampaignProductEvidence {
+    param(
+        [Parameter(Mandatory)][string]$RunnerPath,
+        [Parameter(Mandatory)][int]$MaxAgeSeconds
+    )
+
+    Assert-LiveCampaignSegmentEvidence -Segment 'product'
+    $packetSnapshot = Read-JsonSnapshot `
+        -Path (Join-Path $script:PrivateCarrierRoot 'execution\terminal\terminal-packet.json') `
+        -Purpose 'live admitted product packet'
+    $routes = @(Get-ValidatedProductRoutes -Packet $packetSnapshot.Value)
+    $policies = @(Get-AuthorizedProductionPhases | Where-Object {
+        $_.Segment -ceq 'product'
+    })
+    for ($index = 0; $index -lt $policies.Count; $index++) {
+        $policy = $policies[$index]
+        $route = $routes[$index]
+        $phaseRoot = Get-ProductionPhaseRoot -Policy $policy
+        $receiptSnapshot = Read-JsonSnapshot `
+            -Path (Join-Path $phaseRoot 'receipt.json') `
+            -Purpose 'live product outer receipt'
+        $stateSnapshot = Read-JsonSnapshot `
+            -Path (Join-Path $phaseRoot 'dispatch-state.json') `
+            -Purpose 'live product dispatch state'
+        if ([string]$route.outer_receipt_sha256 -cne $receiptSnapshot.Sha256 -or
+            [string]$route.dispatch_state_sha256 -cne $stateSnapshot.Sha256) {
+            throw "Live product route evidence is mismatched at ordinal $($index + 1)."
+        }
+        Assert-CompletedModelOuterDispatch `
+            -RunnerPath $RunnerPath `
+            -PhaseRoot $phaseRoot `
+            -Policy $policy `
+            -ReceiptSnapshot $receiptSnapshot `
+            -StateSnapshot $stateSnapshot `
+            -ExpectedConsumptionSha256 ([string]$route.inner_consumption_sha256) `
+            -MaxAgeSeconds $MaxAgeSeconds `
+            -RequireLiveCampaignEvidence
+    }
+}
+
+function Assert-AssessorEligibility {
+    param([Parameter(Mandatory)][string]$EvidenceRoot)
+
+    $evidenceDirectory = (
+        Get-OrdinaryDirectory -Path $EvidenceRoot -Purpose 'assessor evidence root'
+    ).FullName
+    $carrierRoot = Split-Path -Parent (Split-Path -Parent $evidenceDirectory)
+    $terminalRoot = Join-Path (Join-Path $carrierRoot 'execution') 'terminal'
+    $packet = Read-JsonSnapshot `
+        -Path (Join-Path $terminalRoot 'terminal-packet.json') `
+        -Purpose 'admitted product packet'
+    $view = Read-JsonSnapshot `
+        -Path (Join-Path $terminalRoot 'assessor-view.json') `
+        -Purpose 'assessor view'
+    $review = Read-JsonSnapshot `
+        -Path (Join-Path $terminalRoot 'assessor-view-local-review.json') `
+        -Purpose 'assessor view local review'
+    $eligibility = Read-JsonSnapshot `
+        -Path (Join-Path $evidenceDirectory 'assessor-eligibility.json') `
+        -Purpose 'assessor eligibility receipt'
+
+    Assert-LifecycleEvidenceCommon `
+        -Record $packet.Value `
+        -SchemaVersion 'work-charter-d53-admitted-product-packet/v1' `
+        -State 'PRODUCT_AUTHORIZED_BY_APPROVED_CAMPAIGN' `
+        -Purpose 'Admitted product packet'
+    if ([long]$packet.Value.score.passed -ne 28 -or
+        [long]$packet.Value.score.total -ne 28 -or
+        [string]$packet.Value.candidate_calibration.verdict -cne 'PASS' -or
+        [long]$packet.Value.candidate_calibration.model_contexts -ne 1 -or
+        [long]$packet.Value.candidate_calibration.turn_starts -ne 2 -or
+        [long]$packet.Value.imported_scored_cells -ne 17 -or
+        [long]$packet.Value.fresh_scored_cells -ne 11 -or
+        [long]$packet.Value.product_model_contexts -ne 12 -or
+        [long]$packet.Value.product_turn_starts -ne 14 -or
+        [string]$packet.Value.controller_disposition -cne 'ADMISSIBLE') {
+        throw 'Assessor admitted product packet is incomplete or ineligible.'
+    }
+    [void](Get-ValidatedProductRoutes -Packet $packet.Value)
+
+    Assert-LifecycleEvidenceCommon `
+        -Record $view.Value `
+        -SchemaVersion 'work-charter-d53-assessor-view/v1' `
+        -State 'PRODUCT_AUTHORIZED_BY_APPROVED_CAMPAIGN' `
+        -Purpose 'Assessor view'
+    if ([string]$view.Value.source_packet_sha256 -cne $packet.Sha256) {
+        throw 'Assessor view is not bound to the admitted product packet.'
+    }
+
+    Assert-LifecycleEvidenceCommon `
+        -Record $review.Value `
+        -SchemaVersion 'work-charter-d53-assessor-view-review/v1' `
+        -State 'PRODUCT_AUTHORIZED_BY_APPROVED_CAMPAIGN' `
+        -Purpose 'Assessor view local review'
+    if ([string]$review.Value.verdict -cne 'PASS' -or
+        $review.Value.disclosure_safe -isnot [bool] -or
+        -not [bool]$review.Value.disclosure_safe -or
+        [string]$review.Value.assessor_view_sha256 -cne $view.Sha256) {
+        throw 'Assessor view local disclosure review is not PASS.'
+    }
+
+    Assert-LifecycleEvidenceCommon `
+        -Record $eligibility.Value `
+        -SchemaVersion 'work-charter-d53-assessor-eligibility/v1' `
+        -State 'PRODUCT_AUTHORIZED_BY_APPROVED_CAMPAIGN' `
+        -Purpose 'Assessor eligibility receipt'
+    if ($eligibility.Value.eligible -isnot [bool] -or
+        -not [bool]$eligibility.Value.eligible -or
+        [string]$eligibility.Value.admitted_product_packet_sha256 -cne $packet.Sha256 -or
+        [string]$eligibility.Value.assessor_view_sha256 -cne $view.Sha256 -or
+        [string]$eligibility.Value.local_review_sha256 -cne $review.Sha256) {
+        throw 'Assessor eligibility receipt does not bind the admitted packet and reviewed view.'
+    }
+}
+
+function Assert-ExecutionParameters {
+    foreach ($pair in @(
+        @('BindingPath', $BindingPath),
+        @('AuthoritySnapshotPath', $AuthoritySnapshotPath),
+        @('CarrierManifestPath', $CarrierManifestPath),
+        @('FrozenInputsPath', $FrozenInputsPath),
+        @('ReceiptPath', $ReceiptPath),
+        @('DispatchStatePath', $DispatchStatePath),
+        @('ExpectedPhase', $ExpectedPhase),
+        @('ChildExecutablePath', $ChildExecutablePath),
+        @('ChildOperationId', $ChildOperationId),
+        @('ChildExecutableAnchorId', $ChildExecutableAnchorId),
+        @('ChildArgumentsPath', $ChildArgumentsPath)
+    )) {
+        if ([string]::IsNullOrWhiteSpace([string]$pair[1])) {
+            throw "Execution parameter is required outside DescribeLifecycle mode: $($pair[0])"
+        }
+    }
+}
+
+function Assert-CampaignParameters {
+    foreach ($pair in @(
+        @('BindingPath', $BindingPath),
+        @('AuthoritySnapshotPath', $AuthoritySnapshotPath),
+        @('CarrierManifestPath', $CarrierManifestPath),
+        @('FrozenInputsPath', $FrozenInputsPath),
+        @('ReceiptPath', $ReceiptPath),
+        @('DispatchStatePath', $DispatchStatePath),
+        @('ExpectedPhase', $ExpectedPhase),
+        @('ChildExecutablePath', $ChildExecutablePath),
+        @('ChildOperationId', $ChildOperationId),
+        @('ChildExecutableAnchorId', $ChildExecutableAnchorId),
+        @('ChildArgumentsPath', $ChildArgumentsPath),
+        @('ChildWorkingDirectory', $ChildWorkingDirectory),
+        @('NextDispatchPath', $NextDispatchPath),
+        @('LifecycleEvidenceRoot', $LifecycleEvidenceRoot),
+        @('ExpectedLifecycleState', $ExpectedLifecycleState)
+    )) {
+        if (-not [string]::IsNullOrWhiteSpace([string]$pair[1])) {
+            throw "Campaign mode derives its exact route and rejects caller input: $($pair[0])"
+        }
+    }
+    if ($RequireActionProvenance) {
+        throw 'Campaign mode owns action provenance and rejects a caller assertion.'
+    }
+}
+
 function Test-IsZeroModelAppServerQualification {
     param(
         [Parameter(Mandatory)][string]$OperationId,
@@ -375,55 +1121,199 @@ function Test-RequiresCommittedRunner {
 
 function Get-AuthorizedProductionPhases {
     $definitions = @(
-        @('canary-sol-high', 'gpt-5.6-sol', 'high', 1),
-        @('canary-sol-xhigh', 'gpt-5.6-sol', 'xhigh', 1),
-        @('canary-terra-high', 'gpt-5.6-terra', 'high', 1),
-        @('candidate-calibration', 'gpt-5.6-sol', 'high', 2),
-        @('released-control-a18', 'gpt-5.6-sol', 'high', 2),
-        @('candidate-a19', 'gpt-5.6-sol', 'high', 1),
-        @('candidate-a20', 'gpt-5.6-sol', 'high', 1),
-        @('candidate-b01', 'gpt-5.6-sol', 'xhigh', 1),
-        @('candidate-b02', 'gpt-5.6-sol', 'xhigh', 1),
-        @('candidate-b03', 'gpt-5.6-sol', 'xhigh', 1),
-        @('candidate-b04', 'gpt-5.6-sol', 'xhigh', 1),
-        @('candidate-c01', 'gpt-5.6-terra', 'high', 1),
-        @('candidate-c02', 'gpt-5.6-terra', 'high', 1),
-        @('candidate-c03', 'gpt-5.6-terra', 'high', 1),
-        @('candidate-c04', 'gpt-5.6-terra', 'high', 1),
-        @('assessor-terra-high', 'gpt-5.6-terra', 'high', 1)
+        @('canary', 'canary-sol-high', 'gpt-5.6-sol', 'high', 1),
+        @('canary', 'canary-sol-xhigh', 'gpt-5.6-sol', 'xhigh', 1),
+        @('canary', 'canary-terra-high', 'gpt-5.6-terra', 'high', 1),
+        @('product', 'candidate-calibration', 'gpt-5.6-sol', 'high', 2),
+        @('product', 'released-control-a18', 'gpt-5.6-sol', 'high', 2),
+        @('product', 'candidate-a19', 'gpt-5.6-sol', 'high', 1),
+        @('product', 'candidate-a20', 'gpt-5.6-sol', 'high', 1),
+        @('product', 'candidate-b01', 'gpt-5.6-sol', 'xhigh', 1),
+        @('product', 'candidate-b02', 'gpt-5.6-sol', 'xhigh', 1),
+        @('product', 'candidate-b03', 'gpt-5.6-sol', 'xhigh', 1),
+        @('product', 'candidate-b04', 'gpt-5.6-sol', 'xhigh', 1),
+        @('product', 'candidate-c01', 'gpt-5.6-terra', 'high', 1),
+        @('product', 'candidate-c02', 'gpt-5.6-terra', 'high', 1),
+        @('product', 'candidate-c03', 'gpt-5.6-terra', 'high', 1),
+        @('product', 'candidate-c04', 'gpt-5.6-terra', 'high', 1),
+        @('assessor', 'assessor-terra-high', 'gpt-5.6-terra', 'high', 1)
     )
     $remainingContexts = 16
     $remainingTurns = 18
+    $segmentOrdinals = @{}
     $result = [System.Collections.Generic.List[object]]::new()
     for ($index = 0; $index -lt $definitions.Count; $index++) {
         $definition = $definitions[$index]
-        $phase = [string]$definition[0]
-        $nextPhase = if ($index + 1 -lt $definitions.Count) {
-            [string]$definitions[$index + 1][0]
+        $segment = [string]$definition[0]
+        $phase = [string]$definition[1]
+        $segmentOrdinals[$segment] = 1 + [int]$segmentOrdinals[$segment]
+        $nextPhase = if ($index + 1 -lt $definitions.Count -and
+            [string]$definitions[$index + 1][0] -ceq $segment) {
+            [string]$definitions[$index + 1][1]
         }
         else { '' }
         $result.Add([pscustomobject]@{
             Ordinal = $index + 1
+            Segment = $segment
+            SegmentOrdinal = [int]$segmentOrdinals[$segment]
             Phase = $phase
-            Model = [string]$definition[1]
-            Effort = [string]$definition[2]
-            TurnStarts = [int]$definition[3]
+            Model = [string]$definition[2]
+            Effort = [string]$definition[3]
+            TurnStarts = [int]$definition[4]
             RemainingContexts = $remainingContexts
             RemainingTurns = $remainingTurns
             NextPhase = $nextPhase
             DirectoryName = ('{0:d2}-{1}' -f ($index + 1), $phase)
         })
         $remainingContexts--
-        $remainingTurns -= [int]$definition[3]
+        $remainingTurns -= [int]$definition[4]
     }
     return $result.ToArray()
+}
+
+function Get-ProductionPhaseRoot {
+    param([Parameter(Mandatory)][object]$Policy)
+
+    return Join-Path `
+        (Join-Path $script:PrivateCarrierRoot 'phases') `
+        ([string]$Policy.DirectoryName)
+}
+
+function Get-LiveCampaignController {
+    if ($null -eq $script:ActiveCampaignController -or
+        $null -eq $script:ActiveCampaignController.Guard -or
+        $script:ActiveCampaignController.Active -isnot [bool] -or
+        -not [bool]$script:ActiveCampaignController.Active) {
+        throw 'Production dispatch requires the live D53 Campaign controller capability.'
+    }
+    return $script:ActiveCampaignController
+}
+
+function Assert-LiveCampaignDispatchAuthorization {
+    param([Parameter(Mandatory)][object]$Policy)
+
+    $controller = Get-LiveCampaignController
+    if ([string]$controller.CurrentSegment -cne [string]$Policy.Segment) {
+        throw 'Production dispatch is outside the live Campaign controller segment.'
+    }
+    if ([string]$controller.NextSegment -cne [string]$Policy.Segment) {
+        throw 'Production dispatch does not follow the live Campaign segment order.'
+    }
+    if ([string]$Policy.Segment -ceq 'product' -and
+        -not $controller.CompletedSegments.Contains('canary')) {
+        throw 'Live Campaign controller has not completed the canary segment.'
+    }
+    if ([string]$Policy.Segment -ceq 'assessor' -and
+        (-not $controller.CompletedSegments.Contains('canary') -or
+         -not $controller.CompletedSegments.Contains('product'))) {
+        throw 'Live Campaign controller has not completed the product segment.'
+    }
+}
+
+function Get-LiveCampaignPhaseFingerprint {
+    param([Parameter(Mandatory)][object]$Policy)
+
+    $phaseRoot = Get-ProductionPhaseRoot -Policy $Policy
+    $paths = [ordered]@{
+        binding = Join-Path $phaseRoot 'binding.json'
+        authority = Join-Path $phaseRoot 'authority-snapshot.json'
+        carrier = Join-Path $phaseRoot 'carrier-manifest.json'
+        frozen = Join-Path $phaseRoot 'frozen-inputs.json'
+        arguments = Join-Path $phaseRoot 'child-argv.json'
+        receipt = Join-Path $phaseRoot 'receipt.json'
+        consumption = (Join-Path $phaseRoot 'receipt.json') + '.consumed'
+        state = Join-Path $phaseRoot 'dispatch-state.json'
+    }
+    if (-not [string]::IsNullOrEmpty([string]$Policy.NextPhase)) {
+        $paths.next = Join-Path $phaseRoot 'next-dispatch.json'
+    }
+    $rows = [System.Collections.Generic.List[string]]::new()
+    $rows.Add("phase|$([string]$Policy.Phase)")
+    foreach ($entry in $paths.GetEnumerator()) {
+        $rows.Add("$([string]$entry.Key)|$(Get-FileSha256 -Path ([string]$entry.Value))")
+    }
+    return Get-TextSha256 -Text ($rows.ToArray() -join "`n")
+}
+
+function Assert-LiveCampaignPhaseEvidence {
+    param([Parameter(Mandatory)][object]$Policy)
+
+    $controller = Get-LiveCampaignController
+    if (-not $controller.PhaseEvidence.ContainsKey([string]$Policy.Phase)) {
+        throw "Live Campaign controller did not observe completed phase: $($Policy.Phase)"
+    }
+    $current = Get-LiveCampaignPhaseFingerprint -Policy $Policy
+    if ([string]$controller.PhaseEvidence[[string]$Policy.Phase] -cne $current) {
+        throw "Persisted phase evidence changed after live completion: $($Policy.Phase)"
+    }
+}
+
+function Assert-LiveCampaignSegmentEvidence {
+    param([Parameter(Mandatory)][ValidateSet('canary', 'product', 'assessor')][string]$Segment)
+
+    $controller = Get-LiveCampaignController
+    if (-not $controller.CompletedSegments.Contains($Segment)) {
+        throw "Live Campaign controller has not completed the $Segment segment."
+    }
+    foreach ($policy in @(Get-AuthorizedProductionPhases | Where-Object {
+        $_.Segment -ceq $Segment
+    })) {
+        Assert-LiveCampaignPhaseEvidence -Policy $policy
+    }
+}
+
+function Get-ProtocolQualificationPhases {
+    $definitions = @(
+        @('qualification-segment-01', 'gpt-5.6-sol', 'high', 1, 'qualification-segment-02'),
+        @('qualification-segment-02', 'gpt-5.6-sol', 'xhigh', 1, 'qualification-segment-03'),
+        @('qualification-segment-03', 'gpt-5.6-terra', 'high', 1, '')
+    )
+    $result = [System.Collections.Generic.List[object]]::new()
+    for ($index = 0; $index -lt $definitions.Count; $index++) {
+        $definition = $definitions[$index]
+        $result.Add([pscustomobject]@{
+            Ordinal = $index + 1
+            Segment = 'qualification'
+            SegmentOrdinal = $index + 1
+            Phase = [string]$definition[0]
+            Model = [string]$definition[1]
+            Effort = [string]$definition[2]
+            TurnStarts = [int]$definition[3]
+            RemainingContexts = $definitions.Count - $index
+            RemainingTurns = $definitions.Count - $index
+            NextPhase = [string]$definition[4]
+            DirectoryName = ('qualification-{0:d2}' -f ($index + 1))
+        })
+    }
+    return $result.ToArray()
+}
+
+function Get-ProtocolQualificationPhase {
+    param([Parameter(Mandatory)][string]$Phase)
+
+    $matches = @(Get-ProtocolQualificationPhases | Where-Object {
+        $_.Phase -ceq $Phase
+    })
+    if ($matches.Count -ne 1) {
+        throw "Protocol qualification phase is not authorized: $Phase"
+    }
+    return $matches[0]
+}
+
+function Test-IsProtocolQualificationPhase {
+    param([Parameter(Mandatory)][string]$Phase)
+
+    return @(Get-ProtocolQualificationPhases | Where-Object {
+        $_.Phase -ceq $Phase
+    }).Count -eq 1
 }
 
 function Get-ProductionPolicySha256 {
     $rows = @(
         Get-AuthorizedProductionPhases | ForEach-Object {
             @(
-                $_.Ordinal, $_.Phase, $_.Model, $_.Effort, $_.TurnStarts,
+                $_.Ordinal, $_.Segment, $_.SegmentOrdinal, $_.Phase,
+                $_.Model, $_.Effort, $_.TurnStarts,
                 $_.RemainingContexts, $_.RemainingTurns, $_.NextPhase,
                 $_.DirectoryName, 'd52-codex-app-server',
                 'd52-codex-app-server-0.147.0-alpha.6.6', 'app-server', '--stdio'
@@ -438,7 +1328,7 @@ function Get-AuthorizedProductionPhase {
 
     $matches = @(Get-AuthorizedProductionPhases | Where-Object { $_.Phase -ceq $Phase })
     if ($matches.Count -ne 1) {
-        throw 'Phase is not present in the committed D52 production authorization policy.'
+        throw 'Phase is not present in the committed D53 production authorization policy.'
     }
     return $matches[0]
 }
@@ -465,13 +1355,17 @@ function Assert-AuthoritySnapshot {
         [Parameter(Mandatory)][object]$Binding
     )
 
-    if ([string]$Snapshot.schema_version -cne 'work-charter-d52-authority-snapshot/v1' -or
+    if ([string]$Snapshot.schema_version -cne 'work-charter-d53-authority-snapshot/v1' -or
         [string]$Snapshot.campaign_id -cne $script:CampaignId -or
         [string]$Snapshot.stable_subject -cne $script:StableSubject -or
         [string]$Snapshot.candidate_commit -cne $script:CandidateCommit -or
         [string]$Snapshot.candidate_manifest_sha256 -cne $script:CandidateManifestSha256) {
-        throw 'Authority snapshot does not identify the authorized D52 subject.'
+        throw 'Authority snapshot does not identify the authorized D53 subject.'
     }
+    Assert-AuthorizationLifecycleArtifact `
+        -Artifact $Snapshot `
+        -Phase ([string]$Binding.phase) `
+        -Purpose 'Authority snapshot'
     $contractPath = (Get-OrdinaryFile `
         -Path ([string]$Snapshot.campaign_contract_path) `
         -Purpose 'Campaign contract').FullName
@@ -480,7 +1374,7 @@ function Assert-AuthoritySnapshot {
         $script:CampaignContractPath,
         [StringComparison]::OrdinalIgnoreCase
     )) {
-        throw 'Authority snapshot does not identify the tracked D52 Campaign contract.'
+        throw 'Authority snapshot does not identify the tracked D53 Campaign contract.'
     }
     $contractSha256 = Get-FileSha256 -Path $contractPath
     if ([string]$Snapshot.campaign_contract_sha256 -cne $contractSha256 -or
@@ -511,7 +1405,7 @@ function Assert-AuthoritySnapshot {
         }
     }
     if ([string]$Binding.ruleset_sha256 -cne (Get-RulesetSha256)) {
-        throw 'Launch binding ruleset aggregate is not the authenticated D52 ruleset.'
+        throw 'Launch binding ruleset aggregate is not the authenticated D53 ruleset.'
     }
     if ([string]$Binding.authority_snapshot_sha256 -cne $SnapshotSha256) {
         throw 'Authority snapshot content does not match the launch binding.'
@@ -525,7 +1419,8 @@ function Assert-EvidenceSnapshots {
         [Parameter(Mandatory)][object]$CarrierSnapshot,
         [Parameter(Mandatory)][object]$FrozenSnapshot,
         [Parameter(Mandatory)][string]$OperationId,
-        [Parameter(Mandatory)][string]$Phase
+        [Parameter(Mandatory)][string]$Phase,
+        [switch]$SkipProductionLifecycleEvidence
     )
 
     if ([string]$Binding.authority_snapshot_path_sha256 -cne
@@ -542,16 +1437,20 @@ function Assert-EvidenceSnapshots {
     }
     $authoritySha256 = $AuthoritySnapshot.Sha256
     $frozen = $FrozenSnapshot.Value
-    if ([string]$frozen.schema_version -cne 'work-charter-d52-frozen-inputs/v1' -or
+    if ([string]$frozen.schema_version -cne 'work-charter-d53-frozen-inputs/v1' -or
         [string]$frozen.campaign_id -cne $script:CampaignId -or
         [string]$frozen.candidate_commit -cne $script:CandidateCommit -or
         [string]$frozen.candidate_manifest_sha256 -cne $script:CandidateManifestSha256 -or
         [string]$frozen.authority_snapshot_sha256 -cne $authoritySha256 -or
         [string]$frozen.phase -cne [string]$Binding.phase) {
-        throw 'Frozen-input manifest does not bind the authorized D52 phase.'
+        throw 'Frozen-input manifest does not bind the authorized D53 phase.'
     }
+    Assert-AuthorizationLifecycleArtifact `
+        -Artifact $frozen `
+        -Phase ([string]$Binding.phase) `
+        -Purpose 'Frozen-input manifest'
     $carrier = $CarrierSnapshot.Value
-    if ([string]$carrier.schema_version -cne 'work-charter-d52-carrier-manifest/v1' -or
+    if ([string]$carrier.schema_version -cne 'work-charter-d53-carrier-manifest/v1' -or
         [string]$carrier.campaign_id -cne $script:CampaignId -or
         [string]$carrier.candidate_commit -cne $script:CandidateCommit -or
         [string]$carrier.candidate_manifest_sha256 -cne $script:CandidateManifestSha256 -or
@@ -563,8 +1462,12 @@ function Assert-EvidenceSnapshots {
         [string]$carrier.campaign_contract_sha256 -cne [string]$Binding.campaign_contract_sha256 -or
         [string]$carrier.ruleset_sha256 -cne [string]$Binding.ruleset_sha256 -or
         [string]$carrier.phase -cne [string]$Binding.phase) {
-        throw 'Carrier manifest does not bind the authenticated D52 authority and frozen phase.'
+        throw 'Carrier manifest does not bind the authenticated D53 authority and frozen phase.'
     }
+    Assert-AuthorizationLifecycleArtifact `
+        -Artifact $carrier `
+        -Phase ([string]$Binding.phase) `
+        -Purpose 'Carrier manifest'
     if ($OperationId -ceq 'd52-codex-app-server' -and
         -not (Test-IsZeroModelAppServerQualification -OperationId $OperationId -Phase $Phase)) {
         Assert-PathUnderRoot -Path $AuthoritySnapshot.FullName -Root $script:PrivateCarrierRoot -Purpose 'authority snapshot'
@@ -576,7 +1479,8 @@ function Assert-EvidenceSnapshots {
         -Carrier $carrier `
         -Frozen $frozen `
         -OperationId $OperationId `
-        -Phase ([string]$Binding.phase)
+        -Phase ([string]$Binding.phase) `
+        -SkipLifecycleEvidence:$SkipProductionLifecycleEvidence
     Assert-AuthoritySnapshot `
         -Snapshot $AuthoritySnapshot.Value `
         -SnapshotSha256 $AuthoritySnapshot.Sha256 `
@@ -692,13 +1596,29 @@ function Assert-ProductionAuthorization {
         [Parameter(Mandatory)][object]$Carrier,
         [Parameter(Mandatory)][object]$Frozen,
         [Parameter(Mandatory)][string]$OperationId,
-        [Parameter(Mandatory)][string]$Phase
+        [Parameter(Mandatory)][string]$Phase,
+        [switch]$SkipLifecycleEvidence
     )
 
     if (-not (Test-RequiresProductionAuthorization -OperationId $OperationId -Phase $Phase)) {
         return
     }
     $policy = Get-AuthorizedProductionPhase -Phase $Phase
+    if (-not $SkipLifecycleEvidence) {
+        $lifecycleState = Get-AuthorizationLifecycleActiveState -Phase $Phase
+        Assert-LifecycleTransitionEvidence `
+            -EvidenceRoot (Join-Path $script:PrivateCarrierRoot 'execution\evidence') `
+            -State $lifecycleState `
+            -RunnerPath $PSCommandPath `
+            -RequireActionProvenance
+        if ($policy.Segment -ceq 'assessor') {
+            Assert-AssessorEligibility `
+                -EvidenceRoot (Join-Path $script:PrivateCarrierRoot 'execution\evidence')
+            Assert-LiveCampaignProductEvidence `
+                -RunnerPath $PSCommandPath `
+                -MaxAgeSeconds ([int]$Binding.receipt_max_age_seconds)
+        }
+    }
     $policySha256 = Get-ProductionPolicySha256
     foreach ($artifact in @($Binding, $Carrier, $Frozen)) {
         if ([string]$artifact.authorization_policy_sha256 -cne $policySha256 -or
@@ -708,7 +1628,7 @@ function Assert-ProductionAuthorization {
             [string]$artifact.reasoning_effort -cne $policy.Effort -or
             [long]$artifact.phase_turn_starts -ne [long]$policy.TurnStarts -or
             [string]$artifact.successor_phase -cne $policy.NextPhase) {
-            throw 'Production artifact does not match the committed D52 phase authorization policy.'
+            throw 'Production artifact does not match the committed D53 phase authorization policy.'
         }
     }
     if ([long]$Binding.remaining_budget.model_contexts -ne [long]$policy.RemainingContexts -or
@@ -716,12 +1636,12 @@ function Assert-ProductionAuthorization {
         [string]$Binding.child_operation_id -cne 'd52-codex-app-server' -or
         [string]$Binding.child_executable_anchor_id -cne
             'd52-codex-app-server-0.147.0-alpha.6.6') {
-        throw 'Production binding route or budget does not match the committed D52 phase authorization policy.'
+        throw 'Production binding route or budget does not match the committed D53 phase authorization policy.'
     }
     $expectsSuccessor = -not [string]::IsNullOrEmpty($policy.NextPhase)
     if (($expectsSuccessor -and [string]$Binding.next_dispatch_sha256 -ceq ('0' * 64)) -or
         (-not $expectsSuccessor -and [string]$Binding.next_dispatch_sha256 -cne ('0' * 64))) {
-        throw 'Production successor binding does not match the committed D52 phase authorization policy.'
+        throw 'Production successor binding does not match the committed D53 phase authorization policy.'
     }
 }
 
@@ -739,7 +1659,7 @@ function Assert-ExactPathIdentity {
         $expectedPath,
         [StringComparison]::OrdinalIgnoreCase
     )) {
-        throw "$Purpose does not match the committed D52 production path policy."
+        throw "$Purpose does not match the committed D53 production path policy."
     }
 }
 
@@ -783,7 +1703,7 @@ function Assert-ProductionArtifactPaths {
         }
         if ([string]::IsNullOrEmpty($expectedNext)) {
             if (-not [string]::IsNullOrWhiteSpace($NextDispatch)) {
-                throw 'Terminal D52 production phase cannot declare a successor descriptor.'
+                throw 'Terminal D53 production phase cannot declare a successor descriptor.'
             }
         }
         else {
@@ -806,12 +1726,12 @@ function Assert-AuthorizedNextDispatch {
     $policy = Get-AuthorizedProductionPhase -Phase $Phase
     if ([string]::IsNullOrEmpty($policy.NextPhase)) {
         if ($null -ne $Descriptor) {
-            throw 'Terminal D52 production phase cannot provide a successor descriptor.'
+            throw 'Terminal D53 production phase cannot provide a successor descriptor.'
         }
         return
     }
     if ($null -eq $Descriptor) {
-        throw 'D52 production phase is missing its committed-policy successor descriptor.'
+        throw 'D53 production phase is missing its committed-policy successor descriptor.'
     }
     $nextPolicy = Get-AuthorizedProductionPhase -Phase $policy.NextPhase
     $nextRoot = Join-Path (Join-Path $script:PrivateCarrierRoot 'phases') $nextPolicy.DirectoryName
@@ -833,7 +1753,7 @@ function Assert-AuthorizedNextDispatch {
         [string]$Descriptor.child_operation_id -cne 'd52-codex-app-server' -or
         [string]$Descriptor.child_executable_anchor_id -cne
             'd52-codex-app-server-0.147.0-alpha.6.6') {
-        throw 'Next descriptor route does not match the committed D52 production authorization policy.'
+        throw 'Next descriptor route does not match the committed D53 production authorization policy.'
     }
     $expectedFollowing = if ([string]::IsNullOrEmpty($nextPolicy.NextPhase)) { '' } else {
         Join-Path $nextRoot 'next-dispatch.json'
@@ -853,10 +1773,15 @@ function Assert-CompleteProductionCarrier {
         [Parameter(Mandatory)][string]$RunnerPath,
         [Parameter(Mandatory)][string]$ExecutablePath,
         [Parameter(Mandatory)][string]$ExecutableAnchorId,
-        [Parameter(Mandatory)][int]$MaxAgeSeconds
+        [Parameter(Mandatory)][int]$MaxAgeSeconds,
+        [Parameter(Mandatory)][string]$EntryPhase
     )
 
-    foreach ($policy in Get-AuthorizedProductionPhases) {
+    $entryPolicy = Get-AuthorizedProductionPhase -Phase $EntryPhase
+    foreach ($policy in @(
+        Get-AuthorizedProductionPhases |
+            Where-Object { $_.Segment -ceq $entryPolicy.Segment }
+    )) {
         $phaseRoot = Join-Path (Join-Path $script:PrivateCarrierRoot 'phases') $policy.DirectoryName
         $bindingPath = Join-Path $phaseRoot 'binding.json'
         $authorityPath = Join-Path $phaseRoot 'authority-snapshot.json'
@@ -870,7 +1795,7 @@ function Assert-CompleteProductionCarrier {
         }
         foreach ($mustBeAbsent in @($receiptPath, $statePath, ($receiptPath + '.consumed'))) {
             if (Test-Path -LiteralPath $mustBeAbsent) {
-                throw 'Fresh D52 production carrier contains preexisting receipt or dispatch state.'
+                throw 'Fresh D53 production carrier contains preexisting receipt or dispatch state.'
             }
         }
         Assert-ProductionArtifactPaths `
@@ -927,6 +1852,121 @@ function Assert-CompleteProductionCarrier {
         Assert-NextRouteBinding `
             -Binding $bindingSnapshot.Value `
             -DescriptorSha256 $(if ($null -eq $descriptorSnapshot) { $null } else { $descriptorSnapshot.Sha256 })
+    }
+}
+
+function Assert-CompletedModelOuterDispatch {
+    param(
+        [Parameter(Mandatory)][string]$RunnerPath,
+        [Parameter(Mandatory)][string]$PhaseRoot,
+        [Parameter(Mandatory)][object]$Policy,
+        [Parameter(Mandatory)][object]$ReceiptSnapshot,
+        [Parameter(Mandatory)][object]$StateSnapshot,
+        [Parameter(Mandatory)][string]$ExpectedConsumptionSha256,
+        [Parameter(Mandatory)][int]$MaxAgeSeconds,
+        [switch]$RequireLiveCampaignEvidence
+    )
+
+    if ([string]$Policy.Segment -notin @('canary', 'product', 'assessor')) {
+        throw 'Action-provenance validation accepts only committed model phases.'
+    }
+    $bindingPath = Join-Path $PhaseRoot 'binding.json'
+    $authorityPath = Join-Path $PhaseRoot 'authority-snapshot.json'
+    $carrierPath = Join-Path $PhaseRoot 'carrier-manifest.json'
+    $frozenPath = Join-Path $PhaseRoot 'frozen-inputs.json'
+    $argumentPath = Join-Path $PhaseRoot 'child-argv.json'
+    $nextPath = if ([string]::IsNullOrEmpty($Policy.NextPhase)) { '' } else {
+        Join-Path $PhaseRoot 'next-dispatch.json'
+    }
+    $bindingSnapshot = Read-JsonSnapshot -Path $bindingPath -Purpose 'canary launch binding'
+    $authoritySnapshot = Read-JsonSnapshot -Path $authorityPath -Purpose 'canary authority snapshot'
+    $carrierSnapshot = Read-JsonSnapshot -Path $carrierPath -Purpose 'canary carrier manifest'
+    $frozenSnapshot = Read-JsonSnapshot -Path $frozenPath -Purpose 'canary frozen inputs'
+    $argumentSnapshot = Read-ArgumentVectorSnapshot -Path $argumentPath -Purpose 'canary child argv'
+    $binding = $bindingSnapshot.Value
+    $receipt = $ReceiptSnapshot.Value
+    $state = $StateSnapshot.Value
+    $consumptionSnapshot = Read-JsonSnapshot `
+        -Path ($ReceiptSnapshot.FullName + '.consumed') `
+        -Purpose 'canary inner-consumption claim'
+    $consumption = $consumptionSnapshot.Value
+
+    Assert-ProductionArtifactPaths `
+        -OperationId 'd52-codex-app-server' `
+        -Phase $Policy.Phase `
+        -Binding $bindingPath `
+        -Authority $authorityPath `
+        -Carrier $carrierPath `
+        -Frozen $frozenPath `
+        -Receipt $ReceiptSnapshot.FullName `
+        -State $StateSnapshot.FullName `
+        -Arguments $argumentPath `
+        -WorkingDirectory $PhaseRoot `
+        -NextDispatch $nextPath `
+        -ValidateNextDispatch
+    Assert-Binding `
+        -Binding $binding `
+        -LauncherSha256 (Get-FileSha256 -Path $RunnerPath) `
+        -Phase $Policy.Phase `
+        -MaxAgeSeconds $MaxAgeSeconds
+    Assert-EvidenceSnapshots `
+        -Binding $binding `
+        -AuthoritySnapshot $authoritySnapshot `
+        -CarrierSnapshot $carrierSnapshot `
+        -FrozenSnapshot $frozenSnapshot `
+        -OperationId 'd52-codex-app-server' `
+        -Phase $Policy.Phase `
+        -SkipProductionLifecycleEvidence
+    Assert-ProductionRunnerIdentity `
+        -RunnerPath $RunnerPath `
+        -Binding $binding `
+        -Carrier $carrierSnapshot.Value `
+        -OperationId 'd52-codex-app-server' `
+        -Phase $Policy.Phase
+    $anchor = Get-TrustedExecutableAnchor -Id 'd52-codex-app-server-0.147.0-alpha.6.6'
+    Assert-ChildRouteBinding `
+        -Binding $binding `
+        -ExecutablePath $anchor.Path `
+        -OperationId 'd52-codex-app-server' `
+        -ExecutableAnchorId $anchor.Id `
+        -Arguments $argumentSnapshot.Arguments `
+        -ArgumentsSha256 $argumentSnapshot.Sha256 `
+        -WorkingDirectory $PhaseRoot
+    $descriptorSnapshot = if ([string]::IsNullOrEmpty($nextPath)) { $null } else {
+        Read-JsonSnapshot -Path $nextPath -Purpose 'canary next descriptor'
+    }
+    Assert-AuthorizedNextDispatch `
+        -OperationId 'd52-codex-app-server' `
+        -Phase $Policy.Phase `
+        -Descriptor $(if ($null -eq $descriptorSnapshot) { $null } else { $descriptorSnapshot.Value })
+    Assert-NextRouteBinding `
+        -Binding $binding `
+        -DescriptorSha256 $(if ($null -eq $descriptorSnapshot) { $null } else { $descriptorSnapshot.Sha256 })
+
+    if ([string]$receipt.schema_version -cne 'work-charter-d53-launch-receipt/v1' -or
+        [string]$receipt.campaign_id -cne $script:CampaignId -or
+        [string]$receipt.phase -cne $Policy.Phase -or
+        [string]$receipt.status -cne 'consumed' -or
+        [string]$receipt.binding_sha256 -cne $bindingSnapshot.Sha256 -or
+        [string]$receipt.dispatch_id -cne [string]$state.dispatch_id -or
+        [string]$receipt.outer_capability_id_sha256 -cnotmatch '^[0-9a-f]{64}$' -or
+        [string]$state.schema_version -cne 'work-charter-d53-dispatch-state/v1' -or
+        [string]$state.campaign_id -cne $script:CampaignId -or
+        [string]$state.phase -cne $Policy.Phase -or
+        [string]$state.status -cne 'completed' -or
+        [long]$state.child_exit_code -ne 0 -or
+        [long]$state.next_dispatch_count -ne
+            $(if ([string]::IsNullOrEmpty($Policy.NextPhase)) { 0 } else { 1 }) -or
+        [string]$consumption.schema_version -cne 'work-charter-d53-receipt-consumption/v1' -or
+        [string]$consumption.dispatch_id -cne [string]$receipt.dispatch_id -or
+        [string]$consumption.phase -cne $Policy.Phase -or
+        $consumptionSnapshot.Sha256 -cne $ExpectedConsumptionSha256 -or
+        $state.receipt_consumed -isnot [bool] -or
+        -not [bool]$state.receipt_consumed) {
+        throw 'Model-phase completion does not bind the genuine outer receipt to its launch binding and dispatch state.'
+    }
+    if ($RequireLiveCampaignEvidence) {
+        Assert-LiveCampaignPhaseEvidence -Policy $Policy
     }
 }
 
@@ -1067,7 +2107,7 @@ function Assert-TrustedOperation {
     $operation = Get-TrustedOperation -Id $OperationId
     if ((Test-IsAuthorizedProductionPhase -Phase $Phase) -and
         $OperationId -cne 'd52-codex-app-server') {
-        throw 'Test and qualification operations are excluded from the committed D52 production policy.'
+        throw 'Test and qualification operations are excluded from the committed D53 production policy.'
     }
     if ($operation.AnchorId -cne $ExecutableAnchorId) {
         throw 'Child operation executable anchor does not match the tracked operation table.'
@@ -1100,20 +2140,20 @@ function Assert-Binding {
         [Parameter(Mandatory)][int]$MaxAgeSeconds
     )
 
-    if ([string]$Binding.schema_version -cne 'work-charter-d52-launch-binding/v1') {
+    if ([string]$Binding.schema_version -cne 'work-charter-d53-launch-binding/v1') {
         throw 'Launch binding schema is not supported.'
     }
     if ([string]$Binding.campaign_id -cne $script:CampaignId) {
-        throw 'Launch binding campaign_id does not match the authorized D52 Campaign.'
+        throw 'Launch binding campaign_id does not match the authorized D53 Campaign.'
     }
     if ([string]$Binding.stable_subject -cne $script:StableSubject) {
-        throw 'Launch binding stable_subject does not match the authorized D52 subject.'
+        throw 'Launch binding stable_subject does not match the authorized D53 subject.'
     }
     if ([string]$Binding.candidate_commit -cne $script:CandidateCommit) {
-        throw 'Launch binding candidate_commit does not match the authorized D52 candidate.'
+        throw 'Launch binding candidate_commit does not match the authorized D53 candidate.'
     }
     if ([string]$Binding.candidate_manifest_sha256 -cne $script:CandidateManifestSha256) {
-        throw 'Launch binding candidate manifest does not match the authorized D52 candidate.'
+        throw 'Launch binding candidate manifest does not match the authorized D53 candidate.'
     }
     if ([string]::IsNullOrWhiteSpace([string]$Binding.phase)) {
         throw 'Launch binding field is missing: phase'
@@ -1124,6 +2164,10 @@ function Assert-Binding {
     if ([string]$Binding.phase -cne $Phase) {
         throw 'Launch binding phase does not match the requested phase.'
     }
+    Assert-AuthorizationLifecycleArtifact `
+        -Artifact $Binding `
+        -Phase $Phase `
+        -Purpose 'Launch binding'
     foreach ($field in @(
         'candidate_manifest_sha256',
         'authority_snapshot_sha256',
@@ -1163,7 +2207,7 @@ function Assert-Binding {
     }
     if ([long]$Binding.remaining_budget.model_contexts -gt 16 -or
         [long]$Binding.remaining_budget.turn_starts -gt 18) {
-        throw 'Launch binding remaining budget exceeds the authorized D52 ceiling.'
+        throw 'Launch binding remaining budget exceeds the authorized D53 ceiling.'
     }
     if ($Phase -ceq $script:ZeroModelQualificationPhase -and
         ([long]$Binding.remaining_budget.model_contexts -ne 0 -or
@@ -1417,9 +2461,9 @@ function Assert-ProductionAppServerInput {
     }
     if ($LineNumber -eq 1) {
         if ([string]$request.method -cne 'initialize' -or
-            [string]$request.params.clientInfo.name -cne 'work-charter-d52-carrier' -or
+            [string]$request.params.clientInfo.name -cne 'work-charter-d53-carrier' -or
             [string]$request.params.clientInfo.version -cne '1.0.0') {
-            throw 'Production app-server input must begin with the committed D52 initialize request.'
+            throw 'Production app-server input must begin with the committed D53 initialize request.'
         }
         $State.InitializeCount++
         $State.CurrentRequest = $request
@@ -1432,7 +2476,7 @@ function Assert-ProductionAppServerInput {
             $null -eq $request.params.PSObject.Properties['allowProviderModelFallback'] -or
             $request.params.allowProviderModelFallback -isnot [bool] -or
             [bool]$request.params.allowProviderModelFallback -ne $false) {
-            throw 'Production thread/start does not match the committed D52 model policy.'
+            throw 'Production thread/start does not match the committed D53 model policy.'
         }
         $State.ThreadStartCount++
         $State.CurrentRequest = $request
@@ -1444,11 +2488,11 @@ function Assert-ProductionAppServerInput {
         [string]$request.params.model -cne [string]$Policy.Model -or
         [string]$request.params.effort -cne [string]$Policy.Effort -or
         @($request.params.input).Count -eq 0) {
-        throw 'Production turn/start does not match the committed D52 model, effort, or input policy.'
+        throw 'Production turn/start does not match the committed D53 model, effort, or input policy.'
     }
     $State.TurnStartCount++
     if ([long]$State.TurnStartCount -gt [long]$Policy.TurnStarts) {
-        throw 'Production app-server input exceeds the committed D52 turn budget for this phase.'
+        throw 'Production app-server input exceeds the committed D53 turn budget for this phase.'
     }
     $State.CurrentRequest = $request
     $State.CurrentRequestKind = 'turn-start'
@@ -1621,7 +2665,7 @@ function Invoke-BidirectionalProcess {
             CurrentRequestKind = ''
             PhaseComplete = $false
         }
-        while ($null -ne ($line = [Console]::In.ReadLine())) {
+        while ($null -ne ($line = $script:SegmentInputReader.ReadLine())) {
             $lineNumber++
             if ($ValidateZeroModelQualificationInput) {
                 Assert-ZeroModelQualificationInput -Line $line -LineNumber $lineNumber
@@ -1669,7 +2713,7 @@ function Invoke-BidirectionalProcess {
              $productionState.TurnStartCount -ne [long]$ProductionPolicy.TurnStarts -or
              $productionState.TurnCompletedCount -ne [long]$ProductionPolicy.TurnStarts -or
              -not $productionState.PhaseComplete)) {
-            throw 'Production app-server input did not consume the exact committed D52 request and successful-response budget.'
+            throw 'Production app-server input did not consume the exact committed D53 request and successful-response budget.'
         }
         if ($null -ne $ProductionPolicy) {
             $stdoutTask = $process.StandardOutput.BaseStream.CopyToAsync(
@@ -1804,7 +2848,7 @@ function Invoke-Inner {
 
     $stateSnapshot = Read-JsonSnapshot -Path $DispatchStatePath -Purpose 'dispatch state'
     $state = $stateSnapshot.Value
-    if ([string]$state.schema_version -cne 'work-charter-d52-dispatch-state/v1' -or
+    if ([string]$state.schema_version -cne 'work-charter-d53-dispatch-state/v1' -or
         [string]$state.status -cne 'receipt_issued' -or
         [string]$state.campaign_id -cne [string]$binding.campaign_id -or
         [string]$state.phase -cne $ExpectedPhase) {
@@ -1813,7 +2857,7 @@ function Invoke-Inner {
 
     $receiptSnapshot = Read-JsonSnapshot -Path $ReceiptPath -Purpose 'launch receipt'
     $receipt = $receiptSnapshot.Value
-    if ([string]$receipt.schema_version -cne 'work-charter-d52-launch-receipt/v1' -or
+    if ([string]$receipt.schema_version -cne 'work-charter-d53-launch-receipt/v1' -or
         [string]$receipt.status -cne 'issued' -or
         [string]$receipt.campaign_id -cne [string]$binding.campaign_id) {
         throw 'Launch receipt is absent from the issued state or was already consumed.'
@@ -1848,7 +2892,7 @@ function Invoke-Inner {
 
     $consumeLockPath = (Get-RootedPath -Path $ReceiptPath -Purpose 'launch receipt') + '.consumed'
     Write-NewJsonFile -Path $consumeLockPath -Purpose 'receipt consumption claim' -Value ([ordered]@{
-        schema_version = 'work-charter-d52-receipt-consumption/v1'
+        schema_version = 'work-charter-d53-receipt-consumption/v1'
         dispatch_id = [string]$receipt.dispatch_id
         phase = $ExpectedPhase
         consumed_at_utc = [datetimeoffset]::UtcNow.ToString('O')
@@ -1874,7 +2918,12 @@ function Invoke-Inner {
         'd52-test-protocol-adapter',
         'd52-test-protocol-failed-completion'
     )) {
-        Get-AuthorizedProductionPhase -Phase 'assessor-terra-high'
+        if (Test-IsProtocolQualificationPhase -Phase $ExpectedPhase) {
+            Get-ProtocolQualificationPhase -Phase $ExpectedPhase
+        }
+        else {
+            Get-AuthorizedProductionPhase -Phase 'assessor-terra-high'
+        }
     }
     elseif (Test-RequiresProductionAuthorization `
         -OperationId $ChildOperationId `
@@ -1913,15 +2962,17 @@ function Invoke-Outer {
     if ($ChildOperationId -ceq 'd52-codex-app-server' -and
         -not (Test-IsZeroModelAppServerQualification -OperationId $ChildOperationId -Phase $ExpectedPhase)) {
         $policy = Get-AuthorizedProductionPhase -Phase $ExpectedPhase
+        Assert-LiveCampaignDispatchAuthorization -Policy $policy
         if ($script:ProductionDispatchDepth -eq 0) {
-            if ($policy.Ordinal -ne 1) {
-                throw 'A top-level D52 production dispatch must begin with the first committed canary phase.'
+            if ($policy.SegmentOrdinal -ne 1) {
+                throw 'A top-level D53 dispatch must begin with the first phase of its lifecycle segment.'
             }
             Assert-CompleteProductionCarrier `
                 -RunnerPath $runnerPath `
                 -ExecutablePath $ChildExecutablePath `
                 -ExecutableAnchorId $ChildExecutableAnchorId `
-                -MaxAgeSeconds $ReceiptMaxAgeSeconds
+                -MaxAgeSeconds $ReceiptMaxAgeSeconds `
+                -EntryPhase $ExpectedPhase
         }
     }
     Assert-ProductionArtifactPaths `
@@ -1988,7 +3039,7 @@ function Invoke-Outer {
             -Path $NextDispatchPath `
             -Purpose 'next dispatch descriptor'
         $nextDispatch = $nextDispatchSnapshot.Value
-        if ([string]$nextDispatch.schema_version -cne 'work-charter-d52-next-dispatch/v1') {
+        if ([string]$nextDispatch.schema_version -cne 'work-charter-d53-next-dispatch/v1') {
             throw 'Next dispatch descriptor schema is not supported.'
         }
         foreach ($field in @(
@@ -2025,7 +3076,7 @@ function Invoke-Outer {
     }
     $issuedAt = [datetimeoffset]::UtcNow.ToString('O')
     $state = [ordered]@{
-        schema_version = 'work-charter-d52-dispatch-state/v1'
+        schema_version = 'work-charter-d53-dispatch-state/v1'
         dispatch_id = $dispatchId
         campaign_id = [string]$binding.campaign_id
         phase = $ExpectedPhase
@@ -2037,7 +3088,7 @@ function Invoke-Outer {
     }
     Write-NewJsonFile -Path $DispatchStatePath -Value $state -Purpose 'dispatch state'
     $receipt = [ordered]@{
-        schema_version = 'work-charter-d52-launch-receipt/v1'
+        schema_version = 'work-charter-d53-launch-receipt/v1'
         dispatch_id = $dispatchId
         campaign_id = [string]$binding.campaign_id
         phase = $ExpectedPhase
@@ -2107,7 +3158,10 @@ function Invoke-Outer {
             $nextArguments.Add('-NextDispatchPath')
             $nextArguments.Add((Get-RootedPath ([string]$nextDispatch.next_dispatch_path) 'following dispatch descriptor'))
         }
-        $nextResult = if ($ChildOperationId -ceq 'd52-codex-app-server') {
+        $nextResult = if ($ChildOperationId -in @(
+            'd52-codex-app-server',
+            'd52-test-protocol-adapter'
+        )) {
             $nextExitCode = & {
                 param(
                     $BindingPath, $AuthoritySnapshotPath, $CarrierManifestPath,
@@ -2167,11 +3221,295 @@ function Invoke-Outer {
     return 0
 }
 
+function Complete-LiveCampaignSegment {
+    param([Parameter(Mandatory)][ValidateSet('canary', 'product', 'assessor')][string]$Segment)
+
+    $controller = Get-LiveCampaignController
+    if ([string]$controller.CurrentSegment -cne $Segment -or
+        [string]$controller.NextSegment -cne $Segment -or
+        $controller.CompletedSegments.Contains($Segment)) {
+        throw 'Live Campaign segment completion is duplicated or out of order.'
+    }
+    $runnerPath = (Get-OrdinaryFile -Path $PSCommandPath -Purpose 'tracked runner').FullName
+    foreach ($policy in @(Get-AuthorizedProductionPhases | Where-Object {
+        $_.Segment -ceq $Segment
+    })) {
+        $phaseRoot = Get-ProductionPhaseRoot -Policy $policy
+        $receiptSnapshot = Read-JsonSnapshot `
+            -Path (Join-Path $phaseRoot 'receipt.json') `
+            -Purpose 'live segment outer receipt'
+        $stateSnapshot = Read-JsonSnapshot `
+            -Path (Join-Path $phaseRoot 'dispatch-state.json') `
+            -Purpose 'live segment dispatch state'
+        $consumptionSha256 = Get-FileSha256 `
+            -Path ((Join-Path $phaseRoot 'receipt.json') + '.consumed')
+        Assert-CompletedModelOuterDispatch `
+            -RunnerPath $runnerPath `
+            -PhaseRoot $phaseRoot `
+            -Policy $policy `
+            -ReceiptSnapshot $receiptSnapshot `
+            -StateSnapshot $stateSnapshot `
+            -ExpectedConsumptionSha256 $consumptionSha256 `
+            -MaxAgeSeconds $ReceiptMaxAgeSeconds `
+            -RequireLiveCampaignEvidence:$false
+        $controller.PhaseEvidence.Add(
+            [string]$policy.Phase,
+            (Get-LiveCampaignPhaseFingerprint -Policy $policy)
+        )
+    }
+    if (-not $controller.CompletedSegments.Add($Segment)) {
+        throw 'Live Campaign segment completion could not be claimed exactly once.'
+    }
+    $controller.NextSegment = switch ($Segment) {
+        'canary' { 'product' }
+        'product' { 'assessor' }
+        'assessor' { 'terminal' }
+    }
+}
+
+function Invoke-LiveCampaignSegment {
+    param([Parameter(Mandatory)][ValidateSet('canary', 'product', 'assessor')][string]$Segment)
+
+    $policy = @(
+        Get-AuthorizedProductionPhases | Where-Object {
+            $_.Segment -ceq $Segment -and $_.SegmentOrdinal -eq 1
+        }
+    )
+    if ($policy.Count -ne 1) {
+        throw "Live Campaign segment has no exact first phase: $Segment"
+    }
+    $policy = $policy[0]
+    $phaseRoot = Get-ProductionPhaseRoot -Policy $policy
+    $anchor = Get-TrustedExecutableAnchor -Id 'd52-codex-app-server-0.147.0-alpha.6.6'
+    $nextPath = if ([string]::IsNullOrEmpty([string]$policy.NextPhase)) { '' } else {
+        Join-Path $phaseRoot 'next-dispatch.json'
+    }
+    return [int](& {
+        param(
+            $BindingPath, $AuthoritySnapshotPath, $CarrierManifestPath,
+            $FrozenInputsPath, $ReceiptPath, $DispatchStatePath,
+            $ExpectedPhase, $ChildExecutablePath, $ChildOperationId,
+            $ChildExecutableAnchorId, $ChildArgumentsPath,
+            $ChildWorkingDirectory, $NextDispatchPath
+        )
+        return [int](Invoke-Outer)
+    } `
+        (Join-Path $phaseRoot 'binding.json') `
+        (Join-Path $phaseRoot 'authority-snapshot.json') `
+        (Join-Path $phaseRoot 'carrier-manifest.json') `
+        (Join-Path $phaseRoot 'frozen-inputs.json') `
+        (Join-Path $phaseRoot 'receipt.json') `
+        (Join-Path $phaseRoot 'dispatch-state.json') `
+        ([string]$policy.Phase) `
+        ([string]$anchor.Path) `
+        'd52-codex-app-server' `
+        ([string]$anchor.Id) `
+        (Join-Path $phaseRoot 'child-argv.json') `
+        $phaseRoot `
+        $nextPath)
+}
+
+function Read-LiveCampaignCommand {
+    $line = $script:SegmentInputReader.ReadLine()
+    if ($null -eq $line) {
+        throw 'Live Campaign controller input ended before a terminal command.'
+    }
+    try {
+        $command = $line | ConvertFrom-Json -Depth 20 -DateKind String -NoEnumerate
+    }
+    catch {
+        throw "Live Campaign command is not strict JSON: $($_.Exception.Message)"
+    }
+    if ([string]$command.schema_version -cne 'work-charter-d53-campaign-command/v1' -or
+        [string]$command.command -notin @('dispatch_segment', 'validate_terminal')) {
+        throw 'Live Campaign command schema or operation is not supported.'
+    }
+    $propertyNames = @($command.PSObject.Properties.Name)
+    $expectedNames = if ([string]$command.command -ceq 'dispatch_segment') {
+        @('schema_version', 'command', 'segment')
+    }
+    else { @('schema_version', 'command') }
+    if ($propertyNames.Count -ne $expectedNames.Count -or
+        @(Compare-Object -ReferenceObject $expectedNames -DifferenceObject $propertyNames).Count -ne 0) {
+        throw 'Live Campaign command fields are not exact.'
+    }
+    if ([string]$command.command -ceq 'dispatch_segment' -and
+        [string]$command.segment -notin @('canary', 'product', 'assessor')) {
+        throw 'Live Campaign segment command is not authorized.'
+    }
+    return $command
+}
+
+function Write-LiveCampaignControlResult {
+    param(
+        [Parameter(Mandatory)][string]$Event,
+        [AllowEmptyString()][string]$Segment = '',
+        [int]$ExitCode = 0
+    )
+
+    [ordered]@{
+        schema_version = 'work-charter-d53-campaign-control-result/v1'
+        event = $Event
+        segment = $Segment
+        exit_code = $ExitCode
+    } | ConvertTo-Json -Depth 10 -Compress | ForEach-Object {
+        [Console]::Out.WriteLine($_)
+    }
+}
+
+function Assert-LiveCampaignFailureTerminal {
+    $controller = Get-LiveCampaignController
+    if ([string]::IsNullOrEmpty([string]$controller.FailedSegment)) {
+        return
+    }
+    $terminal = Read-JsonFile `
+        -Path (Join-Path $script:PrivateCarrierRoot 'execution\evidence\d53-terminal.json') `
+        -Purpose 'live failed-segment terminal receipt'
+    $expected = switch ([string]$controller.FailedSegment) {
+        'canary' {
+            [pscustomobject]@{
+                PreviousState = 'CANARY_AUTHORIZED_AFTER_QUALIFICATION'
+                Disposition = 'CANARY_FAILED / PRODUCT_UNKNOWN'
+            }
+        }
+        'product' {
+            [pscustomobject]@{
+                PreviousState = 'PRODUCT_AUTHORIZED_BY_APPROVED_CAMPAIGN'
+                Disposition = 'PRODUCT_FAILED / NOT_ACCEPTED'
+            }
+        }
+        'assessor' {
+            [pscustomobject]@{
+                PreviousState = 'PRODUCT_AUTHORIZED_BY_APPROVED_CAMPAIGN'
+                Disposition = 'ASSESSOR_FAILED / NOT_ACCEPTED'
+            }
+        }
+    }
+    if ($null -eq $expected -or
+        [string]$terminal.previous_state -cne [string]$expected.PreviousState -or
+        [string]$terminal.terminal_disposition -cne [string]$expected.Disposition) {
+        throw 'D53 terminal receipt does not match the live failed Campaign segment.'
+    }
+}
+
+function Invoke-CampaignController {
+    $controller = [pscustomobject]@{
+        Guard = [object]::new()
+        Active = $true
+        CurrentSegment = ''
+        NextSegment = 'canary'
+        CompletedSegments = [System.Collections.Generic.HashSet[string]]::new(
+            [System.StringComparer]::Ordinal
+        )
+        PhaseEvidence = [System.Collections.Generic.Dictionary[string,string]]::new(
+            [System.StringComparer]::Ordinal
+        )
+        FailedSegment = ''
+        FailedExitCode = $null
+    }
+    if ($null -ne $script:ActiveCampaignController) {
+        throw 'A live D53 Campaign controller already exists in this process.'
+    }
+    $script:ActiveCampaignController = $controller
+    try {
+        while ($true) {
+            $command = Read-LiveCampaignCommand
+            if ([string]$command.command -ceq 'validate_terminal') {
+                if ([string]$controller.NextSegment -cne 'terminal') {
+                    throw 'Live Campaign terminal validation requires a recorded segment failure or all segments completed.'
+                }
+                Assert-LifecycleTransitionEvidence `
+                    -EvidenceRoot (Join-Path $script:PrivateCarrierRoot 'execution\evidence') `
+                    -State 'TERMINAL' `
+                    -RunnerPath $PSCommandPath `
+                    -RequireActionProvenance
+                Assert-LiveCampaignFailureTerminal
+                $terminalExitCode = 0
+                if (-not [string]::IsNullOrEmpty([string]$controller.FailedSegment)) {
+                    if ($controller.FailedExitCode -isnot [int] -or
+                        [int]$controller.FailedExitCode -eq 0) {
+                        throw 'Live Campaign failed segment has no typed nonzero child exit.'
+                    }
+                    $terminalExitCode = [int]$controller.FailedExitCode
+                }
+                Write-LiveCampaignControlResult `
+                    -Event 'terminal_validated' `
+                    -ExitCode $terminalExitCode
+                return $terminalExitCode
+            }
+            $segment = [string]$command.segment
+            if ([string]$controller.NextSegment -cne $segment) {
+                throw "Live Campaign segment order requires $($controller.NextSegment), not $segment."
+            }
+            $controller.CurrentSegment = $segment
+            try {
+                $exitCode = Invoke-LiveCampaignSegment -Segment $segment
+                if ($exitCode -eq 0) {
+                    Complete-LiveCampaignSegment -Segment $segment
+                }
+            }
+            finally {
+                $controller.CurrentSegment = ''
+            }
+            if ($exitCode -ne 0) {
+                if (-not [string]::IsNullOrEmpty([string]$controller.FailedSegment)) {
+                    throw 'Live Campaign cannot record more than one failed segment.'
+                }
+                $controller.FailedSegment = $segment
+                $controller.FailedExitCode = [int]$exitCode
+                $controller.NextSegment = 'terminal'
+                Write-LiveCampaignControlResult `
+                    -Event 'segment_failed' `
+                    -Segment $segment `
+                    -ExitCode ([int]$exitCode)
+                continue
+            }
+            Write-LiveCampaignControlResult -Event 'segment_completed' -Segment $segment
+        }
+    }
+    finally {
+        $controller.Active = $false
+        $script:ActiveCampaignController = $null
+    }
+}
+
 try {
+    if ($Mode -ceq 'Campaign') {
+        Assert-CampaignParameters
+        exit ([int](Invoke-CampaignController))
+    }
+    if ($Mode -ceq 'DescribeLifecycle') {
+        Get-AuthorizationLifecycleEnvelope -Phase $ExpectedPhase | ConvertTo-Json -Depth 100
+        exit 0
+    }
+    if ($Mode -ceq 'ValidateLifecycle') {
+        if ([string]::IsNullOrWhiteSpace($LifecycleEvidenceRoot) -or
+            [string]::IsNullOrWhiteSpace($ExpectedLifecycleState)) {
+            throw 'ValidateLifecycle requires LifecycleEvidenceRoot and ExpectedLifecycleState.'
+        }
+        Assert-LifecycleTransitionEvidence `
+            -EvidenceRoot $LifecycleEvidenceRoot `
+            -State $ExpectedLifecycleState `
+            -RunnerPath $PSCommandPath `
+            -RequireActionProvenance:$RequireActionProvenance
+        if ($ExpectedPhase -ceq 'assessor-terra-high') {
+            Assert-AssessorEligibility -EvidenceRoot $LifecycleEvidenceRoot
+        }
+        [ordered]@{
+            schema_version = 'work-charter-d53-lifecycle-validation/v1'
+            campaign_id = $script:CampaignId
+            state = $ExpectedLifecycleState
+            authorization_lifecycle_policy_sha256 = Get-AuthorizationLifecyclePolicySha256
+            action_authority = $false
+            verdict = 'PASS'
+        } | ConvertTo-Json -Depth 10
+        exit 0
+    }
+    Assert-ExecutionParameters
     $exitCode = if ($Mode -ceq 'Inner') { Invoke-Inner } else { Invoke-Outer }
     exit ([int]$exitCode)
 }
 catch {
-    [Console]::Error.WriteLine("D52_RUNNER_REJECTED: $($_.Exception.Message)")
+    [Console]::Error.WriteLine("D53_RUNNER_REJECTED: $($_.Exception.Message)")
     exit $script:RunnerFailureExitCode
 }

@@ -156,14 +156,20 @@ the exact tracked runner does not yet implement this guard, record mechanical
 enforcement as `DEFERRED` and do not treat an inner canary as qualification of
 the consuming path.
 
-The approved `WC-AR-D52-TRACKED-OUTER-DISPATCH` Campaign promotes that
-mechanical guard through tracked `invoke-work-charter-gate2.ps1`. Its first
-zero-model tranche binds the candidate, carrier manifest, tracked launcher
-revision, Campaign contract, active ruleset, frozen inputs, phase, remaining
-budget, exact child route, and following dispatch.
-`check-work-charter-gate2-runner.ps1` currently passes 24/24 deterministic
-scenarios: outer positive, post-consumption argv-mutation isolation, typed
-child nonzero, empty and singleton argv,
+Approved `WC-AR-D52-TRACKED-OUTER-DISPATCH` first promoted that mechanical
+guard through tracked `invoke-work-charter-gate2.ps1`. Local commit
+`410b0bd...` records its corrected 24/24 prerequisite. The later private D52
+carrier used both authorized corrections and failed official qualification
+stage 7 before the aggregate 48/48 receipt; no scarce evidence started. D52 is
+sealed as `QUALIFICATION_FAILED / PRODUCT_UNKNOWN`.
+
+Explicit successor `WC-AR-D53-LAYERED-AUTHORIZATION-LIFECYCLE` reuses that
+tracked owner and additionally binds every producer and consumer artifact to
+one six-state policy exposed by the runner: zero-model qualification, canary
+authorization, freeze pending, frozen awaiting Campaign activation, product
+authorization, and terminal. `check-work-charter-gate2-runner.ps1` now passes
+32/32 deterministic scenarios. It retains outer positive, post-consumption
+argv-mutation isolation, typed child nonzero, empty and singleton argv,
 exact signed/hash-pinned Codex round-trip, authenticated executable anchor and
 shadow-path rejection, exact static Campaign/candidate identity rejection,
 caller-selected argv rejection against the tracked operation table, self-
@@ -175,15 +181,73 @@ rejection before phase completion or successor dispatch, duplicate dispatch,
 production-phase rejection of every qualification/test operation, direct inner
 with forged files but no live same-process Outer object capability, and absent,
 stale, wrong-phase, wrong-hash, and reused receipts mutated after authentic
-Outer issuance. The positive path also proves that the following phase re-enters the
-same tracked outer runner and receives its own one-shot receipt. This is runner
-qualification only: it consumes no model turn, supplies no Gate 2 product
-credit, and does not make candidate `c481005...` accepted. Local commit
-`410b0bd...` completed that tracked prerequisite. The later private D52 carrier
-used both authorized corrections and failed official qualification stage 7
-before the aggregate 48/48 receipt; no scarce evidence started. D52 is sealed
-as `QUALIFICATION_FAILED / PRODUCT_UNKNOWN`, and the candidate remains
-unaccepted.
+Outer issuance. Eight added checks prove the exact lifecycle positive and
+reject wrong qualification state, wrong canary transition, wrong freeze state,
+wrong activation state, stale `23/23`, predecessor-only state leakage, and a
+wrong lifecycle policy/hash before receipt issuance. The positive lifecycle
+also validates a synthetic 56/56 -> three-canary -> freeze -> Campaign-
+activation hash chain and proves that canary, product, and assessor are separate
+dispatch segments with no cross-segment successor descriptor. Within a segment,
+the following phase re-enters the same tracked outer runner and receives its
+own one-shot receipt. The same positive condition rejects assessor entry when
+its exact admitted packet, reviewed view, and eligibility receipt are not all
+bound. Its diagnostic evidence root explicitly carries no action authority;
+the real action-provenance path additionally requires the exact D53 root and
+recursively validates each canary's full launch artifacts, argv/successor,
+consumed receipt plus inner consumption claim, typed-zero completed state, and
+committed runner identity. `TERMINAL` also requires its own typed receipt; an
+`ACCEPTED` receipt additionally requires exact-root action provenance and binds
+the complete product chain plus the assessor eligibility/view, consumed outer
+receipt, inner consumption claim, and typed-zero completed state. The canary
+gate records the configured receipt maximum age and later lifecycle checks
+reuse it; the tracked positive covers a non-default 600-second value.
+One persistent outer input reader carries a whole segment: each phase consumes
+only through its own `phase_complete`, then the bound successor continues from
+the same reader. The protocol-positive check executes a structurally matched
+three-phase `qualification-segment-*` analog with separate receipts and typed-
+zero states; the simulator is rejected before receipt/state creation under
+every real production phase, which remains exact-Codex-only. The admitted product packet also
+lists all twelve product routes in policy order; eligibility rejects a missing
+route and accepted closeout reopens every route's receipt, consumption claim,
+state, and exactly-once successor evidence instead of trusting aggregate 28/28.
+That completed-route pass suppresses recursive lifecycle re-entry only; each
+binding/carrier/frozen set is still rechecked against the committed phase policy,
+route budget, operation, successor, and authenticated executable anchor.
+Review 4/5 established that persisted JSON alone was not sufficient action
+provenance after a segment process exited. The approved 2026-08-13 Replan Delta
+therefore adds one tracked `Campaign` entry that remains alive across the three
+segments and terminal validation. It accepts only exact newline-delimited
+segment/terminal commands, derives all routes from tracked policy, and retains
+an unpersisted ordered completion ledger plus hashes of each completed phase's
+binding, authority, carrier, frozen inputs, argv, receipt, consumption, state,
+and successor. Product requires live canary fingerprints, assessor requires
+live product fingerprints, and accepted terminal requires all live phase
+fingerprints. Direct production `Outer`, direct diagnostic action provenance,
+self-consistent JSON, and product-first dispatch fail before action. Persisted
+records remain audit evidence, not a transferable capability. Terminal
+validation independently binds each failure disposition to its immediately
+preceding lifecycle state. Reset-cycle review 5/5 alleged that the initial
+segment-completion pass consulted live fingerprints before recording them.
+The call omitted that switch, whose default was false; the mandatory finding
+stop still applied. Under the separately approved review reset, the runner now
+passes `-RequireLiveCampaignEvidence:$false` explicitly on that initial pass,
+while every later consumer still requires the recorded live fingerprint.
+New-cycle review 1/5 additionally required every non-accepting terminal to
+validate the evidence chain for its declared predecessor and required a typed
+child failure to keep the live controller available for terminal closeout.
+The runner now moves a failed segment only to `terminal`, emits
+`segment_failed` with its typed exit, requires the terminal disposition to
+match that live segment, and returns the original exit after validation. The
+focused gate accepts a qualification-bound canary-failure terminal and rejects
+the same terminal without qualification evidence. These are zero-model runner
+checks. New-cycle review 2/5 additionally found that `validate_terminal` could
+arrive before a failed segment or completion of all three successful segments.
+The controller now requires its live `NextSegment` to equal `terminal`, and the
+focused gate rejects an initial terminal command before evidence validation:
+they
+supply no Gate 2 product credit and do not make candidate `c481005...`
+accepted. D53 private rehearsal and the formal 56/56 gate cannot begin before
+the tracked lifecycle commit.
 
 For each attempted product cell, record at least:
 

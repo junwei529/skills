@@ -960,44 +960,57 @@ $gate2RunnerNames = @(
     $gate2RunnerRecord.checks |
         ForEach-Object { [string]$_.name }
 )
+$gate2RunnerExpectedNames = @(
+    'absent-receipt',
+    'app-server-zero-model-qualification',
+    'authorization-lifecycle-positive',
+    'argv-snapshot',
+    'child-nonzero',
+    'codex-trust-anchor',
+    'committed-runner-binding',
+    'direct-inner',
+    'duplicate-dispatch',
+    'empty-argv',
+    'forged-production-authorization',
+    'lifecycle-policy-hash-mismatch',
+    'outer-positive',
+    'predecessor-state-leakage',
+    'production-failed-completion',
+    'production-input-policy',
+    'production-protocol-positive',
+    'reused-receipt',
+    'shadow-executable',
+    'singleton-argv',
+    'stale-qualification-threshold',
+    'stale-receipt',
+    'wrong-activation-state',
+    'wrong-canary-transition',
+    'wrong-evidence-artifact',
+    'wrong-executable-anchor',
+    'wrong-freeze-state',
+    'wrong-hash',
+    'wrong-operation-argv',
+    'wrong-phase',
+    'wrong-qualification-state',
+    'wrong-static-identity'
+)
+$gate2RunnerNameMatch = (
+    (@($gate2RunnerNames | Sort-Object) -join "`0") -ceq
+    (@($gate2RunnerExpectedNames | Sort-Object) -join "`0")
+)
+$gate2RunnerRegressionPassed = (
+    $gate2RunnerExit -eq 0 -and
+    $null -ne $gate2RunnerRecord -and
+    [string]$gate2RunnerRecord.verdict -ceq 'PASS' -and
+    [int]$gate2RunnerRecord.passed -eq 32 -and
+    [int]$gate2RunnerRecord.total -eq 32 -and
+    (@($gate2RunnerRecord.checks | Where-Object { -not $_.passed })).Count -eq 0 -and
+    $gate2RunnerNameMatch
+)
 Add-Check `
     -Name 'Work Charter Gate 2 outer runner regression' `
-    -Passed (
-        $gate2RunnerExit -eq 0 -and
-        $null -ne $gate2RunnerRecord -and
-        [string]$gate2RunnerRecord.verdict -ceq 'PASS' -and
-        [int]$gate2RunnerRecord.passed -eq 24 -and
-        [int]$gate2RunnerRecord.total -eq 24 -and
-        (@($gate2RunnerRecord.checks | Where-Object { -not $_.passed })).Count -eq 0 -and
-        (@($gate2RunnerNames | Sort-Object) -join "`0") -ceq
-            (@(
-                'absent-receipt',
-                'app-server-zero-model-qualification',
-                'argv-snapshot',
-                'child-nonzero',
-                'codex-trust-anchor',
-                'committed-runner-binding',
-                'direct-inner',
-                'duplicate-dispatch',
-                'empty-argv',
-                'forged-production-authorization',
-                'outer-positive',
-                'production-failed-completion',
-                'production-input-policy',
-                'production-protocol-positive',
-                'reused-receipt',
-                'shadow-executable',
-                'singleton-argv',
-                'stale-receipt',
-                'wrong-evidence-artifact',
-                'wrong-executable-anchor',
-                'wrong-hash',
-                'wrong-operation-argv',
-                'wrong-phase',
-                'wrong-static-identity'
-            ) -join "`0")
-    ) `
-    -Expectation 'the tracked single-entry runner preserves one bound argv byte snapshot and separate streams, binds production to its committed blob, round-trips the exact bidirectional app-server operation without model evidence, requires a correlated successful terminal turn before phase completion, propagates one typed child exit, dispatches the next receipt-bound phase exactly once, and rejects direct, absent, stale, wrong-phase, wrong-hash, duplicate, failed-terminal, and reused launches before child start'
+    -Passed $gate2RunnerRegressionPassed `
+    -Expectation 'the tracked single-entry runner exposes and enforces one hash-bound six-state D53 authorization lifecycle, preserves one bound argv byte snapshot and separate streams, binds production to its committed blob, round-trips the exact bidirectional app-server operation without model evidence, requires a correlated successful terminal turn before phase completion, propagates one typed child exit, dispatches the next receipt-bound phase exactly once, and rejects lifecycle drift, direct, absent, stale, wrong-phase, wrong-hash, duplicate, failed-terminal, and reused launches before child start'
 
 $checks | Format-Table -AutoSize
 

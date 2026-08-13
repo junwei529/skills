@@ -1,6 +1,6 @@
 # Work Charter Verification
 
-Last updated: 2026-08-12
+Last updated: 2026-08-13
 
 ## Claim Ledger
 
@@ -40,6 +40,7 @@ Last updated: 2026-08-12
 | Exact `c481005...` D50 Gate 2 terminal | D50 cold-certified its reusable controller bundle, passed 23/23 official qualification, three exact-route canaries, and a 178-file / 83-mapping freeze, then imported D49 A01-A17 without replay; non-scored candidate calibration passed, but fresh scored released-control A18 returned controller `UNKNOWN` for `resolved_command_invocation_not_trusted`, so D50 sealed at scored 17/28 with 0/11 fresh scored cells complete; one eligible assessor returned `DECISION_REQUIRED`, and the immutable candidate remains unaccepted |
 | Exact `c481005...` D51 route-invalid closeout | D51-03 used its final correction and passed 24/24 deterministic qualification; three non-product canary turns then ran through the inner batch instead of the declared outer launcher, so the required typed-scalar launch receipt is absent and freeze/product/assessor never started; the turns remain immutable inner-route evidence only, the candidate remains unaccepted, and no automatic D52 follows |
 | Exact `c481005...` D52 qualification terminal | local commit `410b0bd...` records the tracked single-entry runner and corrected 24/24 focused result; one fresh private carrier used both corrections, passed official stages 1-6, then failed stage 7 `model_authorization_envelope` because the frozen policy did not require the post-freeze authorization gate; no aggregate 48/48 receipt, outer phase receipt, canary, freeze, product, or assessor turn followed, so D52 is `QUALIFICATION_FAILED / PRODUCT_UNKNOWN` and the candidate remains unaccepted |
+| Exact `c481005...` D53 tracked authorization lifecycle | explicitly authorized Campaign `WC-AR-D53-LAYERED-AUTHORIZATION-LIFECYCLE` preserves the D52 terminal and binds qualification, canary, freeze, activation, product, and terminal authority to one hash-bound six-state lifecycle; its approved live-controller Replan Delta retains an unpersisted completion/fingerprint capability across separate canary, product, and assessor segments, while real entry validates the required 56/56-to-canary-to-freeze-to-Campaign-activation evidence prefix; the tracked runner/checker passes 32/32 with direct-JSON, product-first, forged-failure-terminal, and early-terminal negatives plus failed-segment terminal-wait guards, the repository checker passes for 213 text files / 14 cases / 12 fixtures, the full fixture suite passes 18/18, and zero model use occurred; new-cycle reviews 1-2/5's terminal-closeout and early-terminal P1s are corrected, three reviews remain, and local commit 1 plus every private/model phase remain pending a clean final-byte review |
 | Isolated path-bound controller canary | private retained sealed `CANARY_PASS`; the public summary reports an exact-response pass and no command execution, omits locator/artifact/runtime details, leaves physical backend request count `UNKNOWN`, and proves neither natural-language selection nor candidate acceptance |
 | Small bounded work stays flat | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
 | Midstream implicit behavior is proposal-only | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
@@ -2210,6 +2211,182 @@ SHA-256 is `7c12bbdb...abd4d`. This is a private-carrier qualification-contract
 mismatch, not a Work Charter SOURCE, candidate-behavior, tracked-runner, or
 provider finding. No third correction, retry, operator recovery, replay,
 rescore, automatic D53, acceptance, installation, or release claim exists.
+
+### 2026-08-12 — D53 tracked authorization lifecycle
+
+The user explicitly authorized
+`WC-AR-D53-LAYERED-AUTHORIZATION-LIFECYCLE` against candidate
+`c4810057c3f28cca9f12004ca2018784cd21f449`, five-file manifest
+`04c382a48e43897a8806aa5ffd996984cb015d3d8cdc6e675e9181a6d94e6f44`,
+released control `ceed607152849775b981c54add74bfa30d858e4d`, and the immutable
+D52 terminal receipt. The tracked runner now exposes a hash-bound lifecycle
+with exactly these states:
+
+1. `ZERO_MODEL_QUALIFICATION_PENDING`
+2. `CANARY_AUTHORIZED_AFTER_QUALIFICATION`
+3. `FREEZE_PENDING_AFTER_CANARIES`
+4. `PRE_PRODUCT_FROZEN_AWAITING_CAMPAIGN_ACTIVATION`
+5. `PRODUCT_AUTHORIZED_BY_APPROVED_CAMPAIGN`
+6. `TERMINAL`
+
+The tracked checker retains all 24 D52 route, receipt, command, artifact,
+protocol, and committed-runner conditions and adds eight authorization
+lifecycle conditions: the positive envelope, wrong qualification state, wrong
+canary transition, wrong freeze state, wrong activation state, stale
+qualification threshold, predecessor-state leakage, and lifecycle-policy hash
+mismatch. The current focused result is 32/32. The repository checker passes
+for 213 text files / 14 cases / 12 fixtures, and the full fixture suite passes
+18/18 after its tracked consumer was changed to evaluate the exact-name
+comparison before the aggregate Boolean expression. No model, product,
+assessor, `thread/start`, or `turn/start` was consumed, and the D53 private
+carrier has not been created.
+
+Native reviews 1-3 found and corrected five same-scope gaps. Assessor entry now
+requires a packet-bound view, passing local disclosure review, and eligibility
+receipt; `STATE.md` now distinguishes D52's sealed stop from the separately
+authorized D53 successor; real canary provenance now binds the full phase
+artifacts and committed runner; the inner one-shot consumption claim is
+required; and `TERMINAL` now has a reachable typed receipt contract. Review
+4/5 returned no actionable finding against the corrected twelve-file target.
+The fourth review's output handle was briefly unavailable after context
+compaction, but its complete exit-zero semantic result was recovered from the
+same local review record. Review 5/5 then found two further same-scope defects:
+an accepted terminal was not bound to the consumed assessor route, and canary
+revalidation hard-coded receipt age 300. The corrected contract requires exact-
+root action provenance and binds the assessment to the eligibility/view plus
+assessor receipt, consumption claim, and completed typed-zero state; it also
+carries the configured receipt age through later lifecycle checks. The focused
+gate passes 32/32 after both fixes, including a 600-second non-default-age
+positive and rejection of accepted diagnostic evidence without action
+provenance. The cycle is exhausted and no reset was used or preauthorized.
+These reviews are commit-gate evidence only, not Gate 2 model or assessor
+evidence.
+
+The user then explicitly approved one native-review budget reset for the same
+exact twelve-file D53 commit attempt. It preserves all prior reviews and
+findings and authorizes at most five new completed semantic reviews for final-
+byte convergence; it does not change the Campaign, candidate, correction or
+model budgets, external effects, acceptance, or successor authority.
+
+Reset-cycle review 1/5 found two P1 gaps. First, the focused gate had not
+proved that automatic successors could consume separate phase request streams
+from one outer stdin. The runner now owns one persistent segment reader and
+stops each child input at that phase's `phase_complete`; the existing protocol-
+positive condition now executes three qualification-only analog phases with three receipts,
+three consumption claims, three typed-zero states, and exactly-once successor
+counts. Second, accepted terminal validation trusted aggregate product fields
+without reopening all product dispatches. The admitted packet now carries an
+ordered twelve-route ledger; assessor eligibility rejects an incomplete ledger,
+and exact-root acceptance revalidates every product receipt, consumption claim,
+completed typed-zero state, and within-segment successor count. Focused 32/32
+passes with zero real model or assessor calls. Four reset-cycle reviews remain.
+
+Reset-cycle review 2/5 found one P1 in that new coverage: the simulator was
+temporarily admitted under real production phase names and therefore could
+create production-shaped receipts without the exact Codex route. The operation
+gate again admits only `d52-codex-app-server` for every real canary, product,
+and assessor phase. The simulator now uses only `qualification-segment-*`; the
+same focused condition still exercises three-phase reader/successor mechanics,
+while `forged-production-authorization` proves the adapter is rejected before
+receipt or state creation under `canary-sol-high`. Focused 32/32 passes and
+three reset-cycle reviews remain.
+
+Reset-cycle review 3/5 found one P1 in accepted-route revalidation. The path
+used to skip all of `Assert-ProductionAuthorization` to avoid recursively
+re-entering lifecycle transition validation, which also skipped the static
+binding/carrier/frozen policy checks. It now suppresses only lifecycle evidence
+re-entry and still reapplies exact policy hash, phase ordinal, model, effort,
+turn and remaining budgets, successor, operation, and executable anchor checks
+to every completed canary/product/assessor route. Focused 32/32 passes. Review
+4/5 is the final-byte gate; two reset-cycle reviews remain.
+
+Reset-cycle review 4/5 found one P2 and one P1. The P2 allowed a non-accepted
+terminal disposition to name a stage inconsistent with `previous_state`; an
+exact predecessor-to-disposition table, distinct activation-failure terminal,
+and focused negative now fail closed. The P1 remains open: once a segment exits,
+the in-memory outer capability is gone, so a process able to populate the exact
+private root can forge a self-consistent persisted receipt/state/consumption
+chain. Another self-hash cannot authenticate the departed live process. A
+single long-lived tracked campaign controller or an independently trusted
+external anchor is a material replan. Review 5/5 was unused at that decision
+gate, and commit 1 plus every private/model tranche were blocked pending the
+user-owned decision.
+
+On 2026-08-13 the user explicitly approved the material live-controller Replan
+Delta under the same Campaign. The tracked runner now has one `Campaign` entry
+whose process remains alive across canary, product, assessor, and terminal
+control. It derives all execution paths and trusted anchors from the committed
+sixteen-phase policy and accepts only exact segment or terminal commands. Its
+unpersisted object capability records the next segment, an ordinal completed-
+segment set, and one fingerprint per completed phase over binding, authority,
+carrier, frozen inputs, argv, receipt, consumption claim, dispatch state, and
+successor. Later segment authorization requires those live fingerprints to
+still match the private artifacts. Persisted JSON cannot populate the ledger;
+direct production `Outer`, direct diagnostic action provenance, and a product-
+first Campaign command fail closed. Accepted terminal validation additionally
+requires the live canary, product, and assessor evidence. This is a bounded
+same-Campaign controller correction, not an external signature or transferable
+action anchor.
+
+The focused gate remains 32/32 after the Replan Delta, including the direct-
+JSON and product-first negatives. Reset-cycle review 5/5 returned one P1
+alleging that initial segment completion called live-fingerprint validation
+before `PhaseEvidence.Add`. The reviewed call omitted
+`RequireLiveCampaignEvidence`, whose switch default was false and whose callee
+branch executes only when true. Source adjudication therefore did not reproduce
+the claimed control path, but the predeclared finding stop still applied. No
+correction, repeat review, commit, private root, or Layer A action followed.
+
+The user then explicitly authorized one new review cycle of at most five
+completed semantic reviews for the same twelve-file attempt. The runner now
+passes `-RequireLiveCampaignEvidence:$false` explicitly during initial static
+completion validation. After each phase is then recorded, every later product,
+assessor, and accepted-terminal consumer still requires the current live
+fingerprint. This correction changes no authority, evidence, candidate,
+correction/model budget, or external effect. A clean new-cycle final-byte review
+permits the existing local commit 1 and Layer A authority; all earlier findings,
+budget use, and predecessor terminals remain preserved.
+
+New-cycle review 1/5 found two P1 terminal paths. A non-accepting terminal used
+to return after checking only its disposition/predecessor pairing; it now
+recursively validates the evidence chain for that predecessor first. The
+focused condition admits a canary-failure terminal backed by formal 56/56 and
+rejects the same terminal when its qualification receipt is removed. A typed
+nonzero model child also used to return immediately from `Campaign`, clearing
+the live capability before terminal closeout. The controller now records the
+failed segment and typed exit, advances only to `terminal`, emits a typed
+`segment_failed` result, and continues reading. The terminal must match that
+live failure; successful validation returns the original child exit. An AST
+guard rejects restoration of the direct-return shape. New-cycle review 2/5 then
+found that `validate_terminal` could arrive before a failure or all three
+successful segments. The controller now accepts that command only after its
+live `NextSegment` reaches `terminal`; an initial terminal command is rejected
+before evidence validation. Focused 32/32 passes and three new-cycle reviews
+remain.
+
+The runner's sixteen model phases are three independent dispatch segments:
+three canaries, twelve product contexts, and one assessor. The final canary and
+final product phase have no cross-boundary successor descriptor. The positive
+lifecycle check recursively validates a synthetic formal 56/56 receipt, exact
+three-route canary gate, freeze manifest, and Campaign-bound product activation;
+the diagnostic validator explicitly supplies no action authority. It also
+rejects assessor entry without an exact 28/28 admitted packet, packet-bound
+view, passing disclosure review, and eligibility receipt. Real segment entry
+revalidates the same evidence schemas from the exact D53 private root and each
+canary's full binding, authority/carrier/frozen artifacts, argv/successor,
+consumed outer receipt and inner consumption claim, typed-zero completed state,
+and committed runner identity; diagnostic scratch JSON cannot supply action
+provenance. `TERMINAL` requires a typed bounded terminal receipt, with the full
+product/eligibility/accepted-assessor chain additionally required for
+`ACCEPTED`.
+
+This is tracked zero-model implementation evidence only. The corrected final
+bytes require a clean completed review in the newly authorized cycle; local
+commit 1 and Layer A rehearsal remain blocked until that gate passes.
+Layer B must independently pass the retained/reexecuted private 24 plus the
+tracked 32 as an aggregate 56/56 before any canary is authorized. D52 remains
+sealed; D53 does not replay or rescore predecessor evidence and does not imply
+candidate acceptance, installation, release, or any automatic D54.
 
 ## Required Checks
 
