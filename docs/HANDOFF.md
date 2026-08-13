@@ -25,6 +25,15 @@ Last updated: 2026-08-13
   assessor did not start; model contexts and `turn/start` remain zero. D53 is
   sealed `QUALIFICATION_FAILED / PRODUCT_UNKNOWN`; the candidate remains
   unaccepted and no automatic D54 follows
+- The user separately authorized `WC-AR-D54-EXPLICIT-ROOT-CONTRACT` from clean
+  `main@d4374b381444b85fff4941e73cf7a8d32f18a96e`. Focused 32/32 and one
+  disposable composed DEV path pass explicit authenticated repository,
+  carrier, source-bundle, evidence, and predecessor roots through materializer,
+  finalizer, importer, private 24/24, aggregate 56/56, lifecycle consumer, and
+  synthetic dispatch. Dispatch stopped before first `thread/start`; model calls,
+  starts, and mirror-external writes were zero. This is DEV-only. Formal 56/56,
+  canary, product, assessor, and acceptance evidence remain pending a reviewed
+  commit and Fresh Evidence Session
 - Exact predecessor `b3ad360...` and its D41 packet remain immutable and
   unaccepted
 - Released package identity: immutable `v0.1.2` at
@@ -36,27 +45,22 @@ Last updated: 2026-08-13
   5 files, each matching the `v0.1.2` Git blobs
 - Rollback identity: immutable `v0.1.1` retained as a separately verified
   three-package backup
-- Writer handoff boundary: D53 execution and terminal-documentation writers
-  have relinquished. Local commit 2 `8e658f18...` records the sanitized result
-  and mapped canonical consumers. The durable writer lease
-  `post-D53-factual-reconciliation@main/8e658f18` owns only the bounded diff in
-  `docs/HANDOFF.md`, `docs/STATUS.md`,
-  `docs/decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md`,
-  and `docs/skills/work-charter/STATE.md`, plus one local commit with subject
-  `docs: close Work Charter D53 writer handoff`. Its live state must be
-  reconciled across every registered worktree; one clean checkout is never
-  writer proof. The lease is `ACTIVE` until `main` contains a direct child of
-  `8e658f18...` with that exact subject and four-path change set, the main
-  checkout has no attributable index or worktree delta, and every registered
-  worktree has been enumerated with no attributable copy of the diff. All three
-  facts make it `RELINQUISHED`; missing or conflicting evidence makes it
-  `UNKNOWN` and fails closed. D52 commit `410b0bd...`, D53 lifecycle commit
-  `4ab8a025...`,
-  D31-D50, D51-01 through D51-03, all four D53 rehearsal attempts, and every
-  consumed correction/turn remain immutable. Skill SOURCE, behavior cases,
+- Writer handoff boundary: D53 writers and the post-D53 reconciliation writer
+  have relinquished. The sole D54 Build lease is
+  `D54-explicit-root-build@main/d4374b381444b85fff4941e73cf7a8d32f18a96e`.
+  It owns only the authorized runner/checker and mapped documentation diff plus
+  ignored DEV root
+  `.eval-runs/work-charter-v0.2-c481005-gate2-d54-explicit-root/` through one
+  local commit with subject `evals: bind Work Charter D54 explicit roots`.
+  Reconciliation must bind that commit, empty index, no attributable main-
+  worktree diff, and every registered worktree; one clean checkout is never writer proof.
+  All facts make the lease `RELINQUISHED`; missing or conflicting
+  evidence makes it `UNKNOWN` and fails closed. The mechanically created Fresh
+  Evidence Session has no repository writer. D51-D53, every prior carrier,
+  correction, and consumed turn remain immutable. Skill SOURCE, behavior cases,
   fixtures, matrix, rubric, scorer/controller module, other Skills, user
   configuration, push, installation, tag, release, stable update, cleanup,
-  D54, and unlisted external effects remain excluded
+  automatic D55, and unlisted external effects remain excluded
 - Ignored-carrier boundary: one opaque ordinary controller-scratch directory
   predates this writer window. Its provenance remains `UNKNOWN`; this task read
   metadata only and did not open, reinterpret, or clean the carrier. Native
@@ -1104,32 +1108,41 @@ created the fact class; it did not require or authorize speculative files.
    Preserve D53's reviewed lifecycle commit, four Layer A attempts, three
    consumed private corrections, failed stage 7 predecessor import, zero model
    evidence, and `QUALIFICATION_FAILED / PRODUCT_UNKNOWN` terminal without
-   repair or replay. Any successor requires a new complete user decision.
+   repair or replay. Treat D54 DEV mirrors only as implementation qualification.
+   Formal D54 evidence must use a new post-commit carrier and final committed
+   hashes; it cannot inherit DEV credit or repository writer authority.
 
 ## Immediate Next Action
 
 No release action remains pending for immutable `v0.1.2`. D31-D50, D51-01
 through D51-03, D52, and D53 are complete, sealed, or preserved and non-
-retriable. D53 local commit 1 `4ab8a025...` records the clean reviewed tracked
-lifecycle. Its fresh Layer A used all three authorized private corrections,
-passed materialization/finalization and official qualification stages 1-6,
-then failed stage 7 predecessor import before aggregate 56/56 or scarce
-evidence. No production phase receipt, canary, freeze, product, assessor, model
-context, or `turn/start` followed. Local commit 2 `8e658f18...` records the
-sanitized terminal result. This bounded post-commit reconciliation records
-the final writer and next-gate state. Its named lease stays `ACTIVE` through the
-terminal local commit and becomes `RELINQUISHED` only after the exact commit and
-all-worktree reconciliation above pass; the derived lease rule needs no
-follow-up documentation mutation.
-Do not repair or rerun D53, and do not resume or reinterpret D51/D52. The only
-next Work Charter product choice is to leave the evaluation line stopped or
-explicitly authorize one complete successor Campaign; no D54 follows from this
-closeout.
+lifecycle and local commit 2 `8e658f18...` records its sanitized terminal.
+D53 remains `QUALIFICATION_FAILED / PRODUCT_UNKNOWN`. Do not repair or rerun D53,
+and do not reinterpret it.
+
+Authorized D54 has passed focused and composed zero-model DEV qualification.
+Its Build closeout is valid only when the final documentation/ruleset and
+entire tracked subject are rebound, the complete disposable DEV route and
+stable-diff checks pass, and `Terra/high` native review completes within five
+reviews with no reset. The revision containing this statement is the authorized
+local commit only if that gate passes. Its all-worktree reconciliation then
+relinquishes the writer and permits mechanical creation of a Fresh Evidence Session. The fresh
+Session rereads final rules, rebinds commit/ruleset/runner/checker/workspace/
+writer/permission identities, and creates a new formal carrier. It runs formal
+56/56 once with no correction. Only a pass permits three canaries, then twelve
+product contexts/fourteen product starts, then at most one assessor, bounded by
+sixteen contexts and eighteen `turn/start`. Qualification or canary failure
+seals D54 before product and assessor. Build DEV evidence supplies no formal
+credit, and no automatic D55 follows.
+
+The only next Work Charter product choice at the D53 closeout was a separately
+authorized successor; no D54 follows from this closeout. Current D54 authority
+is that separate user decision, not an automatic continuation.
 
 Later user-owned choices include:
 
-- authorize one new complete successor Campaign, including any D54 or other
-  attempt, before reopening the stopped evaluation line;
+- decide any material D54 boundary drift or, after D54 closes, authorize any
+  later successor Campaign;
 - decide any future native-review budget reset only if an authorized commit
   attempt exhausts its own cycle;
 - decide any installation, release, or public-reachability action only from the

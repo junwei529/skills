@@ -9,10 +9,11 @@ $runnerItem = Get-Item -LiteralPath $runnerPath -Force -ErrorAction Stop
 $strictUtf8 = [System.Text.UTF8Encoding]::new($false, $true)
 $pwshName = if ($IsWindows) { 'pwsh.exe' } else { 'pwsh' }
 $pwshPath = Join-Path $PSHOME $pwshName
-$scratchBase = Join-Path ([System.IO.Path]::GetTempPath()) 'eddie-skills-d53-runner-check'
+$scratchBase = Join-Path ([System.IO.Path]::GetTempPath()) 'eddie-skills-d54-runner-check'
 $scratchRoot = Join-Path $scratchBase ([guid]::NewGuid().ToString('N'))
 $checks = [System.Collections.Generic.List[object]]::new()
 $authorizationLifecycleCache = @{}
+$lifecycleRootContracts = @{}
 $protocolAdapterCommand = '$line=$null; while($null -ne ($line=[Console]::In.ReadLine())){$r=$line|ConvertFrom-Json; if($r.method -ceq ''initialize''){$o=[ordered]@{id=$r.id;result=[ordered]@{userAgent=''d52-sim''}}}elseif($r.method -ceq ''initialized''){continue}elseif($r.method -ceq ''thread/start''){$o=[ordered]@{id=$r.id;result=[ordered]@{thread=[ordered]@{id=''d52-sim-thread''}}}}elseif($r.method -ceq ''turn/start''){$turnId=''d52-sim-turn-''+[string]$r.id;$o=[ordered]@{id=$r.id;result=[ordered]@{turn=[ordered]@{id=$turnId;status=''inProgress''}}};[Console]::Out.WriteLine(($o|ConvertTo-Json -Depth 10 -Compress));$o=[ordered]@{method=''turn/completed'';params=[ordered]@{threadId=''d52-sim-thread'';turn=[ordered]@{id=$turnId;status=''completed'';items=@()}}}}else{exit 92};[Console]::Out.WriteLine(($o|ConvertTo-Json -Depth 10 -Compress))};exit 0'
 $failedProtocolAdapterCommand = $protocolAdapterCommand.Replace(
     "status='completed'",
@@ -20,14 +21,26 @@ $failedProtocolAdapterCommand = $protocolAdapterCommand.Replace(
 )
 $repositoryRoot = Split-Path -Parent $PSScriptRoot
 $userProfileRoot = $env:USERPROFILE
+$d50SourceRoot = Join-Path $repositoryRoot `
+    '.eval-runs\work-charter-v0.2-c481005-gate2-d50-bundle-dev-01\bundle'
+$d50SourceManifestPath = Join-Path $repositoryRoot `
+    '.eval-runs\work-charter-v0.2-c481005-gate2-d50-bundle-dev-01\controller-bundle-manifest.json'
+$d54SourceRoot = Join-Path $scratchRoot 'authenticated-source-bundle'
+$d54SourceManifestPath = Join-Path $d54SourceRoot '.contract\controller-bundle-manifest.json'
+$d53PredecessorRoot = Join-Path $repositoryRoot `
+    '.eval-runs\work-charter-v0.2-c481005-gate2-d53-layered-authorization'
+$d49PredecessorRoot = Join-Path $repositoryRoot `
+    '.eval-runs\work-charter-v0.2-c481005-gate2-d49-08'
 $campaignContractPath = Join-Path $repositoryRoot `
     'docs\decisions\0018-work-charter-adoption-levels-and-reentry-checkpoint.md'
 $rulesetSources = @(
     [pscustomobject]@{ Locator = '~/.codex/AGENTS.md'; Path = Join-Path $userProfileRoot '.codex\AGENTS.md'; Sha256 = 'fefaad2225dfefc0a4e8048c1fe9ba744035ab101c11851954bcf432b1691be1' },
-    [pscustomobject]@{ Locator = 'AGENTS.md'; Path = Join-Path $repositoryRoot 'AGENTS.md'; Sha256 = '3e045e9bdc3e07f200b9080ffee0198ae5c5829fd325585046c779bfff7a96d5' },
+    [pscustomobject]@{ Locator = 'AGENTS.md'; Path = Join-Path $repositoryRoot 'AGENTS.md'; Sha256 = '49e622e564ba22fb30e4601d1609c4be25a8285f8a9076629de75c7007f2b1db' },
     [pscustomobject]@{ Locator = '~/.codex/skills/work-charter/SKILL.md'; Path = Join-Path $userProfileRoot '.codex\skills\work-charter\SKILL.md'; Sha256 = 'd0c86e80d6f8eec0d91c25f4f0c687d60b1e0821ac823e28cf62777bb1badda2' },
     [pscustomobject]@{ Locator = '~/.codex/skills/work-charter/references/coordination-and-recovery.md'; Path = Join-Path $userProfileRoot '.codex\skills\work-charter\references\coordination-and-recovery.md'; Sha256 = '8c944b3434e14e70dea705a8b877b70b497c6f512db8681ff0000f418a270483' },
-    [pscustomobject]@{ Locator = '~/.codex/reference/codex-usage-guidance.md'; Path = Join-Path $userProfileRoot '.codex\reference\codex-usage-guidance.md'; Sha256 = '8139fa6765e0fe7a2972b84a8cb370df386e28736d16228a07780625f7888383' }
+    [pscustomobject]@{ Locator = '~/.codex/reference/codex-usage-guidance.md'; Path = Join-Path $userProfileRoot '.codex\reference\codex-usage-guidance.md'; Sha256 = '8139fa6765e0fe7a2972b84a8cb370df386e28736d16228a07780625f7888383' },
+    [pscustomobject]@{ Locator = 'docs/RUNBOOK.md'; Path = Join-Path $repositoryRoot 'docs\RUNBOOK.md'; Sha256 = 'f4f42193d45fd279a50f8737ca2e7fe739dbebf703e9cda50118bc66d145ff13' },
+    [pscustomobject]@{ Locator = 'evals/README.md'; Path = Join-Path $repositoryRoot 'evals\README.md'; Sha256 = '50001f3dcecf43e7d4bf6ab022eca768cc6fde9f8bacd3321021945bacd81860' }
 )
 
 function Write-Json {
@@ -64,6 +77,331 @@ function Get-NormalizedTextSha256 {
         $bytes[0] -eq 0xEF -and $bytes[1] -eq 0xBB -and $bytes[2] -eq 0xBF) { 3 } else { 0 }
     $text = $strictUtf8.GetString($bytes, $offset, $bytes.Length - $offset)
     return Get-TextSha256 -Text $text.Replace("`r`n", "`n").Replace("`r", "`n")
+}
+
+function New-D54RootContract {
+    param(
+        [Parameter(Mandatory)][string]$CaseRoot,
+        [Parameter(Mandatory)][string]$CampaignRoot,
+        [Parameter(Mandatory)][string]$CarrierRoot,
+        [Parameter(Mandatory)][string]$EvidenceRoot,
+        [string]$SourceRoot = $d54SourceRoot,
+        [string]$SourceManifestPath = $d54SourceManifestPath,
+        [string]$D53Root = $d53PredecessorRoot,
+        [string]$D49Root = $d49PredecessorRoot,
+        [string]$ExpectedHead = '',
+        [string]$D53ArtifactRelativePath = 'execution/evidence/d53-terminal.json',
+        [string]$SchemaVersion = 'work-charter-d54-explicit-root-contract/v1',
+        [string]$SourceManifestSha256 = '26df78066d20be14cefdcb1d07735ec67fe42d2c717dba6fc3c4fb7632984a09',
+        [string]$D53TerminalSha256 = 'e8e9fb645b83beaa9c64cd5ccf3d8fc3e283d21cdbb964cde8c72adb8849882b',
+        [string]$D49TerminalSha256 = '0d17dfba319d84455df9be6738e7be1268c212ec582830021debc7e200f362ec',
+        [string]$D49ViewSha256 = 'fa44e6576bf628bf1dd84c7f09e2c60d896439093e5fbd79e41975281c425bd0'
+    )
+
+    foreach ($directory in @($CaseRoot, $CampaignRoot, $CarrierRoot, $EvidenceRoot)) {
+        [void](New-Item -ItemType Directory -Path $directory -Force)
+    }
+    if ([string]::IsNullOrWhiteSpace($ExpectedHead)) {
+        $ExpectedHead = (& git -C $repositoryRoot rev-parse HEAD).Trim()
+    }
+    $contractPath = Join-Path $CaseRoot 'd54-explicit-root-contract.json'
+    $contract = [ordered]@{
+        schema_version = $SchemaVersion
+        campaign_id = 'WC-AR-D54-EXPLICIT-ROOT-CONTRACT'
+        stable_subject = 'Work Charter v0.2.0 exact candidate'
+        candidate_commit = 'c4810057c3f28cca9f12004ca2018784cd21f449'
+        candidate_manifest_sha256 = '04c382a48e43897a8806aa5ffd996984cb015d3d8cdc6e675e9181a6d94e6f44'
+        control_commit = 'ceed607152849775b981c54add74bfa30d858e4d'
+        predecessor_terminal_receipt_sha256 = $D53TerminalSha256
+        campaign_contract = [ordered]@{
+            path = [IO.Path]::GetFullPath($campaignContractPath)
+            sha256 = Get-Sha256 -Path $campaignContractPath
+        }
+        ruleset_sources = @($rulesetSources | ForEach-Object {
+            [ordered]@{
+                locator = [string]$_.Locator
+                path = [IO.Path]::GetFullPath([string]$_.Path)
+                normalized_text_sha256 = [string]$_.Sha256
+            }
+        })
+        roots = [ordered]@{
+            repository = [ordered]@{
+                path = [IO.Path]::GetFullPath($repositoryRoot)
+                expected_head = $ExpectedHead
+                runner_relative_path = 'evals/invoke-work-charter-gate2.ps1'
+                runner_sha256 = Get-Sha256 -Path $runnerPath
+            }
+            campaign = [ordered]@{ path = [IO.Path]::GetFullPath($CampaignRoot) }
+            carrier = [ordered]@{ path = [IO.Path]::GetFullPath($CarrierRoot) }
+            source_bundle = [ordered]@{
+                path = [IO.Path]::GetFullPath($SourceRoot)
+                manifest_path = [IO.Path]::GetFullPath($SourceManifestPath)
+                manifest_sha256 = $SourceManifestSha256
+                manifest_schema_version = 1
+                execution_identity = 'gate2-c481005-d50-02-certified-final-a18'
+                bundle_sha256 = '8b3abba4889c149bdac8b31f76215fd6254b0fa46d6bd58466b7edfee9d19602'
+                file_count = 148
+            }
+            evidence = [ordered]@{
+                path = [IO.Path]::GetFullPath($EvidenceRoot)
+                schema_version = 'work-charter-d54-evidence-root/v1'
+            }
+            predecessors = @(
+                [ordered]@{
+                    id = 'd53-terminal'
+                    path = [IO.Path]::GetFullPath($D53Root)
+                    artifact_relative_path = $D53ArtifactRelativePath
+                    artifact_sha256 = $D53TerminalSha256
+                    artifact_schema_version = 'work-charter-d53-terminal/v1'
+                },
+                [ordered]@{
+                    id = 'd49-admitted-evidence'
+                    path = [IO.Path]::GetFullPath($D49Root)
+                    terminal_relative_path = 'execution/terminal/terminal-packet.json'
+                    terminal_sha256 = $D49TerminalSha256
+                    view_relative_path = 'execution/terminal/assessor-view.json'
+                    view_sha256 = $D49ViewSha256
+                }
+            )
+        }
+    }
+    Write-Json -Path $contractPath -Value $contract
+    return [pscustomobject]@{
+        Path = $contractPath
+        Sha256 = Get-Sha256 -Path $contractPath
+        CampaignRoot = [IO.Path]::GetFullPath($CampaignRoot)
+        CarrierRoot = [IO.Path]::GetFullPath($CarrierRoot)
+        SourceRoot = [IO.Path]::GetFullPath($SourceRoot)
+        EvidenceRoot = [IO.Path]::GetFullPath($EvidenceRoot)
+        PredecessorRoots = @(
+            [IO.Path]::GetFullPath($D53Root),
+            [IO.Path]::GetFullPath($D49Root)
+        )
+    }
+}
+
+function Initialize-D54ContainedSourceBundle {
+    $manifest = Get-Content -LiteralPath $d50SourceManifestPath -Raw -Encoding UTF8 |
+        ConvertFrom-Json -Depth 100
+    [void](New-Item -ItemType Directory -Path $d54SourceRoot)
+    foreach ($row in @($manifest.files)) {
+        $relative = [string]$row.path
+        $parts = @($relative -split '/')
+        if ([IO.Path]::IsPathFullyQualified($relative) -or
+            @($parts | Where-Object { $_ -in @('', '.', '..') }).Count -ne 0) {
+            throw "D54 checker source-bundle row is not contained: $relative"
+        }
+        $source = Join-Path $d50SourceRoot ($relative.Replace('/', '\'))
+        $target = Join-Path $d54SourceRoot ($relative.Replace('/', '\'))
+        $sourceItem = Get-Item -LiteralPath $source -Force -ErrorAction Stop
+        if ($sourceItem.PSIsContainer -or
+            ($sourceItem.Attributes -band [IO.FileAttributes]::ReparsePoint)) {
+            throw "D54 checker source-bundle input is not ordinary: $relative"
+        }
+        [void](New-Item -ItemType Directory -Path (Split-Path -Parent $target) -Force)
+        [IO.File]::Copy($sourceItem.FullName, $target, $false)
+    }
+    [void](New-Item -ItemType Directory -Path (Split-Path -Parent $d54SourceManifestPath))
+    [IO.File]::Copy($d50SourceManifestPath, $d54SourceManifestPath, $false)
+}
+
+function Get-D54RootArguments {
+    param([Parameter(Mandatory)][object]$Contract)
+
+    return @(
+        '-RootContractPath', [string]$Contract.Path,
+        '-RootContractSha256', [string]$Contract.Sha256,
+        '-RepositoryRoot', [IO.Path]::GetFullPath($repositoryRoot),
+        '-CampaignRoot', [string]$Contract.CampaignRoot,
+        '-CarrierRoot', [string]$Contract.CarrierRoot,
+        '-SourceBundleRoot', [string]$Contract.SourceRoot,
+        '-EvidenceRoot', [string]$Contract.EvidenceRoot,
+        '-D53PredecessorRoot', [string]$Contract.PredecessorRoots[0],
+        '-D49PredecessorRoot', [string]$Contract.PredecessorRoots[1]
+    )
+}
+
+function Invoke-D54RootDescribe {
+    param([Parameter(Mandatory)][object]$Contract)
+
+    $arguments = [System.Collections.Generic.List[string]]::new()
+    foreach ($argument in @(
+        '-NoLogo', '-NoProfile', '-NonInteractive', '-File', $runnerPath,
+        '-Mode', 'DescribeLifecycle'
+    ) + (Get-D54RootArguments -Contract $Contract)) {
+        $arguments.Add([string]$argument)
+    }
+    return Invoke-Captured -Arguments $arguments.ToArray()
+}
+
+function Test-D54ExplicitRootContract {
+    $caseRoot = New-Case -Name 'd54-explicit-root-contract'
+    $campaignRoot = Join-Path $caseRoot 'campaign-root'
+    $nestedCarrier = Join-Path $campaignRoot 'nested\one\two\carrier'
+    $nestedEvidence = Join-Path $nestedCarrier 'execution\evidence'
+    $decoy = Join-Path $campaignRoot 'work-charter-v0.2-c481005-gate2-d49-08'
+    [void](New-Item -ItemType Directory -Path $decoy -Force)
+    Write-Json -Path (Join-Path $decoy 'terminal-packet.json') -Value ([ordered]@{
+        schema_version = 'decoy/v1'
+    })
+    $positiveContract = New-D54RootContract `
+        -CaseRoot (Join-Path $caseRoot 'positive-contract') `
+        -CampaignRoot $campaignRoot `
+        -CarrierRoot $nestedCarrier `
+        -EvidenceRoot $nestedEvidence
+    $positive = Invoke-D54RootDescribe -Contract $positiveContract
+
+    $duplicateRulesetContract = New-D54RootContract `
+        -CaseRoot (Join-Path $caseRoot 'duplicate-ruleset-contract') `
+        -CampaignRoot $campaignRoot `
+        -CarrierRoot $nestedCarrier `
+        -EvidenceRoot $nestedEvidence
+    $duplicateRulesetValue = Get-Content -LiteralPath $duplicateRulesetContract.Path `
+        -Raw -Encoding UTF8 | ConvertFrom-Json -Depth 100
+    $duplicateRulesetValue.ruleset_sources[6] = $duplicateRulesetValue.ruleset_sources[1]
+    Write-Json -Path $duplicateRulesetContract.Path -Value $duplicateRulesetValue
+    $duplicateRulesetContract.Sha256 = Get-Sha256 -Path $duplicateRulesetContract.Path
+    $duplicateRuleset = Invoke-D54RootDescribe -Contract $duplicateRulesetContract
+
+    $wrongHeadContract = New-D54RootContract `
+        -CaseRoot (Join-Path $caseRoot 'wrong-head-contract') `
+        -CampaignRoot $campaignRoot `
+        -CarrierRoot $nestedCarrier `
+        -EvidenceRoot $nestedEvidence `
+        -ExpectedHead ('0' * 40)
+    $wrongHead = Invoke-D54RootDescribe -Contract $wrongHeadContract
+
+    $wrongBundleRoot = Join-Path $caseRoot 'wrong-bundle-root'
+    [void](New-Item -ItemType Directory -Path $wrongBundleRoot -Force)
+    $wrongBundleContract = New-D54RootContract `
+        -CaseRoot (Join-Path $caseRoot 'wrong-bundle-contract') `
+        -CampaignRoot $campaignRoot `
+        -CarrierRoot $nestedCarrier `
+        -EvidenceRoot $nestedEvidence `
+        -SourceRoot $wrongBundleRoot
+    $wrongBundle = Invoke-D54RootDescribe -Contract $wrongBundleContract
+
+    $outsideManifestContract = New-D54RootContract `
+        -CaseRoot (Join-Path $caseRoot 'outside-manifest-contract') `
+        -CampaignRoot $campaignRoot `
+        -CarrierRoot $nestedCarrier `
+        -EvidenceRoot $nestedEvidence `
+        -SourceManifestPath $d50SourceManifestPath
+    $outsideManifest = Invoke-D54RootDescribe -Contract $outsideManifestContract
+
+    $outsidePredecessorTarget = Join-Path $repositoryRoot `
+        '.eval-runs\work-charter-v0.2-c481005-gate2-d54-explicit-root\outside-predecessor-target.json'
+    $escapeRelative = [IO.Path]::GetRelativePath($d53PredecessorRoot, $outsidePredecessorTarget)
+    $escapeContract = New-D54RootContract `
+        -CaseRoot (Join-Path $caseRoot 'predecessor-escape-contract') `
+        -CampaignRoot $campaignRoot `
+        -CarrierRoot $nestedCarrier `
+        -EvidenceRoot $nestedEvidence `
+        -D53ArtifactRelativePath $escapeRelative
+    $predecessorEscape = Invoke-D54RootDescribe -Contract $escapeContract
+
+    $wrongRootContract = New-D54RootContract `
+        -CaseRoot (Join-Path $caseRoot 'wrong-root-contract') `
+        -CampaignRoot $campaignRoot `
+        -CarrierRoot $nestedCarrier `
+        -EvidenceRoot $nestedEvidence `
+        -D49Root $decoy
+    $wrongRoot = Invoke-D54RootDescribe -Contract $wrongRootContract
+
+    $outsideCarrier = Join-Path $caseRoot 'outside-carrier'
+    $outsideContract = New-D54RootContract `
+        -CaseRoot (Join-Path $caseRoot 'outside-contract') `
+        -CampaignRoot $campaignRoot `
+        -CarrierRoot $outsideCarrier `
+        -EvidenceRoot $outsideCarrier
+    $outside = Invoke-D54RootDescribe -Contract $outsideContract
+
+    $reparseTarget = Join-Path $caseRoot 'reparse-target'
+    [void](New-Item -ItemType Directory -Path $reparseTarget -Force)
+    $reparseCarrier = Join-Path $campaignRoot 'reparse-carrier'
+    [void](New-Item -ItemType Junction -Path $reparseCarrier -Target $reparseTarget)
+    try {
+        $reparseContract = New-D54RootContract `
+            -CaseRoot (Join-Path $caseRoot 'reparse-contract') `
+            -CampaignRoot $campaignRoot `
+            -CarrierRoot $reparseCarrier `
+            -EvidenceRoot $reparseCarrier
+        $reparse = Invoke-D54RootDescribe -Contract $reparseContract
+    }
+    finally {
+        $reparseItem = Get-Item -LiteralPath $reparseCarrier -Force -ErrorAction SilentlyContinue
+        if ($null -ne $reparseItem) {
+            if (($reparseItem.Attributes -band [IO.FileAttributes]::ReparsePoint) -eq 0) {
+                throw 'D54 reparse negative did not create a reparse point.'
+            }
+            [IO.Directory]::Delete($reparseCarrier, $false)
+        }
+    }
+
+    $missingSource = Join-Path $caseRoot 'missing-source'
+    $missingContract = New-D54RootContract `
+        -CaseRoot (Join-Path $caseRoot 'missing-contract') `
+        -CampaignRoot $campaignRoot `
+        -CarrierRoot $nestedCarrier `
+        -EvidenceRoot $nestedEvidence `
+        -SourceRoot $missingSource
+    $missing = Invoke-D54RootDescribe -Contract $missingContract
+
+    $hashContract = New-D54RootContract `
+        -CaseRoot (Join-Path $caseRoot 'hash-contract') `
+        -CampaignRoot $campaignRoot `
+        -CarrierRoot $nestedCarrier `
+        -EvidenceRoot $nestedEvidence `
+        -SourceManifestSha256 ('0' * 64)
+    $hashMismatch = Invoke-D54RootDescribe -Contract $hashContract
+
+    $schemaContract = New-D54RootContract `
+        -CaseRoot (Join-Path $caseRoot 'schema-contract') `
+        -CampaignRoot $campaignRoot `
+        -CarrierRoot $nestedCarrier `
+        -EvidenceRoot $nestedEvidence `
+        -SchemaVersion 'work-charter-d54-explicit-root-contract/v0'
+    $schemaMismatch = Invoke-D54RootDescribe -Contract $schemaContract
+
+    return [pscustomobject]@{
+        Passed = (
+            $positive.ExitCode -eq 0 -and
+            [string]::IsNullOrEmpty($positive.Stderr) -and
+            $duplicateRuleset.ExitCode -eq 86 -and
+            $wrongHead.ExitCode -eq 86 -and
+            $wrongBundle.ExitCode -eq 86 -and
+            $outsideManifest.ExitCode -eq 86 -and
+            $predecessorEscape.ExitCode -eq 86 -and
+            $wrongRoot.ExitCode -eq 86 -and
+            $outside.ExitCode -eq 86 -and
+            $reparse.ExitCode -eq 86 -and
+            $missing.ExitCode -eq 86 -and
+            $hashMismatch.ExitCode -eq 86 -and
+            $schemaMismatch.ExitCode -eq 86 -and
+            $duplicateRuleset.Stderr -match 'ruleset|locator|unique' -and
+            $wrongHead.Stderr -match 'HEAD|repository' -and
+            $wrongBundle.Stderr -match 'source-bundle|bundle|file identity' -and
+            $outsideManifest.Stderr -match 'source-bundle manifest containment|outside' -and
+            $predecessorEscape.Stderr -match 'contain|outside' -and
+            $wrongRoot.Stderr -match 'predecessor|root|ordinary|hash|schema' -and
+            $outside.Stderr -match 'contain' -and
+            $reparse.Stderr -match 'reparse|ordinary' -and
+            $missing.Stderr -match 'missing|ordinary' -and
+            $hashMismatch.Stderr -match 'hash|manifest' -and
+            $schemaMismatch.Stderr -match 'schema'
+        )
+        Positive = $positive
+        DuplicateRuleset = $duplicateRuleset
+        WrongHead = $wrongHead
+        WrongBundle = $wrongBundle
+        PredecessorEscape = $predecessorEscape
+        WrongRoot = $wrongRoot
+        Outside = $outside
+        Reparse = $reparse
+        Missing = $missing
+        HashMismatch = $hashMismatch
+        SchemaMismatch = $schemaMismatch
+    }
 }
 
 function Test-InitialSegmentCompletionUsesStaticPass {
@@ -276,8 +614,8 @@ function New-AuthorityArtifacts {
     $carrierPath = Join-Path $CaseRoot 'carrier-manifest.json'
     $frozenPath = Join-Path $CaseRoot 'frozen-inputs.json'
     Write-Json -Path $authorityPath -Value ([ordered]@{
-        schema_version = 'work-charter-d53-authority-snapshot/v1'
-        campaign_id = 'WC-AR-D53-LAYERED-AUTHORIZATION-LIFECYCLE'
+        schema_version = 'work-charter-d54-authority-snapshot/v1'
+        campaign_id = 'WC-AR-D54-EXPLICIT-ROOT-CONTRACT'
         stable_subject = 'Work Charter v0.2.0 exact candidate'
         candidate_commit = 'c4810057c3f28cca9f12004ca2018784cd21f449'
         candidate_manifest_sha256 = '04c382a48e43897a8806aa5ffd996984cb015d3d8cdc6e675e9181a6d94e6f44'
@@ -296,8 +634,8 @@ function New-AuthorityArtifacts {
     })
     $authoritySha256 = Get-Sha256 -Path $authorityPath
     Write-Json -Path $frozenPath -Value ([ordered]@{
-        schema_version = 'work-charter-d53-frozen-inputs/v1'
-        campaign_id = 'WC-AR-D53-LAYERED-AUTHORIZATION-LIFECYCLE'
+        schema_version = 'work-charter-d54-frozen-inputs/v1'
+        campaign_id = 'WC-AR-D54-EXPLICIT-ROOT-CONTRACT'
         candidate_commit = 'c4810057c3f28cca9f12004ca2018784cd21f449'
         candidate_manifest_sha256 = '04c382a48e43897a8806aa5ffd996984cb015d3d8cdc6e675e9181a6d94e6f44'
         authority_snapshot_sha256 = $authoritySha256
@@ -311,8 +649,8 @@ function New-AuthorityArtifacts {
         successor_phase = $phaseMetadata.NextPhase
     })
     Write-Json -Path $carrierPath -Value ([ordered]@{
-        schema_version = 'work-charter-d53-carrier-manifest/v1'
-        campaign_id = 'WC-AR-D53-LAYERED-AUTHORIZATION-LIFECYCLE'
+        schema_version = 'work-charter-d54-carrier-manifest/v1'
+        campaign_id = 'WC-AR-D54-EXPLICIT-ROOT-CONTRACT'
         candidate_commit = 'c4810057c3f28cca9f12004ca2018784cd21f449'
         candidate_manifest_sha256 = '04c382a48e43897a8806aa5ffd996984cb015d3d8cdc6e675e9181a6d94e6f44'
         launcher_sha256 = Get-Sha256 -Path $runnerPath
@@ -338,7 +676,7 @@ function New-AuthorityArtifacts {
     }
 }
 
-function Get-D53CodexAnchorPath {
+function Get-D54CodexAnchorPath {
     $expectedSha256 = '592958896cbffa154709618476fc9c9bf7fe73957e9a4fc12094c5051b6c69b3'
     $root = Join-Path $env:LOCALAPPDATA 'OpenAI\Codex\bin'
     $codexCandidates = @(
@@ -353,7 +691,7 @@ function Get-D53CodexAnchorPath {
             }
     )
     if ($codexCandidates.Count -ne 1) {
-        throw 'The D53 Codex trust anchor must resolve to exactly one authenticated file.'
+        throw 'The D54 Codex trust anchor must resolve to exactly one authenticated file.'
     }
     return [string]$codexCandidates[0]
 }
@@ -384,8 +722,8 @@ function New-Binding {
     $artifacts = New-AuthorityArtifacts -CaseRoot $CaseRoot -Phase $Phase
     $path = Join-Path $CaseRoot 'binding.json'
     Write-Json -Path $path -Value ([ordered]@{
-        schema_version = 'work-charter-d53-launch-binding/v1'
-        campaign_id = 'WC-AR-D53-LAYERED-AUTHORIZATION-LIFECYCLE'
+        schema_version = 'work-charter-d54-launch-binding/v1'
+        campaign_id = 'WC-AR-D54-EXPLICIT-ROOT-CONTRACT'
         stable_subject = 'Work Charter v0.2.0 exact candidate'
         candidate_commit = 'c4810057c3f28cca9f12004ca2018784cd21f449'
         candidate_manifest_sha256 = '04c382a48e43897a8806aa5ffd996984cb015d3d8cdc6e675e9181a6d94e6f44'
@@ -445,9 +783,64 @@ function Invoke-Captured {
         [Parameter(Mandatory)][string[]]$Arguments,
         [hashtable]$Environment = @{},
         [AllowEmptyCollection()][string[]]$InputLines,
-        [switch]$WaitForFirstResponseBeforeClose
+        [switch]$WaitForFirstResponseBeforeClose,
+        [object]$RootContract
     )
 
+    $effectiveArguments = [System.Collections.Generic.List[string]]::new()
+    foreach ($argument in $Arguments) {
+        $effectiveArguments.Add([string]$argument)
+    }
+    $fileIndex = [Array]::IndexOf($Arguments, '-File')
+    $targetsTrackedRunner = $false
+    if ($fileIndex -ge 0 -and ($fileIndex + 1) -lt $Arguments.Count) {
+        $targetsTrackedRunner = [string]::Equals(
+            [IO.Path]::GetFullPath([string]$Arguments[$fileIndex + 1]),
+            [IO.Path]::GetFullPath($runnerPath),
+            [StringComparison]::OrdinalIgnoreCase
+        )
+    }
+    if ($targetsTrackedRunner -and
+        $Arguments -notcontains '-RootContractPath') {
+        $bindingIndex = [Array]::IndexOf($Arguments, '-BindingPath')
+        $lifecycleIndex = [Array]::IndexOf($Arguments, '-LifecycleEvidenceRoot')
+        if ($lifecycleIndex -ge 0) {
+            $invocationEvidenceRoot = [IO.Path]::GetFullPath($Arguments[$lifecycleIndex + 1])
+            if ($null -eq $RootContract) {
+                throw 'D54 lifecycle checker requires an explicit root contract.'
+            }
+            $invocationContract = $RootContract
+        }
+        elseif ($bindingIndex -ge 0) {
+            $bindingRoot = Split-Path -Parent ([IO.Path]::GetFullPath($Arguments[$bindingIndex + 1]))
+            $phaseMarker = "{0}phases{0}" -f [IO.Path]::DirectorySeparatorChar
+            $phaseIndex = $bindingRoot.IndexOf($phaseMarker, [StringComparison]::OrdinalIgnoreCase)
+            $invocationCarrierRoot = if ($phaseIndex -ge 0) {
+                $bindingRoot.Substring(0, $phaseIndex)
+            }
+            else { $bindingRoot }
+            $invocationEvidenceRoot = Join-Path $invocationCarrierRoot 'execution\evidence'
+        }
+        else {
+            $invocationCarrierRoot = Join-Path $scratchRoot 'runner-control-carrier'
+            $invocationEvidenceRoot = Join-Path $invocationCarrierRoot 'execution\evidence'
+        }
+        if ($null -eq $invocationContract) {
+            $invocationContract = New-D54RootContract `
+                -CaseRoot (Join-Path $invocationCarrierRoot 'd54-control') `
+                -CampaignRoot $scratchRoot `
+                -CarrierRoot $invocationCarrierRoot `
+                -EvidenceRoot $invocationEvidenceRoot
+        }
+        foreach ($argument in (Get-D54RootArguments -Contract $invocationContract)) {
+            $effectiveArguments.Add([string]$argument)
+        }
+    }
+    if ($targetsTrackedRunner -and
+        $Arguments -notcontains '-RootContractPath' -and
+        $effectiveArguments -notcontains '-RootContractPath') {
+        throw 'D54 checker failed to inject the tracked runner root contract.'
+    }
     $startInfo = [System.Diagnostics.ProcessStartInfo]::new()
     $startInfo.FileName = $pwshPath
     $startInfo.WorkingDirectory = $PSScriptRoot
@@ -456,7 +849,7 @@ function Invoke-Captured {
     $startInfo.RedirectStandardOutput = $true
     $startInfo.RedirectStandardError = $true
     $startInfo.RedirectStandardInput = $null -ne $InputLines
-    foreach ($argument in $Arguments) {
+    foreach ($argument in $effectiveArguments) {
         [void]$startInfo.ArgumentList.Add($argument)
     }
     foreach ($name in $Environment.Keys) {
@@ -523,14 +916,14 @@ function Get-AuthorizationLifecycleForPhase {
         }
         $result = Invoke-Captured -Arguments $arguments.ToArray()
         if ($result.ExitCode -ne 0 -or -not [string]::IsNullOrEmpty($result.Stderr)) {
-            throw "Tracked D53 lifecycle description failed: $($result.Stderr)"
+            throw "Tracked D54 lifecycle description failed: $($result.Stderr)"
         }
         try {
             $authorizationLifecycleCache[$key] = $result.Stdout |
                 ConvertFrom-Json -Depth 100 -ErrorAction Stop
         }
         catch {
-            throw 'Tracked D53 lifecycle description is not valid JSON.'
+            throw 'Tracked D54 lifecycle description is not valid JSON.'
         }
     }
     return (
@@ -719,9 +1112,9 @@ function New-ManualInnerCase {
     $forgedCapabilityId = 'manual-inner-forged-capability'
     $dispatchId = [guid]::NewGuid().ToString('D')
     Write-Json -Path $statePath -Value ([ordered]@{
-        schema_version = 'work-charter-d53-dispatch-state/v1'
+        schema_version = 'work-charter-d54-dispatch-state/v1'
         dispatch_id = $dispatchId
-        campaign_id = 'WC-AR-D53-LAYERED-AUTHORIZATION-LIFECYCLE'
+        campaign_id = 'WC-AR-D54-EXPLICIT-ROOT-CONTRACT'
         phase = $Phase
         status = 'receipt_issued'
         receipt_consumed = $false
@@ -730,9 +1123,9 @@ function New-ManualInnerCase {
         next_exit_code = $null
     })
     Write-Json -Path $receiptPath -Value ([ordered]@{
-        schema_version = 'work-charter-d53-launch-receipt/v1'
+        schema_version = 'work-charter-d54-launch-receipt/v1'
         dispatch_id = $dispatchId
-        campaign_id = 'WC-AR-D53-LAYERED-AUTHORIZATION-LIFECYCLE'
+        campaign_id = 'WC-AR-D54-EXPLICIT-ROOT-CONTRACT'
         phase = $Phase
         binding_sha256 = Get-Sha256 $bindingPath
         outer_capability_id_sha256 = Get-TextSha256 -Text $forgedCapabilityId
@@ -805,18 +1198,24 @@ function New-LifecycleEvidenceChain {
         [long]$ReceiptMaxAgeSeconds = 300
     )
 
-    $evidenceRoot = Join-Path $CaseRoot 'execution\evidence'
+    $evidenceRoot = Join-Path $CaseRoot 'declared\nested\evidence-root'
     [void](New-Item -ItemType Directory -Path $evidenceRoot -Force)
+    $rootContract = New-D54RootContract `
+        -CaseRoot (Join-Path $CaseRoot 'd54-control') `
+        -CampaignRoot $scratchRoot `
+        -CarrierRoot $CaseRoot `
+        -EvidenceRoot $evidenceRoot
+    $lifecycleRootContracts[[IO.Path]::GetFullPath($evidenceRoot)] = $rootContract
     $lifecycle = Get-AuthorizationLifecycleForPhase -Phase ''
     $common = [ordered]@{
-        campaign_id = 'WC-AR-D53-LAYERED-AUTHORIZATION-LIFECYCLE'
+        campaign_id = 'WC-AR-D54-EXPLICIT-ROOT-CONTRACT'
         candidate_commit = 'c4810057c3f28cca9f12004ca2018784cd21f449'
         candidate_manifest_sha256 = '04c382a48e43897a8806aa5ffd996984cb015d3d8cdc6e675e9181a6d94e6f44'
         authorization_lifecycle_policy_sha256 = [string]$lifecycle.policy_sha256
     }
     $qualificationPath = Join-Path $evidenceRoot 'formal-qualification.json'
     Write-Json -Path $qualificationPath -Value ([ordered]@{
-        schema_version = 'work-charter-d53-formal-qualification/v1'
+        schema_version = 'work-charter-d54-formal-qualification/v1'
         campaign_id = $common.campaign_id
         candidate_commit = $common.candidate_commit
         candidate_manifest_sha256 = $common.candidate_manifest_sha256
@@ -836,7 +1235,7 @@ function New-LifecycleEvidenceChain {
         [void](New-Item -ItemType Directory -Path $phaseRoot -Force)
         $receiptPath = Join-Path $phaseRoot 'receipt.json'
         Write-Json -Path $receiptPath -Value ([ordered]@{
-            schema_version = 'work-charter-d53-launch-receipt/v1'
+            schema_version = 'work-charter-d54-launch-receipt/v1'
             dispatch_id = [guid]::NewGuid().ToString('D')
             campaign_id = $common.campaign_id
             phase = $policy.Phase
@@ -846,14 +1245,14 @@ function New-LifecycleEvidenceChain {
         $receipt = Get-Content -LiteralPath $receiptPath -Raw -Encoding UTF8 |
             ConvertFrom-Json -Depth 20
         Write-Json -Path $consumptionPath -Value ([ordered]@{
-            schema_version = 'work-charter-d53-receipt-consumption/v1'
+            schema_version = 'work-charter-d54-receipt-consumption/v1'
             dispatch_id = [string]$receipt.dispatch_id
             phase = $policy.Phase
             consumed_at_utc = [datetimeoffset]::UtcNow.ToString('O')
         })
         $statePath = Join-Path $phaseRoot 'dispatch-state.json'
         Write-Json -Path $statePath -Value ([ordered]@{
-            schema_version = 'work-charter-d53-dispatch-state/v1'
+            schema_version = 'work-charter-d54-dispatch-state/v1'
             campaign_id = $common.campaign_id
             phase = $policy.Phase
             status = 'completed'
@@ -873,7 +1272,7 @@ function New-LifecycleEvidenceChain {
     }
     $canaryPath = Join-Path $evidenceRoot 'transport-canary-batch-result.json'
     Write-Json -Path $canaryPath -Value ([ordered]@{
-        schema_version = 'work-charter-d53-canary-gate/v1'
+        schema_version = 'work-charter-d54-canary-gate/v1'
         campaign_id = $common.campaign_id
         candidate_commit = $common.candidate_commit
         candidate_manifest_sha256 = $common.candidate_manifest_sha256
@@ -888,7 +1287,7 @@ function New-LifecycleEvidenceChain {
     })
     $freezePath = Join-Path $evidenceRoot 'freeze-manifest.json'
     Write-Json -Path $freezePath -Value ([ordered]@{
-        schema_version = 'work-charter-d53-freeze/v1'
+        schema_version = 'work-charter-d54-freeze/v1'
         campaign_id = $common.campaign_id
         candidate_commit = $common.candidate_commit
         candidate_manifest_sha256 = $common.candidate_manifest_sha256
@@ -900,7 +1299,7 @@ function New-LifecycleEvidenceChain {
     })
     $activationPath = Join-Path $evidenceRoot 'model-activity-authorization.json'
     Write-Json -Path $activationPath -Value ([ordered]@{
-        schema_version = 'work-charter-d53-product-activation/v1'
+        schema_version = 'work-charter-d54-product-activation/v1'
         campaign_id = $common.campaign_id
         candidate_commit = $common.candidate_commit
         candidate_manifest_sha256 = $common.candidate_manifest_sha256
@@ -931,7 +1330,7 @@ function New-LifecycleEvidenceChain {
             }
     )
     Write-Json -Path $packetPath -Value ([ordered]@{
-        schema_version = 'work-charter-d53-admitted-product-packet/v1'
+        schema_version = 'work-charter-d54-admitted-product-packet/v1'
         campaign_id = $common.campaign_id
         candidate_commit = $common.candidate_commit
         candidate_manifest_sha256 = $common.candidate_manifest_sha256
@@ -950,7 +1349,7 @@ function New-LifecycleEvidenceChain {
     })
     $viewPath = Join-Path $terminalRoot 'assessor-view.json'
     Write-Json -Path $viewPath -Value ([ordered]@{
-        schema_version = 'work-charter-d53-assessor-view/v1'
+        schema_version = 'work-charter-d54-assessor-view/v1'
         campaign_id = $common.campaign_id
         candidate_commit = $common.candidate_commit
         candidate_manifest_sha256 = $common.candidate_manifest_sha256
@@ -960,7 +1359,7 @@ function New-LifecycleEvidenceChain {
     })
     $reviewPath = Join-Path $terminalRoot 'assessor-view-local-review.json'
     Write-Json -Path $reviewPath -Value ([ordered]@{
-        schema_version = 'work-charter-d53-assessor-view-review/v1'
+        schema_version = 'work-charter-d54-assessor-view-review/v1'
         campaign_id = $common.campaign_id
         candidate_commit = $common.candidate_commit
         candidate_manifest_sha256 = $common.candidate_manifest_sha256
@@ -972,7 +1371,7 @@ function New-LifecycleEvidenceChain {
     })
     $eligibilityPath = Join-Path $evidenceRoot 'assessor-eligibility.json'
     Write-Json -Path $eligibilityPath -Value ([ordered]@{
-        schema_version = 'work-charter-d53-assessor-eligibility/v1'
+        schema_version = 'work-charter-d54-assessor-eligibility/v1'
         campaign_id = $common.campaign_id
         candidate_commit = $common.candidate_commit
         candidate_manifest_sha256 = $common.candidate_manifest_sha256
@@ -983,9 +1382,9 @@ function New-LifecycleEvidenceChain {
         assessor_view_sha256 = Get-Sha256 -Path $viewPath
         local_review_sha256 = Get-Sha256 -Path $reviewPath
     })
-    $terminalPath = Join-Path $evidenceRoot 'd53-terminal.json'
+    $terminalPath = Join-Path $evidenceRoot 'd54-terminal.json'
     Write-Json -Path $terminalPath -Value ([ordered]@{
-        schema_version = 'work-charter-d53-terminal/v1'
+        schema_version = 'work-charter-d54-terminal/v1'
         campaign_id = $common.campaign_id
         candidate_commit = $common.candidate_commit
         candidate_manifest_sha256 = $common.candidate_manifest_sha256
@@ -1008,6 +1407,7 @@ function New-LifecycleEvidenceChain {
         Packet = $packetPath
         Eligibility = $eligibilityPath
         Terminal = $terminalPath
+        RootContract = $rootContract
     }
 }
 
@@ -1017,7 +1417,8 @@ function Invoke-LifecycleValidation {
         [Parameter(Mandatory)][string]$State,
         [AllowEmptyString()][string]$ExpectedPhase = 'assessor-terra-high',
         [long]$ReceiptMaxAgeSeconds = 300,
-        [switch]$RequireActionProvenance
+        [switch]$RequireActionProvenance,
+        [object]$RootContract
     )
 
     $arguments = [System.Collections.Generic.List[string]]::new()
@@ -1037,7 +1438,16 @@ function Invoke-LifecycleValidation {
     if ($RequireActionProvenance) {
         $arguments.Add('-RequireActionProvenance')
     }
-    return Invoke-Captured -Arguments $arguments.ToArray()
+    if ($null -eq $RootContract) {
+        $contractKey = [IO.Path]::GetFullPath($EvidenceRoot)
+        if (-not $lifecycleRootContracts.ContainsKey($contractKey)) {
+            throw 'Lifecycle validation requires an explicit root contract.'
+        }
+        $RootContract = $lifecycleRootContracts[$contractKey]
+    }
+    return Invoke-Captured `
+        -Arguments $arguments.ToArray() `
+        -RootContract $RootContract
 }
 
 function Invoke-LifecycleNegative {
@@ -1064,7 +1474,9 @@ function Invoke-LifecycleNegative {
 }
 
 [void](New-Item -ItemType Directory -Path $scratchRoot -Force)
+Initialize-D54ContainedSourceBundle
 try {
+    $explicitRootContract = Test-D54ExplicitRootContract
     $lifecycle = Get-AuthorizationLifecycleForPhase -Phase ''
     $expectedLifecycleStates = @(
         'ZERO_MODEL_QUALIFICATION_PENDING',
@@ -1084,12 +1496,13 @@ try {
     )
     $lifecycleStates = @($lifecycle.states)
     $lifecyclePositive = (
+        $explicitRootContract.Passed -and
         [string]$lifecycle.schema_version -ceq
-            'work-charter-d53-authorization-lifecycle/v1' -and
+            'work-charter-d54-authorization-lifecycle/v1' -and
         [string]$lifecycle.campaign_id -ceq
-            'WC-AR-D53-LAYERED-AUTHORIZATION-LIFECYCLE' -and
+            'WC-AR-D54-EXPLICIT-ROOT-CONTRACT' -and
         [string]$lifecycle.predecessor_terminal_receipt_sha256 -ceq
-            '7c12bbdb8901b3ec825a8e671b43d21fa6c7b1a78761a7df4b824cb9397abd4d' -and
+            'e8e9fb645b83beaa9c64cd5ccf3d8fc3e283d21cdbb964cde8c72adb8849882b' -and
         [string]$lifecycle.policy_sha256 -cmatch '^[0-9a-f]{64}$' -and
         [long]$lifecycle.qualification.required_passed -eq 56 -and
         [long]$lifecycle.qualification.required_total -eq 56 -and
@@ -1110,6 +1523,13 @@ try {
         -EvidenceRoot $lifecyclePositiveChain.Root `
         -State 'TERMINAL' `
         -ExpectedPhase ''
+    $mismatchedEvidenceRoot = Join-Path $lifecyclePositiveRoot 'declared\other-evidence-root'
+    [void](New-Item -ItemType Directory -Path $mismatchedEvidenceRoot -Force)
+    $mismatchedEvidenceObservation = Invoke-LifecycleValidation `
+        -EvidenceRoot $mismatchedEvidenceRoot `
+        -State 'CANARY_AUTHORIZED_AFTER_QUALIFICATION' `
+        -ExpectedPhase '' `
+        -RootContract $lifecyclePositiveChain.RootContract
     $nonDefaultAgeRoot = New-Case -Name 'authorization-lifecycle-nondefault-age'
     $nonDefaultAgeChain = New-LifecycleEvidenceChain `
         -CaseRoot $nonDefaultAgeRoot `
@@ -1225,7 +1645,7 @@ try {
         -State 'PRODUCT_AUTHORIZED_BY_APPROVED_CAMPAIGN' `
         -RequireActionProvenance
     $productFirstCommand = [ordered]@{
-        schema_version = 'work-charter-d53-campaign-command/v1'
+        schema_version = 'work-charter-d54-campaign-command/v1'
         command = 'dispatch_segment'
         segment = 'product'
     } | ConvertTo-Json -Compress
@@ -1236,7 +1656,7 @@ try {
         ) `
         -InputLines @($productFirstCommand)
     $earlyTerminalCommand = [ordered]@{
-        schema_version = 'work-charter-d53-campaign-command/v1'
+        schema_version = 'work-charter-d54-campaign-command/v1'
         command = 'validate_terminal'
     } | ConvertTo-Json -Compress
     $earlyTerminalObservation = Invoke-Captured `
@@ -1260,6 +1680,8 @@ try {
         -not [bool]$lifecycleValidation.action_authority -and
         $terminalObservation.ExitCode -eq 0 -and
         [string]::IsNullOrEmpty($terminalObservation.Stderr) -and
+        $mismatchedEvidenceObservation.ExitCode -eq 86 -and
+        $mismatchedEvidenceObservation.Stderr -match 'lifecycle evidence root.*does not match' -and
         $null -ne $terminalValidation -and
         [string]$terminalValidation.state -ceq 'TERMINAL' -and
         -not [bool]$terminalValidation.action_authority -and
@@ -1278,7 +1700,7 @@ try {
         $missingProductRouteObservation.ExitCode -eq 86 -and
         $missingProductRouteObservation.Stderr -match 'all twelve product routes' -and
         $forgedActionObservation.ExitCode -eq 86 -and
-        $forgedActionObservation.Stderr -match 'live D53 Campaign controller capability' -and
+        $forgedActionObservation.Stderr -match 'live D54 Campaign controller capability' -and
         $productFirstObservation.ExitCode -eq 86 -and
         $productFirstObservation.Stderr -match 'segment order requires canary, not product' -and
         $earlyTerminalObservation.ExitCode -eq 86 -and
@@ -1294,7 +1716,7 @@ try {
         $assessorPolicy.Count -eq 1 -and
         [long]$assessorPolicy[0].SegmentOrdinal -eq 1
     Add-Check -Name 'authorization-lifecycle-positive' -Passed $lifecyclePositive `
-        -Expectation 'the tracked runner exposes one hash-bound six-state D53 lifecycle, keeps action authority in one live Campaign controller across segments and through failed-segment terminal closeout, uses static validation before recording each initial phase fingerprint and live validation afterward, permits terminal validation only after a recorded segment failure or all three segment completions, validates every terminal predecessor chain plus the exact 56/56 through post-freeze Campaign activation and assessor-eligibility evidence chain, preserves a non-default receipt-age contract, rejects an early terminal command, a forged failure terminal, self-consistent diagnostic JSON and product-first dispatch without live canary completion, accepted terminal evidence without action provenance, a disposition inconsistent with its predecessor state, an incomplete twelve-route product ledger, and an ineligible assessor, and separates canary, product, and assessor dispatch segments' `
+        -Expectation 'the tracked runner exposes one hash-bound six-state D54 lifecycle, uses the explicitly contract-bound nested evidence root independently from the carrier root, keeps action authority in one live Campaign controller across segments and through failed-segment terminal closeout, uses static validation before recording each initial phase fingerprint and live validation afterward, permits terminal validation only after a recorded segment failure or all three segment completions, validates every terminal predecessor chain plus the exact 56/56 through post-freeze Campaign activation and assessor-eligibility evidence chain, preserves a non-default receipt-age contract, rejects a mismatched evidence root, an early terminal command, a forged failure terminal, self-consistent diagnostic JSON and product-first dispatch without live canary completion, accepted terminal evidence without action provenance, a disposition inconsistent with its predecessor state, an incomplete twelve-route product ledger, and an ineligible assessor, and separates canary, product, and assessor dispatch segments' `
         -Observation $lifecycleObservation
 
     foreach ($negative in @(
@@ -1379,7 +1801,7 @@ try {
         -Phase 'qualification-next'
     $nextDispatchPath = Join-Path $positiveRoot 'next-dispatch.json'
     Write-Json -Path $nextDispatchPath -Value ([ordered]@{
-        schema_version = 'work-charter-d53-next-dispatch/v1'
+        schema_version = 'work-charter-d54-next-dispatch/v1'
         binding_path = $nextBinding
         authority_snapshot_path = Join-Path $nextRoot 'authority-snapshot.json'
         carrier_manifest_path = Join-Path $nextRoot 'carrier-manifest.json'
@@ -1490,7 +1912,7 @@ try {
         -Phase 'qualification-next'
     $nonzeroNextDispatchPath = Join-Path $nonzeroRoot 'next-dispatch.json'
     Write-Json -Path $nonzeroNextDispatchPath -Value ([ordered]@{
-        schema_version = 'work-charter-d53-next-dispatch/v1'
+        schema_version = 'work-charter-d54-next-dispatch/v1'
         binding_path = $nonzeroNextBinding
         authority_snapshot_path = Join-Path $nonzeroNextRoot 'authority-snapshot.json'
         carrier_manifest_path = Join-Path $nonzeroNextRoot 'carrier-manifest.json'
@@ -1593,7 +2015,7 @@ try {
     ) -Expectation 'a singleton JSON argv remains one exact argument and starts the bound executable' -Observation $singleton
 
     $codexRoot = New-Case -Name 'codex-trust-anchor'
-    $codexExecutable = Get-D53CodexAnchorPath
+    $codexExecutable = Get-D54CodexAnchorPath
     $codexWorking = Split-Path -Parent $codexExecutable
     $codexArgv = New-Argv -CaseRoot $codexRoot -Name 'child-argv' -Arguments @(
         '--version'
@@ -1624,7 +2046,7 @@ try {
         $codex.Stdout.Trim() -ceq 'codex-cli 0.147.0-alpha.6.6' -and
         [int]$codexRecord.child_exit_code -eq 0 -and
         [string]$codexRecord.status -ceq 'completed'
-    ) -Expectation 'the exact signed and hash-pinned D53 Codex executable round-trips through the tracked runner without a model call' -Observation $codex
+    ) -Expectation 'the exact signed and hash-pinned D54 Codex executable round-trips through the tracked runner without a model call' -Observation $codex
 
     $appServerRoot = New-Case -Name 'app-server-zero-model-qualification'
     $appServerArgv = New-Argv -CaseRoot $appServerRoot -Name 'child-argv' -Arguments @(
@@ -1691,7 +2113,7 @@ try {
     else { $null }
     $appServerPassed = (
         $appServer.ExitCode -eq 0 -and
-        $appServer.Stderr -cnotmatch 'D53_RUNNER_REJECTED|"level":"ERROR"' -and
+        $appServer.Stderr -cnotmatch 'D54_RUNNER_REJECTED|"level":"ERROR"' -and
         $appServerResponses.Count -eq 1 -and
         $appServerUnsafeMessages.Count -eq 0 -and
         [long]$appServerResponse.id -eq 0 -and
@@ -1794,15 +2216,15 @@ try {
     $forgedAdapter = Invoke-Captured -Arguments $forgedAdapterArguments
     Add-Check -Name 'forged-production-authorization' -Passed (
         $forgedAuthorization.ExitCode -eq 86 -and
-        $forgedAuthorization.Stderr -match 'excluded from the committed D53 production policy' -and
+        $forgedAuthorization.Stderr -match 'excluded from the committed D54 production policy' -and
         $forgedAuthorization.Stdout -cnotmatch 'UNEXPECTED_CHILD_START' -and
         -not (Test-Path -LiteralPath $forgedAuthorizationReceipt) -and
         -not (Test-Path -LiteralPath $forgedAuthorizationState) -and
         $forgedAdapter.ExitCode -eq 86 -and
-        $forgedAdapter.Stderr -match 'excluded from the committed D53 production policy' -and
+        $forgedAdapter.Stderr -match 'excluded from the committed D54 production policy' -and
         -not (Test-Path -LiteralPath $forgedAdapterReceipt) -and
         -not (Test-Path -LiteralPath $forgedAdapterState)
-    ) -Expectation 'mutually self-hashed artifacts and synthetic protocol adapters cannot invent or execute a production phase, route, budget, or successor outside the committed D53 Codex policy' -Observation $(if ($forgedAdapter.ExitCode -eq 86) { $forgedAuthorization } else { $forgedAdapter })
+    ) -Expectation 'mutually self-hashed artifacts and synthetic protocol adapters cannot invent or execute a production phase, route, budget, or successor outside the committed D54 Codex policy' -Observation $(if ($forgedAdapter.ExitCode -eq 86) { $forgedAuthorization } else { $forgedAdapter })
 
     $productionInputRoot = New-Case -Name 'production-input-policy'
     $productionInputArgv = New-Argv `
@@ -1838,7 +2260,7 @@ try {
     $productionInitialize = [ordered]@{
         id = 0; method = 'initialize'; params = [ordered]@{
             clientInfo = [ordered]@{
-                name = 'work-charter-d53-carrier'; title = 'Work Charter D53 carrier'; version = '1.0.0'
+                name = 'work-charter-d54-carrier'; title = 'Work Charter D54 carrier'; version = '1.0.0'
             }
         }
     } | ConvertTo-Json -Depth 10 -Compress
@@ -1935,7 +2357,7 @@ try {
             $next = $segmentPhases[$nextPolicy.Phase]
             $phase.Next = Join-Path $phase.Root 'next-dispatch.json'
             Write-Json -Path $phase.Next -Value ([ordered]@{
-                schema_version = 'work-charter-d53-next-dispatch/v1'
+                schema_version = 'work-charter-d54-next-dispatch/v1'
                 binding_path = $next.Binding
                 authority_snapshot_path = Join-Path $next.Root 'authority-snapshot.json'
                 carrier_manifest_path = Join-Path $next.Root 'carrier-manifest.json'
@@ -1972,8 +2394,8 @@ try {
             method = 'initialize'
             params = [ordered]@{
                 clientInfo = [ordered]@{
-                    name = 'work-charter-d53-carrier'
-                    title = 'Work Charter D53 carrier'
+                    name = 'work-charter-d54-carrier'
+                    title = 'Work Charter D54 carrier'
                     version = '1.0.0'
                 }
             }
@@ -2261,7 +2683,7 @@ try {
     }
     Add-Check -Name 'wrong-evidence-artifact' -Passed (
         $evidenceArtifactFailures.Count -eq 0
-    ) -Expectation 'self-rehashed carrier, frozen, ruleset, or Campaign-contract evidence cannot issue a receipt unless it matches the authenticated D53 source chain' -Observation $evidenceArtifactObservation
+    ) -Expectation 'self-rehashed carrier, frozen, ruleset, or Campaign-contract evidence cannot issue a receipt unless it matches the authenticated D54 source chain' -Observation $evidenceArtifactObservation
 
     $staticIdentityFailures = [System.Collections.Generic.List[string]]::new()
     foreach ($identityMutation in @(
@@ -2293,7 +2715,7 @@ try {
             -ChildOperationId 'd52-test-powershell-unexpected'
         $identityResult = Invoke-Captured -Arguments $identityArguments
         if ($identityResult.ExitCode -ne 86 -or
-            $identityResult.Stderr -cnotmatch 'does not match the authorized D53' -or
+            $identityResult.Stderr -cnotmatch 'does not match the authorized D54' -or
             $identityResult.Stdout -cmatch 'UNEXPECTED_CHILD_START' -or
             (Test-Path -LiteralPath $identityReceipt) -or
             (Test-Path -LiteralPath $identityState)) {
@@ -2380,7 +2802,7 @@ try {
 
     $failed = @($checks | Where-Object { -not $_.passed })
     [ordered]@{
-        schema_version = 'work-charter-d53-runner-check/v1'
+        schema_version = 'work-charter-d54-runner-check/v1'
         verdict = if ($failed.Count -eq 0) { 'PASS' } else { 'FAIL' }
         passed = $checks.Count - $failed.Count
         total = $checks.Count

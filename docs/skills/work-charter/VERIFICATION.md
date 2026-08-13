@@ -41,6 +41,7 @@ Last updated: 2026-08-13
 | Exact `c481005...` D51 route-invalid closeout | D51-03 used its final correction and passed 24/24 deterministic qualification; three non-product canary turns then ran through the inner batch instead of the declared outer launcher, so the required typed-scalar launch receipt is absent and freeze/product/assessor never started; the turns remain immutable inner-route evidence only, the candidate remains unaccepted, and no automatic D52 follows |
 | Exact `c481005...` D52 qualification terminal | local commit `410b0bd...` records the tracked single-entry runner and corrected 24/24 focused result; one fresh private carrier used both corrections, passed official stages 1-6, then failed stage 7 `model_authorization_envelope` because the frozen policy did not require the post-freeze authorization gate; no aggregate 48/48 receipt, outer phase receipt, canary, freeze, product, or assessor turn followed, so D52 is `QUALIFICATION_FAILED / PRODUCT_UNKNOWN` and the candidate remains unaccepted |
 | Exact `c481005...` D53 qualification terminal | explicitly authorized Campaign `WC-AR-D53-LAYERED-AUTHORIZATION-LIFECYCLE` preserves D51/D52 and records the reviewed hash-bound lifecycle in local commit `4ab8a025...`; the tracked runner/checker passes 32/32 with direct-JSON, product-first, forged-failure-terminal, early-terminal, and typed failed-segment closeout guards; fresh Layer A preserved `r00-r03`, used all three private corrections, passed materialization/finalization and official stages 1-6, then failed stage 7 predecessor import because an inherited nested-path inference could not locate immutable D49 evidence; Layer B, aggregate 56/56, canary, freeze, product, assessor, model context, and `turn/start` did not start, so D53 is `QUALIFICATION_FAILED / PRODUCT_UNKNOWN` and the candidate remains unaccepted |
+| Exact `c481005...` D54 explicit-root Build qualification | explicitly authorized `WC-AR-D54-EXPLICIT-ROOT-CONTRACT` preserves D51-D53 and changes only evaluation infrastructure plus mapped docs; focused deterministic coverage passes 32/32 for explicit authenticated repository, carrier, source-bundle, evidence, and predecessor roots plus nested-positive, decoy-sibling, wrong/outside/reparse/missing/hash/schema negatives; one disposable composed DEV path passes materializer, finalizer, importer, private 24/24, aggregate 56/56, lifecycle consumer, and synthetic dispatch before first `thread/start`, with zero model calls, zero starts, and zero mirror-external writes; this is DEV-only, not formal Gate 2, product, assessor, or acceptance evidence, and the candidate remains unaccepted |
 | Isolated path-bound controller canary | private retained sealed `CANARY_PASS`; the public summary reports an exact-response pass and no command execution, omits locator/artifact/runtime details, leaves physical backend request count `UNKNOWN`, and proves neither natural-language selection nor candidate acceptance |
 | Small bounded work stays flat | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
 | Midstream implicit behavior is proposal-only | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
@@ -2401,6 +2402,65 @@ receipt SHA-256 is `e8e9fb64...9882b`; D53 is sealed
 qualification mismatch, not SOURCE or product-behavior evidence. D51/D52 remain
 immutable, the candidate remains unaccepted, and no repair, replay, rescore,
 installation, release, or automatic D54 follows.
+
+### 2026-08-13 — D54 explicit-root Build qualification
+
+The user explicitly authorized `WC-AR-D54-EXPLICIT-ROOT-CONTRACT` for unchanged
+candidate `c481005...`, manifest `04c382...`, and control `ceed607...` from
+clean `main@d4374b...`. D51-D53 remain immutable; D53 remains
+`QUALIFICATION_FAILED / PRODUCT_UNKNOWN` with terminal receipt
+`e8e9fb64...9882b`.
+
+The focused tracked checker passes 32/32. The runner requires one authenticated
+outer contract that explicitly names repository, carrier, source-bundle,
+evidence, and predecessor roots. It validates containment, reparse/symlink
+boundaries, identity or hash, and schema before consumption. Coverage includes
+a nested positive, a decoy sibling, wrong root, outside root, reparse route,
+missing root, hash mismatch, and schema mismatch. No root is derived from cwd,
+sibling enumeration, `__file__` ancestry, or directory depth.
+
+In the successful correction-07 disposable mirror, the real materializer and
+finalizer passed, predecessor import admitted 17 immutable cells and 28
+historical starts with `execution_permitted=false`, private qualification
+passed 24/24, the tracked gate passed 32/32, and aggregate qualification passed
+56/56. The lifecycle consumer reached
+`CANARY_AUTHORIZED_AFTER_QUALIFICATION` with `action_authority=false`; synthetic
+next-phase dispatch then returned `STOPPED_BEFORE_FIRST_THREAD_START`. Actual
+model calls, `thread/start`, `turn/start`, and private session files were all
+zero. A 53,402-file outside snapshot reported zero writes outside the declared
+D54 root. These artifacts are explicitly classified
+`DEV_ONLY_NOT_FORMAL_CAMPAIGN_EVIDENCE`.
+
+Correction history is cumulative: the initial five rounds reduced bundle-hash,
+root-inference, ordering, checker-pin/transport, and generated-module-pin risk;
+rounds 06 and 07 rebound private module identities and authenticated the live
+D54 repository identity. Round 08 preserved repository-checker-required D53
+historical fragments while keeping D54's authority explicitly separate. Two of
+the five most recently added rounds remain unused and convey no formal-evidence
+or review credit.
+
+Documentation closure changes the ruleset and full tracked subject, so the
+final diff must be rebound and the complete disposable DEV route repeated
+before native review. Only a clean `Terra/high` review gate and one local commit
+may transition to a Fresh Evidence Session. Formal 56/56 is fresh and has no
+correction. The Build records authorize no canary, product context, assessor,
+acceptance, installation, release, or stable-copy change.
+
+Native review 1/5 then identified three P1 root-authentication gaps. The runner
+now compares the contract's repository HEAD to an authenticated Git probe,
+reconciles every manifest row and the canonical aggregate hash to the actual
+source-bundle inventory while rejecting reparse/unmanifested entries, and
+contains all D53/D49 artifact-relative paths before reading them. Focused
+wrong-HEAD, wrong-bundle-content, and escaping-predecessor-path negatives prove
+those fail-closed corrections. They change evaluation infrastructure only and
+require the complete DEV route before another native review.
+
+Native review 2/5 found that ruleset row count did not prevent one required
+locator from being duplicated while another was omitted. The runner now
+requires ordinal equality with the exact seven-locator set before ruleset
+assignment or hashing; a duplicate-locator/omitted-source negative rejects the
+contract before lifecycle initialization. This correction also requires the
+complete DEV route before the next review.
 
 ## Required Checks
 

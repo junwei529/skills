@@ -2,24 +2,23 @@
 
 Date: 2026-08-02
 Amended: 2026-08-13
-Status: accepted through terminal WC-AR-D53-LAYERED-AUTHORIZATION-LIFECYCLE; D40-D50 and D51-01 through D51-03 remain immutable, D51's three inner-only canary turns remain consumed, D52 and D53 are `QUALIFICATION_FAILED / PRODUCT_UNKNOWN`, and exact candidate `c481005...` remains unaccepted
+Status: accepted through authorized D54 explicit-root Build and post-commit Evidence transition; D40-D50 and D51-01 through D51-03 remain immutable, D51's three inner-only canary turns remain consumed, D52 and D53 are `QUALIFICATION_FAILED / PRODUCT_UNKNOWN`, D54 DEV qualification is non-formal, and exact candidate `c481005...` remains unaccepted
 
-- Planning checkpoint: 36 (D53 Layer A qualification terminal and sanitized closeout)
-- Last incorporated decision: `WC-AR-D53-LAYERED-AUTHORIZATION-LIFECYCLE`; its
-  terminal disposition is an observed fail-closed fact, not new successor authority
-- Open decision: none inside D53; the authorized terminal documentation review,
-  exact local commit 2 `8e658f18...`, and writer relinquishment are complete.
-  The evaluation line stays stopped unless the user authorizes one new complete
-  successor Campaign. Any D54, installation, release, or cleanup is user-owned
-- Lifecycle authority: D53's sanitized-closeout authority ended with local
-  commit 2 and writer relinquishment. The separately authorized bounded factual
-  reconciliation may only synchronize that observed closure state. Its durable
-  lease `post-D53-factual-reconciliation@main/8e658f18` remains `ACTIVE` through
-  the exact terminal commit and becomes `RELINQUISHED` only after live
-  reconciliation finds no attributable diff in any registered worktree; one
-  clean checkout is insufficient, and missing or conflicting evidence is
-  `UNKNOWN`. Repair, retry, operator recovery, scarce evidence, and every
-  unlisted effect remain excluded. Consult `docs/HANDOFF.md` for the exact
+- Planning checkpoint: 37 (D54 explicit-root Build and Fresh Evidence transition)
+- Last incorporated decision: `WC-AR-D54-EXPLICIT-ROOT-CONTRACT`; it is a new
+  successor Campaign and does not repair, retry, rescore, or reinterpret D53
+- Open decision: none inside the authorized D54 path. The Build Session may
+  complete its bounded commit and mechanically create one Fresh Evidence
+  Session. Formal qualification and later scarce evidence remain governed by
+  the stop conditions below
+- Lifecycle authority: the D54 Build lease
+  `D54-explicit-root-build@main/d4374b381444b85fff4941e73cf7a8d32f18a96e`
+  owns only the named implementation, mapped documentation, and ignored DEV
+  root through the authorized local commit. It becomes `RELINQUISHED` only
+  after that commit and attributable reconciliation across every registered
+  worktree; one clean checkout is insufficient, and missing or conflicting
+  evidence is `UNKNOWN`. The Fresh Evidence Session receives no repository
+  writer authority. Consult `docs/HANDOFF.md` for the exact
   commit, path-set, all-worktree, and recovery boundary
 - Checkpoint reason: completed product-design decision set plus the accepted
   native-package/user-activation, project-read, mapping-qualification, and
@@ -2702,6 +2701,73 @@ reconsidered only under that successor; D53 does not claim it is fixed.
 Repairing, moving, copying, or crediting a sealed predecessor carrier to bypass
 the failed rehearsal is `REJECTED`. No retry, replay, rescore, automatic D54,
 installation, release, cleanup, or other external effect follows.
+
+### WC-AR-D54-EXPLICIT-ROOT-CONTRACT — Successor Build And Evidence Campaign
+
+**Confirmed.** On 2026-08-13 the user explicitly authorized one complete D54
+Campaign for unchanged candidate
+`c4810057c3f28cca9f12004ca2018784cd21f449`, five-file manifest
+`04c382a48e43897a8806aa5ffd996984cb015d3d8cdc6e675e9181a6d94e6f44`,
+and released control `ceed607152849775b981c54add74bfa30d858e4d`. Its Build
+baseline is clean `main@d4374b381444b85fff4941e73cf7a8d32f18a96e` with an
+empty index and one repository writer. D51-D53, their carriers, corrections,
+consumed evidence, and D53 terminal receipt
+`e8e9fb645b83beaa9c64cd5ccf3d8fc3e283d21cdbb964cde8c72adb8849882b`
+remain immutable. D53 stays `QUALIFICATION_FAILED / PRODUCT_UNKNOWN`.
+
+D54 makes repository, carrier, source-bundle, evidence, and predecessor roots
+authenticated outer-contract inputs. No consumer may derive one from the
+current directory, siblings, `__file__` ancestry, or directory depth. Before
+consumption it resolves the declared root and proves containment, absence of a
+reparse/symlink boundary, expected identity or hash, and expected schema;
+missing, wrong-root, outside-root, reparse-routed, hash-mismatched, and schema-
+mismatched inputs fail closed. Focused deterministic coverage includes a
+nested positive and a decoy sibling as well as every negative above.
+
+The Build Session must first pass focused deterministic checks, then run the
+real materializer, finalizer, predecessor importer, private 24/24, tracked
+32/32, aggregate 56/56, lifecycle consumer, and synthetic next-phase dispatch
+in order inside one disposable D54 DEV mirror. It stops before the first
+`thread/start` and must prove zero model calls, zero `thread/start`, zero
+`turn/start`, and zero writes outside the declared mirror. DEV records are
+implementation qualification only and cannot supply formal, canary, product,
+assessor, or acceptance credit.
+
+The correction history remains cumulative. The original three and the first
+two added rounds were consumed by bundle-hash, inferred-root, manifest-order,
+checker-pin/transport, and generated-module-pin failures. The user then added
+five more rounds without resetting history. Rounds 06 and 07 rebound all
+private module pins and then authenticated the actual D54 repository identity;
+round 07 completed the full DEV path. Round 08 restored repository-checker-
+required D53 historical fragments while retaining D54's separate-authority
+meaning. Two added rounds remain unused for
+same-scope Build correction only and do not transfer to formal evidence,
+native review, or a later Campaign.
+
+Only after the complete DEV path passes may documentation impact close, the
+tracked diff stabilize, and native review begin. Native review uses
+`Terra/high`, permits at most five completed semantic reviews, and has no
+preauthorized reset. Any finding-related code change requires the affected
+complete DEV path again before another review. A passing gate authorizes one
+local commit with subject `evals: bind Work Charter D54 explicit roots`, no
+push, merge, installation, tag, release, stable update, or cleanup.
+
+After Commit 1, the Build Session verifies clean state across registered
+worktrees, relinquishes its writer, and mechanically creates one Fresh Evidence
+Session. That Session must reread the current rules and bind the final commit,
+ruleset, runner, checker, candidate, workspace, writer, permission, predecessor,
+and carrier identities before creating a new formal carrier. The Build Session
+must not consume formal canary, product, or assessor evidence.
+
+Formal qualification is a fresh indivisible 56/56 with no correction. Failure
+seals D54 `QUALIFICATION_FAILED / PRODUCT_UNKNOWN` and stops. A passing formal
+receipt authorizes, in order, three canaries, the already specified twelve
+product contexts with fourteen product `turn/start`, and at most one eligible
+assessor. Total fresh capacity is sixteen contexts and eighteen `turn/start`.
+Formal qualification or canary failure seals the Campaign and forbids product
+and assessor. Ruleset, candidate, workspace, writer, permission, budget, or
+other material-boundary drift returns to the user; no automatic D55 or review-
+budget reset follows.
 
 ## Important Rejected Alternatives
 

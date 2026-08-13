@@ -50,58 +50,64 @@ param(
     [switch]$RequireActionProvenance,
 
     [ValidateRange(1, 3600)]
-    [int]$ReceiptMaxAgeSeconds = 300
+    [int]$ReceiptMaxAgeSeconds = 300,
+
+    [string]$RootContractPath,
+
+    [string]$RootContractSha256,
+
+    [string]$RepositoryRoot,
+
+    [string]$CampaignRoot,
+
+    [string]$CarrierRoot,
+
+    [string]$SourceBundleRoot,
+
+    [string]$EvidenceRoot,
+
+    [string]$D53PredecessorRoot,
+
+    [string]$D49PredecessorRoot
 )
 
 $ErrorActionPreference = 'Stop'
 $script:RunnerFailureExitCode = 86
 $script:StrictUtf8 = [System.Text.UTF8Encoding]::new($false, $true)
-$script:CampaignId = 'WC-AR-D53-LAYERED-AUTHORIZATION-LIFECYCLE'
+$script:CampaignId = 'WC-AR-D54-EXPLICIT-ROOT-CONTRACT'
 $script:StableSubject = 'Work Charter v0.2.0 exact candidate'
 $script:CandidateCommit = 'c4810057c3f28cca9f12004ca2018784cd21f449'
 $script:CandidateManifestSha256 = '04c382a48e43897a8806aa5ffd996984cb015d3d8cdc6e675e9181a6d94e6f44'
-$script:RepositoryRoot = Split-Path -Parent $PSScriptRoot
-$script:UserProfileRoot = $env:USERPROFILE
-$script:CampaignContractPath = Join-Path $script:RepositoryRoot `
-    'docs\decisions\0018-work-charter-adoption-levels-and-reentry-checkpoint.md'
-$script:PrivateCarrierRoot = Join-Path $script:RepositoryRoot `
-    '.eval-runs\work-charter-v0.2-c481005-gate2-d53-layered-authorization'
+$script:ControlCommit = 'ceed607152849775b981c54add74bfa30d858e4d'
+$script:D54RootInputs = [pscustomobject]@{
+    RootContractPath = $RootContractPath
+    RootContractSha256 = $RootContractSha256
+    RepositoryRoot = $RepositoryRoot
+    CampaignRoot = $CampaignRoot
+    CarrierRoot = $CarrierRoot
+    SourceBundleRoot = $SourceBundleRoot
+    EvidenceRoot = $EvidenceRoot
+    PredecessorRoots = @($D53PredecessorRoot, $D49PredecessorRoot)
+}
+$script:RepositoryRoot = $null
+$script:CampaignRoot = $null
+$script:CampaignContractPath = $null
+$script:PrivateCarrierRoot = $null
+$script:SourceBundleRoot = $null
+$script:EvidenceRoot = $null
+$script:PredecessorRoots = @()
+$script:RootContractPath = $null
+$script:RootContractSha256 = $null
+$script:RootContract = $null
 $script:RunnerRepositoryPath = 'evals/invoke-work-charter-gate2.ps1'
 $script:ZeroModelQualificationPhase = 'runner-zero-model-qualification'
 $script:PredecessorTerminalReceiptSha256 = `
-    '7c12bbdb8901b3ec825a8e671b43d21fa6c7b1a78761a7df4b824cb9397abd4d'
+    'e8e9fb645b83beaa9c64cd5ccf3d8fc3e283d21cdbb964cde8c72adb8849882b'
 $script:ProductionDispatchDepth = 0
 $script:OuterInnerCapability = $null
 $script:ActiveCampaignController = $null
 $script:SegmentInputReader = [Console]::In
-$script:RulesetSources = @(
-    [pscustomobject]@{
-        Locator = '~/.codex/AGENTS.md'
-        Path = Join-Path $script:UserProfileRoot '.codex\AGENTS.md'
-        Sha256 = 'fefaad2225dfefc0a4e8048c1fe9ba744035ab101c11851954bcf432b1691be1'
-    },
-    [pscustomobject]@{
-        Locator = 'AGENTS.md'
-        Path = Join-Path $script:RepositoryRoot 'AGENTS.md'
-        Sha256 = '3e045e9bdc3e07f200b9080ffee0198ae5c5829fd325585046c779bfff7a96d5'
-    },
-    [pscustomobject]@{
-        Locator = '~/.codex/skills/work-charter/SKILL.md'
-        Path = Join-Path $script:UserProfileRoot '.codex\skills\work-charter\SKILL.md'
-        Sha256 = 'd0c86e80d6f8eec0d91c25f4f0c687d60b1e0821ac823e28cf62777bb1badda2'
-    },
-    [pscustomobject]@{
-        Locator = '~/.codex/skills/work-charter/references/coordination-and-recovery.md'
-        Path = Join-Path $script:UserProfileRoot `
-            '.codex\skills\work-charter\references\coordination-and-recovery.md'
-        Sha256 = '8c944b3434e14e70dea705a8b877b70b497c6f512db8681ff0000f418a270483'
-    },
-    [pscustomobject]@{
-        Locator = '~/.codex/reference/codex-usage-guidance.md'
-        Path = Join-Path $script:UserProfileRoot '.codex\reference\codex-usage-guidance.md'
-        Sha256 = '8139fa6765e0fe7a2972b84a8cb370df386e28736d16228a07780625f7888383'
-    }
-)
+$script:RulesetSources = @()
 
 function Get-RootedPath {
     param(
@@ -267,6 +273,379 @@ function Get-FileSha256 {
     return (Get-FileHash -LiteralPath $item.FullName -Algorithm SHA256).Hash.ToLowerInvariant()
 }
 
+function Assert-ExactPathValue {
+    param(
+        [Parameter(Mandatory)][string]$Actual,
+        [Parameter(Mandatory)][string]$Expected,
+        [Parameter(Mandatory)][string]$Purpose
+    )
+
+    $actualPath = Get-RootedPath -Path $Actual -Purpose $Purpose
+    $expectedPath = Get-RootedPath -Path $Expected -Purpose "$Purpose contract"
+    if (-not [string]::Equals(
+        $actualPath,
+        $expectedPath,
+        [StringComparison]::OrdinalIgnoreCase
+    )) {
+        throw "$Purpose does not match the authenticated explicit root contract."
+    }
+    return $actualPath
+}
+
+function Get-CanonicalBundleSha256 {
+    param([Parameter(Mandatory)][System.Collections.Generic.List[object]]$Rows)
+
+    $json = ConvertTo-Json -InputObject @($Rows) -Depth 10 -Compress
+    return Get-BytesSha256 -Bytes $script:StrictUtf8.GetBytes($json)
+}
+
+function Assert-SourceBundleContent {
+    param(
+        [Parameter(Mandatory)][string]$SourceRoot,
+        [Parameter(Mandatory)][string]$ManifestPath,
+        [Parameter(Mandatory)][object]$Manifest,
+        [Parameter(Mandatory)][string]$ExpectedBundleSha256,
+        [Parameter(Mandatory)][long]$ExpectedFileCount
+    )
+
+    $manifestRows = @($Manifest.files)
+    if ($manifestRows.Count -ne $ExpectedFileCount -or $manifestRows.Count -eq 0) {
+        throw 'D54 source-bundle manifest file-count schema mismatch.'
+    }
+    $observedPaths = [System.Collections.Generic.List[string]]::new()
+    $canonicalRows = [System.Collections.Generic.List[object]]::new()
+    foreach ($row in $manifestRows) {
+        $relativeText = [string]$row.path
+        $parts = @($relativeText -split '/')
+        if ([string]::IsNullOrWhiteSpace($relativeText) -or
+            [IO.Path]::IsPathFullyQualified($relativeText) -or
+            $relativeText.Contains('\') -or
+            @($parts | Where-Object { $_ -ceq '' -or $_ -ceq '.' -or $_ -ceq '..' }).Count -ne 0 -or
+            [string]$row.sha256 -cnotmatch '^[0-9a-f]{64}$' -or
+            $row.length -isnot [long] -or [long]$row.length -lt 0) {
+            throw "D54 source-bundle manifest row schema mismatch: $relativeText"
+        }
+        $target = [IO.Path]::GetFullPath((Join-Path $SourceRoot ($relativeText.Replace('/', '\'))))
+        Assert-PathUnderRoot -Path $target -Root $SourceRoot -Purpose 'source-bundle file containment'
+        if ([string]::Equals(
+            $target,
+            $ManifestPath,
+            [StringComparison]::OrdinalIgnoreCase
+        )) {
+            throw 'D54 source-bundle manifest cannot also be a payload file.'
+        }
+        $item = Get-OrdinaryFile -Path $target -Purpose "D54 source-bundle file $relativeText"
+        if ($item.Length -ne [long]$row.length -or
+            (Get-FileSha256 -Path $item.FullName) -cne [string]$row.sha256) {
+            throw "D54 source-bundle file identity drift: $relativeText"
+        }
+        $observedPaths.Add($relativeText)
+        $canonicalRows.Add([ordered]@{
+            length = [long]$row.length
+            path = $relativeText
+            sha256 = [string]$row.sha256
+        })
+    }
+    $sortedObserved = $observedPaths.ToArray()
+    [Array]::Sort($sortedObserved, [StringComparer]::Ordinal)
+    if (-not [Linq.Enumerable]::SequenceEqual[string]($observedPaths, $sortedObserved) -or
+        @($observedPaths | Select-Object -Unique).Count -ne $observedPaths.Count) {
+        throw 'D54 source-bundle manifest paths are not sorted and unique.'
+    }
+
+    $actualPaths = [System.Collections.Generic.List[string]]::new()
+    $pending = [System.Collections.Generic.Queue[IO.DirectoryInfo]]::new()
+    $pending.Enqueue((Get-OrdinaryDirectory -Path $SourceRoot -Purpose 'source-bundle root'))
+    while ($pending.Count -gt 0) {
+        $directory = $pending.Dequeue()
+        foreach ($item in @(Get-ChildItem -LiteralPath $directory.FullName -Force -ErrorAction Stop)) {
+            if ($item.Attributes -band [IO.FileAttributes]::ReparsePoint) {
+                throw "D54 source-bundle contains a reparse entry: $($item.FullName)"
+            }
+            if ($item.PSIsContainer) {
+                $pending.Enqueue([IO.DirectoryInfo]$item)
+            }
+            else {
+                if ([string]::Equals(
+                    $item.FullName,
+                    $ManifestPath,
+                    [StringComparison]::OrdinalIgnoreCase
+                )) {
+                    continue
+                }
+                $relative = [IO.Path]::GetRelativePath($SourceRoot, $item.FullName).Replace('\', '/')
+                $actualPaths.Add($relative)
+            }
+        }
+    }
+    $sortedActual = $actualPaths.ToArray()
+    [Array]::Sort($sortedActual, [StringComparer]::Ordinal)
+    if (-not [Linq.Enumerable]::SequenceEqual[string]($sortedObserved, $sortedActual) -or
+        (Get-CanonicalBundleSha256 -Rows $canonicalRows) -cne $ExpectedBundleSha256) {
+        throw 'D54 source-bundle inventory or aggregate hash drift.'
+    }
+}
+
+function Get-RepositoryHead {
+    param([Parameter(Mandatory)][string]$RepositoryRoot)
+
+    $git = Get-TrustedExecutableAnchor -Id 'd52-git-2.54.0.windows.1'
+    $startInfo = [Diagnostics.ProcessStartInfo]::new()
+    $startInfo.FileName = $git.Path
+    $startInfo.UseShellExecute = $false
+    $startInfo.RedirectStandardOutput = $true
+    $startInfo.RedirectStandardError = $true
+    $startInfo.CreateNoWindow = $true
+    foreach ($argument in @('-C', $RepositoryRoot, '--no-pager', 'rev-parse', 'HEAD')) {
+        $startInfo.ArgumentList.Add($argument)
+    }
+    $process = [Diagnostics.Process]::new()
+    $process.StartInfo = $startInfo
+    if (-not $process.Start()) {
+        throw 'D54 repository HEAD probe failed to start.'
+    }
+    $stdout = $process.StandardOutput.ReadToEnd()
+    $stderr = $process.StandardError.ReadToEnd()
+    $process.WaitForExit()
+    $head = $stdout.Trim()
+    if ($process.ExitCode -ne 0 -or -not [string]::IsNullOrWhiteSpace($stderr) -or
+        $head -cnotmatch '^[0-9a-f]{40}$') {
+        throw 'D54 repository HEAD probe failed closed.'
+    }
+    return $head
+}
+
+function Initialize-D54ExplicitRootContract {
+    $rootInput = $script:D54RootInputs
+    foreach ($entry in @(
+        @('RootContractPath', $rootInput.RootContractPath),
+        @('RootContractSha256', $rootInput.RootContractSha256),
+        @('RepositoryRoot', $rootInput.RepositoryRoot),
+        @('CampaignRoot', $rootInput.CampaignRoot),
+        @('CarrierRoot', $rootInput.CarrierRoot),
+        @('SourceBundleRoot', $rootInput.SourceBundleRoot),
+        @('EvidenceRoot', $rootInput.EvidenceRoot)
+    )) {
+        if ([string]::IsNullOrWhiteSpace([string]$entry[1])) {
+            throw "D54 explicit-root input is missing: $($entry[0])"
+        }
+    }
+    if ($rootInput.RootContractSha256 -cnotmatch '^[0-9a-f]{64}$') {
+        throw 'D54 explicit-root contract hash is malformed.'
+    }
+    if (@($rootInput.PredecessorRoots).Count -ne 2 -or
+        @($rootInput.PredecessorRoots | Select-Object -Unique).Count -ne 2) {
+        throw 'D54 explicit-root contract requires exactly two distinct predecessor roots.'
+    }
+
+    $contractSnapshot = Read-JsonSnapshot `
+        -Path $rootInput.RootContractPath `
+        -Purpose 'D54 explicit-root contract'
+    if ($contractSnapshot.Sha256 -cne $rootInput.RootContractSha256) {
+        throw 'D54 explicit-root contract hash mismatch.'
+    }
+    $contract = $contractSnapshot.Value
+    if ([string]$contract.schema_version -cne 'work-charter-d54-explicit-root-contract/v1' -or
+        [string]$contract.campaign_id -cne $script:CampaignId -or
+        [string]$contract.stable_subject -cne $script:StableSubject -or
+        [string]$contract.candidate_commit -cne $script:CandidateCommit -or
+        [string]$contract.candidate_manifest_sha256 -cne $script:CandidateManifestSha256 -or
+        [string]$contract.control_commit -cne $script:ControlCommit -or
+        [string]$contract.predecessor_terminal_receipt_sha256 -cne
+            $script:PredecessorTerminalReceiptSha256) {
+        throw 'D54 explicit-root contract schema or stable identity mismatch.'
+    }
+
+    $roots = $contract.roots
+    if ($null -eq $roots) {
+        throw 'D54 explicit-root contract omits roots.'
+    }
+    $repositoryPath = Assert-ExactPathValue `
+        -Actual $rootInput.RepositoryRoot `
+        -Expected ([string]$roots.repository.path) `
+        -Purpose 'repository root'
+    $campaignPath = Assert-ExactPathValue `
+        -Actual $rootInput.CampaignRoot `
+        -Expected ([string]$roots.campaign.path) `
+        -Purpose 'campaign root'
+    $carrierPath = Assert-ExactPathValue `
+        -Actual $rootInput.CarrierRoot `
+        -Expected ([string]$roots.carrier.path) `
+        -Purpose 'carrier root'
+    $sourcePath = Assert-ExactPathValue `
+        -Actual $rootInput.SourceBundleRoot `
+        -Expected ([string]$roots.source_bundle.path) `
+        -Purpose 'source-bundle root'
+    $evidencePath = Assert-ExactPathValue `
+        -Actual $rootInput.EvidenceRoot `
+        -Expected ([string]$roots.evidence.path) `
+        -Purpose 'evidence root'
+
+    [void](Get-OrdinaryDirectory -Path $repositoryPath -Purpose 'repository root')
+    [void](Get-OrdinaryDirectory -Path $campaignPath -Purpose 'campaign root')
+    [void](Get-OrdinaryDirectory -Path $carrierPath -Purpose 'carrier root')
+    [void](Get-OrdinaryDirectory -Path $sourcePath -Purpose 'source-bundle root')
+    [void](Get-OrdinaryDirectory -Path $evidencePath -Purpose 'evidence root')
+    Assert-PathUnderRoot -Path $carrierPath -Root $campaignPath -Purpose 'carrier root containment'
+    Assert-PathUnderRoot -Path $evidencePath -Root $carrierPath -Purpose 'evidence root containment'
+
+    if ([string]$roots.evidence.schema_version -cne 'work-charter-d54-evidence-root/v1') {
+        throw 'D54 evidence-root schema mismatch.'
+    }
+    $runnerRelative = [string]$roots.repository.runner_relative_path
+    if ($runnerRelative -cne $script:RunnerRepositoryPath) {
+        throw 'D54 repository root contract identifies the wrong runner path.'
+    }
+    $runnerPath = Join-Path $repositoryPath $runnerRelative.Replace('/', '\')
+    $runnerItem = Get-OrdinaryFile -Path $runnerPath -Purpose 'D54 tracked runner'
+    if (-not [string]::Equals(
+        $runnerItem.FullName,
+        (Get-RootedPath -Path $PSCommandPath -Purpose 'active D54 runner'),
+        [StringComparison]::OrdinalIgnoreCase
+    ) -or (Get-FileSha256 -Path $runnerItem.FullName) -cne
+        [string]$roots.repository.runner_sha256 -or
+        [string]$roots.repository.expected_head -cnotmatch '^[0-9a-f]{40}$' -or
+        (Get-RepositoryHead -RepositoryRoot $repositoryPath) -cne
+            [string]$roots.repository.expected_head) {
+        throw 'D54 repository root, runner identity, or expected HEAD mismatch.'
+    }
+
+    $manifestPath = Assert-ExactPathValue `
+        -Actual ([string]$roots.source_bundle.manifest_path) `
+        -Expected ([string]$roots.source_bundle.manifest_path) `
+        -Purpose 'source-bundle manifest'
+    Assert-PathUnderRoot `
+        -Path $manifestPath `
+        -Root $sourcePath `
+        -Purpose 'source-bundle manifest containment'
+    $manifestSnapshot = Read-JsonSnapshot `
+        -Path $manifestPath `
+        -Purpose 'D54 source-bundle manifest'
+    $manifest = $manifestSnapshot.Value
+    if ($manifestSnapshot.Sha256 -cne [string]$roots.source_bundle.manifest_sha256 -or
+        [long]$roots.source_bundle.manifest_schema_version -ne 1 -or
+        [long]$manifest.schema_version -ne 1 -or
+        [string]$manifest.execution_identity -cne
+            [string]$roots.source_bundle.execution_identity -or
+        [string]$manifest.bundle_sha256 -cne [string]$roots.source_bundle.bundle_sha256 -or
+        @($manifest.files).Count -ne [long]$roots.source_bundle.file_count) {
+        throw 'D54 source-bundle manifest hash or schema mismatch.'
+    }
+    Assert-SourceBundleContent `
+        -SourceRoot $sourcePath `
+        -ManifestPath $manifestSnapshot.FullName `
+        -Manifest $manifest `
+        -ExpectedBundleSha256 ([string]$roots.source_bundle.bundle_sha256) `
+        -ExpectedFileCount ([long]$roots.source_bundle.file_count)
+
+    $declaredPredecessors = @($roots.predecessors)
+    if ($declaredPredecessors.Count -ne 2) {
+        throw 'D54 explicit-root contract predecessor schema mismatch.'
+    }
+    $expectedPredecessorIds = @('d53-terminal', 'd49-admitted-evidence')
+    $resolvedPredecessors = [System.Collections.Generic.List[string]]::new()
+    for ($index = 0; $index -lt 2; $index++) {
+        $declared = $declaredPredecessors[$index]
+        if ([string]$declared.id -cne $expectedPredecessorIds[$index]) {
+            throw 'D54 predecessor root ordering or schema mismatch.'
+        }
+        $resolved = Assert-ExactPathValue `
+            -Actual ([string]$rootInput.PredecessorRoots[$index]) `
+            -Expected ([string]$declared.path) `
+            -Purpose "predecessor root $($declared.id)"
+        [void](Get-OrdinaryDirectory -Path $resolved -Purpose "predecessor root $($declared.id)")
+        $resolvedPredecessors.Add($resolved)
+    }
+
+    $d53Artifact = Join-Path $resolvedPredecessors[0] `
+        ([string]$declaredPredecessors[0].artifact_relative_path).Replace('/', '\')
+    Assert-PathUnderRoot `
+        -Path ([IO.Path]::GetFullPath($d53Artifact)) `
+        -Root $resolvedPredecessors[0] `
+        -Purpose 'D53 predecessor artifact containment'
+    $d53Snapshot = Read-JsonSnapshot -Path $d53Artifact -Purpose 'D53 terminal predecessor receipt'
+    if ($d53Snapshot.Sha256 -cne [string]$declaredPredecessors[0].artifact_sha256 -or
+        $d53Snapshot.Sha256 -cne $script:PredecessorTerminalReceiptSha256 -or
+        [string]$d53Snapshot.Value.schema_version -cne
+            [string]$declaredPredecessors[0].artifact_schema_version) {
+        throw 'D53 terminal predecessor receipt hash or schema mismatch.'
+    }
+
+    $d49TerminalPath = Join-Path $resolvedPredecessors[1] `
+        ([string]$declaredPredecessors[1].terminal_relative_path).Replace('/', '\')
+    $d49ViewPath = Join-Path $resolvedPredecessors[1] `
+        ([string]$declaredPredecessors[1].view_relative_path).Replace('/', '\')
+    Assert-PathUnderRoot `
+        -Path ([IO.Path]::GetFullPath($d49TerminalPath)) `
+        -Root $resolvedPredecessors[1] `
+        -Purpose 'D49 predecessor terminal containment'
+    Assert-PathUnderRoot `
+        -Path ([IO.Path]::GetFullPath($d49ViewPath)) `
+        -Root $resolvedPredecessors[1] `
+        -Purpose 'D49 predecessor view containment'
+    $d49Terminal = Read-JsonSnapshot -Path $d49TerminalPath -Purpose 'D49 predecessor terminal'
+    $d49View = Read-JsonSnapshot -Path $d49ViewPath -Purpose 'D49 predecessor assessor view'
+    if ($d49Terminal.Sha256 -cne [string]$declaredPredecessors[1].terminal_sha256 -or
+        $d49View.Sha256 -cne [string]$declaredPredecessors[1].view_sha256 -or
+        $null -eq $d49Terminal.Value -or $null -eq $d49View.Value) {
+        throw 'D49 predecessor root artifact hash or schema mismatch.'
+    }
+
+    $campaignContractPath = Assert-ExactPathValue `
+        -Actual ([string]$contract.campaign_contract.path) `
+        -Expected ([string]$contract.campaign_contract.path) `
+        -Purpose 'D54 Campaign contract'
+    if ((Get-FileSha256 -Path $campaignContractPath) -cne
+        [string]$contract.campaign_contract.sha256) {
+        throw 'D54 Campaign contract hash mismatch.'
+    }
+
+    $expectedRuleset = [ordered]@{
+        '~/.codex/AGENTS.md' = 'fefaad2225dfefc0a4e8048c1fe9ba744035ab101c11851954bcf432b1691be1'
+        'AGENTS.md' = '49e622e564ba22fb30e4601d1609c4be25a8285f8a9076629de75c7007f2b1db'
+        '~/.codex/skills/work-charter/SKILL.md' = 'd0c86e80d6f8eec0d91c25f4f0c687d60b1e0821ac823e28cf62777bb1badda2'
+        '~/.codex/skills/work-charter/references/coordination-and-recovery.md' = '8c944b3434e14e70dea705a8b877b70b497c6f512db8681ff0000f418a270483'
+        '~/.codex/reference/codex-usage-guidance.md' = '8139fa6765e0fe7a2972b84a8cb370df386e28736d16228a07780625f7888383'
+        'docs/RUNBOOK.md' = 'f4f42193d45fd279a50f8737ca2e7fe739dbebf703e9cda50118bc66d145ff13'
+        'evals/README.md' = '50001f3dcecf43e7d4bf6ab022eca768cc6fde9f8bacd3321021945bacd81860'
+    }
+    $observedRuleset = @($contract.ruleset_sources)
+    if ($observedRuleset.Count -ne $expectedRuleset.Count) {
+        throw 'D54 explicit-root contract ruleset schema mismatch.'
+    }
+    [string[]]$expectedLocators = @($expectedRuleset.Keys | ForEach-Object { [string]$_ })
+    [string[]]$observedLocators = @($observedRuleset | ForEach-Object { [string]$_.locator })
+    [Array]::Sort($expectedLocators, [StringComparer]::Ordinal)
+    [Array]::Sort($observedLocators, [StringComparer]::Ordinal)
+    if (-not [Linq.Enumerable]::SequenceEqual[string]($expectedLocators, $observedLocators)) {
+        throw 'D54 explicit-root contract ruleset locators are not exact and unique.'
+    }
+    $script:RulesetSources = @($observedRuleset | ForEach-Object {
+        $locator = [string]$_.locator
+        $path = Get-RootedPath -Path ([string]$_.path) -Purpose "ruleset source $locator"
+        $hash = [string]$_.normalized_text_sha256
+        if (-not $expectedRuleset.Contains($locator) -or
+            $hash -cne [string]$expectedRuleset[$locator] -or
+            (Get-NormalizedTextSha256 -Bytes ([IO.File]::ReadAllBytes(
+                (Get-OrdinaryFile -Path $path -Purpose "ruleset source $locator").FullName
+            ))) -cne $hash) {
+            throw "D54 ruleset source hash or schema mismatch: $locator"
+        }
+        [pscustomobject]@{ Locator = $locator; Path = $path; Sha256 = $hash }
+    })
+
+    $script:RepositoryRoot = $repositoryPath
+    $script:CampaignRoot = $campaignPath
+    $script:CampaignContractPath = $campaignContractPath
+    $script:PrivateCarrierRoot = $carrierPath
+    $script:SourceBundleRoot = $sourcePath
+    $script:EvidenceRoot = $evidencePath
+    $script:PredecessorRoots = $resolvedPredecessors.ToArray()
+    $script:RootContractPath = $contractSnapshot.FullName
+    $script:RootContractSha256 = $contractSnapshot.Sha256
+    $script:RootContract = $contract
+}
+
 function Get-TrustedExecutableAnchor {
     param(
         [Parameter(Mandatory)]
@@ -402,22 +781,22 @@ function Get-AuthorizationLifecycleStates {
 function Get-AuthorizationLifecyclePolicySha256 {
     $rows = [System.Collections.Generic.List[string]]::new()
     foreach ($row in @(
-        'work-charter-d53-authorization-lifecycle/v1',
+        'work-charter-d54-authorization-lifecycle/v1',
         $script:CampaignId,
         $script:StableSubject,
         $script:CandidateCommit,
         $script:CandidateManifestSha256,
         $script:PredecessorTerminalReceiptSha256,
         'qualification|56|56',
-        'evidence|formal-qualification.json|work-charter-d53-formal-qualification/v1',
-        'evidence|transport-canary-batch-result.json|work-charter-d53-canary-gate/v1',
-        'evidence|freeze-manifest.json|work-charter-d53-freeze/v1',
-        'evidence|model-activity-authorization.json|work-charter-d53-product-activation/v1',
-        'evidence|terminal-packet.json|work-charter-d53-admitted-product-packet/v1',
-        'evidence|assessor-view.json|work-charter-d53-assessor-view/v1',
-        'evidence|assessor-view-local-review.json|work-charter-d53-assessor-view-review/v1',
-        'evidence|assessor-eligibility.json|work-charter-d53-assessor-eligibility/v1',
-        'evidence|d53-terminal.json|work-charter-d53-terminal/v1',
+        'evidence|formal-qualification.json|work-charter-d54-formal-qualification/v1',
+        'evidence|transport-canary-batch-result.json|work-charter-d54-canary-gate/v1',
+        'evidence|freeze-manifest.json|work-charter-d54-freeze/v1',
+        'evidence|model-activity-authorization.json|work-charter-d54-product-activation/v1',
+        'evidence|terminal-packet.json|work-charter-d54-admitted-product-packet/v1',
+        'evidence|assessor-view.json|work-charter-d54-assessor-view/v1',
+        'evidence|assessor-view-local-review.json|work-charter-d54-assessor-view-review/v1',
+        'evidence|assessor-eligibility.json|work-charter-d54-assessor-eligibility/v1',
+        'evidence|d54-terminal.json|work-charter-d54-terminal/v1',
         "production-policy|$(Get-ProductionPolicySha256)"
     )) {
         $rows.Add([string]$row)
@@ -446,7 +825,7 @@ function Get-AuthorizationLifecycleEnvelope {
     param([AllowEmptyString()][string]$Phase)
 
     return [ordered]@{
-        schema_version = 'work-charter-d53-authorization-lifecycle/v1'
+        schema_version = 'work-charter-d54-authorization-lifecycle/v1'
         campaign_id = $script:CampaignId
         stable_subject = $script:StableSubject
         candidate_commit = $script:CandidateCommit
@@ -505,7 +884,7 @@ function Assert-AuthorizationLifecycleArtifact {
     Assert-NoPredecessorAuthorizationState -Artifact $Artifact -Purpose $Purpose
     $observed = $Artifact.authorization_lifecycle
     if ($null -eq $observed) {
-        throw "$Purpose omits the D53 authorization lifecycle."
+        throw "$Purpose omits the D54 authorization lifecycle."
     }
     $expected = Get-AuthorizationLifecycleEnvelope -Phase $Phase
     foreach ($field in @(
@@ -553,14 +932,20 @@ function Assert-LifecycleEvidenceCommon {
         [string]$Record.authorization_lifecycle_policy_sha256 -cne
             (Get-AuthorizationLifecyclePolicySha256) -or
         [string]$Record.state -cne $State) {
-        throw "$Purpose does not bind the authorized D53 lifecycle state."
+        throw "$Purpose does not bind the authorized D54 lifecycle state."
     }
 }
 
 function Get-LifecycleEvidenceSnapshots {
     param([Parameter(Mandatory)][string]$EvidenceRoot)
 
-    $root = (Get-OrdinaryDirectory -Path $EvidenceRoot -Purpose 'lifecycle evidence root').FullName
+    [void](Assert-ExactPathIdentity `
+        -Actual $EvidenceRoot `
+        -Expected $script:EvidenceRoot `
+        -Purpose 'lifecycle evidence root')
+    $root = (
+        Get-OrdinaryDirectory -Path $script:EvidenceRoot -Purpose 'lifecycle evidence root'
+    ).FullName
     return [ordered]@{
         Root = $root
         Qualification = Read-JsonSnapshot `
@@ -595,12 +980,12 @@ function Assert-LifecycleTransitionEvidence {
         [switch]$RequireActionProvenance
     )
 
+    [void](Assert-ExactPathIdentity `
+        -Actual $EvidenceRoot `
+        -Expected $script:EvidenceRoot `
+        -Purpose 'lifecycle evidence root')
     if ($RequireActionProvenance) {
         [void](Get-LiveCampaignController)
-        Assert-ExactPathIdentity `
-            -Actual $EvidenceRoot `
-            -Expected (Join-Path $script:PrivateCarrierRoot 'execution\evidence') `
-            -Purpose 'action-provenance lifecycle evidence root'
     }
     if ($State -ceq 'TERMINAL') {
         Assert-TerminalLifecycleEvidence `
@@ -616,7 +1001,7 @@ function Assert-LifecycleTransitionEvidence {
     $qualification = $snapshots.Qualification.Value
     Assert-LifecycleEvidenceCommon `
         -Record $qualification `
-        -SchemaVersion 'work-charter-d53-formal-qualification/v1' `
+        -SchemaVersion 'work-charter-d54-formal-qualification/v1' `
         -State 'CANARY_AUTHORIZED_AFTER_QUALIFICATION' `
         -Purpose 'Formal qualification receipt'
     if ([string]$qualification.previous_state -cne 'ZERO_MODEL_QUALIFICATION_PENDING' -or
@@ -627,19 +1012,19 @@ function Assert-LifecycleTransitionEvidence {
         [long]$qualification.qualification.tracked_passed -ne 32 -or
         [long]$qualification.qualification.tracked_total -ne 32 -or
         [string]$qualification.tracked_runner_sha256 -cne (Get-FileSha256 -Path $RunnerPath)) {
-        throw 'Formal qualification receipt is not the exact D53 56/56 gate.'
+        throw 'Formal qualification receipt is not the exact D54 56/56 gate.'
     }
     if ($State -ceq 'CANARY_AUTHORIZED_AFTER_QUALIFICATION') {
         return
     }
 
     if ($null -eq $snapshots.Canary) {
-        throw 'D53 lifecycle is missing the canary gate receipt.'
+        throw 'D54 lifecycle is missing the canary gate receipt.'
     }
     $canary = $snapshots.Canary.Value
     Assert-LifecycleEvidenceCommon `
         -Record $canary `
-        -SchemaVersion 'work-charter-d53-canary-gate/v1' `
+        -SchemaVersion 'work-charter-d54-canary-gate/v1' `
         -State 'FREEZE_PENDING_AFTER_CANARIES' `
         -Purpose 'Canary gate receipt'
     if ([string]$canary.previous_state -cne 'CANARY_AUTHORIZED_AFTER_QUALIFICATION' -or
@@ -648,7 +1033,7 @@ function Assert-LifecycleTransitionEvidence {
         [long]$canary.turn_starts -ne 3 -or
         $canary.receipt_max_age_seconds -isnot [long] -or
         [long]$canary.receipt_max_age_seconds -ne $ReceiptMaxAgeSeconds) {
-        throw 'Canary gate receipt does not follow the D53 qualification state.'
+        throw 'Canary gate receipt does not follow the D54 qualification state.'
     }
     $expectedCanaries = @(Get-AuthorizedProductionPhases | Where-Object { $_.Segment -ceq 'canary' })
     $observedCanaries = @($canary.routes)
@@ -658,7 +1043,7 @@ function Assert-LifecycleTransitionEvidence {
     for ($index = 0; $index -lt $expectedCanaries.Count; $index++) {
         $expected = $expectedCanaries[$index]
         $observed = $observedCanaries[$index]
-        $carrierRoot = Split-Path -Parent (Split-Path -Parent $snapshots.Root)
+        $carrierRoot = $script:PrivateCarrierRoot
         $phaseRoot = Join-Path (Join-Path $carrierRoot 'phases') $expected.DirectoryName
         $receiptSnapshot = Read-JsonSnapshot `
             -Path (Join-Path $phaseRoot 'receipt.json') `
@@ -676,11 +1061,11 @@ function Assert-LifecycleTransitionEvidence {
             [string]$observed.outer_receipt_sha256 -cne $receiptSnapshot.Sha256 -or
             [string]$observed.dispatch_state_sha256 -cne $stateSnapshot.Sha256 -or
             [string]$observed.inner_consumption_sha256 -cnotmatch '^[0-9a-f]{64}$' -or
-            [string]$receipt.schema_version -cne 'work-charter-d53-launch-receipt/v1' -or
+            [string]$receipt.schema_version -cne 'work-charter-d54-launch-receipt/v1' -or
             [string]$receipt.campaign_id -cne $script:CampaignId -or
             [string]$receipt.phase -cne $expected.Phase -or
             [string]$receipt.status -cne 'consumed' -or
-            [string]$dispatchState.schema_version -cne 'work-charter-d53-dispatch-state/v1' -or
+            [string]$dispatchState.schema_version -cne 'work-charter-d54-dispatch-state/v1' -or
             [string]$dispatchState.campaign_id -cne $script:CampaignId -or
             [string]$dispatchState.phase -cne $expected.Phase -or
             [string]$dispatchState.status -cne 'completed' -or
@@ -706,31 +1091,31 @@ function Assert-LifecycleTransitionEvidence {
     }
 
     if ($null -eq $snapshots.Freeze) {
-        throw 'D53 lifecycle is missing the freeze manifest.'
+        throw 'D54 lifecycle is missing the freeze manifest.'
     }
     $freeze = $snapshots.Freeze.Value
     Assert-LifecycleEvidenceCommon `
         -Record $freeze `
-        -SchemaVersion 'work-charter-d53-freeze/v1' `
+        -SchemaVersion 'work-charter-d54-freeze/v1' `
         -State 'PRE_PRODUCT_FROZEN_AWAITING_CAMPAIGN_ACTIVATION' `
         -Purpose 'Freeze manifest'
     if ([string]$freeze.previous_state -cne 'FREEZE_PENDING_AFTER_CANARIES' -or
         [string]$freeze.canary_gate_sha256 -cne $snapshots.Canary.Sha256 -or
         $freeze.model_activity_authorized -isnot [bool] -or
         [bool]$freeze.model_activity_authorized) {
-        throw 'Freeze manifest does not follow the complete D53 canary gate.'
+        throw 'Freeze manifest does not follow the complete D54 canary gate.'
     }
     if ($State -ceq 'PRE_PRODUCT_FROZEN_AWAITING_CAMPAIGN_ACTIVATION') {
         return
     }
 
     if ($null -eq $snapshots.Activation) {
-        throw 'D53 lifecycle is missing the post-freeze product activation receipt.'
+        throw 'D54 lifecycle is missing the post-freeze product activation receipt.'
     }
     $activation = $snapshots.Activation.Value
     Assert-LifecycleEvidenceCommon `
         -Record $activation `
-        -SchemaVersion 'work-charter-d53-product-activation/v1' `
+        -SchemaVersion 'work-charter-d54-product-activation/v1' `
         -State 'PRODUCT_AUTHORIZED_BY_APPROVED_CAMPAIGN' `
         -Purpose 'Product activation receipt'
     if ([string]$activation.previous_state -cne
@@ -740,10 +1125,10 @@ function Assert-LifecycleTransitionEvidence {
         [string]$activation.freeze_manifest_sha256 -cne $snapshots.Freeze.Sha256 -or
         [string]$activation.campaign_contract_sha256 -cne
             (Get-FileSha256 -Path $script:CampaignContractPath)) {
-        throw 'Product activation receipt is not bound to the approved D53 Campaign and freeze.'
+        throw 'Product activation receipt is not bound to the approved D54 Campaign and freeze.'
     }
     if ($State -cne 'PRODUCT_AUTHORIZED_BY_APPROVED_CAMPAIGN') {
-        throw 'D53 lifecycle state is not supported by the transition evidence chain.'
+        throw 'D54 lifecycle state is not supported by the transition evidence chain.'
     }
 }
 
@@ -758,14 +1143,14 @@ function Assert-TerminalLifecycleEvidence {
         Get-OrdinaryDirectory -Path $EvidenceRoot -Purpose 'terminal evidence root'
     ).FullName
     $terminalSnapshot = Read-JsonSnapshot `
-        -Path (Join-Path $evidenceDirectory 'd53-terminal.json') `
-        -Purpose 'D53 terminal receipt'
+        -Path (Join-Path $evidenceDirectory 'd54-terminal.json') `
+        -Purpose 'D54 terminal receipt'
     $terminal = $terminalSnapshot.Value
     Assert-LifecycleEvidenceCommon `
         -Record $terminal `
-        -SchemaVersion 'work-charter-d53-terminal/v1' `
+        -SchemaVersion 'work-charter-d54-terminal/v1' `
         -State 'TERMINAL' `
-        -Purpose 'D53 terminal receipt'
+        -Purpose 'D54 terminal receipt'
     $dispositionsByPreviousState = @{
         ZERO_MODEL_QUALIFICATION_PENDING = @(
             'QUALIFICATION_FAILED / PRODUCT_UNKNOWN'
@@ -802,12 +1187,12 @@ function Assert-TerminalLifecycleEvidence {
         $terminal.formal_corrections_used -isnot [long] -or
         [long]$terminal.formal_corrections_used -lt 0 -or
         [long]$terminal.formal_corrections_used -gt 2) {
-        throw 'D53 terminal receipt disposition does not match its predecessor state or budget.'
+        throw 'D54 terminal receipt disposition does not match its predecessor state or budget.'
     }
     $accepted = [bool]$terminal.candidate_accepted
     if (($accepted -and [string]$terminal.terminal_disposition -cne 'ACCEPTED') -or
         (-not $accepted -and [string]$terminal.terminal_disposition -ceq 'ACCEPTED')) {
-        throw 'D53 terminal receipt acceptance flag and disposition disagree.'
+        throw 'D54 terminal receipt acceptance flag and disposition disagree.'
     }
     Assert-LifecycleTransitionEvidence `
         -EvidenceRoot $evidenceDirectory `
@@ -818,15 +1203,15 @@ function Assert-TerminalLifecycleEvidence {
         return
     }
     if (-not $RequireActionProvenance) {
-        throw 'Accepted D53 terminal receipt requires action provenance.'
+        throw 'Accepted D54 terminal receipt requires action provenance.'
     }
     if ([string]$terminal.previous_state -cne 'PRODUCT_AUTHORIZED_BY_APPROVED_CAMPAIGN' -or
         [long]$terminal.model_contexts -ne 16 -or
         [long]$terminal.turn_starts -ne 18) {
-        throw 'Accepted D53 terminal receipt lacks the complete authorized evidence budget.'
+        throw 'Accepted D54 terminal receipt lacks the complete authorized evidence budget.'
     }
     Assert-AssessorEligibility -EvidenceRoot $evidenceDirectory
-    $carrierRoot = Split-Path -Parent (Split-Path -Parent $evidenceDirectory)
+    $carrierRoot = $script:PrivateCarrierRoot
     $productPacketSnapshot = Read-JsonSnapshot `
         -Path (Join-Path (Join-Path $carrierRoot 'execution\terminal') 'terminal-packet.json') `
         -Purpose 'accepted admitted product packet'
@@ -848,7 +1233,7 @@ function Assert-TerminalLifecycleEvidence {
             -Purpose 'product dispatch state'
         if ([string]$route.outer_receipt_sha256 -cne $receiptSnapshot.Sha256 -or
             [string]$route.dispatch_state_sha256 -cne $stateSnapshot.Sha256) {
-            throw "Accepted D53 product route evidence is mismatched at ordinal $($index + 1)."
+            throw "Accepted D54 product route evidence is mismatched at ordinal $($index + 1)."
         }
         Assert-CompletedModelOuterDispatch `
             -RunnerPath $RunnerPath `
@@ -862,13 +1247,13 @@ function Assert-TerminalLifecycleEvidence {
     }
     $assessmentSnapshot = Read-JsonSnapshot `
         -Path (Join-Path (Join-Path $carrierRoot 'execution\assessor') 'assessment.json') `
-        -Purpose 'D53 assessor result'
+        -Purpose 'D54 assessor result'
     $assessment = $assessmentSnapshot.Value
     Assert-LifecycleEvidenceCommon `
         -Record $assessment `
-        -SchemaVersion 'work-charter-d53-assessment/v1' `
+        -SchemaVersion 'work-charter-d54-assessment/v1' `
         -State 'PRODUCT_AUTHORIZED_BY_APPROVED_CAMPAIGN' `
-        -Purpose 'D53 assessor result'
+        -Purpose 'D54 assessor result'
     $assessorPolicy = Get-AuthorizedProductionPhase -Phase 'assessor-terra-high'
     $assessorPhaseRoot = Join-Path `
         (Join-Path $carrierRoot 'phases') `
@@ -893,7 +1278,7 @@ function Assert-TerminalLifecycleEvidence {
         [string]$assessment.assessor_eligibility_sha256 -cne $eligibilitySnapshot.Sha256 -or
         [string]$assessment.assessor_view_sha256 -cne $viewSnapshot.Sha256 -or
         [string]$terminal.assessment_sha256 -cne $assessmentSnapshot.Sha256) {
-        throw 'Accepted D53 terminal receipt is not bound to the eligible consumed assessor result.'
+        throw 'Accepted D54 terminal receipt is not bound to the eligible consumed assessor result.'
     }
     Assert-CompletedModelOuterDispatch `
         -RunnerPath $RunnerPath `
@@ -977,10 +1362,14 @@ function Assert-LiveCampaignProductEvidence {
 function Assert-AssessorEligibility {
     param([Parameter(Mandatory)][string]$EvidenceRoot)
 
+    [void](Assert-ExactPathIdentity `
+        -Actual $EvidenceRoot `
+        -Expected $script:EvidenceRoot `
+        -Purpose 'assessor evidence root')
     $evidenceDirectory = (
-        Get-OrdinaryDirectory -Path $EvidenceRoot -Purpose 'assessor evidence root'
+        Get-OrdinaryDirectory -Path $script:EvidenceRoot -Purpose 'assessor evidence root'
     ).FullName
-    $carrierRoot = Split-Path -Parent (Split-Path -Parent $evidenceDirectory)
+    $carrierRoot = $script:PrivateCarrierRoot
     $terminalRoot = Join-Path (Join-Path $carrierRoot 'execution') 'terminal'
     $packet = Read-JsonSnapshot `
         -Path (Join-Path $terminalRoot 'terminal-packet.json') `
@@ -997,7 +1386,7 @@ function Assert-AssessorEligibility {
 
     Assert-LifecycleEvidenceCommon `
         -Record $packet.Value `
-        -SchemaVersion 'work-charter-d53-admitted-product-packet/v1' `
+        -SchemaVersion 'work-charter-d54-admitted-product-packet/v1' `
         -State 'PRODUCT_AUTHORIZED_BY_APPROVED_CAMPAIGN' `
         -Purpose 'Admitted product packet'
     if ([long]$packet.Value.score.passed -ne 28 -or
@@ -1016,7 +1405,7 @@ function Assert-AssessorEligibility {
 
     Assert-LifecycleEvidenceCommon `
         -Record $view.Value `
-        -SchemaVersion 'work-charter-d53-assessor-view/v1' `
+        -SchemaVersion 'work-charter-d54-assessor-view/v1' `
         -State 'PRODUCT_AUTHORIZED_BY_APPROVED_CAMPAIGN' `
         -Purpose 'Assessor view'
     if ([string]$view.Value.source_packet_sha256 -cne $packet.Sha256) {
@@ -1025,7 +1414,7 @@ function Assert-AssessorEligibility {
 
     Assert-LifecycleEvidenceCommon `
         -Record $review.Value `
-        -SchemaVersion 'work-charter-d53-assessor-view-review/v1' `
+        -SchemaVersion 'work-charter-d54-assessor-view-review/v1' `
         -State 'PRODUCT_AUTHORIZED_BY_APPROVED_CAMPAIGN' `
         -Purpose 'Assessor view local review'
     if ([string]$review.Value.verdict -cne 'PASS' -or
@@ -1037,7 +1426,7 @@ function Assert-AssessorEligibility {
 
     Assert-LifecycleEvidenceCommon `
         -Record $eligibility.Value `
-        -SchemaVersion 'work-charter-d53-assessor-eligibility/v1' `
+        -SchemaVersion 'work-charter-d54-assessor-eligibility/v1' `
         -State 'PRODUCT_AUTHORIZED_BY_APPROVED_CAMPAIGN' `
         -Purpose 'Assessor eligibility receipt'
     if ($eligibility.Value.eligible -isnot [bool] -or
@@ -1184,7 +1573,7 @@ function Get-LiveCampaignController {
         $null -eq $script:ActiveCampaignController.Guard -or
         $script:ActiveCampaignController.Active -isnot [bool] -or
         -not [bool]$script:ActiveCampaignController.Active) {
-        throw 'Production dispatch requires the live D53 Campaign controller capability.'
+        throw 'Production dispatch requires the live D54 Campaign controller capability.'
     }
     return $script:ActiveCampaignController
 }
@@ -1328,7 +1717,7 @@ function Get-AuthorizedProductionPhase {
 
     $matches = @(Get-AuthorizedProductionPhases | Where-Object { $_.Phase -ceq $Phase })
     if ($matches.Count -ne 1) {
-        throw 'Phase is not present in the committed D53 production authorization policy.'
+        throw 'Phase is not present in the committed D54 production authorization policy.'
     }
     return $matches[0]
 }
@@ -1355,12 +1744,12 @@ function Assert-AuthoritySnapshot {
         [Parameter(Mandatory)][object]$Binding
     )
 
-    if ([string]$Snapshot.schema_version -cne 'work-charter-d53-authority-snapshot/v1' -or
+    if ([string]$Snapshot.schema_version -cne 'work-charter-d54-authority-snapshot/v1' -or
         [string]$Snapshot.campaign_id -cne $script:CampaignId -or
         [string]$Snapshot.stable_subject -cne $script:StableSubject -or
         [string]$Snapshot.candidate_commit -cne $script:CandidateCommit -or
         [string]$Snapshot.candidate_manifest_sha256 -cne $script:CandidateManifestSha256) {
-        throw 'Authority snapshot does not identify the authorized D53 subject.'
+        throw 'Authority snapshot does not identify the authorized D54 subject.'
     }
     Assert-AuthorizationLifecycleArtifact `
         -Artifact $Snapshot `
@@ -1374,7 +1763,7 @@ function Assert-AuthoritySnapshot {
         $script:CampaignContractPath,
         [StringComparison]::OrdinalIgnoreCase
     )) {
-        throw 'Authority snapshot does not identify the tracked D53 Campaign contract.'
+        throw 'Authority snapshot does not identify the tracked D54 Campaign contract.'
     }
     $contractSha256 = Get-FileSha256 -Path $contractPath
     if ([string]$Snapshot.campaign_contract_sha256 -cne $contractSha256 -or
@@ -1405,7 +1794,7 @@ function Assert-AuthoritySnapshot {
         }
     }
     if ([string]$Binding.ruleset_sha256 -cne (Get-RulesetSha256)) {
-        throw 'Launch binding ruleset aggregate is not the authenticated D53 ruleset.'
+        throw 'Launch binding ruleset aggregate is not the authenticated D54 ruleset.'
     }
     if ([string]$Binding.authority_snapshot_sha256 -cne $SnapshotSha256) {
         throw 'Authority snapshot content does not match the launch binding.'
@@ -1437,20 +1826,20 @@ function Assert-EvidenceSnapshots {
     }
     $authoritySha256 = $AuthoritySnapshot.Sha256
     $frozen = $FrozenSnapshot.Value
-    if ([string]$frozen.schema_version -cne 'work-charter-d53-frozen-inputs/v1' -or
+    if ([string]$frozen.schema_version -cne 'work-charter-d54-frozen-inputs/v1' -or
         [string]$frozen.campaign_id -cne $script:CampaignId -or
         [string]$frozen.candidate_commit -cne $script:CandidateCommit -or
         [string]$frozen.candidate_manifest_sha256 -cne $script:CandidateManifestSha256 -or
         [string]$frozen.authority_snapshot_sha256 -cne $authoritySha256 -or
         [string]$frozen.phase -cne [string]$Binding.phase) {
-        throw 'Frozen-input manifest does not bind the authorized D53 phase.'
+        throw 'Frozen-input manifest does not bind the authorized D54 phase.'
     }
     Assert-AuthorizationLifecycleArtifact `
         -Artifact $frozen `
         -Phase ([string]$Binding.phase) `
         -Purpose 'Frozen-input manifest'
     $carrier = $CarrierSnapshot.Value
-    if ([string]$carrier.schema_version -cne 'work-charter-d53-carrier-manifest/v1' -or
+    if ([string]$carrier.schema_version -cne 'work-charter-d54-carrier-manifest/v1' -or
         [string]$carrier.campaign_id -cne $script:CampaignId -or
         [string]$carrier.candidate_commit -cne $script:CandidateCommit -or
         [string]$carrier.candidate_manifest_sha256 -cne $script:CandidateManifestSha256 -or
@@ -1462,7 +1851,7 @@ function Assert-EvidenceSnapshots {
         [string]$carrier.campaign_contract_sha256 -cne [string]$Binding.campaign_contract_sha256 -or
         [string]$carrier.ruleset_sha256 -cne [string]$Binding.ruleset_sha256 -or
         [string]$carrier.phase -cne [string]$Binding.phase) {
-        throw 'Carrier manifest does not bind the authenticated D53 authority and frozen phase.'
+        throw 'Carrier manifest does not bind the authenticated D54 authority and frozen phase.'
     }
     Assert-AuthorizationLifecycleArtifact `
         -Artifact $carrier `
@@ -1607,13 +1996,13 @@ function Assert-ProductionAuthorization {
     if (-not $SkipLifecycleEvidence) {
         $lifecycleState = Get-AuthorizationLifecycleActiveState -Phase $Phase
         Assert-LifecycleTransitionEvidence `
-            -EvidenceRoot (Join-Path $script:PrivateCarrierRoot 'execution\evidence') `
+            -EvidenceRoot $script:EvidenceRoot `
             -State $lifecycleState `
             -RunnerPath $PSCommandPath `
             -RequireActionProvenance
         if ($policy.Segment -ceq 'assessor') {
             Assert-AssessorEligibility `
-                -EvidenceRoot (Join-Path $script:PrivateCarrierRoot 'execution\evidence')
+                -EvidenceRoot $script:EvidenceRoot
             Assert-LiveCampaignProductEvidence `
                 -RunnerPath $PSCommandPath `
                 -MaxAgeSeconds ([int]$Binding.receipt_max_age_seconds)
@@ -1628,7 +2017,7 @@ function Assert-ProductionAuthorization {
             [string]$artifact.reasoning_effort -cne $policy.Effort -or
             [long]$artifact.phase_turn_starts -ne [long]$policy.TurnStarts -or
             [string]$artifact.successor_phase -cne $policy.NextPhase) {
-            throw 'Production artifact does not match the committed D53 phase authorization policy.'
+            throw 'Production artifact does not match the committed D54 phase authorization policy.'
         }
     }
     if ([long]$Binding.remaining_budget.model_contexts -ne [long]$policy.RemainingContexts -or
@@ -1636,12 +2025,12 @@ function Assert-ProductionAuthorization {
         [string]$Binding.child_operation_id -cne 'd52-codex-app-server' -or
         [string]$Binding.child_executable_anchor_id -cne
             'd52-codex-app-server-0.147.0-alpha.6.6') {
-        throw 'Production binding route or budget does not match the committed D53 phase authorization policy.'
+        throw 'Production binding route or budget does not match the committed D54 phase authorization policy.'
     }
     $expectsSuccessor = -not [string]::IsNullOrEmpty($policy.NextPhase)
     if (($expectsSuccessor -and [string]$Binding.next_dispatch_sha256 -ceq ('0' * 64)) -or
         (-not $expectsSuccessor -and [string]$Binding.next_dispatch_sha256 -cne ('0' * 64))) {
-        throw 'Production successor binding does not match the committed D53 phase authorization policy.'
+        throw 'Production successor binding does not match the committed D54 phase authorization policy.'
     }
 }
 
@@ -1659,7 +2048,7 @@ function Assert-ExactPathIdentity {
         $expectedPath,
         [StringComparison]::OrdinalIgnoreCase
     )) {
-        throw "$Purpose does not match the committed D53 production path policy."
+        throw "$Purpose does not match the committed D54 production path policy."
     }
 }
 
@@ -1703,7 +2092,7 @@ function Assert-ProductionArtifactPaths {
         }
         if ([string]::IsNullOrEmpty($expectedNext)) {
             if (-not [string]::IsNullOrWhiteSpace($NextDispatch)) {
-                throw 'Terminal D53 production phase cannot declare a successor descriptor.'
+                throw 'Terminal D54 production phase cannot declare a successor descriptor.'
             }
         }
         else {
@@ -1726,12 +2115,12 @@ function Assert-AuthorizedNextDispatch {
     $policy = Get-AuthorizedProductionPhase -Phase $Phase
     if ([string]::IsNullOrEmpty($policy.NextPhase)) {
         if ($null -ne $Descriptor) {
-            throw 'Terminal D53 production phase cannot provide a successor descriptor.'
+            throw 'Terminal D54 production phase cannot provide a successor descriptor.'
         }
         return
     }
     if ($null -eq $Descriptor) {
-        throw 'D53 production phase is missing its committed-policy successor descriptor.'
+        throw 'D54 production phase is missing its committed-policy successor descriptor.'
     }
     $nextPolicy = Get-AuthorizedProductionPhase -Phase $policy.NextPhase
     $nextRoot = Join-Path (Join-Path $script:PrivateCarrierRoot 'phases') $nextPolicy.DirectoryName
@@ -1753,7 +2142,7 @@ function Assert-AuthorizedNextDispatch {
         [string]$Descriptor.child_operation_id -cne 'd52-codex-app-server' -or
         [string]$Descriptor.child_executable_anchor_id -cne
             'd52-codex-app-server-0.147.0-alpha.6.6') {
-        throw 'Next descriptor route does not match the committed D53 production authorization policy.'
+        throw 'Next descriptor route does not match the committed D54 production authorization policy.'
     }
     $expectedFollowing = if ([string]::IsNullOrEmpty($nextPolicy.NextPhase)) { '' } else {
         Join-Path $nextRoot 'next-dispatch.json'
@@ -1795,7 +2184,7 @@ function Assert-CompleteProductionCarrier {
         }
         foreach ($mustBeAbsent in @($receiptPath, $statePath, ($receiptPath + '.consumed'))) {
             if (Test-Path -LiteralPath $mustBeAbsent) {
-                throw 'Fresh D53 production carrier contains preexisting receipt or dispatch state.'
+                throw 'Fresh D54 production carrier contains preexisting receipt or dispatch state.'
             }
         }
         Assert-ProductionArtifactPaths `
@@ -1943,21 +2332,21 @@ function Assert-CompletedModelOuterDispatch {
         -Binding $binding `
         -DescriptorSha256 $(if ($null -eq $descriptorSnapshot) { $null } else { $descriptorSnapshot.Sha256 })
 
-    if ([string]$receipt.schema_version -cne 'work-charter-d53-launch-receipt/v1' -or
+    if ([string]$receipt.schema_version -cne 'work-charter-d54-launch-receipt/v1' -or
         [string]$receipt.campaign_id -cne $script:CampaignId -or
         [string]$receipt.phase -cne $Policy.Phase -or
         [string]$receipt.status -cne 'consumed' -or
         [string]$receipt.binding_sha256 -cne $bindingSnapshot.Sha256 -or
         [string]$receipt.dispatch_id -cne [string]$state.dispatch_id -or
         [string]$receipt.outer_capability_id_sha256 -cnotmatch '^[0-9a-f]{64}$' -or
-        [string]$state.schema_version -cne 'work-charter-d53-dispatch-state/v1' -or
+        [string]$state.schema_version -cne 'work-charter-d54-dispatch-state/v1' -or
         [string]$state.campaign_id -cne $script:CampaignId -or
         [string]$state.phase -cne $Policy.Phase -or
         [string]$state.status -cne 'completed' -or
         [long]$state.child_exit_code -ne 0 -or
         [long]$state.next_dispatch_count -ne
             $(if ([string]::IsNullOrEmpty($Policy.NextPhase)) { 0 } else { 1 }) -or
-        [string]$consumption.schema_version -cne 'work-charter-d53-receipt-consumption/v1' -or
+        [string]$consumption.schema_version -cne 'work-charter-d54-receipt-consumption/v1' -or
         [string]$consumption.dispatch_id -cne [string]$receipt.dispatch_id -or
         [string]$consumption.phase -cne $Policy.Phase -or
         $consumptionSnapshot.Sha256 -cne $ExpectedConsumptionSha256 -or
@@ -2107,7 +2496,7 @@ function Assert-TrustedOperation {
     $operation = Get-TrustedOperation -Id $OperationId
     if ((Test-IsAuthorizedProductionPhase -Phase $Phase) -and
         $OperationId -cne 'd52-codex-app-server') {
-        throw 'Test and qualification operations are excluded from the committed D53 production policy.'
+        throw 'Test and qualification operations are excluded from the committed D54 production policy.'
     }
     if ($operation.AnchorId -cne $ExecutableAnchorId) {
         throw 'Child operation executable anchor does not match the tracked operation table.'
@@ -2140,20 +2529,20 @@ function Assert-Binding {
         [Parameter(Mandatory)][int]$MaxAgeSeconds
     )
 
-    if ([string]$Binding.schema_version -cne 'work-charter-d53-launch-binding/v1') {
+    if ([string]$Binding.schema_version -cne 'work-charter-d54-launch-binding/v1') {
         throw 'Launch binding schema is not supported.'
     }
     if ([string]$Binding.campaign_id -cne $script:CampaignId) {
-        throw 'Launch binding campaign_id does not match the authorized D53 Campaign.'
+        throw 'Launch binding campaign_id does not match the authorized D54 Campaign.'
     }
     if ([string]$Binding.stable_subject -cne $script:StableSubject) {
-        throw 'Launch binding stable_subject does not match the authorized D53 subject.'
+        throw 'Launch binding stable_subject does not match the authorized D54 subject.'
     }
     if ([string]$Binding.candidate_commit -cne $script:CandidateCommit) {
-        throw 'Launch binding candidate_commit does not match the authorized D53 candidate.'
+        throw 'Launch binding candidate_commit does not match the authorized D54 candidate.'
     }
     if ([string]$Binding.candidate_manifest_sha256 -cne $script:CandidateManifestSha256) {
-        throw 'Launch binding candidate manifest does not match the authorized D53 candidate.'
+        throw 'Launch binding candidate manifest does not match the authorized D54 candidate.'
     }
     if ([string]::IsNullOrWhiteSpace([string]$Binding.phase)) {
         throw 'Launch binding field is missing: phase'
@@ -2207,7 +2596,7 @@ function Assert-Binding {
     }
     if ([long]$Binding.remaining_budget.model_contexts -gt 16 -or
         [long]$Binding.remaining_budget.turn_starts -gt 18) {
-        throw 'Launch binding remaining budget exceeds the authorized D53 ceiling.'
+        throw 'Launch binding remaining budget exceeds the authorized D54 ceiling.'
     }
     if ($Phase -ceq $script:ZeroModelQualificationPhase -and
         ([long]$Binding.remaining_budget.model_contexts -ne 0 -or
@@ -2461,9 +2850,9 @@ function Assert-ProductionAppServerInput {
     }
     if ($LineNumber -eq 1) {
         if ([string]$request.method -cne 'initialize' -or
-            [string]$request.params.clientInfo.name -cne 'work-charter-d53-carrier' -or
+            [string]$request.params.clientInfo.name -cne 'work-charter-d54-carrier' -or
             [string]$request.params.clientInfo.version -cne '1.0.0') {
-            throw 'Production app-server input must begin with the committed D53 initialize request.'
+            throw 'Production app-server input must begin with the committed D54 initialize request.'
         }
         $State.InitializeCount++
         $State.CurrentRequest = $request
@@ -2476,7 +2865,7 @@ function Assert-ProductionAppServerInput {
             $null -eq $request.params.PSObject.Properties['allowProviderModelFallback'] -or
             $request.params.allowProviderModelFallback -isnot [bool] -or
             [bool]$request.params.allowProviderModelFallback -ne $false) {
-            throw 'Production thread/start does not match the committed D53 model policy.'
+            throw 'Production thread/start does not match the committed D54 model policy.'
         }
         $State.ThreadStartCount++
         $State.CurrentRequest = $request
@@ -2488,11 +2877,11 @@ function Assert-ProductionAppServerInput {
         [string]$request.params.model -cne [string]$Policy.Model -or
         [string]$request.params.effort -cne [string]$Policy.Effort -or
         @($request.params.input).Count -eq 0) {
-        throw 'Production turn/start does not match the committed D53 model, effort, or input policy.'
+        throw 'Production turn/start does not match the committed D54 model, effort, or input policy.'
     }
     $State.TurnStartCount++
     if ([long]$State.TurnStartCount -gt [long]$Policy.TurnStarts) {
-        throw 'Production app-server input exceeds the committed D53 turn budget for this phase.'
+        throw 'Production app-server input exceeds the committed D54 turn budget for this phase.'
     }
     $State.CurrentRequest = $request
     $State.CurrentRequestKind = 'turn-start'
@@ -2713,7 +3102,7 @@ function Invoke-BidirectionalProcess {
              $productionState.TurnStartCount -ne [long]$ProductionPolicy.TurnStarts -or
              $productionState.TurnCompletedCount -ne [long]$ProductionPolicy.TurnStarts -or
              -not $productionState.PhaseComplete)) {
-            throw 'Production app-server input did not consume the exact committed D53 request and successful-response budget.'
+            throw 'Production app-server input did not consume the exact committed D54 request and successful-response budget.'
         }
         if ($null -ne $ProductionPolicy) {
             $stdoutTask = $process.StandardOutput.BaseStream.CopyToAsync(
@@ -2848,7 +3237,7 @@ function Invoke-Inner {
 
     $stateSnapshot = Read-JsonSnapshot -Path $DispatchStatePath -Purpose 'dispatch state'
     $state = $stateSnapshot.Value
-    if ([string]$state.schema_version -cne 'work-charter-d53-dispatch-state/v1' -or
+    if ([string]$state.schema_version -cne 'work-charter-d54-dispatch-state/v1' -or
         [string]$state.status -cne 'receipt_issued' -or
         [string]$state.campaign_id -cne [string]$binding.campaign_id -or
         [string]$state.phase -cne $ExpectedPhase) {
@@ -2857,7 +3246,7 @@ function Invoke-Inner {
 
     $receiptSnapshot = Read-JsonSnapshot -Path $ReceiptPath -Purpose 'launch receipt'
     $receipt = $receiptSnapshot.Value
-    if ([string]$receipt.schema_version -cne 'work-charter-d53-launch-receipt/v1' -or
+    if ([string]$receipt.schema_version -cne 'work-charter-d54-launch-receipt/v1' -or
         [string]$receipt.status -cne 'issued' -or
         [string]$receipt.campaign_id -cne [string]$binding.campaign_id) {
         throw 'Launch receipt is absent from the issued state or was already consumed.'
@@ -2892,7 +3281,7 @@ function Invoke-Inner {
 
     $consumeLockPath = (Get-RootedPath -Path $ReceiptPath -Purpose 'launch receipt') + '.consumed'
     Write-NewJsonFile -Path $consumeLockPath -Purpose 'receipt consumption claim' -Value ([ordered]@{
-        schema_version = 'work-charter-d53-receipt-consumption/v1'
+        schema_version = 'work-charter-d54-receipt-consumption/v1'
         dispatch_id = [string]$receipt.dispatch_id
         phase = $ExpectedPhase
         consumed_at_utc = [datetimeoffset]::UtcNow.ToString('O')
@@ -2965,7 +3354,7 @@ function Invoke-Outer {
         Assert-LiveCampaignDispatchAuthorization -Policy $policy
         if ($script:ProductionDispatchDepth -eq 0) {
             if ($policy.SegmentOrdinal -ne 1) {
-                throw 'A top-level D53 dispatch must begin with the first phase of its lifecycle segment.'
+                throw 'A top-level D54 dispatch must begin with the first phase of its lifecycle segment.'
             }
             Assert-CompleteProductionCarrier `
                 -RunnerPath $runnerPath `
@@ -3039,7 +3428,7 @@ function Invoke-Outer {
             -Path $NextDispatchPath `
             -Purpose 'next dispatch descriptor'
         $nextDispatch = $nextDispatchSnapshot.Value
-        if ([string]$nextDispatch.schema_version -cne 'work-charter-d53-next-dispatch/v1') {
+        if ([string]$nextDispatch.schema_version -cne 'work-charter-d54-next-dispatch/v1') {
             throw 'Next dispatch descriptor schema is not supported.'
         }
         foreach ($field in @(
@@ -3076,7 +3465,7 @@ function Invoke-Outer {
     }
     $issuedAt = [datetimeoffset]::UtcNow.ToString('O')
     $state = [ordered]@{
-        schema_version = 'work-charter-d53-dispatch-state/v1'
+        schema_version = 'work-charter-d54-dispatch-state/v1'
         dispatch_id = $dispatchId
         campaign_id = [string]$binding.campaign_id
         phase = $ExpectedPhase
@@ -3088,7 +3477,7 @@ function Invoke-Outer {
     }
     Write-NewJsonFile -Path $DispatchStatePath -Value $state -Purpose 'dispatch state'
     $receipt = [ordered]@{
-        schema_version = 'work-charter-d53-launch-receipt/v1'
+        schema_version = 'work-charter-d54-launch-receipt/v1'
         dispatch_id = $dispatchId
         campaign_id = [string]$binding.campaign_id
         phase = $ExpectedPhase
@@ -3157,6 +3546,19 @@ function Invoke-Outer {
         if (-not [string]::IsNullOrWhiteSpace([string]$nextDispatch.next_dispatch_path)) {
             $nextArguments.Add('-NextDispatchPath')
             $nextArguments.Add((Get-RootedPath ([string]$nextDispatch.next_dispatch_path) 'following dispatch descriptor'))
+        }
+        foreach ($argument in @(
+            '-RootContractPath', $script:RootContractPath,
+            '-RootContractSha256', $script:RootContractSha256,
+            '-RepositoryRoot', $script:RepositoryRoot,
+            '-CampaignRoot', $script:CampaignRoot,
+            '-CarrierRoot', $script:PrivateCarrierRoot,
+            '-SourceBundleRoot', $script:SourceBundleRoot,
+            '-EvidenceRoot', $script:EvidenceRoot,
+            '-D53PredecessorRoot', [string]$script:PredecessorRoots[0],
+            '-D49PredecessorRoot', [string]$script:PredecessorRoots[1]
+        )) {
+            $nextArguments.Add([string]$argument)
         }
         $nextResult = if ($ChildOperationId -in @(
             'd52-codex-app-server',
@@ -3320,7 +3722,7 @@ function Read-LiveCampaignCommand {
     catch {
         throw "Live Campaign command is not strict JSON: $($_.Exception.Message)"
     }
-    if ([string]$command.schema_version -cne 'work-charter-d53-campaign-command/v1' -or
+    if ([string]$command.schema_version -cne 'work-charter-d54-campaign-command/v1' -or
         [string]$command.command -notin @('dispatch_segment', 'validate_terminal')) {
         throw 'Live Campaign command schema or operation is not supported.'
     }
@@ -3348,7 +3750,7 @@ function Write-LiveCampaignControlResult {
     )
 
     [ordered]@{
-        schema_version = 'work-charter-d53-campaign-control-result/v1'
+        schema_version = 'work-charter-d54-campaign-control-result/v1'
         event = $Event
         segment = $Segment
         exit_code = $ExitCode
@@ -3363,7 +3765,7 @@ function Assert-LiveCampaignFailureTerminal {
         return
     }
     $terminal = Read-JsonFile `
-        -Path (Join-Path $script:PrivateCarrierRoot 'execution\evidence\d53-terminal.json') `
+        -Path (Join-Path $script:EvidenceRoot 'd54-terminal.json') `
         -Purpose 'live failed-segment terminal receipt'
     $expected = switch ([string]$controller.FailedSegment) {
         'canary' {
@@ -3388,7 +3790,7 @@ function Assert-LiveCampaignFailureTerminal {
     if ($null -eq $expected -or
         [string]$terminal.previous_state -cne [string]$expected.PreviousState -or
         [string]$terminal.terminal_disposition -cne [string]$expected.Disposition) {
-        throw 'D53 terminal receipt does not match the live failed Campaign segment.'
+        throw 'D54 terminal receipt does not match the live failed Campaign segment.'
     }
 }
 
@@ -3408,7 +3810,7 @@ function Invoke-CampaignController {
         FailedExitCode = $null
     }
     if ($null -ne $script:ActiveCampaignController) {
-        throw 'A live D53 Campaign controller already exists in this process.'
+        throw 'A live D54 Campaign controller already exists in this process.'
     }
     $script:ActiveCampaignController = $controller
     try {
@@ -3419,7 +3821,7 @@ function Invoke-CampaignController {
                     throw 'Live Campaign terminal validation requires a recorded segment failure or all segments completed.'
                 }
                 Assert-LifecycleTransitionEvidence `
-                    -EvidenceRoot (Join-Path $script:PrivateCarrierRoot 'execution\evidence') `
+                    -EvidenceRoot $script:EvidenceRoot `
                     -State 'TERMINAL' `
                     -RunnerPath $PSCommandPath `
                     -RequireActionProvenance
@@ -3474,6 +3876,7 @@ function Invoke-CampaignController {
 }
 
 try {
+    Initialize-D54ExplicitRootContract
     if ($Mode -ceq 'Campaign') {
         Assert-CampaignParameters
         exit ([int](Invoke-CampaignController))
@@ -3496,7 +3899,7 @@ try {
             Assert-AssessorEligibility -EvidenceRoot $LifecycleEvidenceRoot
         }
         [ordered]@{
-            schema_version = 'work-charter-d53-lifecycle-validation/v1'
+            schema_version = 'work-charter-d54-lifecycle-validation/v1'
             campaign_id = $script:CampaignId
             state = $ExpectedLifecycleState
             authorization_lifecycle_policy_sha256 = Get-AuthorizationLifecyclePolicySha256
@@ -3510,6 +3913,6 @@ try {
     exit ([int]$exitCode)
 }
 catch {
-    [Console]::Error.WriteLine("D53_RUNNER_REJECTED: $($_.Exception.Message)")
+    [Console]::Error.WriteLine("D54_RUNNER_REJECTED: $($_.Exception.Message)")
     exit $script:RunnerFailureExitCode
 }

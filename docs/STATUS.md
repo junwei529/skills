@@ -9,7 +9,7 @@ Last updated: 2026-08-13
 | Tested package identity | all three package byte sets independently reached exact-commit RC readiness at `c42eef392a5b9f58bbee64aa73ffb603a6fb6c29` and were re-proved at tag/stable identity `v0.1.2` | [Verification](VERIFICATION.md) |
 | Stable release identity | immutable [`v0.1.2`](https://github.com/junwei529/skills/releases/tag/v0.1.2) at `ceed607152849775b981c54add74bfa30d858e4d`; exact tag, stable loaded-copy, and GitHub Release proof pass for all three Skills | [Verification](VERIFICATION.md) |
 | Project Docs | immutable `v0.1.2` remains the released explicit-only control; local commit `776989f...` implements accepted Decision 0019 but is unreleased, and its evidence is `PARTIAL` because actual candidate selection, loaded-copy identity, and persistent writes remain `UNKNOWN` | [State](skills/manage-project-docs/STATE.md) |
-| Work Charter | released `v0.1.2` remains active; exact candidate `c481005...` is unchanged and unaccepted; D51/D52 remain immutable; D53 committed the reviewed 32/32 tracked lifecycle at `4ab8a025...`, then Layer A exhausted all three private corrections and failed its nested predecessor-import path at stage 7 before Layer B, aggregate 56/56, or any model turn; D53 is sealed `QUALIFICATION_FAILED / PRODUCT_UNKNOWN` and no automatic D54 follows | [State](skills/work-charter/STATE.md) |
+| Work Charter | released `v0.1.2` remains active; exact candidate `c481005...` is unchanged and unaccepted; D51-D53 remain immutable and D53 stays `QUALIFICATION_FAILED / PRODUCT_UNKNOWN`; explicitly authorized D54 implements authenticated explicit roots and passes focused 32/32 plus a disposable composed DEV 56/56/lifecycle/dispatch path with zero model or start events and no mirror-external write; this is implementation qualification only, and formal evidence is gated by the final reviewed local commit plus a Fresh Evidence Session | [State](skills/work-charter/STATE.md) |
 | PowerShell | released five-file `v0.1.2` stable copy; corrected loaded identity and guarded native/text diagnosis pass; live WSL remains unproved | [State](skills/use-powershell-safely/STATE.md) |
 | Release lifecycle | `v0.1.2` tag, stable update, tag-pinned canaries, and Latest GitHub Release complete; `v0.1.1` retained as rollback identity | [Runbook](RUNBOOK.md) |
 
@@ -438,24 +438,27 @@ decision.
 
 No release action remains pending for immutable `v0.1.2`. D31-D50, D51-01
 through D51-03, D52, and D53 are complete, sealed, or preserved and non-
-retriable. Exact candidate `c481005...` remains unaccepted at Gate 2. D53's
-reviewed tracked lifecycle is recorded by local commit `4ab8a025...`; local
-commit `8e658f18...` records its sanitized terminal result. Fresh Layer A used
-all three private corrections and failed stage 7 predecessor import before
-Layer B, aggregate 56/56, or scarce evidence. D53 is
-`QUALIFICATION_FAILED / PRODUCT_UNKNOWN`; it consumed zero model contexts and
-zero `turn/start`. No production phase receipt, canary, freeze, product, or
-assessor evidence exists. The evaluation line is stopped and no D53 execution
-or terminal-documentation writer remains. The bounded post-D53 factual-
-reconciliation uses the durable lease
-`post-D53-factual-reconciliation@main/8e658f18`: it is `ACTIVE` until its exact
-terminal commit and an all-registered-worktree reconciliation pass,
-`RELINQUISHED` only after both pass, and `UNKNOWN` on incomplete or conflicting
-evidence. One clean checkout is not writer proof; Handoff owns the exact test.
-Only one new complete successor Campaign, if explicitly authorized by the
-user, may reopen the evaluation line. Push, installation, tag, release, stable
-update, cleanup, SOURCE, controller-module, case, fixture, matrix, rubric,
-other-Skill, and automatic D54 changes remain excluded.
+retriable. Exact candidate `c481005...` remains unaccepted at Gate 2. D53 is
+`QUALIFICATION_FAILED / PRODUCT_UNKNOWN` with zero model contexts and zero
+`turn/start`. Under that sealed closeout, automatic D54 changes remain excluded;
+D54 exists only under the separate user authority below.
+
+Explicitly authorized `WC-AR-D54-EXPLICIT-ROOT-CONTRACT` has passed focused
+32/32 and one real composed disposable DEV path through materializer,
+finalizer, importer, private 24/24, aggregate 56/56, lifecycle consumer, and
+synthetic dispatch. The route stopped before first `thread/start`; model calls,
+`thread/start`, `turn/start`, and writes outside the mirror were zero. This is
+DEV-only implementation qualification. The next gate is final ruleset/diff
+rebinding, a complete stable DEV rerun, and at most five `Terra/high` native
+reviews with no reset, followed by one local commit. Clean all-worktree
+reconciliation relinquishes lease
+`D54-explicit-root-build@main/d4374b381444b85fff4941e73cf7a8d32f18a96e`
+and permits mechanical creation of a Fresh Evidence Session with no repository
+writer. One clean checkout is not writer proof; Handoff owns the all-worktree
+test. Formal 56/56 has no correction; only its fresh receipt can authorize
+three canaries and the bounded product/assessor sequence. Push, installation,
+tag, release, stable update, cleanup, SOURCE, controller-module, case, fixture,
+matrix, rubric, other-Skill, and automatic D55 changes remain excluded.
 Project Docs keeps its own candidate and persistence-evidence sequence.
 
 ## Known Repository Gaps

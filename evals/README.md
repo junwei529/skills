@@ -306,6 +306,37 @@ text identity of this promoted `AGENTS.md`, the unchanged D53 runner identity,
 exit 1, no JSON result, and the exact pre-qualification drift message; every
 other nonzero or identity fails.
 
+Explicit successor `WC-AR-D54-EXPLICIT-ROOT-CONTRACT` implements the deferred
+root contract without changing Work Charter SOURCE, cases, fixtures, matrix,
+rubric, scorer, or the generic controller module. Its one authenticated outer
+contract supplies the repository, carrier, source-bundle, evidence, and every
+predecessor root. Consumers must not infer any of those roots from cwd,
+siblings, `__file__` ancestry, or directory depth. Each root is resolved and
+validated for containment, reparse/symlink boundaries, expected identity or
+hash, and schema before use. Nested roots are admitted when explicitly bound;
+decoy siblings, wrong roots, outside or reparse-routed roots, missing roots,
+and hash/schema mismatches fail before consumption.
+
+The D54 Build gate runs focused 32/32 and then the composed materializer,
+finalizer, predecessor importer, private 24/24, aggregate 56/56, lifecycle
+consumer, and synthetic next-phase dispatch in one disposable ignored mirror.
+The successful DEV route stops before the first `thread/start`, records zero
+model calls and zero `thread/start`/`turn/start`, and proves no write outside
+that mirror. Every record is `DEV_ONLY_NOT_FORMAL_CAMPAIGN_EVIDENCE`; the
+counts do not qualify the candidate or authorize a canary.
+
+After documentation closure and a clean `Terra/high` native-review gate, one
+local commit may be created. Only its clean all-worktree writer reconciliation
+permits a mechanically created Fresh Evidence Session. That fresh Session must
+bind the final commit, ruleset, runner/checker, candidate, workspace, writer,
+permission, carrier, and predecessor identities and create a new formal root.
+Formal 56/56 has no correction. If it passes, the same outer route may proceed
+through three canaries, twelve product contexts/fourteen product starts, and at
+most one assessor, bounded by sixteen contexts and eighteen `turn/start` in
+total. Qualification or canary failure seals the Campaign before product and
+assessor. The Build Session supplies no formal evidence and D51-D53 remain
+immutable.
+
 A qualification-only or transport-canary-only stop receives no independent
 product assessor. A sealed carrier/result is not repaired or reviewed in place;
 only changed tracked implementation for a successor or a tracked closeout diff
