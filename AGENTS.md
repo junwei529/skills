@@ -152,12 +152,24 @@ Before changing this repository, read:
   `AGENTS.md`, references, controller contract, or acceptance target. At the
   terminal boundary, deduplicate and disposition the whole batch before a
   successor relies on it.
+- At the start of each Campaign, successor, or lesson-promotion round, reread
+  the current project `AGENTS.md` and its mapped Runbook/evaluation references
+  after revalidating the workspace and writer. This supplies current working
+  context; it does not prove that the Harness loaded a materially changed
+  ruleset.
 - After a material governing-rule change, the current Codex run may close out
   the old ruleset but cannot prove that the new one was loaded. Before affected
   scarce evidence, start a fresh run or Session, identify the applicable
   instruction sources and normalized-text ruleset hashes, reread the mapped
   references, and requalify the affected boundary. A manual reread in the old
   Session is useful context, not Harness reload evidence.
+- Bind every external authority, evidence, predecessor, and task-owned carrier
+  root from an explicit authenticated contract input. Never infer such a root
+  from the current directory, sibling enumeration, or `__file__` ancestry or
+  directory depth. Code-relative paths may locate repository-owned static
+  resources only. Resolve and validate containment, reparse/symlink boundaries,
+  identity or hash, and expected schema before consumption; missing or
+  mismatched inputs fail closed.
 - Before scarce product evidence, qualify the exact outer launch and return
   path as well as the inner provider response path. Child stdout/stderr are
   evidence data, not a function return value; phase dispatch must consume one
@@ -169,6 +181,13 @@ Before changing this repository, read:
   when that receipt is absent, stale, mismatched, or already consumed. Include
   direct-inner and wrong-receipt negatives in the owning runner's tests; a
   receipt proves route provenance, not new action authority.
+- Before freezing the diff for native review of a new or materially changed
+  multi-stage builder, importer, finalizer, wrapper, or dispatcher, run the
+  exact composed zero-model DEV feasibility path through its last pre-scarce
+  gate in a disposable bounded mirror. Component checks or a successful first
+  stage are insufficient. This pass is implementation qualification only, not
+  official Campaign, product, or acceptance evidence; official qualification
+  starts only from the reviewed committed revision.
 - Before exposing an allowed native command to a model in scarce evidence,
   define its argv in one canonical operation table and render the exact rooted
   executable through the same wrapper, observation adapter, and controller
@@ -179,6 +198,22 @@ Before changing this repository, read:
   name resolution; PATH may be checked for drift but cannot define trust. A
   shadow negative is rejected before launch. Component-only parsing, identity-
   tuple, or classifier checks do not qualify the composite command route.
+- Do not repair, rescore, or submit a sealed qualification-only or transport-
+  failure carrier to product, implementation, or assessor review. Review only
+  the tracked bytes being proposed for a successor or commit. If a sealed stop
+  creates no tracked diff, no native review is required.
+- A failure-only closeout commit is limited to a sanitized terminal record and
+  its already mapped factual, authority, recovery, and writer consumers. After
+  its deterministic consistency check, it receives at most one initial native
+  review and one post-fix native review. A remaining actionable finding stops
+  at `DECISION_REQUIRED`. This exception does not apply when implementation,
+  governance, checker, case, fixture, matrix, rubric, permission, or acceptance
+  bytes change.
+- A bounded writer lease becomes `RELINQUISHED` only after its named terminal
+  action or authorized commit and reconciliation of attributable index and
+  worktree state across every registered worktree. One clean checkout, a task
+  completion message, or unrelated attributed dirt is not proof; missing or
+  conflicting evidence leaves the lease `UNKNOWN` and fails closed.
 - Run the skill validator for every changed skill.
 - Check for unresolved scaffolding markers, broken local links, encoding
   problems, and publication-unsafe traces.

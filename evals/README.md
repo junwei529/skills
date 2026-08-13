@@ -124,6 +124,7 @@ record these event classes separately:
 | Class | Purpose | May support Skill acceptance? |
 |---|---|---:|
 | Qualification action | Prove catalogs, mappings, fixtures, controller, identity, authority, and frozen inputs before product evidence | no |
+| Zero-model DEV feasibility | Exercise a new or changed composed builder/importer/finalizer/wrapper/dispatcher path through its last pre-scarce gate before native review | no; it is implementation qualification, not official Campaign evidence |
 | Same-boundary transport canary | Prove the declared executable/auth/model-provider/network/sandbox/request route can complete a non-product response | no |
 | Product behavior turn | Exercise one frozen native, control, selection, or selected-behavior cell | yes, only for that exact cell and identity |
 | Independent assessor turn | Judge the complete admitted packet against the frozen rubric | yes, but it cannot repair missing evidence or override a hard boundary |
@@ -155,6 +156,24 @@ receipt establishes route provenance only; it grants no action authority. If
 the exact tracked runner does not yet implement this guard, record mechanical
 enforcement as `DEFERRED` and do not treat an inner canary as qualification of
 the consuming path.
+
+External authority, evidence, predecessor, and task-owned carrier roots are
+part of that contract. Supply them through an explicit authenticated input;
+never derive them from the current directory, a sibling search, or `__file__`
+ancestry or directory depth. Qualification resolves the supplied target and
+checks containment, reparse/symlink boundaries, identity or hash, and schema.
+Its deterministic negatives include nested placement, a decoy sibling, a wrong
+explicit root, an outside/reparse target, a missing target, and an identity
+mismatch.
+
+For a new or materially changed composed path, first run one zero-model DEV
+feasibility pass through the last pre-scarce branch in a disposable bounded
+mirror. Only after that exact path succeeds may the diff freeze for native
+review. Component checks, a successful materializer, or a direct inner canary
+do not satisfy this gate. A post-review correction reruns affected deterministic
+and DEV feasibility checks before the reviewed commit can become an input to a
+fresh official qualification. The DEV pass supplies no model, product,
+assessor, or acceptance credit.
 
 Approved `WC-AR-D52-TRACKED-OUTER-DISPATCH` first promoted that mechanical
 guard through tracked `invoke-work-charter-gate2.ps1`. Local commit
@@ -257,6 +276,53 @@ freeze, product, and assessor did not start. Zero model contexts and zero
 `QUALIFICATION_FAILED / PRODUCT_UNKNOWN`; these runner and rehearsal records
 supply no Gate 2 product credit and do not make candidate `c481005...`
 accepted. No automatic D54 follows.
+
+The post-D53 lesson-promotion round deliberately separates semantic promotion
+from a future Work Charter repair:
+
+- `PROMOTED` on the first committed revision containing this contract: project
+  `AGENTS.md` owns the external-root, pre-review feasibility, sealed-failure
+  review, and writer-relinquishment rules; the Runbook owns their procedure;
+  this section owns their evaluation semantics. The repository checker is the
+  proving consumer. They apply prospectively to rounds declared after that
+  revision, with a fresh loaded-ruleset boundary before affected scarce
+  evidence.
+- `DEFERRED`: changing a Work Charter private builder/importer to consume the
+  explicit predecessor root and adding its composed-path positives and
+  negatives. The owner is a separately authorized successor Campaign; its
+  trigger is that authorization, and D53 remains immutable and unfixed.
+- `REJECTED`: treating the sealed D53 carrier as a product or implementation
+  review target, or using this promotion as retry, rescore, D54, action, or
+  acceptance authority.
+
+Because the immutable D53 runner binds its original ruleset, the changed
+project `AGENTS.md` must make that runner's current qualification fail closed
+as ruleset drift. Preserve its historical 32/32 runner and 18/18 fixture
+evidence; do not update the runner, reinterpret the failure as a regression, or
+reuse D53 to qualify the promoted rules. A separately authorized successor
+must bind and qualify its own reviewed committed ruleset in a fresh run. The
+aggregate fixture guard accepts the drift branch only for the exact normalized-
+text identity of this promoted `AGENTS.md`, the unchanged D53 runner identity,
+exit 1, no JSON result, and the exact pre-qualification drift message; every
+other nonzero or identity fails.
+
+A qualification-only or transport-canary-only stop receives no independent
+product assessor. A sealed carrier/result is not repaired or reviewed in place;
+only changed tracked implementation for a successor or a tracked closeout diff
+is a native-review target. If no tracked diff exists, no native review is
+required. A failure-only closeout diff may contain only the sanitized terminal
+record and already mapped factual, authority, recovery, and writer consumers.
+It must pass the deterministic closeout-consistency check, then receives at
+most one initial and one post-fix native review. A second completed review with
+an actionable finding stops at `DECISION_REQUIRED`. Any implementation,
+governance, checker, case, fixture, matrix, rubric, permission, acceptance, or
+external-effect change uses the ordinary commit gate instead.
+
+Writer-relinquishment evidence binds the named lease, its terminal action or
+authorized commit, and attributable index/worktree reconciliation across every
+registered worktree. One clean checkout or a task-completion message is not
+sufficient. Unrelated owned differences are classified and preserved; missing
+or conflicting evidence keeps the lease `UNKNOWN`.
 
 For each attempted product cell, record at least:
 

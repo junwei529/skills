@@ -38,6 +38,30 @@ function Add-Check {
     })
 }
 
+function Get-NormalizedTextSha256 {
+    param(
+        [Parameter(Mandatory)]
+        [string]$LiteralPath
+    )
+
+    $item = Get-Item -LiteralPath $LiteralPath -Force -ErrorAction Stop
+    if ($item.PSIsContainer -or
+        ($item.Attributes -band [System.IO.FileAttributes]::ReparsePoint)) {
+        throw "Normalized-text hash input must be an ordinary non-reparse file: $LiteralPath"
+    }
+    $text = [System.IO.File]::ReadAllText($item.FullName)
+    $normalized = $text.Replace(
+        [string][char]13 + [char]10,
+        [string][char]10
+    ).Replace(
+        [string][char]13,
+        [string][char]10
+    )
+    $bytes = [System.Text.UTF8Encoding]::new($false).GetBytes($normalized)
+    $hash = [System.Security.Cryptography.SHA256]::HashData($bytes)
+    return [System.Convert]::ToHexString($hash).ToLowerInvariant()
+}
+
 $projectDocs = Join-Path $repoRoot 'evals\fixtures\project-docs-conflict'
 Push-Location $projectDocs
 try {
@@ -998,7 +1022,7 @@ $gate2RunnerNameMatch = (
     (@($gate2RunnerNames | Sort-Object) -join "`0") -ceq
     (@($gate2RunnerExpectedNames | Sort-Object) -join "`0")
 )
-$gate2RunnerRegressionPassed = (
+$gate2RunnerHistoricalPass = (
     $gate2RunnerExit -eq 0 -and
     $null -ne $gate2RunnerRecord -and
     [string]$gate2RunnerRecord.verdict -ceq 'PASS' -and
@@ -1007,10 +1031,31 @@ $gate2RunnerRegressionPassed = (
     (@($gate2RunnerRecord.checks | Where-Object { -not $_.passed })).Count -eq 0 -and
     $gate2RunnerNameMatch
 )
+$postD53RulesetPath = Join-Path $repoRoot 'AGENTS.md'
+$postD53RulesetSha256 = Get-NormalizedTextSha256 -LiteralPath $postD53RulesetPath
+$d53RunnerSha256 = Get-NormalizedTextSha256 -LiteralPath $gate2RunnerCheck
+$expectedPostD53RulesetSha256 =
+    '49e622e564ba22fb30e4601d1609c4be25a8285f8a9076629de75c7007f2b1db'
+$expectedD53RunnerSha256 =
+    '7a1db132ada4429914dceefb25aa086a3e33da40a79e84d8a73d4bcc88f79248'
+$expectedRulesetDrift =
+    "Ruleset source drifted before runner qualification: $postD53RulesetPath"
+$gate2RunnerText = $gate2RunnerOutput | Out-String
+$gate2RunnerExpectedSealedDrift = (
+    $gate2RunnerExit -eq 1 -and
+    $null -eq $gate2RunnerRecord -and
+    $postD53RulesetSha256 -ceq $expectedPostD53RulesetSha256 -and
+    $d53RunnerSha256 -ceq $expectedD53RunnerSha256 -and
+    $gate2RunnerText.Contains($expectedRulesetDrift)
+)
+$gate2RunnerRegressionPassed = (
+    $gate2RunnerHistoricalPass -or
+    $gate2RunnerExpectedSealedDrift
+)
 Add-Check `
     -Name 'Work Charter Gate 2 outer runner regression' `
     -Passed $gate2RunnerRegressionPassed `
-    -Expectation 'the tracked single-entry runner exposes and enforces one hash-bound six-state D53 authorization lifecycle, preserves one bound argv byte snapshot and separate streams, binds production to its committed blob, round-trips the exact bidirectional app-server operation without model evidence, requires a correlated successful terminal turn before phase completion, propagates one typed child exit, dispatches the next receipt-bound phase exactly once, and rejects lifecycle drift, direct, absent, stale, wrong-phase, wrong-hash, duplicate, failed-terminal, and reused launches before child start'
+    -Expectation 'the exact historical D53 ruleset retains its 32/32 runner path, while the exact promoted post-D53 AGENTS ruleset and unchanged D53 runner admit only the pinned pre-qualification ruleset-drift stop; every other nonzero or identity fails'
 
 $checks | Format-Table -AutoSize
 

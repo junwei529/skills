@@ -305,6 +305,260 @@ def level_two_headings(text: str) -> list[str]:
     return re.findall(r"(?m)^##[ \t]+(.+?)[ \t]*#*[ \t]*$", text)
 
 
+def mask_non_rendered_markdown(text: str) -> str:
+    masked = list(text)
+
+    def mask_span(start: int, end: int) -> None:
+        for offset in range(start, end):
+            if masked[offset] not in ("\r", "\n"):
+                masked[offset] = " "
+
+    for comment in re.finditer(
+        r"<!--(?:.*?-->|.*\Z)",
+        text,
+        flags=re.DOTALL,
+    ):
+        mask_span(comment.start(), comment.end())
+
+    masked_comments = "".join(masked)
+    fence_character: str | None = None
+    fence_length = 0
+    offset = 0
+    for line in masked_comments.splitlines(keepends=True):
+        content = line.rstrip("\r\n")
+        if fence_character is None:
+            opening = re.match(r"^[ ]{0,3}(?P<fence>`{3,}|~{3,})", content)
+            if opening is not None:
+                fence = opening.group("fence")
+                fence_character = fence[0]
+                fence_length = len(fence)
+                mask_span(offset, offset + len(line))
+        else:
+            mask_span(offset, offset + len(line))
+            closing = re.match(
+                rf"^[ ]{{0,3}}{re.escape(fence_character)}{{{fence_length},}}[ \t]*$",
+                content,
+            )
+            if closing is not None:
+                fence_character = None
+                fence_length = 0
+        offset += len(line)
+
+    return "".join(masked)
+
+
+def normalize_contract_text(text: str) -> str:
+    return re.sub(r"\s+", " ", mask_non_rendered_markdown(text)).strip()
+
+
+def markdown_section(text: str, heading: str) -> str | None:
+    heading_pattern = re.compile(
+        r"(?m)^(?P<marks>#{1,6})[ \t]+(?P<title>.+?)[ \t]*#*[ \t]*$"
+    )
+    matches = list(heading_pattern.finditer(mask_non_rendered_markdown(text)))
+    selected = [
+        (index, match)
+        for index, match in enumerate(matches)
+        if match.group("title").strip() == heading
+    ]
+    if len(selected) != 1:
+        return None
+
+    selected_index, selected_match = selected[0]
+    level = len(selected_match.group("marks"))
+    end = len(text)
+    for later in matches[selected_index + 1 :]:
+        if len(later.group("marks")) <= level:
+            end = later.start()
+            break
+    return text[selected_match.end() : end]
+
+
+def require_section_contract(
+    relative_path: str,
+    heading: str,
+    required_fragments: tuple[str, ...],
+    failures: list[str],
+) -> None:
+    path = ROOT / relative_path
+    if not path.exists():
+        failures.append(f"{relative_path}: missing contract owner")
+        return
+
+    section = markdown_section(path.read_text(encoding="utf-8"), heading)
+    if section is None:
+        failures.append(
+            f"{relative_path}: missing or duplicate Markdown section: {heading}"
+        )
+        return
+
+    normalized_section = normalize_contract_text(section)
+    for fragment in required_fragments:
+        normalized_fragment = normalize_contract_text(fragment)
+        if normalized_fragment not in normalized_section:
+            failures.append(
+                f"{relative_path}#{markdown_heading_slug(heading)}: "
+                f"missing contract fragment: {normalized_fragment}"
+            )
+
+
+def check_evaluation_governance_contract(failures: list[str]) -> None:
+    contracts = (
+        (
+            "AGENTS.md",
+            "Verification And Git",
+            (
+                "At the start of each Campaign, successor, or lesson-promotion round",
+                "Never infer such a root from the current directory, sibling enumeration, or `__file__` ancestry or directory depth.",
+                "exact composed zero-model DEV feasibility path",
+                "A failure-only closeout commit is limited to",
+                "across every registered worktree",
+            ),
+        ),
+        (
+            "docs/RUNBOOK.md",
+            "Declare The Complete Envelope Once",
+            (
+                "At the start of each Campaign, successor, or lesson-promotion round",
+                "reread the current project `AGENTS.md`",
+            ),
+        ),
+        (
+            "docs/RUNBOOK.md",
+            "Qualification Tranche",
+            (
+                "Treat every external authority, evidence, predecessor, and task-owned carrier root as an authority-bearing input.",
+                "never infer it from the current directory, sibling enumeration, or `__file__` ancestry or directory depth.",
+                "exact composed chain as a zero-model DEV feasibility pass",
+                "Official qualification starts from the reviewed committed revision.",
+            ),
+        ),
+        (
+            "docs/RUNBOOK.md",
+            "Closeout And Recovery",
+            (
+                "A sealed qualification-only or transport-failure carrier is evidence, not a product or implementation review target.",
+                "Use the failure-only closeout path only when",
+                "at most one post-fix native review",
+                "every registered worktree has been enumerated and reconciled",
+            ),
+        ),
+        (
+            "evals/README.md",
+            "Campaign Evidence Semantics",
+            (
+                "`PROMOTED` on the first committed revision containing this contract",
+                "`DEFERRED`: changing a Work Charter private builder/importer",
+                "deterministic closeout-consistency check",
+                "One clean checkout or a task-completion message is not sufficient.",
+            ),
+        ),
+        (
+            "evals/results/2026-08-12-work-charter-d53-gate2-terminal.md",
+            "Disposition",
+            (
+                "Exact candidate: `UNACCEPTED_AT_GATE_2`",
+                "D53 Campaign: `QUALIFICATION_FAILED`",
+                "Product disposition: `PRODUCT_UNKNOWN`",
+                "Fresh model contexts: 0",
+                "Canary, product, and assessor `turn/start`: 0 / 0 / 0",
+                "automatic D54: not permitted",
+            ),
+        ),
+        (
+            "evals/results/2026-08-12-work-charter-d53-gate2-terminal.md",
+            "Lesson Disposition",
+            (
+                "`DEFERRED`",
+                "bind nested predecessor-carrier roots explicitly rather than infer them from directory depth",
+                "D53 does not describe this private-builder lesson as fixed.",
+            ),
+        ),
+        (
+            "docs/decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md",
+            "D53 observed terminal",
+            (
+                "consumed zero behavior `turn/start`",
+                "D53 is therefore sealed `QUALIFICATION_FAILED / PRODUCT_UNKNOWN`",
+                "The nested predecessor-root lesson is `DEFERRED`",
+                "No retry, replay, rescore, automatic D54",
+            ),
+        ),
+        (
+            "docs/skills/work-charter/STATE.md",
+            "Next Gate",
+            (
+                "D53 is `QUALIFICATION_FAILED / PRODUCT_UNKNOWN`",
+                "The nested-path builder lesson is `DEFERRED`",
+                "No repair, retry, operator recovery, replay, rescore, or automatic D54 is authorized.",
+            ),
+        ),
+        (
+            "docs/STATUS.md",
+            "Next Gate",
+            (
+                "D53 is `QUALIFICATION_FAILED / PRODUCT_UNKNOWN`",
+                "zero model contexts",
+                "automatic D54 changes remain excluded",
+                "One clean checkout is not writer proof",
+            ),
+        ),
+        (
+            "docs/HANDOFF.md",
+            "Snapshot",
+            (
+                "D53 is sealed `QUALIFICATION_FAILED / PRODUCT_UNKNOWN`",
+                "model contexts and `turn/start` remain zero",
+                "no automatic D54 follows",
+                "one clean checkout is never writer proof",
+            ),
+        ),
+        (
+            "docs/HANDOFF.md",
+            "Immediate Next Action",
+            (
+                "Do not repair or rerun D53",
+                "The only next Work Charter product choice",
+                "no D54 follows from this closeout.",
+            ),
+        ),
+        (
+            "docs/skills/work-charter/STATE.md",
+            "Current Writer",
+            (
+                "`post-D53-factual-reconciliation@main/8e658f18`",
+                "every registered worktree",
+                "One clean checkout never proves writer relinquishment.",
+            ),
+        ),
+        (
+            "docs/VERIFICATION.md",
+            "2026-08-12 — Work Charter D53 tracked authorization lifecycle",
+            (
+                "D53 is sealed `QUALIFICATION_FAILED / PRODUCT_UNKNOWN`",
+                "zero model contexts and zero `turn/start` were consumed",
+                "candidate `c481005...` remains unaccepted",
+            ),
+        ),
+        (
+            "docs/skills/work-charter/VERIFICATION.md",
+            "2026-08-12 — D53 authorization lifecycle and terminal",
+            (
+                "D53 is sealed `QUALIFICATION_FAILED / PRODUCT_UNKNOWN`",
+                "model context, and `turn/start` did not start",
+                "automatic D54 follows",
+            ),
+        ),
+    )
+    for relative_path, heading, required_fragments in contracts:
+        require_section_contract(
+            relative_path,
+            heading,
+            required_fragments,
+            failures,
+        )
+
+
 def check_federated_documentation(failures: list[str]) -> None:
     docs_root = ROOT / "docs" / "skills"
     skill_doc_names = {
@@ -481,6 +735,64 @@ def check_scanner_self_tests(failures: list[str]) -> None:
             "scanner self-test: missing Markdown fragment was not detected"
         )
 
+    synthetic_section = markdown_section(
+        "# Root\n"
+        "## Target\n"
+        "first line\n"
+        "### Nested\n"
+        "second line\n"
+        "## Next\n"
+        "excluded line\n",
+        "Target",
+    )
+    if synthetic_section is None or normalize_contract_text(synthetic_section) != (
+        "first line ### Nested second line"
+    ):
+        failures.append(
+            "scanner self-test: Markdown contract section was not bounded"
+        )
+    if markdown_section("## Duplicate\na\n## Duplicate\nb\n", "Duplicate") is not None:
+        failures.append(
+            "scanner self-test: duplicate Markdown contract section was accepted"
+        )
+    fenced_section = markdown_section(
+        "# Root\n"
+        "## Target\n"
+        "visible before\n"
+        "````markdown\n"
+        "## Target\n"
+        "## Next\n"
+        "```\n"
+        "````\n"
+        "<!-- ## Target -->\n"
+        "visible after\n"
+        "## Next\n"
+        "excluded line\n",
+        "Target",
+    )
+    if fenced_section is None or normalize_contract_text(fenced_section) != (
+        "visible before visible after"
+    ):
+        failures.append(
+            "scanner self-test: fenced or commented heading changed section bounds"
+        )
+    hidden_contract_text = normalize_contract_text(
+        "visible\n<!-- hidden contract -->\n```text\nhidden fenced contract\n```\n"
+    )
+    if "hidden contract" in hidden_contract_text:
+        failures.append(
+            "scanner self-test: non-rendered Markdown satisfied a contract"
+        )
+    unclosed_comment_text = "visible\n<!-- unclosed\n## Hidden\nhidden contract\n"
+    if normalize_contract_text(unclosed_comment_text) != "visible":
+        failures.append(
+            "scanner self-test: unterminated HTML comment content was visible"
+        )
+    if markdown_section(unclosed_comment_text, "Hidden") is not None:
+        failures.append(
+            "scanner self-test: heading inside unterminated comment was visible"
+        )
+
 
 def main() -> int:
     failures: list[str] = []
@@ -501,6 +813,7 @@ def main() -> int:
 
     check_direct_references(failures)
     check_federated_documentation(failures)
+    check_evaluation_governance_contract(failures)
     check_scanner_self_tests(failures)
 
     skill_names = {

@@ -374,6 +374,14 @@ owns the accepted rationale.
 
 ### Declare The Complete Envelope Once
 
+At the start of each Campaign, successor, or lesson-promotion round, revalidate
+the live workspace and writer, then reread the current project `AGENTS.md` and
+the Runbook/evaluation references mapped by it. Record the instruction-source
+chain and normalized-text hashes when the round may consume scarce evidence.
+This manual reread supplies current working context; after a material rule
+change, only a fresh run or Session can establish the next loaded-ruleset
+boundary.
+
 Before the first Campaign mutation or external effect, present one declaration
 that contains:
 
@@ -419,6 +427,17 @@ does not restabilize the semantic review target or justify replan. A declared
 ignored carrier remains material evidence under its inventory and freeze
 contract; an unexplained delta fails qualification closed.
 
+Treat every external authority, evidence, predecessor, and task-owned carrier
+root as an authority-bearing input. Obtain it from the approved Campaign
+contract, a parent-authenticated argument, or another explicit authenticated
+record; never infer it from the current directory, sibling enumeration, or
+`__file__` ancestry or directory depth. Code-relative lookup is reserved for
+repository-owned static resources. Before use, resolve the supplied path and
+check containment, reparse/symlink boundaries, expected identity or hash, and
+schema. Test nested placement, a decoy sibling, a wrong explicit root, an
+outside/reparse target, a missing target, and an identity mismatch. Any
+ambiguous or unavailable root fails closed before consumption.
+
 Before relying on a live model/provider route, run one explicitly authorized
 same-boundary transport canary. Match every material transport dimension:
 
@@ -458,15 +477,20 @@ Use a synthetic prompt and keep its result out of Skill selection, loaded-copy,
 semantic, and acceptance scoring. If the canary fails, seal its infrastructure
 result and stop before candidate evidence.
 
-When materialization transforms a carrier and a later finalizer, importer, or
-postprocessor consumes the transformed shape, rehearse that complete chain in
-a disposable mirror before spending the final correction, canary, or frozen
-evidence budget. Use the production transformation and consumer entry points,
-assert containment and exact schema/hash handoff, and prove that no write
-escapes the mirror. Component tests or a successful materializer alone do not
-qualify the composed path. Preserve the mirror only when the Campaign declares
-it material evidence. Otherwise treat it as temporary non-product output and
-remove it only under the Campaign's declared cleanup authority.
+When materialization transforms a carrier and a later finalizer, importer,
+postprocessor, wrapper, or dispatcher consumes the transformed shape, run that
+exact composed chain as a zero-model DEV feasibility pass in a disposable
+bounded mirror. For a new or materially changed chain, this pass is required
+before freezing the diff for its first native review and before spending an
+official correction, canary, or frozen-evidence budget. Use the production
+transformation and consumer entry points, assert containment and exact
+schema/hash handoff, exercise the final pre-scarce branch, and prove that no
+write escapes the mirror. Component tests or a successful materializer alone
+do not qualify the composed path. The DEV pass is implementation qualification,
+not official Campaign, product, assessor, or acceptance evidence. Preserve the
+mirror only when the Campaign declares it material evidence; otherwise treat it
+as temporary non-product output and remove it only under declared cleanup
+authority. Official qualification starts from the reviewed committed revision.
 
 Run at most three pre-consumption qualification correction rounds for one
 stable subject unless the Campaign declares a smaller limit. Before every
@@ -509,6 +533,33 @@ same-scope finding corrections without additional approval. Create a commit
 only when the Campaign explicitly includes the exact Git closeout category.
 Push, public candidate visibility, installation, tag, release, stable update,
 and cleanup remain excluded unless their targets and rollback are declared.
+
+A sealed qualification-only or transport-failure carrier is evidence, not a
+product or implementation review target. Do not repair, rescore, or assess it
+in place. Review the tracked implementation proposed for a successor, or the
+tracked closeout diff proposed for commit. If the stop creates no tracked diff,
+there is no native-review target and no native review is required.
+
+Use the failure-only closeout path only when the diff contains a sanitized
+terminal record plus its already mapped factual, authority, recovery, and
+writer consumers, and changes no Skill SOURCE, candidate, builder, runner,
+controller, case, fixture, matrix, rubric, permission, acceptance boundary, or
+external-effect contract. First run the repository's deterministic closeout-
+consistency check. If a local closeout commit is authorized, run one native
+review scoped to factual consistency, authority, evidence limits, recovery,
+writer custody, and publication safety. Fix clear same-scope findings and run
+at most one post-fix native review. Any actionable finding in that second
+completed review produces `DECISION_REQUIRED`; do not open another ordinary
+review cycle. This bounded exception does not apply to a diff that changes
+implementation, governance, or the checker itself.
+
+When a bounded writer lease is part of closeout, derive `RELINQUISHED` only
+after its named terminal action or authorized commit is present and every
+registered worktree has been enumerated and reconciled for attributable index
+and worktree state. Preserve and classify unrelated owned differences rather
+than requiring a globally clean repository. One clean checkout or a task
+completion message is insufficient; missing or conflicting evidence leaves the
+lease `UNKNOWN` and fails closed.
 
 Maintain one cumulative ledger keyed by the stable subject. A task, run root,
 carrier, successor, epoch, attempt, or candidate label is a locator and never
