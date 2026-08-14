@@ -47,11 +47,12 @@ $work-charter 约束此项有后果的工作、权限、证据和恢复。
 $use-powershell-safely 在修改应用代码前诊断此实质 Windows shell 边界。
 ```
 
-Project Docs 可以根据直接的文档治理请求，或高置信度的 authority、evidence、
-routing、recovery 症状被选择。该隐式路径只允许只读检查和提出方案，不授权采用、
-结构、canonical owner 变更或写入；`$manage-project-docs` 仍是手动 override。
-具体方案可见后，自然语言确认只授权方案列明的目标项目变更。有效的持久化项目
-路由负责普通维护，无需加载 Skill。
+在这个仅变更 Work Charter 的 prerelease set 中，Project Docs 使用已发布
+`v0.1.2` 的 explicit-only trigger。用户必须显式要求使用 Project Docs，包括通过
+`$manage-project-docs` 调用；仅有文档治理请求或 authority、evidence、routing、
+recovery 症状不会选择或加载它。具体方案可见后，自然语言确认只授权方案列明的
+目标项目变更。有效的持久化项目路由负责普通维护，无需加载 Skill。路由损坏时
+可以提示用户调用 Project Docs，但路由本身不会调用 Skill，也不授权修复。
 
 Work Charter 也接受“调用 Work Charter，判断项目应该怎样继续”这类自然语言
 请求；只有完整正文已经进入当前上下文后才能声称已经激活。泛化的“根据已安装 Skills

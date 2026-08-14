@@ -12,8 +12,8 @@ Project Docs 帮助 programmer 和技术型独立开发者，让项目事实、�
   从中恢复工作；
 - 项目需要首次采用文档治理；
 - 需要评估结构拆分、合并、重命名、迁移或 canonical owner 变更；或
-- 用户通过自然语言或 `$manage-project-docs` 请求项目文档审计、修复、暂停、
-  交接或恢复。
+- 用户显式要求使用 Project Docs 进行项目文档审计、修复、暂停、交接或恢复，
+  包括通过 `$manage-project-docs` 调用。
 
 ## 何时不使用
 
@@ -36,11 +36,11 @@ branch 当作 stable identity。
 
 ## 调用
 
-Codex 可以根据直接的文档治理请求，或高置信度的 authority、evidence、routing、
-recovery 症状选择 Project Docs。隐式选择从只读开始：可以检查并提出方案，但不
-授权采用、结构变更、owner 变更或任何写入。
+Codex 只有在用户显式要求调用 Project Docs 后才使用它。未点名或未显式调用
+Project Docs 的文档治理请求、authority/evidence/routing/recovery 症状，以及
+持久化项目规则都不会加载该 Skill。
 
-`$manage-project-docs` 仍是手动 override：
+显式调用：
 
 ```text
 $manage-project-docs 审计此仓库的项目文档治理。未经单独批准，不要进行结构变更。
@@ -48,12 +48,12 @@ $manage-project-docs 审计此仓库的项目文档治理。未经单独批准�
 
 具体方案可见后，用户用自然语言作出的无歧义确认只授权方案列明的目标项目变更。
 经授权完成采用后，普通任务无需加载 Project Docs，而是遵循目标项目持久化的
-路由。损坏的路由可以让 Project Docs 再次变得相关，但路由文字和隐式选择都不
-授权修复。
+路由。损坏的路由可以提示用户调用 Project Docs，但路由本身不会调用 Skill，也
+不授权修复。
 
-对于新项目，Project Docs 从五项最小逻辑职责开始，只有在 owner 或更新生命周期
-确实需要独立时才启用单独的功能模块。对于已有项目，它映射现存文档；路由充分时
-保留原布局。
+对于新项目，Project Docs 从五项最小逻辑职责开始；当一个合并 starter 是最小的
+已授权采用方式时，可以使用它。对于已有项目，它映射现存文档；路由充分时保留
+原布局。
 
 ## 安全边界
 
@@ -66,9 +66,11 @@ $manage-project-docs 审计此仓库的项目文档治理。未经单独批准�
 
 已发布的 `v0.1.2` 六文件包已有 exact-source 行为证据、受控开发 loaded-copy 证据、
 exact-commit candidate identity，以及 `v0.1.2` tag-pinned stable
-loaded-copy identity 与成熟布局 `NOOP` canary。当前 working-tree revision 改变了
-selection 与 module routing，在达到 candidate readiness 前需要 revision-specific
-评估。当前已接受的 release 仍是仓库级
+loaded-copy identity 与成熟布局 `NOOP` canary。仅变更 Work Charter 的 `v0.2.0`
+prerelease candidate 保留这六个 exact `v0.1.2` package 文件，不产生新的 Project
+Docs 行为、安装或 loaded-copy claim。后续 Decision 0019 的 implicit-selection 与
+demand-driven-module 开发 revision 仍被保留，但不属于本候选。当前已接受的 release
+仍是仓库级
 [`v0.1.2`](https://github.com/junwei529/skills/releases/tag/v0.1.2)。稳定安装层的
 变更行为、广泛触发 telemetry、因果效果、token 节省和跨 Harness 等价性均未
 得到证明。参见[验证](VERIFICATION.md)和[状态](STATE.md)。

@@ -1,6 +1,6 @@
 # Repository Status
 
-Last updated: 2026-08-13
+Last updated: 2026-08-14
 
 ## Dashboard
 
@@ -8,10 +8,10 @@ Last updated: 2026-08-13
 |---|---|---|
 | Tested package identity | all three package byte sets independently reached exact-commit RC readiness at `c42eef392a5b9f58bbee64aa73ffb603a6fb6c29` and were re-proved at tag/stable identity `v0.1.2` | [Verification](VERIFICATION.md) |
 | Stable release identity | immutable [`v0.1.2`](https://github.com/junwei529/skills/releases/tag/v0.1.2) at `ceed607152849775b981c54add74bfa30d858e4d`; exact tag, stable loaded-copy, and GitHub Release proof pass for all three Skills | [Verification](VERIFICATION.md) |
-| Project Docs | immutable `v0.1.2` remains the released explicit-only control; local commit `776989f...` implements accepted Decision 0019 but is unreleased, and its evidence is `PARTIAL` because actual candidate selection, loaded-copy identity, and persistent writes remain `UNKNOWN` | [State](skills/manage-project-docs/STATE.md) |
-| Work Charter | released `v0.1.2` remains active; exact candidate `c481005...` is unchanged and unaccepted; D51-D53 remain immutable; D54 committed its reviewed explicit-root Build, then its only formal qualification failed at ignored-orchestrator bootstrap before materialization or any 24/24, 32/32, 56/56, lifecycle, canary, product, or assessor work; D54 is `QUALIFICATION_FAILED / PRODUCT_UNKNOWN` with zero model/start events and no automatic D55 | [State](skills/work-charter/STATE.md) |
+| Project Docs | exact six-file `v0.1.2` / `ceed607...` package is `unchanged` in the Work-Charter-only prerelease set; Decision 0019 and local development commit `776989f...` remain preserved but their later package bytes are excluded | [State](skills/manage-project-docs/STATE.md) |
+| Work Charter | exact five-file `c481005...` package is the only `changed` public Skill relative to `v0.1.2`. The bounded evaluation accepts C1-C5 only; D55 is separately sealed `QUALIFICATION_FAILED / PRODUCT_UNKNOWN`. Local prerelease preparation is not full Gate 2, `RC_INSTALL`, stable loaded copy, tag, or release acceptance | [State](skills/work-charter/STATE.md) |
 | PowerShell | released five-file `v0.1.2` stable copy; corrected loaded identity and guarded native/text diagnosis pass; live WSL remains unproved | [State](skills/use-powershell-safely/STATE.md) |
-| Release lifecycle | `v0.1.2` tag, stable update, tag-pinned canaries, and Latest GitHub Release complete; `v0.1.1` retained as rollback identity | [Runbook](RUNBOOK.md) |
+| Release lifecycle | `v0.1.2` remains the installed/tagged Latest Release. One local Work Charter `v0.2.0` prerelease-prep commit is authorized after verification/native review; no `RC_INSTALL`, push, tag, release, cleanup, or publication has occurred | [Runbook](RUNBOOK.md) |
 
 ## Current Repository State
 
@@ -24,16 +24,29 @@ passed its own exact public installer and loaded-copy gate, and is now the
 immutable `v0.1.2` tag, verified stable installation, and Latest GitHub
 Release. Immutable `v0.1.1` remains retained as rollback identity.
 
-Local `main` contains an unreleased Project Docs revision at `776989f...`
-implementing [Decision 0019](decisions/0019-project-docs-implicit-discovery-and-demand-driven-modules.md).
-Its implicit path is read-only and proposal-only, persistent writes remain
-separately authorized, and ordinary maintenance stays with valid project
-routing. A static SOURCE/eval-contract assessor found no Must defect, but the
-overall evidence is `PARTIAL`: actual candidate selection, physical loaded-copy
-identity, and write persistence remain `UNKNOWN`; immutable `v0.1.2` is
-unchanged.
+The Work-Charter-only prerelease branch materializes all six Project Docs files
+byte-for-byte from `v0.1.2` / `ceed607...`. Unreleased Project Docs revision
+`776989f...` and [Decision 0019](decisions/0019-project-docs-implicit-discovery-and-demand-driven-modules.md)
+remain preserved development history with `PARTIAL` evidence; they are not
+deleted, released, or represented by the live package in this candidate.
 
-Target Work Charter `v0.2.0` remains at Gate 2. Exact candidate `b965102...`
+The 2026-08-14 minimal evaluation gives exact candidate `c481005...` a bounded
+five-claim `ACCEPT`: proposal is not activation; small work stays Flat;
+explicit/midstream adoption stays bounded; material re-entry requires fresh
+confirmation; and Standard requires explicit policy. It uses only admitted
+D45-D49 product cells, runs no fresh canary or product cell, and adds one
+independent read-only assessor. Complete 28-cell Gate 2, installation, release,
+and real-project efficacy remain unaccepted. D55 is separately sealed at C17
+as `QUALIFICATION_FAILED / PRODUCT_UNKNOWN`, with exact mechanism `UNKNOWN` and
+writer relinquished.
+
+The prerelease set requires Work Charter's five live files to equal
+`c481005...` and recompute manifest `04c382a4...`; Project Docs and PowerShell
+must equal their six/five `ceed607...` blobs. The source root's dirty D55
+runner/checker implementation is excluded. This creates a local commit target
+only and does not add product evidence or runtime loaded-copy proof.
+
+Historical target Work Charter `v0.2.0` Gate 2 evidence follows. Exact candidate `b965102...`
 is unaccepted; ten behavior windows are sealed and non-retriable, and two zero-
 turn stops remain qualification records. Integrated D29 controller
 `8f00a557...` enabled successor-8 to complete A01-A09 before A10 hard-stopped
@@ -458,21 +471,125 @@ contract or lifecycle terminal exists. Model contexts, `thread/start`,
 `turn/start`, and assessor starts are 0/0/0/0; canary, product, and assessor
 were not authorized or started. D54 is sealed
 `QUALIFICATION_FAILED / PRODUCT_UNKNOWN`. The formal carrier is immutable and
-cannot be repaired, replaced, retried, or cleaned. The only next Work Charter
-gate is a separate user decision about any successor; no D55 follows
-automatically. One clean checkout is not writer proof; Handoff owns the
-all-worktree reconciliation rule. Push, installation, tag, release, stable
-update, cleanup,
-SOURCE, runner/checker/controller, case, fixture, matrix, rubric, and other-
-Skill changes remain excluded.
+cannot be repaired, replaced, retried, or cleaned.
+
+The user separately authorized `WC-AR-D55-TRACKED-FORMAL-BOOTSTRAP` from clean
+`main@8c952abb...`. D55's tracked outer mode uses exact named pin objects,
+zero-write pre-authentication rejection, independently trusted Git/PowerShell/
+Python anchors, a typed mutually exclusive authenticated early terminal, and a
+separately rooted, hash-authenticated revision-authority record. That record
+cross-binds the exact runner/checker paths and hashes to the repository,
+bootstrap pins, expected HEAD, evidence class, and reviewed-commit status before
+any output. Focused bootstrap passes 27/27 without changing tracked 32/32.
+
+Native review 1/5 found the raw pre-authentication failure-root write and
+self-authorizing executable pins. H1 correction 5 closed both P1s and expanded
+focused coverage to 14/14. Fresh `dev-h1-c05` then exposed publication-unsafe
+tracked absolute-path literals; correction 6 retained the fixed Python 3.12.10
+identity through a system-volume anchor. Fresh one-shot `dev-h1-c06` passed the
+complete route. Native review 2/5 then found a self-authorizing bootstrap
+contract/tool pair and optional formal cleanliness. Correction 7 bound material
+authority/evidence pins to tracked policy and made clean checkout mandatory for
+formal evidence. Focused 16/16 and fresh `dev-h1-c07` pass through
+`STOPPED_BEFORE_FIRST_THREAD_START`, with zero model, start, assessor, or
+outside-write events.
+
+The initial four corrections and launch recovery R1 remain consumed. Native
+review 1/5 through 4/5 and corrections 5-10 closed pre-authentication,
+executable/material trust, formal-cleanliness, inherited Git/Python environment,
+and stale-terminal reuse gaps. In particular, native review 3/5 found that inherited `GIT_*` values could redirect
+repository checks and inherited `PYTHONHOME`/`PYTHONPATH` could alter pinned
+Python stages. User-approved H2 correction 8 removes all Git overrides, binds
+`safe.directory` directly to the authenticated repository root, adds `-I`, and
+removes Python/Git overrides from every Python stage. The focused suite is now
+17/17. `dev-h2-c08` remained `PREPARED_NOT_STARTED` after its launcher correctly
+rejected missing sandbox-safe Git configuration; `dev-h2-c08-safe` then exposed
+an ignored H2-launcher Boolean/string cast that removed the full child
+environment and sealed pre-auth at exit 86 with zero terminal/model/start.
+Correction 9 fixed that launcher-only defect. Fresh hostile-environment
+`dev-h2-c09` passed the complete 56/56 route. Native review 4/5 then found one
+P1 stale-terminal reuse gap. Correction 10 rejects an existing bootstrap or
+normal lifecycle terminal, or failed summary, before preflight.
+
+Native review 5/5 found one P1: the caller-supplied bootstrap contract still
+self-authorized the tracked runner/checker identities. User-approved H3
+correction 11 adds the independent revision authority and nine direct schema,
+containment, identity, evidence-class, and runner/checker path/hash negatives,
+raising focused coverage from 18/18 to 27/27. The first H3 launch
+`dev-h3-c11-final` hit an outer tool transport timeout after private 24/24; it
+produced no typed terminal or result and is sealed without reuse. It was not a
+code correction. Separately authorized one-shot recovery R2 created fresh
+`dev-h3-c11-r2`, consumed only authenticated absolute attempt fields through
+structured argv, and completed the exact bootstrap/materializer/finalizer/
+importer/private 24/24/tracked 32/32/aggregate 56/56/lifecycle/synthetic route
+through `STOPPED_BEFORE_FIRST_THREAD_START`. Its 960-second outer call used
+60-second waits and finished in 464.6 seconds. Model calls/contexts, thread
+starts, turn starts, assessor starts, and outside writes are 0/0/0/0/0/0.
+Correction 11 is consumed. Documentation-impact closure then changed the
+mapped `evals/README.md` ruleset source. Correction 12 freezes its final text,
+updates the runner/checker's exact normalized-text pin, and proves the stable
+tracked diff in fresh `dev-h3-c12-final`. Focused 27/27 and the complete
+24/24 + 32/32 = 56/56/lifecycle/synthetic route pass through
+`STOPPED_BEFORE_FIRST_THREAD_START`; every model/context/thread/turn/assessor/
+outside-write count is zero. Correction 12 is consumed; corrections 13-15
+remain unused. D55 formal, canary, product, and assessor evidence remain
+unstarted.
+
+Native review 1/5 found one remaining P1: formal still trusted the caller's
+revision-authority Path/SHA pair. Correction 13 embeds the exact formal v2
+record SHA-256 in the tracked runner. That record binds the stable candidate,
+formal evidence class, reviewed-build policy, fixed repository-relative
+runner/checker identities, the runner's anchor-field-zeroed normalized hash,
+and the checker raw hash. A caller-self-hashed v1 record now fails before output,
+while the one exact v2 record reaches the next material-policy gate. Focused
+coverage is 28/28. Fresh `dev-h3-c13-final` passes 24/24 + 32/32 = 56/56,
+lifecycle, synthetic dispatch, and `STOPPED_BEFORE_FIRST_THREAD_START`; every
+model/context/thread/turn/assessor/outside-write count is zero. Correction 13 is
+consumed.
+
+Native review 2/5 found that the v2 record did not bind to the exact reviewed
+repository revision. Correction 14 adds the narrow tracked formal-authority
+owner and requires its independently anchored Git last-change commit to equal
+both the contract HEAD and actual authenticated HEAD. A wrong-HEAD negative
+raises focused coverage to 29/29. Fresh `dev-h3-c14-final` passes the unchanged
+56/56/lifecycle/synthetic route through `STOPPED_BEFORE_FIRST_THREAD_START`,
+with every model/context/thread/turn/assessor/outside-write count zero.
+Correction 14 is consumed; correction 15 remains unused. Native review 3/5 is
+next.
+
+Native review 3/5 then repeated the same P1 trust-boundary finding: the same
+repository writer could change the formal authority declaration, its verifier,
+and the bytes described as reviewed. The task stopped at `DECISION_REQUIRED`.
+The user-approved `CONTROL_PLANE_BOUND A′` replan keeps all prior history and
+uses correction 15 to remove that invalid authority role. The untracked formal-
+authority proposal is deleted; the existing revision record now proves only
+mechanical evidence-class, exact-HEAD, branch, runner/checker path/hash, schema,
+containment, and bootstrap-pin integrity. It rejects review self-attestation.
+Native review, user approval, and selection of the exact commit eligible for
+Fresh Evidence remain with the user/Planner/Harness control plane. Correction
+16 remains reserved; fresh focused and composed DEV qualification are required
+before the new at-most-three-review cycle.
+
+D55 later consumed C16/C17 and stopped at
+`QUALIFICATION_FAILED / PRODUCT_UNKNOWN`; no formal, canary, product, assessor,
+acceptance, or D56 followed, and its writer relinquished after all-worktree
+reconciliation. The bounded minimal evaluation did not repair, rerun, import,
+or depend on that route.
+
+The authorized next Work Charter action is exactly one local prerelease-prep
+commit after deterministic verification and native review. After that commit,
+`RC_INSTALL`, push/integration, stable loaded-copy evidence, tag, release,
+cleanup, and publication remain separate user decisions. No SOURCE/controller/
+case/fixture/matrix/rubric expansion follows automatically. One clean checkout
+is not writer proof; Handoff owns the all-worktree reconciliation record.
 Project Docs keeps its own candidate and persistence-evidence sequence.
 
 ## Known Repository Gaps
 
 - Project Docs `v0.1.2` stable proof is mature `NOOP`, not persistent `UPDATE`.
-  For the current implicit-selection revision, exact loaded-copy attribution,
-  write persistence, candidate readiness, broad triggers, and real-project
-  behavior remain unproved.
+  For the excluded Decision 0019 development revision, exact loaded-copy
+  attribution, write persistence, candidate readiness, broad triggers, and
+  real-project behavior remain unproved.
 - PowerShell still lacks live Bash/WSL, native execution inside the stable
   canary sandbox, actual sandbox-denial injection, and shadow-use evidence.
 - No Skill has a causal correctness or token-saving comparison.

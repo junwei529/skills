@@ -1,16 +1,16 @@
 # Project Docs Verification
 
-Last updated: 2026-08-07
+Last updated: 2026-08-14
 
 ## Claim Ledger
 
 | Claim | Status |
 |---|---|
-| The current package has six canonical files | verified structurally |
+| The release-prep package has six canonical files | all six live files are byte-identical to `v0.1.2` / `ceed607...`; Project Docs is `unchanged` in the Work-Charter-only candidate |
 | The five logical responsibilities work without fixed filenames | passed in mature, adoption, continuity, conflict, and safety fixtures |
 | Immutable `v0.1.2` explicit-only selection | controlled DEV_DISCOVERY, RC, and stable positive/negative canaries pass for that exact control |
-| Current implicit-selection policy and no-write boundary | `PARTIAL`: policy and zero-delta boundaries are present, and candidate-routing signals, mature `NOOP`, ordinary non-selection, and conflict `PROPOSE` were observed; actual candidate selection and physical loaded-copy attribution remain `UNKNOWN` |
-| Demand-driven modules and per-owner update modes | present in SOURCE and the eval contract; a static SOURCE/eval-contract assessor found no Must defect, while persistent model writes remain `UNKNOWN` because the effective child sandbox rejected them |
+| Historical Decision 0019 implicit-selection policy and no-write boundary | `PARTIAL` at local development commit `776989f...`; its bytes are excluded from this prerelease candidate, and actual candidate selection plus physical loaded-copy attribution remain `UNKNOWN` |
+| Historical demand-driven modules and per-owner update modes | preserved in Decision 0019 and Git history, not present or claimed in the restored `v0.1.2` release-set package |
 | A sufficient mature layout is preserved | explicit SOURCE, RC, and stable `NOOP` smoke pass |
 | Authorized first adoption makes the minimum coherent change | historical exact-source synthetic behavior passes; the current implicit revision recognized bounded authorization and failed closed, but its write was environment-blocked and remains `UNKNOWN` |
 | Broken authority or structure fails closed | conflict, safety, and broken-routing variants pass |
@@ -20,9 +20,9 @@ Last updated: 2026-08-07
 | Stable loaded-copy identity and mature-layout behavior | tag-pinned `v0.1.2` six-file identity and fresh `NOOP` canary pass |
 | Stable mutation, broad trigger telemetry, causal efficacy, token savings, or cross-Harness parity | unverified |
 
-## Current Development Revision
+## Historical Decision 0019 Development Revision
 
-The 2026-08-07 working-tree revision keeps the six-file package and has these
+The excluded 2026-08-07 development revision kept the six-file package and had these
 strict UTF-8/no-BOM, LF-only, one-final-newline raw and normalized SHA-256
 identities:
 
@@ -41,10 +41,10 @@ assets/templates/continuity-anchor.md
   9b7cc87a002176b604301773db7b91af5ae113805b245dc94ad6481e72bdd603
 ```
 
-The Skill validator, repository checker at 197 text files / 14 cases / 12
+At that checkpoint, the Skill validator, repository checker at 197 text files / 14 cases / 12
 fixtures, all 17 fixture checks, seven-script PowerShell parser sweep, and both
 Git diff whitespace checks pass. Gitleaks passes for all 25 Project Docs
-publication files in this change. The deterministic continuity check requires
+publication files in that change. The deterministic continuity check requires
 `allow_implicit_invocation: true`, proposal-only broken-routing language, no
 `$manage-project-docs` requirement in the persisted anchor, and activation/
 update-mode fields in the starter.
@@ -61,6 +61,15 @@ readiness remain `UNKNOWN`.
 The [sanitized implicit-discovery result](../../../evals/results/2026-08-07-project-docs-implicit-discovery-source-eval.md)
 owns current attempts, counted observations, excluded contexts, controller
 limits, and residual gates.
+
+This history is retained without being treated as the package under review in
+the Work Charter `v0.2.0` prerelease candidate.
+
+The release-prep fixture checker binds the exact six-file `v0.1.2` path set
+and raw SHA-256 values before treating the frozen Decision 0019 continuity
+fixture as excluded. The 18/18 aggregate pass therefore proves revision-aware
+repository consistency only; it does not activate implicit selection, rerun
+Project Docs behavior, or create candidate/loaded-copy/release evidence.
 
 ## Implicit Discovery And Demand-Driven Modules
 
@@ -91,6 +100,16 @@ self-contained packet and returned `ACCEPTED` for the static SOURCE/eval
 contract, while retaining exact loaded copy and persistent writes as `UNKNOWN`.
 That bounded assessment does not close selection identity; no SOURCE correction
 was made in response to the child-sandbox or controller boundaries.
+
+## Work Charter `v0.2.0` Release-Prep Package Disposition
+
+The live six-file package is byte-identical to immutable `v0.1.2` commit
+`ceed607152849775b981c54add74bfa30d858e4d`. `git hash-object` equality is
+required for every file, and the raw SHA-256 values are the exact values in the
+next section. This materialization classifies Project Docs as `unchanged` in a
+Work-Charter-only release set. It is not an `RC_INSTALL`, stable loaded-copy
+probe, tag, release, behavior rerun, or deletion of the later development
+history.
 
 ## Immutable `v0.1.2` SOURCE Identity
 

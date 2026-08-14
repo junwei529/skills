@@ -15,8 +15,9 @@ file suite.
 - a project needs a first documentation-governance adoption;
 - a structural split, merge, rename, migration, or canonical-owner change must
   be assessed; or
-- the user requests a project-document audit, repair, pause, handoff, or
-  recovery in ordinary language or through `$manage-project-docs`.
+- the user explicitly asks to use Project Docs for a project-document audit,
+  repair, pause, handoff, or recovery, including through
+  `$manage-project-docs`.
 
 ## Do Not Use It When
 
@@ -40,12 +41,12 @@ release authority. Do not use the moving `main` branch as a stable identity.
 
 ## Invoke
 
-Codex may select Project Docs from a direct documentation-governance request or
-high-confidence authority, evidence, routing, or recovery symptoms. Implicit
-selection starts read-only: it may inspect and propose, but it does not
-authorize adoption, structure, owner changes, or any write.
+Codex uses Project Docs only after the user explicitly asks to invoke it. A
+documentation-governance request that does not name or explicitly invoke
+Project Docs, authority/evidence/routing/recovery symptoms, and a persisted
+project rule do not load the Skill.
 
-`$manage-project-docs` remains the manual override:
+Invoke it explicitly:
 
 ```text
 $manage-project-docs Audit this repository's project-document governance. Do
@@ -55,13 +56,13 @@ not make structural changes without separate approval.
 After a concrete proposal is visible, an unambiguous natural-language approval
 authorizes only its listed target-project changes. After authorized adoption,
 ordinary tasks follow the target project's persisted routing without loading
-Project Docs. A broken route may make Project Docs relevant again, but neither
-the route nor implicit selection authorizes its repair.
+Project Docs. A broken route may ask the user to invoke Project Docs, but the
+route does not itself invoke the Skill or authorize its repair.
 
 For a new project, Project Docs starts with the five minimum logical
-responsibilities and activates separate functional modules only when their
-owner or update lifecycle must differ. For an existing project, it maps the
-current documents and preserves their layout when the routing is sufficient.
+responsibilities and may use one combined starter when that is the smallest
+authorized adoption. For an existing project, it maps the current documents
+and preserves their layout when the routing is sufficient.
 
 ## Safety Boundaries
 
@@ -78,9 +79,11 @@ The released six-file `v0.1.2` package has exact-source behavior evidence,
 controlled development loaded-copy evidence, exact-commit candidate identity,
 and
 tag-pinned `v0.1.2` stable loaded-copy identity plus a mature-layout `NOOP`
-canary. The current working-tree revision changes selection and module routing;
-it requires revision-specific evaluation before candidate readiness. The
-current accepted release remains the repository-level
+canary. The Work-Charter-only `v0.2.0` prerelease candidate keeps those exact
+six `v0.1.2` package files and makes no new Project Docs behavior, installation,
+or loaded-copy claim. The later Decision 0019 implicit-selection and demand-
+driven-module development revision remains preserved but excluded. The current
+accepted release remains the repository-level
 [`v0.1.2`](https://github.com/junwei529/skills/releases/tag/v0.1.2). Stable
 mutation behavior, broad trigger telemetry, causal efficacy, token savings,
 and cross-Harness parity are not established. See

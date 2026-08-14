@@ -1,6 +1,6 @@
 # Project Docs Design
 
-Last updated: 2026-08-07
+Last updated: 2026-08-14
 
 ## Purpose And Audience
 
@@ -11,6 +11,23 @@ working rules, authority, evidence, and recovery discoverable and maintainable.
 
 It is not a document editor, Wiki, project manager, organization portal,
 translation system, or policy-enforcement engine.
+
+## Work Charter `v0.2.0` Release-Set Applicability
+
+The Work-Charter-only `v0.2.0` prerelease candidate includes the immutable
+Project Docs `v0.1.2` package at
+`ceed607152849775b981c54add74bfa30d858e4d`. For this release set, Project
+Docs is explicit-only: the user must invoke `$manage-project-docs` before the
+Skill loads, while an adopted target-project instruction may route ordinary
+canonical updates without loading the Skill. A governance failure or
+structural change may ask the user to invoke Project Docs; it does not itself
+invoke the Skill or authorize a change.
+
+The later [Decision 0019](../../decisions/0019-project-docs-implicit-discovery-and-demand-driven-modules.md)
+development contract remains accepted history but is excluded from this
+candidate. Its implicit-selection and demand-driven-module requirements below
+are historical/future development requirements, not behavior supplied or
+claimed by the six live `v0.1.2` package files.
 
 ## Behavior Contract
 
@@ -31,7 +48,7 @@ Project Docs distinguishes four surfaces:
 
 | Surface | Behavior |
 |---|---|
-| Discovery or audit | A direct governance request, high-confidence symptom, or manual `$manage-project-docs` override may load the Skill; implicit selection remains read-only and proposal-only |
+| Discovery or audit | The user explicitly invokes `$manage-project-docs`; an adopted project rule may instead handle a valid ordinary canonical update without loading the Skill |
 | First adoption | After approval of a concrete proposal, create or update only the authorized minimum contract and continuity route |
 | Routine maintenance | Update existing canonical owners under an adopted project rule |
 | Structural repair or expansion | Rediscover and propose first; write only after explicit structural or owner authorization |
@@ -51,12 +68,16 @@ explicit only when it unambiguously confirms a concrete visible proposal and
 its listed target effects. `$manage-project-docs` remains a manual override,
 not a write token.
 
-When governance symptoms are incidental to another unblocked task, Project
-Docs performs at most a minimum safe read-only preflight and a visible offer;
-it does not take over the task. It never polls conversations or runs as a
-background scanner.
+When governance symptoms are incidental to another unblocked task, the live
+explicit-only package does not take over the task or load itself. An adopted
+project rule may visibly ask the user to invoke Project Docs. The Skill never
+polls conversations or runs as a background scanner.
 
-## Demand-Driven Modules And Update Modes
+## Excluded Decision 0019 Demand-Driven Modules And Update Modes
+
+This section records the accepted Decision 0019 development contract. The
+exact `v0.1.2` package in the Work Charter `v0.2.0` release set does not
+implement or claim these demand-driven-module requirements.
 
 New projects may begin with one combined working contract that covers the five
 logical responsibilities. Existing projects map their current documents and
@@ -86,9 +107,11 @@ An authorized first adoption may merge a lightweight continuity anchor into an
 existing target-project instruction or governance entry. It contains routing,
 document-impact events, update modes, the structural gate, and recovery entry,
 not project facts. Later ordinary tasks use that durable route without loading
-Project Docs. A governance failure, new scope, missing owner, incompatible
-update lifecycle, or structural change can implicitly rediscover Project Docs
-for inspection and proposal, but never authorizes repair.
+Project Docs. Under the live explicit-only package, a governance failure, new
+scope, missing owner, incompatible update lifecycle, or structural change may
+ask the user to invoke Project Docs for inspection and proposal, but does not
+itself invoke the Skill or authorize repair. Decision 0019's later implicit
+rediscovery contract remains excluded historical/future development.
 
 Persistence belongs to target-project sources, not chat history, memory,
 discovery mappings, installed copies, or caches. If the Harness cannot load or
@@ -128,8 +151,8 @@ recovery entries make continuity weak; a new owner or route requires
 | [`maintain-and-recover.md`](../../../skills/manage-project-docs/references/maintain-and-recover.md) | Existing-owner maintenance, continuity, pause, handoff, recovery, and completion reconciliation |
 | [`project-doc-starter.md`](../../../skills/manage-project-docs/assets/templates/project-doc-starter.md) | Adaptable single-file first-adoption output |
 | [`continuity-anchor.md`](../../../skills/manage-project-docs/assets/templates/continuity-anchor.md) | Adaptable persistent routing fragment |
-| [`openai.yaml`](../../../skills/manage-project-docs/agents/openai.yaml) | Public display metadata and implicit-selection policy |
-| [Project Docs eval cases](../../../evals/README.md#project-docs-m1r-forward-matrix) | Behavior and selection contracts |
+| [`openai.yaml`](../../../skills/manage-project-docs/agents/openai.yaml) | Public display metadata and explicit-only release-set policy |
+| [Project Docs eval cases](../../../evals/README.md#historical-project-docs-m1r-forward-matrix-excluded-from-this-candidate) | Excluded Decision 0019 behavior and selection contract history |
 
 Assets are optional outputs, not mandatory target-project filenames.
 
@@ -146,3 +169,4 @@ composition remains a repository-level recipe.
 - [Decision 0007](../../decisions/0007-independent-skills-and-optional-recipes.md)
 - [Decision 0015](../../decisions/0015-federated-repository-documentation.md)
 - [Decision 0019](../../decisions/0019-project-docs-implicit-discovery-and-demand-driven-modules.md)
+  (accepted development history; excluded from this release set)

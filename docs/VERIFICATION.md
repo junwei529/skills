@@ -1,6 +1,6 @@
 # Repository Verification
 
-Last updated: 2026-08-13
+Last updated: 2026-08-14
 
 ## Scope
 
@@ -22,12 +22,12 @@ Sanitized detailed runs remain under [`evals/results`](../evals/results/README.m
 | Changed Skill validator | Validate frontmatter and package name without changing the package | unchanged exact `c481005...` Work Charter package passes the bundled `skill-creator` validator; the D54 failure-only closeout changes no Skill SOURCE |
 | Repository checker | Validate strict UTF-8/no BOM, whitespace, local links/fragments, publication safety, exact Skill/eval sets, federated docs, bilingual navigation, the promoted project evaluation-governance contract, and immutable D53 closeout-consumer consistency | passes for the D54 failure-only closeout target with 215 text files / 14 cases / 12 fixtures; the check changes no Skill SOURCE or sealed evidence |
 | Fixture checker | Validate synthetic starting states and their Git/reparse/ignored-result boundaries plus tracked controller and runner regressions | the historical post-D53/D54-Build target passes 18/18. On the D54 failure-only closeout diff, the current invocation returns exit 1 with 17/18: the sealed D54 runner fails closed before its checks on the intentional `evals/README.md` normalized-text ruleset drift. No runner/checker change, retry, or qualification credit follows |
-| Work Charter Gate 2 outer runner | Validate one tracked consuming entry, exact Campaign/candidate identity, authenticated explicit repository/carrier/source-bundle/evidence/predecessor roots, containment/reparse/hash/schema boundaries, the retained authorization lifecycle, formal aggregate through canary/product/assessor dispatch, typed exits, one-shot receipts, and stop-before-start qualification | D54 focused 32/32 and its composed DEV private 24/24 plus aggregate 56/56 remain implementation-only passes. Local commit `9fe27bb...` recorded that reviewed target; the only formal attempt then returned exit 86 in ignored-orchestrator bootstrap before the tracked runner, any aggregate receipt, lifecycle, or scarce evidence. D54 is `QUALIFICATION_FAILED / PRODUCT_UNKNOWN` with zero model/start events |
+| Work Charter Gate 2 outer runner | Validate one tracked consuming entry, exact Campaign/candidate identity, authenticated explicit repository/carrier/source-bundle/evidence/predecessor roots, named formal-bootstrap pins, mechanical exact-HEAD and runner/checker integrity, containment/reparse/hash/schema boundaries, zero-write pre-auth rejection, independent executable and material authority/evidence trust, clean formal checkout, authenticated-root Git isolation, isolated Python stages, typed early/normal terminals, stale-terminal one-shot rejection, the retained authorization lifecycle, formal aggregate through canary/product/assessor dispatch, typed exits, one-shot receipts, and stop-before-start qualification | D55 correction 15 removes repository-local review self-attestation while preserving mechanical verification. Fresh focused and complete composed DEV qualification are required before the new review cycle. This remains DEV implementation work only; formal evidence is unstarted and D54 stays sealed `QUALIFICATION_FAILED / PRODUCT_UNKNOWN` |
 | Codex evidence controller | Validate one shared core across four entry modes, strict required-read versus bounded auxiliary-observation attribution, structural PowerShell/Git/path classification, source-and-generated-contract-bound historical regressions, exact package manifests, candidate-identity and content-proof shape, record cardinality, completed exit typing, optional sealed governing-disposition monotonicity, output-array shape, per-key single-capture sealed parsing and reuse, real-reparse rejection, fail-closed negatives, external-input types, independently resolved inner/wrapper command identity, canonical model-visible Git argv rendering, Git-read and external-filter safety, profile-free PowerShell wrappers, culture-independent canonical ordering, metamorphic equivalence, output no-clobber, and canonical repeatability | passes exact current-SOURCE package identity, 11/11 historical, 32/32 evidence-surface, 33/33 negative, 4/4 metamorphic, 8/8 governing-snapshot, 12/12 command-resolution, and 9/9 Git-read-safety guards; the trusted Git anchor is independent of PATH and survives a synthetic PATH-first shadow, all 5/5 rooted forms execute through the resolved PowerShell wrapper with typed zero exits and are admissible, bare/shadow variants fail closed, the table hashes to `694e173a...f5467`, and zero external model or assessor calls occurred |
 | CRG supplemental preflight | Sharpen structural review scope when the maintained index represents the intended diff | degraded: the maintained code-only graph was built at `763a15e...`, predates amendment baseline `5605906...`, and does not represent the eight changed Markdown owners; it supplies no material-diff coverage claim, so direct canonical-owner inspection and native review remain required |
 | Native Codex review | Review each exact Work Charter commit target | D52 local commit 1 used two user-approved resets and 11 cumulative completed reviews; the second-reset-cycle review was clean, all 14 unique findings were resolved, and commit `410b0bd...` followed. D52 terminal-documentation reviews resolved stale checkpoint metadata and consumers before their clean review. D53 tracked-lifecycle reviews 1-3 resolved five unique findings: assessor eligibility was not enforced; `STATE.md` implied D52 granted D53 successor authority; canary receipt/state evidence was not fully bound to action provenance and committed-runner identity; the inner consumption claim was absent; and the typed terminal receipt was unreachable. Review 4/5 returned no actionable finding and its briefly lost output handle was recovered from the same completed exit-zero review record. Review 5/5 found two further defects: accepted terminal evidence was not bound to the consumed assessor route, and later lifecycle validation hard-coded receipt age 300. Both were corrected. The user explicitly approved one reset for this exact twelve-file attempt. Reset-cycle review 1/5 found two P1 gaps: multi-phase successor request-stream continuity was unproved, and acceptance did not validate all twelve product dispatches. One persistent segment reader plus a three-phase qualification simulation and the twelve-route/action-provenance ledger close them. Review 2/5 found one P1 because the test adapter could use production phase names; it is now restricted to a qualification-only namespace and an explicit negative proves production rejection before receipt/state creation. Review 3/5 found one P1 because completed-route validation skipped the static production policy while avoiding recursive lifecycle validation; the correction skips only lifecycle re-entry and still checks the artifact policy and route budget. Review 4/5 found a P2 terminal disposition/predecessor mismatch, now corrected, and a P1 because persisted private JSON could not authenticate a prior live dispatch after segment exit. The live-controller Replan Delta closes that P1. Reset-cycle review 5/5 then alleged that initial segment completion consulted live evidence before recording it; the call omitted the false-by-default switch, so source adjudication did not reproduce the path, but the mandatory finding stop applied. The user authorized one new bounded review cycle and the runner now passes the false switch explicitly. New-cycle review 1/5 found that failure terminals skipped predecessor evidence and typed child failure destroyed the live controller before terminal validation; both are corrected with predecessor-chain validation plus a failed-segment terminal-wait state that returns the original typed exit after closeout. Review 2/5 found that terminal validation was reachable before a failure or all three successful segments; the controller now requires the live terminal state and the focused gate rejects an early terminal command. New-cycle review 3/5 found no actionable issue against the final tracked bytes, and commit `4ab8a025...` followed. Review evidence remains separate from Gate 2 product evidence |
 | Isolated controller canary | Record the bounded disposition of one private path-bound infrastructure check without broadening behavior claims | retained sealed `CANARY_PASS`; the public summary reports an exact-response pass and no command execution, omits private locator/artifact/runtime details, and leaves physical backend request count `UNKNOWN` |
-| Work Charter D36/D37/D40, D34/D41 predecessors, and D42-D54 states | Preserve additive predecessors and separate product behavior from route, tool, qualification, eval-contract, authorization, environment, private-carrier failure, and DEV-only successor implementation | D36-D53 remain immutable with their recorded dispositions; D53 stays `QUALIFICATION_FAILED / PRODUCT_UNKNOWN` and its terminal receipt is unchanged. D54's DEV explicit-root pass supplies no formal credit; its only formal carrier is sealed at bootstrap as `QUALIFICATION_FAILED / PRODUCT_UNKNOWN`, with no product evidence and candidate `c481005...` still unaccepted |
+| Work Charter D36/D37/D40, D34/D41 predecessors, and D42-D55 states | Preserve additive predecessors and separate product behavior from route, tool, qualification, eval-contract, authorization, environment, private-carrier failure, and DEV-only successor implementation | D36-D54 remain immutable or sealed with their recorded dispositions; D54 stays `QUALIFICATION_FAILED / PRODUCT_UNKNOWN` and its three formal-failure hashes are unchanged. D55's tracked-bootstrap 18/18 and hostile-environment composed DEV 56/56 supply implementation qualification only; no formal/product/assessor evidence exists and candidate `c481005...` remains unaccepted |
 | PowerShell deterministic hardening | Validate cardinality, LF bytes, one-base paths, and Junction link-only removal | 15 assertions pass in PowerShell 7 and Windows PowerShell 5.1 |
 | PowerShell parser sweep | Parse all `evals/**/*.ps1` files and the tracked controller module | all nine tracked PowerShell scripts plus the unchanged controller module parse after the D53 lifecycle commit |
 | Markdown navigation and ownership | Verify local links/fragments, English/Chinese routes, expected per-Skill owners, and no orphan canonical owner | passes through repository checker |
@@ -2194,8 +2194,201 @@ change to `evals/README.md` before running its regression cases. That expected
 fail-closed result is documentation-ruleset drift after terminal disposition,
 not a candidate/product finding or authority to alter the sealed runner.
 
+### 2026-08-13 — Work Charter D55 tracked formal-bootstrap Build
+
+Explicit successor D55 preserves D54 while moving the material bootstrap into
+tracked runner mode `FormalBootstrap`. An exact ordered pin set with named
+`Path`/`Sha256`/`Label` fields replaces the D54 positional-array shape. Focused
+bootstrap checks pass 27/27, including the direct D54 regression, zero-write
+pre-auth root rejection, independent Python executable trust negatives, typed
+authenticated early-terminal pointer, pre-existing bootstrap/normal terminal
+rejection, and the separately rooted revision-authority schema, containment,
+commit-status, evidence-class, and runner/checker identity negatives. A hostile `GIT_DIR`/`GIT_WORK_TREE`/
+`GIT_CONFIG_*` positive proves those values cannot redirect the authenticated
+repository. The original tracked suite remains exactly 32/32.
+
+The initial attempt and all four concrete corrections are retained. Corrections
+1-2 authenticated the tracked subject/status set and kept bootstrap preflight
+outside the fresh carrier. Correction 3 ordinal-sorted the complete subject
+set. Correction 4 restored unchanged repository-checker recovery/writer
+fragments and bound the DEV correction ceiling to four while formal remains at
+zero corrections. A later caller-only relative-path launch failed before
+bootstrap and created no stage or terminal artifact; it was not a fifth code
+correction. The separately authorized one-shot R1 launcher consumed the exact
+authenticated `dev-c04-final` attempt record and then passed the real
+materializer, finalizer, predecessor importer, private 24/24, tracked 32/32,
+aggregate 56/56, lifecycle consumer, and synthetic dispatch. It stops before
+first `thread/start`; model calls/contexts, thread starts, turn starts, assessor
+starts, and repository writes outside the mirror are all zero. Summary SHA-256
+is `58cd551f...c266` and the evidence is explicitly DEV-only.
+
+Native review 1/5 found two P1 trust gaps: raw failure-root use before complete
+authentication and contract-supplied executable pairs that could self-authorize.
+Correction 5 made pre-auth rejection typed exit 86 plus stderr with zero writes,
+restricted terminal writes to authenticated `Context.FailureRoot`, and bound
+Git, PowerShell, and verified Python 3.12.10 pins to independent anchors. Fresh
+`dev-h1-c05` then exposed two publication-unsafe tracked absolute-path literals.
+Correction 6 retained the fixed Python identity using a system-volume anchor
+independent of cwd, PATH, `Get-Command`, siblings, or file ancestry. Repository
+safety and focused 14/14 pass.
+
+Fresh one-shot `dev-h1-c06` passes bootstrap, materializer, finalizer,
+predecessor importer, private 24/24, tracked 32/32, aggregate 56/56, lifecycle,
+and synthetic dispatch through `STOPPED_BEFORE_FIRST_THREAD_START`. Summary
+SHA-256 is `4ea710d0...3b37`; every model/start/assessor and outside-write count
+is zero.
+
+Native review 2/5 found the self-authorizing bootstrap contract/materializer
+and optional formal cleanliness. Correction 7 binds materializer, manifest, and
+predecessor hashes to tracked policy, permits formal only with the deterministic
+D55 tool, and requires formal evidence to prove a clean checkout. Focused 16/16
+adds both direct zero-write negatives. Fresh `dev-h1-c07` passes the full route;
+summary SHA-256 is `7028700c...8982`, every model/start/assessor and outside-
+write count is zero, H1 then stood at 7/7 corrections, and the evidence remains
+DEV-only.
+
+Native review 3/5 found two P1 environment gaps. Repository checks could honor
+inherited `GIT_*` overrides despite the pinned executable, and Python stages
+could honor inherited `PYTHONHOME`/`PYTHONPATH`. H2 correction 8 clears Git
+overrides, supplies `safe.directory` only from the authenticated repository
+root, adds Python `-I`, and removes Git/Python overrides from every Python
+stage. Focused coverage then rose to 17/17. `dev-h2-c08` remained prepared-not-started
+after the isolated Git prelaunch lost the sandbox safe-directory grant;
+explicit rooted `safe.directory` closed that boundary. The next
+`dev-h2-c08-safe` launch sealed at pre-auth exit 86 with no terminal or
+model/start when the ignored H2 launcher cast every `StartsWith` Boolean to a
+non-empty string and removed the full child environment. Correction 9 fixed
+that launcher-only defect and a deterministic environment probe proves only
+the declared Git/Python keys are removed.
+
+Fresh hostile-environment `dev-h2-c09` passes bootstrap, materializer,
+finalizer, predecessor importer, private 24/24, tracked 32/32, aggregate 56/56,
+lifecycle, and synthetic dispatch through
+`STOPPED_BEFORE_FIRST_THREAD_START`. All seven Python stage receipts begin with
+`-I`. Summary SHA-256 is `ce4ee43a...5e5a`; start/result SHA-256 values are
+`cb190a58...cea9` / `5b2de954...07ad`, and every model/context/thread/turn/
+assessor/outside-write count is zero. Corrections then stood at 9/10.
+
+Native review 4/5 found one P1 one-shot gap: an existing normal lifecycle
+terminal did not block a new preflight. Correction 10 rejects either terminal
+type or a failed summary after full bootstrap authentication and before any
+preflight/stage write. The combined negative preserves both seeded terminal
+hashes, produces exit 86, and writes no preflight/failed summary; focused
+coverage is 18/18. Fresh hostile-environment `dev-h2-c10` passes private 24/24,
+tracked 32/32, aggregate 56/56, lifecycle, and synthetic dispatch through
+`STOPPED_BEFORE_FIRST_THREAD_START`. Summary/start/result SHA-256 values are
+`65472e86...7b80`, `fe9da82e...40f6`, and `a5c13827...86a0`; all seven Python
+stages start with `-I`, and every model/context/thread/turn/assessor/outside-
+write count is zero.
+
+Native review 5/5 found one P1 because the caller-supplied bootstrap contract
+still self-authorized tracked runner/checker identities. H3 correction 11 adds a
+separately rooted and hash-authenticated revision-authority record and cross-
+binds its exact runner/checker paths and hashes to the repository, bootstrap
+pins, expected HEAD, evidence class, and reviewed-commit status before output.
+The expanded suite passes 27/27. `dev-h3-c11-final` reached private 24/24 before
+an outer tool transport timeout and produced no typed result; the attempt is
+sealed and the timeout is not a code correction. User-authorized one-shot R2
+created fresh `dev-h3-c11-r2` and completed bootstrap, materializer, finalizer,
+predecessor importer, private 24/24, tracked 32/32, aggregate 56/56, lifecycle,
+and synthetic dispatch through `STOPPED_BEFORE_FIRST_THREAD_START`. Its 960-
+second outer call used 60-second waits and completed in 464.6 seconds. Summary,
+start, and result SHA-256 values are `cb883af9...5385`, `2e3da026...3f16`, and
+`0a57b090...852d`; every model/context/thread/turn/assessor/outside-write count
+is zero. Correction 11 is consumed.
+
+Documentation-impact closure then changed the mapped `evals/README.md` ruleset
+source. Correction 12 freezes its final text, updates the runner/checker's exact
+normalized-text pin, and uses fresh `dev-h3-c12-final`. Focused 27/27 and the
+complete private 24/24 + tracked 32/32 = aggregate 56/56/lifecycle/synthetic
+route pass through `STOPPED_BEFORE_FIRST_THREAD_START`; every model/context/
+thread/turn/assessor/outside-write count is zero. Correction 12 is consumed;
+corrections 13-15 remain unused. This is DEV implementation qualification only;
+the new native-review cycle is next.
+
+Native review 1/5 found one P1 remaining caller-self-authorization path for
+formal revision authority. Correction 13 embeds the exact formal v2 record
+SHA-256 in the tracked runner. The record binds stable candidate and review
+policy fields, fixed repository-relative identities, the runner's anchor-field-
+zeroed normalized-text hash, and checker raw hash. A self-rehashed caller v1
+record fails before output; the exact v2 record reaches the later material-
+policy gate. Focused 28/28 and fresh `dev-h3-c13-final` pass the full 56/56/
+lifecycle/synthetic route through `STOPPED_BEFORE_FIRST_THREAD_START`; every
+model/context/thread/turn/assessor/outside-write count is zero. Correction 13 is
+consumed.
+
+Native review 2/5 found that the formal v2 policy was not tied to the exact
+reviewed repository revision. Correction 14 adds the narrow tracked formal-
+authority owner; the runner requires its fixed hash and independently anchored
+Git last-change commit to equal contract and actual authenticated HEAD. The
+wrong-HEAD negative raises focused coverage to 29/29. Fresh
+`dev-h3-c14-final` passes 56/56/lifecycle/synthetic dispatch through
+`STOPPED_BEFORE_FIRST_THREAD_START`, with every model/context/thread/turn/
+assessor/outside-write count zero. Correction 14 is consumed, correction 15 is
+unused, and review 3/5 is next.
+
+Review 3/5 repeated the repository-local self-authorization P1. User-approved
+`CONTROL_PLANE_BOUND A′` correction 15 deletes the untracked authority proposal
+and removes the v2 hash anchor, anchor-zeroed hash, tracked-owner last-change,
+review-status, and review-count checks. The retained v1 record proves only
+mechanical evidence-class, exact-HEAD/branch, schema, containment, and raw
+runner/checker path/hash integrity against the bootstrap pins. A review-status
+field is rejected as extra. Review approval and selection of the exact commit
+eligible for Fresh Evidence remain user/Planner/Harness control-plane actions.
+Correction 16 is reserved; fresh focused and composed DEV checks precede the
+new at-most-three-review cycle.
+
+D54's three sealed SHA-256 values remain `b0ca7a5b...a2b5`,
+`d406e856...9d81`, and `f94c511b...2b39`. The D54 lesson becomes `PROMOTED`
+only in the reviewed local D55 Build commit containing the tracked runner/checker and
+proving focused plus complete composed DEV checks. This Build starts no D55 formal, canary, product, or assessor
+evidence and creates no D56 authority.
+
 The checker validates structure and configured publication boundaries. It does
 not prove selection, behavior, efficacy, permissions, or release identity.
+
+### 2026-08-14 — Work Charter minimal claim-level evaluation
+
+Exact candidate `c4810057c3f28cca9f12004ca2018784cd21f449` was mechanically
+materialized as five files matching manifest
+`04c382a48e43897a8806aa5ffd996984cb015d3d8cdc6e675e9181a6d94e6f44`.
+The zero-model route passed with three isolated roots, zero corrections,
+canaries, and product starts. Claim synthesis reused only admitted D45-D49
+exact-candidate evidence; one independent read-only assessor agreed that C1-C5
+are each `ACCEPT`. The bounded overall verdict is therefore `ACCEPT` for those
+five claims only. D44/D47/D50 and D51-D55 remain excluded product evidence;
+complete 28-cell Gate 2 and release readiness remain unaccepted.
+
+D55 later sealed C17 as `QUALIFICATION_FAILED / PRODUCT_UNKNOWN`; exact failure
+mechanism remains `UNKNOWN`, no formal/product/assessor evidence was created,
+and its writer relinquished. The minimal evaluation did not repair, import, or
+replay D55.
+
+The sanitized terminal is
+[`2026-08-14-work-charter-v0.2-minimal-eval-terminal.md`](../evals/results/2026-08-14-work-charter-v0.2-minimal-eval-terminal.md).
+
+### 2026-08-14 — Work Charter-only `v0.2.0` prerelease deterministic gate
+
+The task-owned release-prep checkout proves the public package set as Work
+Charter 5/5 Git blobs equal to exact `c481005...`, Project Docs 6/6 and
+PowerShell 5/5 Git blobs equal to exact `ceed607...`, with Work Charter
+canonical manifest `04c382a4...`. All 12 allowlisted factual-source raw hashes
+match the authenticated source root.
+
+All three Skill validators pass. PowerShell 7 and Windows PowerShell 5.1 each
+pass 15/15 boundary checks; all ten tracked PowerShell scripts/module files
+parse. The controller returns `PASS` with no failures, and the revision-aware
+fixture checker passes 18/18. Its two release-set branches bind exact `v0.1.2`
+Project Docs bytes before classifying the frozen Decision 0019 fixture as
+excluded, and bind the exact unchanged release-prep runner before accepting
+the absence of its declared ignored D50 private carrier as a pre-qualification
+stop. Neither branch creates product or acceptance evidence.
+
+The repository checker passes at 218 text files / 14 cases / 12 fixtures.
+Targeted Gitleaks scans all 27 intended public paths without reading ignored
+private carriers, and `git diff --check` passes. Native review and the local
+commit remain separate gates; none of these deterministic results proves
+`RC_INSTALL`, stable loaded-copy, tag, release, or publication.
 
 ## Per-Skill Evidence Routing
 

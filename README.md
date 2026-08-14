@@ -49,13 +49,15 @@ $work-charter Bound this consequential task, its authority, evidence, and recove
 $use-powershell-safely Diagnose this material Windows shell boundary before changing application code.
 ```
 
-Project Docs may be selected from a direct documentation-governance request or
-high-confidence authority, evidence, routing, or recovery symptoms. That
-implicit path is read-only and proposal-only; it never authorizes adoption,
-structure, canonical-owner changes, or writes. `$manage-project-docs` remains
-the manual override. After a concrete proposal is visible, natural-language
+Project Docs uses the released `v0.1.2` explicit-only trigger in this
+Work-Charter-only prerelease set. The user must explicitly ask to use Project
+Docs, including through `$manage-project-docs`; a documentation-governance
+request or authority, evidence, routing, or recovery symptom alone does not
+select or load it. After a concrete proposal is visible, natural-language
 approval authorizes only its listed target-project changes. Valid persisted
-project routing handles ordinary maintenance without loading the Skill.
+project routing handles ordinary maintenance without loading the Skill. A
+broken route may ask the user to invoke Project Docs, but does not itself
+invoke the Skill or authorize repair.
 
 Work Charter also accepts ordinary-language requests such as “use Work Charter
 to decide how this project should continue”;

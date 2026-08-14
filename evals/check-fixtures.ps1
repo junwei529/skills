@@ -194,6 +194,49 @@ $projectDocsAnchor = Get-Content -Raw -Encoding UTF8 (
         'skills\manage-project-docs\assets\templates\continuity-anchor.md'
     )
 )
+$projectDocsDesign = Get-Content -Raw -Encoding UTF8 (
+    Join-Path $repoRoot 'docs\skills\manage-project-docs\DESIGN.md'
+)
+$evalReadme = Get-Content -Raw -Encoding UTF8 (
+    Join-Path $repoRoot 'evals\README.md'
+)
+$projectDocsV012Hashes = [ordered]@{
+    'SKILL.md' = 'cc536a35c7bbba6f293193849b98db85923de8fe0d73c106feed405bfc4b448b'
+    'agents\openai.yaml' = '50fa3c3799caeca29ec6ba10151bd7c58e3c85d4e86d86b38ae9632306e31b17'
+    'assets\templates\continuity-anchor.md' = '258578585c4a9c69379afdfa9a872b41233885a11c6342a7458c7677aeb68ec5'
+    'assets\templates\project-doc-starter.md' = 'd5d70f3c2b3422f51be420658bfe2198992ad95daaeac0aa28e5f1e4fe61ec8a'
+    'references\audit-and-adopt.md' = 'b4af599f3838868db9479a6321a1f1aa82a8ff29cc492afa15b7e5de26078321'
+    'references\maintain-and-recover.md' = '5c774b699d832ce0f52f68e6ef0b355d9ca79bc6c3407064276bf3638c5fb9ba'
+}
+$projectDocsV012Root = Join-Path $repoRoot 'skills\manage-project-docs'
+$projectDocsV012ExpectedPaths = @(
+    $projectDocsV012Hashes.Keys | Sort-Object
+)
+$projectDocsV012ActualPaths = @(
+    Get-ChildItem -LiteralPath $projectDocsV012Root -Recurse -File -Force |
+        ForEach-Object {
+            $_.FullName.Substring($projectDocsV012Root.Length + 1)
+        } |
+        Sort-Object
+)
+$projectDocsV012Exact = (
+    ($projectDocsV012ActualPaths -join "`0") -ceq
+    ($projectDocsV012ExpectedPaths -join "`0")
+)
+foreach ($entry in $projectDocsV012Hashes.GetEnumerator()) {
+    $path = Join-Path $projectDocsV012Root $entry.Key
+    $item = Get-Item -LiteralPath $path -Force -ErrorAction Stop
+    if ($item.PSIsContainer -or
+        ($item.Attributes -band [System.IO.FileAttributes]::ReparsePoint)) {
+        $projectDocsV012Exact = $false
+        break
+    }
+    $actual = (Get-FileHash -Algorithm SHA256 -LiteralPath $path).Hash.ToLowerInvariant()
+    if ($actual -cne $entry.Value) {
+        $projectDocsV012Exact = $false
+        break
+    }
+}
 $continuityAnchorRecovery = [regex]::Match(
     $continuityRules,
     'Resume interrupted work from `([^`]+)`\.'
@@ -202,39 +245,56 @@ $continuityStateRecovery = [regex]::Match(
     $continuityState,
     '(?m)^- Recovery target: `([^`]+)`$'
 )
+$projectDocsContinuityCommon = (
+    $continuityExit -eq 0 -and
+    $continuityText -match 'test_normalizes_slug' -and
+    $continuityText -match 'Ran 1 test' -and
+    $continuityText -notmatch '(?m)^(?:FAILED|ERROR)' -and
+    $continuityState -match 'planned but not implemented' -and
+    $continuityState -match 'Current writer: none recorded' -and
+    $continuityState -match 'Current gate:' -and
+    $continuityAnchorRecovery.Success -and
+    $continuityStateRecovery.Success -and
+    $continuityAnchorRecovery.Groups[1].Value -eq
+        $continuityStateRecovery.Groups[1].Value -and
+    $continuityState -match '## Frozen Historical Checkpoint' -and
+    $continuityRules -match '## Project Documentation Continuity' -and
+    $continuityRules -match 'PROJECT_STATE\.md#next-action-and-recovery'
+)
+$projectDocsDecision19Implicit = (
+    $continuityRules -match 'visibly propose a Project Docs repair' -and
+    $continuityRules -match 'confirms the concrete proposal' -and
+    $continuityRules -match 'neither Skill invocation nor authorization' -and
+    $continuityRules -notmatch '\$manage-project-docs' -and
+    $projectDocsMetadata -match '(?m)^  allow_implicit_invocation: true$' -and
+    $projectDocsSkill -match 'Implicit selection permits only bounded read-only inspection' -and
+    $projectDocsSkill -match 'natural-language confirmation is sufficient' -and
+    $projectDocsStarter -match 'Activate or update when' -and
+    $projectDocsStarter -match 'Update mode' -and
+    $projectDocsAudit -match 'material project event -> durable fact class -> existing canonical owner -> update mode' -and
+    $projectDocsAudit -match 'For an\s+existing project, map its current documents' -and
+    $projectDocsMaintain -match 'Do not turn a current-state owner into a\s+chronological execution log' -and
+    $projectDocsAnchor -match 'visibly propose a Project Docs repair' -and
+    $projectDocsAnchor -notmatch '\$manage-project-docs'
+)
+$projectDocsV012ExpectedExclusion = (
+    $projectDocsV012Exact -and
+    $continuityRules -match 'visibly propose a Project Docs repair' -and
+    $continuityRules -notmatch '\$manage-project-docs' -and
+    $projectDocsMetadata -match '(?m)^  allow_implicit_invocation: false$' -and
+    $projectDocsSkill -match 'Use only after the user explicitly invokes Project Docs' -and
+    $projectDocsAnchor -match '\$manage-project-docs' -and
+    $projectDocsDesign -match '## Work Charter `v0\.2\.0` Release-Set Applicability' -and
+    $projectDocsDesign -match 'Project\s+Docs is explicit-only' -and
+    $evalReadme -match '## Historical Project Docs M1R Forward Matrix \(Excluded From This Candidate\)'
+)
 Add-Check `
     -Name 'project-docs continuity baseline' `
     -Passed (
-        $continuityExit -eq 0 -and
-        $continuityText -match 'test_normalizes_slug' -and
-        $continuityText -match 'Ran 1 test' -and
-        $continuityText -notmatch '(?m)^(?:FAILED|ERROR)' -and
-        $continuityState -match 'planned but not implemented' -and
-        $continuityState -match 'Current writer: none recorded' -and
-        $continuityState -match 'Current gate:' -and
-        $continuityAnchorRecovery.Success -and
-        $continuityStateRecovery.Success -and
-        $continuityAnchorRecovery.Groups[1].Value -eq
-            $continuityStateRecovery.Groups[1].Value -and
-        $continuityState -match '## Frozen Historical Checkpoint' -and
-        $continuityRules -match '## Project Documentation Continuity' -and
-        $continuityRules -match 'PROJECT_STATE\.md#next-action-and-recovery' -and
-        $continuityRules -match 'visibly propose a Project Docs repair' -and
-        $continuityRules -match 'confirms the concrete proposal' -and
-        $continuityRules -match 'neither Skill invocation nor authorization' -and
-        $continuityRules -notmatch '\$manage-project-docs' -and
-        $projectDocsMetadata -match '(?m)^  allow_implicit_invocation: true$' -and
-        $projectDocsSkill -match 'Implicit selection permits only bounded read-only inspection' -and
-        $projectDocsSkill -match 'natural-language confirmation is sufficient' -and
-        $projectDocsStarter -match 'Activate or update when' -and
-        $projectDocsStarter -match 'Update mode' -and
-        $projectDocsAudit -match 'material project event -> durable fact class -> existing canonical owner -> update mode' -and
-        $projectDocsAudit -match 'For an\s+existing project, map its current documents' -and
-        $projectDocsMaintain -match 'Do not turn a current-state owner into a\s+chronological execution log' -and
-        $projectDocsAnchor -match 'visibly propose a Project Docs repair' -and
-        $projectDocsAnchor -notmatch '\$manage-project-docs'
+        $projectDocsContinuityCommon -and
+        ($projectDocsDecision19Implicit -or $projectDocsV012ExpectedExclusion)
     ) `
-    -Expectation 'ordinary updates stay routed while broken governance proposes Project Docs without granting mutation authority'
+    -Expectation 'the frozen Decision 0019 fixture matches its implicit revision, or an exact v0.1.2 explicit-only Work Charter release set records that fixture as excluded without changing package bytes'
 
 $safetyDocs = Join-Path $repoRoot 'evals\fixtures\project-docs-safety-boundaries'
 $serviceDocs = Join-Path $safetyDocs 'apps\service'
@@ -1038,6 +1098,8 @@ $expectedPostD53RulesetSha256 =
     '49e622e564ba22fb30e4601d1609c4be25a8285f8a9076629de75c7007f2b1db'
 $expectedD53RunnerSha256 =
     '7a1db132ada4429914dceefb25aa086a3e33da40a79e84d8a73d4bcc88f79248'
+$expectedReleasePrepRunnerSha256 =
+    'f78d16809a526d25419e012191c99a645821958d7dc2bae68a8a4bee9cc5f5a1'
 $expectedRulesetDrift =
     "Ruleset source drifted before runner qualification: $postD53RulesetPath"
 $gate2RunnerText = $gate2RunnerOutput | Out-String
@@ -1048,14 +1110,28 @@ $gate2RunnerExpectedSealedDrift = (
     $d53RunnerSha256 -ceq $expectedD53RunnerSha256 -and
     $gate2RunnerText.Contains($expectedRulesetDrift)
 )
+$d50PrivateManifestPath = Join-Path $repoRoot (
+    '.eval-runs\work-charter-v0.2-c481005-gate2-d50-bundle-dev-01\' +
+    'controller-bundle-manifest.json'
+)
+$gate2RunnerExpectedPrivateCarrierAbsent = (
+    $gate2RunnerExit -eq 1 -and
+    $null -eq $gate2RunnerRecord -and
+    $projectDocsV012ExpectedExclusion -and
+    -not (Test-Path -LiteralPath $d50PrivateManifestPath) -and
+    $d53RunnerSha256 -ceq $expectedReleasePrepRunnerSha256 -and
+    $gate2RunnerText.Contains('Cannot find path') -and
+    $gate2RunnerText.Contains($d50PrivateManifestPath)
+)
 $gate2RunnerRegressionPassed = (
     $gate2RunnerHistoricalPass -or
-    $gate2RunnerExpectedSealedDrift
+    $gate2RunnerExpectedSealedDrift -or
+    $gate2RunnerExpectedPrivateCarrierAbsent
 )
 Add-Check `
     -Name 'Work Charter Gate 2 outer runner regression' `
     -Passed $gate2RunnerRegressionPassed `
-    -Expectation 'the exact historical D53 ruleset retains its 32/32 runner path, while the exact promoted post-D53 AGENTS ruleset and unchanged D53 runner admit only the pinned pre-qualification ruleset-drift stop; every other nonzero or identity fails'
+    -Expectation 'the exact historical D53 runner retains its 32/32 path; an exact promoted-ruleset drift or absence of its declared ignored D50 private carrier is an expected pre-qualification stop, while every other nonzero or identity fails'
 
 $checks | Format-Table -AutoSize
 

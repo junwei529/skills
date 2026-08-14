@@ -1,6 +1,6 @@
 # Work Charter Verification
 
-Last updated: 2026-08-13
+Last updated: 2026-08-14
 
 ## Claim Ledger
 
@@ -42,6 +42,9 @@ Last updated: 2026-08-13
 | Exact `c481005...` D52 qualification terminal | local commit `410b0bd...` records the tracked single-entry runner and corrected 24/24 focused result; one fresh private carrier used both corrections, passed official stages 1-6, then failed stage 7 `model_authorization_envelope` because the frozen policy did not require the post-freeze authorization gate; no aggregate 48/48 receipt, outer phase receipt, canary, freeze, product, or assessor turn followed, so D52 is `QUALIFICATION_FAILED / PRODUCT_UNKNOWN` and the candidate remains unaccepted |
 | Exact `c481005...` D53 qualification terminal | explicitly authorized Campaign `WC-AR-D53-LAYERED-AUTHORIZATION-LIFECYCLE` preserves D51/D52 and records the reviewed hash-bound lifecycle in local commit `4ab8a025...`; the tracked runner/checker passes 32/32 with direct-JSON, product-first, forged-failure-terminal, early-terminal, and typed failed-segment closeout guards; fresh Layer A preserved `r00-r03`, used all three private corrections, passed materialization/finalization and official stages 1-6, then failed stage 7 predecessor import because an inherited nested-path inference could not locate immutable D49 evidence; Layer B, aggregate 56/56, canary, freeze, product, assessor, model context, and `turn/start` did not start, so D53 is `QUALIFICATION_FAILED / PRODUCT_UNKNOWN` and the candidate remains unaccepted |
 | Exact `c481005...` D54 explicit-root terminal | explicitly authorized `WC-AR-D54-EXPLICIT-ROOT-CONTRACT` preserves D51-D53 and records the reviewed explicit-root Build at local commit `9fe27bb...`; focused 32/32 and one composed disposable DEV path through aggregate 56/56/lifecycle/synthetic dispatch remain implementation-only. The only fresh formal carrier then returned exit 86 at ignored-orchestrator `bootstrap` before materializer, finalizer, importer, private 24/24, tracked 32/32, aggregate 56/56, lifecycle, canary, product, or assessor; all model/start counts are zero, D54 is `QUALIFICATION_FAILED / PRODUCT_UNKNOWN`, and the candidate remains unaccepted |
+| Exact `c481005...` D55 tracked-bootstrap terminal | explicitly authorized `WC-AR-D55-TRACKED-FORMAL-BOOTSTRAP` preserves D54 and its DEV/review history; D55 later consumed C16/C17 and sealed `QUALIFICATION_FAILED / PRODUCT_UNKNOWN`, exact mechanism `UNKNOWN`. No formal, canary, product, assessor, acceptance, or D56 evidence followed, and its writer relinquished |
+| Exact `c481005...` minimal claim evaluation | admitted D45-D49 exact-candidate cells plus one read-only assessor support `ACCEPT` for C1-C5 with zero fresh product starts; no A20, full 28-cell Gate 2, cross-model, real-project, deterministic lock/router, installation, stable loaded-copy, tag, or release claim follows |
+| Work Charter-only `v0.2.0` prerelease package | five live files are byte-identical to `c481005...` and recompute manifest `04c382a4...`; this is local release-prep identity only, not `RC_INSTALL`, stable loaded-copy, tag, release, or publication evidence |
 | Isolated path-bound controller canary | private retained sealed `CANARY_PASS`; the public summary reports an exact-response pass and no command execution, omits locator/artifact/runtime details, leaves physical backend request count `UNKNOWN`, and proves neither natural-language selection nor candidate acceptance |
 | Small bounded work stays flat | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
 | Midstream implicit behavior is proposal-only | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
@@ -2489,6 +2492,240 @@ summary SHA-256 values are respectively `b0ca7a5b...a2b5`,
 `d406e856...9d81`, and `f94c511b...2b39`. D54 is
 `QUALIFICATION_FAILED / PRODUCT_UNKNOWN`; `formal-f00` is immutable and may not
 be repaired, replaced, retried, or cleaned. No automatic D55 follows.
+
+### 2026-08-13 — D55 tracked formal-bootstrap Build
+
+User-authorized successor `WC-AR-D55-TRACKED-FORMAL-BOOTSTRAP` starts from clean
+`main@8c952abb...` and preserves D54's sealed orchestrator, failure record, and
+failed summary at exact SHA-256 `b0ca7a5b...a2b5`, `d406e856...9d81`, and
+`f94c511b...2b39`. D55 changes no Work Charter package byte or product
+acceptance target.
+
+Tracked runner mode `FormalBootstrap` now validates one exact ordered pin set;
+each pin has only `Path`, `Sha256`, and `Label`. The independent preflight suite
+passes 27/27 across nested predecessor positive, authenticated post-bootstrap
+terminal, pre-auth outside/root-mismatch zero-write cases, D54 positional-array
+regression, missing/extra fields, malformed/wrong hashes, wrong/missing paths,
+Python shadow/wrong-path/wrong-hash cases, hostile Git override isolation, and
+combined bootstrap/normal pre-existing-terminal rejection. It also proves the
+separate revision-authority record's containment, schema, commit-status,
+evidence-class, and runner/checker path/hash bindings.
+Pre-auth failures return exit 86
+plus stderr with no writes; authenticated failure writes only through
+`Context.FailureRoot` and produces a non-null, hash-bound terminal pointer.
+These checks do not redefine tracked 32/32.
+
+The initial composed DEV attempt plus all four corrections are retained.
+`dev-f00` found the inherited D54 tool's hard-coded dirty-status binding;
+correction 1 made its D55 copy consume authenticated tracked subjects/status.
+`dev-c01` then found that the preflight receipt made the carrier non-fresh;
+correction 2 moved the receipt to the explicit Campaign root. After
+documentation closure changed the tracked set, `dev-final-stable-01` exposed a
+noncanonical manual order; correction 3 ordinal-sorted the complete subject
+set. `dev-c03` reached private qualification and exposed four historical
+recovery/writer fragments removed from mapped docs; correction 4 restored them
+and bound the tracked DEV correction ceiling to four while formal remains zero.
+
+`dev-c04-final` was prepared with absolute authenticated fields. A caller-only
+relative-path outer launch returned exit 1 before bootstrap and created no
+stage, bootstrap/failed-summary, or normal terminal artifact. It was not a
+fifth code correction. User-approved one-shot launch recovery R1 consumed the
+exact attempt-record hash and its absolute campaign/bootstrap/normal-terminal
+fields through a hash-bound PowerShell 7 executable and structured argv. It
+passed bootstrap, materializer, finalizer, predecessor importer, private 24/24,
+tracked 32/32, aggregate 56/56, lifecycle consumer, and synthetic dispatch.
+Summary SHA-256 is `58cd551f...c266`; evidence class is
+`DEV_IMPLEMENTATION_QUALIFICATION`, dispatch stops before first
+`thread/start`, and model calls/contexts, thread starts, turn starts, assessor
+starts, and repository writes outside the mirror are all zero. The R1 started
+and result receipts are one-shot and hash-bound; R1 is consumed.
+
+Native review 1/5 found two P1 trust gaps: the catch could use raw
+`BootstrapFailureRoot` before authentication, and contract executable pairs
+could self-authorize. Correction 5 removed all pre-auth writes, made the
+authenticated context the terminal-root owner, and bound Git/PowerShell/Python
+pins independently. Fresh `dev-h1-c05` then exposed two tracked absolute-path
+literals rejected by repository safety. Correction 6 preserved the fixed,
+signed Python 3.12.10 path/hash/version identity through a system-volume anchor
+independent of cwd, PATH, `Get-Command`, siblings, or file ancestry.
+
+Fresh one-shot `dev-h1-c06` passes bootstrap, materializer, finalizer,
+predecessor import, private 24/24, tracked 32/32, aggregate 56/56, lifecycle,
+and synthetic dispatch through `STOPPED_BEFORE_FIRST_THREAD_START`. Summary
+SHA-256 is `4ea710d0...3b37`; every model/start/assessor and outside-write count
+is zero.
+
+Native review 2/5 found that the outer contract could self-select a
+materializer and disable formal cleanliness. Correction 7 binds materializer,
+source-manifest, and predecessor evidence hashes to tracked policy, limits
+formal to the deterministic D55 tool, and requires a clean checkout for formal
+evidence. Direct self-authorizing-tool and formal-clean-policy negatives raise
+the focused suite to 16/16. Fresh `dev-h1-c07` passes the full composed route;
+summary SHA-256 is `7028700c...8982`, every model/start/assessor and outside-
+write count is zero, H1 then stood at 7/7 corrections, and this remains DEV-
+only.
+
+Native review 3/5 found that inherited `GIT_*` values could redirect repository
+checks and inherited `PYTHONHOME`/`PYTHONPATH` could alter pinned Python stages.
+H2 correction 8 clears Git overrides, binds `safe.directory` from the
+authenticated repository root, starts every Python stage with `-I`, and removes
+Git/Python overrides from those children. Focused coverage then rises to 17/17.
+`dev-h2-c08` remained prepared-not-started when isolated Git correctly lost the
+sandbox-provided safe-directory configuration; the explicit authenticated
+`safe.directory` argument closed that transport boundary. `dev-h2-c08-safe`
+then sealed at pre-auth exit 86 with no terminal/model/start because the ignored
+H2 launcher converted each `StartsWith` Boolean to a non-empty string and
+removed the full child environment. Correction 9 parenthesized the string
+receiver; a deterministic probe proves only declared Git/Python keys are
+removed.
+
+Fresh hostile-environment `dev-h2-c09` passes the complete route through
+`STOPPED_BEFORE_FIRST_THREAD_START`. All seven Python stage receipts start with
+`-I`; private/tracked/aggregate totals are 24/24, 32/32, and 56/56. Summary,
+start, and result SHA-256 values are `ce4ee43a...5e5a`,
+`cb190a58...cea9`, and `5b2de954...07ad`. Every model/context/thread/turn/
+assessor/outside-write count is zero. Cumulative corrections then stand at
+9/10.
+
+Native review 4/5 found one P1 one-shot gap: a carrier with an existing normal
+lifecycle terminal could still write bootstrap preflight and continue.
+Correction 10 rejects an existing bootstrap terminal, normal lifecycle terminal,
+or failed summary before the first preflight/stage write. A combined negative
+proves both terminal variants return exit 86, retain their exact hashes, and
+create neither preflight nor failed summary; focused coverage is 18/18. Fresh
+hostile-environment `dev-h2-c10` passes private/tracked/aggregate 24/24, 32/32,
+and 56/56 through lifecycle/synthetic dispatch and
+`STOPPED_BEFORE_FIRST_THREAD_START`. Summary/start/result SHA-256 values are
+`65472e86...7b80`, `fe9da82e...40f6`, and `a5c13827...86a0`; all seven Python
+stages start with `-I`, and every model/context/thread/turn/assessor/outside-
+write count is zero.
+
+Native review 5/5 found one P1 tracked-identity trust gap because the bootstrap
+contract still self-authorized the runner/checker paths and hashes. H3
+correction 11 adds a separately rooted, hash-authenticated revision-authority
+record and cross-binds its exact runner/checker identities to the repository,
+bootstrap pins, expected HEAD, evidence class, and reviewed-commit status before
+any output. Nine direct negatives raise focused coverage from 18/18 to 27/27.
+
+The first H3 attempt, `dev-h3-c11-final`, reached private 24/24 before an outer
+tool transport timeout and produced no typed result; it remains sealed and the
+timeout is not a code correction. User-approved one-shot R2 created fresh
+`dev-h3-c11-r2`, consumed authenticated absolute attempt fields through
+structured argv, and passed bootstrap, materializer, finalizer, predecessor
+importer, private 24/24, tracked 32/32, aggregate 56/56, lifecycle, and
+synthetic dispatch through `STOPPED_BEFORE_FIRST_THREAD_START`. Its 960-second
+outer call used 60-second waits and completed in 464.6 seconds. Summary, start,
+and result SHA-256 values are `cb883af9...5385`, `2e3da026...3f16`, and
+`0a57b090...852d`; every model/context/thread/turn/assessor/outside-write count
+is zero. Correction 11 is consumed.
+
+Documentation-impact closure then changed the mapped `evals/README.md` ruleset
+source. Correction 12 freezes its final text, updates the runner/checker's exact
+normalized-text pin, and uses fresh `dev-h3-c12-final`. Focused 27/27 and the
+complete private 24/24 + tracked 32/32 = aggregate 56/56/lifecycle/synthetic
+route pass through `STOPPED_BEFORE_FIRST_THREAD_START`; every model/context/
+thread/turn/assessor/outside-write count is zero. Correction 12 is consumed;
+corrections 13-15 remain unused. This remains DEV-only and the new Terra/high
+review cycle is next.
+
+Native review 1/5 found one P1 remaining caller-self-authorization path for
+formal revision authority. Correction 13 embeds the exact formal v2 record
+SHA-256 in the tracked runner. The record binds stable candidate and review
+policy fields, fixed repository-relative identities, the runner's anchor-field-
+zeroed normalized-text hash, and checker raw hash. A self-rehashed caller v1
+record fails before output; the exact v2 record reaches the later material-
+policy gate. Focused 28/28 and fresh `dev-h3-c13-final` pass the full 56/56/
+lifecycle/synthetic route through `STOPPED_BEFORE_FIRST_THREAD_START`; every
+model/context/thread/turn/assessor/outside-write count is zero. Correction 13 is
+consumed. Native review 2/5 found the missing exact reviewed-revision binding.
+Correction 14 adds the tracked formal-authority owner and requires its
+independently anchored Git last-change commit to equal contract and actual
+authenticated HEAD. Focused 29/29 and fresh `dev-h3-c14-final` pass the same
+56/56/lifecycle/synthetic route with every model/context/thread/turn/assessor/
+outside-write count zero. Correction 14 is consumed, correction 15 is unused,
+and review 3/5 is next.
+
+Review 3/5 repeated the repository-local self-authorization P1. Under
+user-approved `CONTROL_PLANE_BOUND A′`, correction 15 deletes the untracked
+formal-authority proposal and removes review-status, review-count, v2 hash-
+anchor, anchor-zeroed, and tracked-owner last-change checks. The retained v1
+record is mechanical integrity only and cross-binds evidence class, exact
+authenticated HEAD/branch, schema, containment, and raw runner/checker path/
+hash values to the bootstrap pins. Review approval and exact Fresh-eligible
+commit selection stay with the user/Planner/Harness control plane. Correction
+16 is reserved; fresh focused and complete composed DEV checks are required
+before the new three-review cycle.
+
+The launcher lesson is recorded as post-D55 `DEFERRED`. R1 proves only its
+ignored recovery wrapper. A later separately authorized launch owner must
+consume an authenticated attempt record directly and prove absolute structured
+argv plus one-shot return semantics; this Build adds no generic governance or
+controller framework.
+
+This Build does not run D55 formal qualification, canary, product, or assessor
+evidence. The D54 lesson is `PROMOTED` only by the reviewed local D55 commit
+containing the tracked runner/checker and proving focused plus complete composed DEV
+checks. Fresh Evidence must bind that
+exact commit in a separate task and new carrier; no D56 is automatic.
+
+### 2026-08-14 — Minimal claim-level evaluation of exact `c481005`
+
+The bounded evaluation froze five user-visible claims without changing Work
+Charter SOURCE, cases, fixtures, matrix, rubric, scorer, or controller. Exact
+candidate `c4810057c3f28cca9f12004ca2018784cd21f449` was materialized as five
+files and every length/SHA-256 matched manifest
+`04c382a48e43897a8806aa5ffd996984cb015d3d8cdc6e675e9181a6d94e6f44`.
+Three empty isolated route roots and a complete zero-model terminal passed with
+zero corrections, canaries, or product starts.
+
+Claim-level synthesis uses only sealed admitted exact-candidate cells: C1 from
+D45 A04-A05; C2 from D45 A01/A06; C3 from D45 A09, D46 A10, and D48 A13; C4
+from D48 A11-A12 and D49 A14; and C5 from D48 A13 and D49 A15. One independent
+read-only assessor reached the same result. All five claims are `ACCEPT`, so the
+minimal overall verdict is `ACCEPT`. D44/D47/D50 and D51-D55 remain evaluation,
+controller, environment, governance, or historical limits rather than product
+evidence. A19-A20 and B01-B04/C01-C04 did not start, and released-control A18
+remains `CONTROLLER_UNKNOWN`; complete 28-cell Gate 2 and release readiness
+therefore remain outside this verdict.
+
+D55 itself later sealed C17 as `QUALIFICATION_FAILED / PRODUCT_UNKNOWN`; exact
+failure mechanism remains `UNKNOWN`, no formal/product/assessor evidence was
+created, and its writer relinquished. This disposition is preserved without
+repair or replay.
+
+The sanitized result is
+[`2026-08-14-work-charter-v0.2-minimal-eval-terminal.md`](../../../evals/results/2026-08-14-work-charter-v0.2-minimal-eval-terminal.md).
+
+### 2026-08-14 — Work Charter-only `v0.2.0` prerelease preparation
+
+The release-prep set keeps all five Work Charter SOURCE files byte-identical to
+exact commit `c4810057c3f28cca9f12004ca2018784cd21f449`. Canonical JSON over the
+five path-sorted `path`/`length`/`sha256` rows must recompute
+`04c382a48e43897a8806aa5ffd996984cb015d3d8cdc6e675e9181a6d94e6f44`.
+Project Docs is materialized as the exact six-file `v0.1.2` package and
+PowerShell remains the exact five-file `v0.1.2` package, both at `ceed607...`.
+Thus Work Charter is the only `changed` public Skill relative to the released
+set; the other two are `unchanged`.
+
+This preparation migrates the allowlisted D55/minimal-evaluation factual bytes
+without the source root's dirty D55 runner/checker implementation. It creates
+no new product cell or SOURCE behavior claim and does not advance the bounded
+C1-C5 `ACCEPT` into complete Gate 2 or release acceptance. Deterministic checks,
+native review, and exactly one local commit are the only authorized effects.
+`RC_INSTALL`, stable install/update, loaded-copy proof, push, PR, merge, tag,
+release, cleanup, and publication remain absent.
+
+The detailed release-set and documentation-impact record is
+[`2026-08-14-work-charter-v0.2-release-prep.md`](../../../evals/results/2026-08-14-work-charter-v0.2-release-prep.md).
+
+The prerelease deterministic gate passes the exact 5/6/5 Git-blob and Work
+Charter manifest proofs, all three Skill validators, both 15/15 PowerShell
+runtime boundary suites, the ten-file parser sweep, controller regression,
+18/18 revision-aware fixtures, repository checking at 218 text files / 14
+cases / 12 fixtures, targeted publication-safety scanning of all 27 intended
+paths, and `git diff --check`. The unchanged tracked runner's missing declared
+ignored D50 private carrier remains an expected pre-qualification stop, not a
+runner pass or product result.
 
 ## Required Checks
 
