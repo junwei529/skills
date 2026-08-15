@@ -603,6 +603,30 @@ PowerShell 5.1. It is not a fresh-context behavior or model-selection test,
 live Bash/WSL test, sandbox-denial injection, or proof for other parameter,
 cmdlet, automatic-variable, syntax, or reparse-point families.
 
+### 2026-08-15 PowerShell P1 bounded selection evidence
+
+A separately authorized DEV tranche materialized exact commit `30668743...`
+and immutable `v0.1.2` into isolated workspaces without changing the installed
+stable copy or persistent discovery configuration. Before product cells, a
+zero-model catalog probe verified one intended PowerShell metadata entry and
+resolved loaded path per workspace; one exact-response transport canary then
+passed. Earlier local controller-shape and restricted-network attempts were
+excluded before counted selection evidence.
+
+The four counted cells were one matched pre-error positive on P1, the same
+positive on `v0.1.2`, one ordinary version-independent cmdlet negative, and one
+POSIX-only negative. P1 loaded `SKILL.md` and the native/process reference
+before attempting the `.ps1`; the stable control and both negatives did not
+load. Read-only policy prevented target execution, so the result is
+`PRE_ERROR_SELECTION_OBSERVED / NARROW_PASS`, not selected-behavior evidence.
+The task-private carrier bound the Harness executable identity without
+publishing it; model and reasoning identity remain `UNKNOWN`. No assessor ran,
+and this does not establish broad trigger accuracy, real-project efficacy, RC,
+stable, or release readiness. Detailed controller artifacts remain ignored and
+private;
+only this sanitized method/result boundary and the per-Skill evidence ledger
+are tracked.
+
 ## Work Charter v0.2 Staged Matrix Definition
 
 The v0.2 cases define a future 20-run minimum reference matrix. Gate 1 adds the

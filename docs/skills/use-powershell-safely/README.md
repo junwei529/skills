@@ -77,8 +77,12 @@ has exact loaded-copy identity plus a guarded native/text diagnosis canary.
 The hardening still lacks live Bash/WSL, an executed native probe inside the
 stable canary sandbox, actual sandbox-denial injection, and shadow-use proof.
 The unreleased P1 SOURCE revision adds deterministic dual-runtime command-
-readiness checks and a static pre-error selection contract; actual Harness
-selection efficacy remains unproved model evidence.
+readiness checks and a pre-error selection contract. One bounded fresh tranche
+observed the exact P1 revision load before the first risky command while the
+same request did not load immutable `v0.1.2`; ordinary-cmdlet and POSIX-only
+negatives also stayed unloaded. The target command did not execute, no
+assessor ran, and broad selection, selected behavior, RC, and stable readiness
+remain unproved.
 See [Verification](VERIFICATION.md) and [State](STATE.md).
 
 ## Authoritative Contract

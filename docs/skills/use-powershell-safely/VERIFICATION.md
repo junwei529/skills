@@ -7,8 +7,9 @@ Last updated: 2026-08-15
 | Claim | Status |
 |---|---|
 | The current package has one entry and exactly three conditional references | verified structurally |
-| P1 metadata and case contract cover `.ps1`, `pwsh`, `powershell.exe`, and non-trivial PowerShell before the first related command | verified statically; actual Harness selection efficacy remains unproved |
-| P1 ordinary version-independent cmdlet and POSIX-only negatives remain explicit | verified statically; no model selection run occurred |
+| P1 metadata and case contract cover `.ps1`, `pwsh`, `powershell.exe`, and non-trivial PowerShell before the first related command | verified statically and observed in one bounded fresh selection cell at exact commit `30668743...`; broad Harness selection efficacy remains unproved |
+| P1 ordinary version-independent cmdlet and POSIX-only negatives remain explicit | verified statically and observed as two bounded fresh non-selection controls |
+| P1 revision-relative pre-error selection | `PRE_ERROR_SELECTION_OBSERVED / NARROW_PASS`: the exact P1 copy loaded before the first risky command in one matched positive, while immutable `v0.1.2` did not load for the same request |
 | P1 parameter, cmdlet-error, parser, and automatic-variable readiness | 41 focused assertions pass under PowerShell 7 and Windows PowerShell 5.1 |
 | Released portable guidance handles the recorded native, text, WSL, version, locale, sandbox, and destructive boundaries | seven fresh development scenarios pass |
 | Ordinary cmdlet and POSIX-only work remain outside the Skill | catalog-assisted and controlled native negatives pass |
@@ -41,9 +42,10 @@ references/windows-wsl-boundaries.md
 ```
 
 This identity implements the bounded
-`PRE_ERROR_SELECTION_AND_COMMAND_READINESS` residual. It is SOURCE-development
-identity only: no discovery mapping, installed copy, model selection,
-candidate, RC, stable update, tag, or release was created.
+`PRE_ERROR_SELECTION_AND_COMMAND_READINESS` residual. It was later
+materialized as one task-private isolated exact-commit copy for the bounded
+selection evidence below. That materialization was not a discovery mapping,
+installed copy, formal candidate, RC, stable update, tag, or release.
 
 ## 2026-08-15 P1 Deterministic Evidence
 
@@ -70,7 +72,42 @@ The bundled Skill validator and repository checker pass. The aggregate fixture
 checker passes all four PowerShell rows, including the new pair manifest, but
 its overall command remains nonzero at the excluded Work Charter Gate 2 runner
 regression already present in the clean base. No Work Charter file was changed
-or reclassified as a PowerShell defect. No model or assessor path ran.
+or reclassified as a PowerShell defect. No model or assessor path ran in this
+deterministic tranche.
+
+## 2026-08-15 P1 Minimal Selection Evidence
+
+One separately authorized, task-private DEV selection tranche compared the
+exact P1 revision with the immutable `v0.1.2` control without changing any
+installed or discovered Skill copy. The P1 materialization matched all five
+Git blobs and the normalized SOURCE hashes above. A zero-model catalog probe
+surfaced exactly one PowerShell entry for each isolated workspace, resolved
+each entry to its intended materialization, and reported no omission or
+truncation signal.
+
+The task-private carrier bound the exact Harness executable identity without
+publishing its local version, path, or hash. The Harness did not expose the
+model or reasoning identities, so both remain `UNKNOWN`. Two pre-evidence
+launch attempts were excluded: one failed in the local controller shape before
+model work, and one stopped at the restricted network transport. After the
+authorized corrected transport canary returned the exact `TRANSPORT_OK`
+response with no command or Skill read, the counted cells began.
+
+| Counted cell | Observation |
+|---|---|
+| Exact P1 positive | The agent loaded exact `SKILL.md`, then the native/process reference, before attempting the named `.ps1` command. The read-only policy declined execution, so selection timing is observed but command behavior is not. |
+| Immutable `v0.1.2` matched positive | Under the same request, the agent attempted the command without loading the stable Skill entry or a reference. Execution was likewise declined. |
+| Exact P1 ordinary-cmdlet negative | The agent did not load the Skill before attempting the ordinary version-independent cmdlet; execution was declined. |
+| Exact P1 POSIX-only negative | The agent did not load the Skill and returned a direct Bash shape without executing a command. |
+
+The bounded conclusion is therefore
+`PRE_ERROR_SELECTION_OBSERVED / NARROW_PASS`. It supports a revision-relative
+selection signal for this one matched positive plus the two required negative
+families. It does not prove selected command-readiness behavior, broad trigger
+accuracy, real-project efficacy, token savings, cross-Harness parity, or RC or
+stable readiness. The target command never executed, no independent assessor
+ran, and raw prompts, logs, task identifiers, and private locators remain
+unpublished.
 
 ## Released `v0.1.2` SOURCE Identity
 

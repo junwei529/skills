@@ -8,14 +8,14 @@ Canonical editable SOURCE is the five-file package under
 [`skills/use-powershell-safely`](../../../skills/use-powershell-safely) with
 one entry and three conditional references.
 
-User Authority Revision P1 authorizes one unreleased SOURCE delta,
-`PRE_ERROR_SELECTION_AND_COMMAND_READINESS`, on task branch
-`codex/use-powershell-safely-next` from base
-`26711837e496459ae718e2a461c94aed54f84a50`. The delta adds pre-error metadata
-selection for explicit non-trivial PowerShell while preserving ordinary-cmdlet
-and POSIX-only negatives, plus deterministic command-readiness guidance for
-parameter contracts, cmdlet error semantics, parse-only validation, and four
-observed syntax traps. It does not change the three-reference package shape.
+User Authority Revision P1 produced reviewed SOURCE commit
+`30668743cdc6c8be00100fd48fa89376adf746f8`, now integrated into local `main`.
+The unreleased `PRE_ERROR_SELECTION_AND_COMMAND_READINESS` delta adds pre-error
+metadata selection for explicit non-trivial PowerShell while preserving
+ordinary-cmdlet and POSIX-only negatives, plus deterministic command-readiness
+guidance for parameter contracts, cmdlet error semantics, parse-only
+validation, and four observed syntax traps. It does not change the three-
+reference package shape or the immutable `v0.1.2` release.
 
 Tested public candidate
 `c42eef392a5b9f58bbee64aa73ffb603a6fb6c29` contains both the reviewed
@@ -41,24 +41,28 @@ verified stable installed copy contain this current five-file revision.
 
 ## Current Writer
 
-The task-dedicated worktree on branch `codex/use-powershell-safely-next` holds
-the sole bounded PowerShell SOURCE writer lease through one reviewed local
-commit. That commit is the terminal writer action: after it succeeds, the
-writer relinquishes at the integration gate. The lease does not authorize
-installation, discovery mapping, candidate, model or assessor evidence, push,
-merge, cleanup, private-report mutation, or changes to Work Charter or Project
-Docs SOURCE.
+The P1 SOURCE writer completed reviewed commit `30668743...`, reconciled the
+registered worktrees, and relinquished before local-main integration. A
+separately authorized evidence-sync writer now owns only the eight existing
+documentation consumers named in Repository Handoff, through one reviewed
+local commit in the retained task worktree. That commit is the terminal writer
+action and relinquishes at its integration gate. The lease does not authorize
+SOURCE, case, fixture, controller, installed-copy, formal candidate, RC,
+stable, release, push, integration, cleanup, Work Charter, or Project Docs
+changes.
 
 ## Evidence State
 
-The P1 revision may claim only deterministic SOURCE-development evidence in
-this task: static selection-contract coverage, synthetic parameter/error and
-parser/runtime pairs, dual-runtime focused checks where both installed hosts
-support the behavior, package validation, repository checks, documentation-
-impact closure, and native review. Actual Harness selection efficacy remains
-unproved and requires separately authorized model evidence. The private sample
-audit is an intake source only; it is not broad trigger-accuracy, efficacy, or
-application-defect evidence.
+The P1 revision has deterministic SOURCE-development evidence plus one bounded
+fresh selection tranche. Static contracts, synthetic parameter/error and
+parser/runtime pairs, dual-runtime focused checks, package validation, and
+repository checks pass. At exact commit `30668743...`, one matched pre-error
+positive loaded the P1 Skill before the first risky command while immutable
+`v0.1.2` did not; ordinary-cmdlet and POSIX-only negatives did not load it.
+This is `PRE_ERROR_SELECTION_OBSERVED / NARROW_PASS`, not broad selection or
+selected-behavior efficacy. The target command did not execute, model and
+reasoning identities remain `UNKNOWN`, and no assessor ran. The private sample
+audit remains intake only and is not product or application-defect evidence.
 
 The released `v0.1.1` revision has exact-source, DEV_DISCOVERY, RC, and stable
 loaded-copy evidence. The later public hardening passes fifteen
@@ -95,12 +99,14 @@ shadow-use evidence remain absent. See [Verification](VERIFICATION.md).
 
 ## Next Gate
 
-After the reviewed local P1 commit, the next gate is explicit integration
-authorization. Actual pre-error Harness selection is a later, separately
-authorized product-evidence gate. Candidate, RC, stable installation, release,
-live WSL/Bash, sandbox-denial injection, shadow use, private-global retirement,
-retained-evidence cleanup, and rollback-copy cleanup remain separate decisions;
-released `v0.1.2` and its installed copy are unchanged.
+After the reviewed local evidence-sync commit, the next gate is explicit
+integration authorization for that documentation-only commit. A formal
+candidate/RC decision remains separate and would need fresh loaded-copy and
+selected-behavior evidence; the narrow selection observation does not
+authorize it. Stable installation, release, live WSL/Bash, sandbox-denial
+injection, shadow use, private-global retirement, retained-evidence cleanup,
+and rollback-copy cleanup remain separate decisions. Released `v0.1.2` and its
+installed copy are unchanged.
 
 ## Recovery Entry
 

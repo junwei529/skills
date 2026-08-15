@@ -10,7 +10,7 @@ Last updated: 2026-08-15
 | Stable release identity | immutable [`v0.1.2`](https://github.com/junwei529/skills/releases/tag/v0.1.2) at `ceed607152849775b981c54add74bfa30d858e4d`; exact tag, stable loaded-copy, and GitHub Release proof pass for all three Skills | [Verification](VERIFICATION.md) |
 | Project Docs | immutable `v0.1.2` remains the released explicit-only control; local commit `776989f...` implements accepted Decision 0019 but is unreleased, and its evidence is `PARTIAL` because actual candidate selection, loaded-copy identity, and persistent writes remain `UNKNOWN` | [State](skills/manage-project-docs/STATE.md) |
 | Work Charter | released `v0.1.2` remains active; exact candidate `c481005...` is unchanged and unaccepted; D51-D53 remain immutable; D54 committed its reviewed explicit-root Build, then its only formal qualification failed at ignored-orchestrator bootstrap before materialization or any 24/24, 32/32, 56/56, lifecycle, canary, product, or assessor work; D54 is `QUALIFICATION_FAILED / PRODUCT_UNKNOWN` with zero model/start events and no automatic D55 | [State](skills/work-charter/STATE.md) |
-| PowerShell | released five-file `v0.1.2` remains unchanged; unreleased P1 SOURCE adds pre-error selection and command readiness with 41 dual-runtime deterministic assertions; Harness selection efficacy remains unproved | [State](skills/use-powershell-safely/STATE.md) |
+| PowerShell | released five-file `v0.1.2` remains unchanged; unreleased P1 commit `30668743...` adds pre-error selection and command readiness with 41 dual-runtime assertions, plus one bounded revision-relative selection pass; selected behavior, broad triggers, RC, and stable readiness remain unproved | [State](skills/use-powershell-safely/STATE.md) |
 | Release lifecycle | `v0.1.2` tag, stable update, tag-pinned canaries, and Latest GitHub Release complete; `v0.1.1` retained as rollback identity | [Runbook](RUNBOOK.md) |
 
 ## Current Repository State
@@ -24,15 +24,20 @@ passed its own exact public installer and loaded-copy gate, and is now the
 immutable `v0.1.2` tag, verified stable installation, and Latest GitHub
 Release. Immutable `v0.1.1` remains retained as rollback identity.
 
-Task branch `codex/use-powershell-safely-next` starts from local
-`main@26711837e496459ae718e2a461c94aed54f84a50` and implements the explicitly
-authorized `PRE_ERROR_SELECTION_AND_COMMAND_READINESS` residual. Static
-metadata/case coverage preserves ordinary-cmdlet and POSIX-only negatives, and
-41 focused assertions pass under PowerShell 7 and Windows PowerShell 5.1 for
-parameter, cmdlet-error, parser, automatic-variable, and existing hardening
-boundaries. This is unreleased SOURCE-development evidence only; actual Harness
-selection, discovery, installed copy, candidate, RC, stable update, and release
-remain unchanged or unproved. Integration requires separate authorization.
+Reviewed commit `30668743cdc6c8be00100fd48fa89376adf746f8`, integrated into
+local `main`, implements the explicitly authorized
+`PRE_ERROR_SELECTION_AND_COMMAND_READINESS` residual. Static metadata/case
+coverage preserves ordinary-cmdlet and POSIX-only negatives, and 41 focused
+assertions pass under PowerShell 7 and Windows PowerShell 5.1 for parameter,
+cmdlet-error, parser, automatic-variable, and existing hardening boundaries.
+A separately authorized four-cell fresh selection tranche then observed the
+exact P1 copy load before the first risky command in one matched positive;
+immutable `v0.1.2` did not load for the same request, and both required
+negative families stayed unloaded. This is a narrow DEV selection pass only:
+the target command did not execute, model/reasoning identities are `UNKNOWN`,
+no assessor ran, and installed copy, formal candidate, RC, stable update, and
+release remain unchanged or unproved. This evidence-sync commit remains
+branch-local until separately authorized integration.
 
 Local `main` contains an unreleased Project Docs revision at `776989f...`
 implementing [Decision 0019](decisions/0019-project-docs-implicit-discovery-and-demand-driven-modules.md).

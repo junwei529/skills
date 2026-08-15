@@ -69,8 +69,11 @@ canary、双 runtime 确定性检查、实际执行的 native/text controller bo
 hardening 仍缺少真实 Bash/WSL、stable canary sandbox 内实际执行的 native probe、
 实际 sandbox-denial 注入和 shadow-use 证据。参见[验证](VERIFICATION.md)和
 [状态](STATE.md)。未发布的 P1 SOURCE revision 新增双 runtime deterministic
-command-readiness checks 和静态 pre-error selection contract；实际 Harness
-selection efficacy 仍是未证明的 model evidence。
+command-readiness checks 和 pre-error selection contract。一轮有界 fresh
+证据观察到 exact P1 revision 在首次风险命令前加载，而同一请求没有加载不可变的
+`v0.1.2`；ordinary-cmdlet 与 POSIX-only negatives 也保持未加载。目标命令没有
+执行、没有 assessor，广泛 selection、selected behavior、RC 和 stable readiness
+仍未证明。
 
 ## 权威合同
 
