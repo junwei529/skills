@@ -1077,6 +1077,203 @@ is:
 The broad Campaign envelope permitted this mapped result update after D36
 created the fact class; it did not require or authorize speculative files.
 
+## 2026-08-15 Documentation-Impact Closure Checker
+
+Task-dedicated branch `codex/documentation-impact-closure` starts from exact
+local `main` commit `8c952abb5161c3082fb4d9a09e49a0a183b84ab0`. It changes no
+Skill SOURCE, evaluation case, fixture, runner, controller, sealed evidence, or
+installed copy. Its bounded writer lease covers the four-path intended update
+set below through deterministic checks, native review, and one local commit.
+The terminal commit ends that lease; push, merge, rebase, integration, cleanup,
+installation, release, and model or assessor calls remain excluded.
+
+The source `main` checkout's pre-existing dirty bytes were not copied into this
+worktree. `docs/HANDOFF.md` and `docs/VERIFICATION.md` are integration overlaps
+by path only: this branch modifies the committed baseline copies, while the
+source checkout retains its separate uncommitted Work Charter bytes. Integration
+therefore remains an explicit later user-owned action.
+
+The machine-checked closure record is:
+
+```documentation-impact-closure
+{
+  "schema": "documentation-impact-closure/v1",
+  "closure_id": "repository-documentation-impact-checker-v1",
+  "authorized_change_envelope": [
+    "AGENTS.md",
+    "docs/AUTHORITY.md",
+    "docs/HANDOFF.md",
+    "docs/RUNBOOK.md",
+    "docs/VERIFICATION.md",
+    "scripts/check_repository.py"
+  ],
+  "intended_update_set": [
+    "docs/HANDOFF.md",
+    "docs/RUNBOOK.md",
+    "docs/VERIFICATION.md",
+    "scripts/check_repository.py"
+  ],
+  "review_target": [
+    "docs/HANDOFF.md",
+    "docs/RUNBOOK.md",
+    "docs/VERIFICATION.md",
+    "scripts/check_repository.py"
+  ],
+  "changed_facts": [
+    {
+      "fact": "deterministic documentation-impact closure procedure",
+      "fact_class": "Development intake, external optimizer experiment, discovery, installation, candidate, update, rollback, and release procedure",
+      "canonical_owner": "docs/RUNBOOK.md",
+      "bounded_consumers": [
+        "AGENTS.md",
+        "README.md",
+        "README.zh-CN.md",
+        "docs/ARCHITECTURE.md",
+        "docs/AUTHORITY.md",
+        "docs/PROVENANCE.md",
+        "docs/SPEC.md",
+        "docs/decisions/0015-federated-repository-documentation.md",
+        "docs/decisions/0017-capability-delta-skill-development.md",
+        "docs/decisions/0019-project-docs-implicit-discovery-and-demand-driven-modules.md",
+        "scripts/check_repository.py"
+      ],
+      "dispositions": [
+        {
+          "path": "docs/RUNBOOK.md",
+          "status": "UPDATE",
+          "reason": "Owns the closure procedure and pre-review command."
+        },
+        {
+          "path": "AGENTS.md",
+          "status": "CHECKED_NO_CHANGE",
+          "reason": "Already requires fact-first tri-state closure before first native review."
+        },
+        {
+          "path": "README.md",
+          "status": "CHECKED_NO_CHANGE",
+          "reason": "The public repository entry does not describe internal checker invocation."
+        },
+        {
+          "path": "README.zh-CN.md",
+          "status": "CHECKED_NO_CHANGE",
+          "reason": "Its mirrored public surface remains unchanged with the English entry."
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "status": "CHECKED_NO_CHANGE",
+          "reason": "No cross-Skill component or ownership topology changes."
+        },
+        {
+          "path": "docs/AUTHORITY.md",
+          "status": "CHECKED_NO_CHANGE",
+          "reason": "The checker consumes the existing fact classes without changing canonical ownership."
+        },
+        {
+          "path": "docs/PROVENANCE.md",
+          "status": "CHECKED_NO_CHANGE",
+          "reason": "No source transformation, external data, or publication boundary changes."
+        },
+        {
+          "path": "docs/SPEC.md",
+          "status": "CHECKED_NO_CHANGE",
+          "reason": "No shared product requirement or Skill contract changes."
+        },
+        {
+          "path": "docs/decisions/0015-federated-repository-documentation.md",
+          "status": "CHECKED_NO_CHANGE",
+          "reason": "Federated documentation ownership remains unchanged."
+        },
+        {
+          "path": "docs/decisions/0017-capability-delta-skill-development.md",
+          "status": "CHECKED_NO_CHANGE",
+          "reason": "No Skill capability delta or product residual is introduced."
+        },
+        {
+          "path": "docs/decisions/0019-project-docs-implicit-discovery-and-demand-driven-modules.md",
+          "status": "CHECKED_NO_CHANGE",
+          "reason": "Project Docs selection and persistence behavior are unchanged."
+        },
+        {
+          "path": "scripts/check_repository.py",
+          "status": "UPDATE",
+          "reason": "Implements owner, consumer, disposition, envelope, and Git-target checks."
+        }
+      ]
+    },
+    {
+      "fact": "repository documentation-impact checker evidence",
+      "fact_class": "Repository checks, coherent candidate, tag, stable-install, and release evidence",
+      "canonical_owner": "docs/VERIFICATION.md",
+      "bounded_consumers": [
+        "docs/HANDOFF.md",
+        "docs/RUNBOOK.md",
+        "docs/STATUS.md",
+        "scripts/check_repository.py"
+      ],
+      "dispositions": [
+        {
+          "path": "docs/VERIFICATION.md",
+          "status": "UPDATE",
+          "reason": "Owns the deterministic positive, negative, and repository-check results."
+        },
+        {
+          "path": "docs/HANDOFF.md",
+          "status": "UPDATE",
+          "reason": "Carries the visible closure record and bounded integration state."
+        },
+        {
+          "path": "docs/RUNBOOK.md",
+          "status": "UPDATE",
+          "reason": "Documents the checker invocation and fail-closed boundary."
+        },
+        {
+          "path": "docs/STATUS.md",
+          "status": "CHECKED_NO_CHANGE",
+          "reason": "The product and release dashboard does not need branch-local checker detail."
+        },
+        {
+          "path": "scripts/check_repository.py",
+          "status": "UPDATE",
+          "reason": "Owns the executable deterministic validation."
+        }
+      ]
+    },
+    {
+      "fact": "task-dedicated writer and integration overlap",
+      "fact_class": "Repository writer custody, dirty scope, next integration action, and recovery order",
+      "canonical_owner": "docs/HANDOFF.md",
+      "bounded_consumers": [
+        "docs/STATUS.md",
+        "docs/VERIFICATION.md"
+      ],
+      "dispositions": [
+        {
+          "path": "docs/HANDOFF.md",
+          "status": "UPDATE",
+          "reason": "Owns the bounded writer lease, base, exclusions, and later integration gate."
+        },
+        {
+          "path": "docs/STATUS.md",
+          "status": "CHECKED_NO_CHANGE",
+          "reason": "No integration or repository dashboard transition has occurred."
+        },
+        {
+          "path": "docs/VERIFICATION.md",
+          "status": "UPDATE",
+          "reason": "Records branch-local verification without claiming integration."
+        }
+      ]
+    }
+  ]
+}
+```
+
+Every mapped consumer has a disposition. Files marked `CHECKED_NO_CHANGE` stay
+outside the intended update set, so the closure requires no empty edits. Skill
+SOURCE and the Work Charter, PowerShell, Project Docs, Campaign, candidate,
+installation, and release fact classes are `NOT_APPLICABLE` to this repository-
+checker correction.
+
 ## Resume Order
 
 1. Read `AGENTS.md`, `docs/INDEX.md`, and `docs/AUTHORITY.md`.

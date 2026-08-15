@@ -1,6 +1,6 @@
 # Repository Verification
 
-Last updated: 2026-08-13
+Last updated: 2026-08-15
 
 ## Scope
 
@@ -20,7 +20,7 @@ Sanitized detailed runs remain under [`evals/results`](../evals/results/README.m
 | Check | Purpose | Current result |
 |---|---|---|
 | Changed Skill validator | Validate frontmatter and package name without changing the package | unchanged exact `c481005...` Work Charter package passes the bundled `skill-creator` validator; the D54 failure-only closeout changes no Skill SOURCE |
-| Repository checker | Validate strict UTF-8/no BOM, whitespace, local links/fragments, publication safety, exact Skill/eval sets, federated docs, bilingual navigation, the promoted project evaluation-governance contract, and immutable D53 closeout-consumer consistency | passes for the D54 failure-only closeout target with 215 text files / 14 cases / 12 fixtures; the check changes no Skill SOURCE or sealed evidence |
+| Repository checker | Validate strict UTF-8/no BOM, whitespace, local links/fragments, publication safety, exact Skill/eval sets, federated docs, bilingual navigation, the promoted project evaluation-governance contract, immutable D53 closeout-consumer consistency, and an optional fact-first documentation-impact closure against the actual uncommitted Git target | passes with 215 text files / 14 cases / 12 fixtures; closure self-tests reject an omitted bounded consumer and accept the complete mapping; the check changes no Skill SOURCE or sealed evidence |
 | Fixture checker | Validate synthetic starting states and their Git/reparse/ignored-result boundaries plus tracked controller and runner regressions | the historical post-D53/D54-Build target passes 18/18. On the D54 failure-only closeout diff, the current invocation returns exit 1 with 17/18: the sealed D54 runner fails closed before its checks on the intentional `evals/README.md` normalized-text ruleset drift. No runner/checker change, retry, or qualification credit follows |
 | Work Charter Gate 2 outer runner | Validate one tracked consuming entry, exact Campaign/candidate identity, authenticated explicit repository/carrier/source-bundle/evidence/predecessor roots, containment/reparse/hash/schema boundaries, the retained authorization lifecycle, formal aggregate through canary/product/assessor dispatch, typed exits, one-shot receipts, and stop-before-start qualification | D54 focused 32/32 and its composed DEV private 24/24 plus aggregate 56/56 remain implementation-only passes. Local commit `9fe27bb...` recorded that reviewed target; the only formal attempt then returned exit 86 in ignored-orchestrator bootstrap before the tracked runner, any aggregate receipt, lifecycle, or scarce evidence. D54 is `QUALIFICATION_FAILED / PRODUCT_UNKNOWN` with zero model/start events |
 | Codex evidence controller | Validate one shared core across four entry modes, strict required-read versus bounded auxiliary-observation attribution, structural PowerShell/Git/path classification, source-and-generated-contract-bound historical regressions, exact package manifests, candidate-identity and content-proof shape, record cardinality, completed exit typing, optional sealed governing-disposition monotonicity, output-array shape, per-key single-capture sealed parsing and reuse, real-reparse rejection, fail-closed negatives, external-input types, independently resolved inner/wrapper command identity, canonical model-visible Git argv rendering, Git-read and external-filter safety, profile-free PowerShell wrappers, culture-independent canonical ordering, metamorphic equivalence, output no-clobber, and canonical repeatability | passes exact current-SOURCE package identity, 11/11 historical, 32/32 evidence-surface, 33/33 negative, 4/4 metamorphic, 8/8 governing-snapshot, 12/12 command-resolution, and 9/9 Git-read-safety guards; the trusted Git anchor is independent of PATH and survives a synthetic PATH-first shadow, all 5/5 rooted forms execute through the resolved PowerShell wrapper with typed zero exits and are admissible, bare/shadow variants fail closed, the table hashes to `694e173a...f5467`, and zero external model or assessor calls occurred |
@@ -33,6 +33,45 @@ Sanitized detailed runs remain under [`evals/results`](../evals/results/README.m
 | Markdown navigation and ownership | Verify local links/fragments, English/Chinese routes, expected per-Skill owners, and no orphan canonical owner | passes through repository checker |
 | `git diff --check` | Reject whitespace defects in the working revision | passes for the exact eleven-path D54 failure-only closeout target; index remains untouched |
 | Gitleaks | Detect secret-like content independently | exact diff scan of the eleven-path D54 failure-only closeout target passes with zero findings; ignored-carrier content remains evidence-only and ineligible for publication |
+
+### 2026-08-15 — Documentation-impact closure checker
+
+This repository-level correction starts from clean committed base
+`8c952abb5161c3082fb4d9a09e49a0a183b84ab0` on task-dedicated branch
+`codex/documentation-impact-closure`. It adds no tracked file and changes no
+Skill SOURCE, case, fixture, runner, controller, sealed evidence, product
+contract, canonical owner, candidate, installation, or release state.
+
+The initial repository checker passed at 215 text files, 14 cases, and 12
+fixtures. A red self-test then supplied a changed fact whose bounded consumers
+included `scripts/check_repository.py` but deliberately omitted that path's
+disposition. With the validator stubbed, the checker failed with the single
+expected issue `documentation-impact omission was accepted`. The implemented
+validator now rejects that record with `missing disposition for bounded
+consumer` and accepts the otherwise identical complete record.
+
+The visible closure in tracked, non-reparse `docs/HANDOFF.md` separates the
+authorized envelope, intended `UPDATE` set, and review target. The checker also
+requires the record at `HEAD:<path>`; its staged-new-record negative simulates a
+successful index lookup followed by a failed HEAD lookup and rejects the record.
+Mapped-path self-tests accept an `UPDATE` deletion from HEAD and a Git-bound
+rename pair, while rejecting a newly added path presented as an existing bounded
+consumer.
+The focused closure command is:
+
+```text
+python scripts/check_repository.py --documentation-impact-closure docs/HANDOFF.md --documentation-impact-id repository-documentation-impact-checker-v1
+```
+
+It validates exact fact classes and owners from `docs/AUTHORITY.md` against the
+unchanged `HEAD` owner table, requires a disposition and reason for every
+independently enumerated owner and bounded consumer, derives the actual tracked
+and untracked diff from Git, and fails on
+an undeclared path, an `UPDATE` outside the envelope or review target, or any
+set mismatch. The positive closes exactly four changed paths; inspected
+`CHECKED_NO_CHANGE` consumers remain outside the diff and receive no empty
+edit. This is deterministic implementation and offline verification evidence,
+not native-review, integration, release, or Skill-behavior evidence.
 
 ## Repository Claim Ledger
 
