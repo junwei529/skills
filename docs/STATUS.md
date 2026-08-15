@@ -8,10 +8,10 @@ Last updated: 2026-08-15
 |---|---|---|
 | Tested package identity | all three package byte sets independently reached exact-commit RC readiness at `c42eef392a5b9f58bbee64aa73ffb603a6fb6c29` and were re-proved at tag/stable identity `v0.1.2` | [Verification](VERIFICATION.md) |
 | Stable release identity | immutable [`v0.1.2`](https://github.com/junwei529/skills/releases/tag/v0.1.2) at `ceed607152849775b981c54add74bfa30d858e4d`; exact tag, stable loaded-copy, and GitHub Release proof pass for all three Skills | [Verification](VERIFICATION.md) |
-| Project Docs | exact six-file `v0.1.2` / `ceed607...` package is `unchanged` in the Work-Charter-only prerelease set; Decision 0019 and local development commit `776989f...` remain preserved but their later package bytes are excluded | [State](skills/manage-project-docs/STATE.md) |
-| Work Charter | exact five-file `c481005...` package is the only `changed` public Skill relative to `v0.1.2`. The bounded evaluation accepts C1-C5 only; D55 is separately sealed `QUALIFICATION_FAILED / PRODUCT_UNKNOWN`. Exact public commit `67a764a...` has isolated `RC_INSTALL` identity and bounded minimal smoke `PASS`, not full Gate 2, stable installation, tag, or release acceptance | [State](skills/work-charter/STATE.md) |
-| PowerShell | released five-file `v0.1.2` stable copy; corrected loaded identity and guarded native/text diagnosis pass; live WSL remains unproved | [State](skills/use-powershell-safely/STATE.md) |
-| Release lifecycle | `v0.1.2` remains the installed/tagged Latest Release. Work Charter `v0.2.0` branch commit `67a764a...` is public and passes isolated RC install/minimal smoke; no stable update, integration, tag, GitHub Release, cleanup, or final release acceptance has occurred | [Runbook](RUNBOOK.md) |
+| Project Docs | exact six-file `v0.1.2` / `ceed607...` package is `unchanged` in the coherent `v0.2.0` release-set candidate; Decision 0019 and local development commit `776989f...` remain preserved but their later package bytes are excluded | [State](skills/manage-project-docs/STATE.md) |
+| Work Charter | exact five-file `c481005...` package is `changed` relative to `v0.1.2`. The bounded evaluation accepts C1-C5 only; D55 is separately sealed `QUALIFICATION_FAILED / PRODUCT_UNKNOWN`. Exact public commit `67a764a...` has isolated `RC_INSTALL` identity and bounded minimal smoke `PASS`, not full Gate 2, stable installation, tag, or release acceptance | [State](skills/work-charter/STATE.md) |
+| PowerShell | exact five-file tree `d8bf6dc...` from reviewed SOURCE commit `30668743...` is `changed` relative to `v0.1.2`; 41 dual-runtime assertions and one bounded revision-relative selection pass exist, while selected behavior, candidate loaded-copy, RC, and stable readiness remain unproved | [State](skills/use-powershell-safely/STATE.md) |
+| Release lifecycle | `v0.1.2` remains the installed/tagged Latest Release. Phase 1 prepares one local coherent candidate with Work Charter and PowerShell `changed` and Project Docs `unchanged`; Phase 2 RC evidence, push, install, tag, release, cleanup, and final acceptance remain unstarted or unauthorized | [Runbook](RUNBOOK.md) |
 
 ## Current Repository State
 
@@ -24,11 +24,27 @@ passed its own exact public installer and loaded-copy gate, and is now the
 immutable `v0.1.2` tag, verified stable installation, and Latest GitHub
 Release. Immutable `v0.1.1` remains retained as rollback identity.
 
-The Work-Charter-only prerelease branch materializes all six Project Docs files
+The coherent `v0.2.0` release-set branch materializes all six Project Docs files
 byte-for-byte from `v0.1.2` / `ceed607...`. Unreleased Project Docs revision
 `776989f...` and [Decision 0019](decisions/0019-project-docs-implicit-discovery-and-demand-driven-modules.md)
 remain preserved development history with `PARTIAL` evidence; they are not
 deleted, released, or represented by the live package in this candidate.
+
+Reviewed commit `30668743cdc6c8be00100fd48fa89376adf746f8`, integrated into
+the candidate through committed `main` ancestry, implements the explicitly authorized
+`PRE_ERROR_SELECTION_AND_COMMAND_READINESS` residual. Static metadata/case
+coverage preserves ordinary-cmdlet and POSIX-only negatives, and 41 focused
+assertions pass under PowerShell 7 and Windows PowerShell 5.1 for parameter,
+cmdlet-error, parser, automatic-variable, and existing hardening boundaries.
+A separately authorized four-cell fresh selection tranche then observed the
+exact P1 copy load before the first risky command in one matched positive;
+immutable `v0.1.2` did not load for the same request, and both required
+negative families stayed unloaded. This is a narrow DEV selection pass only:
+the target command did not execute, model/reasoning identities are `UNKNOWN`,
+no assessor ran, and installed copy, formal candidate, RC, stable update, and
+release remain unchanged or unproved. The coherent candidate classifies this
+five-file package as `changed` without treating the later evidence-sync facts
+as a new PowerShell SOURCE revision.
 
 The 2026-08-14 minimal evaluation gives exact candidate `c481005...` a bounded
 five-claim `ACCEPT`: proposal is not activation; small work stays Flat;
@@ -580,15 +596,17 @@ acceptance, or D56 followed, and its writer relinquished after all-worktree
 reconciliation. The bounded minimal evaluation did not repair, rerun, import,
 or depend on that route.
 
-Exact public commit `67a764a...` has completed isolated RC install and bounded
-minimal smoke. The next Work Charter action is a separate user decision:
-stable installation, integration, tag/GitHub Release, another explicitly
-bounded evidence tranche, or no action. None follows automatically. Full Gate
-2 and final release acceptance remain unproved; no SOURCE/controller/case/
-fixture/matrix/rubric expansion is implied. The current evidence-sync commit
-and same-branch push do not authorize any later lifecycle effect. One clean
-checkout is not writer proof; Handoff owns the all-worktree reconciliation
-record.
+Exact public historical commit `67a764a...` completed isolated RC install and
+bounded minimal smoke for the prior Work-Charter-only set. Phase 1 now prepares
+one local coherent candidate that preserves those Work Charter facts and adds
+the reviewed PowerShell P1 package plus evidence-sync facts without creating a
+new PowerShell SOURCE revision. Phase 2 is not started. Its only proposed scope
+is isolated exact-commit installation and loaded-copy identity, one
+proportional Work Charter smoke, one PowerShell positive plus two negatives,
+and one independent assessor. Push, stable installation, tag/GitHub Release,
+full Gate 2, and final release acceptance remain unproved and unauthorized.
+One clean checkout is not writer proof; Handoff owns the all-worktree
+reconciliation record.
 Project Docs keeps its own candidate and persistence-evidence sequence.
 
 ## Known Repository Gaps

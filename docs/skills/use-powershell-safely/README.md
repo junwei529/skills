@@ -8,6 +8,10 @@ a focused boundary workflow, not a general PowerShell tutorial or installer.
 
 ## Use It When
 
+- before the first relevant command, the task explicitly requires a
+  non-trivial `.ps1`, `pwsh`, or `powershell.exe` workflow, including
+  multiline logic, loops, `try`/`catch`, regex, complex pipelines, native
+  execution, or child-process handling;
 - PowerShell 5.1 versus 7 behavior is material;
 - native arguments, quoting, stdout, stderr, `$LASTEXITCODE`, pipelines,
   redirection, stdin, or nested shell strings are suspect;
@@ -38,18 +42,24 @@ authorized actions. Do not use the moving `main` branch as a stable identity.
 
 ## Invoke
 
-Material symptoms may select the Skill implicitly. Explicit use is appropriate
-for high-risk or reproducible diagnosis:
+Explicit non-trivial PowerShell or material symptoms may select the Skill
+before execution. Explicit use is appropriate for pre-execution readiness or
+reproducible diagnosis:
 
 ```text
-$use-powershell-safely Diagnose this native argument, stream, and exit-code
-boundary before changing application code.
+$use-powershell-safely Validate this non-trivial PowerShell command before it
+runs, then preserve its native argument, stream, and exit-code boundaries.
 ```
 
 ## Safety Boundaries
 
-Capture native exit status according to the tool contract, preserve arguments
-as structured values, and treat exact text bytes as correctness when relevant.
+Prefer a `.ps1` for complex logic or parse the exact inline payload in the same
+PowerShell executable/version that will run it. Inspect a cmdlet's actual
+parameter set instead of assuming
+`-LiteralPath`; `New-Item` uses `-Path`. Use narrow fail-fast cmdlet handling
+and verify the expected artifact or state, while reserving `$LASTEXITCODE` for
+native process status. Preserve native arguments as structured values and
+treat exact text bytes as correctness when relevant.
 Obtain explicit authorization before installation, update, elevation, profile,
 policy, locale, registry, service, firewall, WSL-state, or destructive host
 changes. Resolve destructive targets literally and prove containment.
@@ -66,6 +76,17 @@ independent readiness verdict. The repository-level
 has exact loaded-copy identity plus a guarded native/text diagnosis canary.
 The hardening still lacks live Bash/WSL, an executed native probe inside the
 stable canary sandbox, actual sandbox-denial injection, and shadow-use proof.
+The unreleased P1 SOURCE revision adds deterministic dual-runtime command-
+readiness checks and a pre-error selection contract. One bounded fresh tranche
+observed the exact P1 revision load before the first risky command while the
+same request did not load immutable `v0.1.2`; ordinary-cmdlet and POSIX-only
+negatives also stayed unloaded. The target command did not execute, no
+assessor ran, and broad selection, selected behavior, RC, and stable readiness
+remain unproved.
+The local coherent `v0.2.0` release-set candidate preserves the exact reviewed
+P1 five-file tree `d8bf6dc...` and classifies PowerShell as `changed`. The later
+`a7637a6...` evidence sync changes no PowerShell SOURCE identity and creates no
+candidate loaded-copy, RC, installation, tag, release, or behavior claim.
 See [Verification](VERIFICATION.md) and [State](STATE.md).
 
 ## Authoritative Contract

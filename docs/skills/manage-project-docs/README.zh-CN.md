@@ -66,8 +66,8 @@ $manage-project-docs 审计此仓库的项目文档治理。未经单独批准�
 
 已发布的 `v0.1.2` 六文件包已有 exact-source 行为证据、受控开发 loaded-copy 证据、
 exact-commit candidate identity，以及 `v0.1.2` tag-pinned stable
-loaded-copy identity 与成熟布局 `NOOP` canary。仅变更 Work Charter 的 `v0.2.0`
-prerelease candidate 保留这六个 exact `v0.1.2` package 文件，不产生新的 Project
+loaded-copy identity 与成熟布局 `NOOP` canary。coherent `v0.2.0` release-set
+candidate 保留这六个 exact `v0.1.2` package 文件，不产生新的 Project
 Docs 行为、安装或 loaded-copy claim。后续 Decision 0019 的 implicit-selection 与
 demand-driven-module 开发 revision 仍被保留，但不属于本候选。当前已接受的 release
 仍是仓库级

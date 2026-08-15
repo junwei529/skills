@@ -726,7 +726,7 @@ Token or context efficiency is a secondary measurement, not a pass condition. A 
 | [Work Charter Planner/Executor](cases/work-charter-planner-executor.md) | `work-charter` | Run a one-writer loop with convergent correction accounting and independent assessment |
 | [Work Charter Standard O/P/E](cases/work-charter-standard.md) | `work-charter` | Exercise visible reuse of an already approved standing policy and one bounded phase |
 | [Work Charter recovery integrity](cases/work-charter-recovery-integrity.md) | `work-charter` | Exercise resume, successor history, qualification/consumption separation, fail-closed authority, assessment, delivery, writer, dirty-state, and multi-worktree boundaries across six variants, plus one direct package-denial/Harness-preload boundary |
-| [PowerShell boundary](cases/powershell-boundary.md) | `use-powershell-safely` | Classify encoding and native-command failures before code changes |
+| [PowerShell boundary](cases/powershell-boundary.md) | `use-powershell-safely` | Select before explicit non-trivial PowerShell and validate command readiness before diagnosing boundary failures |
 
 ## Fixture Preconditions
 
@@ -744,8 +744,10 @@ owned dirty boundary, both Work Charter entry variants, the
 reparse-point containment of setup and inspection helpers, the shared Work
 Charter loop, the visible-reuse Standard starting boundary, six recovery-
 integrity variants, the
-direct-versus-wrapper PowerShell boundary, the UTF-8-without-BOM input, and the
-tracked Codex evidence-controller regression. It does not score an agent.
+direct-versus-wrapper PowerShell boundary, the UTF-8-without-BOM input, the
+parameter/error manifests plus three parse pairs and one automatic-variable
+runtime pair, and the tracked Codex evidence-controller regression. It does not
+score an agent or prove Harness selection efficacy.
 
 Run the controller regression directly when changing its contract or fixtures:
 
@@ -768,11 +770,39 @@ pwsh -NoProfile -File .\evals\check-powershell-boundaries.ps1
 powershell.exe -NoProfile -File .\evals\check-powershell-boundaries.ps1
 ```
 
-It uses a task-specific temporary root to check multi-candidate application
-discovery, scalar normalization, UTF-8/LF bytes, one-base path resolution, and
+It uses a task-specific temporary root to check static pre-error selection
+markers and negatives; `New-Item` parameter support; cmdlet non-terminating
+error, fail-closed, and artifact-verification shapes; three invalid/valid
+parser pairs; the `$Matches` runtime pair; multi-candidate application
+discovery; scalar normalization; UTF-8/LF bytes; one-base path resolution; and
 nonrecursive confirmed-Junction removal under PowerShell 7 and Windows
-PowerShell 5.1. It is not a fresh-context behavior test, live Bash/WSL test,
-sandbox-denial injection, or proof for other reparse-point types.
+PowerShell 5.1. It is not a fresh-context behavior or model-selection test,
+live Bash/WSL test, sandbox-denial injection, or proof for other parameter,
+cmdlet, automatic-variable, syntax, or reparse-point families.
+
+### 2026-08-15 PowerShell P1 bounded selection evidence
+
+A separately authorized DEV tranche materialized exact commit `30668743...`
+and immutable `v0.1.2` into isolated workspaces without changing the installed
+stable copy or persistent discovery configuration. Before product cells, a
+zero-model catalog probe verified one intended PowerShell metadata entry and
+resolved loaded path per workspace; one exact-response transport canary then
+passed. Earlier local controller-shape and restricted-network attempts were
+excluded before counted selection evidence.
+
+The four counted cells were one matched pre-error positive on P1, the same
+positive on `v0.1.2`, one ordinary version-independent cmdlet negative, and one
+POSIX-only negative. P1 loaded `SKILL.md` and the native/process reference
+before attempting the `.ps1`; the stable control and both negatives did not
+load. Read-only policy prevented target execution, so the result is
+`PRE_ERROR_SELECTION_OBSERVED / NARROW_PASS`, not selected-behavior evidence.
+The task-private carrier bound the Harness executable identity without
+publishing it; model and reasoning identity remain `UNKNOWN`. No assessor ran,
+and this does not establish broad trigger accuracy, real-project efficacy, RC,
+stable, or release readiness. Detailed controller artifacts remain ignored and
+private;
+only this sanitized method/result boundary and the per-Skill evidence ledger
+are tracked.
 
 ## Work Charter v0.2 Staged Matrix Definition
 

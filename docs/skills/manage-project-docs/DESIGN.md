@@ -14,7 +14,7 @@ translation system, or policy-enforcement engine.
 
 ## Work Charter `v0.2.0` Release-Set Applicability
 
-The Work-Charter-only `v0.2.0` prerelease candidate includes the immutable
+The coherent `v0.2.0` release-set candidate includes the immutable
 Project Docs `v0.1.2` package at
 `ceed607152849775b981c54add74bfa30d858e4d`. For this release set, Project
 Docs is explicit-only: the user must invoke `$manage-project-docs` before the

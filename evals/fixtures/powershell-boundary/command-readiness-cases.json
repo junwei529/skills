@@ -1,0 +1,45 @@
+{
+  "schema": "powershell-command-readiness/v1",
+  "parameter_contract": {
+    "id": "new-item-path-contract",
+    "cmdlet": "New-Item",
+    "unsupported_parameter": "LiteralPath",
+    "supported_parameter": "Path"
+  },
+  "error_contract": {
+    "id": "cmdlet-nonterminating-vs-exit",
+    "cmdlet": "Copy-Item",
+    "green_exit": 0,
+    "fail_closed_exit": 7,
+    "artifact_content": "expected"
+  },
+  "parser_pairs": [
+    {
+      "id": "variable-colon",
+      "invalid": "$name = 'alpha'; \"$name: value\"",
+      "valid": "$name = 'alpha'; \"${name}: value\"",
+      "valid_expected": "alpha: value"
+    },
+    {
+      "id": "literal-scope-regex",
+      "invalid": "$pattern = \"$env:|$script:\"",
+      "valid": "$pattern = '\\$(?:env|script):'; if ('$env:Path $script:value' -match $pattern) { 'literal-scope-regex' }",
+      "valid_expected": "literal-scope-regex"
+    },
+    {
+      "id": "foreach-statement-pipeline",
+      "invalid": "foreach ($item in 1..2) { $item } | Measure-Object",
+      "valid": "$items = foreach ($item in 1..2) { $item }; ($items | Measure-Object).Count",
+      "valid_expected": "2"
+    }
+  ],
+  "runtime_pairs": [
+    {
+      "id": "automatic-matches-collision",
+      "invalid": "$Matches = @('application-item'); [void]('abc' -match '^(?<prefix>a)'); if (($Matches -is [hashtable]) -and $Matches['prefix'] -eq 'a') { 'collision' }",
+      "invalid_expected": "collision",
+      "valid": "$resultItems = @('application-item'); [void]('abc' -match '^(?<prefix>a)'); if ($resultItems.Count -eq 1 -and $resultItems[0] -eq 'application-item') { 'preserved' }",
+      "valid_expected": "preserved"
+    }
+  ]
+}

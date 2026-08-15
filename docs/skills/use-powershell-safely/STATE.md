@@ -1,12 +1,23 @@
 # PowerShell State
 
-Last updated: 2026-08-01
+Last updated: 2026-08-15
 
 ## Current Implementation
 
 Canonical editable SOURCE is the five-file package under
 [`skills/use-powershell-safely`](../../../skills/use-powershell-safely) with
 one entry and three conditional references.
+
+User Authority Revision P1 produced reviewed SOURCE commit
+`30668743cdc6c8be00100fd48fa89376adf746f8` and exact five-file tree
+`d8bf6dc74f106c386653cb3b598d50e790c38348`, now integrated into the local
+coherent `v0.2.0` release-set candidate through committed ancestry.
+The unreleased `PRE_ERROR_SELECTION_AND_COMMAND_READINESS` delta adds pre-error
+metadata selection for explicit non-trivial PowerShell while preserving
+ordinary-cmdlet and POSIX-only negatives, plus deterministic command-readiness
+guidance for parameter contracts, cmdlet error semantics, parse-only
+validation, and four observed syntax traps. It does not change the three-
+reference package shape or the immutable `v0.1.2` release.
 
 Tested public candidate
 `c42eef392a5b9f58bbee64aa73ffb603a6fb6c29` contains both the reviewed
@@ -28,17 +39,32 @@ structure remain unchanged.
 
 Immutable tag `v0.1.2` at
 `ceed607152849775b981c54add74bfa30d858e4d`, its GitHub Release, and the
-verified stable installed copy contain this current five-file revision.
+verified stable installed copy contain the earlier released five-file control,
+not the unreleased P1 revision.
 
 ## Current Writer
 
-No PowerShell SOURCE writer is active. The hardening, correction, and candidate
-writers relinquished after acceptance and publication. The authorized
-repository release-evidence closeout may change only mapped documentation; it
-does not authorize PowerShell SOURCE changes, private-global changes, or
-cleanup of retained evidence or rollback copies.
+The P1 SOURCE writer completed reviewed commit `30668743...`, reconciled the
+registered worktrees, and relinquished before committed evidence sync
+`a7637a6...`. The current release-prep writer owns only the coherent candidate
+integration, factual documentation reconciliation, deterministic gate, native
+review, and at most one local merge commit. That commit plus all-worktree and
+index reconciliation is the terminal writer action. This lease preserves the
+exact P1 package and authorizes no new SOURCE, Phase 2 evidence, installation,
+push, tag, release, or cleanup.
 
 ## Evidence State
+
+The P1 revision has deterministic SOURCE-development evidence plus one bounded
+fresh selection tranche. Static contracts, synthetic parameter/error and
+parser/runtime pairs, dual-runtime focused checks, package validation, and
+repository checks pass. At exact commit `30668743...`, one matched pre-error
+positive loaded the P1 Skill before the first risky command while immutable
+`v0.1.2` did not; ordinary-cmdlet and POSIX-only negatives did not load it.
+This is `PRE_ERROR_SELECTION_OBSERVED / NARROW_PASS`, not broad selection or
+selected-behavior efficacy. The target command did not execute, model and
+reasoning identities remain `UNKNOWN`, and no assessor ran. The private sample
+audit remains intake only and is not product or application-defect evidence.
 
 The released `v0.1.1` revision has exact-source, DEV_DISCOVERY, RC, and stable
 loaded-copy evidence. The later public hardening passes fifteen
@@ -75,11 +101,15 @@ shadow-use evidence remain absent. See [Verification](VERIFICATION.md).
 
 ## Next Gate
 
-PowerShell is released and installed as part of repository release `v0.1.2`.
-No further release action is pending for this revision. Live WSL/Bash,
-sandbox-denial injection, shadow use, private-global retirement,
-retained-evidence cleanup, and rollback-copy cleanup remain separate future
-decisions.
+After the local coherent candidate commit and writer reconciliation, the only
+proposed next phase is an isolated exact-commit install and loaded-copy identity
+check, one PowerShell positive plus the ordinary-cmdlet and POSIX-only
+negatives, and one independent assessor, alongside the separately bounded Work
+Charter smoke. Phase 2 is not authorized or started here. Stable installation,
+push, tag, release, live WSL/Bash, sandbox-denial injection, shadow use,
+private-global retirement, retained-evidence cleanup, and rollback-copy cleanup
+remain separate decisions. Released `v0.1.2` and its installed copy are
+unchanged.
 
 ## Recovery Entry
 

@@ -1,6 +1,6 @@
 # Development, Installation, And Release Runbook
 
-Last updated: 2026-08-11
+Last updated: 2026-08-15
 
 ## Quick Navigation
 
@@ -614,6 +614,46 @@ definition, or existing handoff owner; do not create a new required file:
 - `CHECKED_NO_CHANGE`: it was inspected and remains truthful, with a short
   reason; or
 - `NOT_APPLICABLE`: the fact class is outside the change.
+
+### Deterministic Pre-Review Closure
+
+For an uncommitted native-review target, place one visible fenced
+`documentation-impact-closure` JSON record in an existing task or handoff
+owner. Do not create a new required governance file. The record must keep these
+inputs independent:
+
+- the record itself is a Markdown file tracked in the index, already present at
+  `HEAD:<path>`, and resolved inside the repository without a symlink, junction,
+  or other reparse component. Merely creating and staging a new record fails;
+- each changed fact uses the exact fact-class text from `docs/AUTHORITY.md`,
+  names the matching canonical owner, and separately enumerates its bounded
+  existing consumers. The fact-class/owner table must still match `HEAD`; an
+  ownership change is a separate decision, not a self-authorizing closure;
+- dispositions enumerate the owner and every bounded consumer exactly once,
+  with one of the three statuses above and a non-empty reason;
+- bounded existing consumers must be present at `HEAD`. A deleted path remains
+  eligible for `UPDATE`; a rename destination is eligible only when Git maps it
+  to a mapped `UPDATE` source and both sides are in the review target. An
+  unrelated newly added file cannot be relabeled as an existing consumer;
+- `authorized_change_envelope`, `intended_update_set`, and `review_target` are
+  separate path lists. The envelope may be broader than the update set and
+  does not require an edit.
+
+Run the closure gate immediately before the first native review:
+
+```text
+python scripts/check_repository.py --documentation-impact-closure docs/HANDOFF.md --documentation-impact-id <closure-id>
+```
+
+The checker resolves the actual tracked and untracked Git diff from `HEAD` and
+fails closed when the Authority owner does not match, a mapped consumer lacks a
+disposition, an `UPDATE` is outside the authorized envelope or review target,
+the intended update set differs from the `UPDATE` dispositions, or any actual
+review path is undeclared or unowned. Its self-tests include both a complete
+positive and a synthetic negative that removes one bounded existing consumer's
+disposition. The checker verifies structural closure; the writer remains
+responsible for the semantic decision that a consumer is bounded and for the
+truth of every reason.
 
 Then:
 

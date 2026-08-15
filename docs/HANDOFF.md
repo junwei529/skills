@@ -116,6 +116,14 @@ Last updated: 2026-08-15
   candidate-only discovery, and bounded minimal smoke end at
   `RC_INSTALL_MINIMAL_SMOKE_PASS`. This is not stable installation, full Gate
   2, integration, tag, release, or final release acceptance
+- Current local release-set preparation: the release-prep branch integrates
+  committed ancestry through `a7637a6...` with first-parent baseline
+  `33f0b62...`. Work Charter remains exact tree `97f0d9de...` and manifest
+  `04c382a4...`; PowerShell is the independently `changed` member at reviewed
+  SOURCE commit `30668743...` and exact tree `d8bf6dc...`; Project Docs is
+  `unchanged` at exact `v0.1.2` tree `ce6da120...`. This Phase 1 creates at most
+  one local coherent candidate commit and no RC, product, assessor, install,
+  push, tag, release, or cleanup effect
 - Rollback identity: immutable `v0.1.1` retained as a separately verified
   three-package backup
 - Writer handoff boundary: D53, D54, and D55 writers have relinquished. D55
@@ -130,14 +138,15 @@ Last updated: 2026-08-15
   Skill SOURCE, generic controller, behavior cases, fixtures, matrix, rubric,
   other Skills, user configuration, push, installation, tag, release, stable
   update, cleanup, automatic D56, and unlisted external effects remain excluded.
-  The release-prep writer relinquished after exact commit `67a764a...`, clean
+  The earlier release-prep writer relinquished after exact commit `67a764a...`, clean
   task index/worktree, preserved source-root dirty ownership, and every
-  registered-worktree reconciliation. The current bounded evidence-sync lease
-  owns only nine mapped canonical consumers, one sanitized RC result,
-  deterministic verification, native review, one commit, and push to the same
-  branch. Its final relinquishment again requires clean task state, preserved
-  source dirty ownership, and every registered-worktree reconciliation. The
-  completion packet, not these self-referential bytes, records that final proof
+  registered-worktree reconciliation. The current bounded coherent-candidate
+  lease owns committed-ancestry integration, mapped factual consumers,
+  deterministic verification, native review, and at most one local merge
+  commit. It excludes push and all Phase 2 effects. Its final relinquishment
+  requires the terminal commit, clean task index/worktree, preserved source
+  dirty ownership, and every registered-worktree reconciliation. The completion
+  packet, not these self-referential bytes, records that final proof
 - Ignored-carrier boundary: one opaque ordinary controller-scratch directory
   predates this writer window. Its provenance remains `UNKNOWN`; this task read
   metadata only and did not open, reinterpret, or clean the carrier. Native
@@ -149,6 +158,284 @@ Last updated: 2026-08-15
   ignored. The RC install adds one declared retained ignored root at
   `.eval-runs/work-charter-v0.2-67a764a-rc-install`; it is identity/smoke
   evidence only. None of these directories is SOURCE or part of a commit
+
+## Coherent `v0.2.0` Candidate Documentation-Impact Closure
+
+This Phase 1 closure is fact-first and covers the exact merge target. It does
+not authorize or record Phase 2 execution.
+
+```documentation-impact-closure
+{
+  "schema": "documentation-impact-closure/v1",
+  "closure_id": "work-charter-v0.2-powershell-p1-coherent-candidate",
+  "authorized_change_envelope": [
+    "README.md",
+    "README.zh-CN.md",
+    "docs/HANDOFF.md",
+    "docs/INDEX.md",
+    "docs/ROADMAP.md",
+    "docs/RUNBOOK.md",
+    "docs/STATUS.md",
+    "docs/VERIFICATION.md",
+    "docs/skills/manage-project-docs/DESIGN.md",
+    "docs/skills/manage-project-docs/README.md",
+    "docs/skills/manage-project-docs/README.zh-CN.md",
+    "docs/skills/manage-project-docs/STATE.md",
+    "docs/skills/manage-project-docs/VERIFICATION.md",
+    "docs/skills/use-powershell-safely/DESIGN.md",
+    "docs/skills/use-powershell-safely/README.md",
+    "docs/skills/use-powershell-safely/README.zh-CN.md",
+    "docs/skills/use-powershell-safely/STATE.md",
+    "docs/skills/use-powershell-safely/VERIFICATION.md",
+    "docs/skills/work-charter/STATE.md",
+    "docs/skills/work-charter/VERIFICATION.md",
+    "evals/README.md",
+    "evals/cases/powershell-boundary.md",
+    "evals/check-fixtures.ps1",
+    "evals/check-powershell-boundaries.ps1",
+    "evals/fixtures/powershell-boundary/README.md",
+    "evals/fixtures/powershell-boundary/command-readiness-cases.json",
+    "scripts/check_repository.py",
+    "skills/use-powershell-safely/SKILL.md",
+    "skills/use-powershell-safely/agents/openai.yaml",
+    "skills/use-powershell-safely/references/native-process-boundaries.md"
+  ],
+  "intended_update_set": [
+    "README.md",
+    "README.zh-CN.md",
+    "docs/HANDOFF.md",
+    "docs/INDEX.md",
+    "docs/ROADMAP.md",
+    "docs/RUNBOOK.md",
+    "docs/STATUS.md",
+    "docs/VERIFICATION.md",
+    "docs/skills/manage-project-docs/DESIGN.md",
+    "docs/skills/manage-project-docs/README.md",
+    "docs/skills/manage-project-docs/README.zh-CN.md",
+    "docs/skills/manage-project-docs/STATE.md",
+    "docs/skills/manage-project-docs/VERIFICATION.md",
+    "docs/skills/use-powershell-safely/DESIGN.md",
+    "docs/skills/use-powershell-safely/README.md",
+    "docs/skills/use-powershell-safely/README.zh-CN.md",
+    "docs/skills/use-powershell-safely/STATE.md",
+    "docs/skills/use-powershell-safely/VERIFICATION.md",
+    "docs/skills/work-charter/STATE.md",
+    "docs/skills/work-charter/VERIFICATION.md",
+    "evals/README.md",
+    "evals/cases/powershell-boundary.md",
+    "evals/check-fixtures.ps1",
+    "evals/check-powershell-boundaries.ps1",
+    "evals/fixtures/powershell-boundary/README.md",
+    "evals/fixtures/powershell-boundary/command-readiness-cases.json",
+    "scripts/check_repository.py",
+    "skills/use-powershell-safely/SKILL.md",
+    "skills/use-powershell-safely/agents/openai.yaml",
+    "skills/use-powershell-safely/references/native-process-boundaries.md"
+  ],
+  "review_target": [
+    "README.md",
+    "README.zh-CN.md",
+    "docs/HANDOFF.md",
+    "docs/INDEX.md",
+    "docs/ROADMAP.md",
+    "docs/RUNBOOK.md",
+    "docs/STATUS.md",
+    "docs/VERIFICATION.md",
+    "docs/skills/manage-project-docs/DESIGN.md",
+    "docs/skills/manage-project-docs/README.md",
+    "docs/skills/manage-project-docs/README.zh-CN.md",
+    "docs/skills/manage-project-docs/STATE.md",
+    "docs/skills/manage-project-docs/VERIFICATION.md",
+    "docs/skills/use-powershell-safely/DESIGN.md",
+    "docs/skills/use-powershell-safely/README.md",
+    "docs/skills/use-powershell-safely/README.zh-CN.md",
+    "docs/skills/use-powershell-safely/STATE.md",
+    "docs/skills/use-powershell-safely/VERIFICATION.md",
+    "docs/skills/work-charter/STATE.md",
+    "docs/skills/work-charter/VERIFICATION.md",
+    "evals/README.md",
+    "evals/cases/powershell-boundary.md",
+    "evals/check-fixtures.ps1",
+    "evals/check-powershell-boundaries.ps1",
+    "evals/fixtures/powershell-boundary/README.md",
+    "evals/fixtures/powershell-boundary/command-readiness-cases.json",
+    "scripts/check_repository.py",
+    "skills/use-powershell-safely/SKILL.md",
+    "skills/use-powershell-safely/agents/openai.yaml",
+    "skills/use-powershell-safely/references/native-process-boundaries.md"
+  ],
+  "changed_facts": [
+    {
+      "fact": "PowerShell P1 executable package and command-readiness behavior",
+      "fact_class": "Currently implemented executable behavior",
+      "canonical_owner": "skills/use-powershell-safely/SKILL.md",
+      "bounded_consumers": [
+        "docs/skills/use-powershell-safely/DESIGN.md",
+        "docs/skills/use-powershell-safely/README.md",
+        "docs/skills/use-powershell-safely/README.zh-CN.md",
+        "docs/skills/use-powershell-safely/STATE.md",
+        "docs/skills/use-powershell-safely/VERIFICATION.md",
+        "evals/cases/powershell-boundary.md",
+        "evals/check-powershell-boundaries.ps1",
+        "evals/fixtures/powershell-boundary/README.md",
+        "skills/use-powershell-safely/agents/openai.yaml",
+        "skills/use-powershell-safely/references/native-process-boundaries.md",
+        "skills/use-powershell-safely/references/text-encoding-boundaries.md",
+        "skills/use-powershell-safely/references/windows-wsl-boundaries.md"
+      ],
+      "dispositions": [
+        {"path": "skills/use-powershell-safely/SKILL.md", "status": "UPDATE", "reason": "Imports the reviewed P1 trigger and command-readiness contract."},
+        {"path": "docs/skills/use-powershell-safely/DESIGN.md", "status": "UPDATE", "reason": "Owns the P1 behavior and non-goal boundary."},
+        {"path": "docs/skills/use-powershell-safely/README.md", "status": "UPDATE", "reason": "Updates the English public P1 and candidate summary."},
+        {"path": "docs/skills/use-powershell-safely/README.zh-CN.md", "status": "UPDATE", "reason": "Mirrors the English P1 and candidate summary."},
+        {"path": "docs/skills/use-powershell-safely/STATE.md", "status": "UPDATE", "reason": "Records current P1 implementation, writer, and next gate."},
+        {"path": "docs/skills/use-powershell-safely/VERIFICATION.md", "status": "UPDATE", "reason": "Owns exact P1 SOURCE and evidence limits."},
+        {"path": "evals/cases/powershell-boundary.md", "status": "UPDATE", "reason": "Defines the pre-error positive and two negative selection cases."},
+        {"path": "evals/check-powershell-boundaries.ps1", "status": "UPDATE", "reason": "Checks P1 readiness under both supported PowerShell hosts."},
+        {"path": "evals/fixtures/powershell-boundary/README.md", "status": "UPDATE", "reason": "Documents the readiness fixture contract."},
+        {"path": "skills/use-powershell-safely/agents/openai.yaml", "status": "UPDATE", "reason": "Aligns catalog selection metadata with P1."},
+        {"path": "skills/use-powershell-safely/references/native-process-boundaries.md", "status": "UPDATE", "reason": "Adds the reviewed command-readiness mechanisms."},
+        {"path": "skills/use-powershell-safely/references/text-encoding-boundaries.md", "status": "CHECKED_NO_CHANGE", "reason": "P1 does not change the text and encoding contract."},
+        {"path": "skills/use-powershell-safely/references/windows-wsl-boundaries.md", "status": "CHECKED_NO_CHANGE", "reason": "P1 does not change the WSL contract."}
+      ]
+    },
+    {
+      "fact": "PowerShell command-readiness fixture definitions and deterministic checks",
+      "fact_class": "Native/control/candidate and optimizer evaluation definitions plus sanitized detailed results",
+      "canonical_owner": "evals/fixtures/powershell-boundary/command-readiness-cases.json",
+      "bounded_consumers": [
+        "evals/README.md",
+        "evals/cases/powershell-boundary.md",
+        "evals/check-fixtures.ps1",
+        "evals/check-powershell-boundaries.ps1",
+        "evals/fixtures/powershell-boundary/README.md"
+      ],
+      "dispositions": [
+        {"path": "evals/fixtures/powershell-boundary/command-readiness-cases.json", "status": "UPDATE", "reason": "Owns the new deterministic readiness vectors."},
+        {"path": "evals/README.md", "status": "UPDATE", "reason": "Records the P1 evaluation contract and bounded evidence."},
+        {"path": "evals/cases/powershell-boundary.md", "status": "UPDATE", "reason": "Maps the new readiness and selection surfaces."},
+        {"path": "evals/check-fixtures.ps1", "status": "UPDATE", "reason": "Validates the added declared fixture contract."},
+        {"path": "evals/check-powershell-boundaries.ps1", "status": "UPDATE", "reason": "Consumes and checks the readiness vectors."},
+        {"path": "evals/fixtures/powershell-boundary/README.md", "status": "UPDATE", "reason": "Documents the added fixture data and commands."}
+      ]
+    },
+    {
+      "fact": "Fact-first documentation-impact closure enforcement",
+      "fact_class": "Development intake, external optimizer experiment, discovery, installation, candidate, update, rollback, and release procedure",
+      "canonical_owner": "docs/RUNBOOK.md",
+      "bounded_consumers": [
+        "AGENTS.md",
+        "docs/AUTHORITY.md",
+        "docs/HANDOFF.md",
+        "docs/VERIFICATION.md",
+        "scripts/check_repository.py"
+      ],
+      "dispositions": [
+        {"path": "docs/RUNBOOK.md", "status": "UPDATE", "reason": "Owns the imported fact-first closure procedure."},
+        {"path": "AGENTS.md", "status": "CHECKED_NO_CHANGE", "reason": "Current repository governance already requires the closure."},
+        {"path": "docs/AUTHORITY.md", "status": "CHECKED_NO_CHANGE", "reason": "Existing fact classes and canonical owners remain sufficient."},
+        {"path": "docs/HANDOFF.md", "status": "UPDATE", "reason": "Carries the machine-checked closure for this candidate."},
+        {"path": "docs/VERIFICATION.md", "status": "UPDATE", "reason": "Records the closure check as part of the candidate gate."},
+        {"path": "scripts/check_repository.py", "status": "UPDATE", "reason": "Imports deterministic closure validation from committed ancestry."}
+      ]
+    },
+    {
+      "fact": "Coherent Work Charter v0.2.0 and PowerShell P1 release-set candidate identity",
+      "fact_class": "Repository checks, coherent candidate, tag, stable-install, and release evidence",
+      "canonical_owner": "docs/VERIFICATION.md",
+      "bounded_consumers": [
+        "AGENTS.md",
+        "README.md",
+        "README.zh-CN.md",
+        "docs/ARCHITECTURE.md",
+        "docs/AUTHORITY.md",
+        "docs/HANDOFF.md",
+        "docs/INDEX.md",
+        "docs/PROVENANCE.md",
+        "docs/ROADMAP.md",
+        "docs/RUNBOOK.md",
+        "docs/SPEC.md",
+        "docs/STATUS.md",
+        "docs/decisions/0017-capability-delta-skill-development.md",
+        "docs/decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md",
+        "docs/decisions/0019-project-docs-implicit-discovery-and-demand-driven-modules.md",
+        "docs/decisions/0020-bounded-campaign-authorization-and-evidence-convergence.md",
+        "docs/skills/manage-project-docs/DESIGN.md",
+        "docs/skills/manage-project-docs/README.md",
+        "docs/skills/manage-project-docs/README.zh-CN.md",
+        "docs/skills/manage-project-docs/STATE.md",
+        "docs/skills/manage-project-docs/VERIFICATION.md",
+        "docs/skills/use-powershell-safely/DESIGN.md",
+        "docs/skills/use-powershell-safely/README.md",
+        "docs/skills/use-powershell-safely/README.zh-CN.md",
+        "docs/skills/use-powershell-safely/STATE.md",
+        "docs/skills/use-powershell-safely/VERIFICATION.md",
+        "docs/skills/work-charter/DESIGN.md",
+        "docs/skills/work-charter/STATE.md",
+        "docs/skills/work-charter/VERIFICATION.md",
+        "skills/manage-project-docs/SKILL.md",
+        "skills/use-powershell-safely/SKILL.md",
+        "skills/work-charter/SKILL.md"
+      ],
+      "dispositions": [
+        {"path": "docs/VERIFICATION.md", "status": "UPDATE", "reason": "Owns the coherent candidate identity and deterministic gate."},
+        {"path": "AGENTS.md", "status": "CHECKED_NO_CHANGE", "reason": "The candidate adds no repository-governance contract."},
+        {"path": "README.md", "status": "UPDATE", "reason": "Updates the English release-set classification."},
+        {"path": "README.zh-CN.md", "status": "UPDATE", "reason": "Mirrors the English release-set classification."},
+        {"path": "docs/ARCHITECTURE.md", "status": "CHECKED_NO_CHANGE", "reason": "Independent peer topology is unchanged."},
+        {"path": "docs/AUTHORITY.md", "status": "CHECKED_NO_CHANGE", "reason": "Canonical ownership remains unchanged."},
+        {"path": "docs/HANDOFF.md", "status": "UPDATE", "reason": "Records routing, custody, package identities, and Phase 2 boundary."},
+        {"path": "docs/INDEX.md", "status": "UPDATE", "reason": "Corrects the Decision 0019 candidate classification summary."},
+        {"path": "docs/PROVENANCE.md", "status": "CHECKED_NO_CHANGE", "reason": "No source-transformation or publication boundary changes."},
+        {"path": "docs/ROADMAP.md", "status": "UPDATE", "reason": "Records the current Project Docs, Work Charter, and PowerShell milestone states."},
+        {"path": "docs/RUNBOOK.md", "status": "UPDATE", "reason": "Imports the existing candidate and closure procedure required by this gate."},
+        {"path": "docs/SPEC.md", "status": "CHECKED_NO_CHANGE", "reason": "No shared product or release requirement changes."},
+        {"path": "docs/STATUS.md", "status": "UPDATE", "reason": "Summarizes the coherent candidate classifications and limits."},
+        {"path": "docs/decisions/0017-capability-delta-skill-development.md", "status": "CHECKED_NO_CHANGE", "reason": "No new capability-delta decision is introduced."},
+        {"path": "docs/decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md", "status": "CHECKED_NO_CHANGE", "reason": "Existing Work Charter decision remains factual and sufficient."},
+        {"path": "docs/decisions/0019-project-docs-implicit-discovery-and-demand-driven-modules.md", "status": "CHECKED_NO_CHANGE", "reason": "Historical future-development decision remains excluded from package bytes."},
+        {"path": "docs/decisions/0020-bounded-campaign-authorization-and-evidence-convergence.md", "status": "CHECKED_NO_CHANGE", "reason": "The candidate adds no Campaign authority."},
+        {"path": "docs/skills/manage-project-docs/DESIGN.md", "status": "UPDATE", "reason": "Classifies exact v0.1.2 Project Docs as unchanged in this set."},
+        {"path": "docs/skills/manage-project-docs/README.md", "status": "UPDATE", "reason": "Updates the English unchanged-package summary."},
+        {"path": "docs/skills/manage-project-docs/README.zh-CN.md", "status": "UPDATE", "reason": "Mirrors the English unchanged-package summary."},
+        {"path": "docs/skills/manage-project-docs/STATE.md", "status": "UPDATE", "reason": "Records exact unchanged package and current gate."},
+        {"path": "docs/skills/manage-project-docs/VERIFICATION.md", "status": "UPDATE", "reason": "Records exact unchanged package disposition."},
+        {"path": "docs/skills/use-powershell-safely/DESIGN.md", "status": "UPDATE", "reason": "Carries the imported P1 design contract."},
+        {"path": "docs/skills/use-powershell-safely/README.md", "status": "UPDATE", "reason": "Classifies the exact P1 tree as changed."},
+        {"path": "docs/skills/use-powershell-safely/README.zh-CN.md", "status": "UPDATE", "reason": "Mirrors the exact P1 candidate classification."},
+        {"path": "docs/skills/use-powershell-safely/STATE.md", "status": "UPDATE", "reason": "Records exact P1 package, custody, and next gate."},
+        {"path": "docs/skills/use-powershell-safely/VERIFICATION.md", "status": "UPDATE", "reason": "Records exact P1 tree proof and evidence boundary."},
+        {"path": "docs/skills/work-charter/DESIGN.md", "status": "CHECKED_NO_CHANGE", "reason": "Work Charter product contract is frozen."},
+        {"path": "docs/skills/work-charter/STATE.md", "status": "UPDATE", "reason": "Records unchanged Work Charter candidate identity in the coherent set."},
+        {"path": "docs/skills/work-charter/VERIFICATION.md", "status": "UPDATE", "reason": "Records exact Work Charter tree and manifest classification."},
+        {"path": "skills/manage-project-docs/SKILL.md", "status": "CHECKED_NO_CHANGE", "reason": "Exact v0.1.2 six-file package is preserved."},
+        {"path": "skills/use-powershell-safely/SKILL.md", "status": "UPDATE", "reason": "Exact reviewed P1 package is the changed PowerShell member."},
+        {"path": "skills/work-charter/SKILL.md", "status": "CHECKED_NO_CHANGE", "reason": "Exact frozen Work Charter package is preserved."}
+      ]
+    },
+    {
+      "fact": "Candidate writer custody and bounded Phase 2 handoff",
+      "fact_class": "Repository writer custody, dirty scope, next integration action, and recovery order",
+      "canonical_owner": "docs/HANDOFF.md",
+      "bounded_consumers": [
+        "docs/RUNBOOK.md",
+        "docs/STATUS.md",
+        "docs/skills/manage-project-docs/STATE.md",
+        "docs/skills/use-powershell-safely/STATE.md",
+        "docs/skills/work-charter/STATE.md"
+      ],
+      "dispositions": [
+        {"path": "docs/HANDOFF.md", "status": "UPDATE", "reason": "Owns the single-writer lease, protected dirty scopes, terminal action, and handoff."},
+        {"path": "docs/RUNBOOK.md", "status": "UPDATE", "reason": "Carries the existing lifecycle and writer reconciliation procedure."},
+        {"path": "docs/STATUS.md", "status": "UPDATE", "reason": "Summarizes Phase 1 and the unstarted Phase 2 boundary."},
+        {"path": "docs/skills/manage-project-docs/STATE.md", "status": "UPDATE", "reason": "Records that Project Docs stays unchanged in this candidate."},
+        {"path": "docs/skills/use-powershell-safely/STATE.md", "status": "UPDATE", "reason": "Records current release-prep custody and proposed Phase 2 evidence."},
+        {"path": "docs/skills/work-charter/STATE.md", "status": "UPDATE", "reason": "Records the coherent candidate without new Work Charter evidence."}
+      ]
+    }
+  ]
+}
+```
 
 D43 has resolved D42's open product choice: indirect proposals are metadata-
 sufficient and must not prescribe Work Charter workflow; direct intent or
@@ -317,6 +604,785 @@ The `v0.1.2` tag remains fixed at the release-preparation commit. The later
 documentation commit records already-completed tag, stable-install, canary, and
 GitHub Release facts; it is an evidence descendant and must not move or replace
 the released tag.
+
+## 2026-08-15 PowerShell P1 Minimal Selection Evidence Sync
+
+Reviewed SOURCE commit `30668743cdc6c8be00100fd48fa89376adf746f8` is
+integrated into local `main`; the earlier SOURCE writer relinquished after its
+terminal commit and all-worktree reconciliation. The retained clean worktree
+on `codex/use-powershell-safely-next` is now the sole bounded writer route for
+this separately authorized evidence sync. Its scope is eight existing
+canonical or bounded documentation consumers, applicable deterministic checks,
+native review, and one local commit. That commit is the terminal writer action
+and relinquishes at the next integration gate.
+
+The evidence sync changes no SOURCE, case, fixture, controller, installed or
+discovered copy, formal candidate, RC, stable release, external system, or
+Work Charter or Project Docs fact. It does not authorize integration, push,
+cleanup, installation, candidate creation, RC, stable update, or release. The
+main checkout's pre-existing protected Work Charter scope remains outside this
+writer lease; its detailed repository state is not a publication input.
+
+The bounded DEV result is
+`PRE_ERROR_SELECTION_OBSERVED / NARROW_PASS`. Exact P1 loaded its entry and
+native/process reference before the first risky command in one matched fresh
+positive; immutable `v0.1.2` did not load for the same request, and the
+ordinary-cmdlet and POSIX-only negatives stayed unloaded. Read-only policy
+prevented the target command from executing. Model and reasoning identities
+remain `UNKNOWN`, no independent assessor ran, and no broad trigger,
+selected-behavior, real-project, candidate, RC, stable, or release claim
+follows. Raw prompts, logs, task identifiers, and private locators remain in
+ignored task-private evidence and are not publication inputs.
+
+The machine-checked documentation-impact closure is:
+
+```documentation-impact-closure
+{
+  "schema": "documentation-impact-closure/v1",
+  "closure_id": "powershell-p1-minimal-selection-evidence-sync",
+  "authorized_change_envelope": [
+    "docs/HANDOFF.md",
+    "docs/STATUS.md",
+    "docs/VERIFICATION.md",
+    "docs/skills/use-powershell-safely/README.md",
+    "docs/skills/use-powershell-safely/README.zh-CN.md",
+    "docs/skills/use-powershell-safely/STATE.md",
+    "docs/skills/use-powershell-safely/VERIFICATION.md",
+    "evals/README.md"
+  ],
+  "intended_update_set": [
+    "docs/HANDOFF.md",
+    "docs/STATUS.md",
+    "docs/VERIFICATION.md",
+    "docs/skills/use-powershell-safely/README.md",
+    "docs/skills/use-powershell-safely/README.zh-CN.md",
+    "docs/skills/use-powershell-safely/STATE.md",
+    "docs/skills/use-powershell-safely/VERIFICATION.md",
+    "evals/README.md"
+  ],
+  "review_target": [
+    "docs/HANDOFF.md",
+    "docs/STATUS.md",
+    "docs/VERIFICATION.md",
+    "docs/skills/use-powershell-safely/README.md",
+    "docs/skills/use-powershell-safely/README.zh-CN.md",
+    "docs/skills/use-powershell-safely/STATE.md",
+    "docs/skills/use-powershell-safely/VERIFICATION.md",
+    "evals/README.md"
+  ],
+  "changed_facts": [
+    {
+      "fact": "PowerShell P1 bounded fresh selection evidence and limits",
+      "fact_class": "Per-Skill SOURCE, forward-test, DEV, RC, stable evidence and limits",
+      "canonical_owner": "docs/skills/use-powershell-safely/VERIFICATION.md",
+      "bounded_consumers": [
+        "docs/HANDOFF.md",
+        "docs/STATUS.md",
+        "docs/VERIFICATION.md",
+        "docs/skills/use-powershell-safely/DESIGN.md",
+        "docs/skills/use-powershell-safely/README.md",
+        "docs/skills/use-powershell-safely/README.zh-CN.md",
+        "docs/skills/use-powershell-safely/STATE.md",
+        "evals/README.md",
+        "evals/cases/powershell-boundary.md",
+        "skills/use-powershell-safely/SKILL.md",
+        "skills/use-powershell-safely/agents/openai.yaml",
+        "skills/use-powershell-safely/references/native-process-boundaries.md",
+        "skills/use-powershell-safely/references/text-encoding-boundaries.md",
+        "skills/use-powershell-safely/references/windows-wsl-boundaries.md"
+      ],
+      "dispositions": [
+        {
+          "path": "docs/skills/use-powershell-safely/VERIFICATION.md",
+          "status": "UPDATE",
+          "reason": "Owns the exact DEV selection observation, controls, identity boundary, and residual limits."
+        },
+        {
+          "path": "docs/HANDOFF.md",
+          "status": "UPDATE",
+          "reason": "Records the sanitized evidence boundary, writer scope, and next integration gate."
+        },
+        {
+          "path": "docs/STATUS.md",
+          "status": "UPDATE",
+          "reason": "Summarizes the narrow selection pass without promoting it to RC or stable readiness."
+        },
+        {
+          "path": "docs/VERIFICATION.md",
+          "status": "UPDATE",
+          "reason": "Carries the bounded repository-level selection and identity summary."
+        },
+        {
+          "path": "docs/skills/use-powershell-safely/DESIGN.md",
+          "status": "CHECKED_NO_CHANGE",
+          "reason": "The product contract already separates metadata and deterministic checks from a model evidence gate."
+        },
+        {
+          "path": "docs/skills/use-powershell-safely/README.md",
+          "status": "UPDATE",
+          "reason": "Updates the English human entry with the observed selection and explicit residual limits."
+        },
+        {
+          "path": "docs/skills/use-powershell-safely/README.zh-CN.md",
+          "status": "UPDATE",
+          "reason": "Mirrors the changed English evidence surface."
+        },
+        {
+          "path": "docs/skills/use-powershell-safely/STATE.md",
+          "status": "UPDATE",
+          "reason": "Records the current evidence state and next gate."
+        },
+        {
+          "path": "evals/README.md",
+          "status": "UPDATE",
+          "reason": "Records the bounded cell design, controls, dispositions, and exclusions."
+        },
+        {
+          "path": "evals/cases/powershell-boundary.md",
+          "status": "CHECKED_NO_CHANGE",
+          "reason": "Its pre-error positive and ordinary/POSIX negative contract remains unchanged."
+        },
+        {
+          "path": "skills/use-powershell-safely/SKILL.md",
+          "status": "CHECKED_NO_CHANGE",
+          "reason": "The evidence evaluated exact reviewed SOURCE without changing executable guidance."
+        },
+        {
+          "path": "skills/use-powershell-safely/agents/openai.yaml",
+          "status": "CHECKED_NO_CHANGE",
+          "reason": "The evaluated catalog metadata remains the exact reviewed P1 bytes."
+        },
+        {
+          "path": "skills/use-powershell-safely/references/native-process-boundaries.md",
+          "status": "CHECKED_NO_CHANGE",
+          "reason": "The selected native/process reference was observed but not revised."
+        },
+        {
+          "path": "skills/use-powershell-safely/references/text-encoding-boundaries.md",
+          "status": "CHECKED_NO_CHANGE",
+          "reason": "No text/encoding behavior or evidence claim changed."
+        },
+        {
+          "path": "skills/use-powershell-safely/references/windows-wsl-boundaries.md",
+          "status": "CHECKED_NO_CHANGE",
+          "reason": "No WSL behavior or evidence claim changed."
+        }
+      ]
+    },
+    {
+      "fact": "PowerShell P1 current evidence-sync state and next gate",
+      "fact_class": "Per-Skill implementation state, writer, next gate, and recovery",
+      "canonical_owner": "docs/skills/use-powershell-safely/STATE.md",
+      "bounded_consumers": [
+        "docs/HANDOFF.md",
+        "docs/INDEX.md",
+        "docs/ROADMAP.md",
+        "docs/STATUS.md",
+        "docs/VERIFICATION.md",
+        "docs/skills/use-powershell-safely/VERIFICATION.md"
+      ],
+      "dispositions": [
+        {
+          "path": "docs/skills/use-powershell-safely/STATE.md",
+          "status": "UPDATE",
+          "reason": "Owns integration status, the bounded evidence writer, residuals, recovery, and the next gate."
+        },
+        {
+          "path": "docs/HANDOFF.md",
+          "status": "UPDATE",
+          "reason": "Owns the repository recovery route and exact writer boundary."
+        },
+        {
+          "path": "docs/INDEX.md",
+          "status": "CHECKED_NO_CHANGE",
+          "reason": "No document route or document identity changed."
+        },
+        {
+          "path": "docs/ROADMAP.md",
+          "status": "CHECKED_NO_CHANGE",
+          "reason": "No future milestone or version commitment changed."
+        },
+        {
+          "path": "docs/STATUS.md",
+          "status": "UPDATE",
+          "reason": "Updates the short repository dashboard and pending integration boundary."
+        },
+        {
+          "path": "docs/VERIFICATION.md",
+          "status": "UPDATE",
+          "reason": "Keeps repository evidence distinct from formal candidate and release state."
+        },
+        {
+          "path": "docs/skills/use-powershell-safely/VERIFICATION.md",
+          "status": "UPDATE",
+          "reason": "Separates the new DEV selection result from unchanged RC and stable ledgers."
+        }
+      ]
+    },
+    {
+      "fact": "repository checks and identity boundary for the PowerShell P1 selection sync",
+      "fact_class": "Repository checks, coherent candidate, tag, stable-install, and release evidence",
+      "canonical_owner": "docs/VERIFICATION.md",
+      "bounded_consumers": [
+        "docs/HANDOFF.md",
+        "docs/RUNBOOK.md",
+        "docs/STATUS.md",
+        "evals/README.md",
+        "scripts/check_repository.py"
+      ],
+      "dispositions": [
+        {
+          "path": "docs/VERIFICATION.md",
+          "status": "UPDATE",
+          "reason": "Owns repository checks and the unchanged candidate, stable-install, and release boundary."
+        },
+        {
+          "path": "docs/HANDOFF.md",
+          "status": "UPDATE",
+          "reason": "Carries the exact review target and deterministic closure."
+        },
+        {
+          "path": "docs/RUNBOOK.md",
+          "status": "CHECKED_NO_CHANGE",
+          "reason": "The existing evidence and documentation-impact procedures remain sufficient."
+        },
+        {
+          "path": "docs/STATUS.md",
+          "status": "UPDATE",
+          "reason": "Keeps the narrow DEV result distinct from released state."
+        },
+        {
+          "path": "evals/README.md",
+          "status": "UPDATE",
+          "reason": "Records the bounded evaluation method and excluded claims."
+        },
+        {
+          "path": "scripts/check_repository.py",
+          "status": "CHECKED_NO_CHANGE",
+          "reason": "The existing checker validates this closure without an implementation change."
+        }
+      ]
+    },
+    {
+      "fact": "PowerShell P1 evidence-sync writer custody and integration recovery",
+      "fact_class": "Repository writer custody, dirty scope, next integration action, and recovery order",
+      "canonical_owner": "docs/HANDOFF.md",
+      "bounded_consumers": [
+        "docs/RUNBOOK.md",
+        "docs/STATUS.md",
+        "docs/VERIFICATION.md",
+        "docs/skills/use-powershell-safely/STATE.md"
+      ],
+      "dispositions": [
+        {
+          "path": "docs/HANDOFF.md",
+          "status": "UPDATE",
+          "reason": "Owns the sole writer route, protected main scope, terminal commit, and next integration action."
+        },
+        {
+          "path": "docs/RUNBOOK.md",
+          "status": "CHECKED_NO_CHANGE",
+          "reason": "The existing one-writer, reconciliation, and integration rules remain sufficient."
+        },
+        {
+          "path": "docs/STATUS.md",
+          "status": "UPDATE",
+          "reason": "Shows that the evidence sync remains branch-local pending integration."
+        },
+        {
+          "path": "docs/VERIFICATION.md",
+          "status": "UPDATE",
+          "reason": "Preserves the evidence result without implying commit integration."
+        },
+        {
+          "path": "docs/skills/use-powershell-safely/STATE.md",
+          "status": "UPDATE",
+          "reason": "Owns the per-Skill writer terminal and next gate."
+        }
+      ]
+    }
+  ]
+}
+```
+
+Every mapped owner and bounded consumer has a disposition. The exact `UPDATE`
+union is the eight-path review target. `CHECKED_NO_CHANGE` covers the unchanged
+product contract, case, SOURCE, references, navigation, roadmap, procedures,
+and checker. Shared product, architecture, authority, provenance, decisions,
+installed-copy, candidate, RC, stable, release, push, cleanup, and neighboring-
+Skill fact classes are `NOT_APPLICABLE`.
+
+## 2026-08-15 PowerShell P1 SOURCE Handoff
+
+User Authority Revision P1 approved the bounded
+`PRE_ERROR_SELECTION_AND_COMMAND_READINESS` residual. Task branch
+`codex/use-powershell-safely-next` started from exact local
+`main@26711837e496459ae718e2a461c94aed54f84a50` and produced reviewed local
+commit `30668743cdc6c8be00100fd48fa89376adf746f8`. The SOURCE writer then
+relinquished; its historical authority grants no continuing writes. Push,
+cleanup, installation, discovery mapping, formal candidate, RC, stable update,
+release, host configuration, and changes to Work Charter or Project Docs
+SOURCE remained excluded.
+
+The authorized private sample audit was read only as capability-delta intake.
+No private path, identifier, prompt, raw session content, or host-specific fact
+was copied into tracked files. Its excluded environment, controller, and
+application observations remain outside the PowerShell product claim.
+
+The source `main` checkout's pre-existing dirty bytes and recovery stash were
+not read into the SOURCE change set, staged, rewritten, or consumed. A later
+separately authorized dirty-byte-preserving fast-forward integrated
+`30668743...` into local `main` while restoring all protected paths; it did not
+authorize push, cleanup, installation, candidate, RC, stable, or release work.
+
+The machine-checked documentation-impact closure is:
+
+```documentation-impact-closure
+{
+  "schema": "documentation-impact-closure/v1",
+  "closure_id": "powershell-p1-pre-error-command-readiness",
+  "authorized_change_envelope": [
+    "docs/HANDOFF.md",
+    "docs/STATUS.md",
+    "docs/VERIFICATION.md",
+    "docs/skills/use-powershell-safely/DESIGN.md",
+    "docs/skills/use-powershell-safely/README.md",
+    "docs/skills/use-powershell-safely/README.zh-CN.md",
+    "docs/skills/use-powershell-safely/STATE.md",
+    "docs/skills/use-powershell-safely/VERIFICATION.md",
+    "evals/README.md",
+    "evals/cases/powershell-boundary.md",
+    "evals/check-fixtures.ps1",
+    "evals/check-powershell-boundaries.ps1",
+    "evals/fixtures/powershell-boundary/README.md",
+    "evals/fixtures/powershell-boundary/command-readiness-cases.json",
+    "skills/use-powershell-safely/SKILL.md",
+    "skills/use-powershell-safely/agents/openai.yaml",
+    "skills/use-powershell-safely/references/native-process-boundaries.md"
+  ],
+  "intended_update_set": [
+    "docs/HANDOFF.md",
+    "docs/STATUS.md",
+    "docs/VERIFICATION.md",
+    "docs/skills/use-powershell-safely/DESIGN.md",
+    "docs/skills/use-powershell-safely/README.md",
+    "docs/skills/use-powershell-safely/README.zh-CN.md",
+    "docs/skills/use-powershell-safely/STATE.md",
+    "docs/skills/use-powershell-safely/VERIFICATION.md",
+    "evals/README.md",
+    "evals/cases/powershell-boundary.md",
+    "evals/check-fixtures.ps1",
+    "evals/check-powershell-boundaries.ps1",
+    "evals/fixtures/powershell-boundary/README.md",
+    "evals/fixtures/powershell-boundary/command-readiness-cases.json",
+    "skills/use-powershell-safely/SKILL.md",
+    "skills/use-powershell-safely/agents/openai.yaml",
+    "skills/use-powershell-safely/references/native-process-boundaries.md"
+  ],
+  "review_target": [
+    "docs/HANDOFF.md",
+    "docs/STATUS.md",
+    "docs/VERIFICATION.md",
+    "docs/skills/use-powershell-safely/DESIGN.md",
+    "docs/skills/use-powershell-safely/README.md",
+    "docs/skills/use-powershell-safely/README.zh-CN.md",
+    "docs/skills/use-powershell-safely/STATE.md",
+    "docs/skills/use-powershell-safely/VERIFICATION.md",
+    "evals/README.md",
+    "evals/cases/powershell-boundary.md",
+    "evals/check-fixtures.ps1",
+    "evals/check-powershell-boundaries.ps1",
+    "evals/fixtures/powershell-boundary/README.md",
+    "evals/fixtures/powershell-boundary/command-readiness-cases.json",
+    "skills/use-powershell-safely/SKILL.md",
+    "skills/use-powershell-safely/agents/openai.yaml",
+    "skills/use-powershell-safely/references/native-process-boundaries.md"
+  ],
+  "changed_facts": [
+    {
+      "fact": "PowerShell pre-error selection and command-readiness product contract",
+      "fact_class": "Per-Skill purpose, trigger, behavior contract, and internal package boundary",
+      "canonical_owner": "docs/skills/use-powershell-safely/DESIGN.md",
+      "bounded_consumers": [
+        "docs/ARCHITECTURE.md",
+        "docs/SPEC.md",
+        "docs/decisions/0002-powershell-scope-and-runtime-readiness.md",
+        "docs/decisions/0014-powershell-portable-guidance-and-private-host-delta.md",
+        "docs/decisions/0017-capability-delta-skill-development.md",
+        "docs/skills/use-powershell-safely/README.md",
+        "docs/skills/use-powershell-safely/README.zh-CN.md",
+        "docs/skills/use-powershell-safely/STATE.md",
+        "evals/cases/powershell-boundary.md",
+        "skills/use-powershell-safely/SKILL.md",
+        "skills/use-powershell-safely/agents/openai.yaml",
+        "skills/use-powershell-safely/references/native-process-boundaries.md",
+        "skills/use-powershell-safely/references/text-encoding-boundaries.md",
+        "skills/use-powershell-safely/references/windows-wsl-boundaries.md"
+      ],
+      "dispositions": [
+        {
+          "path": "docs/skills/use-powershell-safely/DESIGN.md",
+          "status": "UPDATE",
+          "reason": "Owns the approved trigger, behavior, safety, and evidence boundary."
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "status": "CHECKED_NO_CHANGE",
+          "reason": "No cross-Skill component, composition, or ownership topology changes."
+        },
+        {
+          "path": "docs/SPEC.md",
+          "status": "CHECKED_NO_CHANGE",
+          "reason": "The residual is per-Skill and does not change shared product requirements."
+        },
+        {
+          "path": "docs/decisions/0002-powershell-scope-and-runtime-readiness.md",
+          "status": "CHECKED_NO_CHANGE",
+          "reason": "The existing scope and runtime-readiness rationale remains compatible."
+        },
+        {
+          "path": "docs/decisions/0014-powershell-portable-guidance-and-private-host-delta.md",
+          "status": "CHECKED_NO_CHANGE",
+          "reason": "Portable/private boundaries remain unchanged."
+        },
+        {
+          "path": "docs/decisions/0017-capability-delta-skill-development.md",
+          "status": "CHECKED_NO_CHANGE",
+          "reason": "Its intake method is applied without changing the repository-wide decision."
+        },
+        {
+          "path": "docs/skills/use-powershell-safely/README.md",
+          "status": "UPDATE",
+          "reason": "Updates the English human entry for pre-error use and readiness limits."
+        },
+        {
+          "path": "docs/skills/use-powershell-safely/README.zh-CN.md",
+          "status": "UPDATE",
+          "reason": "Mirrors the changed English public entry."
+        },
+        {
+          "path": "docs/skills/use-powershell-safely/STATE.md",
+          "status": "UPDATE",
+          "reason": "Records the authorized residual and its bounded current implementation."
+        },
+        {
+          "path": "evals/cases/powershell-boundary.md",
+          "status": "UPDATE",
+          "reason": "Carries positive, near-neighbor negative, and readiness acceptance contracts."
+        },
+        {
+          "path": "skills/use-powershell-safely/SKILL.md",
+          "status": "UPDATE",
+          "reason": "Implements the core pre-error and command-readiness workflow."
+        },
+        {
+          "path": "skills/use-powershell-safely/agents/openai.yaml",
+          "status": "UPDATE",
+          "reason": "Aligns public metadata and the default prompt with pre-execution readiness."
+        },
+        {
+          "path": "skills/use-powershell-safely/references/native-process-boundaries.md",
+          "status": "UPDATE",
+          "reason": "Owns detailed parser, cmdlet parameter, and cmdlet-error guidance."
+        },
+        {
+          "path": "skills/use-powershell-safely/references/text-encoding-boundaries.md",
+          "status": "CHECKED_NO_CHANGE",
+          "reason": "Text-byte and encoding contracts are unchanged."
+        },
+        {
+          "path": "skills/use-powershell-safely/references/windows-wsl-boundaries.md",
+          "status": "CHECKED_NO_CHANGE",
+          "reason": "Windows/WSL transport contracts are unchanged."
+        }
+      ]
+    },
+    {
+      "fact": "implemented PowerShell command-readiness behavior",
+      "fact_class": "Currently implemented executable behavior",
+      "canonical_owner": "skills/use-powershell-safely/SKILL.md",
+      "bounded_consumers": [
+        "docs/skills/use-powershell-safely/STATE.md",
+        "docs/skills/use-powershell-safely/VERIFICATION.md",
+        "evals/check-powershell-boundaries.ps1",
+        "skills/use-powershell-safely/agents/openai.yaml",
+        "skills/use-powershell-safely/references/native-process-boundaries.md",
+        "skills/use-powershell-safely/references/text-encoding-boundaries.md",
+        "skills/use-powershell-safely/references/windows-wsl-boundaries.md"
+      ],
+      "dispositions": [
+        {
+          "path": "skills/use-powershell-safely/SKILL.md",
+          "status": "UPDATE",
+          "reason": "Owns the executable entry workflow."
+        },
+        {
+          "path": "docs/skills/use-powershell-safely/STATE.md",
+          "status": "UPDATE",
+          "reason": "Summarizes the branch-local implementation and limits."
+        },
+        {
+          "path": "docs/skills/use-powershell-safely/VERIFICATION.md",
+          "status": "UPDATE",
+          "reason": "Records current SOURCE identity and deterministic limits."
+        },
+        {
+          "path": "evals/check-powershell-boundaries.ps1",
+          "status": "UPDATE",
+          "reason": "Executes deterministic parameter, error, parser, and runtime mechanisms."
+        },
+        {
+          "path": "skills/use-powershell-safely/agents/openai.yaml",
+          "status": "UPDATE",
+          "reason": "Reflects the implemented pre-execution entry behavior."
+        },
+        {
+          "path": "skills/use-powershell-safely/references/native-process-boundaries.md",
+          "status": "UPDATE",
+          "reason": "Provides the detailed implementation guidance."
+        },
+        {
+          "path": "skills/use-powershell-safely/references/text-encoding-boundaries.md",
+          "status": "CHECKED_NO_CHANGE",
+          "reason": "No text implementation branch changed."
+        },
+        {
+          "path": "skills/use-powershell-safely/references/windows-wsl-boundaries.md",
+          "status": "CHECKED_NO_CHANGE",
+          "reason": "No WSL implementation branch changed."
+        }
+      ]
+    },
+    {
+      "fact": "synthetic PowerShell readiness fixture definitions",
+      "fact_class": "Native/control/candidate and optimizer evaluation definitions plus sanitized detailed results",
+      "canonical_owner": "evals/fixtures/powershell-boundary/command-readiness-cases.json",
+      "bounded_consumers": [
+        "docs/decisions/0017-capability-delta-skill-development.md",
+        "docs/skills/use-powershell-safely/VERIFICATION.md",
+        "evals/README.md",
+        "evals/cases/powershell-boundary.md",
+        "evals/check-fixtures.ps1",
+        "evals/check-powershell-boundaries.ps1",
+        "evals/fixtures/README.md",
+        "evals/fixtures/powershell-boundary/README.md"
+      ],
+      "dispositions": [
+        {
+          "path": "evals/fixtures/powershell-boundary/command-readiness-cases.json",
+          "status": "UPDATE",
+          "reason": "Adds the sole new tracked artifact and owns the exact parameter, error, parser, and runtime fixtures."
+        },
+        {
+          "path": "docs/decisions/0017-capability-delta-skill-development.md",
+          "status": "CHECKED_NO_CHANGE",
+          "reason": "The fixture follows the existing deterministic-evidence boundary."
+        },
+        {
+          "path": "docs/skills/use-powershell-safely/VERIFICATION.md",
+          "status": "UPDATE",
+          "reason": "Records what the pairs prove and do not prove."
+        },
+        {
+          "path": "evals/README.md",
+          "status": "UPDATE",
+          "reason": "Updates the aggregate case and checker inventory."
+        },
+        {
+          "path": "evals/cases/powershell-boundary.md",
+          "status": "UPDATE",
+          "reason": "Maps pair families to the bounded acceptance contract."
+        },
+        {
+          "path": "evals/check-fixtures.ps1",
+          "status": "UPDATE",
+          "reason": "Validates the readiness manifest schema and pair cardinality."
+        },
+        {
+          "path": "evals/check-powershell-boundaries.ps1",
+          "status": "UPDATE",
+          "reason": "Parses and executes the bounded invalid/valid pairs."
+        },
+        {
+          "path": "evals/fixtures/README.md",
+          "status": "CHECKED_NO_CHANGE",
+          "reason": "Its generic synthetic-fixture handling remains sufficient."
+        },
+        {
+          "path": "evals/fixtures/powershell-boundary/README.md",
+          "status": "UPDATE",
+          "reason": "Documents the new pair file and its exclusions."
+        }
+      ]
+    },
+    {
+      "fact": "PowerShell P1 implementation state and integration gate",
+      "fact_class": "Per-Skill implementation state, writer, next gate, and recovery",
+      "canonical_owner": "docs/skills/use-powershell-safely/STATE.md",
+      "bounded_consumers": [
+        "docs/HANDOFF.md",
+        "docs/STATUS.md",
+        "docs/VERIFICATION.md",
+        "docs/skills/use-powershell-safely/VERIFICATION.md"
+      ],
+      "dispositions": [
+        {
+          "path": "docs/skills/use-powershell-safely/STATE.md",
+          "status": "UPDATE",
+          "reason": "Owns the residual, writer lease, limits, and next gates."
+        },
+        {
+          "path": "docs/HANDOFF.md",
+          "status": "UPDATE",
+          "reason": "Carries the bounded recovery and integration overlap."
+        },
+        {
+          "path": "docs/STATUS.md",
+          "status": "UPDATE",
+          "reason": "Updates the repository dashboard without duplicating detail."
+        },
+        {
+          "path": "docs/VERIFICATION.md",
+          "status": "UPDATE",
+          "reason": "Keeps branch-local verification separate from integration."
+        },
+        {
+          "path": "docs/skills/use-powershell-safely/VERIFICATION.md",
+          "status": "UPDATE",
+          "reason": "Separates P1 SOURCE evidence from later selection and release gates."
+        }
+      ]
+    },
+    {
+      "fact": "PowerShell P1 deterministic evidence and limits",
+      "fact_class": "Per-Skill SOURCE, forward-test, DEV, RC, stable evidence and limits",
+      "canonical_owner": "docs/skills/use-powershell-safely/VERIFICATION.md",
+      "bounded_consumers": [
+        "docs/HANDOFF.md",
+        "docs/STATUS.md",
+        "docs/VERIFICATION.md",
+        "docs/skills/use-powershell-safely/README.md",
+        "docs/skills/use-powershell-safely/README.zh-CN.md",
+        "evals/README.md"
+      ],
+      "dispositions": [
+        {
+          "path": "docs/skills/use-powershell-safely/VERIFICATION.md",
+          "status": "UPDATE",
+          "reason": "Owns the SOURCE hashes, focused results, and unproved claims."
+        },
+        {
+          "path": "docs/HANDOFF.md",
+          "status": "UPDATE",
+          "reason": "Records closeout evidence and exclusions for recovery."
+        },
+        {
+          "path": "docs/STATUS.md",
+          "status": "UPDATE",
+          "reason": "Summarizes the deterministic status and pending evidence gate."
+        },
+        {
+          "path": "docs/VERIFICATION.md",
+          "status": "UPDATE",
+          "reason": "Updates repository-level checker and parser results."
+        },
+        {
+          "path": "docs/skills/use-powershell-safely/README.md",
+          "status": "UPDATE",
+          "reason": "States the unreleased deterministic evidence limit."
+        },
+        {
+          "path": "docs/skills/use-powershell-safely/README.zh-CN.md",
+          "status": "UPDATE",
+          "reason": "Mirrors the English evidence limit."
+        },
+        {
+          "path": "evals/README.md",
+          "status": "UPDATE",
+          "reason": "Documents what the focused checker covers and excludes."
+        }
+      ]
+    },
+    {
+      "fact": "repository checks for the PowerShell P1 target",
+      "fact_class": "Repository checks, coherent candidate, tag, stable-install, and release evidence",
+      "canonical_owner": "docs/VERIFICATION.md",
+      "bounded_consumers": [
+        "docs/HANDOFF.md",
+        "docs/RUNBOOK.md",
+        "docs/STATUS.md",
+        "evals/README.md"
+      ],
+      "dispositions": [
+        {
+          "path": "docs/VERIFICATION.md",
+          "status": "UPDATE",
+          "reason": "Owns validator, repository, fixture, parser, and focused results."
+        },
+        {
+          "path": "docs/HANDOFF.md",
+          "status": "UPDATE",
+          "reason": "Carries the fact-first closure and handoff limits."
+        },
+        {
+          "path": "docs/RUNBOOK.md",
+          "status": "CHECKED_NO_CHANGE",
+          "reason": "The existing validation and closure procedure is sufficient."
+        },
+        {
+          "path": "docs/STATUS.md",
+          "status": "UPDATE",
+          "reason": "Updates the bounded repository dashboard state."
+        },
+        {
+          "path": "evals/README.md",
+          "status": "UPDATE",
+          "reason": "Updates deterministic checker coverage and limitations."
+        }
+      ]
+    },
+    {
+      "fact": "PowerShell P1 writer custody and integration overlap",
+      "fact_class": "Repository writer custody, dirty scope, next integration action, and recovery order",
+      "canonical_owner": "docs/HANDOFF.md",
+      "bounded_consumers": [
+        "docs/STATUS.md",
+        "docs/VERIFICATION.md",
+        "docs/skills/use-powershell-safely/STATE.md"
+      ],
+      "dispositions": [
+        {
+          "path": "docs/HANDOFF.md",
+          "status": "UPDATE",
+          "reason": "Owns the branch lease, protected source checkout, overlaps, and integration gate."
+        },
+        {
+          "path": "docs/STATUS.md",
+          "status": "UPDATE",
+          "reason": "Shows the unreleased branch and pending integration authorization."
+        },
+        {
+          "path": "docs/VERIFICATION.md",
+          "status": "UPDATE",
+          "reason": "Preserves verification without implying integration."
+        },
+        {
+          "path": "docs/skills/use-powershell-safely/STATE.md",
+          "status": "UPDATE",
+          "reason": "Owns the per-Skill writer terminal and next gate."
+        }
+      ]
+    }
+  ]
+}
+```
+
+Every mapped owner and bounded consumer has a disposition. The exact `UPDATE`
+union equals the actual uncommitted Git target; `CHECKED_NO_CHANGE` paths remain
+outside the diff. The only new tracked artifact is the synthetic readiness-pair
+JSON. Actual Harness selection, model or assessor evidence, installed copies,
+release state, and excluded neighboring product contracts are not reviewed by
+this closure.
 
 ## 2026-08-10 Native Package Load And Explicit Activation Correction
 
@@ -1151,6 +2217,203 @@ is:
 The broad Campaign envelope permitted this mapped result update after D36
 created the fact class; it did not require or authorize speculative files.
 
+## 2026-08-15 Documentation-Impact Closure Checker
+
+Task-dedicated branch `codex/documentation-impact-closure` starts from exact
+local `main` commit `8c952abb5161c3082fb4d9a09e49a0a183b84ab0`. It changes no
+Skill SOURCE, evaluation case, fixture, runner, controller, sealed evidence, or
+installed copy. Its bounded writer lease covers the four-path intended update
+set below through deterministic checks, native review, and one local commit.
+The terminal commit ends that lease; push, merge, rebase, integration, cleanup,
+installation, release, and model or assessor calls remain excluded.
+
+The source `main` checkout's pre-existing dirty bytes were not copied into this
+worktree. `docs/HANDOFF.md` and `docs/VERIFICATION.md` are integration overlaps
+by path only: this branch modifies the committed baseline copies, while the
+source checkout retains its separate uncommitted Work Charter bytes. Integration
+therefore remains an explicit later user-owned action.
+
+The machine-checked closure record is:
+
+```documentation-impact-closure
+{
+  "schema": "documentation-impact-closure/v1",
+  "closure_id": "repository-documentation-impact-checker-v1",
+  "authorized_change_envelope": [
+    "AGENTS.md",
+    "docs/AUTHORITY.md",
+    "docs/HANDOFF.md",
+    "docs/RUNBOOK.md",
+    "docs/VERIFICATION.md",
+    "scripts/check_repository.py"
+  ],
+  "intended_update_set": [
+    "docs/HANDOFF.md",
+    "docs/RUNBOOK.md",
+    "docs/VERIFICATION.md",
+    "scripts/check_repository.py"
+  ],
+  "review_target": [
+    "docs/HANDOFF.md",
+    "docs/RUNBOOK.md",
+    "docs/VERIFICATION.md",
+    "scripts/check_repository.py"
+  ],
+  "changed_facts": [
+    {
+      "fact": "deterministic documentation-impact closure procedure",
+      "fact_class": "Development intake, external optimizer experiment, discovery, installation, candidate, update, rollback, and release procedure",
+      "canonical_owner": "docs/RUNBOOK.md",
+      "bounded_consumers": [
+        "AGENTS.md",
+        "README.md",
+        "README.zh-CN.md",
+        "docs/ARCHITECTURE.md",
+        "docs/AUTHORITY.md",
+        "docs/PROVENANCE.md",
+        "docs/SPEC.md",
+        "docs/decisions/0015-federated-repository-documentation.md",
+        "docs/decisions/0017-capability-delta-skill-development.md",
+        "docs/decisions/0019-project-docs-implicit-discovery-and-demand-driven-modules.md",
+        "scripts/check_repository.py"
+      ],
+      "dispositions": [
+        {
+          "path": "docs/RUNBOOK.md",
+          "status": "UPDATE",
+          "reason": "Owns the closure procedure and pre-review command."
+        },
+        {
+          "path": "AGENTS.md",
+          "status": "CHECKED_NO_CHANGE",
+          "reason": "Already requires fact-first tri-state closure before first native review."
+        },
+        {
+          "path": "README.md",
+          "status": "CHECKED_NO_CHANGE",
+          "reason": "The public repository entry does not describe internal checker invocation."
+        },
+        {
+          "path": "README.zh-CN.md",
+          "status": "CHECKED_NO_CHANGE",
+          "reason": "Its mirrored public surface remains unchanged with the English entry."
+        },
+        {
+          "path": "docs/ARCHITECTURE.md",
+          "status": "CHECKED_NO_CHANGE",
+          "reason": "No cross-Skill component or ownership topology changes."
+        },
+        {
+          "path": "docs/AUTHORITY.md",
+          "status": "CHECKED_NO_CHANGE",
+          "reason": "The checker consumes the existing fact classes without changing canonical ownership."
+        },
+        {
+          "path": "docs/PROVENANCE.md",
+          "status": "CHECKED_NO_CHANGE",
+          "reason": "No source transformation, external data, or publication boundary changes."
+        },
+        {
+          "path": "docs/SPEC.md",
+          "status": "CHECKED_NO_CHANGE",
+          "reason": "No shared product requirement or Skill contract changes."
+        },
+        {
+          "path": "docs/decisions/0015-federated-repository-documentation.md",
+          "status": "CHECKED_NO_CHANGE",
+          "reason": "Federated documentation ownership remains unchanged."
+        },
+        {
+          "path": "docs/decisions/0017-capability-delta-skill-development.md",
+          "status": "CHECKED_NO_CHANGE",
+          "reason": "No Skill capability delta or product residual is introduced."
+        },
+        {
+          "path": "docs/decisions/0019-project-docs-implicit-discovery-and-demand-driven-modules.md",
+          "status": "CHECKED_NO_CHANGE",
+          "reason": "Project Docs selection and persistence behavior are unchanged."
+        },
+        {
+          "path": "scripts/check_repository.py",
+          "status": "UPDATE",
+          "reason": "Implements owner, consumer, disposition, envelope, and Git-target checks."
+        }
+      ]
+    },
+    {
+      "fact": "repository documentation-impact checker evidence",
+      "fact_class": "Repository checks, coherent candidate, tag, stable-install, and release evidence",
+      "canonical_owner": "docs/VERIFICATION.md",
+      "bounded_consumers": [
+        "docs/HANDOFF.md",
+        "docs/RUNBOOK.md",
+        "docs/STATUS.md",
+        "scripts/check_repository.py"
+      ],
+      "dispositions": [
+        {
+          "path": "docs/VERIFICATION.md",
+          "status": "UPDATE",
+          "reason": "Owns the deterministic positive, negative, and repository-check results."
+        },
+        {
+          "path": "docs/HANDOFF.md",
+          "status": "UPDATE",
+          "reason": "Carries the visible closure record and bounded integration state."
+        },
+        {
+          "path": "docs/RUNBOOK.md",
+          "status": "UPDATE",
+          "reason": "Documents the checker invocation and fail-closed boundary."
+        },
+        {
+          "path": "docs/STATUS.md",
+          "status": "CHECKED_NO_CHANGE",
+          "reason": "The product and release dashboard does not need branch-local checker detail."
+        },
+        {
+          "path": "scripts/check_repository.py",
+          "status": "UPDATE",
+          "reason": "Owns the executable deterministic validation."
+        }
+      ]
+    },
+    {
+      "fact": "task-dedicated writer and integration overlap",
+      "fact_class": "Repository writer custody, dirty scope, next integration action, and recovery order",
+      "canonical_owner": "docs/HANDOFF.md",
+      "bounded_consumers": [
+        "docs/STATUS.md",
+        "docs/VERIFICATION.md"
+      ],
+      "dispositions": [
+        {
+          "path": "docs/HANDOFF.md",
+          "status": "UPDATE",
+          "reason": "Owns the bounded writer lease, base, exclusions, and later integration gate."
+        },
+        {
+          "path": "docs/STATUS.md",
+          "status": "CHECKED_NO_CHANGE",
+          "reason": "No integration or repository dashboard transition has occurred."
+        },
+        {
+          "path": "docs/VERIFICATION.md",
+          "status": "UPDATE",
+          "reason": "Records branch-local verification without claiming integration."
+        }
+      ]
+    }
+  ]
+}
+```
+
+Every mapped consumer has a disposition. Files marked `CHECKED_NO_CHANGE` stay
+outside the intended update set, so the closure requires no empty edits. Skill
+SOURCE and the Work Charter, PowerShell, Project Docs, Campaign, candidate,
+installation, and release fact classes are `NOT_APPLICABLE` to this repository-
+checker correction.
+
 ## Resume Order
 
 1. Read `AGENTS.md`, `docs/INDEX.md`, and `docs/AUTHORITY.md`.
@@ -1264,17 +2527,26 @@ eligible commit selection remain user/Planner/Harness decisions; correction 16
 is reserved. D55 later consumed C16/C17 and sealed
 `QUALIFICATION_FAILED / PRODUCT_UNKNOWN`; the exact mechanism remains
 `UNKNOWN`, its writer relinquished, and its former Fresh route is closed. Exact
-public commit `67a764a...` later completed isolated RC install and bounded
-minimal smoke without repairing D55. The immediate action is only the
-authorized factual evidence sync, native review, one commit, same-branch push,
-and all-worktree/source-root reconciliation. No D55 repair, formal carrier,
-full Gate 2, stable install, integration, tag, release, or D56 follows. The R1
-launcher lesson remains post-D55 `DEFERRED`.
+public historical commit `67a764a...` later completed isolated RC install and
+bounded minimal smoke without repairing D55. The immediate Phase 1 action is
+only the authorized coherent-candidate integration, factual reconciliation,
+deterministic verification, native review, at most one local merge commit, and
+all-worktree/source-root reconciliation. No D55 repair, formal carrier, model,
+product, assessor, RC materialization, install, push, full Gate 2, stable
+update, tag, release, cleanup, or D56 follows. The R1 launcher lesson remains
+post-D55 `DEFERRED`.
+
+After a successful exact local candidate commit, the only proposed Phase 2
+handoff is isolated installation of that exact commit and loaded-copy identity,
+one proportional Work Charter smoke, one PowerShell positive plus the ordinary-
+cmdlet and POSIX-only negatives, and one independent assessor. Phase 2 requires
+separate authority and must not start from this handoff alone.
 
 Later user-owned choices include:
 
-- decide whether to authorize stable installation, integration, tag, GitHub
-  Release, cleanup, another bounded evidence tranche, or no further action;
+- decide whether to authorize the exact bounded Phase 2 handoff above, or no
+  further action; stable installation, push, tag, GitHub Release, cleanup, or a
+  different evidence tranche remain separate later choices;
 - decide any future native-review budget reset only if an authorized commit
   attempt exhausts its own cycle;
 - decide any installation, release, or public-reachability action only from the

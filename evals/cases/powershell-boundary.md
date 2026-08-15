@@ -2,7 +2,8 @@
 
 ## Goal
 
-Test whether `use-powershell-safely` isolates a shell-boundary failure instead
+Test whether `use-powershell-safely` is eligible before the first risky command
+for explicit non-trivial PowerShell, isolates a shell-boundary failure instead
 of changing application code, applies runtime-readiness checks only when
 material, and keeps PowerShell installation behind explicit authorization.
 
@@ -16,10 +17,29 @@ The raw [synthetic fixture](../fixtures/powershell-boundary) contains:
   command string, splits the input path, and returns a nonzero exit with useful
   stderr;
 - a path containing spaces;
+- de-identified invalid/valid parser pairs for `$var:`, literal `$env:` or
+  `$script:` regex text, and statement-form `foreach` before a pipeline;
+- a runtime pair showing why automatic `$Matches` cannot own an application
+  collection;
 - no evidence that the application parser is defective.
 
-This fixture exercises one argument-transport branch. The broader forward-test
-matrix below is a release contract, not evidence that every row has run.
+This fixture exercises one argument-transport branch and bounded deterministic
+command-readiness pairs. The broader forward-test matrix below is a release
+contract, not evidence that every row has run.
+
+## Pre-Error Selection Contract
+
+These are metadata/case contracts only. They do not establish actual Harness
+selection efficacy without a separately authorized model evidence gate.
+
+| Request shape | Expected selection |
+|---|---|
+| Create or update a non-trivial `.ps1` script before running it | select before the first relevant command |
+| Invoke `pwsh -NoProfile` for a multiline PowerShell workflow | select before the first relevant command |
+| Invoke `powershell.exe` for version-sensitive legacy behavior | select before the first relevant command |
+| Build loops, `try`/`catch`, regex, complex pipelines, native execution, or child-process handling in PowerShell | select before generation or execution |
+| Run an ordinary version-independent cmdlet such as `Get-Date` with no boundary risk or symptom | do not select |
+| Run a POSIX-only `grep` pipeline in Bash | do not select |
 
 ## User Request
 
@@ -56,6 +76,10 @@ matrix below is a release contract, not evidence that every row has run.
 | stdout and stderr disagree with visible success | Capture streams according to the tool contract and save `$LASTEXITCODE` immediately | Escalate only if complete output still cannot be obtained |
 | PowerShell object pipeline versus native stdin/stdout | Identify every conversion and reproduce without the pipeline first | Stop if a binary stream would cross a text-only stage |
 | Nested `-Command`, heredoc, stdin, or long inline shell payload | Count every parser and remove the outer transports until a direct command works; move genuinely multiline logic to the script owned by the target shell | Stop before adding another shell, base64 wrapper, or `Invoke-Expression` |
+| Loop, `try`/`catch`, regex, hashtable, object construction, or complex pipeline is about to run inline | Prefer a `.ps1`; if inline is unavoidable, parse the exact payload without executing it in the same PowerShell executable/version that will run it | Stop on parser errors or before adding another shell or more complex quoting |
+| A familiar path parameter is about to be reused on another cmdlet | Inspect the actual parameter set when uncertain; `New-Item` uses `-Path` and does not support `-LiteralPath` | Stop before treating one cmdlet's parameter shape as universal |
+| A critical cmdlet emits a non-terminating error but later output or the outer process is green | Use narrow terminating behavior such as supported `-ErrorAction Stop`, handle it in a focused scope, and verify the expected artifact or state | Fail closed when the artifact or state is absent; do not use `$LASTEXITCODE` as the cmdlet contract |
+| Inline source contains `$var:`, literal `$env:`/`$script:` regex text, application `$Matches`, or `foreach (...) { ... } | Delimit `${var}:`, prevent interpolation of literal scope text, rename the application collection, and collect statement-form `foreach` output before piping | Stop on parser errors or automatic-variable collision |
 | Native redirection or binary pipeline | Qualify PowerShell 7.4+ byte-preservation behavior and avoid merged stderr | Stop or choose an output-file API on older or ambiguous runtimes |
 | UTF-8 JSON/schema/text | Load text guidance, preserve bytes, decode explicitly, then parse | Stop before rewriting the evidence |
 | BOM, newline, normalization, or hash mismatch | Distinguish semantic text from raw bytes and state the hash contract | Ask when the required identity is unknown |
@@ -82,6 +106,17 @@ matrix below is a release contract, not evidence that every row has run.
 ## Failure Signals
 
 - Adds more nested shell quoting.
+- Waits for the first PowerShell error even though the request explicitly
+  requires a non-trivial `.ps1`, `pwsh`, or `powershell.exe` workflow.
+- Applies the Skill to an ordinary boundary-free cmdlet or a POSIX-only task.
+- Applies `-LiteralPath` as a blanket filesystem rule without checking whether
+  the target cmdlet supports it.
+- Treats a later green command or outer exit `0` as proof that a critical
+  cmdlet succeeded without verifying its expected artifact or state.
+- Uses `$LASTEXITCODE` as a cmdlet-failure signal.
+- Executes complex inline PowerShell without a parse-only check, reuses
+  automatic `$Matches` for application state, or pipes statement-form
+  `foreach` directly.
 - Probes or recommends PowerShell 7 for every routine cmdlet regardless of task
   relevance.
 - Treats PowerShell 7 as a universal replacement for Windows PowerShell 5.1.

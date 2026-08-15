@@ -49,8 +49,9 @@ $work-charter Bound this consequential task, its authority, evidence, and recove
 $use-powershell-safely Diagnose this material Windows shell boundary before changing application code.
 ```
 
-Project Docs uses the released `v0.1.2` explicit-only trigger in this
-Work-Charter-only prerelease set. The user must explicitly ask to use Project
+Project Docs uses the released `v0.1.2` explicit-only trigger in this coherent
+`v0.2.0` release-set candidate. Work Charter and PowerShell are the changed
+members; Project Docs remains unchanged. The user must explicitly ask to use Project
 Docs, including through `$manage-project-docs`; a documentation-governance
 request or authority, evidence, routing, or recovery symptom alone does not
 select or load it. After a concrete proposal is visible, natural-language
@@ -104,6 +105,11 @@ independent packages in a supported set. The current accepted stable release is
 recorded historical identities. Live refs and
 [Repository Verification](docs/VERIFICATION.md) own the exact release and
 installed-copy evidence.
+
+The current local coherent `v0.2.0` candidate classifies Work Charter and
+PowerShell as `changed` and exact `v0.1.2` Project Docs as `unchanged`. It is
+not an RC, installation, tag, release, stable update, or behavior-acceptance
+claim.
 
 The shared tag is a release-set identity. It does not assert that every Skill
 changed in that release or has the same maturity.

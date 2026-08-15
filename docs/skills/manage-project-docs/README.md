@@ -79,7 +79,7 @@ The released six-file `v0.1.2` package has exact-source behavior evidence,
 controlled development loaded-copy evidence, exact-commit candidate identity,
 and
 tag-pinned `v0.1.2` stable loaded-copy identity plus a mature-layout `NOOP`
-canary. The Work-Charter-only `v0.2.0` prerelease candidate keeps those exact
+canary. The coherent `v0.2.0` release-set candidate keeps those exact
 six `v0.1.2` package files and makes no new Project Docs behavior, installation,
 or loaded-copy claim. The later Decision 0019 implicit-selection and demand-
 driven-module development revision remains preserved but excluded. The current

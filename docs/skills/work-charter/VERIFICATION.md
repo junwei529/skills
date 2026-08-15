@@ -7,6 +7,7 @@ Last updated: 2026-08-15
 | Claim | Status |
 |---|---|
 | `work-charter` is the sole current five-file package | verified structurally for current SOURCE |
+| Coherent `v0.2.0` release-set package identity | Work Charter remains `changed` at exact five-file tree `97f0d9de17abc9c699772e0ebdcbdaa23d890008` and manifest `04c382a4...`; adding the independently changed PowerShell P1 package creates no new Work Charter SOURCE or behavior evidence |
 | Gate 1 protection, re-entry, convergence, and explicit-activation contract | D43 SOURCE correction is implemented in the current revision: indirect proposal is metadata-sufficient and workflow-free, while direct or confirmed activation requires the exact body; the commit containing the closed set becomes the exact D43 candidate, and D31-D42 remain immutable and unaccepted |
 | Gate 1 evaluation definitions | 14 exact cases and 12 exact fixtures remain the intended repository shape; installed-Skills and symptom-only proposals may be metadata-only or package-loaded without changing their proposal score, while same-context confirmation requires exact body loading before activation; the prospective reference matrix is 20 runs and the full two-contrast matrix 28 cells, with separate direct-invocation project-read and package-denial/Harness-preload boundaries |
 | First `v0.2.0` exact candidate Gate 2 | `206c497...` stopped incomplete and is superseded for acceptance; its completed correction and consumed events remain historical |

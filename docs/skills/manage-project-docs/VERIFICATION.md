@@ -6,7 +6,7 @@ Last updated: 2026-08-14
 
 | Claim | Status |
 |---|---|
-| The release-prep package has six canonical files | all six live files are byte-identical to `v0.1.2` / `ceed607...`; Project Docs is `unchanged` in the Work-Charter-only candidate |
+| The release-prep package has six canonical files | all six live files are byte-identical to `v0.1.2` / `ceed607...`; Project Docs is `unchanged` in the coherent `v0.2.0` release-set candidate |
 | The five logical responsibilities work without fixed filenames | passed in mature, adoption, continuity, conflict, and safety fixtures |
 | Immutable `v0.1.2` explicit-only selection | controlled DEV_DISCOVERY, RC, and stable positive/negative canaries pass for that exact control |
 | Historical Decision 0019 implicit-selection policy and no-write boundary | `PARTIAL` at local development commit `776989f...`; its bytes are excluded from this prerelease candidate, and actual candidate selection plus physical loaded-copy attribution remain `UNKNOWN` |
@@ -107,7 +107,7 @@ The live six-file package is byte-identical to immutable `v0.1.2` commit
 `ceed607152849775b981c54add74bfa30d858e4d`. `git hash-object` equality is
 required for every file, and the raw SHA-256 values are the exact values in the
 next section. This materialization classifies Project Docs as `unchanged` in a
-Work-Charter-only release set. It is not an `RC_INSTALL`, stable loaded-copy
+coherent `v0.2.0` release set. It is not an `RC_INSTALL`, stable loaded-copy
 probe, tag, release, behavior rerun, or deletion of the later development
 history.
 

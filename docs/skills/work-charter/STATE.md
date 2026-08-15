@@ -964,6 +964,12 @@ acceptance remain unproved. Any of those actions, another bounded evidence
 tranche, or leaving the candidate unchanged requires a separate user decision;
 no action follows automatically.
 
+The local coherent `v0.2.0` release-set candidate preserves the same exact
+Work Charter five-file tree `97f0d9de...` and manifest `04c382a4...` while
+including PowerShell P1 as an independently changed peer and exact `v0.1.2`
+Project Docs as unchanged. This integration creates no new Work Charter RC,
+product, assessor, stable, tag, or release evidence.
+
 Work Charter `v0.1.2` remains the released and installed stable revision.
 Exact D34 candidate `b3ad360...` remains unaccepted. D32 qualifies mapping and
 freeze only; D33 and D35 are immutable infrastructure/controller

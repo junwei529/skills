@@ -6,7 +6,7 @@ Last updated: 2026-08-14
 
 Canonical editable SOURCE remains the six-file package under
 [`skills/manage-project-docs`](../../../skills/manage-project-docs). In the
-Work-Charter-only `v0.2.0` prerelease candidate, all six files are restored
+coherent `v0.2.0` release-set candidate, all six files are restored
 byte-for-byte to immutable `v0.1.2` commit
 `ceed607152849775b981c54add74bfa30d858e4d`. This is the released explicit-only
 control; it is `unchanged` in the release set and receives no new behavior,

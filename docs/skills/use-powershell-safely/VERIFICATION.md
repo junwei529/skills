@@ -1,12 +1,17 @@
 # PowerShell Verification
 
-Last updated: 2026-08-01
+Last updated: 2026-08-15
 
 ## Claim Ledger
 
 | Claim | Status |
 |---|---|
 | The current package has one entry and exactly three conditional references | verified structurally |
+| P1 metadata and case contract cover `.ps1`, `pwsh`, `powershell.exe`, and non-trivial PowerShell before the first related command | verified statically and observed in one bounded fresh selection cell at exact commit `30668743...`; broad Harness selection efficacy remains unproved |
+| P1 ordinary version-independent cmdlet and POSIX-only negatives remain explicit | verified statically and observed as two bounded fresh non-selection controls |
+| P1 revision-relative pre-error selection | `PRE_ERROR_SELECTION_OBSERVED / NARROW_PASS`: the exact P1 copy loaded before the first risky command in one matched positive, while immutable `v0.1.2` did not load for the same request |
+| P1 parameter, cmdlet-error, parser, and automatic-variable readiness | 41 focused assertions pass under PowerShell 7 and Windows PowerShell 5.1 |
+| Coherent `v0.2.0` release-set package identity | PowerShell is `changed`; exact reviewed P1 tree `d8bf6dc74f106c386653cb3b598d50e790c38348` is preserved from SOURCE commit `30668743...`, while `a7637a6...` contributes evidence-sync facts but is not a new SOURCE revision |
 | Released portable guidance handles the recorded native, text, WSL, version, locale, sandbox, and destructive boundaries | seven fresh development scenarios pass |
 | Ordinary cmdlet and POSIX-only work remain outside the Skill | catalog-assisted and controlled native negatives pass |
 | Released DEV_DISCOVERY, exact-commit RC, and stable loaded-copy identity | verified |
@@ -17,11 +22,107 @@ Last updated: 2026-08-01
 | Current corrected exact-commit RC identity and behavior | exact-commit `c42eef3...` loaded-copy positives/negatives, controller boundary, and independent readiness pass |
 | Current hardening stable identity and guarded native/text diagnosis | tag-pinned `v0.1.2` five-file identity and fresh loaded-copy canary pass |
 | Live Bash/WSL, native execution inside the stable canary sandbox, actual sandbox denial, or shadow use | unverified |
-| General efficacy, token savings, or cross-Harness parity | unverified |
+| General efficacy, token savings, broad trigger accuracy, or cross-Harness parity | unverified |
 
-## Current SOURCE Identity
+## Unreleased P1 SOURCE Identity
 
-The five current SOURCE files were decoded as strict UTF-8, normalized to LF
+The five SOURCE files on `codex/use-powershell-safely-next` were decoded as
+strict UTF-8, normalized to LF with one final newline, and hashed with SHA-256:
+
+```text
+SKILL.md
+  fdd28fe8e7770ea0d6ef924eddfe66ed5584c75e99c18405bbf7b5ffeed9f21d
+agents/openai.yaml
+  3b61f94eec7d23407bd114a80281e2ddee7ea463d39cfc50d1ab3d172cf142df
+references/native-process-boundaries.md
+  73425524b0d42bcab63f12a17510d6efc29d3efc6c2f523e774cd7304c824e10
+references/text-encoding-boundaries.md
+  ca1fb4c3caea1c045ab06ebd348a9cfd39863e86faf12e4a7a2548f172a69f96
+references/windows-wsl-boundaries.md
+  5674d97ac52c6c8b05c8f57acae8ba5970afbdab3a1828ba62297038e450ffb7
+```
+
+This identity implements the bounded
+`PRE_ERROR_SELECTION_AND_COMMAND_READINESS` residual. It was later
+materialized as one task-private isolated exact-commit copy for the bounded
+selection evidence below. That materialization was not a discovery mapping,
+installed copy, formal candidate, RC, stable update, tag, or release.
+
+## Coherent `v0.2.0` Candidate Boundary
+
+The local release-set candidate preserves all five P1 package blobs from
+reviewed SOURCE commit `30668743cdc6c8be00100fd48fa89376adf746f8` and required
+tree `d8bf6dc74f106c386653cb3b598d50e790c38348`. Descendant `a7637a6...`
+contributes only the recorded deterministic and narrow selection evidence
+facts; it does not define a new PowerShell SOURCE revision. Phase 1 runs no
+model, product, or assessor turn and creates no isolated install, loaded-copy,
+RC, stable, tag, or release evidence.
+
+## 2026-08-15 P1 Deterministic Evidence
+
+The focused boundary checker passed 41 assertions under the installed
+PowerShell 7 and Windows PowerShell 5.1 hosts. It proves only these synthetic
+mechanisms and static contracts:
+
+- pre-error metadata and case markers cover `.ps1`, `pwsh`, `powershell.exe`,
+  and non-trivial PowerShell while retaining ordinary-cmdlet and POSIX-only
+  negatives;
+- parse-only guidance is bound to the same exact PowerShell executable/version
+  that will run the target;
+- `New-Item -LiteralPath` is rejected and creates no target, while its actual
+  `-Path` shape creates and verifies the intended directory;
+- a child PowerShell process can return zero after a non-terminating cmdlet
+  error with no artifact, while the corrected narrow fail-closed shape rejects
+  the missing input and verifies the artifact on success;
+- three invalid/valid parse pairs cover variable-colon boundaries, literal
+  scope-prefix regex text, and statement-form `foreach` before a pipeline; and
+- one syntactically valid runtime pair exposes and corrects the automatic
+  `$Matches` collection collision.
+
+The bundled Skill validator and repository checker pass. The aggregate fixture
+checker passes all four PowerShell rows, including the new pair manifest, but
+its overall command remains nonzero at the excluded Work Charter Gate 2 runner
+regression already present in the clean base. No Work Charter file was changed
+or reclassified as a PowerShell defect. No model or assessor path ran in this
+deterministic tranche.
+
+## 2026-08-15 P1 Minimal Selection Evidence
+
+One separately authorized, task-private DEV selection tranche compared the
+exact P1 revision with the immutable `v0.1.2` control without changing any
+installed or discovered Skill copy. The P1 materialization matched all five
+Git blobs and the normalized SOURCE hashes above. A zero-model catalog probe
+surfaced exactly one PowerShell entry for each isolated workspace, resolved
+each entry to its intended materialization, and reported no omission or
+truncation signal.
+
+The task-private carrier bound the exact Harness executable identity without
+publishing its local version, path, or hash. The Harness did not expose the
+model or reasoning identities, so both remain `UNKNOWN`. Two pre-evidence
+launch attempts were excluded: one failed in the local controller shape before
+model work, and one stopped at the restricted network transport. After the
+authorized corrected transport canary returned the exact `TRANSPORT_OK`
+response with no command or Skill read, the counted cells began.
+
+| Counted cell | Observation |
+|---|---|
+| Exact P1 positive | The agent loaded exact `SKILL.md`, then the native/process reference, before attempting the named `.ps1` command. The read-only policy declined execution, so selection timing is observed but command behavior is not. |
+| Immutable `v0.1.2` matched positive | Under the same request, the agent attempted the command without loading the stable Skill entry or a reference. Execution was likewise declined. |
+| Exact P1 ordinary-cmdlet negative | The agent did not load the Skill before attempting the ordinary version-independent cmdlet; execution was declined. |
+| Exact P1 POSIX-only negative | The agent did not load the Skill and returned a direct Bash shape without executing a command. |
+
+The bounded conclusion is therefore
+`PRE_ERROR_SELECTION_OBSERVED / NARROW_PASS`. It supports a revision-relative
+selection signal for this one matched positive plus the two required negative
+families. It does not prove selected command-readiness behavior, broad trigger
+accuracy, real-project efficacy, token savings, cross-Harness parity, or RC or
+stable readiness. The target command never executed, no independent assessor
+ran, and raw prompts, logs, task identifiers, and private locators remain
+unpublished.
+
+## Released `v0.1.2` SOURCE Identity
+
+The five released SOURCE files were decoded as strict UTF-8, normalized to LF
 with one final newline, and hashed with SHA-256:
 
 ```text
