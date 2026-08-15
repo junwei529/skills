@@ -1,24 +1,25 @@
 # 0018: Work Charter Adoption, Protection Levels, And Re-entry Checkpoint
 
 Date: 2026-08-02
-Amended: 2026-08-14
-Status: accepted through the sealed D55 C17 terminal and the bounded 2026-08-14 minimal claim evaluation; D40-D55 remain immutable or sealed, D52-D55 preserve `PRODUCT_UNKNOWN` where recorded, C1-C5 alone are `ACCEPT`, and broader Gate 2/release acceptance remains unproved
+Amended: 2026-08-15
+Status: accepted through the sealed D55 C17 terminal, the bounded 2026-08-14 minimal claim evaluation, and exact public commit `67a764a...` RC install/minimal smoke; D40-D55 remain immutable or sealed, D52-D55 preserve `PRODUCT_UNKNOWN` where recorded, C1-C5 alone are `ACCEPT`, and broader Gate 2/stable release acceptance remains unproved
 
-- Planning checkpoint: 46 (Work Charter `v0.2.0` local prerelease preparation)
-- Last incorporated decision: the user authorized one clean task-owned branch
-  to combine the exact `c481005...` Work Charter package, exact `ceed607...`
-  Project Docs and PowerShell packages, allowlisted D55/minimal-evaluation
-  factual bytes, deterministic verification, native review, and exactly one
-  local commit. Dirty D55 runner/checker bytes in the source root are excluded
-- Open decision: none inside that local commit. `RC_INSTALL`, stable loaded-
-  copy evidence, push, merge, tag, release, cleanup, and publication remain
-  separate user decisions
-- Lifecycle authority: D54, D55, and minimal-evaluation writers are
-  `RELINQUISHED`. The bounded release-prep lease owns only branch
-  `codex/work-charter-v0.2-release-prep`, the 27-path release set, verification,
-  native review, and one local commit. It relinquishes only after that commit,
-  a clean task checkout, preserved source dirty ownership, and every registered-
-  worktree check. Consult `docs/HANDOFF.md` for the exact boundary
+- Planning checkpoint: 47 (Work Charter `v0.2.0` exact RC install evidence)
+- Last incorporated decision: the user authorized exact public branch commit
+  `67a764a...` to be materialized through the official installer in an isolated
+  RC root, candidate-only discovery, bounded minimal smoke, and one factual
+  evidence-sync commit/push. Skill SOURCE, D55, full Gate 2, stable install,
+  integration, tag, release, and cleanup remain excluded
+- Open decision: none inside the evidence sync. Stable installation,
+  integration, tag, GitHub Release, cleanup, and final release disposition
+  remain separate user decisions
+- Lifecycle authority: D54, D55, minimal-evaluation, and release-prep writers
+  are `RELINQUISHED`. The bounded evidence-sync lease owns only the mapped
+  canonical consumers, one sanitized RC result, deterministic verification,
+  native review, one commit, and push to the same branch. Its final
+  relinquishment is proved by the completion packet after clean checkout,
+  preserved source dirty ownership, and every registered-worktree check.
+  Consult `docs/HANDOFF.md` for the exact boundary
 - Checkpoint reason: completed product-design decision set plus the accepted
   native-package/user-activation, project-read, mapping-qualification, and
   immutable-evidence boundaries
@@ -3006,6 +3007,24 @@ The authorized prerelease preparation classifies Work Charter as the only
 root's dirty D55 runner/checker implementation is not an input. This authority
 ends at one verified local commit; it does not authorize `RC_INSTALL`, push,
 tag, release, stable update, cleanup, or publication.
+
+### Exact RC Install And Minimal Smoke
+
+The user later authorized exact public branch commit `67a764a...` for an
+isolated official-installer materialization, candidate-only discovery, and
+bounded fresh-process smoke. Work Charter remained the exact five-file
+`c481005...` package; Project Docs and PowerShell remained the exact six/five
+`ceed607...` packages. File-set, Git-blob, encoding, ordinary-file, and
+validator checks passed for all 16 package files.
+
+One implicit proposal cell, exact RC body loading with fail-closed handling,
+and one explicitly authorized corrected snapshot-recovery cell support
+`RC_INSTALL_MINIMAL_SMOKE_PASS`. The ambiguous predecessor cell remains
+historical `UNKNOWN_NOT_ASSESSED`; the corrected cell does not rewrite it.
+Exact model identity is `UNKNOWN` because the runtime did not expose it. This
+evidence does not extend C1-C5 into full Gate 2, stable installation,
+integration, tag, GitHub Release, real-project efficacy, or final release
+acceptance. D55 remains sealed and unchanged.
 
 ## Important Rejected Alternatives
 

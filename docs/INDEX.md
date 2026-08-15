@@ -1,6 +1,6 @@
 # Documentation Index
 
-Last updated: 2026-08-14
+Last updated: 2026-08-15
 
 ## Core Documents
 
@@ -53,7 +53,7 @@ mirror.
 | [`docs/decisions/0015-federated-repository-documentation.md`](decisions/0015-federated-repository-documentation.md) | Root/per-Skill documentation ownership, bilingual public entries, and unchanged installable-package boundary | accepted |
 | [`docs/decisions/0016-work-charter-authority-assessment-and-evidence-integrity.md`](decisions/0016-work-charter-authority-assessment-and-evidence-integrity.md) | Work Charter authority finality, assessment recording, evidence invalidation, delivery degradation, and advisory writer recovery | accepted |
 | [`docs/decisions/0017-capability-delta-skill-development.md`](decisions/0017-capability-delta-skill-development.md) | Prospective capability-delta design, layer placement, matched evaluation, and upgrade/retirement rule for Skill development | accepted |
-| [`docs/decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md`](decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md) | Work Charter native-package/explicit-activation entry, proportional protection levels, durable re-entry, task convergence, evaluation, workspace, and lifecycle gates | accepted through sealed D55 C17 and the limited C1-C5 evaluation. D55 remains `QUALIFICATION_FAILED / PRODUCT_UNKNOWN`; C1-C5 alone are `ACCEPT`. The local prerelease-prep gate verifies exact `c481005...` Work Charter plus unchanged `ceed607...` peer packages without claiming `RC_INSTALL`, stable loaded copy, tag, or release |
+| [`docs/decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md`](decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md) | Work Charter native-package/explicit-activation entry, proportional protection levels, durable re-entry, task convergence, evaluation, workspace, and lifecycle gates | accepted through sealed D55 C17, limited C1-C5 evaluation, and exact public `67a764a...` RC install/minimal smoke. D55 remains `QUALIFICATION_FAILED / PRODUCT_UNKNOWN`; C1-C5 alone are `ACCEPT`. Full Gate 2, stable installation, integration, tag, and release remain unproved |
 | [`docs/decisions/0019-project-docs-implicit-discovery-and-demand-driven-modules.md`](decisions/0019-project-docs-implicit-discovery-and-demand-driven-modules.md) | Project Docs implicit discovery, proposal/write boundary, demand-driven modules, update modes, and persistent routing | accepted historical/future development contract; local commit `776989f...` remains in Git history but its package bytes are excluded from the Work-Charter-only prerelease candidate, which uses exact `v0.1.2` Project Docs |
 | [`docs/decisions/0020-bounded-campaign-authorization-and-evidence-convergence.md`](decisions/0020-bounded-campaign-authorization-and-evidence-convergence.md) | One bounded authorization for qualification, evidence, assessment, and closeout with same-boundary transport qualification, lesson promotion, ruleset activation, and cumulative convergence | accepted |
 

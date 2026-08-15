@@ -1,6 +1,6 @@
 # Repository Handoff
 
-Last updated: 2026-08-14
+Last updated: 2026-08-15
 
 ## Snapshot
 
@@ -109,11 +109,13 @@ Last updated: 2026-08-14
   marked Latest
 - Stable installed set: Project Docs 6 files, Work Charter 5 files, PowerShell
   5 files, each matching the `v0.1.2` Git blobs
-- Local prerelease set: Work Charter is the only `changed` public Skill and its
-  five files match exact `c481005...` plus manifest `04c382a4...`; Project Docs
-  and PowerShell are `unchanged` at their six/five exact `ceed607...` blobs.
-  This is a commit-prep identity only, not `RC_INSTALL`, stable loaded-copy,
-  tag, release, or publication evidence
+- RC prerelease set: public branch commit `67a764a...` preserves Work Charter
+  as the only `changed` public Skill: five files match exact `c481005...` plus
+  manifest `04c382a4...`; Project Docs and PowerShell are `unchanged` at their
+  six/five exact `ceed607...` blobs. Official-installer materialization,
+  candidate-only discovery, and bounded minimal smoke end at
+  `RC_INSTALL_MINIMAL_SMOKE_PASS`. This is not stable installation, full Gate
+  2, integration, tag, release, or final release acceptance
 - Rollback identity: immutable `v0.1.1` retained as a separately verified
   three-package backup
 - Writer handoff boundary: D53, D54, and D55 writers have relinquished. D55
@@ -128,11 +130,13 @@ Last updated: 2026-08-14
   Skill SOURCE, generic controller, behavior cases, fixtures, matrix, rubric,
   other Skills, user configuration, push, installation, tag, release, stable
   update, cleanup, automatic D56, and unlisted external effects remain excluded.
-  The current bounded release-prep lease owns only
-  `codex/work-charter-v0.2-release-prep`, the exact 27-path intended set,
-  deterministic verification, native review, and one local commit. It becomes
-  `RELINQUISHED` only after that commit, clean task index/worktree, exact source-
-  root dirty ownership, and every registered-worktree reconciliation. The
+  The release-prep writer relinquished after exact commit `67a764a...`, clean
+  task index/worktree, preserved source-root dirty ownership, and every
+  registered-worktree reconciliation. The current bounded evidence-sync lease
+  owns only nine mapped canonical consumers, one sanitized RC result,
+  deterministic verification, native review, one commit, and push to the same
+  branch. Its final relinquishment again requires clean task state, preserved
+  source dirty ownership, and every registered-worktree reconciliation. The
   completion packet, not these self-referential bytes, records that final proof
 - Ignored-carrier boundary: one opaque ordinary controller-scratch directory
   predates this writer window. Its provenance remains `UNKNOWN`; this task read
@@ -142,7 +146,9 @@ Last updated: 2026-08-14
   cleanup was not authorized and was not performed. The minimal evaluation adds
   exactly one declared retained carrier at
   `.eval-runs/work-charter-v0.2-c481005-minimal-eval`; it is evidence-only and
-  ignored. None of these directories is SOURCE or part of a commit
+  ignored. The RC install adds one declared retained ignored root at
+  `.eval-runs/work-charter-v0.2-67a764a-rc-install`; it is identity/smoke
+  evidence only. None of these directories is SOURCE or part of a commit
 
 D43 has resolved D42's open product choice: indirect proposals are metadata-
 sufficient and must not prescribe Work Charter workflow; direct intent or
@@ -1257,16 +1263,18 @@ checker path/hash values to the bootstrap pins. Review approval and Fresh-
 eligible commit selection remain user/Planner/Harness decisions; correction 16
 is reserved. D55 later consumed C16/C17 and sealed
 `QUALIFICATION_FAILED / PRODUCT_UNKNOWN`; the exact mechanism remains
-`UNKNOWN`, its writer relinquished, and its former Fresh route is closed. The
-immediate action is only the authorized Work Charter `v0.2.0` local prerelease-
-prep verification, native review, one commit, and all-worktree/source-root
-reconciliation. No D55 repair, formal carrier, product evidence, or D56 follows.
-The R1 launcher lesson remains post-D55 `DEFERRED`.
+`UNKNOWN`, its writer relinquished, and its former Fresh route is closed. Exact
+public commit `67a764a...` later completed isolated RC install and bounded
+minimal smoke without repairing D55. The immediate action is only the
+authorized factual evidence sync, native review, one commit, same-branch push,
+and all-worktree/source-root reconciliation. No D55 repair, formal carrier,
+full Gate 2, stable install, integration, tag, release, or D56 follows. The R1
+launcher lesson remains post-D55 `DEFERRED`.
 
 Later user-owned choices include:
 
-- decide whether to authorize `RC_INSTALL`, push/integration, stable loaded-
-  copy evidence, tag, release, or cleanup after the local prerelease commit;
+- decide whether to authorize stable installation, integration, tag, GitHub
+  Release, cleanup, another bounded evidence tranche, or no further action;
 - decide any future native-review budget reset only if an authorized commit
   attempt exhausts its own cycle;
 - decide any installation, release, or public-reachability action only from the
@@ -1293,6 +1301,17 @@ committed D55 runner/checker. `NOT_APPLICABLE` covers cases, fixtures, matrix,
 rubric, scorer, generic controller, discovery, `RC_INSTALL`, stable loaded
 copy, push, PR, merge, tag, release, cleanup, publication, and D56. The source
 root's dirty D55 runner/checker implementation remains excluded and untouched.
+
+The later RC evidence-sync closure is also fact-first. `UPDATE` covers only
+Decision 0018; Work Charter State/Verification; root Status/Roadmap/Index/
+Verification/Handoff; the result index; and one new sanitized RC report.
+`CHECKED_NO_CHANGE` covers `AGENTS.md`, Authority, SPEC, Architecture, Runbook,
+Provenance, Decisions 0017/0020, all public README pairs, all three Skill
+packages, `evals/README.md`, and the existing prerelease report.
+`NOT_APPLICABLE` covers cases, fixtures, matrix, rubric, scorer, controller,
+D55, stable installation, merge/integration, tag, GitHub Release, cleanup, and
+D56. The source root's dirty D55 runner/checker implementation remains excluded
+and untouched.
 
 ## Stop Conditions
 

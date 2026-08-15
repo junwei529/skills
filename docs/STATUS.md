@@ -1,6 +1,6 @@
 # Repository Status
 
-Last updated: 2026-08-14
+Last updated: 2026-08-15
 
 ## Dashboard
 
@@ -9,9 +9,9 @@ Last updated: 2026-08-14
 | Tested package identity | all three package byte sets independently reached exact-commit RC readiness at `c42eef392a5b9f58bbee64aa73ffb603a6fb6c29` and were re-proved at tag/stable identity `v0.1.2` | [Verification](VERIFICATION.md) |
 | Stable release identity | immutable [`v0.1.2`](https://github.com/junwei529/skills/releases/tag/v0.1.2) at `ceed607152849775b981c54add74bfa30d858e4d`; exact tag, stable loaded-copy, and GitHub Release proof pass for all three Skills | [Verification](VERIFICATION.md) |
 | Project Docs | exact six-file `v0.1.2` / `ceed607...` package is `unchanged` in the Work-Charter-only prerelease set; Decision 0019 and local development commit `776989f...` remain preserved but their later package bytes are excluded | [State](skills/manage-project-docs/STATE.md) |
-| Work Charter | exact five-file `c481005...` package is the only `changed` public Skill relative to `v0.1.2`. The bounded evaluation accepts C1-C5 only; D55 is separately sealed `QUALIFICATION_FAILED / PRODUCT_UNKNOWN`. Local prerelease preparation is not full Gate 2, `RC_INSTALL`, stable loaded copy, tag, or release acceptance | [State](skills/work-charter/STATE.md) |
+| Work Charter | exact five-file `c481005...` package is the only `changed` public Skill relative to `v0.1.2`. The bounded evaluation accepts C1-C5 only; D55 is separately sealed `QUALIFICATION_FAILED / PRODUCT_UNKNOWN`. Exact public commit `67a764a...` has isolated `RC_INSTALL` identity and bounded minimal smoke `PASS`, not full Gate 2, stable installation, tag, or release acceptance | [State](skills/work-charter/STATE.md) |
 | PowerShell | released five-file `v0.1.2` stable copy; corrected loaded identity and guarded native/text diagnosis pass; live WSL remains unproved | [State](skills/use-powershell-safely/STATE.md) |
-| Release lifecycle | `v0.1.2` remains the installed/tagged Latest Release. One local Work Charter `v0.2.0` prerelease-prep commit is authorized after verification/native review; no `RC_INSTALL`, push, tag, release, cleanup, or publication has occurred | [Runbook](RUNBOOK.md) |
+| Release lifecycle | `v0.1.2` remains the installed/tagged Latest Release. Work Charter `v0.2.0` branch commit `67a764a...` is public and passes isolated RC install/minimal smoke; no stable update, integration, tag, GitHub Release, cleanup, or final release acceptance has occurred | [Runbook](RUNBOOK.md) |
 
 ## Current Repository State
 
@@ -40,11 +40,15 @@ and real-project efficacy remain unaccepted. D55 is separately sealed at C17
 as `QUALIFICATION_FAILED / PRODUCT_UNKNOWN`, with exact mechanism `UNKNOWN` and
 writer relinquished.
 
-The prerelease set requires Work Charter's five live files to equal
-`c481005...` and recompute manifest `04c382a4...`; Project Docs and PowerShell
-must equal their six/five `ceed607...` blobs. The source root's dirty D55
-runner/checker implementation is excluded. This creates a local commit target
-only and does not add product evidence or runtime loaded-copy proof.
+Public branch commit `67a764a...` preserves the prerelease set: Work Charter's
+five files equal `c481005...` and recompute manifest `04c382a4...`; Project
+Docs and PowerShell equal their six/five `ceed607...` blobs. The official
+installer materialized that exact 5/6/5 set in an isolated RC root. Candidate-
+only discovery, an implicit proposal smoke, exact RC body loading with fail-
+closed scope handling, and one explicitly authorized corrected snapshot-
+recovery cell end at `RC_INSTALL_MINIMAL_SMOKE_PASS`. This does not add full
+Gate 2, stable installation, tag, release, or real-project efficacy proof. The
+source root's dirty D55 runner/checker implementation remains excluded.
 
 Historical target Work Charter `v0.2.0` Gate 2 evidence follows. Exact candidate `b965102...`
 is unaccepted; ten behavior windows are sealed and non-retriable, and two zero-
@@ -576,12 +580,15 @@ acceptance, or D56 followed, and its writer relinquished after all-worktree
 reconciliation. The bounded minimal evaluation did not repair, rerun, import,
 or depend on that route.
 
-The authorized next Work Charter action is exactly one local prerelease-prep
-commit after deterministic verification and native review. After that commit,
-`RC_INSTALL`, push/integration, stable loaded-copy evidence, tag, release,
-cleanup, and publication remain separate user decisions. No SOURCE/controller/
-case/fixture/matrix/rubric expansion follows automatically. One clean checkout
-is not writer proof; Handoff owns the all-worktree reconciliation record.
+Exact public commit `67a764a...` has completed isolated RC install and bounded
+minimal smoke. The next Work Charter action is a separate user decision:
+stable installation, integration, tag/GitHub Release, another explicitly
+bounded evidence tranche, or no action. None follows automatically. Full Gate
+2 and final release acceptance remain unproved; no SOURCE/controller/case/
+fixture/matrix/rubric expansion is implied. The current evidence-sync commit
+and same-branch push do not authorize any later lifecycle effect. One clean
+checkout is not writer proof; Handoff owns the all-worktree reconciliation
+record.
 Project Docs keeps its own candidate and persistence-evidence sequence.
 
 ## Known Repository Gaps

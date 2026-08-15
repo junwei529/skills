@@ -1,6 +1,6 @@
 # Work Charter Verification
 
-Last updated: 2026-08-14
+Last updated: 2026-08-15
 
 ## Claim Ledger
 
@@ -44,7 +44,7 @@ Last updated: 2026-08-14
 | Exact `c481005...` D54 explicit-root terminal | explicitly authorized `WC-AR-D54-EXPLICIT-ROOT-CONTRACT` preserves D51-D53 and records the reviewed explicit-root Build at local commit `9fe27bb...`; focused 32/32 and one composed disposable DEV path through aggregate 56/56/lifecycle/synthetic dispatch remain implementation-only. The only fresh formal carrier then returned exit 86 at ignored-orchestrator `bootstrap` before materializer, finalizer, importer, private 24/24, tracked 32/32, aggregate 56/56, lifecycle, canary, product, or assessor; all model/start counts are zero, D54 is `QUALIFICATION_FAILED / PRODUCT_UNKNOWN`, and the candidate remains unaccepted |
 | Exact `c481005...` D55 tracked-bootstrap terminal | explicitly authorized `WC-AR-D55-TRACKED-FORMAL-BOOTSTRAP` preserves D54 and its DEV/review history; D55 later consumed C16/C17 and sealed `QUALIFICATION_FAILED / PRODUCT_UNKNOWN`, exact mechanism `UNKNOWN`. No formal, canary, product, assessor, acceptance, or D56 evidence followed, and its writer relinquished |
 | Exact `c481005...` minimal claim evaluation | admitted D45-D49 exact-candidate cells plus one read-only assessor support `ACCEPT` for C1-C5 with zero fresh product starts; no A20, full 28-cell Gate 2, cross-model, real-project, deterministic lock/router, installation, stable loaded-copy, tag, or release claim follows |
-| Work Charter-only `v0.2.0` prerelease package | five live files are byte-identical to `c481005...` and recompute manifest `04c382a4...`; this is local release-prep identity only, not `RC_INSTALL`, stable loaded-copy, tag, release, or publication evidence |
+| Work Charter-only `v0.2.0` RC package | exact public commit `67a764a...` preserves five Work Charter files byte-identical to `c481005...` with manifest `04c382a4...` plus unchanged 6/5 peer packages from `ceed607...`; isolated official-installer identity, candidate-only discovery, and bounded minimal smoke end at `RC_INSTALL_MINIMAL_SMOKE_PASS`, not full Gate 2, stable installation, tag, release, or final acceptance |
 | Isolated path-bound controller canary | private retained sealed `CANARY_PASS`; the public summary reports an exact-response pass and no command execution, omits locator/artifact/runtime details, leaves physical backend request count `UNKNOWN`, and proves neither natural-language selection nor candidate acceptance |
 | Small bounded work stays flat | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
 | Midstream implicit behavior is proposal-only | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
@@ -2726,6 +2726,38 @@ cases / 12 fixtures, targeted publication-safety scanning of all 27 intended
 paths, and `git diff --check`. The unchanged tracked runner's missing declared
 ignored D50 private carrier remains an expected pre-qualification stop, not a
 runner pass or product result.
+
+### 2026-08-15 — Exact public RC install and bounded minimal smoke
+
+Branch `codex/work-charter-v0.2-release-prep` resolved publicly to exact commit
+`67a764a34992772b5ad85625f4703b1f1babf6a3`. The official installer
+materialized Work Charter 5 files plus Project Docs 6 and PowerShell 5 from
+that commit into an isolated RC root. Work Charter remains byte-identical to
+`c481005...` with manifest `04c382a4...`; both unchanged peers remain
+byte-identical to `ceed607...`. Exact file-set and Git-blob checks, ordinary
+non-reparse identity, strict UTF-8/no-BOM/LF/final-newline checks, and all three
+Skill validators pass.
+
+Zero-model candidate-only discovery exposed one same-named Work Charter entry
+at the RC locator while disabling the existing stable entry only in the child
+process. One implicit recovery proposal stayed proposal-only and ran no
+command. A separate direct-intent cell loaded the exact RC body and failed
+closed on an ambiguously located synthetic snapshot; that cell's snapshot
+recommendation remains historical `UNKNOWN_NOT_ASSESSED`, not a product
+failure. Under one later explicit authorization, one corrected fresh read-only
+cell loaded only the exact RC coordination reference and authorized snapshot,
+preserved missing facts as `UNKNOWN`, returned one fail-closed route, and
+recommended `L1` rather than Planner/Executor or Standard coordination. Main-
+Session review returned `ACCEPT`. Exact runtime model identity remains
+`UNKNOWN` because it was not exposed.
+
+Overall disposition is `RC_INSTALL_MINIMAL_SMOKE_PASS`. It proves neither full
+28-cell Gate 2 nor causal/native comparison, broad trigger accuracy, cross-
+model behavior, real-project efficacy, deterministic enforcement, stable
+installation, integration, tag, GitHub Release, or final release acceptance.
+D55 remains sealed `QUALIFICATION_FAILED / PRODUCT_UNKNOWN` and supplied no RC
+product evidence. The sanitized result is
+[`2026-08-15-work-charter-v0.2-rc-install-smoke.md`](../../../evals/results/2026-08-15-work-charter-v0.2-rc-install-smoke.md).
 
 ## Required Checks
 

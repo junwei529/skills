@@ -1,6 +1,6 @@
 # Work Charter State
 
-Last updated: 2026-08-14
+Last updated: 2026-08-15
 
 ## Current Implementation
 
@@ -42,6 +42,19 @@ and one independent read-only assessor. This is not complete 28-cell Gate 2,
 release, installation, deterministic permission, or real-project efficacy
 acceptance. The sanitized terminal is
 [`2026-08-14-work-charter-v0.2-minimal-eval-terminal.md`](../../../evals/results/2026-08-14-work-charter-v0.2-minimal-eval-terminal.md).
+
+Exact public branch commit
+`67a764a34992772b5ad85625f4703b1f1babf6a3` now supplies isolated
+`RC_INSTALL` identity for the same five-file candidate plus unchanged
+Project Docs and PowerShell packages from `ceed607...`. Official-installer
+materialization, exact file/Git-blob/encoding/validator checks, candidate-only
+discovery, implicit proposal behavior, exact RC body loading with fail-closed
+scope handling, and one explicitly authorized corrected snapshot-recovery cell
+end at `RC_INSTALL_MINIMAL_SMOKE_PASS`. The predecessor snapshot cell remains
+historical `UNKNOWN_NOT_ASSESSED`; exact model identity is also `UNKNOWN`
+because the runtime did not expose it. This is not full Gate 2, stable
+installation, tag, GitHub Release, real-project efficacy, or final release
+acceptance.
 
 Accepted `WC-AR-D44` completed one additive Gate 2 Campaign for that unchanged
 candidate. After two zero-consumption carrier-only policy-host corrections, its
@@ -944,11 +957,12 @@ are `UNKNOWN_NOT_ASSESSED`, and the candidate remains unaccepted.
 ## Next Gate
 
 Exact candidate `c481005...` now has a bounded five-claim `ACCEPT` from the
-2026-08-14 minimal evaluation. Broader Gate 2, release, installation, and real-
-project claims remain unaccepted. The authorized next action is only one local
-Work-Charter-only `v0.2.0` prerelease-prep commit after verification/native
-review. `RC_INSTALL`, stable loaded-copy, push, tag, release, and cleanup remain
-later user decisions; no action follows automatically.
+2026-08-14 minimal evaluation and exact public `67a764a...` now has isolated
+RC install/minimal smoke `PASS`. Broader Gate 2, stable installation,
+integration, tag, GitHub Release, real-project efficacy, and final release
+acceptance remain unproved. Any of those actions, another bounded evidence
+tranche, or leaving the candidate unchanged requires a separate user decision;
+no action follows automatically.
 
 Work Charter `v0.1.2` remains the released and installed stable revision.
 Exact D34 candidate `b3ad360...` remains unaccepted. D32 qualifies mapping and
@@ -1172,8 +1186,10 @@ evaluation.
    D52 tracked-runner commit `410b0bd...`, D53 lifecycle commit `4ab8a025...`,
    terminal-documentation commit `8e658f18...`, D54 explicit-root Build commit
    `9fe27bb...`, D54 closeout commit `8c952abb...`, the sealed D55 C17 factual
-   record, and any later exact release-prep commit identified by the completion
-   packet rather than inferred from this document.
+   record. Confirm release-prep branch commit `67a764a...` independently before
+   relying on its isolated RC install/minimal smoke record; identify any later
+   evidence-sync descendant from Git and its completion packet rather than
+   inferring it from this document.
    Resolve HEAD, index, dirty scope, ignored carriers, runtime identity, and
    writer rather than inferring them from an older handoff.
 5. Preserve the complete predecessor ledger, including the D31 mapping-

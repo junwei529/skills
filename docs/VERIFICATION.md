@@ -1,6 +1,6 @@
 # Repository Verification
 
-Last updated: 2026-08-14
+Last updated: 2026-08-15
 
 ## Scope
 
@@ -2389,6 +2389,27 @@ Targeted Gitleaks scans all 27 intended public paths without reading ignored
 private carriers, and `git diff --check` passes. Native review and the local
 commit remain separate gates; none of these deterministic results proves
 `RC_INSTALL`, stable loaded-copy, tag, release, or publication.
+
+### 2026-08-15 — Work Charter `v0.2.0` exact public RC install
+
+Public branch `codex/work-charter-v0.2-release-prep` resolved back to exact
+commit `67a764a34992772b5ad85625f4703b1f1babf6a3` after push. The official
+installer materialized its complete 5/6/5 package set into an isolated RC root.
+Work Charter's five files match `c481005...` and manifest `04c382a4...`;
+Project Docs and PowerShell remain the exact six/five `ceed607...` packages.
+All file sets and Git blobs match, all 16 files are ordinary non-reparse strict
+UTF-8/no-BOM/LF/final-newline files, and all three Skill validators pass.
+
+Candidate-only discovery found one same-named Work Charter at the RC locator.
+Bounded fresh-process evidence passes implicit proposal-only behavior, exact RC
+body loading with fail-closed scope handling, and one explicitly authorized
+corrected snapshot-recovery recommendation. The ambiguous predecessor snapshot
+subclaim remains historical `UNKNOWN_NOT_ASSESSED`; exact runtime model
+identity is `UNKNOWN`. Overall disposition is
+`RC_INSTALL_MINIMAL_SMOKE_PASS`, not full Gate 2, stable installation,
+integration, tag, GitHub Release, real-project efficacy, or final release
+acceptance. The sanitized record is
+[`2026-08-15-work-charter-v0.2-rc-install-smoke.md`](../evals/results/2026-08-15-work-charter-v0.2-rc-install-smoke.md).
 
 ## Per-Skill Evidence Routing
 
