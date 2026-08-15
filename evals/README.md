@@ -549,7 +549,7 @@ Token or context efficiency is a secondary measurement, not a pass condition. A 
 | [Work Charter Planner/Executor](cases/work-charter-planner-executor.md) | `work-charter` | Run a one-writer loop with convergent correction accounting and independent assessment |
 | [Work Charter Standard O/P/E](cases/work-charter-standard.md) | `work-charter` | Exercise visible reuse of an already approved standing policy and one bounded phase |
 | [Work Charter recovery integrity](cases/work-charter-recovery-integrity.md) | `work-charter` | Exercise resume, successor history, qualification/consumption separation, fail-closed authority, assessment, delivery, writer, dirty-state, and multi-worktree boundaries across six variants, plus one direct package-denial/Harness-preload boundary |
-| [PowerShell boundary](cases/powershell-boundary.md) | `use-powershell-safely` | Classify encoding and native-command failures before code changes |
+| [PowerShell boundary](cases/powershell-boundary.md) | `use-powershell-safely` | Select before explicit non-trivial PowerShell and validate command readiness before diagnosing boundary failures |
 
 ## Fixture Preconditions
 
@@ -567,8 +567,10 @@ owned dirty boundary, both Work Charter entry variants, the
 reparse-point containment of setup and inspection helpers, the shared Work
 Charter loop, the visible-reuse Standard starting boundary, six recovery-
 integrity variants, the
-direct-versus-wrapper PowerShell boundary, the UTF-8-without-BOM input, and the
-tracked Codex evidence-controller regression. It does not score an agent.
+direct-versus-wrapper PowerShell boundary, the UTF-8-without-BOM input, the
+parameter/error manifests plus three parse pairs and one automatic-variable
+runtime pair, and the tracked Codex evidence-controller regression. It does not
+score an agent or prove Harness selection efficacy.
 
 Run the controller regression directly when changing its contract or fixtures:
 
@@ -591,11 +593,15 @@ pwsh -NoProfile -File .\evals\check-powershell-boundaries.ps1
 powershell.exe -NoProfile -File .\evals\check-powershell-boundaries.ps1
 ```
 
-It uses a task-specific temporary root to check multi-candidate application
-discovery, scalar normalization, UTF-8/LF bytes, one-base path resolution, and
+It uses a task-specific temporary root to check static pre-error selection
+markers and negatives; `New-Item` parameter support; cmdlet non-terminating
+error, fail-closed, and artifact-verification shapes; three invalid/valid
+parser pairs; the `$Matches` runtime pair; multi-candidate application
+discovery; scalar normalization; UTF-8/LF bytes; one-base path resolution; and
 nonrecursive confirmed-Junction removal under PowerShell 7 and Windows
-PowerShell 5.1. It is not a fresh-context behavior test, live Bash/WSL test,
-sandbox-denial injection, or proof for other reparse-point types.
+PowerShell 5.1. It is not a fresh-context behavior or model-selection test,
+live Bash/WSL test, sandbox-denial injection, or proof for other parameter,
+cmdlet, automatic-variable, syntax, or reparse-point families.
 
 ## Work Charter v0.2 Staged Matrix Definition
 

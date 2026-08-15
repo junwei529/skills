@@ -1,31 +1,53 @@
 # PowerShell Design
 
-Last updated: 2026-07-31
+Last updated: 2026-08-15
 
 ## Purpose And Audience
 
 PowerShell serves Windows users whose coding-agent tasks cross material shell,
-native-process, text, permission, or WSL boundaries. It combines boundary
-diagnosis with safe execution guidance while keeping routine cmdlets and
-POSIX-only work out of scope.
+native-process, text, permission, or WSL boundaries. It combines pre-execution
+readiness, boundary diagnosis, and safe execution guidance while keeping
+routine cmdlets and POSIX-only work out of scope.
 
 It is not a general tutorial, incident-response platform, host inventory,
 automatic installer, or replacement for project governance.
 
 ## Behavior Contract
 
+The Skill is eligible before the first relevant command when the request
+explicitly requires non-trivial PowerShell: a `.ps1` file, `pwsh` or
+`powershell.exe`, multiline logic, loops, `try`/`catch`, regex, pipelines,
+native or child processes, or version-, encoding-, stream-, permission-, or
+path-sensitive behavior. Selection is not contingent on a prior error.
+Ordinary version-independent cmdlets without a boundary risk or symptom, and
+POSIX-only work, remain negative selections.
+
 The workflow:
 
-1. probes PowerShell edition/version only when version behavior matters;
-2. identifies every parser, process, stream, encoding, path, permission, and
+1. moves complex PowerShell into a `.ps1` file when practical, or performs a
+   parse-only validation in the exact target PowerShell executable/version
+   before an unavoidable inline invocation;
+2. probes PowerShell edition/version only when version behavior matters;
+3. identifies every parser, process, stream, encoding, path, permission, and
    WSL boundary;
-3. establishes one path base and normalizes uncertain result shape;
-4. reproduces the smallest direct read-only command;
-5. preserves native arguments, stdout, stderr, and exit status;
-6. inspects bytes only when text identity matters;
-7. classifies the failure before changing application code; and
-8. stops before unauthorized installation, system mutation, elevation, or
+4. establishes one path base and normalizes uncertain result shape;
+5. checks a cmdlet or script's actual parameter contract before using a common
+   parameter shape, including the fact that `New-Item` supports `-Path` but
+   not `-LiteralPath`;
+6. treats cmdlet error semantics separately from native process exit status,
+   uses narrow fail-fast handling for critical cmdlet steps, and verifies the
+   expected artifact or state rather than trusting an outer zero exit alone;
+7. preserves native arguments, stdout, stderr, and exit status;
+8. inspects bytes only when text identity matters;
+9. classifies the failure before changing application code; and
+10. stops before unauthorized installation, system mutation, elevation, or
    destructive work.
+
+Parser readiness explicitly covers variable-name boundaries such as
+`${name}:`, literal regex text containing `$env:` or `$script:`, the automatic
+`$Matches` variable, and statement-form `foreach` output that must be collected
+before entering a pipeline. These are bounded high-value traps, not a general
+PowerShell style guide.
 
 PowerShell 7 is preferred for compatible modern workflows when it materially
 reduces risk; Windows PowerShell 5.1 remains necessary for some legacy modules
@@ -63,6 +85,12 @@ bounded shadow evidence support retirement.
 ## Safety And Non-Goals
 
 - Do not infer native success from stderr text or output truthiness.
+- Do not infer cmdlet success from an outer process exit alone or use
+  `$LASTEXITCODE` as a cmdlet-failure contract.
+- Do not assume every filesystem cmdlet supports `-LiteralPath`; inspect its
+  parameter set when uncertain.
+- Do not execute complex inline PowerShell without parse-only readiness, or
+  repair it by adding another shell or quoting layer.
 - Do not build nested command strings or use `Invoke-Expression` as a repair.
 - Do not rewrite evidence before proving an encoding defect.
 - Do not change global locale, code page, registry, profile, or policy as a
@@ -70,6 +98,8 @@ bounded shadow evidence support retirement.
 - Do not treat sandbox or permission failures as application defects.
 - Do not recursively remove a Junction or unknown reparse point.
 - Do not bundle an installer, host registry, generic adapter, or policy engine.
+- Do not claim Harness pre-error selection efficacy from metadata, cases, or
+  deterministic checks; that remains a separate model evidence gate.
 
 ## Independent-Skill Boundary
 
@@ -84,3 +114,5 @@ propagate.
 - [Decision 0007](../../decisions/0007-independent-skills-and-optional-recipes.md)
 - [Decision 0014](../../decisions/0014-powershell-portable-guidance-and-private-host-delta.md)
 - [Decision 0015](../../decisions/0015-federated-repository-documentation.md)
+- User Authority Revision P1 (2026-08-15), approving the bounded
+  `PRE_ERROR_SELECTION_AND_COMMAND_READINESS` residual.

@@ -1,6 +1,6 @@
 ---
 name: use-powershell-safely
-description: Diagnose and safely execute boundary-sensitive Windows shell workflows across PowerShell, native executables, and WSL. Use when a Windows task involves PowerShell 5.1 versus 7, PowerShell 7 readiness or installation guidance, quoting or argument boundaries, NativeCommandError, unexpected stdout/stderr or native exit status such as $LASTEXITCODE, missing or truncated output, stdin, pipelines, redirection, heredocs or nested shell strings, $PSNativeCommandArgumentPassing, Invoke-Expression, UTF-8/BOM/newline/hash correctness, JSON/schema/text, legacy code pages or non-ASCII text, WSL path or transport, Start-Process or ProcessStartInfo, sandbox or permission boundaries, or destructive filesystem operations. Do not use for ordinary version-independent cmdlets with no boundary symptom or for POSIX-only work.
+description: Diagnose and safely execute boundary-sensitive Windows shell workflows across PowerShell, native executables, and WSL. Use before the first relevant command when a Windows task requires writing or running non-trivial PowerShell such as a .ps1 file, pwsh or powershell.exe, multiline logic, loops, try/catch, regex, pipelines, native executables or child processes, or version-, encoding-, stream-, permission-, or path-sensitive behavior. Also use for quoting or argument boundaries, NativeCommandError, unexpected stdout/stderr or native exit status, missing or truncated output, stdin, redirection, nested shell strings, $PSNativeCommandArgumentPassing, Invoke-Expression, UTF-8/BOM/newline/hash correctness, JSON/schema/text, legacy code pages or non-ASCII text, WSL transport, Start-Process or ProcessStartInfo, sandbox or permission boundaries, or destructive filesystem operations. Do not use for ordinary version-independent cmdlets with no boundary risk or symptom, general Windows work, or POSIX-only work.
 ---
 
 # Use PowerShell Safely
@@ -8,6 +8,42 @@ description: Diagnose and safely execute boundary-sensitive Windows shell workfl
 Treat the shell boundary as part of correctness. Use this skill as the minimum
 combination of boundary diagnosis and safe execution guidance, not as a general
 PowerShell tutorial or an automatic system installer.
+
+## Select Before The First Risk Command
+
+- Select this Skill before generating or executing explicit non-trivial
+  PowerShell. Do not wait for the first parser, parameter, stream, permission,
+  or process failure.
+- Strong pre-error cues include a `.ps1` deliverable, a `pwsh` or
+  `powershell.exe` invocation, multiline logic, loops, `try`/`catch`, regex,
+  hashtables or object construction, complex pipelines, native or child
+  processes, and version-, encoding-, stream-, permission-, or path-sensitive
+  behavior.
+- Keep an ordinary version-independent cmdlet with no boundary risk or symptom,
+  general Windows work, and POSIX-only work outside the Skill.
+
+## Prepare The Command Before Execution
+
+- Put loops, `try`/`catch`, regex, hashtables, object construction, or complex
+  pipelines in a `.ps1` file when practical. If inline PowerShell is required,
+  parse the exact payload without executing it in the same PowerShell
+  executable and version that will run it, and stop on any parser error.
+- Do not repair complex inline code by adding `cmd.exe`, another PowerShell
+  process, encoded transport, or another quoting layer.
+- Check the target cmdlet or script's actual parameter set before reusing a
+  familiar path parameter. `-LiteralPath` is not universal: `New-Item` exposes
+  `-Path`, not `-LiteralPath`.
+- For a critical cmdlet step, use a narrow terminating contract such as the
+  supported `-ErrorAction Stop` plus `try`/`catch`, then verify the expected
+  artifact or state. A later successful command or outer exit `0` does not
+  erase a non-terminating cmdlet error. `$LASTEXITCODE` belongs to a native
+  process contract, not a cmdlet failure contract.
+- Before execution, check variable-name boundaries such as `${name}:`, use a
+  non-interpolating representation when regex must contain literal `$env:` or
+  `$script:`, do not reuse automatic `$Matches` for an application collection,
+  and collect statement-form `foreach` output before piping it.
+- Read [Native And Process Boundaries](references/native-process-boundaries.md)
+  for parse-only examples and the detailed parameter and error contracts.
 
 ## Start With Runtime And Boundary Readiness
 
@@ -71,14 +107,15 @@ Get-Command pwsh -CommandType Application -ErrorAction SilentlyContinue
    it or selecting an executable.
 3. Reproduce the failure with the smallest read-only command that preserves the
    suspected boundary.
-4. Establish the command contract: PowerShell object/error semantics or native
-   arguments, stdout, stderr, and exit status.
+4. Establish the command contract: supported cmdlet parameters and PowerShell
+   object/error semantics, or native arguments, stdout, stderr, and exit
+   status.
 5. Prefer a direct cmdlet or `& $exe @args`; move complex multi-line logic into
    a script for the shell that owns it.
 6. Inspect exact bytes only when text encoding, BOM, newline, or byte identity
    is relevant.
 7. Capture `$LASTEXITCODE` immediately after a native program whose contract is
-   exit-status based.
+   exit-status based; never substitute it for a cmdlet error contract.
 8. Classify the result as application defect, argument or parser transport,
    stream or exit handling, text encoding, WSL or path semantics, environment
    drift, sandbox or permission, cleanup noise, or still unknown.

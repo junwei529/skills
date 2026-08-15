@@ -8,6 +8,9 @@ PowerShell 用于诊断并安全处理 PowerShell、native executable、文本�
 
 ## 何时使用
 
+- 在首次相关命令之前，任务明确要求非平凡 `.ps1`、`pwsh` 或
+  `powershell.exe` workflow，包括多行逻辑、loop、`try`/`catch`、regex、
+  complex pipeline、native execution 或 child-process handling；
 - PowerShell 5.1 与 7 的行为差异是实质因素；
 - native argument、quoting、stdout、stderr、`$LASTEXITCODE`、pipeline、
   redirection、stdin 或嵌套 shell string 可能有问题；
@@ -36,16 +39,21 @@ stable identity。
 
 ## 调用
 
-实质症状可以隐式选择该 Skill。高风险或需要可复现诊断时适合显式调用：
+明确的非平凡 PowerShell 或实质症状可以在执行前选择该 Skill。需要
+pre-execution readiness 或可复现诊断时适合显式调用：
 
 ```text
-$use-powershell-safely 在修改应用代码前诊断此 native argument、stream 和 exit-code 边界。
+$use-powershell-safely 在运行前验证此非平凡 PowerShell 命令，并保留其 native argument、stream 和 exit-code 边界。
 ```
 
 ## 安全边界
 
-按照 native 工具合同捕获退出状态，以结构化值保留参数，并在相关时把精确文本
-字节视为正确性。安装、更新、提权、profile、policy、locale、registry、
+复杂逻辑优先放入 `.ps1`，否则在运行前使用将执行它的同一 PowerShell
+executable/version parse exact inline payload。检查 cmdlet 的实际 parameter set，
+不要假定都有 `-LiteralPath`；`New-Item` 使用 `-Path`。
+关键 cmdlet 使用窄范围 fail-fast 并验证预期 artifact 或 state；
+`$LASTEXITCODE` 只属于 native process status。以结构化值保留 native 参数，并在
+相关时把精确文本字节视为正确性。安装、更新、提权、profile、policy、locale、registry、
 service、firewall、WSL state 或破坏性主机变更都需要显式授权。破坏性目标必须
 按 literal path 解析并证明 containment。
 
@@ -60,7 +68,9 @@ canary、双 runtime 确定性检查、实际执行的 native/text controller bo
 已有精确 loaded-copy identity 和一条带守卫的 native/text diagnosis canary；
 hardening 仍缺少真实 Bash/WSL、stable canary sandbox 内实际执行的 native probe、
 实际 sandbox-denial 注入和 shadow-use 证据。参见[验证](VERIFICATION.md)和
-[状态](STATE.md)。
+[状态](STATE.md)。未发布的 P1 SOURCE revision 新增双 runtime deterministic
+command-readiness checks 和静态 pre-error selection contract；实际 Harness
+selection efficacy 仍是未证明的 model evidence。
 
 ## 权威合同
 

@@ -1,12 +1,15 @@
 # PowerShell Verification
 
-Last updated: 2026-08-01
+Last updated: 2026-08-15
 
 ## Claim Ledger
 
 | Claim | Status |
 |---|---|
 | The current package has one entry and exactly three conditional references | verified structurally |
+| P1 metadata and case contract cover `.ps1`, `pwsh`, `powershell.exe`, and non-trivial PowerShell before the first related command | verified statically; actual Harness selection efficacy remains unproved |
+| P1 ordinary version-independent cmdlet and POSIX-only negatives remain explicit | verified statically; no model selection run occurred |
+| P1 parameter, cmdlet-error, parser, and automatic-variable readiness | 41 focused assertions pass under PowerShell 7 and Windows PowerShell 5.1 |
 | Released portable guidance handles the recorded native, text, WSL, version, locale, sandbox, and destructive boundaries | seven fresh development scenarios pass |
 | Ordinary cmdlet and POSIX-only work remain outside the Skill | catalog-assisted and controlled native negatives pass |
 | Released DEV_DISCOVERY, exact-commit RC, and stable loaded-copy identity | verified |
@@ -17,11 +20,61 @@ Last updated: 2026-08-01
 | Current corrected exact-commit RC identity and behavior | exact-commit `c42eef3...` loaded-copy positives/negatives, controller boundary, and independent readiness pass |
 | Current hardening stable identity and guarded native/text diagnosis | tag-pinned `v0.1.2` five-file identity and fresh loaded-copy canary pass |
 | Live Bash/WSL, native execution inside the stable canary sandbox, actual sandbox denial, or shadow use | unverified |
-| General efficacy, token savings, or cross-Harness parity | unverified |
+| General efficacy, token savings, broad trigger accuracy, or cross-Harness parity | unverified |
 
-## Current SOURCE Identity
+## Unreleased P1 SOURCE Identity
 
-The five current SOURCE files were decoded as strict UTF-8, normalized to LF
+The five SOURCE files on `codex/use-powershell-safely-next` were decoded as
+strict UTF-8, normalized to LF with one final newline, and hashed with SHA-256:
+
+```text
+SKILL.md
+  fdd28fe8e7770ea0d6ef924eddfe66ed5584c75e99c18405bbf7b5ffeed9f21d
+agents/openai.yaml
+  3b61f94eec7d23407bd114a80281e2ddee7ea463d39cfc50d1ab3d172cf142df
+references/native-process-boundaries.md
+  73425524b0d42bcab63f12a17510d6efc29d3efc6c2f523e774cd7304c824e10
+references/text-encoding-boundaries.md
+  ca1fb4c3caea1c045ab06ebd348a9cfd39863e86faf12e4a7a2548f172a69f96
+references/windows-wsl-boundaries.md
+  5674d97ac52c6c8b05c8f57acae8ba5970afbdab3a1828ba62297038e450ffb7
+```
+
+This identity implements the bounded
+`PRE_ERROR_SELECTION_AND_COMMAND_READINESS` residual. It is SOURCE-development
+identity only: no discovery mapping, installed copy, model selection,
+candidate, RC, stable update, tag, or release was created.
+
+## 2026-08-15 P1 Deterministic Evidence
+
+The focused boundary checker passed 41 assertions under the installed
+PowerShell 7 and Windows PowerShell 5.1 hosts. It proves only these synthetic
+mechanisms and static contracts:
+
+- pre-error metadata and case markers cover `.ps1`, `pwsh`, `powershell.exe`,
+  and non-trivial PowerShell while retaining ordinary-cmdlet and POSIX-only
+  negatives;
+- parse-only guidance is bound to the same exact PowerShell executable/version
+  that will run the target;
+- `New-Item -LiteralPath` is rejected and creates no target, while its actual
+  `-Path` shape creates and verifies the intended directory;
+- a child PowerShell process can return zero after a non-terminating cmdlet
+  error with no artifact, while the corrected narrow fail-closed shape rejects
+  the missing input and verifies the artifact on success;
+- three invalid/valid parse pairs cover variable-colon boundaries, literal
+  scope-prefix regex text, and statement-form `foreach` before a pipeline; and
+- one syntactically valid runtime pair exposes and corrects the automatic
+  `$Matches` collection collision.
+
+The bundled Skill validator and repository checker pass. The aggregate fixture
+checker passes all four PowerShell rows, including the new pair manifest, but
+its overall command remains nonzero at the excluded Work Charter Gate 2 runner
+regression already present in the clean base. No Work Charter file was changed
+or reclassified as a PowerShell defect. No model or assessor path ran.
+
+## Released `v0.1.2` SOURCE Identity
+
+The five released SOURCE files were decoded as strict UTF-8, normalized to LF
 with one final newline, and hashed with SHA-256:
 
 ```text

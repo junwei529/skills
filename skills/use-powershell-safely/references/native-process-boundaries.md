@@ -8,7 +8,9 @@ destructive operations, and PowerShell 7 installation guidance.
 
 - [Runtime Readiness](#runtime-readiness)
 - [Installation Is A Separate Authorized Action](#installation-is-a-separate-authorized-action)
+- [Parse Complex PowerShell Before Execution](#parse-complex-powershell-before-execution)
 - [Cmdlet Or Native Executable](#cmdlet-or-native-executable)
+- [Cmdlet Parameters And Failure Contracts](#cmdlet-parameters-and-failure-contracts)
 - [Command Discovery And Result Shape](#command-discovery-and-result-shape)
 - [Native Errors And Preference Variables](#native-errors-and-preference-variables)
 - [Preserve Native Arguments](#preserve-native-arguments)
@@ -117,6 +119,55 @@ Never silently install or update PowerShell, elevate, select a preview release,
 change the default shell or terminal profile, remove Windows PowerShell 5.1, or
 modify locale, execution policy, registry, or global code page.
 
+## Parse Complex PowerShell Before Execution
+
+Prefer a `.ps1` file for loops, `try`/`catch`, regex, hashtables, object
+construction, or complex pipelines. It removes an inline transport boundary
+and gives the target PowerShell parser the complete source. The parser API uses
+the current process's grammar, so run the parse-only block inside the same exact
+PowerShell executable and version that will execute the target script. A
+PowerShell 7 parse does not qualify a later Windows PowerShell 5.1 run. Parse
+the exact file without executing it before the first run:
+
+```powershell
+$tokens = $null
+$parseErrors = $null
+[void][System.Management.Automation.Language.Parser]::ParseFile(
+    $scriptPath,
+    [ref]$tokens,
+    [ref]$parseErrors
+)
+if ($parseErrors.Count -ne 0) {
+    $parseErrors | Select-Object Message, Extent
+    throw 'PowerShell parse-only readiness failed.'
+}
+```
+
+If the current process is not the target runtime, put this parser block in a
+small `.ps1` driver and invoke it directly with the already selected target
+executable. Pass the target script path or inline payload as data; do not put
+the payload inside another `-Command` string. Capture that target parser
+process's exit code and stop before execution when it reports errors.
+
+For an unavoidable inline payload, call `Parser.ParseInput` on the exact string
+inside that same target runtime and reject any parse error. This is a syntax
+check, not proof of parameter compatibility, runtime success, or side-effect
+correctness. Do not add a second shell, encoded command, or more complex
+quoting to make an unparsed payload launch.
+
+Keep these high-value traps explicit:
+
+- delimit a variable before a literal colon, for example `${name}:` rather
+  than `$name:`;
+- when a regex must contain literal `$env:` or `$script:`, use a
+  non-interpolating string or escape the dollar sign instead of a double-
+  quoted interpolating string;
+- reserve automatic `$Matches` for the most recent `-match` result and use a
+  distinct application collection name; and
+- do not attach statement-form `foreach (...) { ... }` directly to a pipeline.
+  Collect its output first, or use a pipeline-native form such as
+  `ForEach-Object` when that is the intended contract.
+
 ## Cmdlet Or Native Executable
 
 Establish which contract applies:
@@ -130,11 +181,49 @@ Establish which contract applies:
 - A native tool may write diagnostics or progress to stderr and still exit
   successfully. Text on stderr is not automatically failure.
 
-For routine cmdlets, prefer named parameters and literal filesystem paths:
+For routine cmdlets, prefer named parameters and use a literal-path parameter
+only when the command actually supports it:
 
 ```powershell
 Get-Content -LiteralPath $path -Encoding UTF8
 ```
+
+## Cmdlet Parameters And Failure Contracts
+
+`-LiteralPath` is not a universal filesystem parameter. Inspect the target
+command when its contract is uncertain:
+
+```powershell
+$command = Get-Command New-Item -CommandType Cmdlet
+$command.Parameters.Keys
+Get-Help New-Item -Full
+```
+
+`New-Item` supports `-Path` and does not support `-LiteralPath`. Use its actual
+parameter contract and validate the intended result; do not generalize this
+one parameter shape to every cmdlet:
+
+```powershell
+try {
+    New-Item -ItemType Directory -Path $directoryPath `
+        -ErrorAction Stop | Out-Null
+    if (-not (Test-Path -LiteralPath $directoryPath -PathType Container)) {
+        throw 'The expected directory was not created.'
+    }
+}
+catch {
+    throw "Directory creation failed: $($_.Exception.Message)"
+}
+```
+
+Many cmdlet errors are non-terminating by default. A script can emit such an
+error, continue to a later successful statement, and leave an outer process
+with exit `0` while the required artifact is absent. For a critical step, use
+the narrowest supported terminating behavior, normally `-ErrorAction Stop`
+inside a focused `try`/`catch`, and verify the expected artifact or state.
+Do not infer cmdlet success from the final `$?`, output truthiness, or the outer
+process exit alone. `$LASTEXITCODE` records native process status; it is not a
+cmdlet failure signal.
 
 ## Command Discovery And Result Shape
 
@@ -375,7 +464,9 @@ present the PowerShell 7 capture example as a 5.1-compatible command.
 
 ## Paths, Permissions, And Destructive State
 
-- Use `-LiteralPath` unless wildcard expansion is intentional.
+- Use `-LiteralPath` only when the target command supports it and literal path
+  semantics are required. Otherwise inspect the command's parameter contract;
+  do not substitute an unsupported parameter mechanically.
 - Give each relative path exactly one declared base: the observed working
   directory, an explicit tool root, or a documented project root. Record the
   raw path, `Get-Location`, the resolved literal path, and the tool's own

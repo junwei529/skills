@@ -824,6 +824,31 @@ $powerShell = Join-Path $repoRoot 'evals\fixtures\powershell-boundary'
 $jsonPath = Join-Path $powerShell 'data\input file.json'
 $verifierPath = Join-Path $powerShell 'tools\verify_json.py'
 $wrapperPath = Join-Path $powerShell 'tools\run-verifier.ps1'
+$readinessPath = Join-Path $powerShell 'command-readiness-cases.json'
+
+$readiness = $null
+try {
+    $readiness = [System.IO.File]::ReadAllText($readinessPath) | ConvertFrom-Json
+}
+catch {
+    $readiness = $null
+}
+$readinessIds = @()
+if ($null -ne $readiness) {
+    $readinessIds = @($readiness.parser_pairs.id) + @($readiness.runtime_pairs.id)
+}
+Add-Check `
+    -Name 'PowerShell command readiness pairs' `
+    -Passed (
+        $null -ne $readiness -and
+        $readiness.schema -eq 'powershell-command-readiness/v1' -and
+        $readiness.parameter_contract.id -eq 'new-item-path-contract' -and
+        $readiness.error_contract.id -eq 'cmdlet-nonterminating-vs-exit' -and
+        @($readiness.parser_pairs).Count -eq 3 -and
+        @($readiness.runtime_pairs).Count -eq 1 -and
+        @($readinessIds | Select-Object -Unique).Count -eq 4
+    ) `
+    -Expectation 'fixture exposes parameter/error contracts, three parse pairs, and one automatic-variable runtime pair'
 
 $directOutput = & python $verifierPath --input $jsonPath 2>&1
 $directExit = $LASTEXITCODE

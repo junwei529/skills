@@ -1,12 +1,21 @@
 # PowerShell State
 
-Last updated: 2026-08-01
+Last updated: 2026-08-15
 
 ## Current Implementation
 
 Canonical editable SOURCE is the five-file package under
 [`skills/use-powershell-safely`](../../../skills/use-powershell-safely) with
 one entry and three conditional references.
+
+User Authority Revision P1 authorizes one unreleased SOURCE delta,
+`PRE_ERROR_SELECTION_AND_COMMAND_READINESS`, on task branch
+`codex/use-powershell-safely-next` from base
+`26711837e496459ae718e2a461c94aed54f84a50`. The delta adds pre-error metadata
+selection for explicit non-trivial PowerShell while preserving ordinary-cmdlet
+and POSIX-only negatives, plus deterministic command-readiness guidance for
+parameter contracts, cmdlet error semantics, parse-only validation, and four
+observed syntax traps. It does not change the three-reference package shape.
 
 Tested public candidate
 `c42eef392a5b9f58bbee64aa73ffb603a6fb6c29` contains both the reviewed
@@ -32,13 +41,24 @@ verified stable installed copy contain this current five-file revision.
 
 ## Current Writer
 
-No PowerShell SOURCE writer is active. The hardening, correction, and candidate
-writers relinquished after acceptance and publication. The authorized
-repository release-evidence closeout may change only mapped documentation; it
-does not authorize PowerShell SOURCE changes, private-global changes, or
-cleanup of retained evidence or rollback copies.
+The task-dedicated worktree on branch `codex/use-powershell-safely-next` holds
+the sole bounded PowerShell SOURCE writer lease through one reviewed local
+commit. That commit is the terminal writer action: after it succeeds, the
+writer relinquishes at the integration gate. The lease does not authorize
+installation, discovery mapping, candidate, model or assessor evidence, push,
+merge, cleanup, private-report mutation, or changes to Work Charter or Project
+Docs SOURCE.
 
 ## Evidence State
+
+The P1 revision may claim only deterministic SOURCE-development evidence in
+this task: static selection-contract coverage, synthetic parameter/error and
+parser/runtime pairs, dual-runtime focused checks where both installed hosts
+support the behavior, package validation, repository checks, documentation-
+impact closure, and native review. Actual Harness selection efficacy remains
+unproved and requires separately authorized model evidence. The private sample
+audit is an intake source only; it is not broad trigger-accuracy, efficacy, or
+application-defect evidence.
 
 The released `v0.1.1` revision has exact-source, DEV_DISCOVERY, RC, and stable
 loaded-copy evidence. The later public hardening passes fifteen
@@ -75,11 +95,12 @@ shadow-use evidence remain absent. See [Verification](VERIFICATION.md).
 
 ## Next Gate
 
-PowerShell is released and installed as part of repository release `v0.1.2`.
-No further release action is pending for this revision. Live WSL/Bash,
-sandbox-denial injection, shadow use, private-global retirement,
-retained-evidence cleanup, and rollback-copy cleanup remain separate future
-decisions.
+After the reviewed local P1 commit, the next gate is explicit integration
+authorization. Actual pre-error Harness selection is a later, separately
+authorized product-evidence gate. Candidate, RC, stable installation, release,
+live WSL/Bash, sandbox-denial injection, shadow use, private-global retirement,
+retained-evidence cleanup, and rollback-copy cleanup remain separate decisions;
+released `v0.1.2` and its installed copy are unchanged.
 
 ## Recovery Entry
 
