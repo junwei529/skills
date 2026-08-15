@@ -14,7 +14,7 @@ translation system, or policy-enforcement engine.
 
 ## Work Charter `v0.2.0` Release-Set Applicability
 
-The coherent `v0.2.0` release-set candidate includes the immutable
+The immutable `v0.2.0` release set includes the
 Project Docs `v0.1.2` package at
 `ceed607152849775b981c54add74bfa30d858e4d`. For this release set, Project
 Docs is explicit-only: the user must invoke `$manage-project-docs` before the
@@ -25,7 +25,7 @@ invoke the Skill or authorize a change.
 
 The later [Decision 0019](../../decisions/0019-project-docs-implicit-discovery-and-demand-driven-modules.md)
 development contract remains accepted history but is excluded from this
-candidate. Its implicit-selection and demand-driven-module requirements below
+release. Its implicit-selection and demand-driven-module requirements below
 are historical/future development requirements, not behavior supplied or
 claimed by the six live `v0.1.2` package files.
 

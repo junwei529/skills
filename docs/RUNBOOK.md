@@ -24,7 +24,7 @@ Last updated: 2026-08-15
 This is the operational owner for developing, discovering, testing, installing,
 and releasing this repository's Skills. The v0.1 distribution mechanism,
 public repository identity, and pre-tag candidate visibility policy are
-selected. Immutable `v0.1.0` through `v0.1.2` history, exact candidates, stable
+selected. Immutable `v0.1.0` through `v0.2.0` history, exact candidates, stable
 installs, GitHub Release state, and residual limits remain in
 `docs/VERIFICATION.md`; this procedure does not duplicate their live status.
 Public install examples use a version-neutral placeholder so the same source

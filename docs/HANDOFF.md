@@ -102,13 +102,16 @@ Last updated: 2026-08-15
   remain external control-plane decisions; correction 16 is reserved
 - Exact predecessor `b3ad360...` and its D41 packet remain immutable and
   unaccepted
-- Released package identity: immutable `v0.1.2` at
-  `ceed607152849775b981c54add74bfa30d858e4d`
+- Released package identity: immutable `v0.2.0` at
+  `ac790233d5a8ba5afafd6eef95b1d5bc3cbe83a6`, tree
+  `c7cc8088939b2732bc25791f6e5696f34e7e73d1`, with parents `33f0b62...` and
+  `a7637a6...`
 - GitHub Release:
-  [`v0.1.2 — Stable three-Skill release`](https://github.com/junwei529/skills/releases/tag/v0.1.2),
-  marked Latest
+  [`v0.2.0 — Work Charter + PowerShell coherent release set`](https://github.com/junwei529/skills/releases/tag/v0.2.0),
+  non-draft, non-prerelease, and marked Latest
 - Stable installed set: Project Docs 6 files, Work Charter 5 files, PowerShell
-  5 files, each matching the `v0.1.2` Git blobs
+  5 files, each matching the `v0.2.0` Git blobs; the retained rollback copy
+  matches exact `v0.1.2`
 - RC prerelease set: public branch commit `67a764a...` preserves Work Charter
   as the only `changed` public Skill: five files match exact `c481005...` plus
   manifest `04c382a4...`; Project Docs and PowerShell are `unchanged` at their
@@ -116,16 +119,14 @@ Last updated: 2026-08-15
   candidate-only discovery, and bounded minimal smoke end at
   `RC_INSTALL_MINIMAL_SMOKE_PASS`. This is not stable installation, full Gate
   2, integration, tag, release, or final release acceptance
-- Current local release-set preparation: the release-prep branch integrates
-  committed ancestry through `a7637a6...` with first-parent baseline
-  `33f0b62...`. Work Charter remains exact tree `97f0d9de...` and manifest
-  `04c382a4...`; PowerShell is the independently `changed` member at reviewed
-  SOURCE commit `30668743...` and exact tree `d8bf6dc...`; Project Docs is
-  `unchanged` at exact `v0.1.2` tree `ce6da120...`. This Phase 1 creates at most
-  one local coherent candidate commit and no RC, product, assessor, install,
-  push, tag, release, or cleanup effect
-- Rollback identity: immutable `v0.1.1` retained as a separately verified
-  three-package backup
+- Current coherent release set: Work Charter is `changed` at exact tree
+  `97f0d9de...` and manifest `04c382a4...`; PowerShell is independently
+  `changed` at reviewed SOURCE commit `30668743...` and exact tree
+  `d8bf6dc...`; Project Docs is `unchanged` at exact `v0.1.2` tree
+  `ce6da120...`. Isolated RC evidence, stable switch, fresh active-copy
+  canaries, branch/tag push, and GitHub Release are complete
+- Rollback identity: immutable `v0.1.2` retained as an exact three-package
+  backup; older immutable releases remain historical
 - Writer handoff boundary: D53, D54, and D55 writers have relinquished. D55
   ended at C17 as `QUALIFICATION_FAILED / PRODUCT_UNKNOWN`; exact mechanism is
   `UNKNOWN`, and no formal, canary, product, assessor, acceptance, or D56
@@ -136,17 +137,18 @@ Last updated: 2026-08-15
   or conflicting evidence makes writer state `UNKNOWN` and fails closed.
   D51-D55, every prior carrier, correction, and consumed event remain immutable.
   Skill SOURCE, generic controller, behavior cases, fixtures, matrix, rubric,
-  other Skills, user configuration, push, installation, tag, release, stable
-  update, cleanup, automatic D56, and unlisted external effects remain excluded.
+  other Skills, user configuration, tag movement, release assets, cleanup,
+  automatic D56, and unlisted external effects remain excluded.
   The earlier release-prep writer relinquished after exact commit `67a764a...`, clean
   task index/worktree, preserved source-root dirty ownership, and every
-  registered-worktree reconciliation. The current bounded coherent-candidate
-  lease owns committed-ancestry integration, mapped factual consumers,
-  deterministic verification, native review, and at most one local merge
-  commit. It excludes push and all Phase 2 effects. Its final relinquishment
-  requires the terminal commit, clean task index/worktree, preserved source
-  dirty ownership, and every registered-worktree reconciliation. The completion
-  packet, not these self-referential bytes, records that final proof
+  registered-worktree reconciliation. Release actions for `v0.2.0` are
+  complete. The current bounded release-prep lease owns only mapped factual
+  consumers, deterministic verification, native review, at most one evidence-
+  only commit, push of that branch commit, and final reconciliation. Its final
+  relinquishment requires the terminal commit, clean task index/worktree,
+  preserved source dirty ownership, and every registered-worktree
+  reconciliation. The completion packet, not these self-referential bytes,
+  records that final proof
 - Ignored-carrier boundary: one opaque ordinary controller-scratch directory
   predates this writer window. Its provenance remains `UNKNOWN`; this task read
   metadata only and did not open, reinterpret, or clean the carrier. Native
@@ -157,7 +159,225 @@ Last updated: 2026-08-15
   `.eval-runs/work-charter-v0.2-c481005-minimal-eval`; it is evidence-only and
   ignored. The RC install adds one declared retained ignored root at
   `.eval-runs/work-charter-v0.2-67a764a-rc-install`; it is identity/smoke
-  evidence only. None of these directories is SOURCE or part of a commit
+  evidence only. The coherent release adds retained ignored roots
+  `.eval-runs/coherent-v0.2-ac790233-rc-install` and
+  `.eval-runs/release-v0.2.0`, including the exact stable switch receipt,
+  rollback copy, canary controller/results, and public-safe release notes.
+  None of these directories is SOURCE or part of a commit
+
+## 2026-08-15 `v0.2.0` Release Completion
+
+Immutable lightweight tag `v0.2.0` resolves locally, remotely, and through the
+GitHub API to exact coherent commit `ac790233d5a8ba5afafd6eef95b1d5bc3cbe83a6`.
+The tag remains on the package-bearing commit; the later evidence-only
+descendant, if successfully committed and pushed, must be identified from Git
+and its completion packet rather than inferred from these self-referential
+bytes.
+
+The exact tag was materialized through the official installer. RC evidence
+completed one recovered proportional Work Charter smoke, one PowerShell
+positive plus the ordinary-cmdlet and POSIX-only negatives, and one independent
+assessor. The initial stalled Work Charter process is retained separately as
+`CONTROLLER_TRANSPORT_FAILED / PRODUCT_UNKNOWN`. Stable installation moved the
+old exact `v0.1.2` active directories into a retained rollback root, moved the
+staged exact `v0.2.0` directories into place, and did not overwrite in place or
+clean retained evidence. Fresh active-copy canaries physically loaded all
+three target packages and left the synthetic fixture unchanged. The GitHub
+Release is published, non-draft, non-prerelease, and Latest, with no custom
+asset.
+
+## `v0.2.0` Release Documentation-Impact Closure
+
+This closure starts from the facts that tag, RC evidence, stable installation,
+loaded-copy canaries, branch/tag push, and GitHub Release are complete. It adds
+no product contract, case, fixture, controller, mechanism, permission, or
+acceptance boundary.
+
+```documentation-impact-closure
+{
+  "schema": "documentation-impact-closure/v1",
+  "closure_id": "work-charter-v0.2-powershell-p1-release-closeout",
+  "authorized_change_envelope": [
+    "README.md",
+    "README.zh-CN.md",
+    "docs/HANDOFF.md",
+    "docs/INDEX.md",
+    "docs/ROADMAP.md",
+    "docs/RUNBOOK.md",
+    "docs/STATUS.md",
+    "docs/VERIFICATION.md",
+    "docs/skills/manage-project-docs/DESIGN.md",
+    "docs/skills/manage-project-docs/README.md",
+    "docs/skills/manage-project-docs/README.zh-CN.md",
+    "docs/skills/manage-project-docs/STATE.md",
+    "docs/skills/manage-project-docs/VERIFICATION.md",
+    "docs/skills/use-powershell-safely/README.md",
+    "docs/skills/use-powershell-safely/README.zh-CN.md",
+    "docs/skills/use-powershell-safely/STATE.md",
+    "docs/skills/use-powershell-safely/VERIFICATION.md",
+    "docs/skills/work-charter/README.md",
+    "docs/skills/work-charter/README.zh-CN.md",
+    "docs/skills/work-charter/STATE.md",
+    "docs/skills/work-charter/VERIFICATION.md"
+  ],
+  "intended_update_set": [
+    "README.md",
+    "README.zh-CN.md",
+    "docs/HANDOFF.md",
+    "docs/INDEX.md",
+    "docs/ROADMAP.md",
+    "docs/RUNBOOK.md",
+    "docs/STATUS.md",
+    "docs/VERIFICATION.md",
+    "docs/skills/manage-project-docs/DESIGN.md",
+    "docs/skills/manage-project-docs/README.md",
+    "docs/skills/manage-project-docs/README.zh-CN.md",
+    "docs/skills/manage-project-docs/STATE.md",
+    "docs/skills/manage-project-docs/VERIFICATION.md",
+    "docs/skills/use-powershell-safely/README.md",
+    "docs/skills/use-powershell-safely/README.zh-CN.md",
+    "docs/skills/use-powershell-safely/STATE.md",
+    "docs/skills/use-powershell-safely/VERIFICATION.md",
+    "docs/skills/work-charter/README.md",
+    "docs/skills/work-charter/README.zh-CN.md",
+    "docs/skills/work-charter/STATE.md",
+    "docs/skills/work-charter/VERIFICATION.md"
+  ],
+  "review_target": [
+    "README.md",
+    "README.zh-CN.md",
+    "docs/HANDOFF.md",
+    "docs/INDEX.md",
+    "docs/ROADMAP.md",
+    "docs/RUNBOOK.md",
+    "docs/STATUS.md",
+    "docs/VERIFICATION.md",
+    "docs/skills/manage-project-docs/DESIGN.md",
+    "docs/skills/manage-project-docs/README.md",
+    "docs/skills/manage-project-docs/README.zh-CN.md",
+    "docs/skills/manage-project-docs/STATE.md",
+    "docs/skills/manage-project-docs/VERIFICATION.md",
+    "docs/skills/use-powershell-safely/README.md",
+    "docs/skills/use-powershell-safely/README.zh-CN.md",
+    "docs/skills/use-powershell-safely/STATE.md",
+    "docs/skills/use-powershell-safely/VERIFICATION.md",
+    "docs/skills/work-charter/README.md",
+    "docs/skills/work-charter/README.zh-CN.md",
+    "docs/skills/work-charter/STATE.md",
+    "docs/skills/work-charter/VERIFICATION.md"
+  ],
+  "changed_facts": [
+    {
+      "fact": "Immutable v0.2.0 release, stable installed-copy identity, bounded loaded-copy behavior, and GitHub Release",
+      "fact_class": "Repository checks, coherent candidate, tag, stable-install, and release evidence",
+      "canonical_owner": "docs/VERIFICATION.md",
+      "bounded_consumers": [
+        "AGENTS.md",
+        "README.md",
+        "README.zh-CN.md",
+        "docs/ARCHITECTURE.md",
+        "docs/AUTHORITY.md",
+        "docs/HANDOFF.md",
+        "docs/INDEX.md",
+        "docs/PROVENANCE.md",
+        "docs/ROADMAP.md",
+        "docs/RUNBOOK.md",
+        "docs/SPEC.md",
+        "docs/STATUS.md",
+        "docs/decisions/0017-capability-delta-skill-development.md",
+        "docs/decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md",
+        "docs/decisions/0019-project-docs-implicit-discovery-and-demand-driven-modules.md",
+        "docs/decisions/0020-bounded-campaign-authorization-and-evidence-convergence.md",
+        "docs/skills/manage-project-docs/DESIGN.md",
+        "docs/skills/manage-project-docs/README.md",
+        "docs/skills/manage-project-docs/README.zh-CN.md",
+        "docs/skills/manage-project-docs/STATE.md",
+        "docs/skills/manage-project-docs/VERIFICATION.md",
+        "docs/skills/use-powershell-safely/DESIGN.md",
+        "docs/skills/use-powershell-safely/README.md",
+        "docs/skills/use-powershell-safely/README.zh-CN.md",
+        "docs/skills/use-powershell-safely/STATE.md",
+        "docs/skills/use-powershell-safely/VERIFICATION.md",
+        "docs/skills/work-charter/DESIGN.md",
+        "docs/skills/work-charter/README.md",
+        "docs/skills/work-charter/README.zh-CN.md",
+        "docs/skills/work-charter/STATE.md",
+        "docs/skills/work-charter/VERIFICATION.md",
+        "evals/README.md",
+        "scripts/check_repository.py",
+        "skills/manage-project-docs/SKILL.md",
+        "skills/use-powershell-safely/SKILL.md",
+        "skills/work-charter/SKILL.md"
+      ],
+      "dispositions": [
+        {"path": "docs/VERIFICATION.md", "status": "UPDATE", "reason": "Owns exact tag, package, RC, stable, loaded-copy, and GitHub Release evidence."},
+        {"path": "AGENTS.md", "status": "CHECKED_NO_CHANGE", "reason": "Release completion adds no repository-governance contract."},
+        {"path": "README.md", "status": "UPDATE", "reason": "Publishes the current English release classification and limits."},
+        {"path": "README.zh-CN.md", "status": "UPDATE", "reason": "Mirrors the current release classification and limits."},
+        {"path": "docs/ARCHITECTURE.md", "status": "CHECKED_NO_CHANGE", "reason": "The independent peer topology is unchanged."},
+        {"path": "docs/AUTHORITY.md", "status": "CHECKED_NO_CHANGE", "reason": "Canonical ownership is unchanged."},
+        {"path": "docs/HANDOFF.md", "status": "UPDATE", "reason": "Records release custody, ignored carriers, rollback, and recovery identity."},
+        {"path": "docs/INDEX.md", "status": "UPDATE", "reason": "Updates current decision-status summaries without changing decisions."},
+        {"path": "docs/PROVENANCE.md", "status": "CHECKED_NO_CHANGE", "reason": "No source-transformation or publication boundary changes."},
+        {"path": "docs/ROADMAP.md", "status": "UPDATE", "reason": "Records completed release milestones and remaining evidence gaps."},
+        {"path": "docs/RUNBOOK.md", "status": "UPDATE", "reason": "Extends only the immutable release-history range through v0.2.0."},
+        {"path": "docs/SPEC.md", "status": "CHECKED_NO_CHANGE", "reason": "No shared product requirement changes."},
+        {"path": "docs/STATUS.md", "status": "UPDATE", "reason": "Updates the current dashboard, release identity, and next gate."},
+        {"path": "docs/decisions/0017-capability-delta-skill-development.md", "status": "CHECKED_NO_CHANGE", "reason": "No capability-delta contract changes."},
+        {"path": "docs/decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md", "status": "CHECKED_NO_CHANGE", "reason": "Release evidence does not rewrite the accepted Work Charter decision or Gate 2 history."},
+        {"path": "docs/decisions/0019-project-docs-implicit-discovery-and-demand-driven-modules.md", "status": "CHECKED_NO_CHANGE", "reason": "Its future-development bytes remain excluded from the release."},
+        {"path": "docs/decisions/0020-bounded-campaign-authorization-and-evidence-convergence.md", "status": "CHECKED_NO_CHANGE", "reason": "No Campaign authority changes."},
+        {"path": "docs/skills/manage-project-docs/DESIGN.md", "status": "UPDATE", "reason": "Replaces prerelease wording with the immutable unchanged-package release fact."},
+        {"path": "docs/skills/manage-project-docs/README.md", "status": "UPDATE", "reason": "Updates the English unchanged-package stable summary."},
+        {"path": "docs/skills/manage-project-docs/README.zh-CN.md", "status": "UPDATE", "reason": "Mirrors the unchanged-package stable summary."},
+        {"path": "docs/skills/manage-project-docs/STATE.md", "status": "UPDATE", "reason": "Records unchanged package, stable loaded copy, writer, and next gate."},
+        {"path": "docs/skills/manage-project-docs/VERIFICATION.md", "status": "UPDATE", "reason": "Records exact unchanged tree and bounded stable canary."},
+        {"path": "docs/skills/use-powershell-safely/DESIGN.md", "status": "CHECKED_NO_CHANGE", "reason": "P1 product contract is frozen."},
+        {"path": "docs/skills/use-powershell-safely/README.md", "status": "UPDATE", "reason": "Updates the English P1 release and stable summary."},
+        {"path": "docs/skills/use-powershell-safely/README.zh-CN.md", "status": "UPDATE", "reason": "Mirrors the P1 release and stable summary."},
+        {"path": "docs/skills/use-powershell-safely/STATE.md", "status": "UPDATE", "reason": "Records released P1 custody, evidence, and residual gates."},
+        {"path": "docs/skills/use-powershell-safely/VERIFICATION.md", "status": "UPDATE", "reason": "Records exact P1 RC/stable loaded-copy evidence and limits."},
+        {"path": "docs/skills/work-charter/DESIGN.md", "status": "CHECKED_NO_CHANGE", "reason": "Work Charter product contract is frozen."},
+        {"path": "docs/skills/work-charter/README.md", "status": "UPDATE", "reason": "Updates the English release and proportional-evidence summary."},
+        {"path": "docs/skills/work-charter/README.zh-CN.md", "status": "UPDATE", "reason": "Mirrors the release and proportional-evidence summary."},
+        {"path": "docs/skills/work-charter/STATE.md", "status": "UPDATE", "reason": "Records released identity, bounded RC/stable evidence, writer, and next gate."},
+        {"path": "docs/skills/work-charter/VERIFICATION.md", "status": "UPDATE", "reason": "Records exact tree/manifest, RC/stable evidence, and full-Gate-2 limit."},
+        {"path": "evals/README.md", "status": "CHECKED_NO_CHANGE", "reason": "No evaluation contract, case, fixture, or assessor schema changes."},
+        {"path": "scripts/check_repository.py", "status": "CHECKED_NO_CHANGE", "reason": "The existing closure and repository checks remain sufficient."},
+        {"path": "skills/manage-project-docs/SKILL.md", "status": "CHECKED_NO_CHANGE", "reason": "Exact released six-file package is frozen."},
+        {"path": "skills/use-powershell-safely/SKILL.md", "status": "CHECKED_NO_CHANGE", "reason": "Exact reviewed P1 five-file package is frozen."},
+        {"path": "skills/work-charter/SKILL.md", "status": "CHECKED_NO_CHANGE", "reason": "Exact released five-file package and manifest are frozen."}
+      ]
+    },
+    {
+      "fact": "Release-prep writer custody and post-release closeout",
+      "fact_class": "Repository writer custody, dirty scope, next integration action, and recovery order",
+      "canonical_owner": "docs/HANDOFF.md",
+      "bounded_consumers": [
+        "docs/RUNBOOK.md",
+        "docs/STATUS.md",
+        "docs/skills/manage-project-docs/STATE.md",
+        "docs/skills/use-powershell-safely/STATE.md",
+        "docs/skills/work-charter/STATE.md"
+      ],
+      "dispositions": [
+        {"path": "docs/HANDOFF.md", "status": "UPDATE", "reason": "Owns the writer lease, protected dirty scopes, retained carriers, terminal action, and recovery order."},
+        {"path": "docs/RUNBOOK.md", "status": "UPDATE", "reason": "Records the immutable release-history range without changing lifecycle procedure."},
+        {"path": "docs/STATUS.md", "status": "UPDATE", "reason": "Summarizes completed release actions and separate cleanup boundary."},
+        {"path": "docs/skills/manage-project-docs/STATE.md", "status": "UPDATE", "reason": "Records post-release writer and cleanup boundary for the unchanged package."},
+        {"path": "docs/skills/use-powershell-safely/STATE.md", "status": "UPDATE", "reason": "Records post-release writer and residual P1 evidence boundary."},
+        {"path": "docs/skills/work-charter/STATE.md", "status": "UPDATE", "reason": "Records post-release writer and preserved Gate 2 limits."}
+      ]
+    }
+  ]
+}
+```
+
+All changed canonical owners and bounded consumers are marked `UPDATE`;
+inspected contract, decision, SOURCE, evaluation, governance, and checker
+consumers are `CHECKED_NO_CHANGE`. New product contracts, cases, fixtures,
+controllers, mechanisms, permissions, acceptance boundaries, release assets,
+tag movement, and cleanup are `NOT_APPLICABLE`.
 
 ## Coherent `v0.2.0` Candidate Documentation-Impact Closure
 
@@ -2434,8 +2654,9 @@ checker correction.
    combined 13/27 terminal, D49's combined 17/28 control-boundary terminal, and
    D50's scored 17/28 controller-unknown terminal, without retry, overwrite,
    relabelling, rescore, reinterpretation, or acceptance transfer.
-6. Keep `c42eef3...` RC behavior, `ceed607...` release identity, the later
-   evidence descendant, and the generated stable/rollback copies distinct.
+6. Keep `c42eef3...` RC behavior, historical `ceed607...` / `v0.1.2`, current
+   release/tag `ac790233...` / `v0.2.0`, any later evidence descendant, and
+   the active stable/retained rollback copies distinct.
 7. Treat exact candidate `c481005...` and D43-D50 as immutable inputs. Preserve
    D44's two carrier-correction receipts, three canary turns, one A01 product
    turn, semantic-gate false-negative terminal, and one out-of-scope assessor
@@ -2460,7 +2681,7 @@ checker correction.
 
 ## Immediate Next Action
 
-No release action remains pending for immutable `v0.1.2`. D31-D50, D51-01
+No release action remains pending for immutable `v0.2.0`. D31-D50, D51-01
 through D51-03, D52, and D53 are complete, sealed, or preserved and non-
 retriable. D53's tracked lifecycle and local commit 2 `8e658f18...` record its
 sanitized terminal.
@@ -2526,27 +2747,22 @@ checker path/hash values to the bootstrap pins. Review approval and Fresh-
 eligible commit selection remain user/Planner/Harness decisions; correction 16
 is reserved. D55 later consumed C16/C17 and sealed
 `QUALIFICATION_FAILED / PRODUCT_UNKNOWN`; the exact mechanism remains
-`UNKNOWN`, its writer relinquished, and its former Fresh route is closed. Exact
-public historical commit `67a764a...` later completed isolated RC install and
-bounded minimal smoke without repairing D55. The immediate Phase 1 action is
-only the authorized coherent-candidate integration, factual reconciliation,
-deterministic verification, native review, at most one local merge commit, and
-all-worktree/source-root reconciliation. No D55 repair, formal carrier, model,
-product, assessor, RC materialization, install, push, full Gate 2, stable
-update, tag, release, cleanup, or D56 follows. The R1 launcher lesson remains
-post-D55 `DEFERRED`.
-
-After a successful exact local candidate commit, the only proposed Phase 2
-handoff is isolated installation of that exact commit and loaded-copy identity,
-one proportional Work Charter smoke, one PowerShell positive plus the ordinary-
-cmdlet and POSIX-only negatives, and one independent assessor. Phase 2 requires
-separate authority and must not start from this handoff alone.
+  `UNKNOWN`, its writer relinquished, and its former Fresh route is closed.
+Exact coherent release commit `ac790233...` later completed isolated RC
+materialization, one recovered proportional Work Charter smoke, the PowerShell
+positive plus two negatives, and one independent assessor without repairing or
+reinterpreting D55. Stable switch, exact active-copy identity, fresh loaded-copy
+canaries, branch/tag push, and GitHub Release publication are complete. The
+immediate action is only factual synchronization, deterministic verification,
+native review, at most one evidence-only branch commit and push, and all-
+worktree/source-root reconciliation. No D55 repair, full Gate 2, tag movement,
+release asset, cleanup, or D56 follows. The R1 launcher lesson remains post-D55
+`DEFERRED`.
 
 Later user-owned choices include:
 
-- decide whether to authorize the exact bounded Phase 2 handoff above, or no
-  further action; stable installation, push, tag, GitHub Release, cleanup, or a
-  different evidence tranche remain separate later choices;
+- decide whether any later full-Gate-2 or different evidence tranche is worth
+  authorizing; none follows from the completed proportional release evidence;
 - decide any future native-review budget reset only if an authorized commit
   attempt exhausts its own cycle;
 - decide any installation, release, or public-reachability action only from the
@@ -2600,7 +2816,7 @@ Stop before write or publication if:
 - correction history or consumed evidence would be reset through a new task,
   root, epoch, attempt, or candidate label;
 - a root summary would duplicate or contradict a per-Skill canonical owner;
-- a proposed action would move immutable tag `v0.1.2` or edit a generated
+- a proposed action would move immutable tag `v0.2.0` or edit a generated
   installed or rollback copy;
 - a new install, update, rollback, private-global change, cleanup, tag, or
   release lacks explicit authorization; or

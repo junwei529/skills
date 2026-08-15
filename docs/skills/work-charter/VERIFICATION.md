@@ -7,7 +7,7 @@ Last updated: 2026-08-15
 | Claim | Status |
 |---|---|
 | `work-charter` is the sole current five-file package | verified structurally for current SOURCE |
-| Coherent `v0.2.0` release-set package identity | Work Charter remains `changed` at exact five-file tree `97f0d9de17abc9c699772e0ebdcbdaa23d890008` and manifest `04c382a4...`; adding the independently changed PowerShell P1 package creates no new Work Charter SOURCE or behavior evidence |
+| Coherent `v0.2.0` release package identity | Work Charter is `changed` at exact five-file tree `97f0d9de17abc9c699772e0ebdcbdaa23d890008` and manifest `04c382a4...`; adding the independently changed PowerShell P1 package creates no new Work Charter SOURCE revision |
 | Gate 1 protection, re-entry, convergence, and explicit-activation contract | D43 SOURCE correction is implemented in the current revision: indirect proposal is metadata-sufficient and workflow-free, while direct or confirmed activation requires the exact body; the commit containing the closed set becomes the exact D43 candidate, and D31-D42 remain immutable and unaccepted |
 | Gate 1 evaluation definitions | 14 exact cases and 12 exact fixtures remain the intended repository shape; installed-Skills and symptom-only proposals may be metadata-only or package-loaded without changing their proposal score, while same-context confirmation requires exact body loading before activation; the prospective reference matrix is 20 runs and the full two-contrast matrix 28 cells, with separate direct-invocation project-read and package-denial/Harness-preload boundaries |
 | First `v0.2.0` exact candidate Gate 2 | `206c497...` stopped incomplete and is superseded for acceptance; its completed correction and consumed events remain historical |
@@ -45,7 +45,8 @@ Last updated: 2026-08-15
 | Exact `c481005...` D54 explicit-root terminal | explicitly authorized `WC-AR-D54-EXPLICIT-ROOT-CONTRACT` preserves D51-D53 and records the reviewed explicit-root Build at local commit `9fe27bb...`; focused 32/32 and one composed disposable DEV path through aggregate 56/56/lifecycle/synthetic dispatch remain implementation-only. The only fresh formal carrier then returned exit 86 at ignored-orchestrator `bootstrap` before materializer, finalizer, importer, private 24/24, tracked 32/32, aggregate 56/56, lifecycle, canary, product, or assessor; all model/start counts are zero, D54 is `QUALIFICATION_FAILED / PRODUCT_UNKNOWN`, and the candidate remains unaccepted |
 | Exact `c481005...` D55 tracked-bootstrap terminal | explicitly authorized `WC-AR-D55-TRACKED-FORMAL-BOOTSTRAP` preserves D54 and its DEV/review history; D55 later consumed C16/C17 and sealed `QUALIFICATION_FAILED / PRODUCT_UNKNOWN`, exact mechanism `UNKNOWN`. No formal, canary, product, assessor, acceptance, or D56 evidence followed, and its writer relinquished |
 | Exact `c481005...` minimal claim evaluation | admitted D45-D49 exact-candidate cells plus one read-only assessor support `ACCEPT` for C1-C5 with zero fresh product starts; no A20, full 28-cell Gate 2, cross-model, real-project, deterministic lock/router, installation, stable loaded-copy, tag, or release claim follows |
-| Work Charter-only `v0.2.0` RC package | exact public commit `67a764a...` preserves five Work Charter files byte-identical to `c481005...` with manifest `04c382a4...` plus unchanged 6/5 peer packages from `ceed607...`; isolated official-installer identity, candidate-only discovery, and bounded minimal smoke end at `RC_INSTALL_MINIMAL_SMOKE_PASS`, not full Gate 2, stable installation, tag, release, or final acceptance |
+| Work Charter-only `v0.2.0` RC package | exact public commit `67a764a...` preserves five Work Charter files byte-identical to `c481005...` with manifest `04c382a4...` plus unchanged 6/5 peer packages from `ceed607...`; isolated official-installer identity, candidate-only discovery, and bounded minimal smoke end at `RC_INSTALL_MINIMAL_SMOKE_PASS`, not full Gate 2 |
+| Coherent `v0.2.0` RC and stable loaded copy | exact release commit `ac790233...` preserves the five-file tree and manifest; recovered proportional RC smoke plus one assessor pass, active stable `v0.2.0` loaded-copy canary passes, and the initial transport failure remains `PRODUCT_UNKNOWN` |
 | Isolated path-bound controller canary | private retained sealed `CANARY_PASS`; the public summary reports an exact-response pass and no command execution, omits locator/artifact/runtime details, leaves physical backend request count `UNKNOWN`, and proves neither natural-language selection nor candidate acceptance |
 | Small bounded work stays flat | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
 | Midstream implicit behavior is proposal-only | historical exact pre-Gate-1 DEV_DISCOVERY/SOURCE behavior pass |
@@ -55,8 +56,28 @@ Last updated: 2026-08-15
 | Authority ordering, assessment recording, evidence invalidation, and delivery/writer degradation | historical exact pre-Gate-1 recovery variants are partial, pass, pass, and partial respectively; no unsafe continuation observed |
 | Released-control Standard recording sequence | historical exact-commit `c42eef3...` full synthetic Phase One pass |
 | Released-control exact-commit RC loaded-copy identity | verified historically at public `c42eef3...` |
-| Stable loaded-copy identity and narrow recovery behavior | tag-pinned `v0.1.2` five-file identity, flat non-loading, and fail-closed recovery canary pass |
-| Broad implicit telemetry, deterministic delivery/locking, real-project efficacy, token savings, or cross-Harness parity | unverified |
+| Stable loaded-copy identity and proportional behavior | tag-pinned `v0.2.0` five-file identity and fresh L1 Flat canary pass; retained rollback remains exact `v0.1.2` |
+| Broad implicit telemetry, deterministic delivery/locking, full Gate 2, real-project efficacy, token savings, or cross-Harness parity | unverified |
+
+## 2026-08-15 Coherent `v0.2.0` Release Evidence
+
+Immutable tag `v0.2.0` resolves to coherent commit
+`ac790233d5a8ba5afafd6eef95b1d5bc3cbe83a6`. Work Charter is `changed` at
+exact tree `97f0d9de17abc9c699772e0ebdcbdaa23d890008`; all five blobs and manifest
+`04c382a48e43897a8806aa5ffd996984cb015d3d8cdc6e675e9181a6d94e6f44`
+remain byte-for-byte identical to SOURCE commit
+`c4810057c3f28cca9f12004ca2018784cd21f449`.
+
+The initial proportional RC controller process was force-stopped after it
+stalled and is retained as `CONTROLLER_TRANSPORT_FAILED / PRODUCT_UNKNOWN`.
+A corrected transport controller then completed one fresh proportional smoke:
+the exact package loaded, the task stayed Flat, and the fixture did not change.
+One independent assessor returned `ACCEPTED` with no finding. Official-installer
+materialization and the active stable copy match all five tag blobs. A fresh
+stable canary physically loaded the active entry plus coordination and recovery
+references, chose bounded L1, did not route Standard, and performed no write.
+These results do not rescore the initial failure, D55, or the incomplete full
+Gate 2 history and do not prove deterministic role delivery or efficacy.
 
 ## Gate 1 SOURCE And Definition Evidence
 

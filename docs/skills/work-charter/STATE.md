@@ -56,6 +56,21 @@ because the runtime did not expose it. This is not full Gate 2, stable
 installation, tag, GitHub Release, real-project efficacy, or final release
 acceptance.
 
+Immutable tag `v0.2.0` points to coherent release commit
+`ac790233d5a8ba5afafd6eef95b1d5bc3cbe83a6`; its Work Charter subtree is exact
+tree `97f0d9de17abc9c699772e0ebdcbdaa23d890008` with unchanged five-file
+manifest `04c382a48e43897a8806aa5ffd996984cb015d3d8cdc6e675e9181a6d94e6f44`.
+An isolated exact-commit RC completed one recovered proportional smoke and one
+independent assessor after the initial controller process was force-stopped and
+retained as `CONTROLLER_TRANSPORT_FAILED / PRODUCT_UNKNOWN`. The recovered
+smoke loaded the exact candidate package and remained Flat; the assessor
+returned `ACCEPTED` with no finding. The current active stable copy was then
+materialized from the tag through the official installer, matched all five tag
+blobs, and a fresh canary physically loaded the active entry plus coordination
+and recovery guidance before returning a bounded L1 result without Standard
+routing or writes. This release evidence does not retroactively accept full
+28-cell Gate 2, D55, deterministic role delivery, or real-project efficacy.
+
 Accepted `WC-AR-D44` completed one additive Gate 2 Campaign for that unchanged
 candidate. After two zero-consumption carrier-only policy-host corrections, its
 fresh ignored carrier passed final 12/12 qualification, all three network-
@@ -451,14 +466,14 @@ consumers; the index stayed empty and every registered worktree plus attributabl
 dirty state reconciled. One clean checkout never proves writer relinquishment.
 Missing or conflicting evidence remains `UNKNOWN`.
 
-The bounded release-prep lease on
-`codex/work-charter-v0.2-release-prep` may construct the exact three-package
-release set, update only mapped factual consumers, complete deterministic and
-native review, and create exactly one local commit. Its closure requires that
-commit plus a clean task checkout and exact source/all-worktree reconciliation;
-these tracked bytes do not self-attest the post-commit result. No push,
-integration, installation, tag, release, cleanup, or publication authority is
-included.
+Release actions for `v0.2.0` are complete. The bounded release-prep lease on
+`codex/work-charter-v0.2-release-prep` now owns only factual evidence
+synchronization, deterministic verification, native review, at most one
+evidence-only commit, push of that branch commit, and final all-worktree
+reconciliation. Its closure requires the commit plus a clean task checkout and
+exact source/all-worktree reconciliation; these tracked bytes do not self-
+attest the post-commit result. No SOURCE change, tag movement, release asset,
+cleanup, or other external effect is included.
 
 Work Charter SOURCE, Design, package manifest, behavior cases, fixtures,
 matrix, rubric, controller module, other Skills, discovery mappings, user
@@ -475,6 +490,13 @@ non-loading, and tag-pinned stable explicit Flat smoke pass. Broad implicit
 telemetry, candidate/stable Standard behavior, deterministic role delivery,
 real-project efficacy, and cross-Harness behavior remain unproved. See
 [Verification](VERIFICATION.md).
+
+Current release evidence is bounded separately: exact `ac790233...` RC loaded
+the package in one recovered proportional Flat smoke, one independent assessor
+returned `ACCEPTED`, and active stable `v0.2.0` loaded the entry plus two
+relevant references in a fresh process. The initial RC controller transport
+failure remains `PRODUCT_UNKNOWN`; these later facts do not rewrite it or the
+sealed full-Gate-2 history.
 
 The pre-review five-file revision completed a sole-`DEV_DISCOVERY` synthetic
 matrix and fresh independent assessment. Small Flat, midstream proposal, and
@@ -956,22 +978,17 @@ are `UNKNOWN_NOT_ASSESSED`, and the candidate remains unaccepted.
 
 ## Next Gate
 
-Exact candidate `c481005...` now has a bounded five-claim `ACCEPT` from the
-2026-08-14 minimal evaluation and exact public `67a764a...` now has isolated
-RC install/minimal smoke `PASS`. Broader Gate 2, stable installation,
-integration, tag, GitHub Release, real-project efficacy, and final release
-acceptance remain unproved. Any of those actions, another bounded evidence
-tranche, or leaving the candidate unchanged requires a separate user decision;
-no action follows automatically.
+Immutable `v0.2.0` at exact commit `ac790233...` is released, installed as the
+active stable copy, verified by fresh loaded-copy canaries, and published as the
+GitHub Latest Release. The release preserves exact Work Charter tree
+`97f0d9de...` and manifest `04c382a4...`, includes PowerShell P1 as an
+independently changed peer, and includes exact `v0.1.2` Project Docs as
+unchanged. No release action remains pending.
 
-The local coherent `v0.2.0` release-set candidate preserves the same exact
-Work Charter five-file tree `97f0d9de...` and manifest `04c382a4...` while
-including PowerShell P1 as an independently changed peer and exact `v0.1.2`
-Project Docs as unchanged. This integration creates no new Work Charter RC,
-product, assessor, stable, tag, or release evidence.
-
-Work Charter `v0.1.2` remains the released and installed stable revision.
-Exact D34 candidate `b3ad360...` remains unaccepted. D32 qualifies mapping and
+Broader Work Charter Gate 2, deterministic role delivery, real-project
+efficacy, another evidence tranche, or cleanup of retained carriers, rollback
+copies, mappings, branches, or worktrees remains a separate decision. Exact
+D34 candidate `b3ad360...` remains unaccepted. D32 qualifies mapping and
 freeze only; D33 and D35 are immutable infrastructure/controller
 `UNKNOWN_NOT_ASSESSED` records. D36 and D40 are incomplete product packets with
 independent `DECISION_REQUIRED`; neither transfers acceptance.
@@ -1192,10 +1209,11 @@ evaluation.
    D52 tracked-runner commit `410b0bd...`, D53 lifecycle commit `4ab8a025...`,
    terminal-documentation commit `8e658f18...`, D54 explicit-root Build commit
    `9fe27bb...`, D54 closeout commit `8c952abb...`, the sealed D55 C17 factual
-   record. Confirm release-prep branch commit `67a764a...` independently before
-   relying on its isolated RC install/minimal smoke record; identify any later
-   evidence-sync descendant from Git and its completion packet rather than
-   inferring it from this document.
+   record. Confirm immutable release/tag commit `ac790233...`, its exact
+   6/5/5 package identities, active stable `v0.2.0`, retained `v0.1.2`
+   rollback, and GitHub Release independently; identify any later evidence-sync
+   descendant from Git and its completion packet rather than inferring it from
+   this document.
    Resolve HEAD, index, dirty scope, ignored carriers, runtime identity, and
    writer rather than inferring them from an older handoff.
 5. Preserve the complete predecessor ledger, including the D31 mapping-

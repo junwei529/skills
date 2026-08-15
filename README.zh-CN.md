@@ -47,9 +47,9 @@ $work-charter 约束此项有后果的工作、权限、证据和恢复。
 $use-powershell-safely 在修改应用代码前诊断此实质 Windows shell 边界。
 ```
 
-在这个 coherent `v0.2.0` release-set candidate 中，Work Charter 与 PowerShell
-属于 `changed`，Project Docs 属于 `unchanged` 并继续使用已发布 `v0.1.2` 的
-explicit-only trigger。用户必须显式要求使用 Project Docs，包括通过
+immutable `v0.2.0` release set 中，Work Charter 与 PowerShell 属于 `changed`，
+Project Docs 保持 byte-identical、属于 `unchanged`，并继续使用已发布 `v0.1.2`
+的 explicit-only package。用户必须显式要求使用 Project Docs，包括通过
 `$manage-project-docs` 调用；仅有文档治理请求或 authority、evidence、routing、
 recovery 症状不会选择或加载它。具体方案可见后，自然语言确认只授权方案列明的
 目标项目变更。有效的持久化项目路由负责普通维护，无需加载 Skill。路由损坏时
@@ -85,14 +85,17 @@ Recipe 不会自动安装、调用、采用、写入或发布另一个 Skill。
 
 本仓库对一个受支持的三 Skill 集合使用同一个不可变 repository-level tag。
 当前已接受的 stable release 是
-[`v0.1.2`](https://github.com/junwei529/skills/releases/tag/v0.1.2)，对应
-`ceed607152849775b981c54add74bfa30d858e4d`。`v0.1.0` 与 `v0.1.1` 仍是
-已记录的历史 identity；精确 release 与 installed-copy 证据由 live refs 和
+[`v0.2.0`](https://github.com/junwei529/skills/releases/tag/v0.2.0)，对应
+`ac790233d5a8ba5afafd6eef95b1d5bc3cbe83a6`。`v0.1.0` 至 `v0.1.2` 仍是
+已记录的历史 identity，精确的前一 `v0.1.2` installed set 保留为 rollback；
+精确 release 与 installed-copy 证据由 live refs 和
 [仓库验证](docs/VERIFICATION.md)拥有。
 
-当前本地 coherent `v0.2.0` candidate 将 Work Charter 与 PowerShell 分类为
-`changed`，将 exact `v0.1.2` Project Docs 分类为 `unchanged`。这不构成 RC、
-安装、tag、release、stable update 或行为验收 claim。
+coherent `v0.2.0` release 将 Work Charter 与 PowerShell 分类为 `changed`，
+将 exact `v0.1.2` Project Docs 分类为 `unchanged`。exact tag package identity、
+official-installer materialization、保留 rollback 的 stable switch、fresh
+loaded-copy canary 与 GitHub Release 均已核验。每个 Skill 的证据限制仍然独立，
+不会因为共享 release 已存在就自动变成更广泛的行为验收。
 
 这个共享 tag 是 release-set identity；它不表示每个 Skill 都在该 release
 发生了变化，也不表示它们具有相同成熟度。

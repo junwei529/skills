@@ -1,15 +1,15 @@
 # Project Docs Verification
 
-Last updated: 2026-08-14
+Last updated: 2026-08-15
 
 ## Claim Ledger
 
 | Claim | Status |
 |---|---|
-| The release-prep package has six canonical files | all six live files are byte-identical to `v0.1.2` / `ceed607...`; Project Docs is `unchanged` in the coherent `v0.2.0` release-set candidate |
+| The current release package has six canonical files | all six files at `v0.2.0` / `ac790233...` are byte-identical to `v0.1.2` / `ceed607...`; Project Docs is `unchanged` in the coherent release set |
 | The five logical responsibilities work without fixed filenames | passed in mature, adoption, continuity, conflict, and safety fixtures |
 | Immutable `v0.1.2` explicit-only selection | controlled DEV_DISCOVERY, RC, and stable positive/negative canaries pass for that exact control |
-| Historical Decision 0019 implicit-selection policy and no-write boundary | `PARTIAL` at local development commit `776989f...`; its bytes are excluded from this prerelease candidate, and actual candidate selection plus physical loaded-copy attribution remain `UNKNOWN` |
+| Historical Decision 0019 implicit-selection policy and no-write boundary | `PARTIAL` at local development commit `776989f...`; its bytes are excluded from this release, and actual candidate selection plus physical loaded-copy attribution remain `UNKNOWN` |
 | Historical demand-driven modules and per-owner update modes | preserved in Decision 0019 and Git history, not present or claimed in the restored `v0.1.2` release-set package |
 | A sufficient mature layout is preserved | explicit SOURCE, RC, and stable `NOOP` smoke pass |
 | Authorized first adoption makes the minimum coherent change | historical exact-source synthetic behavior passes; the current implicit revision recognized bounded authorization and failed closed, but its write was environment-blocked and remains `UNKNOWN` |
@@ -17,8 +17,25 @@ Last updated: 2026-08-14
 | Reader/session/writer distinction and coherent recovery snapshot | current-SOURCE continuity correction passes; writer rechecked before write and exact recovery target preserved |
 | Current/history/index/authorization and immutable-history audit | current-SOURCE conflict and safety runs pass |
 | Current candidate identity and loaded-copy behavior | exact-commit `c42eef3...` RC plus independent assessment pass |
-| Stable loaded-copy identity and mature-layout behavior | tag-pinned `v0.1.2` six-file identity and fresh `NOOP` canary pass |
+| Stable loaded-copy identity and bounded current behavior | tag-pinned `v0.2.0` six-file identity and fresh `PROPOSE` canary pass; retained rollback remains exact `v0.1.2` |
 | Stable mutation, broad trigger telemetry, causal efficacy, token savings, or cross-Harness parity | unverified |
+
+## 2026-08-15 `v0.2.0` Release Evidence
+
+Immutable tag `v0.2.0` resolves to coherent commit
+`ac790233d5a8ba5afafd6eef95b1d5bc3cbe83a6`. The Project Docs package is
+classified `unchanged`: its exact six-file tree is
+`ce6da1202e21d8968ea47c86fb9992c0dd1f6f6b`, identical to commit
+`ceed607152849775b981c54add74bfa30d858e4d` and `v0.1.2`. Official-installer
+materialization and the active stable copy both match all six tag blobs with
+strict UTF-8/no-BOM, LF, and one final newline.
+
+A fresh isolated loaded-copy canary read the active stable entry and
+`references/audit-and-adopt.md`, returned factual `PROPOSE` because the
+synthetic repository intentionally had no canonical write locus, and left all
+fixture files unchanged. A shared unrelated-task negative read no target Skill.
+This proves exact stable-copy loading and bounded proposal behavior, not
+Decision 0019 implicit selection, stable mutation, broad triggers, or efficacy.
 
 ## Historical Decision 0019 Development Revision
 

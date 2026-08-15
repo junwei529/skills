@@ -1,21 +1,22 @@
 # Project Docs State
 
-Last updated: 2026-08-14
+Last updated: 2026-08-15
 
 ## Current Implementation
 
 Canonical editable SOURCE remains the six-file package under
 [`skills/manage-project-docs`](../../../skills/manage-project-docs). In the
-coherent `v0.2.0` release-set candidate, all six files are restored
+immutable `v0.2.0` release set, all six files are restored
 byte-for-byte to immutable `v0.1.2` commit
 `ceed607152849775b981c54add74bfa30d858e4d`. This is the released explicit-only
-control; it is `unchanged` in the release set and receives no new behavior,
-selection, installation, or loaded-copy claim.
+control; it is `unchanged` in the release set and receives no new package
+behavior contract or SOURCE revision. The bounded release, installation, and
+loaded-copy evidence added for these unchanged bytes is recorded below.
 
 [Decision 0019](../../decisions/0019-project-docs-implicit-discovery-and-demand-driven-modules.md)
 and local development commit `776989f...` remain preserved historical/future
 development inputs. Their implicit-discovery and demand-driven-module bytes
-are intentionally excluded from this prerelease candidate. Restoring the
+are intentionally excluded from this release. Restoring the
 released package here does not delete or reinterpret that Git history.
 
 Public candidate commit
@@ -27,32 +28,39 @@ on one verified checkpoint; audits current/historical/superseded evidence and
 result indexes; fails closed when no unique recovery entry exists; and
 preserves immutable history while correcting current claims.
 
-The public candidate and stable facts below describe the same released
-explicit-only bytes now present in this release-prep branch. Immutable tag `v0.1.2` at
-`ceed607152849775b981c54add74bfa30d858e4d`, its GitHub Release, and the
-verified stable installed copy contain these exact six package files.
+The public candidate and historical stable facts below describe the same
+released explicit-only bytes now preserved in `v0.2.0`. Immutable tag
+`v0.2.0` points to coherent release commit
+`ac790233d5a8ba5afafd6eef95b1d5bc3cbe83a6`; its Project Docs subtree is exact
+tree `ce6da1202e21d8968ea47c86fb9992c0dd1f6f6b`, identical to `v0.1.2` and
+commit `ceed607152849775b981c54add74bfa30d858e4d`. The tag-pinned stable copy
+was materialized through the official installer, matched all six tag blobs,
+and a fresh loaded-copy canary read the active installed entry and adoption
+reference before returning factual `PROPOSE` for a synthetic repository that
+intentionally lacked a canonical write locus. The fixture stayed unchanged.
 
 ## Current Writer
 
 The historical Decision 0019 implementation and documentation writers are
-relinquished. The bounded release-prep writer may materialize these six exact
-`v0.1.2` files and update mapped factual consumers only as part of the one
-authorized local prerelease commit. It gains no Project Docs behavior-change,
-installation, discovery, push, tag, release, cleanup, or external-effect
-authority.
+relinquished. Release actions for `v0.2.0` are complete. The bounded
+release-prep writer owns only factual evidence synchronization, deterministic
+verification, native review, at most one evidence-only commit, push of that
+branch commit, and final all-worktree reconciliation. It gains no Project Docs
+behavior-change, discovery, tag movement, release-asset, cleanup, or other
+external-effect authority.
 
 ## Evidence State
 
-The six live package files match the `v0.1.2` Git blobs and raw SHA-256 values
-in [Verification](VERIFICATION.md). Historical stable evidence remains exact-
-revision evidence for those bytes; release-prep materialization does not create
-new `RC_INSTALL`, `STABLE_INSTALL`, or runtime loaded-copy evidence.
+The six live package files match both the `v0.1.2` and `v0.2.0` Git blobs and
+raw SHA-256 values in [Verification](VERIFICATION.md). The current active stable
+copy is exact `v0.2.0` and has fresh physical loaded-copy evidence; the retained
+rollback copy remains exact `v0.1.2`.
 
 The excluded Decision 0019 development revision previously passed structural
 and deterministic checks and received a bounded `PARTIAL` evidence verdict.
 Actual candidate selection, physical loaded-copy attribution, and persistent
 writes remained `UNKNOWN`. Those results remain historical and do not describe
-the package bytes in this prerelease candidate.
+the package bytes in this release.
 
 Exact implicit selection and physical loaded-copy attribution remain `UNKNOWN`
 because native automatic injection produced no physical resource-read event.
@@ -82,15 +90,15 @@ selection or demand-driven-module revision. See
 
 ## Next Gate
 
-For this repository change, the next gate is only the Work Charter `v0.2.0`
-prerelease closeout. Project Docs stays `unchanged` at exact `v0.1.2`; no
-Project Docs candidate, installation, behavior run, or release action is
-authorized.
+The `v0.2.0` release and stable installed-copy gates are complete. No Project
+Docs release action remains pending. Retained carrier, rollback-copy, mapping,
+branch, or worktree cleanup is a separate decision and is not performed by this
+release closeout.
 
 Decision 0019 remains accepted but excluded from this release set. Any future
 resumption must start from its own exact Git revision and evidence boundary,
-not infer continuity from this package restoration. `v0.1.2` remains the
-explicit-only stable release.
+not infer continuity from this package restoration. Project Docs remains the
+explicit-only package in current stable `v0.2.0`.
 
 ## Recovery Entry
 

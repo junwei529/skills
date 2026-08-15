@@ -36,7 +36,8 @@ it for `<version-tag>`:
 $skill-installer Install the Skill from https://github.com/junwei529/skills/tree/<version-tag>/skills/use-powershell-safely.
 ```
 
-The current stable `v0.1.2` package includes the later hardening.
+The current stable `v0.2.0` package includes the later hardening and the
+reviewed P1 pre-error selection/readiness revision.
 Installation, updates, PowerShell setup, and system changes remain separate
 authorized actions. Do not use the moving `main` branch as a stable identity.
 
@@ -76,17 +77,20 @@ independent readiness verdict. The repository-level
 has exact loaded-copy identity plus a guarded native/text diagnosis canary.
 The hardening still lacks live Bash/WSL, an executed native probe inside the
 stable canary sandbox, actual sandbox-denial injection, and shadow-use proof.
-The unreleased P1 SOURCE revision adds deterministic dual-runtime command-
+The P1 SOURCE revision adds deterministic dual-runtime command-
 readiness checks and a pre-error selection contract. One bounded fresh tranche
 observed the exact P1 revision load before the first risky command while the
 same request did not load immutable `v0.1.2`; ordinary-cmdlet and POSIX-only
-negatives also stayed unloaded. The target command did not execute, no
-assessor ran, and broad selection, selected behavior, RC, and stable readiness
-remain unproved.
-The local coherent `v0.2.0` release-set candidate preserves the exact reviewed
-P1 five-file tree `d8bf6dc...` and classifies PowerShell as `changed`. The later
-`a7637a6...` evidence sync changes no PowerShell SOURCE identity and creates no
-candidate loaded-copy, RC, installation, tag, release, or behavior claim.
+negatives also stayed unloaded. Exact candidate `ac790233...` then repeated the
+positive plus both negatives and received one bounded independent `ACCEPTED`
+assessment. Immutable
+[`v0.2.0`](https://github.com/junwei529/skills/releases/tag/v0.2.0) preserves
+the exact reviewed five-file tree `d8bf6dc...`, classifies PowerShell as
+`changed`, and has fresh active-stable loaded-copy proof for the entry plus
+native/text references. The target command still did not execute; broad
+selection, selected execution behavior, live WSL, and causal efficacy remain
+unproved. The `a7637a6...` evidence sync is not a new PowerShell SOURCE
+revision.
 See [Verification](VERIFICATION.md) and [State](STATE.md).
 
 ## Authoritative Contract

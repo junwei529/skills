@@ -64,14 +64,14 @@ $manage-project-docs 审计此仓库的项目文档治理。未经单独批准�
 
 ## 已验证能力与限制
 
-已发布的 `v0.1.2` 六文件包已有 exact-source 行为证据、受控开发 loaded-copy 证据、
-exact-commit candidate identity，以及 `v0.1.2` tag-pinned stable
-loaded-copy identity 与成熟布局 `NOOP` canary。coherent `v0.2.0` release-set
-candidate 保留这六个 exact `v0.1.2` package 文件，不产生新的 Project
-Docs 行为、安装或 loaded-copy claim。后续 Decision 0019 的 implicit-selection 与
-demand-driven-module 开发 revision 仍被保留，但不属于本候选。当前已接受的 release
-仍是仓库级
-[`v0.1.2`](https://github.com/junwei529/skills/releases/tag/v0.1.2)。稳定安装层的
+`v0.1.2` 六文件包已有 exact-source 行为证据、受控开发 loaded-copy 证据、
+exact-commit candidate identity 与 tag-pinned 成熟布局 `NOOP` canary。immutable
+仓库 release [`v0.2.0`](https://github.com/junwei529/skills/releases/tag/v0.2.0)
+保留这六个 exact package 文件，将 Project Docs 分类为 `unchanged`，并增加 fresh
+active-stable loaded-copy 证明。对一个故意不完整的 synthetic authority map，结果如实
+返回 `PROPOSE`；这属于 identity 与 bounded audit behavior，不是新的 Project Docs
+package 或更广泛 efficacy claim。后续 Decision 0019 的 implicit-selection 与
+demand-driven-module 开发 revision 仍被保留，但不属于本 release。稳定安装层的
 变更行为、广泛触发 telemetry、因果效果、token 节省和跨 Harness 等价性均未
 得到证明。参见[验证](VERIFICATION.md)和[状态](STATE.md)。
 

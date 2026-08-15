@@ -75,16 +75,16 @@ background.
 
 ## Verified Capability And Limits
 
-The released six-file `v0.1.2` package has exact-source behavior evidence,
-controlled development loaded-copy evidence, exact-commit candidate identity,
-and
-tag-pinned `v0.1.2` stable loaded-copy identity plus a mature-layout `NOOP`
-canary. The coherent `v0.2.0` release-set candidate keeps those exact
-six `v0.1.2` package files and makes no new Project Docs behavior, installation,
-or loaded-copy claim. The later Decision 0019 implicit-selection and demand-
-driven-module development revision remains preserved but excluded. The current
-accepted release remains the repository-level
-[`v0.1.2`](https://github.com/junwei529/skills/releases/tag/v0.1.2). Stable
+The six-file `v0.1.2` package has exact-source behavior evidence, controlled
+development loaded-copy evidence, exact-commit candidate identity, and a
+tag-pinned mature-layout `NOOP` canary. Immutable repository release
+[`v0.2.0`](https://github.com/junwei529/skills/releases/tag/v0.2.0) keeps those
+exact six package files, classifies Project Docs as `unchanged`, and adds fresh
+active-stable loaded-copy proof. Its deliberately incomplete synthetic
+authority map returned factual `PROPOSE`; this is identity and bounded audit
+behavior, not a new Project Docs package or broader efficacy claim. The later
+Decision 0019 implicit-selection and demand-driven-module development revision
+remains preserved but excluded. Stable
 mutation behavior, broad trigger telemetry, causal efficacy, token savings,
 and cross-Harness parity are not established. See
 [Verification](VERIFICATION.md) and [State](STATE.md).

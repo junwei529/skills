@@ -33,7 +33,8 @@ PowerShell 用于诊断并安全处理 PowerShell、native executable、文本�
 $skill-installer Install the Skill from https://github.com/junwei529/skills/tree/<version-tag>/skills/use-powershell-safely.
 ```
 
-当前 stable `v0.1.2` 包包含后续 hardening。Skill 安装、更新、PowerShell
+当前 stable `v0.2.0` 包包含后续 hardening 与 reviewed P1 pre-error
+selection/readiness revision。Skill 安装、更新、PowerShell
 安装和系统变更仍是分别授权的动作。不要把持续移动的 `main` branch 当作
 stable identity。
 
@@ -68,16 +69,17 @@ canary、双 runtime 确定性检查、实际执行的 native/text controller bo
 已有精确 loaded-copy identity 和一条带守卫的 native/text diagnosis canary；
 hardening 仍缺少真实 Bash/WSL、stable canary sandbox 内实际执行的 native probe、
 实际 sandbox-denial 注入和 shadow-use 证据。参见[验证](VERIFICATION.md)和
-[状态](STATE.md)。未发布的 P1 SOURCE revision 新增双 runtime deterministic
+[状态](STATE.md)。P1 SOURCE revision 新增双 runtime deterministic
 command-readiness checks 和 pre-error selection contract。一轮有界 fresh
 证据观察到 exact P1 revision 在首次风险命令前加载，而同一请求没有加载不可变的
 `v0.1.2`；ordinary-cmdlet 与 POSIX-only negatives 也保持未加载。目标命令没有
-执行、没有 assessor，广泛 selection、selected behavior、RC 和 stable readiness
-仍未证明。
-本地 coherent `v0.2.0` release-set candidate 保留 reviewed P1 的 exact 五文件
-tree `d8bf6dc...`，并将 PowerShell 分类为 `changed`。后续 `a7637a6...` evidence
-sync 不改变 PowerShell SOURCE identity，也不产生 candidate loaded-copy、RC、
-安装、tag、release 或行为 claim。
+执行。exact candidate `ac790233...` 随后重复 positive 与两个 negatives，并获得一轮
+有界独立 `ACCEPTED` assessment。immutable
+[`v0.2.0`](https://github.com/junwei529/skills/releases/tag/v0.2.0) 保留 reviewed
+五文件 tree `d8bf6dc...`、将 PowerShell 分类为 `changed`，并已有 fresh
+active-stable loaded-copy 证明，覆盖 entry、native 与 text references。目标命令仍未
+执行；广泛 selection、selected execution behavior、live WSL 与因果 efficacy 仍未
+证明。`a7637a6...` evidence sync 不是新的 PowerShell SOURCE revision。
 
 ## 权威合同
 

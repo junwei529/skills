@@ -11,7 +11,7 @@ Last updated: 2026-08-15
 | P1 ordinary version-independent cmdlet and POSIX-only negatives remain explicit | verified statically and observed as two bounded fresh non-selection controls |
 | P1 revision-relative pre-error selection | `PRE_ERROR_SELECTION_OBSERVED / NARROW_PASS`: the exact P1 copy loaded before the first risky command in one matched positive, while immutable `v0.1.2` did not load for the same request |
 | P1 parameter, cmdlet-error, parser, and automatic-variable readiness | 41 focused assertions pass under PowerShell 7 and Windows PowerShell 5.1 |
-| Coherent `v0.2.0` release-set package identity | PowerShell is `changed`; exact reviewed P1 tree `d8bf6dc74f106c386653cb3b598d50e790c38348` is preserved from SOURCE commit `30668743...`, while `a7637a6...` contributes evidence-sync facts but is not a new SOURCE revision |
+| Coherent `v0.2.0` release package identity | PowerShell is `changed`; exact reviewed P1 tree `d8bf6dc74f106c386653cb3b598d50e790c38348` is preserved from SOURCE commit `30668743...`, while `a7637a6...` contributes evidence-sync facts but is not a new SOURCE revision |
 | Released portable guidance handles the recorded native, text, WSL, version, locale, sandbox, and destructive boundaries | seven fresh development scenarios pass |
 | Ordinary cmdlet and POSIX-only work remain outside the Skill | catalog-assisted and controlled native negatives pass |
 | Released DEV_DISCOVERY, exact-commit RC, and stable loaded-copy identity | verified |
@@ -20,11 +20,30 @@ Last updated: 2026-08-15
 | Boundary-hardening RC behavior acceptance | `CORRECTION_REQUIRED`; the loaded response omitted fail-closed executable cardinality and separate stream capture |
 | Current public native-example correction behavior | final fresh SOURCE-assisted fixture run independently `ACCEPTED`; introduced at `a150a865...` and contained in tested `c42eef3...` |
 | Current corrected exact-commit RC identity and behavior | exact-commit `c42eef3...` loaded-copy positives/negatives, controller boundary, and independent readiness pass |
-| Current hardening stable identity and guarded native/text diagnosis | tag-pinned `v0.1.2` five-file identity and fresh loaded-copy canary pass |
+| Current stable identity and guarded native/text diagnosis | tag-pinned `v0.2.0` five-file P1 identity and fresh loaded-copy canary pass; retained rollback remains exact `v0.1.2` |
 | Live Bash/WSL, native execution inside the stable canary sandbox, actual sandbox denial, or shadow use | unverified |
 | General efficacy, token savings, broad trigger accuracy, or cross-Harness parity | unverified |
 
-## Unreleased P1 SOURCE Identity
+## `v0.2.0` P1 Release Evidence
+
+Immutable tag `v0.2.0` resolves to coherent commit
+`ac790233d5a8ba5afafd6eef95b1d5bc3cbe83a6`; the five-file package is exact
+reviewed SOURCE tree `d8bf6dc74f106c386653cb3b598d50e790c38348` from
+`30668743cdc6c8be00100fd48fa89376adf746f8`. Descendant `a7637a6...` supplies
+evidence-sync facts and does not define a new SOURCE revision.
+
+The isolated exact-commit RC completed one P1 positive, the ordinary-cmdlet
+negative, the POSIX-only negative, and one independent assessor. The positive
+loaded the exact entry and relevant references before returning safe guidance;
+neither negative loaded a target Skill. The assessor returned `ACCEPTED` with
+no finding. Official-installer materialization and the active stable copy match
+all five tag blobs. A fresh stable canary physically loaded the active entry
+plus native/process and text/encoding references and returned a complete
+non-executing command shape. The target command did not execute; live WSL/Bash,
+sandbox-denial injection, shadow use, broad behavior, and efficacy remain
+unproved.
+
+## P1 SOURCE Identity
 
 The five SOURCE files on `codex/use-powershell-safely-next` were decoded as
 strict UTF-8, normalized to LF with one final newline, and hashed with SHA-256:
@@ -48,15 +67,15 @@ materialized as one task-private isolated exact-commit copy for the bounded
 selection evidence below. That materialization was not a discovery mapping,
 installed copy, formal candidate, RC, stable update, tag, or release.
 
-## Coherent `v0.2.0` Candidate Boundary
+## Coherent `v0.2.0` Release Boundary
 
-The local release-set candidate preserves all five P1 package blobs from
+The immutable release set preserves all five P1 package blobs from
 reviewed SOURCE commit `30668743cdc6c8be00100fd48fa89376adf746f8` and required
 tree `d8bf6dc74f106c386653cb3b598d50e790c38348`. Descendant `a7637a6...`
 contributes only the recorded deterministic and narrow selection evidence
-facts; it does not define a new PowerShell SOURCE revision. Phase 1 runs no
-model, product, or assessor turn and creates no isolated install, loaded-copy,
-RC, stable, tag, or release evidence.
+facts; it does not define a new PowerShell SOURCE revision. The later release
+evidence above is bounded to the exact coherent commit and does not expand the
+original SOURCE-development claim.
 
 ## 2026-08-15 P1 Deterministic Evidence
 

@@ -79,14 +79,23 @@ lane、一个 repository writer，并至多有一个 Planner 和一个 Executor�
 
 ## 已验证能力与限制
 
+immutable 仓库 release
+[`v0.2.0`](https://github.com/junwei529/skills/releases/tag/v0.2.0) 包含 exact
+五文件 Work Charter tree `97f0d9de...` 与 frozen manifest `04c382a4...`。exact
+candidate `ac790233...` 完成一条 proportional loaded-copy smoke 和一轮独立 bounded
+`ACCEPTED` assessment；active stable copy 随后加载 entry 与 coordination reference，
+选择 L1、把 live writer/Git 事实保留为 `UNKNOWN`，且没有加载 Standard reference。
+这是 release 与 proportional stable-smoke 证据，不是 full Gate 2、stable 层完整
+Standard delivery、确定性 enforcement 或真实项目 efficacy 验收。
+
 已记录的 M2R SOURCE、受控开发 P/E 与 Standard 角色交付、exact-commit RC
 恢复 canary，以及 `v0.1.1` tag-pinned Flat smoke，均对其历史精确 revision
 通过。仓库级
 [`v0.1.2`](https://github.com/junwei529/skills/releases/tag/v0.1.2) stable copy
 已有精确 loaded-copy identity、flat non-loading canary，以及一条窄范围的
 fail-closed recovery/assessment-order canary；其精确的 release 前 control 还通过
-一条 bounded synthetic Standard Phase One。`v0.2.0` 目前没有 accepted
-candidate：`206c497...` 因 convergence 停止；successor `92a8c045...` 在 A04
+一条 bounded synthetic Standard Phase One。早期 `v0.2.0` full-Gate-2 历史没有
+accepted candidate：`206c497...` 因 convergence 停止；successor `92a8c045...` 在 A04
 停止，因为它虽然安全地提出了间接入口 proposal，却在没有加载 Skill 时声称已经
 selected。精确 `72db7e9...` 实现了两阶段入口，但其固定轮次 Standard probe 已封存
 `VIOLATION`，且没有运行 A16。条件式角色读取修订会在完整 Skill 正文不可用时

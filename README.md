@@ -49,9 +49,9 @@ $work-charter Bound this consequential task, its authority, evidence, and recove
 $use-powershell-safely Diagnose this material Windows shell boundary before changing application code.
 ```
 
-Project Docs uses the released `v0.1.2` explicit-only trigger in this coherent
-`v0.2.0` release-set candidate. Work Charter and PowerShell are the changed
-members; Project Docs remains unchanged. The user must explicitly ask to use Project
+Project Docs uses the released `v0.1.2` explicit-only package in immutable
+`v0.2.0`. Work Charter and PowerShell are the changed members; Project Docs
+remains byte-identical and `unchanged`. The user must explicitly ask to use Project
 Docs, including through `$manage-project-docs`; a documentation-governance
 request or authority, evidence, routing, or recovery symptom alone does not
 select or load it. After a concrete proposal is visible, natural-language
@@ -100,16 +100,19 @@ Skill automatically.
 
 This repository uses one immutable repository-level tag for the three
 independent packages in a supported set. The current accepted stable release is
-[`v0.1.2`](https://github.com/junwei529/skills/releases/tag/v0.1.2) at
-`ceed607152849775b981c54add74bfa30d858e4d`. `v0.1.0` and `v0.1.1` remain
-recorded historical identities. Live refs and
+[`v0.2.0`](https://github.com/junwei529/skills/releases/tag/v0.2.0) at
+`ac790233d5a8ba5afafd6eef95b1d5bc3cbe83a6`. `v0.1.0` through `v0.1.2`
+remain recorded historical identities, and the exact prior `v0.1.2` installed
+set is retained as rollback. Live refs and
 [Repository Verification](docs/VERIFICATION.md) own the exact release and
 installed-copy evidence.
 
-The current local coherent `v0.2.0` candidate classifies Work Charter and
-PowerShell as `changed` and exact `v0.1.2` Project Docs as `unchanged`. It is
-not an RC, installation, tag, release, stable update, or behavior-acceptance
-claim.
+The coherent `v0.2.0` release classifies Work Charter and PowerShell as
+`changed` and exact `v0.1.2` Project Docs as `unchanged`. Exact tag package
+identity, official-installer materialization, stable switch with retained
+rollback, fresh loaded-copy canaries, and the GitHub Release are verified.
+Per-Skill evidence limits remain independent and do not become broader
+behavior acceptance merely because the shared release exists.
 
 The shared tag is a release-set identity. It does not assert that every Skill
 changed in that release or has the same maturity.

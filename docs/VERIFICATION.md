@@ -19,9 +19,9 @@ Sanitized detailed runs remain under [`evals/results`](../evals/results/README.m
 
 | Check | Purpose | Current result |
 |---|---|---|
-| Changed Skill validator | Validate frontmatter and package name without changing package bytes | all three package validators pass; exact Work Charter tree `97f0d9de...`, PowerShell tree `d8bf6dc...`, and Project Docs `v0.1.2` tree `ce6da120...` remain frozen |
-| Repository checker | Validate strict UTF-8/no BOM, whitespace, local links/fragments, publication safety, exact Skill/eval sets, federated docs, bilingual navigation, promoted evaluation governance, immutable Work Charter closeout consumers, and the fact-first closure against the actual uncommitted target | passes at 220 text files, 14 cases, and 12 fixtures; closure `work-charter-v0.2-powershell-p1-coherent-candidate` exactly matches the 30-path target |
-| Fixture checker | Validate synthetic starting states and their Git/reparse/ignored-result boundaries plus tracked controller, runner, and PowerShell readiness regressions | 19 named fixture/contract rows pass under PowerShell 7; the Work Charter row is deterministic historical-runner regression only, with no formal, canary, product, or assessor start |
+| Changed Skill validator | Validate frontmatter and package name without changing package bytes | all three SOURCE and all three active-stable package validators pass; exact Work Charter tree `97f0d9de...`, PowerShell tree `d8bf6dc...`, and unchanged Project Docs tree `ce6da120...` remain frozen |
+| Repository checker | Validate strict UTF-8/no BOM, whitespace, local links/fragments, publication safety, exact Skill/eval sets, federated docs, bilingual navigation, promoted evaluation governance, immutable Work Charter closeout consumers, and the fact-first closure against the actual uncommitted target | passes at 220 text files, 14 cases, and 12 fixtures; closure `work-charter-v0.2-powershell-p1-release-closeout` exactly matches the 21-path evidence-only target |
+| Fixture checker | Validate synthetic starting states and their Git/reparse/ignored-result boundaries plus tracked controller, runner, and PowerShell readiness regressions | 19 named fixture/contract rows pass under PowerShell 7 after the producer controller pass; the Work Charter row is deterministic historical-runner regression only, with no new formal, canary, product, or assessor start |
 | Work Charter Gate 2 outer runner | Preserve the revision-aware deterministic contract without rerunning or reinterpreting sealed D55 | D55 remains sealed `QUALIFICATION_FAILED / PRODUCT_UNKNOWN`; the current candidate imports no dirty D55 runner/checker bytes and starts no formal, canary, product, or assessor path |
 | Codex evidence controller | Validate one shared core across four entry modes, strict required-read versus bounded auxiliary-observation attribution, structural PowerShell/Git/path classification, source-and-generated-contract-bound historical regressions, exact package manifests, candidate-identity and content-proof shape, record cardinality, completed exit typing, optional sealed governing-disposition monotonicity, output-array shape, per-key single-capture sealed parsing and reuse, real-reparse rejection, fail-closed negatives, external-input types, independently resolved inner/wrapper command identity, canonical model-visible Git argv rendering, Git-read and external-filter safety, profile-free PowerShell wrappers, culture-independent canonical ordering, metamorphic equivalence, output no-clobber, and canonical repeatability | passes exact current-SOURCE package identity, 11/11 historical, 32/32 evidence-surface, 33/33 negative, 4/4 metamorphic, 8/8 governing-snapshot, 12/12 command-resolution, and 9/9 Git-read-safety guards; the trusted Git anchor is independent of PATH and survives a synthetic PATH-first shadow, all 5/5 rooted forms execute through the resolved PowerShell wrapper with typed zero exits and are admissible, bare/shadow variants fail closed, the table hashes to `694e173a...f5467`, and zero external model or assessor calls occurred |
 | CRG supplemental preflight | Sharpen structural review scope when the maintained index represents the intended diff | unavailable in the task-dedicated release-prep worktree; no CodeGraph coverage claim is made, so direct canonical-owner inspection and native review remain required |
@@ -29,11 +29,53 @@ Sanitized detailed runs remain under [`evals/results`](../evals/results/README.m
 | Isolated controller canary | Record the bounded disposition of one private path-bound infrastructure check without broadening behavior claims | retained sealed `CANARY_PASS`; the public summary reports an exact-response pass and no command execution, omits private locator/artifact/runtime details, and leaves physical backend request count `UNKNOWN` |
 | Work Charter D36/D37/D40, D34/D41 predecessors, and D42-D55 states | Preserve additive predecessors and separate product behavior from route, tool, qualification, eval-contract, authorization, environment, private-carrier failure, and DEV-only successor implementation | D36-D55 remain immutable or sealed with their recorded dispositions; D55 is `QUALIFICATION_FAILED / PRODUCT_UNKNOWN`, exact mechanism remains `UNKNOWN`, and candidate `c481005...` remains unaccepted outside the bounded C1-C5 result |
 | PowerShell deterministic readiness and hardening | Validate static pre-error selection/negative contracts, target-runtime parser binding, `New-Item` parameters, cmdlet fail-closed and artifact semantics, three parser pairs, the `$Matches` runtime pair, cardinality, LF bytes, one-base paths, and Junction link-only removal | 41 assertions pass in PowerShell 7 and Windows PowerShell 5.1; no model or assessor ran in the deterministic checker |
-| PowerShell P1 bounded pre-error selection | Compare one isolated exact-commit P1 positive against immutable `v0.1.2` under the same request, plus ordinary-cmdlet and POSIX-only negatives, only after an exact-response transport canary | `PRE_ERROR_SELECTION_OBSERVED / NARROW_PASS`: P1 loaded before the first risky command; stable and both negatives did not. The target command did not execute, model/reasoning identities are `UNKNOWN`, and no assessor ran |
-| PowerShell parser sweep | Parse all `evals/**/*.ps1` files in PowerShell 7 and both changed checkers in Windows PowerShell 5.1 | all nine eval PowerShell scripts parse in PowerShell 7; both changed checkers parse in Windows PowerShell 5.1; the existing PS7-only Work Charter invoker remains outside the 5.1 claim |
+| PowerShell P1 bounded pre-error selection | Compare one isolated exact-commit P1 positive against immutable `v0.1.2` under the same request, plus ordinary-cmdlet and POSIX-only negatives, only after an exact-response transport canary | earlier `PRE_ERROR_SELECTION_OBSERVED / NARROW_PASS` remains intact; coherent-release RC later loaded exact P1 in one positive, kept both negatives unloaded, and received one `ACCEPTED` assessor. The target command did not execute |
+| PowerShell parser sweep | Parse all `evals/**/*.ps1` files in PowerShell 7 and both portable checker entry points in Windows PowerShell 5.1 | all nine eval PowerShell scripts parse in PowerShell 7; `check-fixtures.ps1` and `check-powershell-boundaries.ps1` parse in Windows PowerShell 5.1; the PS7-only Work Charter invoker remains outside the 5.1 claim |
 | Markdown navigation and ownership | Verify local links/fragments, English/Chinese routes, expected per-Skill owners, and no orphan canonical owner | passes through repository checker |
-| `git diff --check` | Reject whitespace defects in the working revision | passes for the exact 30-path coherent-candidate target |
-| Gitleaks | Detect secret-like content independently | exact staged-diff scan covers about 220 KB and passes with zero findings; ignored carriers remain outside publication scope |
+| `git diff --check` | Reject whitespace defects in the working revision | passes for the exact 21-path evidence-only target |
+| Gitleaks | Detect secret-like content independently | exact uncommitted publication diff scan covers about 113 KB and passes with zero findings; ignored carriers remain outside publication scope |
+
+### 2026-08-15 — Immutable `v0.2.0`, stable loaded copies, and GitHub Release
+
+Immutable lightweight tag `v0.2.0` resolves locally, remotely, and through the
+GitHub API to coherent release commit
+`ac790233d5a8ba5afafd6eef95b1d5bc3cbe83a6`, tree
+`c7cc8088939b2732bc25791f6e5696f34e7e73d1`, with parents
+`33f0b62c4489a65959c175dfb6dfdb2b6b841689` and
+`a7637a680ad8ccd6f7f335a7367f46bca938b97f`. Package classification and frozen
+trees are Work Charter `changed` at `97f0d9de...`, PowerShell `changed` at
+reviewed P1 tree `d8bf6dc...`, and Project Docs `unchanged` at exact `v0.1.2`
+tree `ce6da120...`. Work Charter's five-file manifest remains
+`04c382a48e43897a8806aa5ffd996984cb015d3d8cdc6e675e9181a6d94e6f44`.
+
+The official installer materialized all tag-pinned 6/5/5 files into an isolated
+ordinary-directory root. Every file matched its Git blob, decoded as strict
+UTF-8 without BOM, used LF with one final newline, and all three validators
+passed. Isolated RC evidence then completed one recovered proportional Work
+Charter smoke, one PowerShell positive, ordinary-cmdlet and POSIX-only
+negatives, and one independent assessor. The initial stalled Work Charter
+controller process was force-stopped and is retained separately as
+`CONTROLLER_TRANSPORT_FAILED / PRODUCT_UNKNOWN`; it is not retried, rescored,
+or converted into product evidence. The recovered cells and assessor completed
+successfully with four product starts total and zero target-fixture starts.
+
+The active stable directories were switched by moving the exact previous
+`v0.1.2` copies into a retained rollback root and moving the staged `v0.2.0`
+copies into place; no in-place overwrite or cleanup occurred. Active copies
+match all 6/5/5 tag blobs, retained rollback matches all `v0.1.2` blobs, and
+fresh isolated canaries physically loaded each active target: Project Docs
+returned factual `PROPOSE` for a fixture without a canonical write locus, Work
+Charter selected bounded L1 and stayed Flat, and PowerShell returned guarded
+non-executing native/text guidance. One shared unrelated-task negative read no
+target Skill. All fixture hashes were unchanged.
+
+GitHub Release
+[`v0.2.0 — Work Charter + PowerShell coherent release set`](https://github.com/junwei529/skills/releases/tag/v0.2.0)
+is published, non-draft, non-prerelease, and verified as Latest. No custom asset
+was added. This evidence proves exact release/install/loaded-copy identity and
+only the bounded behavior above; it does not prove full Work Charter Gate 2,
+D55 acceptance, Project Docs stable mutation, PowerShell target execution,
+broad trigger accuracy, real-project efficacy, or cross-Harness parity.
 
 ### 2026-08-15 — PowerShell P1 minimal selection evidence
 
@@ -104,14 +146,15 @@ not native-review, integration, release, or Skill-behavior evidence.
 | Federated repository documentation has one root and one per-Skill owner for each fact class | verified in the current working tree by the repository checker, including expected owners and no orphan canonical owner |
 | English-canonical public entries have Simplified Chinese mirrors | verified for the root and all three per-Skill pairs, including reciprocal navigation and corresponding section counts |
 | Public source, development discovery, candidate, and stable roles are distinct | accepted and operationally verified |
-| Public standalone distribution works | verified for `junwei529/skills`, exact-SHA RC, immutable `v0.1.2`, and per-Skill `$skill-installer` paths |
+| Public standalone distribution works | verified for `junwei529/skills`, exact-SHA RC, immutable `v0.2.0`, and per-Skill `$skill-installer` paths |
 | One coherent multi-Skill candidate was loaded | verified at `78caaa6...` and repeated at `f7c07b5...` |
 | All three current packages independently reached release-candidate readiness at one commit | verified at exact public `c42eef3...`; Project Docs, PowerShell, and Work Charter each have isolated loaded-copy evidence and explicit residual limits |
-| Tag-pinned stable loaded-copy identity works for all three Skills | verified for immutable `v0.1.2` at `ceed607...` |
+| Tag-pinned stable loaded-copy identity works for all three Skills | verified for immutable `v0.2.0` at `ac790233...`; exact `v0.1.2` is retained as rollback |
 | `v0.1.0` is the coherent public release | false; retained as immutable installation evidence only |
 | `v0.1.1` is an immutable coherent historical release | verified; retained as rollback identity |
-| `v0.1.2` is the current coherent stable release | verified: immutable tag, exact installed copy, loaded-copy canaries, and GitHub Release |
-| A GitHub Release object exists | yes: [`v0.1.2`](https://github.com/junwei529/skills/releases/tag/v0.1.2), marked Latest |
+| `v0.1.2` is an immutable coherent historical release | verified; retained as exact rollback identity |
+| `v0.2.0` is the current coherent stable release | verified at `ac790233...`: immutable tag, exact installed copy, loaded-copy canaries, and GitHub Release |
+| A GitHub Release object exists | yes: [`v0.2.0`](https://github.com/junwei529/skills/releases/tag/v0.2.0), marked Latest |
 | The repository improves correctness, saves tokens, works across Harnesses, or passed SHICE | unverified |
 
 ## Candidate And Release Evidence Template

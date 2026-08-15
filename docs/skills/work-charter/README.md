@@ -94,14 +94,25 @@ changes.
 
 ## Verified Capability And Limits
 
+Immutable repository release
+[`v0.2.0`](https://github.com/junwei529/skills/releases/tag/v0.2.0) contains
+the exact five-file Work Charter tree `97f0d9de...` and frozen manifest
+`04c382a4...`. Exact candidate `ac790233...` completed one proportional
+loaded-copy smoke and one independent bounded `ACCEPTED` assessment; the
+active stable copy then loaded the entry and coordination reference, selected
+L1, preserved live writer/Git facts as `UNKNOWN`, and did not load the Standard
+reference. This is release and proportional stable-smoke evidence, not full
+Gate 2, full stable Standard delivery, deterministic enforcement, or real-
+project efficacy acceptance.
+
 The recorded M2R SOURCE behavior, controlled development P/E and Standard
 delivery, exact-commit RC recovery canary, and tag-pinned `v0.1.1` Flat smoke
 passed for their exact historical revisions. The repository-level
 [`v0.1.2`](https://github.com/junwei529/skills/releases/tag/v0.1.2) stable copy
 has exact loaded-copy identity, a flat non-loading canary, and a narrow
 fail-closed recovery/assessment-order canary; its exact pre-release control also
-passed one bounded synthetic Standard Phase One. The `v0.2.0` line has no
-accepted candidate: `206c497...` stopped on convergence, and successor
+passed one bounded synthetic Standard Phase One. Earlier `v0.2.0` full-Gate-2
+history had no accepted candidate: `206c497...` stopped on convergence, and successor
 `92a8c045...` stopped at A04 after a safe indirect proposal claimed selection
 without loading the Skill. Exact `72db7e9...` implements two-stage entry, but
 its fixed-turn Standard probe sealed `VIOLATION` and did not run A16. The
