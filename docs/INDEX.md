@@ -1,6 +1,6 @@
 # Documentation Index
 
-Last updated: 2026-08-15
+Last updated: 2026-08-17
 
 ## Core Documents
 
@@ -56,6 +56,7 @@ mirror.
 | [`docs/decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md`](decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md) | Work Charter native-package/explicit-activation entry, proportional protection levels, durable re-entry, task convergence, evaluation, workspace, and lifecycle gates | accepted through sealed D55 C17, limited C1-C5 evaluation, and exact `v0.2.0` proportional RC/stable loaded-copy evidence. D55 remains `QUALIFICATION_FAILED / PRODUCT_UNKNOWN`; C1-C5 alone are `ACCEPT`, and full Gate 2 remains unproved |
 | [`docs/decisions/0019-project-docs-implicit-discovery-and-demand-driven-modules.md`](decisions/0019-project-docs-implicit-discovery-and-demand-driven-modules.md) | Project Docs implicit discovery, proposal/write boundary, demand-driven modules, update modes, and persistent routing | accepted historical/future development contract; local commit `776989f...` remains in Git history but its package bytes are excluded from immutable `v0.2.0`, which uses exact `v0.1.2` Project Docs |
 | [`docs/decisions/0020-bounded-campaign-authorization-and-evidence-convergence.md`](decisions/0020-bounded-campaign-authorization-and-evidence-convergence.md) | One bounded authorization for qualification, evidence, assessment, and closeout with same-boundary transport qualification, lesson promotion, ruleset activation, and cumulative convergence | accepted |
+| [`docs/decisions/0024-work-charter-product-validation-and-portfolio.md`](decisions/0024-work-charter-product-validation-and-portfolio.md) | Light paired Native-versus-released Work Charter product validation, evidence-conditioned public claims, and portfolio routing | accepted for WC-PV1-D01 / WC-PV1-C01 |
 
 ## Skill Sources
 

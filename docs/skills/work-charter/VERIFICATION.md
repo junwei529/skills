@@ -1,6 +1,6 @@
 # Work Charter Verification
 
-Last updated: 2026-08-15
+Last updated: 2026-08-17
 
 ## Claim Ledger
 
@@ -8,6 +8,7 @@ Last updated: 2026-08-15
 |---|---|
 | `work-charter` is the sole current five-file package | verified structurally for current SOURCE |
 | Coherent `v0.2.0` release package identity | Work Charter is `changed` at exact five-file tree `97f0d9de17abc9c699772e0ebdcbdaa23d890008` and manifest `04c382a4...`; adding the independently changed PowerShell P1 package creates no new Work Charter SOURCE revision |
+| WC-PV1 paired product validation | exact release identity and Native/Assisted isolation qualified with zero product starts; all eight one-shot P1/P2/P3/P7 pilot roots then failed at provider-stream transport before a user-visible response, leaving zero admissible cells and terminal `INCONCLUSIVE / PRODUCT_UNKNOWN`; P4/P5/P6/P8, nested roles, and assessor did not start, and no efficacy claim follows |
 | Gate 1 protection, re-entry, convergence, and explicit-activation contract | D43 SOURCE correction is implemented in the current revision: indirect proposal is metadata-sufficient and workflow-free, while direct or confirmed activation requires the exact body; the commit containing the closed set becomes the exact D43 candidate, and D31-D42 remain immutable and unaccepted |
 | Gate 1 evaluation definitions | 14 exact cases and 12 exact fixtures remain the intended repository shape; installed-Skills and symptom-only proposals may be metadata-only or package-loaded without changing their proposal score, while same-context confirmation requires exact body loading before activation; the prospective reference matrix is 20 runs and the full two-contrast matrix 28 cells, with separate direct-invocation project-read and package-denial/Harness-preload boundaries |
 | First `v0.2.0` exact candidate Gate 2 | `206c497...` stopped incomplete and is superseded for acceptance; its completed correction and consumed events remain historical |
@@ -58,6 +59,27 @@ Last updated: 2026-08-15
 | Released-control exact-commit RC loaded-copy identity | verified historically at public `c42eef3...` |
 | Stable loaded-copy identity and proportional behavior | tag-pinned `v0.2.0` five-file identity and fresh L1 Flat canary pass; retained rollback remains exact `v0.1.2` |
 | Broad implicit telemetry, deterministic delivery/locking, full Gate 2, real-project efficacy, token savings, or cross-Harness parity | unverified |
+
+## 2026-08-17 WC-PV1 Paired Pilot Terminal
+
+Decision 0024 froze the light paired contract for exact released Work Charter
+`v0.2.0`. Zero-model qualification passed on its third and final permitted
+carrier attempt with contract SHA-256 `df373205...` and freeze SHA-256
+`023512e3...`. Native exposed no Work Charter path; Assisted exposed one exact
+release path; prompts, fixture payloads, requested model, tools, permissions,
+and non-target catalogs were paired.
+
+The P1/P2/P3/P7 pilot consumed eight root contexts and eight `turn/start`
+events. Thread receipts identified `gpt-5.6-sol`; the app-server response did
+not report reasoning effort. Every turn completed failed after its internal
+Responses-stream reconnect sequence, returned no final text, and changed no
+workspace. No cell is admissible. The continuation and assessor gates failed
+closed, so the remaining context budget was not consumed. The result is
+transport-origin `INCONCLUSIVE / PRODUCT_UNKNOWN`, not product acceptance or a
+Work Charter finding. Raw evidence remains in the declared task-owned ignored
+carrier; the public
+record is
+[`2026-08-17-work-charter-pv1-terminal.md`](../../../evals/results/2026-08-17-work-charter-pv1-terminal.md).
 
 ## 2026-08-15 Coherent `v0.2.0` Release Evidence
 

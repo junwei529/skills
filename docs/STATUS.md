@@ -1,6 +1,6 @@
 # Repository Status
 
-Last updated: 2026-08-15
+Last updated: 2026-08-17
 
 ## Dashboard
 
@@ -9,9 +9,24 @@ Last updated: 2026-08-15
 | Tested package identity | coherent commit `ac790233d5a8ba5afafd6eef95b1d5bc3cbe83a6` proves exact 6/5/5 tag, RC, stable installed-copy, and loaded-copy identities | [Verification](VERIFICATION.md) |
 | Stable release identity | immutable [`v0.2.0`](https://github.com/junwei529/skills/releases/tag/v0.2.0) at `ac790233...` is the installed and GitHub Latest Release; retained rollback is exact `v0.1.2` / `ceed607...` | [Verification](VERIFICATION.md) |
 | Project Docs | exact six-file tree `ce6da120...` is `unchanged` from `v0.1.2`; Decision 0019 and local development commit `776989f...` remain preserved but their later package bytes are excluded | [State](skills/manage-project-docs/STATE.md) |
-| Work Charter | exact five-file tree `97f0d9de...` / manifest `04c382a4...` is `changed`; proportional RC and stable loaded-copy smokes pass, while full Gate 2 and D55 remain unaccepted or `PRODUCT_UNKNOWN` | [State](skills/work-charter/STATE.md) |
+| Work Charter | exact five-file tree `97f0d9de...` / manifest `04c382a4...` is `changed`; proportional RC and stable loaded-copy smokes pass, while WC-PV1 is `INCONCLUSIVE / PRODUCT_UNKNOWN` after eight pilot transport failures and full comparative efficacy remains unproved | [State](skills/work-charter/STATE.md) |
 | PowerShell | exact reviewed P1 tree `d8bf6dc...` from SOURCE commit `30668743...` is `changed`; RC positive/two negatives/assessor and active-stable loaded-copy canary pass, while the target command did not execute | [State](skills/use-powershell-safely/STATE.md) |
 | Release lifecycle | `v0.2.0` tag, stable switch, fresh loaded-copy canaries, branch push, and GitHub Release are complete; retained evidence and rollback/worktree cleanup remain a separate decision | [Runbook](RUNBOOK.md) |
+
+## 2026-08-17 WC-PV1 Terminal
+
+WC-PV1-D01 / WC-PV1-C01 qualified exact release identity, clean Native
+exclusion, paired inputs, and the declared ignored evidence route without a
+product start. Its P1/P2/P3/P7 pilot then consumed eight one-shot root turns;
+all eight ended in the same provider-stream transport failure before final
+text, with no workspace mutation. There are zero admissible product cells.
+P4/P5/P6/P8, all nested roles, and the blinded assessor did not start.
+
+The terminal is `INCONCLUSIVE / PRODUCT_UNKNOWN`. It does not modify Work
+Charter SOURCE, contradict the earlier five-claim bounded acceptance, or add a
+comparative/efficacy claim. The consumed roots remain sealed and cannot be
+replayed or replaced. See the
+[sanitized result](../evals/results/2026-08-17-work-charter-pv1-terminal.md).
 
 ## Current Repository State
 

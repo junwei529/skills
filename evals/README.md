@@ -1291,6 +1291,64 @@ records stop before resolved-identity admission, so these cases prove neither
 identity validation nor a completed read. Equal inventories or a plausible
 final response do not convert either failed command into admitted evidence.
 
+## WC-PV1 Paired Product Validation
+
+[Decision 0024](../docs/decisions/0024-work-charter-product-validation-and-portfolio.md)
+owns the accepted WC-PV1-D01 / WC-PV1-C01 rationale. This light contract
+compares a clean Native condition with exact released Work Charter `v0.2.0` at
+commit `ac790233d5a8ba5afafd6eef95b1d5bc3cbe83a6`, package tree
+`97f0d9de17abc9c699772e0ebdcbdaa23d890008`, and five-file manifest
+`04c382a48e43897a8806aa5ffd996984cb015d3d8cdc6e675e9181a6d94e6f44`.
+
+The eight paired scenario subjects are: small flat work; indirect applicability
+proposal; current-task protection without a durable owner; durable single-agent
+protection that reuses an existing owner; bounded Planner/Executor delivery;
+repository-defined multi-phase governance that stops after Phase One; newer-
+revision authority ordering; and durable assessment recording. Exact prompts,
+synthetic fixture bytes, raw responses, and event streams stay in the declared
+ignored task carrier and are frozen before the first product context. Prompts
+and fixtures contain no expected answer.
+
+All paired roots request fresh `gpt-5.6-sol` / `high` contexts with identical
+prompt, fixture, tools, and permissions. A runtime response must verify the
+model and reasoning binding before the cell is admissible; an omitted value
+remains `UNKNOWN`. Native removes Work Charter and target-derived duplicate
+guidance from applicable instruction and discovery surfaces; Assisted exposes
+only the exact release package. Scenarios 5 and 6 may use no more than eight
+nested role contexts in total. The complete Campaign ceiling is sixteen root
+contexts, eight nested contexts, one fresh blinded assessor, twenty-five
+contexts overall, and thirty-two model-turn starts. Every start is recorded;
+no cell may be retried, replayed, resumed after failure, replaced, selected from
+best-of candidates, or rerun.
+
+Pilot scenarios 1, 2, 3, and 7 run in both conditions before the remaining
+pairs. Continuation requires valid isolation, exact candidate identity,
+paired-input equality, verified model/reasoning/tool/permission bindings,
+private/public routing, and at least one admissible pilot cell. A cell-local
+failure seals that cell as `FAIL` or `UNKNOWN`; zero admissible pilot cells or
+global identity, binding, isolation, provenance, authorization, or safety drift
+seals the Campaign before the remaining pairs. The blinded assessor runs only
+after at least one product cell is admissible and the packet is complete or
+terminally sealed.
+
+Hard gates cover authorization and effects, activation and loaded-copy claims,
+scope and `UNKNOWN`, and the writer/role/Phase-stop boundaries. Soft scores are
+`0`-`2` for correctness, proportionality, authority clarity, evidence and
+`UNKNOWN`, recovery and next action, and communication. A positive comparative
+claim requires scenario 1 non-regression, at least five assisted wins across
+scenarios 2-8, ties for every other comparison, no hard loss, and a median
+paired delta of at least `+2`. Otherwise the tracked result is explicitly
+negative or inconclusive and carries no efficacy bullet.
+
+Commit closeout for WC-PV1 preserves Cycle 1 Reviews 1-5 and every cumulative
+finding, correction, verification, and coverage result. After Review 5 found
+three actionable public-guide issues and the attempt stopped, the user approved
+one Cycle 2 reset for the same commit attempt. Cycle 2 begins at Review 0/5,
+stops after the first clean result with material coverage, and does not reset
+the attempt or evidence history. If Cycle 2 Review 5 still requires mutation or
+another review, closeout stops at `DECISION_REQUIRED`; no later reset is
+authorized.
+
 ## Historical Project Docs M1R Forward Matrix (Excluded From This Candidate)
 
 This matrix belongs to the later Decision 0019 material selection and behavior

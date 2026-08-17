@@ -1,6 +1,6 @@
 # Work Charter State
 
-Last updated: 2026-08-15
+Last updated: 2026-08-17
 
 ## Current Implementation
 
@@ -42,6 +42,19 @@ and one independent read-only assessor. This is not complete 28-cell Gate 2,
 release, installation, deterministic permission, or real-project efficacy
 acceptance. The sanitized terminal is
 [`2026-08-14-work-charter-v0.2-minimal-eval-terminal.md`](../../../evals/results/2026-08-14-work-charter-v0.2-minimal-eval-terminal.md).
+
+WC-PV1-D01 / WC-PV1-C01 later froze a light Native-versus-released pairing
+against exact release commit `ac790233...`, tree `97f0d9de...`, and the same
+canonical manifest. Its third and final zero-model qualification passed exact
+candidate identity, Native exclusion of Work Charter, Assisted exposure of
+only the exact release package, paired prompt/payload equality, and private/
+public evidence routing. The pilot then consumed P1, P2, P3, and P7 once in
+both conditions. All eight turns ended in provider-stream transport failure
+before a user-visible response; every workspace remained unchanged. With zero
+admissible product cells, P4/P5/P6/P8, nested roles, and the assessor did not
+start. The terminal is `INCONCLUSIVE / PRODUCT_UNKNOWN`, supplies no efficacy
+claim, and changes no Work Charter SOURCE. See the
+[sanitized PV1 result](../../../evals/results/2026-08-17-work-charter-pv1-terminal.md).
 
 Exact public branch commit
 `67a764a34992772b5ad85625f4703b1f1babf6a3` now supplies isolated
@@ -442,6 +455,23 @@ SOURCE by itself.
 
 ## Current Writer
 
+WC-PV1 writer transition on `codex/work-charter-pv1`: before the terminal local
+commit, the task-dedicated lease owns only the 14-path documentation and
+sanitized-result closeout plus the retained declared task-owned ignored carrier.
+Cycle 1 is immutable at 5/5; after its three terminal P2 findings, the user
+approved Cycle 2 for the same commit attempt. Reviews 1-2 found and corrected
+the reference-loading and public-carrier/writer-transition gaps; 2/5 are
+consumed and three reviews remain. The remaining route is the first clean
+materially covered Cycle 2 re-review, affected deterministic checks, the
+authorized single local commit, status-only reconciliation of every registered
+worktree, and one terminal Result Notice to the declared read-only Planner task.
+It excludes SOURCE, product or assessor reruns, push, merge, release,
+installation, integration, cleanup, configuration, and every other external
+effect. A successful commit plus reconciliation changes the lease to
+`RELINQUISHED` only when the Completion Packet proves it; otherwise the live
+lease state is `UNKNOWN`. These tracked bytes do not attest which side of that
+transition is live.
+
 D51-D53 and both D54 Sessions no longer own an execution writer. Build lease
 `D54-explicit-root-build@main/d4374b381444b85fff4941e73cf7a8d32f18a96e`
 is `RELINQUISHED` after commit `9fe27bb...`, empty index, no attributable main-
@@ -467,13 +497,9 @@ dirty state reconciled. One clean checkout never proves writer relinquishment.
 Missing or conflicting evidence remains `UNKNOWN`.
 
 Release actions for `v0.2.0` are complete. The bounded release-prep lease on
-`codex/work-charter-v0.2-release-prep` now owns only factual evidence
-synchronization, deterministic verification, native review, at most one
-evidence-only commit, push of that branch commit, and final all-worktree
-reconciliation. Its closure requires the commit plus a clean task checkout and
-exact source/all-worktree reconciliation; these tracked bytes do not self-
-attest the post-commit result. No SOURCE change, tag movement, release asset,
-cleanup, or other external effect is included.
+`codex/work-charter-v0.2-release-prep` relinquished after exact commit
+`22a8e19...`, a clean task checkout, and exact source/all-worktree
+reconciliation. No release-prep writer authority remains.
 
 Work Charter SOURCE, Design, package manifest, behavior cases, fixtures,
 matrix, rubric, controller module, other Skills, discovery mappings, user

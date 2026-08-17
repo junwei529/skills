@@ -2,146 +2,89 @@
 
 [简体中文](README.zh-CN.md)
 
-A Markdown-first collection of three independent Codex Skills for reliable
-project truth, consequential work, and Windows shell boundaries.
+Keep consequential Codex work recoverable—without turning every task into a
+workflow.
 
-## Choose A Skill
+This Markdown-first repository contains three independent Codex Skills. Each
+can be installed, invoked, used, stopped, and evaluated on its own.
 
-| Skill | Use it for | Public guide |
+| Skill | Use it for | Guide |
 |---|---|---|
-| `manage-project-docs` | Audit, adopt, repair, and maintain project-document governance | [Project Docs](docs/skills/manage-project-docs/README.md) |
-| `work-charter` | Bound consequential work with explicit authority, evidence, recovery, and proportional coordination | [Work Charter](docs/skills/work-charter/README.md) |
-| `use-powershell-safely` | Diagnose and safely execute material PowerShell, native, text, permission, and WSL boundaries | [PowerShell](docs/skills/use-powershell-safely/README.md) |
+| `manage-project-docs` | Establish and maintain reliable project-document governance | [Project Docs](docs/skills/manage-project-docs/README.md) |
+| `work-charter` | Bound consequential work by outcome, authority, evidence, recovery, and proportional coordination | [Work Charter](docs/skills/work-charter/README.md) |
+| `use-powershell-safely` | Handle material PowerShell, native-process, text, permission, and WSL boundaries | [PowerShell](docs/skills/use-powershell-safely/README.md) |
 
-Each Skill can be discovered, installed, invoked, used, stopped, and evaluated
-alone. Repository membership is not a trigger.
+Repository membership is not a trigger, and one Skill never authorizes or
+activates another.
 
 ## Install
 
-Choose an accepted immutable repository tag from the live repository refs and
-the [Repository Verification](docs/VERIFICATION.md) ledger, then substitute it
-for `<version-tag>`:
+Choose an accepted immutable tag from the live repository refs and the
+[verification ledger](docs/VERIFICATION.md), then install only the package you
+need:
 
 ```text
-$skill-installer Install the Skill from https://github.com/junwei529/skills/tree/<version-tag>/skills/manage-project-docs.
+$skill-installer Install the Skill from https://github.com/junwei529/skills/tree/<version-tag>/skills/work-charter.
 ```
 
-Replace the final path with `skills/work-charter` or
-`skills/use-powershell-safely` for another Skill.
+Replace the final path with `skills/manage-project-docs` or
+`skills/use-powershell-safely` as needed. Do not use moving `main` as a stable
+installation identity.
 
-Install the complete set from one repository identity:
+Installation, invocation, project reads, writes, Git, and external effects are
+separate authorization surfaces.
 
-```text
-$skill-installer Install `skills/manage-project-docs`, `skills/work-charter`, and `skills/use-powershell-safely` from https://github.com/junwei529/skills at tag `<version-tag>`.
-```
-
-Installation, invocation/adoption, execution/writes, and packaging/release are
-separate authorization surfaces. Do not use the moving `main` branch as a
-stable installation identity.
-
-## Invoke
+## Use
 
 ```text
 $manage-project-docs Audit this repository's project-document governance.
 
 $work-charter Bound this consequential task, its authority, evidence, and recovery.
 
-$use-powershell-safely Diagnose this material Windows shell boundary before changing application code.
+$use-powershell-safely Diagnose this Windows shell boundary before changing code.
 ```
 
-Project Docs uses the released `v0.1.2` explicit-only package in immutable
-`v0.2.0`. Work Charter and PowerShell are the changed members; Project Docs
-remains byte-identical and `unchanged`. The user must explicitly ask to use Project
-Docs, including through `$manage-project-docs`; a documentation-governance
-request or authority, evidence, routing, or recovery symptom alone does not
-select or load it. After a concrete proposal is visible, natural-language
-approval authorizes only its listed target-project changes. Valid persisted
-project routing handles ordinary maintenance without loading the Skill. A
-broken route may ask the user to invoke Project Docs, but does not itself
-invoke the Skill or authorize repair.
-
-Work Charter also accepts ordinary-language requests such as “use Work Charter
-to decide how this project should continue”;
-that direct request permits an activation claim only after the full body is
-available in the current context. An indirect installed-Skills request or
-concrete control or recovery symptoms need only catalog metadata for a proposal;
-native selection may or may not load `SKILL.md`, and neither outcome grants
-authority. The first response begins `Work Charter appears applicable because
-...`, explains why, proposes activation plus the smallest project read, and
-asks for confirmation. It uses no selection or activation heading, claims no
-selected, loaded, invoked, active, or adopted state, does not inspect the
-project, and does not prescribe pause, writer, evidence, handoff, resume,
-protection-level, or role workflow.
-After confirmation, the exact body must be available before activation or
-workflow reliance; branch-required package references may then load, while
-project inspection still requires approval for the exact scope. If the body is unavailable, activation
-stops; if an approved project read is unavailable through its route, the
-affected fact stays `UNKNOWN` and any different route needs a new proposal.
-When the runtime does not expose the exact loaded path or revision, that
-identity remains `UNKNOWN` and Codex makes no exact-copy claim.
-PowerShell may be selected for material Windows boundaries. Activation or read
-approval does not authorize adoption, roles, writes, Git, installation, or
-external effects.
-
-## Compose Optionally
-
-The Skills are peers, not a hierarchy:
-
-- Project Docs can repair document routing before Work Charter consumes it.
-- Work Charter can retain task authority while PowerShell handles one material
-  Windows boundary.
-- All three can be used in one project without sharing runtime state or
-  propagating authorization.
-
-A recipe never installs, invokes, adopts, writes through, or releases another
-Skill automatically.
+Work Charter may also notice strong complexity, continuity, authority, writer,
+evidence, recovery, or collaboration signals. Before explicit activation it
+only explains why it appears applicable, proposes the smallest useful read,
+and asks for confirmation. It does not claim activation or prescribe a
+workflow. After explicit authority and exact body availability, it recommends
+the least sufficient protection while ordinary tasks remain flat. See the
+[Work Charter guide](docs/skills/work-charter/README.md) for the full boundary.
 
 ## Release Status
 
-This repository uses one immutable repository-level tag for the three
-independent packages in a supported set. The current accepted stable release is
+The current accepted stable set is immutable
 [`v0.2.0`](https://github.com/junwei529/skills/releases/tag/v0.2.0) at
-`ac790233d5a8ba5afafd6eef95b1d5bc3cbe83a6`. `v0.1.0` through `v0.1.2`
-remain recorded historical identities, and the exact prior `v0.1.2` installed
-set is retained as rollback. Live refs and
-[Repository Verification](docs/VERIFICATION.md) own the exact release and
-installed-copy evidence.
+`ac790233d5a8ba5afafd6eef95b1d5bc3cbe83a6`. Work Charter and PowerShell are
+the changed packages in that set; Project Docs is byte-identical to its
+`v0.1.2` package. Exact package, installer, loaded-copy, rollback, and release
+evidence is recorded in [Repository Verification](docs/VERIFICATION.md).
 
-The coherent `v0.2.0` release classifies Work Charter and PowerShell as
-`changed` and exact `v0.1.2` Project Docs as `unchanged`. Exact tag package
-identity, official-installer materialization, stable switch with retained
-rollback, fresh loaded-copy canaries, and the GitHub Release are verified.
-Per-Skill evidence limits remain independent and do not become broader
-behavior acceptance merely because the shared release exists.
-
-The shared tag is a release-set identity. It does not assert that every Skill
-changed in that release or has the same maturity.
-
-The working SOURCE may contain later development that is not in an installed
-release. See [Repository Status](docs/STATUS.md) and the per-Skill State pages
-before attributing behavior.
-
-## Repository Documentation
-
-- [Documentation index](docs/INDEX.md)
-- [Authority map](docs/AUTHORITY.md)
-- [Product specification](docs/SPEC.md)
-- [Architecture](docs/ARCHITECTURE.md)
-- [Repository status](docs/STATUS.md)
-- [Repository verification](docs/VERIFICATION.md)
-- [Development and release runbook](docs/RUNBOOK.md)
-- [Roadmap](docs/ROADMAP.md)
-
-Installable packages remain under `skills/<skill-name>/`. Human product,
-design, state, and evidence documents live under
-`docs/skills/<skill-name>/`; they are not copied into the installable package.
+A shared tag identifies a coherent release set. It does not imply that every
+Skill changed or has the same evidence maturity. Working SOURCE may be ahead
+of the installed release; consult [Repository Status](docs/STATUS.md) before
+attributing behavior.
 
 ## Evidence Limits
 
 The repository records structural checks, synthetic behavior, controlled
-loaded-copy canaries, exact-commit candidates, and stable-install identity.
-It does not claim causal correctness improvement, token savings, broad trigger
-accuracy, cross-Harness parity, or SHICE validation.
+loaded-copy canaries, exact-commit candidates, and stable-install identity. It
+does not claim broad trigger accuracy, deterministic enforcement, causal
+correctness improvement, token savings, cross-Harness parity, or real-project
+efficacy.
+
+## Project Documentation
+
+- [Documentation index](docs/INDEX.md)
+- [Product specification](docs/SPEC.md)
+- [Architecture](docs/ARCHITECTURE.md)
+- [Repository status](docs/STATUS.md)
+- [Verification](docs/VERIFICATION.md)
+- [Development and release runbook](docs/RUNBOOK.md)
+
+Installable packages remain under `skills/<skill-name>/`. Human product,
+design, state, and evidence documents live under `docs/skills/<skill-name>/`.
 
 ## License
 

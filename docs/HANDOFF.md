@@ -1,10 +1,35 @@
 # Repository Handoff
 
-Last updated: 2026-08-15
+Last updated: 2026-08-17
 
 ## Snapshot
 
 - Repository: Agent Workflow Skills
+- WC-PV1-D01 / WC-PV1-C01 ran from exact baseline `22a8e19...` on dedicated
+  branch `codex/work-charter-pv1`. Its final zero-model qualification passed
+  exact released Work Charter identity, Native exclusion, pair equality, and
+  the declared ignored-carrier privacy route. The P1/P2/P3/P7 pilot then
+  consumed eight one-shot root turns; all eight ended in provider-stream
+  transport failure before final text and changed no workspace. There are zero
+  admissible product cells. P4/P5/P6/P8, nested roles, and assessor did not
+  start. The terminal is `INCONCLUSIVE / PRODUCT_UNKNOWN`; no SOURCE change,
+  efficacy claim, replay, replacement, or remaining-evidence continuation is
+  permitted under this Campaign
+- WC-PV1 writer transition: before the terminal local commit, the
+  task-dedicated lease owns only this 14-path documentation and sanitized-result
+  closeout plus the retained declared task-owned ignored carrier. Cycle 1 is
+  immutable at 5/5; after its three terminal P2 findings, the user approved
+  Cycle 2 for the same commit attempt. Reviews 1-2 found and corrected the
+  reference-loading and public-carrier/writer-transition gaps; 2/5 are consumed
+  and three reviews remain. The remaining route is the first clean materially
+  covered Cycle 2 re-review, affected checks, the authorized single local
+  commit, status-only reconciliation of every registered worktree, and one
+  terminal Result Notice to the declared read-only Planner task. Push, merge,
+  release, installation, integration, cleanup, configuration, product replay,
+  and other external effects remain excluded. A successful commit plus
+  post-commit reconciliation changes the lease to `RELINQUISHED` only when the
+  Completion Packet proves it; otherwise the live lease state is `UNKNOWN`.
+  These tracked bytes do not attest which side of that transition is live
 - Latest exact Work Charter product candidate:
   `c4810057c3f28cca9f12004ca2018784cd21f449`; its five-file manifest is
   `04c382a48e43897a8806aa5ffd996984cb015d3d8cdc6e675e9181a6d94e6f44`.
@@ -139,16 +164,12 @@ Last updated: 2026-08-15
   Skill SOURCE, generic controller, behavior cases, fixtures, matrix, rubric,
   other Skills, user configuration, tag movement, release assets, cleanup,
   automatic D56, and unlisted external effects remain excluded.
-  The earlier release-prep writer relinquished after exact commit `67a764a...`, clean
-  task index/worktree, preserved source-root dirty ownership, and every
-  registered-worktree reconciliation. Release actions for `v0.2.0` are
-  complete. The current bounded release-prep lease owns only mapped factual
-  consumers, deterministic verification, native review, at most one evidence-
-  only commit, push of that branch commit, and final reconciliation. Its final
-  relinquishment requires the terminal commit, clean task index/worktree,
-  preserved source dirty ownership, and every registered-worktree
-  reconciliation. The completion packet, not these self-referential bytes,
-  records that final proof
+  The earlier release-prep writer relinquished after exact commit `67a764a...`,
+  clean task index/worktree, preserved source-root dirty ownership, and every
+  registered-worktree reconciliation. The subsequent bounded release-prep
+  lease also relinquished after exact commit `22a8e19...`, a clean task
+  index/worktree, preserved source-root dirty ownership, and every registered-
+  worktree reconciliation. Release actions for `v0.2.0` are complete
 - Ignored-carrier boundary: one opaque ordinary controller-scratch directory
   predates this writer window. Its provenance remains `UNKNOWN`; this task read
   metadata only and did not open, reinterpret, or clean the carrier. Native
@@ -3216,3 +3237,237 @@ private-manifest split passes 25/25 negatives and 8/8 local sealed checks; three
 reviews remain in the approved cycle. None
 of these corrections grants Git or downstream
 product/evaluation authority.
+## WC-PV1 Documentation-Impact Closure
+
+This closure starts from the approved light paired evaluation contract, the
+sealed eight-root pilot transport terminal, the evidence-conditioned public
+language, and the task-dedicated writer/recovery boundary. It introduces no
+Skill SOURCE, case, fixture, controller, dependency, permission, external
+effect, or acceptance-boundary change.
+
+```documentation-impact-closure
+{
+  "schema": "documentation-impact-closure/v1",
+  "closure_id": "work-charter-pv1-terminal",
+  "authorized_change_envelope": [
+    "README.md",
+    "README.zh-CN.md",
+    "docs/HANDOFF.md",
+    "docs/INDEX.md",
+    "docs/STATUS.md",
+    "docs/VERIFICATION.md",
+    "docs/decisions/0024-work-charter-product-validation-and-portfolio.md",
+    "docs/skills/work-charter/README.md",
+    "docs/skills/work-charter/README.zh-CN.md",
+    "docs/skills/work-charter/STATE.md",
+    "docs/skills/work-charter/VERIFICATION.md",
+    "evals/README.md",
+    "evals/results/2026-08-17-work-charter-pv1-terminal.md",
+    "evals/results/README.md"
+  ],
+  "intended_update_set": [
+    "README.md",
+    "README.zh-CN.md",
+    "docs/HANDOFF.md",
+    "docs/INDEX.md",
+    "docs/STATUS.md",
+    "docs/VERIFICATION.md",
+    "docs/decisions/0024-work-charter-product-validation-and-portfolio.md",
+    "docs/skills/work-charter/README.md",
+    "docs/skills/work-charter/README.zh-CN.md",
+    "docs/skills/work-charter/STATE.md",
+    "docs/skills/work-charter/VERIFICATION.md",
+    "evals/README.md",
+    "evals/results/2026-08-17-work-charter-pv1-terminal.md",
+    "evals/results/README.md"
+  ],
+  "review_target": [
+    "README.md",
+    "README.zh-CN.md",
+    "docs/HANDOFF.md",
+    "docs/INDEX.md",
+    "docs/STATUS.md",
+    "docs/VERIFICATION.md",
+    "docs/decisions/0024-work-charter-product-validation-and-portfolio.md",
+    "docs/skills/work-charter/README.md",
+    "docs/skills/work-charter/README.zh-CN.md",
+    "docs/skills/work-charter/STATE.md",
+    "docs/skills/work-charter/VERIFICATION.md",
+    "evals/README.md",
+    "evals/results/2026-08-17-work-charter-pv1-terminal.md",
+    "evals/results/README.md"
+  ],
+  "changed_facts": [
+    {
+      "fact": "WC-PV1 light paired product-validation contract and public language",
+      "fact_class": "Accepted rationale, including capability-delta and external framework or optimizer disposition",
+      "canonical_owner": "docs/decisions/0024-work-charter-product-validation-and-portfolio.md",
+      "bounded_consumers": [
+        "README.md",
+        "README.zh-CN.md",
+        "docs/INDEX.md",
+        "docs/SPEC.md",
+        "docs/skills/work-charter/DESIGN.md",
+        "docs/skills/work-charter/README.md",
+        "docs/skills/work-charter/README.zh-CN.md",
+        "evals/README.md"
+      ],
+      "dispositions": [
+        {
+          "path": "docs/decisions/0024-work-charter-product-validation-and-portfolio.md",
+          "status": "UPDATE",
+          "reason": "Owns the approved paired contract, claim threshold, public language, privacy route, and portfolio gate."
+        },
+        {
+          "path": "README.md",
+          "status": "UPDATE",
+          "reason": "Compresses the product promise and explicit activation boundary without unexplained role acronyms."
+        },
+        {
+          "path": "README.zh-CN.md",
+          "status": "UPDATE",
+          "reason": "Mirrors the canonical English public entry."
+        },
+        {
+          "path": "docs/INDEX.md",
+          "status": "UPDATE",
+          "reason": "Indexes Decision 0024."
+        },
+        {
+          "path": "docs/SPEC.md",
+          "status": "CHECKED_NO_CHANGE",
+          "reason": "No shared product requirement or accepted Work Charter behavior contract changes."
+        },
+        {
+          "path": "docs/skills/work-charter/DESIGN.md",
+          "status": "CHECKED_NO_CHANGE",
+          "reason": "The evaluation and public-language revision does not change package purpose, triggers, or behavior contract."
+        },
+        {
+          "path": "docs/skills/work-charter/README.md",
+          "status": "UPDATE",
+          "reason": "Presents the approved hero, user ownership, protection shapes, five-part Charter, re-entry, evidence, and concise limits."
+        },
+        {
+          "path": "docs/skills/work-charter/README.zh-CN.md",
+          "status": "UPDATE",
+          "reason": "Mirrors the canonical English Work Charter guide."
+        },
+        {
+          "path": "evals/README.md",
+          "status": "UPDATE",
+          "reason": "Owns the light paired contract and one-shot evidence semantics."
+        }
+      ]
+    },
+    {
+      "fact": "WC-PV1 qualification pass and eight-root transport terminal",
+      "fact_class": "Per-Skill SOURCE, forward-test, DEV, RC, stable evidence and limits",
+      "canonical_owner": "docs/skills/work-charter/VERIFICATION.md",
+      "bounded_consumers": [
+        "docs/STATUS.md",
+        "docs/VERIFICATION.md",
+        "docs/skills/work-charter/README.md",
+        "docs/skills/work-charter/README.zh-CN.md",
+        "docs/skills/work-charter/STATE.md",
+        "evals/results/README.md"
+      ],
+      "dispositions": [
+        {
+          "path": "docs/skills/work-charter/VERIFICATION.md",
+          "status": "UPDATE",
+          "reason": "Owns the candidate, isolation, context-count, failure-origin, and claim-boundary evidence."
+        },
+        {
+          "path": "docs/STATUS.md",
+          "status": "UPDATE",
+          "reason": "Surfaces the current comparative-validation terminal and PRODUCT_UNKNOWN limit."
+        },
+        {
+          "path": "docs/VERIFICATION.md",
+          "status": "UPDATE",
+          "reason": "Records the repository-level qualification, consumption counts, and transport disposition."
+        },
+        {
+          "path": "docs/skills/work-charter/README.md",
+          "status": "UPDATE",
+          "reason": "Links the concise Not Yet Proven boundary to the terminal result."
+        },
+        {
+          "path": "docs/skills/work-charter/README.zh-CN.md",
+          "status": "UPDATE",
+          "reason": "Mirrors the evidence limit in Chinese."
+        },
+        {
+          "path": "docs/skills/work-charter/STATE.md",
+          "status": "UPDATE",
+          "reason": "Records current implementation and evaluation state without treating transport failure as a product finding."
+        },
+        {
+          "path": "evals/results/README.md",
+          "status": "UPDATE",
+          "reason": "Indexes the sanitized result."
+        }
+      ]
+    },
+    {
+      "fact": "WC-PV1 sanitized terminal result",
+      "fact_class": "Native/control/candidate and optimizer evaluation definitions plus sanitized detailed results",
+      "canonical_owner": "evals/results/2026-08-17-work-charter-pv1-terminal.md",
+      "bounded_consumers": [
+        "docs/skills/work-charter/VERIFICATION.md",
+        "evals/README.md",
+        "evals/results/README.md"
+      ],
+      "dispositions": [
+        {
+          "path": "evals/results/2026-08-17-work-charter-pv1-terminal.md",
+          "status": "UPDATE",
+          "reason": "Owns the sanitized terminal packet and private/public evidence boundary."
+        },
+        {
+          "path": "docs/skills/work-charter/VERIFICATION.md",
+          "status": "UPDATE",
+          "reason": "Maps the sanitized result into the per-Skill evidence ledger."
+        },
+        {
+          "path": "evals/README.md",
+          "status": "UPDATE",
+          "reason": "Owns the governing light paired evaluation definition."
+        },
+        {
+          "path": "evals/results/README.md",
+          "status": "UPDATE",
+          "reason": "Indexes the sanitized result."
+        }
+      ]
+    },
+    {
+      "fact": "WC-PV1 task-dedicated writer, retained carrier, and callback-first recovery state",
+      "fact_class": "Repository writer custody, dirty scope, next integration action, and recovery order",
+      "canonical_owner": "docs/HANDOFF.md",
+      "bounded_consumers": [
+        "docs/STATUS.md",
+        "docs/VERIFICATION.md"
+      ],
+      "dispositions": [
+        {
+          "path": "docs/HANDOFF.md",
+          "status": "UPDATE",
+          "reason": "Owns the branch, writer lease, sealed carrier, excluded effects, and terminal callback route."
+        },
+        {
+          "path": "docs/STATUS.md",
+          "status": "UPDATE",
+          "reason": "Records the terminal product state without claiming writer relinquishment before closeout."
+        },
+        {
+          "path": "docs/VERIFICATION.md",
+          "status": "UPDATE",
+          "reason": "Records verification and effect boundaries for the terminal closeout."
+        }
+      ]
+    }
+  ]
+}
+```

@@ -1,6 +1,6 @@
 # Repository Verification
 
-Last updated: 2026-08-15
+Last updated: 2026-08-17
 
 ## Scope
 
@@ -20,9 +20,10 @@ Sanitized detailed runs remain under [`evals/results`](../evals/results/README.m
 | Check | Purpose | Current result |
 |---|---|---|
 | Changed Skill validator | Validate frontmatter and package name without changing package bytes | all three SOURCE and all three active-stable package validators pass; exact Work Charter tree `97f0d9de...`, PowerShell tree `d8bf6dc...`, and unchanged Project Docs tree `ce6da120...` remain frozen |
-| Repository checker | Validate strict UTF-8/no BOM, whitespace, local links/fragments, publication safety, exact Skill/eval sets, federated docs, bilingual navigation, promoted evaluation governance, immutable Work Charter closeout consumers, and the fact-first closure against the actual uncommitted target | passes at 220 text files, 14 cases, and 12 fixtures; closure `work-charter-v0.2-powershell-p1-release-closeout` exactly matches the 21-path evidence-only target |
+| Repository checker | Validate strict UTF-8/no BOM, whitespace, local links/fragments, publication safety, exact Skill/eval sets, federated docs, bilingual navigation, promoted evaluation governance, immutable Work Charter closeout consumers, and the fact-first closure against the actual uncommitted target | passes at 222 text files, 14 cases, and 12 fixtures; closure `work-charter-pv1-terminal` exactly matches the 14-path documentation and sanitized-result target |
 | Fixture checker | Validate synthetic starting states and their Git/reparse/ignored-result boundaries plus tracked controller, runner, and PowerShell readiness regressions | 19 named fixture/contract rows pass under PowerShell 7 after the producer controller pass; the Work Charter row is deterministic historical-runner regression only, with no new formal, canary, product, or assessor start |
 | Work Charter Gate 2 outer runner | Preserve the revision-aware deterministic contract without rerunning or reinterpreting sealed D55 | D55 remains sealed `QUALIFICATION_FAILED / PRODUCT_UNKNOWN`; the current candidate imports no dirty D55 runner/checker bytes and starts no formal, canary, product, or assessor path |
+| Work Charter WC-PV1 paired pilot | Compare clean Native against exact released `v0.2.0` with frozen paired prompts, payloads, model request, tools, permissions, catalogs, and privacy route | zero-model identity/isolation qualification passes; eight P1/P2/P3/P7 root turns are consumed once, all eight fail at provider-stream transport before final text, zero product cells are admissible, and the terminal is `INCONCLUSIVE / PRODUCT_UNKNOWN` with no remaining or assessor start |
 | Codex evidence controller | Validate one shared core across four entry modes, strict required-read versus bounded auxiliary-observation attribution, structural PowerShell/Git/path classification, source-and-generated-contract-bound historical regressions, exact package manifests, candidate-identity and content-proof shape, record cardinality, completed exit typing, optional sealed governing-disposition monotonicity, output-array shape, per-key single-capture sealed parsing and reuse, real-reparse rejection, fail-closed negatives, external-input types, independently resolved inner/wrapper command identity, canonical model-visible Git argv rendering, Git-read and external-filter safety, profile-free PowerShell wrappers, culture-independent canonical ordering, metamorphic equivalence, output no-clobber, and canonical repeatability | passes exact current-SOURCE package identity, 11/11 historical, 32/32 evidence-surface, 33/33 negative, 4/4 metamorphic, 8/8 governing-snapshot, 12/12 command-resolution, and 9/9 Git-read-safety guards; the trusted Git anchor is independent of PATH and survives a synthetic PATH-first shadow, all 5/5 rooted forms execute through the resolved PowerShell wrapper with typed zero exits and are admissible, bare/shadow variants fail closed, the table hashes to `694e173a...f5467`, and zero external model or assessor calls occurred |
 | CRG supplemental preflight | Sharpen structural review scope when the maintained index represents the intended diff | unavailable in the task-dedicated release-prep worktree; no CodeGraph coverage claim is made, so direct canonical-owner inspection and native review remain required |
 | Native Codex review | Review each exact Work Charter commit target | D52 local commit 1 used two user-approved resets and 11 cumulative completed reviews; the second-reset-cycle review was clean, all 14 unique findings were resolved, and commit `410b0bd...` followed. D52 terminal-documentation reviews resolved stale checkpoint metadata and consumers before their clean review. D53 tracked-lifecycle reviews 1-3 resolved five unique findings: assessor eligibility was not enforced; `STATE.md` implied D52 granted D53 successor authority; canary receipt/state evidence was not fully bound to action provenance and committed-runner identity; the inner consumption claim was absent; and the typed terminal receipt was unreachable. Review 4/5 returned no actionable finding and its briefly lost output handle was recovered from the same completed exit-zero review record. Review 5/5 found two further defects: accepted terminal evidence was not bound to the consumed assessor route, and later lifecycle validation hard-coded receipt age 300. Both were corrected. The user explicitly approved one reset for this exact twelve-file attempt. Reset-cycle review 1/5 found two P1 gaps: multi-phase successor request-stream continuity was unproved, and acceptance did not validate all twelve product dispatches. One persistent segment reader plus a three-phase qualification simulation and the twelve-route/action-provenance ledger close them. Review 2/5 found one P1 because the test adapter could use production phase names; it is now restricted to a qualification-only namespace and an explicit negative proves production rejection before receipt/state creation. Review 3/5 found one P1 because completed-route validation skipped the static production policy while avoiding recursive lifecycle validation; the correction skips only lifecycle re-entry and still checks the artifact policy and route budget. Review 4/5 found a P2 terminal disposition/predecessor mismatch, now corrected, and a P1 because persisted private JSON could not authenticate a prior live dispatch after segment exit. The live-controller Replan Delta closes that P1. Reset-cycle review 5/5 then alleged that initial segment completion consulted live evidence before recording it; the call omitted the false-by-default switch, so source adjudication did not reproduce the path, but the mandatory finding stop applied. The user authorized one new bounded review cycle and the runner now passes the false switch explicitly. New-cycle review 1/5 found that failure terminals skipped predecessor evidence and typed child failure destroyed the live controller before terminal validation; both are corrected with predecessor-chain validation plus a failed-segment terminal-wait state that returns the original typed exit after closeout. Review 2/5 found that terminal validation was reachable before a failure or all three successful segments; the controller now requires the live terminal state and the focused gate rejects an early terminal command. New-cycle review 3/5 found no actionable issue against the final tracked bytes, and commit `4ab8a025...` followed. Review evidence remains separate from Gate 2 product evidence |
@@ -32,8 +33,80 @@ Sanitized detailed runs remain under [`evals/results`](../evals/results/README.m
 | PowerShell P1 bounded pre-error selection | Compare one isolated exact-commit P1 positive against immutable `v0.1.2` under the same request, plus ordinary-cmdlet and POSIX-only negatives, only after an exact-response transport canary | earlier `PRE_ERROR_SELECTION_OBSERVED / NARROW_PASS` remains intact; coherent-release RC later loaded exact P1 in one positive, kept both negatives unloaded, and received one `ACCEPTED` assessor. The target command did not execute |
 | PowerShell parser sweep | Parse all `evals/**/*.ps1` files in PowerShell 7 and both portable checker entry points in Windows PowerShell 5.1 | all nine eval PowerShell scripts parse in PowerShell 7; `check-fixtures.ps1` and `check-powershell-boundaries.ps1` parse in Windows PowerShell 5.1; the PS7-only Work Charter invoker remains outside the 5.1 claim |
 | Markdown navigation and ownership | Verify local links/fragments, English/Chinese routes, expected per-Skill owners, and no orphan canonical owner | passes through repository checker |
-| `git diff --check` | Reject whitespace defects in the working revision | passes for the exact 21-path evidence-only target |
+| `git diff --check` | Reject whitespace defects in the working revision | passes for the exact WC-PV1 14-path documentation and sanitized-result target |
 | Gitleaks | Detect secret-like content independently | exact uncommitted publication diff scan covers about 113 KB and passes with zero findings; ignored carriers remain outside publication scope |
+
+### 2026-08-17 — WC-PV1 paired product validation terminal
+
+The Decision 0024 light contract bound exact released Work Charter commit
+`ac790233...`, five-file tree `97f0d9de...`, canonical manifest `04c382a4...`,
+Codex CLI `0.147.0-alpha.6.6`, and requested `gpt-5.6-sol` / high reasoning.
+The final zero-model qualification proved Native exclusion, exact Assisted
+identity, paired payload/prompt equality, and declared ignored-carrier routing.
+
+Pilot P1/P2/P3/P7 then consumed eight one-shot root contexts and eight model-
+turn starts. Every thread receipt named the requested model, left reasoning
+effort unreported, and every turn ended in provider-stream transport failure
+before final text. Workspaces remained unchanged. The frozen continuation gate
+therefore rejected all product cells; P4/P5/P6/P8, nested role contexts, and
+the blinded assessor did not start. The sanitized result is
+[`2026-08-17-work-charter-pv1-terminal.md`](../evals/results/2026-08-17-work-charter-pv1-terminal.md).
+It supplies no efficacy or acceptance claim and changes no Skill SOURCE.
+
+The original WC-PV1 Phase Definition narrowed this commit attempt to two
+completed native semantic reviews. Review 1 found two actionable findings:
+`PV1-R1-01` added the missing zero-admissible/binding continuation stop, and
+`PV1-R1-02` refreshed the repository-checker evidence; both were fixed and
+verified before Review 2. Review 2 found `PV1-R2-01`, which had made an
+existing durable owner mandatory for L2, and `PV1-R2-02`, which retained the
+obsolete 21-path `git diff --check` target. The user then restored the
+repository/global default cumulative cap of five for this same attempt. This
+was not a reset: Reviews 1-2 remained consumed and, at the amendment, Reviews
+3-5 were the three remaining opportunities. The two Review 2 findings were
+authorized for same-scope correction; review must stop at the first clean
+materially covered result.
+
+Review 3 materially covered the amended diff and found `PV1-R3-01`: the
+evaluation contract described requested `high` reasoning as a verified runtime
+binding even though every thread receipt reported `reasoningEffort: null`. The
+correction distinguishes the requested setting from verified evidence, keeps
+the binding `UNKNOWN`, and records that binding failure as an independent
+pilot-continuation stop.
+
+Review 4 materially covered the same 14-path target and found `PV1-R4-01`: the
+handoff closure mapped the PV1 writer and recovery facts but the owning Handoff
+and Work Charter State still exposed the older release-prep lease as current.
+The correction records the active PV1 14-path dirty boundary, retained carrier,
+terminal callback route, exclusions, and commit-plus-reconciliation closeout,
+and marks the release-prep lease relinquished at exact baseline `22a8e19...`.
+
+Review 5 materially covered the corrected target and found three actionable
+P2s: `PV1-R5-01` required an explicit advisory and non-enforcement boundary;
+`PV1-R5-02` required the direct-intent activation path to be distinguished from
+indirect proposal-only applicability; and `PV1-R5-03` required the L3/L4 table
+to retain the SOURCE prerequisite protections. Cycle 1 then stopped exhausted
+at 5/5. The user approved one Cycle 2 reset for the same cumulative commit
+attempt. Cycle 2 begins at Review 0/5, preserves the complete Cycle 1 history,
+and must stop after the first clean materially covered review or at Review 5 if
+another mutation or review would be required.
+
+Cycle 2 Review 1 materially covered the amended target and found
+`PV1-C2-R1-01` (P2): the L3/L4 role rows retained their structural inheritance
+but omitted the SOURCE-mandated full-Skill and conditional reference-loading
+prerequisites. The bilingual guide now requires every fresh L3/L4 role to load
+the full Skill plus Coordination And Recovery before applying responsibilities,
+and requires fresh L4 roles to load Standard O/P/E as well. Review 1 is consumed
+and four Cycle 2 reviews remain before this corrected diff is re-reviewed.
+
+Cycle 2 Review 2 materially covered that corrected target and found two P2s.
+`PV1-C2-R2-01` required the sanitized public record and its consumers to keep
+the ignored carrier's physical locator private. `PV1-C2-R2-02` required the
+writer owners to record a conditional commit-and-reconciliation transition
+rather than commit pre-closeout dirty counts and active custody as durable
+state. Public records now name only a declared task-owned ignored carrier, and
+Handoff plus State leave the live side of the transition `UNKNOWN` unless the
+Completion Packet proves `RELINQUISHED`. Reviews 1-2 are consumed and three
+Cycle 2 reviews remain.
 
 ### 2026-08-15 — Immutable `v0.2.0`, stable loaded copies, and GitHub Release
 

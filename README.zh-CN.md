@@ -2,126 +2,80 @@
 
 [English](README.md)
 
-一个 Markdown-first 的 Codex Skill 集合，包含三个可以独立使用的产品，分别处理
-可靠项目事实、有后果的工作和 Windows shell 边界。
+让有后果的 Codex 工作保持可恢复，同时不把每项任务都变成工作流。
 
-## 选择 Skill
+这个 Markdown-first 仓库包含三个相互独立的 Codex Skills。每个 Skill 都可以单独
+安装、调用、使用、停止和评估。
 
-| Skill | 用途 | 公开指南 |
+| Skill | 用途 | 指南 |
 |---|---|---|
-| `manage-project-docs` | 审计、采用、修复和维护项目文档治理 | [Project Docs](docs/skills/manage-project-docs/README.zh-CN.md) |
-| `work-charter` | 用显式 authority、evidence、recovery 和比例化协调约束有后果的工作 | [Work Charter](docs/skills/work-charter/README.zh-CN.md) |
-| `use-powershell-safely` | 诊断并安全执行实质 PowerShell、native、文本、权限和 WSL 边界 | [PowerShell](docs/skills/use-powershell-safely/README.zh-CN.md) |
+| `manage-project-docs` | 建立并维护可靠的项目文档治理 | [Project Docs](docs/skills/manage-project-docs/README.zh-CN.md) |
+| `work-charter` | 按 outcome、authority、evidence、recovery 和比例化协调约束有后果的工作 | [Work Charter](docs/skills/work-charter/README.zh-CN.md) |
+| `use-powershell-safely` | 处理实质 PowerShell、native process、文本、权限和 WSL 边界 | [PowerShell](docs/skills/use-powershell-safely/README.zh-CN.md) |
 
-每个 Skill 都可以独立发现、安装、调用、使用、停止和评估。属于同一个仓库并不
-构成触发条件。
+属于同一个仓库不构成触发条件，一个 Skill 也不会授权或激活另一个 Skill。
 
 ## 安装
 
-从 live repository refs 和[仓库验证](docs/VERIFICATION.md)中选择一个已接受的
-不可变 tag，并用它替换 `<version-tag>`：
+从 live repository refs 和[验证账本](docs/VERIFICATION.md)选择一个已接受的
+immutable tag，然后只安装所需 package：
 
 ```text
-$skill-installer Install the Skill from https://github.com/junwei529/skills/tree/<version-tag>/skills/manage-project-docs.
+$skill-installer Install the Skill from https://github.com/junwei529/skills/tree/<version-tag>/skills/work-charter.
 ```
 
-如需另一个 Skill，把末尾路径替换为 `skills/work-charter` 或
-`skills/use-powershell-safely`。
+按需把末尾路径替换为 `skills/manage-project-docs` 或
+`skills/use-powershell-safely`。不要把持续移动的 `main` 当作 stable installation
+identity。
 
-从同一个仓库版本安装完整集合：
+安装、调用、项目读取、写入、Git 和外部影响是彼此独立的授权面。
 
-```text
-$skill-installer Install `skills/manage-project-docs`, `skills/work-charter`, and `skills/use-powershell-safely` from https://github.com/junwei529/skills at tag `<version-tag>`.
-```
-
-安装、调用/采用、执行/写入和打包/发布是彼此独立的授权面。不要把持续移动的
-`main` branch 当作 stable installation identity。
-
-## 调用
+## 使用
 
 ```text
 $manage-project-docs 审计此仓库的项目文档治理。
 
 $work-charter 约束此项有后果的工作、权限、证据和恢复。
 
-$use-powershell-safely 在修改应用代码前诊断此实质 Windows shell 边界。
+$use-powershell-safely 在修改代码前诊断此 Windows shell 边界。
 ```
 
-immutable `v0.2.0` release set 中，Work Charter 与 PowerShell 属于 `changed`，
-Project Docs 保持 byte-identical、属于 `unchanged`，并继续使用已发布 `v0.1.2`
-的 explicit-only package。用户必须显式要求使用 Project Docs，包括通过
-`$manage-project-docs` 调用；仅有文档治理请求或 authority、evidence、routing、
-recovery 症状不会选择或加载它。具体方案可见后，自然语言确认只授权方案列明的
-目标项目变更。有效的持久化项目路由负责普通维护，无需加载 Skill。路由损坏时
-可以提示用户调用 Project Docs，但路由本身不会调用 Skill，也不授权修复。
-
-Work Charter 也接受“调用 Work Charter，判断项目应该怎样继续”这类自然语言
-请求；只有完整正文已经进入当前上下文后才能声称已经激活。泛化的“根据已安装 Skills
-判断”请求或具体控制与恢复症状，只需 catalog metadata 就可以提出 proposal；原生选择
-可能读取也可能不读取 `SKILL.md`，两种情况都不产生授权。首个回复必须以
-`Work Charter appears applicable because ...` 开头，随后解释原因、提出激活与最小
-项目读取范围并请求确认；不得使用 selection 或 activation 标题，不得声称已 selected、
-loaded、invoked、active 或 adopted，不得检查项目，也不得提前给出 pause、writer、
-evidence、handoff、resume、protection level 或角色流程。用户确认后，必须先证明精确
-正文可用，才能声明激活或依赖流程；当前分支必需的 package references 可以加载，但
-项目检查仍需批准精确范围。正文不可用时
-停止激活；已批准的项目读取无法通过批准路径完成时，相关事实保持 `UNKNOWN`，其他
-路径必须作为新的 proposal。若 runtime 不暴露精确加载路径或 revision，该身份保留为
-`UNKNOWN`，Codex 不声称具体副本。PowerShell 可以在实质 Windows 边界出现时被选择。
-激活或读取许可并不授权持久采用、角色交付、写入、Git、安装或外部影响。
-
-## 可选组合
-
-三个 Skill 是平级产品，不是层级结构：
-
-- Project Docs 可以先修复文档路由，随后由 Work Charter 消费。
-- Work Charter 可以保留任务 authority，同时由 PowerShell 处理一个实质
-  Windows 边界。
-- 三者可以在同一项目使用，但不会共享 runtime state 或传播授权。
-
-Recipe 不会自动安装、调用、采用、写入或发布另一个 Skill。
+Work Charter 也可能识别明显的复杂性、连续性、authority、writer、evidence、
+recovery 或协作信号。在显式激活前，它只解释为什么可能适用、提出最小必要读取并
+请求确认；不会声称已经激活，也不会预先规定工作流。获得显式权限且精确正文可用
+后，它才推荐最小充分保护，同时让普通任务保持 flat。完整边界见
+[Work Charter 指南](docs/skills/work-charter/README.zh-CN.md)。
 
 ## 发布状态
 
-本仓库对一个受支持的三 Skill 集合使用同一个不可变 repository-level tag。
-当前已接受的 stable release 是
+当前已接受的 stable set 是 immutable
 [`v0.2.0`](https://github.com/junwei529/skills/releases/tag/v0.2.0)，对应
-`ac790233d5a8ba5afafd6eef95b1d5bc3cbe83a6`。`v0.1.0` 至 `v0.1.2` 仍是
-已记录的历史 identity，精确的前一 `v0.1.2` installed set 保留为 rollback；
-精确 release 与 installed-copy 证据由 live refs 和
-[仓库验证](docs/VERIFICATION.md)拥有。
+`ac790233d5a8ba5afafd6eef95b1d5bc3cbe83a6`。该集合中 Work Charter 和
+PowerShell 是 changed packages，Project Docs 与其 `v0.1.2` package
+byte-identical。精确 package、installer、loaded-copy、rollback 与 release 证据
+记录在[仓库验证](docs/VERIFICATION.md)。
 
-coherent `v0.2.0` release 将 Work Charter 与 PowerShell 分类为 `changed`，
-将 exact `v0.1.2` Project Docs 分类为 `unchanged`。exact tag package identity、
-official-installer materialization、保留 rollback 的 stable switch、fresh
-loaded-copy canary 与 GitHub Release 均已核验。每个 Skill 的证据限制仍然独立，
-不会因为共享 release 已存在就自动变成更广泛的行为验收。
-
-这个共享 tag 是 release-set identity；它不表示每个 Skill 都在该 release
-发生了变化，也不表示它们具有相同成熟度。
-
-工作区 SOURCE 可能包含不属于已安装 release 的后续开发内容。在归因行为前，
-请查看[仓库状态](docs/STATUS.md)和各 Skill State 页面。
-
-## 仓库文档
-
-- [文档索引](docs/INDEX.md)
-- [权威映射](docs/AUTHORITY.md)
-- [产品规范](docs/SPEC.md)
-- [架构](docs/ARCHITECTURE.md)
-- [仓库状态](docs/STATUS.md)
-- [仓库验证](docs/VERIFICATION.md)
-- [开发与发布 Runbook](docs/RUNBOOK.md)
-- [路线图](docs/ROADMAP.md)
-
-可安装包位于 `skills/<skill-name>/`。面向人的产品、设计、状态和证据文档位于
-`docs/skills/<skill-name>/`，不会复制进可安装包。
+共享 tag 只标识 coherent release set，并不表示每个 Skill 都发生了变化或具有相同
+的证据成熟度。工作区 SOURCE 可能领先于 installed release；归因行为前请查看
+[仓库状态](docs/STATUS.md)。
 
 ## 证据限制
 
-仓库记录结构检查、合成行为、受控 loaded-copy canary、exact-commit candidate
-和 stable-install identity。它不宣称因果正确性提升、token 节省、广泛触发准确率、
-跨 Harness 等价性或 SHICE 验证。
+仓库记录结构检查、合成行为、受控 loaded-copy canary、exact-commit candidate 和
+stable-install identity。它不宣称广泛触发准确率、确定性强制、因果正确性提升、
+token 节省、跨 Harness 等价或真实项目 efficacy。
+
+## 项目文档
+
+- [文档索引](docs/INDEX.md)
+- [产品规范](docs/SPEC.md)
+- [架构](docs/ARCHITECTURE.md)
+- [仓库状态](docs/STATUS.md)
+- [验证](docs/VERIFICATION.md)
+- [开发与发布 Runbook](docs/RUNBOOK.md)
+
+可安装 packages 位于 `skills/<skill-name>/`；面向人的产品、设计、状态和证据文档
+位于 `docs/skills/<skill-name>/`。
 
 ## 许可证
 
