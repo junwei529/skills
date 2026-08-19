@@ -67,8 +67,10 @@ candidate/release manifest unchanged.
 
 Current deterministic checks cover Project Docs proposal-only implicit
 selection and explicit concrete-effect authorization; Work Charter every-
-Notice convergence, affected-only changed-ruleset reload, and fifteen mutation
-variants; and PowerShell exact-runtime readiness, application-only WSL
+Notice convergence, affected-only changed-ruleset reload, and seventeen mutation
+variants, including `unsupported-disposition-verdict` and
+`terminal-disposition-schedules-work`; and PowerShell exact-runtime readiness,
+application-only WSL
 candidate/typed-exit handling, and narrowed ordinary/simple/general-Windows/
 POSIX negatives. These are source, fixture, parser, and runtime-mechanism
 checks only. They do not establish a catalog/model selection result, Skill-

@@ -46,7 +46,9 @@ write needs explicit natural-language authorization of the concrete effects.
 The current Work Charter SOURCE removes the assessed-Notice narrowing, adds a
 fresh Session/run plus normalized-rule-identity boundary before the next
 affected action relies on materially changed governing rules, and validates a
-baseline plus fifteen convergence mutations. The current PowerShell SOURCE keeps
+baseline plus seventeen convergence mutations (18/18), including
+`unsupported-disposition-verdict` and `terminal-disposition-schedules-work`.
+The current PowerShell SOURCE keeps
 the existing ApplicationInfo cardinality regression, rejects nonzero/empty/
 malformed exact `pwsh` probes, adds application-only WSL zero/one/many and typed
 exit checks, and narrows ordinary/simple/general-Windows/POSIX negatives.

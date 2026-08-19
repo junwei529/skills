@@ -569,9 +569,9 @@ installed-copy, stable, and release identities separate from editable SOURCE.
         {"path": "docs/skills/work-charter/README.zh-CN.md", "status": "UPDATE", "reason": "Mirrors the changed English public surface."},
         {"path": "docs/skills/work-charter/STATE.md", "status": "UPDATE", "reason": "Records current bytes, writer, evaluation mutation set, and next gate."},
         {"path": "docs/skills/work-charter/VERIFICATION.md", "status": "UPDATE", "reason": "Owns the exact current five-row manifest and deterministic limitations."},
-        {"path": "evals/README.md", "status": "UPDATE", "reason": "Documents the focused baseline plus fifteen convergence mutations."},
+        {"path": "evals/README.md", "status": "UPDATE", "reason": "Documents the focused baseline plus seventeen convergence mutations (18/18), including unsupported-disposition-verdict and terminal-disposition-schedules-work."},
         {"path": "evals/check-codex-evidence-controller.ps1", "status": "UPDATE", "reason": "Validates the focused content contract without runtime transport enforcement."},
-        {"path": "evals/codex-evidence-controller-cases.json", "status": "UPDATE", "reason": "Updates only current_source_package and adds fifteen mutation rows while preserving historical manifests."},
+        {"path": "evals/codex-evidence-controller-cases.json", "status": "UPDATE", "reason": "Updates only current_source_package and adds seventeen mutation rows, including unsupported-disposition-verdict and terminal-disposition-schedules-work, while preserving historical manifests."},
         {"path": "evals/check-fixtures.ps1", "status": "UPDATE", "reason": "Checks the portable every-Notice and changed-ruleset source markers."}
       ]
     },
@@ -683,6 +683,61 @@ does not rewrite rationale or sealed evidence. Existing Project Docs and Work
 Charter cases remain `CHECKED_NO_CHANGE`; the current deterministic deltas are
 owned by the existing fixture/controller consumers above. No package file,
 case, fixture directory, decision, dependency, or other path is added.
+
+## ES-C1 Tranche B Documentation Correction C Impact Closure
+
+This correction preserves commit B and its 40-path target/history while
+correcting two stale consumer descriptions in that prior closure. It fixes four
+stale documentation consumers of the already-correct current Work Charter
+evidence fact: baseline plus seventeen mutations is 18/18, including
+`unsupported-disposition-verdict` and
+`terminal-disposition-schedules-work`. No SOURCE, case, fixture, checker,
+historical manifest, permission, or acceptance boundary changes.
+
+```documentation-impact-closure
+{
+  "schema": "documentation-impact-closure/v1",
+  "closure_id": "es-c1-tranche-b-documentation-correction-c",
+  "authorized_change_envelope": [
+    "docs/HANDOFF.md",
+    "docs/STATUS.md",
+    "docs/VERIFICATION.md",
+    "evals/README.md"
+  ],
+  "intended_update_set": [
+    "docs/HANDOFF.md",
+    "docs/STATUS.md",
+    "docs/VERIFICATION.md",
+    "evals/README.md"
+  ],
+  "review_target": [
+    "docs/HANDOFF.md",
+    "docs/STATUS.md",
+    "docs/VERIFICATION.md",
+    "evals/README.md"
+  ],
+  "changed_facts": [
+    {
+      "fact": "Current Work Charter convergence evidence cardinality and named mutation coverage",
+      "fact_class": "Per-Skill SOURCE, forward-test, DEV, RC, stable evidence and limits",
+      "canonical_owner": "docs/skills/work-charter/VERIFICATION.md",
+      "bounded_consumers": [
+        "docs/HANDOFF.md",
+        "docs/STATUS.md",
+        "docs/VERIFICATION.md",
+        "evals/README.md"
+      ],
+      "dispositions": [
+        {"path": "docs/skills/work-charter/VERIFICATION.md", "status": "CHECKED_NO_CHANGE", "reason": "Already records baseline plus seventeen mutation variants and the 18/18 result."},
+        {"path": "docs/HANDOFF.md", "status": "UPDATE", "reason": "Corrects the prior closure consumer descriptions and records this exact four-path correction target."},
+        {"path": "docs/STATUS.md", "status": "UPDATE", "reason": "Corrects the repository dashboard to the current 17-mutation and 18/18 fact."},
+        {"path": "docs/VERIFICATION.md", "status": "UPDATE", "reason": "Corrects the repository evidence summary and names both added mutation classes."},
+        {"path": "evals/README.md", "status": "UPDATE", "reason": "Corrects the canonical evaluation contract summary and names both added mutation classes."}
+      ]
+    }
+  ]
+}
+```
 
 ## 2026-08-15 `v0.2.0` Release Completion
 

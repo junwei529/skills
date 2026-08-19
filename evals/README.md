@@ -819,9 +819,10 @@ The content-only five-row `current_source_package` manifest identifies the
 live editable Work Charter package as
 `55fe27c17b5bd023b19a59f4f9517e83db057a528dba8f9844467f11555ecf3f`.
 Historical candidate and release manifests remain immutable. A baseline plus
-fifteen mutation rows cover wrong, missing, duplicate, and stale verdict routes;
-the named assessor plus wrong or missing disposition producers; a missing
-notice recipient; idle-as-acceptance; terminal ACK ping-pong; second or missing
+seventeen mutation rows (18/18) cover `unsupported-disposition-verdict`; wrong,
+missing, duplicate, and stale verdict routes; the named assessor plus wrong or
+missing disposition producers; a missing notice recipient; idle-as-acceptance;
+terminal ACK ping-pong; `terminal-disposition-schedules-work`; second or missing
 semantic question owners; altered or missing question/relay identities; and a
 superseded question revision. Source markers also require
 a fresh Session/run and normalized-text rule identities before the next
