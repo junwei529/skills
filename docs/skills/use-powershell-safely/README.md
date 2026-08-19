@@ -10,8 +10,8 @@ a focused boundary workflow, not a general PowerShell tutorial or installer.
 
 - before the first relevant command, the task explicitly requires a
   non-trivial `.ps1`, `pwsh`, or `powershell.exe` workflow, including
-  multiline logic, loops, `try`/`catch`, regex, complex pipelines, native
-  execution, or child-process handling;
+  multiline logic, loops, `try`/`catch`, regex, complex pipelines, or material
+  native/child-process handling;
 - PowerShell 5.1 versus 7 behavior is material;
 - native arguments, quoting, stdout, stderr, `$LASTEXITCODE`, pipelines,
   redirection, stdin, or nested shell strings are suspect;
@@ -23,7 +23,10 @@ a focused boundary workflow, not a general PowerShell tutorial or installer.
 
 ## Do Not Use It When
 
-- an ordinary version-independent cmdlet has no boundary symptom; or
+- an ordinary version-independent cmdlet has no boundary symptom;
+- a simple documented native command has no material parser, version,
+  argument, stream, encoding, path, permission, process, or WSL boundary;
+- the task is general Windows work with no shell boundary; or
 - the task is POSIX-only.
 
 ## Install Independently
@@ -91,6 +94,16 @@ native/text references. The target command still did not execute; broad
 selection, selected execution behavior, live WSL, and causal efficacy remain
 unproved. The `a7637a6...` evidence sync is not a new PowerShell SOURCE
 revision.
+
+The current unreleased SOURCE keeps that pre-error contract for genuinely
+non-trivial PowerShell while narrowing ordinary and simple near-neighbor
+selection. Its deterministic dual-runtime suite now rejects a resolved `pwsh`
+whose exact readiness probe is nonzero, empty, or malformed, and validates
+application-only WSL candidate cardinality plus immediate typed native exit
+handling. Destructive filesystem work remains a positive pre-error selection
+boundary. All 59 focused assertions pass under PowerShell 7 and Windows
+PowerShell 5.1. No live WSL, installation, elevation, profile, policy, locale,
+registry, or host configuration was exercised.
 See [Verification](VERIFICATION.md) and [State](STATE.md).
 
 ## Authoritative Contract

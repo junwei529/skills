@@ -106,13 +106,23 @@ recorded assessment, the authoritative owner must record it before the work is
 treated as closed. A new material change invalidates only the evidence it
 actually affects.
 
-When roles are used, a Result Notice does not disappear into the upstream
-task: its assessor returns exactly one disposition tied to that checkpoint,
-including terminal acceptance or a decision-required stop. Terminal
-dispositions need no acknowledgement, and roles do not poll one another. Each
-material user question has one owner; other roles relay the exact question or
-answer instead of asking again. These are coordination obligations, not a
-guarantee that the Harness delivered a message.
+When roles are used, every Result Notice receives exactly one disposition tied
+to that checkpoint through its declared return route. Its route contract names
+the notice recipient; that recipient owns the return unless a named independent
+assessor is required. A missing, wrong, duplicate, or stale return is still awaiting
+verdict, even when the lower role is runtime-idle. Terminal dispositions need
+no acknowledgement, and roles do not poll one another. Each material user
+question has one owner; other roles relay the exact question or answer instead
+of asking again. These are coordination obligations, not a guarantee that the
+Harness delivered a message.
+
+When a material governing instruction or Skill source changes, an old Session
+may reread it for context and finish an already-permitted closeout. That manual
+reread is not proof that the Harness rebuilt or freshly loaded the changed
+instruction chain. The next affected action uses a fresh Session or run,
+records normalized-text identities for the applicable sources, and requalifies
+only affected conditions. It does not reset approvals, evidence consumption,
+findings, or unaffected evidence.
 
 ## Safety
 
@@ -143,6 +153,10 @@ external effects remain separate.
 
 ## Verified Today
 
+- The current unreleased five-file development SOURCE has deterministic
+  manifest and mutation checks for reciprocal verdict convergence and changed-
+  ruleset reload semantics. This is SOURCE/evaluation evidence, not installed
+  loaded-copy or product-behavior evidence.
 - Immutable release `v0.2.0` contains the exact five-file Work Charter tree
   `97f0d9de...` and canonical manifest `04c382a4...`.
 - Exact-copy installation and loaded-copy evidence exists for the bounded

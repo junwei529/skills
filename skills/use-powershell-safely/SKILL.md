@@ -1,6 +1,6 @@
 ---
 name: use-powershell-safely
-description: Diagnose and safely execute boundary-sensitive Windows shell workflows across PowerShell, native executables, and WSL. Use before the first relevant command when a Windows task requires writing or running non-trivial PowerShell such as a .ps1 file, pwsh or powershell.exe, multiline logic, loops, try/catch, regex, pipelines, native executables or child processes, or version-, encoding-, stream-, permission-, or path-sensitive behavior. Also use for quoting or argument boundaries, NativeCommandError, unexpected stdout/stderr or native exit status, missing or truncated output, stdin, redirection, nested shell strings, $PSNativeCommandArgumentPassing, Invoke-Expression, UTF-8/BOM/newline/hash correctness, JSON/schema/text, legacy code pages or non-ASCII text, WSL transport, Start-Process or ProcessStartInfo, sandbox or permission boundaries, or destructive filesystem operations. Do not use for ordinary version-independent cmdlets with no boundary risk or symptom, general Windows work, or POSIX-only work.
+description: Diagnose and safely execute material Windows shell boundaries across PowerShell, native executables, text, permissions, and WSL. Use before the first relevant command when a non-trivial PowerShell workflow has a material parser, version, argument, stream, encoding, path, permission, destructive filesystem, process, or WSL boundary, or when symptoms such as NativeCommandError, misleading exit status, missing output, quoting drift, byte mismatch, sandbox denial, or cross-shell transport require diagnosis. Do not use for ordinary version-independent cmdlets, simple documented native calls with no boundary symptom, general Windows work, or POSIX-only work.
 ---
 
 # Use PowerShell Safely
@@ -12,15 +12,19 @@ PowerShell tutorial or an automatic system installer.
 ## Select Before The First Risk Command
 
 - Select this Skill before generating or executing explicit non-trivial
-  PowerShell. Do not wait for the first parser, parameter, stream, permission,
-  or process failure.
+  PowerShell when a material parser, parameter, version, argument, stream,
+  encoding, path, permission, destructive filesystem, process, or WSL boundary
+  is present. Do not wait for that boundary to fail.
 - Strong pre-error cues include a `.ps1` deliverable, a `pwsh` or
   `powershell.exe` invocation, multiline logic, loops, `try`/`catch`, regex,
   hashtables or object construction, complex pipelines, native or child
-  processes, and version-, encoding-, stream-, permission-, or path-sensitive
-  behavior.
+  processes when they make one of those boundaries material.
+- Treat destructive filesystem work as a material boundary and select before
+  generating or executing it. Authorization and literal-target containment
+  remain separate requirements.
 - Keep an ordinary version-independent cmdlet with no boundary risk or symptom,
-  general Windows work, and POSIX-only work outside the Skill.
+  a simple documented native call with no boundary symptom, general Windows
+  work, and POSIX-only work outside the Skill.
 
 ## Prepare The Command Before Execution
 
@@ -57,7 +61,9 @@ PowerShell tutorial or an automatic system installer.
 $PSVersionTable.PSEdition
 $PSVersionTable.PSVersion
 $PSHOME
-Get-Command pwsh -CommandType Application -ErrorAction SilentlyContinue
+@(
+    Get-Command pwsh -CommandType Application -All -ErrorAction SilentlyContinue
+)
 ```
 
 - Prefer a supported PowerShell 7 release for modern UTF-8, native-command, and
@@ -69,7 +75,9 @@ Get-Command pwsh -CommandType Application -ErrorAction SilentlyContinue
   installation path. Detection alone never authorizes installation.
 - Read the runtime-readiness and installation sections in
   [Native And Process Boundaries](references/native-process-boundaries.md)
-  before recommending a version or installation method.
+  before calling a resolved executable usable or recommending a version or
+  installation method. Resolution, launch, probe output, and support status are
+  separate facts.
 
 ## Classify Evidence Before Generalizing
 

@@ -7,7 +7,7 @@ Last updated: 2026-08-19
 | Claim | Status |
 |---|---|
 | `work-charter` is the sole current five-file package | verified structurally for current SOURCE |
-| Reciprocal verdict and single decision-owner SOURCE revision | current unreleased five-file SOURCE, amended Decision 0016, L3/L4/recovery cases, recovery fixture, and deterministic contract check require one checkpoint-bound return for every Result Notice, terminal no-ack convergence, runtime-idle versus awaiting-verdict distinction, and one semantic user-question owner; deterministic validation passes, while fresh loaded-copy behavior and efficacy remain unproved |
+| Reciprocal verdict, changed-ruleset reload, and single decision-owner SOURCE revision | current unreleased five-file SOURCE, Decision 0016, and deterministic contract checks require one checkpoint-bound return for every Result Notice, reject unsupported verdicts, wrong/missing/duplicate/stale routes, terminal scheduled work, and idle-as-acceptance, converge without terminal acknowledgement, preserve one semantic user-question owner and exact relay, and require a fresh Session/run plus normalized-text identities before the next affected action relies on changed governing rules; fresh loaded-copy behavior and efficacy remain unproved |
 | Coherent `v0.2.0` release package identity | Work Charter is `changed` at exact five-file tree `97f0d9de17abc9c699772e0ebdcbdaa23d890008` and manifest `04c382a4...`; adding the independently changed PowerShell P1 package creates no new Work Charter SOURCE revision |
 | WC-PV1 paired product validation | exact release identity and Native/Assisted isolation qualified with zero product starts; all eight one-shot P1/P2/P3/P7 pilot roots then failed at provider-stream transport before a user-visible response, leaving zero admissible cells and terminal `INCONCLUSIVE / PRODUCT_UNKNOWN`; P4/P5/P6/P8, nested roles, and assessor did not start, and no efficacy claim follows |
 | Gate 1 protection, re-entry, convergence, and explicit-activation contract | D43 SOURCE correction is implemented in the current revision: indirect proposal is metadata-sufficient and workflow-free, while direct or confirmed activation requires the exact body; the commit containing the closed set becomes the exact D43 candidate, and D31-D42 remain immutable and unaccepted |
@@ -72,8 +72,33 @@ not treated as proof that a verdict was delivered. One semantic owner asks each
 user-owned question, while other roles may relay that exact question or answer
 without asking it again.
 
-Two fresh-context, read-only internal checks exercised the current instruction
-composition. The L3 check correctly kept an idle Executor in
+Its exact current-source manifest is
+`55fe27c17b5bd023b19a59f4f9517e83db057a528dba8f9844467f11555ecf3f`:
+
+| Current SOURCE path | Bytes | SHA-256 |
+|---|---:|---|
+| `skills/work-charter/SKILL.md` | 11079 | `0c88de132b62c5a395218a5a95eac8155167c22fa767b6e5f2935c495ee31ed3` |
+| `skills/work-charter/agents/openai.yaml` | 306 | `f0032475e213d75ed17eb41c3424007ebc46c0ddb6739138c9908185beefdad6` |
+| `skills/work-charter/assets/work-charter.md` | 2697 | `ba743343740b1419a84852f32608e41e1a04979bcd1a7af8dc16e41ca1a87e09` |
+| `skills/work-charter/references/coordination-and-recovery.md` | 13257 | `b4832547825587386d68df0b4e79b7f4801593b5b00f335ed3a6504ee61b354e` |
+| `skills/work-charter/references/standard-ope.md` | 4444 | `f827524db33e8c3ceb6e44789e18ca3c6c502fd44d9d0ec559b9cea423cd3858` |
+
+The deterministic `work_charter_convergence_contract` baseline plus seventeen
+mutations cover unsupported verdicts; wrong, missing, duplicate, and stale
+verdict routes; terminal dispositions that schedule work; the named
+assessor plus wrong or missing disposition producers; a missing notice
+recipient; runtime-idle treated as acceptance; terminal ACK ping-pong; second
+or missing semantic question owners; altered or missing question/relay
+identities; and a superseded question revision. The same
+source contract requires an old Session's manual reread to remain context or
+permitted-closeout evidence only; the next affected action needs a fresh
+Session/run, normalized-text rule identities, and affected-only
+requalification. These checks add no task API or runtime transport enforcer.
+
+Two predecessor-revision, fresh-context, read-only internal checks exercised
+the instruction composition that existed before this current SOURCE change;
+they do not prove that the current governing ruleset was freshly loaded. The
+L3 check correctly kept an idle Executor in
 `awaiting_verdict` until the Planner's `ACCEPTED` disposition was delivered,
 rejected progress polling and terminal acknowledgement, and assigned a native
 review reset question to the Session running the review. The Standard O/P/E
@@ -82,13 +107,16 @@ verdicts to the Planner, kept the Orchestrator from contacting the Executor,
 preserved the Mandate and Phase Definition as the two normal user contract
 gates, and relayed the review owner's reset question without duplicating it.
 
-The Skill validator, exact-source fixture/controller checks, repository
-closure, whitespace check, and secret scan pass for this revision. Because the
-current host guidance independently contains the same coordination rule, the
-fresh-context checks prove the composed current instruction behavior, not a
-Skill-only causal effect, installed or stable loaded-copy behavior, or reliable
-cross-task delivery. No model/product evaluation, installation, commit, or
-release occurred.
+The Skill validator, exact-source controller checks, 20-row fixture suite,
+40-path repository closure, dual-runtime parser checks, publication/privacy
+scan, and whitespace check pass for this working revision. The complete tranche
+B diff is frozen. Native-review cycle 1 exhausted at 5/5; the user's explicit
+approval records reset count 1 and opens the bounded reset cycle without
+erasing that history. The authorized sole local commit B remains conditional on
+the first materially covered clean result from that cycle. These deterministic
+checks prove source and fixture consistency, not a Skill-only causal effect,
+installed or stable loaded-copy behavior, or reliable cross-task delivery. No
+model/product evaluation, installation, or release occurred.
 
 ## 2026-08-17 WC-PV1 Paired Pilot Terminal
 

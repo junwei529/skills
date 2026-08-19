@@ -1,23 +1,21 @@
 # Project Docs State
 
-Last updated: 2026-08-15
+Last updated: 2026-08-19
 
 ## Current Implementation
 
-Canonical editable SOURCE remains the six-file package under
-[`skills/manage-project-docs`](../../../skills/manage-project-docs). In the
-immutable `v0.2.0` release set, all six files are restored
-byte-for-byte to immutable `v0.1.2` commit
-`ceed607152849775b981c54add74bfa30d858e4d`. This is the released explicit-only
-control; it is `unchanged` in the release set and receives no new package
-behavior contract or SOURCE revision. The bounded release, installation, and
-loaded-copy evidence added for these unchanged bytes is recorded below.
-
+Canonical editable SOURCE is the six-file package under
+[`skills/manage-project-docs`](../../../skills/manage-project-docs). The
+current development revision promotes accepted
 [Decision 0019](../../decisions/0019-project-docs-implicit-discovery-and-demand-driven-modules.md)
-and local development commit `776989f...` remain preserved historical/future
-development inputs. Their implicit-discovery and demand-driven-module bytes
-are intentionally excluded from this release. Restoring the
-released package here does not delete or reinterpret that Git history.
+into proposal-only implicit selection, demand-driven modules and update modes,
+and concrete-effect authorization for every write. It also records Project
+Docs, Work Charter, and Use PowerShell Safely as independent peers.
+
+Immutable `v0.1.2` at `ceed607...` and the identical Project Docs subtree in
+`v0.2.0` remain the released explicit-only control. Local predecessor
+`776989f...` remains historical development evidence. Neither identity is
+relabeled as current SOURCE, candidate, installed-copy, or release evidence.
 
 Public candidate commit
 `c42eef392a5b9f58bbee64aa73ffb603a6fb6c29` contains the
@@ -41,26 +39,19 @@ intentionally lacked a canonical write locus. The fixture stayed unchanged.
 
 ## Current Writer
 
-The historical Decision 0019 implementation and documentation writers are
-relinquished. Release actions for `v0.2.0` are complete. The bounded
-release-prep writer owns only factual evidence synchronization, deterministic
-verification, native review, at most one evidence-only commit, push of that
-branch commit, and final all-worktree reconciliation. It gains no Project Docs
-behavior-change, discovery, tag movement, release-asset, cleanup, or other
-external-effect authority.
+The ES-C1 tranche B Executor is the current repository writer for this bounded
+SOURCE, deterministic-evidence, documentation, native-review, and one-local-
+commit window. No installation, discovery mapping, candidate, release, push,
+integration, cleanup, or other external effect is authorized.
 
 ## Evidence State
 
-The six live package files match both the `v0.1.2` and `v0.2.0` Git blobs and
-raw SHA-256 values in [Verification](VERIFICATION.md). The current active stable
-copy is exact `v0.2.0` and has fresh physical loaded-copy evidence; the retained
-rollback copy remains exact `v0.1.2`.
-
-The excluded Decision 0019 development revision previously passed structural
-and deterministic checks and received a bounded `PARTIAL` evidence verdict.
-Actual candidate selection, physical loaded-copy attribution, and persistent
-writes remained `UNKNOWN`. Those results remain historical and do not describe
-the package bytes in this release.
+The distinct current six-file identity is recorded in
+[Verification](VERIFICATION.md) and checked directly by the fixture checker;
+the same checker separately proves immutable `v0.1.2` blob identities. Current
+skill-creator validation and deterministic fixtures pass. Fresh native
+selection, physical loaded-copy attribution, persistent writes, candidate,
+installation, stable, and release behavior remain `UNKNOWN` or deferred.
 
 Exact implicit selection and physical loaded-copy attribution remain `UNKNOWN`
 because native automatic injection produced no physical resource-read event.
@@ -84,21 +75,15 @@ was actually loaded in a fresh process, returned mature `NOOP` with strong
 continuity, and left the fixture unchanged. Stable mutation behavior, broad
 trigger telemetry, causal comparison, cross-Harness parity, and independent
 real-project efficacy remain unproved.
-Those historical results do not activate or release the excluded implicit-
-selection or demand-driven-module revision. See
-[Verification](VERIFICATION.md).
+Those historical results do not accept, install, or release the current
+development SOURCE. See [Verification](VERIFICATION.md).
 
 ## Next Gate
 
-The `v0.2.0` release and stable installed-copy gates are complete. No Project
-Docs release action remains pending. Retained carrier, rollback-copy, mapping,
-branch, or worktree cleanup is a separate decision and is not performed by this
-release closeout.
-
-Decision 0019 remains accepted but excluded from this release set. Any future
-resumption must start from its own exact Git revision and evidence boundary,
-not infer continuity from this package restoration. Project Docs remains the
-explicit-only package in current stable `v0.2.0`.
+The next eligible gate after this tranche is independent checkpoint acceptance
+of the local commit. A fresh loaded-copy selection matrix, candidate,
+installation, release, or cleanup requires separate authority. Current stable
+`v0.2.0` remains explicit-only and unchanged.
 
 ## Recovery Entry
 

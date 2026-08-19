@@ -1,6 +1,6 @@
 # PowerShell State
 
-Last updated: 2026-08-15
+Last updated: 2026-08-19
 
 ## Current Implementation
 
@@ -44,16 +44,26 @@ stable copy was materialized from that tag through the official installer and
 matches all five tag blobs. The retained rollback copy contains exact
 `v0.1.2` control bytes.
 
+The current unreleased ES-C1 revision preserves the released five-file shape
+and the existing `ApplicationInfo` multi-candidate regression. It separates
+executable resolution, exact-path launch, normalized output contract, typed
+native exit, and support status for `pwsh`; adds application-only zero/one/many
+WSL discovery and immediate typed exit handling; and narrows selection to
+material shell boundaries while retaining pre-error selection for genuinely
+non-trivial PowerShell. Ordinary cmdlets, simple native near-neighbors, general
+Windows work, and POSIX-only work are explicit negatives. The unrelated empty-
+byte-array closeout incident did not reproduce in current SOURCE and is
+rejected as a product residual.
+
 ## Current Writer
 
-The P1 SOURCE writer completed reviewed commit `30668743...`, reconciled the
-registered worktrees, and relinquished before committed evidence sync
-`a7637a6...`. Release actions for `v0.2.0` are complete. The current
-release-prep writer owns only factual evidence synchronization, deterministic
-verification, native review, at most one evidence-only commit, push of that
-branch commit, and final all-worktree reconciliation. This lease preserves the
-exact P1 package and authorizes no new SOURCE, tag movement, release asset, or
-cleanup.
+The P1 SOURCE and release writers relinquished after their recorded commits
+and all-worktree reconciliation. The current bounded repository writer is the
+ES-C1 tranche B successor on `codex/es-c1-coordination-contracts`; it owns only
+the approved current-SOURCE, deterministic evaluation, mapped documentation,
+verification, and one local commit window. No live WSL, installation, push,
+tag movement, release asset, integration, cleanup, or host mutation is
+authorized.
 
 ## Evidence State
 
@@ -67,6 +77,15 @@ This is `PRE_ERROR_SELECTION_OBSERVED / NARROW_PASS`, not broad selection or
 selected-behavior efficacy. The target command did not execute, model and
 reasoning identities remain `UNKNOWN`, and no assessor ran. The private sample
 audit remains intake only and is not product or application-defect evidence.
+
+The current ES-C1 deterministic boundary suite passes 59 assertions under the
+exact selected PowerShell 7 and Windows PowerShell 5.1 executables. Synthetic
+coverage includes existing ApplicationInfo cardinality, `pwsh` nonzero/empty/
+malformed readiness, WSL application candidate cardinality and typed exit, and
+destructive-filesystem pre-error selection plus ordinary-cmdlet, simple-native,
+general-Windows, and POSIX-only negatives. It
+does not use live WSL or prove native catalog selection, loaded-copy behavior,
+selected execution, installed state, or efficacy.
 
 The exact `ac790233...` RC later completed one PowerShell positive, the
 ordinary-cmdlet negative, the POSIX-only negative, and one independent
@@ -114,11 +133,12 @@ shadow-use evidence remain absent. See [Verification](VERIFICATION.md).
 
 ## Next Gate
 
-The `v0.2.0` RC, stable installation, loaded-copy canary, tag, push, and GitHub
-Release gates are complete. Live WSL/Bash, sandbox-denial injection, shadow
-use, broader behavior or efficacy, private-global retirement, retained-evidence
-cleanup, and rollback-copy cleanup remain separate decisions. No cleanup is
-performed by this release closeout.
+For the current ES-C1 SOURCE revision, complete package validation, dual-
+runtime parser/boundary checks, fixture/repository closure, publication/privacy
+checks, native review, and only the authorized local tranche B commit. Live
+WSL/Bash, installed-copy mapping, selection or behavior models, sandbox-denial
+injection, shadow use, broader efficacy, release, integration, and cleanup
+remain separate decisions.
 
 ## Recovery Entry
 

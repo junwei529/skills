@@ -200,39 +200,85 @@ $projectDocsDesign = Get-Content -Raw -Encoding UTF8 (
 $evalReadme = Get-Content -Raw -Encoding UTF8 (
     Join-Path $repoRoot 'evals\README.md'
 )
-$projectDocsV012Hashes = [ordered]@{
-    'SKILL.md' = 'cc536a35c7bbba6f293193849b98db85923de8fe0d73c106feed405bfc4b448b'
-    'agents\openai.yaml' = '50fa3c3799caeca29ec6ba10151bd7c58e3c85d4e86d86b38ae9632306e31b17'
-    'assets\templates\continuity-anchor.md' = '258578585c4a9c69379afdfa9a872b41233885a11c6342a7458c7677aeb68ec5'
-    'assets\templates\project-doc-starter.md' = 'd5d70f3c2b3422f51be420658bfe2198992ad95daaeac0aa28e5f1e4fe61ec8a'
-    'references\audit-and-adopt.md' = 'b4af599f3838868db9479a6321a1f1aa82a8ff29cc492afa15b7e5de26078321'
-    'references\maintain-and-recover.md' = '5c774b699d832ce0f52f68e6ef0b355d9ca79bc6c3407064276bf3638c5fb9ba'
+$projectDocsV012BlobIds = [ordered]@{
+    'SKILL.md' = '76d3fbc0c287272613cfd8db997955f1638315d1'
+    'agents/openai.yaml' = 'cfa5db46a74e4930eadde2cc8b58633964be335f'
+    'assets/templates/continuity-anchor.md' = '06bf37c034ae046f2f28bd482feb50fee4b96ba3'
+    'assets/templates/project-doc-starter.md' = '42e33ef63c095c8ce9f03a660454c68762810ad8'
+    'references/audit-and-adopt.md' = '392cc7ad44c21a4b229fc15465a1b21d51463b46'
+    'references/maintain-and-recover.md' = '1ceed398ff0de188a4e2a82af6bc4baf0defaf3f'
+}
+$projectDocsCurrentHashes = [ordered]@{
+    'SKILL.md' = 'a1dad61252625f18ddac743b65257229f8dd26e3a65e32652711e8c62e29a609'
+    'agents/openai.yaml' = '0801a1829848027fb1c209608ac44ece0b3c0eae6ad7ac42dcc4facb9dd89468'
+    'assets/templates/continuity-anchor.md' = '9b7cc87a002176b604301773db7b91af5ae113805b245dc94ad6481e72bdd603'
+    'assets/templates/project-doc-starter.md' = 'd49b567235b29aad84b468e054cea993bebc774094718ce3e9d7d2d30202a4e4'
+    'references/audit-and-adopt.md' = '7a68d650d164f6f97088d8186916278df711e70db74f00117a088d22ce8d7f13'
+    'references/maintain-and-recover.md' = '92768df8aa8d7a8f799366c46b9f03ba6bab8183896d80578188c03e361c9bb4'
 }
 $projectDocsV012Root = Join-Path $repoRoot 'skills\manage-project-docs'
-$projectDocsV012ExpectedPaths = @(
-    $projectDocsV012Hashes.Keys | Sort-Object
+$projectDocsCurrentExpectedPaths = @(
+    $projectDocsCurrentHashes.Keys | ForEach-Object { $_.Replace('/', '\') } | Sort-Object
 )
-$projectDocsV012ActualPaths = @(
+$projectDocsCurrentActualPaths = @(
     Get-ChildItem -LiteralPath $projectDocsV012Root -Recurse -File -Force |
         ForEach-Object {
             $_.FullName.Substring($projectDocsV012Root.Length + 1)
         } |
         Sort-Object
 )
-$projectDocsV012Exact = (
-    ($projectDocsV012ActualPaths -join "`0") -ceq
-    ($projectDocsV012ExpectedPaths -join "`0")
+$projectDocsCurrentExact = (
+    ($projectDocsCurrentActualPaths -join "`0") -ceq
+    ($projectDocsCurrentExpectedPaths -join "`0")
 )
-foreach ($entry in $projectDocsV012Hashes.GetEnumerator()) {
-    $path = Join-Path $projectDocsV012Root $entry.Key
+[string[]]$projectDocsCurrentPaths = @($projectDocsCurrentHashes.Keys)
+[System.Array]::Sort(
+    $projectDocsCurrentPaths,
+    [System.StringComparer]::Ordinal
+)
+$projectDocsCurrentRows = @()
+foreach ($relativePath in $projectDocsCurrentPaths) {
+    $path = Join-Path $projectDocsV012Root $relativePath.Replace('/', '\')
     $item = Get-Item -LiteralPath $path -Force -ErrorAction Stop
     if ($item.PSIsContainer -or
         ($item.Attributes -band [System.IO.FileAttributes]::ReparsePoint)) {
-        $projectDocsV012Exact = $false
+        $projectDocsCurrentExact = $false
         break
     }
     $actual = (Get-FileHash -Algorithm SHA256 -LiteralPath $path).Hash.ToLowerInvariant()
-    if ($actual -cne $entry.Value) {
+    if ($actual -cne $projectDocsCurrentHashes[$relativePath]) {
+        $projectDocsCurrentExact = $false
+        break
+    }
+    $projectDocsCurrentRows += [ordered]@{
+        length = [long]$item.Length
+        path = $relativePath
+        sha256 = $actual
+    }
+}
+$projectDocsCurrentManifestJson = ConvertTo-Json `
+    -InputObject @($projectDocsCurrentRows) `
+    -Depth 3 `
+    -Compress
+$projectDocsCurrentManifestBytes = [System.Text.UTF8Encoding]::new($false).GetBytes(
+    $projectDocsCurrentManifestJson
+)
+$projectDocsCurrentManifestSha256 = [System.Convert]::ToHexString(
+    [System.Security.Cryptography.SHA256]::HashData(
+        $projectDocsCurrentManifestBytes
+    )
+).ToLowerInvariant()
+$projectDocsCurrentManifestExact = (
+    $projectDocsCurrentExact -and
+    $projectDocsCurrentManifestSha256 -ceq
+        'bbe5109b4b9788088f7ae374f79ca1300623840282a2d88472de9e3f93822199'
+)
+$projectDocsV012Exact = $true
+foreach ($entry in $projectDocsV012BlobIds.GetEnumerator()) {
+    $gitObject = "v0.1.2:skills/manage-project-docs/$($entry.Key)"
+    $actualBlob = (& git -C $repoRoot rev-parse $gitObject 2>$null | Out-String).Trim()
+    $gitObjectExit = $LASTEXITCODE
+    if ($gitObjectExit -ne 0 -or $actualBlob -cne $entry.Value) {
         $projectDocsV012Exact = $false
         break
     }
@@ -262,39 +308,33 @@ $projectDocsContinuityCommon = (
     $continuityRules -match 'PROJECT_STATE\.md#next-action-and-recovery'
 )
 $projectDocsDecision19Implicit = (
+    $projectDocsCurrentManifestExact -and
+    $projectDocsV012Exact -and
     $continuityRules -match 'visibly propose a Project Docs repair' -and
     $continuityRules -match 'confirms the concrete proposal' -and
     $continuityRules -match 'neither Skill invocation nor authorization' -and
     $continuityRules -notmatch '\$manage-project-docs' -and
     $projectDocsMetadata -match '(?m)^  allow_implicit_invocation: true$' -and
-    $projectDocsSkill -match 'Implicit selection permits only bounded read-only inspection' -and
-    $projectDocsSkill -match 'natural-language confirmation is sufficient' -and
+    $projectDocsSkill -match 'Implicit selection permits only the minimum bounded read-only inspection' -and
+    $projectDocsSkill -match 'explicit natural-language authorization' -and
+    $projectDocsSkill -match 'Project Docs, Work Charter, and Use PowerShell Safely are independent catalog\s+peers' -and
     $projectDocsStarter -match 'Activate or update when' -and
     $projectDocsStarter -match 'Update mode' -and
     $projectDocsAudit -match 'material project event -> durable fact class -> existing canonical owner -> update mode' -and
     $projectDocsAudit -match 'For an\s+existing project, map its current documents' -and
     $projectDocsMaintain -match 'Do not turn a current-state owner into a\s+chronological execution log' -and
     $projectDocsAnchor -match 'visibly propose a Project Docs repair' -and
-    $projectDocsAnchor -notmatch '\$manage-project-docs'
-)
-$projectDocsV012ExpectedExclusion = (
-    $projectDocsV012Exact -and
-    $continuityRules -match 'visibly propose a Project Docs repair' -and
-    $continuityRules -notmatch '\$manage-project-docs' -and
-    $projectDocsMetadata -match '(?m)^  allow_implicit_invocation: false$' -and
-    $projectDocsSkill -match 'Use only after the user explicitly invokes Project Docs' -and
-    $projectDocsAnchor -match '\$manage-project-docs' -and
-    $projectDocsDesign -match '## Work Charter `v0\.2\.0` Release-Set Applicability' -and
-    $projectDocsDesign -match 'Project\s+Docs is explicit-only' -and
-    $evalReadme -match '## Historical Project Docs M1R Forward Matrix \(Excluded From This Candidate\)'
+    $projectDocsAnchor -notmatch '\$manage-project-docs' -and
+    $projectDocsDesign -match '## Current Development SOURCE Contract' -and
+    $evalReadme -match '## Current Project Docs Development SOURCE Matrix'
 )
 Add-Check `
     -Name 'project-docs continuity baseline' `
     -Passed (
         $projectDocsContinuityCommon -and
-        ($projectDocsDecision19Implicit -or $projectDocsV012ExpectedExclusion)
+        $projectDocsDecision19Implicit
     ) `
-    -Expectation 'the frozen Decision 0019 fixture matches its implicit revision, or an exact v0.1.2 explicit-only Work Charter release set records that fixture as excluded without changing package bytes'
+    -Expectation 'current Project Docs SOURCE implements Decision 0019 proposal-only discovery while immutable v0.1.2 explicit-only blob identities remain exact historical controls'
 
 $safetyDocs = Join-Path $repoRoot 'evals\fixtures\project-docs-safety-boundaries'
 $serviceDocs = Join-Path $safetyDocs 'apps\service'
@@ -902,18 +942,22 @@ $workCharterStandard = Get-Content -Raw -Encoding UTF8 (
 Add-Check `
     -Name 'work-charter verdict convergence contract' `
     -Passed (
-        $workCharterSkill -match 'Every Result Notice.*exactly one\s+checkpoint-bound disposition' -and
-        $workCharterSkill -match 'terminal `ACCEPTED` with no next action and `DECISION_REQUIRED`' -and
-        $workCharterSkill -match 'terminal disposition grants no\s+new action and requires no acknowledgement' -and
+        $workCharterSkill -match 'Every Result Notice receives exactly one checkpoint-bound disposition' -and
+        $workCharterSkill -match 'terminal `ACCEPTED` with no\s+next action and\s+`DECISION_REQUIRED`' -and
+        $workCharterSkill -match 'terminal disposition grants\s+no new action\s+and requires no acknowledgement' -and
+        $workCharterSkill -match 'Name the notice recipient as part of that\s+route contract' -and
         $workCharterSkill -match 'material user decision one semantic owner' -and
         $workCharterSkill -match 'exact question or answer and its authority anchor' -and
+        $workCharterSkill -match 'not proof that the Harness rebuilt or freshly loaded the changed\s+instruction chain' -and
+        $workCharterSkill -match 'record their\s+normalized-text identities' -and
         $workCharterCoordination -match 'A successful send proves dispatch only' -and
+        $workCharterCoordination -match 'route contract names the notice recipient and the\s+return route' -and
         $workCharterCoordination -match '`CORRECTION_REQUIRED` with one bounded, verifiable same-scope delta' -and
         $workCharterCoordination -match '`ACCEPTED` with the next already-authorized tranche' -and
         $workCharterCoordination -match 'terminal `ACCEPTED` with no next action' -and
         $workCharterCoordination -match 'terminal `DECISION_REQUIRED` with the decision locator and semantic owner' -and
         $workCharterCoordination -match 'terminal disposition requires no acknowledgement' -and
-        $workCharterCoordination -match 'semantically\s+awaiting verdict even when its runtime status is idle' -and
+        $workCharterCoordination -match 'semantically\s+awaiting verdict even\s+when its runtime status is idle' -and
         $workCharterCoordination -match "relay the\s+user's exact answer and authority anchor once" -and
         $workCharterCoordination -match 'must not ask a\s+parallel version' -and
         $workCharterStandard -match 'two user-owned contract gates per phase' -and
@@ -949,9 +993,13 @@ Add-Check `
         $readiness.error_contract.id -eq 'cmdlet-nonterminating-vs-exit' -and
         @($readiness.parser_pairs).Count -eq 3 -and
         @($readiness.runtime_pairs).Count -eq 1 -and
+        @($readiness.pwsh_readiness_cases).Count -eq 4 -and
+        @($readiness.wsl_candidate_cases).Count -eq 3 -and
+        @($readiness.wsl_exit_cases).Count -eq 2 -and
+        @($readiness.selection_cases).Count -eq 6 -and
         @($readinessIds | Select-Object -Unique).Count -eq 4
     ) `
-    -Expectation 'fixture exposes parameter/error contracts, three parse pairs, and one automatic-variable runtime pair'
+    -Expectation 'fixture exposes parameter/error contracts, parser/runtime pairs, resolved-but-unusable readiness, application-only WSL cardinality and typed exits, destructive-filesystem selection, and bounded selection negatives'
 
 $directOutput = & python $verifierPath --input $jsonPath 2>&1
 $directExit = $LASTEXITCODE
@@ -1044,6 +1092,8 @@ Add-Check `
         $controllerRecord.package_manifests.total -eq 2 -and
         $controllerRecord.package_manifest_hash_guards.passed -eq 3 -and
         $controllerRecord.package_manifest_hash_guards.total -eq 3 -and
+        $controllerRecord.work_charter_convergence_guards.passed -eq 18 -and
+        $controllerRecord.work_charter_convergence_guards.total -eq 18 -and
         $controllerRecord.package_identity -ceq 'current-source-five-file-exact' -and
         $controllerRecord.sealed_locator_guards.passed -eq 4 -and
         $controllerRecord.sealed_locator_guards.total -eq 4 -and
@@ -1185,7 +1235,7 @@ $d50PrivateManifestPath = Join-Path $repoRoot (
 $gate2RunnerExpectedPrivateCarrierAbsent = (
     $gate2RunnerExit -eq 1 -and
     $null -eq $gate2RunnerRecord -and
-    $projectDocsV012ExpectedExclusion -and
+    $projectDocsV012Exact -and
     -not (Test-Path -LiteralPath $d50PrivateManifestPath) -and
     $d53RunnerSha256 -ceq $expectedReleasePrepRunnerSha256 -and
     $gate2RunnerText.Contains('Cannot find path') -and

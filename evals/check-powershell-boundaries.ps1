@@ -57,6 +57,81 @@ function Get-ParseErrors {
     return @($parseErrors)
 }
 
+function Test-SyntheticPowerShellReadiness {
+    param(
+        [Parameter(Mandatory = $true)]
+        [object]$Case
+    )
+
+    $normalizedLines = @(
+        (([string]$Case.stdout -replace "`r`n?", "`n") -split "`n") |
+            ForEach-Object { $_.Trim() } |
+            Where-Object { $_.Length -gt 0 }
+    )
+    $outputValid = (
+        $normalizedLines.Count -eq 1 -and
+        $normalizedLines[0] -match '^\d+\.\d+(?:\.\d+)?(?:-[0-9A-Za-z.-]+)?$'
+    )
+    return (
+        [int]$Case.resolved_count -eq 1 -and
+        [bool]$Case.launch_succeeded -and
+        [int]$Case.exit_code -eq 0 -and
+        $outputValid
+    )
+}
+
+function Get-SyntheticApplicationSelection {
+    param(
+        [Parameter(Mandatory = $true)]
+        [object[]]$Discovered
+    )
+
+    $applications = @(
+        $Discovered | Where-Object { [string]$_.command_type -ceq 'Application' }
+    )
+    return [pscustomobject]@{
+        Count = $applications.Count
+        Selected = if ($applications.Count -eq 1) { $applications[0] } else { $null }
+    }
+}
+
+function Get-CanonicalPackageManifestSha256 {
+    param(
+        [Parameter(Mandatory = $true)]
+        [string]$Root
+    )
+
+    $rootFull = (Resolve-Path -LiteralPath $Root).Path
+    [string[]]$relativePaths = @(
+        Get-ChildItem -LiteralPath $rootFull -Recurse -File -Force |
+            ForEach-Object {
+                $_.FullName.Substring($rootFull.Length + 1).Replace('\', '/')
+            }
+    )
+    [System.Array]::Sort($relativePaths, [System.StringComparer]::Ordinal)
+    $rows = @()
+    foreach ($relativePath in $relativePaths) {
+        $path = Join-Path $rootFull $relativePath.Replace('/', '\')
+        $item = Get-Item -LiteralPath $path -Force -ErrorAction Stop
+        $rows += [ordered]@{
+            length = [long]$item.Length
+            path = $relativePath
+            sha256 = (Get-FileHash -Algorithm SHA256 -LiteralPath $path).Hash.ToLowerInvariant()
+        }
+    }
+    $json = ConvertTo-Json -InputObject @($rows) -Depth 3 -Compress
+    $bytes = [System.Text.UTF8Encoding]::new($false).GetBytes($json)
+    $sha256 = [System.Security.Cryptography.SHA256]::Create()
+    try {
+        return ([System.BitConverter]::ToString(
+            $sha256.ComputeHash($bytes)
+        )).Replace('-', '').ToLowerInvariant()
+    }
+    finally {
+        $sha256.Dispose()
+    }
+}
+
 function Invoke-ChildPowerShell {
     param(
         [Parameter(Mandatory = $true)]
@@ -121,10 +196,16 @@ Assert-True $frontmatterMatch.Success `
     'Skill metadata frontmatter could not be isolated.'
 $metadataText = $frontmatterMatch.Groups[1].Value
 $selectionMarkers = @(
-    '.ps1'
-    'pwsh'
-    'powershell.exe'
-    'non-trivial PowerShell'
+    'non-trivial PowerShell workflow'
+    'material parser'
+    'version'
+    'argument'
+    'stream'
+    'encoding'
+    'path'
+    'permission'
+    'destructive filesystem'
+    'WSL boundary'
     'before the first relevant command'
 )
 Assert-True (
@@ -132,15 +213,17 @@ Assert-True (
 ) 'Skill metadata is missing a required pre-error selection marker.'
 Assert-True (
     $metadataText -match 'ordinary version-independent cmdlets' -and
+    $metadataText -match 'simple documented native calls' -and
+    $metadataText -match 'general Windows work' -and
     $metadataText -match 'POSIX-only work'
-) 'Skill metadata lost the ordinary-cmdlet or POSIX-only negative selection.'
+) 'Skill metadata lost a required ordinary or near-neighbor negative selection.'
 Assert-True (
     $caseText -match '## Pre-Error Selection Contract' -and
-    $caseText -match [regex]::Escape('.ps1') -and
-    $caseText -match [regex]::Escape('pwsh') -and
-    $caseText -match [regex]::Escape('powershell.exe') -and
     $caseText -match 'non-trivial PowerShell' -and
+    $caseText -match [regex]::Escape('Remove-Item -Recurse') -and
     $caseText -match [regex]::Escape('Get-Date') -and
+    $caseText -match 'simple documented contract' -and
+    $caseText -match 'general Windows' -and
     $caseText -match 'POSIX-only'
 ) 'The eval case does not preserve positive and near-neighbor selection contracts.'
 Assert-True (
@@ -156,8 +239,89 @@ Assert-True (
     $readiness.parameter_contract.supported_parameter -eq 'Path' -and
     $readiness.error_contract.cmdlet -eq 'Copy-Item' -and
     @($readiness.parser_pairs).Count -eq 3 -and
-    @($readiness.runtime_pairs).Count -eq 1
+    @($readiness.runtime_pairs).Count -eq 1 -and
+    @($readiness.pwsh_readiness_cases).Count -eq 4 -and
+    @($readiness.wsl_candidate_cases).Count -eq 3 -and
+    @($readiness.wsl_exit_cases).Count -eq 2 -and
+    @($readiness.selection_cases).Count -eq 6
 ) 'The command-readiness fixture schema or pair cardinality changed.'
+Assert-True (
+    (Get-CanonicalPackageManifestSha256 -Root (
+        Join-Path $repoRoot 'skills\use-powershell-safely'
+    )) -ceq 'e0cdcb256c38ddf4c1c0fe31f8664c7c51f66397e08a01ff5a3e9181fd9ef1bd'
+) 'The current PowerShell package manifest does not match its exact SOURCE bytes.'
+
+foreach ($case in @($readiness.pwsh_readiness_cases)) {
+    Assert-True (
+        (Test-SyntheticPowerShellReadiness -Case $case) -eq
+            [bool]$case.expected_usable
+    ) "The pwsh readiness case '$($case.id)' produced the wrong usability result."
+}
+
+foreach ($case in @($readiness.wsl_candidate_cases)) {
+    $selection = Get-SyntheticApplicationSelection -Discovered @($case.discovered)
+    $selectedPath = if ($null -eq $selection.Selected) {
+        $null
+    }
+    else {
+        [string]$selection.Selected.path
+    }
+    $expectedPath = if ($null -eq $case.expected_selected_path) {
+        $null
+    }
+    else {
+        [string]$case.expected_selected_path
+    }
+    $pathMatches = if ($null -eq $selectedPath -or $null -eq $expectedPath) {
+        $null -eq $selectedPath -and $null -eq $expectedPath
+    }
+    else {
+        $selectedPath -ceq $expectedPath
+    }
+    Assert-True (
+        $selection.Count -eq [int]$case.expected_application_count -and
+        $pathMatches
+    ) "The WSL candidate case '$($case.id)' violated application-only cardinality."
+}
+
+foreach ($case in @($readiness.wsl_exit_cases)) {
+    $typedExit = [int]$case.exit_code
+    Assert-True (
+        ($typedExit -eq 0) -eq [bool]$case.expected_success
+    ) "The WSL exit case '$($case.id)' produced the wrong typed-exit result."
+}
+
+$expectedSelection = @{
+    'material-nontrivial-powershell' = $true
+    'destructive-filesystem-operation' = $true
+    'ordinary-version-independent-cmdlet' = $false
+    'simple-documented-native-call' = $false
+    'general-windows-work' = $false
+    'posix-only' = $false
+}
+foreach ($case in @($readiness.selection_cases)) {
+    Assert-True (
+        $expectedSelection.ContainsKey([string]$case.id) -and
+        [bool]$case.expected_select -eq $expectedSelection[[string]$case.id]
+    ) "The selection case '$($case.id)' does not match the bounded trigger contract."
+}
+
+Assert-True (
+    $nativeReferenceText -match '\$pwshUsable' -and
+    $nativeReferenceText -match 'stdout is empty' -and
+    $nativeReferenceText -match 'malformed output'
+) 'The native reference does not reject resolved-but-unusable pwsh probes.'
+
+$wslReferencePath = Join-Path $repoRoot (
+    'skills\use-powershell-safely\references\windows-wsl-boundaries.md'
+)
+$wslReferenceText = [System.IO.File]::ReadAllText($wslReferencePath)
+Assert-True (
+    $wslReferenceText -match 'Get-Command wsl\.exe -CommandType Application -All' -and
+    $wslReferenceText -match '\$wslCandidates\.Count -eq 0' -and
+    $wslReferenceText -match '\$wslCandidates\.Count -gt 1' -and
+    $wslReferenceText -match '\$wslExitCode = \[int\]\$LASTEXITCODE'
+) 'The WSL reference does not preserve application-only cardinality and typed exit.'
 
 foreach ($pair in @($readiness.parser_pairs)) {
     $invalidErrors = @(Get-ParseErrors -Source $pair.invalid)

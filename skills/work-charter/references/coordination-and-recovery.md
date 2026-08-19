@@ -174,8 +174,20 @@ or observation; changing one does not reset approvals, completed corrections,
 consumed evidence opportunities, or open findings. An authorized material
 successor or split keeps a predecessor pointer and the applicable history.
 
-For every Result Notice, the assessment owner returns exactly one
-checkpoint-bound disposition through the lower role's declared return route:
+When a material governing source changes, the Session that observed the old
+rules may reread the new text for context and complete an already-permitted
+closeout. That does not prove the Harness rebuilt or freshly loaded the changed
+instruction chain. Before the next action whose coordination, authority, or
+evidence contract depends on the new rules, start a fresh Session or run,
+identify every applicable governing source, record a normalized-text identity
+for each, and requalify the affected conditions. Reuse unaffected evidence and
+history; do not turn a ruleset transition into a blanket rerun or a reset of
+approvals, corrections, consumed evidence, or open findings.
+
+For every Result Notice, its route contract names the notice recipient and the
+return route. That recipient returns exactly one checkpoint-bound disposition
+through the return route unless independent assessment is required; in that
+case, the named assessment owner produces the disposition:
 
 1. `CORRECTION_REQUIRED` with one bounded, verifiable same-scope delta;
 2. `ACCEPTED` with the next already-authorized tranche, when one exists;
@@ -189,9 +201,10 @@ portable message contract, not a required receipt file or public state
 machine. A lower role that has returned its Result Notice stops polling and
 remains idle; the upper role likewise stops after returning its disposition.
 A terminal disposition requires no acknowledgement, preventing callback
-ping-pong. Until the disposition is delivered, the lower role is semantically
-awaiting verdict even when its runtime status is idle; silence is never
-acceptance.
+ping-pong. A disposition sent to the wrong route, omitted, duplicated, or
+bound to a stale checkpoint is not convergence. Until the one current
+disposition is delivered, the lower role is semantically awaiting verdict even
+when its runtime status is idle; silence is never acceptance.
 
 Assign each material user question one semantic owner at a stable decision
 locator and revision. A non-owner may forward that exact question or relay the

@@ -34,22 +34,22 @@ $skill-installer Install the Skill from https://github.com/junwei529/skills/tree
 安装不等于调用、目标项目采用、写入或发布授权。不要把持续移动的 `main`
 branch 当作 stable identity。
 
-## 调用
+## 调用与选择
 
-Codex 只有在用户显式要求调用 Project Docs 后才使用它。未点名或未显式调用
-Project Docs 的文档治理请求、authority/evidence/routing/recovery 症状，以及
-持久化项目规则都不会加载该 Skill。
+无歧义的手动 token 是 `$manage-project-docs`，UI 名称是 **Project Docs**。
+直接的文档治理意图，或高置信度的 authority、evidence、routing、recovery 症状，
+也可以选择当前 development SOURCE，但只允许最小范围的只读检查和可见方案。
+选择或加载 body 不授权采用、持久化、结构或 canonical owner 变更，也不授权写入。
 
-显式调用：
+手动调用：
 
 ```text
 $manage-project-docs 审计此仓库的项目文档治理。未经单独批准，不要进行结构变更。
 ```
 
-具体方案可见后，用户用自然语言作出的无歧义确认只授权方案列明的目标项目变更。
-经授权完成采用后，普通任务无需加载 Project Docs，而是遵循目标项目持久化的
-路由。损坏的路由可以提示用户调用 Project Docs，但路由本身不会调用 Skill，也
-不授权修复。
+每次写入都需要用户以自然语言明确授权其具体可见效果。经授权完成采用后，普通
+任务无需加载 Project Docs，而是遵循目标项目持久化的路由。路由损坏时可以重新
+进入 proposal-only 行为，但路由与 Skill 选择都不授权修复。
 
 对于新项目，Project Docs 从五项最小逻辑职责开始；当一个合并 starter 是最小的
 已授权采用方式时，可以使用它。对于已有项目，它映射现存文档；路由充分时保留
@@ -57,8 +57,8 @@ $manage-project-docs 审计此仓库的项目文档治理。未经单独批准�
 
 ## 安全边界
 
-除非另行授权更新，否则审计保持只读。首次采用、新模块、拆分、合并、重命名、
-迁移、权威变更和 canonical owner 变更都需要显式结构授权。范围、权限、writer
+除非另行授权更新，否则审计保持只读。每次写入、首次采用、新模块、拆分、合并、
+重命名、迁移、权威变更和 canonical owner 变更都需要针对具体效果的显式授权。范围、权限、writer
 归属或证据未解决时，Project Docs 会在不安全写入前停止。它不是 daemon，也不会
 在后台扫描每个任务。
 
@@ -70,8 +70,10 @@ exact-commit candidate identity 与 tag-pinned 成熟布局 `NOOP` canary。immu
 保留这六个 exact package 文件，将 Project Docs 分类为 `unchanged`，并增加 fresh
 active-stable loaded-copy 证明。对一个故意不完整的 synthetic authority map，结果如实
 返回 `PROPOSE`；这属于 identity 与 bounded audit behavior，不是新的 Project Docs
-package 或更广泛 efficacy claim。后续 Decision 0019 的 implicit-selection 与
-demand-driven-module 开发 revision 仍被保留，但不属于本 release。稳定安装层的
+package 或更广泛 efficacy claim。当前未发布的六文件 SOURCE 已提升 Decision
+0019，并以 deterministic source、fixture 和 current-identity 检查约束；不可变的
+explicit-only `v0.1.2`/`v0.2.0` package 仍作为历史 control。该 revision 的 fresh
+loaded-copy selection、candidate、installation、release 与写入持久化仍未证明。稳定安装层的
 变更行为、广泛触发 telemetry、因果效果、token 节省和跨 Harness 等价性均未
 得到证明。参见[验证](VERIFICATION.md)和[状态](STATE.md)。
 

@@ -1,6 +1,6 @@
 # PowerShell Verification
 
-Last updated: 2026-08-15
+Last updated: 2026-08-19
 
 ## Claim Ledger
 
@@ -11,6 +11,8 @@ Last updated: 2026-08-15
 | P1 ordinary version-independent cmdlet and POSIX-only negatives remain explicit | verified statically and observed as two bounded fresh non-selection controls |
 | P1 revision-relative pre-error selection | `PRE_ERROR_SELECTION_OBSERVED / NARROW_PASS`: the exact P1 copy loaded before the first risky command in one matched positive, while immutable `v0.1.2` did not load for the same request |
 | P1 parameter, cmdlet-error, parser, and automatic-variable readiness | 41 focused assertions pass under PowerShell 7 and Windows PowerShell 5.1 |
+| Current exact-runtime and WSL readiness contract | 59 focused assertions pass under exact PowerShell 7 and Windows PowerShell 5.1 executables, including exact current-package manifest identity, resolved-but-nonzero/empty/malformed `pwsh`, application-only WSL candidate cardinality, immediate typed exit handling, and destructive-filesystem pre-error selection; no live WSL was invoked |
+| Current narrowed trigger boundary | deterministic metadata/case checks retain pre-error selection for genuinely non-trivial PowerShell and destructive filesystem work while excluding ordinary cmdlets, simple documented native commands without a material boundary, general Windows work, and POSIX-only tasks; current Harness selection remains unproved |
 | Coherent `v0.2.0` release package identity | PowerShell is `changed`; exact reviewed P1 tree `d8bf6dc74f106c386653cb3b598d50e790c38348` is preserved from SOURCE commit `30668743...`, while `a7637a6...` contributes evidence-sync facts but is not a new SOURCE revision |
 | Released portable guidance handles the recorded native, text, WSL, version, locale, sandbox, and destructive boundaries | seven fresh development scenarios pass |
 | Ordinary cmdlet and POSIX-only work remain outside the Skill | catalog-assisted and controlled native negatives pass |
@@ -42,6 +44,37 @@ plus native/process and text/encoding references and returned a complete
 non-executing command shape. The target command did not execute; live WSL/Bash,
 sandbox-denial injection, shadow use, broad behavior, and efficacy remain
 unproved.
+
+## 2026-08-19 Current Development SOURCE Identity
+
+The current unreleased five-file package uses package-relative ordinal path
+ordering, lexicographically ordered `length`/`path`/`sha256` object keys,
+UTF-8 without BOM, and no insignificant JSON whitespace. Its canonical
+manifest SHA-256 is
+`e0cdcb256c38ddf4c1c0fe31f8664c7c51f66397e08a01ff5a3e9181fd9ef1bd`:
+
+| Current SOURCE path | Bytes | SHA-256 |
+|---|---:|---|
+| `skills/use-powershell-safely/SKILL.md` | 10610 | `e826de38742bf33fdf4d4dfc069df11bb7bef6ec6cc66255a684b7b35b9e9a8c` |
+| `skills/use-powershell-safely/agents/openai.yaml` | 276 | `3b61f94eec7d23407bd114a80281e2ddee7ea463d39cfc50d1ab3d172cf142df` |
+| `skills/use-powershell-safely/references/native-process-boundaries.md` | 26449 | `a95d399186da62611f2c399fea53793ed1bd6cfb748ae25f39b78b85772042df` |
+| `skills/use-powershell-safely/references/text-encoding-boundaries.md` | 9002 | `ca1fb4c3caea1c045ab06ebd348a9cfd39863e86faf12e4a7a2548f172a69f96` |
+| `skills/use-powershell-safely/references/windows-wsl-boundaries.md` | 8172 | `a492416e56d669fca71a5d3f3d94e744301959eda45780913091f489360e55fa` |
+
+The exact boundary checker passes 59 assertions under both required runtimes.
+It preserves the existing multi-candidate `ApplicationInfo` object/cardinality
+regression and adds synthetic nonzero/empty/malformed `pwsh` readiness, WSL
+zero/one/many application-candidate and typed-exit checks, destructive-filesystem
+pre-error selection, plus ordinary cmdlet, simple near-neighbor, general-Windows,
+and POSIX-only negatives. No
+live WSL, installation, elevation, profile, policy, locale, registry, host
+configuration, model selection, or provider call occurred. The unrelated
+empty-byte-array closeout incident is not reproduced by current SOURCE and is
+not promoted as public guidance.
+
+Immutable `v0.2.0`, P1, earlier candidate, RC, stable, and rollback identities
+below remain historical controls and are not relabelled by this development
+manifest.
 
 ## P1 SOURCE Identity
 

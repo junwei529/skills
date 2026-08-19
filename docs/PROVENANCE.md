@@ -56,6 +56,10 @@ general efficacy, prevalence, compatibility, or a universal platform rule.
   discovery mappings and generated indexes out of the public package, and build
   release candidates from an exact commit through a clean candidate checkout
   or archive rather than an installed, cached, or dirty copy.
+- Bind an editable development revision with a distinct content-only current-
+  source identity when deterministic consumers need it. Preserve immutable
+  candidate, tag, installed-copy, stable, and release identities as historical
+  controls; never relabel them when current SOURCE is promoted or changes.
 - Describe advisory behavior as guidance, not deterministic enforcement.
 - Keep efficacy, token, portability, and SHICE claims unverified until pinned evaluations support them.
 

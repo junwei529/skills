@@ -85,11 +85,20 @@ Planner acceptance 本身不等于 durable closeout。项目要求记录 assessm
 由 authoritative owner 完成记录后才能视为关闭。新的实质变化只会使其实际影响的
 证据失效。
 
-使用角色时，Result Notice 不会只停留在上游 task：assessor 必须针对该 checkpoint
-恰好返回一个 disposition，包括 terminal acceptance 或 decision-required stop。
-terminal disposition 不要求 acknowledgement，角色之间也不靠 polling 等待。同一个
-实质用户问题只有一个 owner；其他角色只精确 relay 问题或答案，不再重复询问。这是
-coordination obligation，不是 Harness 已经成功交付消息的保证。
+使用角色时，每个 Result Notice 都必须通过其声明的 return route，针对该 checkpoint
+恰好收到一个 disposition。route contract 必须命名 notice recipient；默认由该
+recipient 拥有返回，需要独立 assessment 时则由命名的 assessor 拥有。缺失、错误、
+重复或绑定过时 checkpoint 的返回都仍是
+awaiting verdict，即使下游 role 的 runtime 状态为 idle。terminal disposition 不要求
+acknowledgement，角色之间也不靠 polling 等待。同一个实质用户问题只有一个 owner；
+其他角色只精确 relay 问题或答案，不再重复询问。这是 coordination obligation，不是
+Harness 已经成功交付消息的保证。
+
+当实质 governing instruction 或 Skill SOURCE 改变时，旧 Session 可以为理解上下文而
+重读，并完成已经获准的 closeout；这种手工重读不证明 Harness 已重建或 fresh-loaded
+变更后的 instruction chain。依赖新规则的下一项受影响动作必须使用 fresh Session 或
+run，记录适用来源的 normalized-text identity，并只重新资格化受影响条件；它不会重置
+批准、evidence consumption、finding 或未受影响证据。
 
 ## 安全边界
 
@@ -116,6 +125,9 @@ $work-charter 约束此项有后果的工作、权限、证据和恢复。
 
 ## 当前已验证
 
+- 当前未发布的五文件 development SOURCE 已有 reciprocal verdict convergence 与
+  changed-ruleset reload semantics 的确定性 manifest 和 mutation 检查。这属于
+  SOURCE/evaluation 证据，不是 installed loaded-copy 或 product-behavior 证据。
 - Immutable release `v0.2.0` 包含精确五文件 Work Charter tree
   `97f0d9de...` 和 canonical manifest `04c382a4...`。
 - [验证账本](VERIFICATION.md)记录了有界 release surface 的精确副本安装与

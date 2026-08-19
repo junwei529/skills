@@ -16,16 +16,19 @@ Use two distinct experiment types:
    unrelated Skills remain unloaded.
 2. **Behavior tests** — explicitly invoke one `$skill-name`. Measure whether the agent follows that skill's workflow and boundaries; do not score skill selection.
 
-Project Docs selection is revision-bound. The Work-Charter-only `v0.2.0`
-prerelease candidate restores immutable `v0.1.2`, whose policy is explicit-
-only: `$manage-project-docs` is the manual behavior path and the package does
-not implicitly load. The later Decision 0019 development revision allowed
-implicit invocation for direct governance intent and high-confidence
-authority, evidence, routing, or recovery symptoms, but that revision and its
-M1R selection contract are preserved historical/future development excluded
-from this candidate. Project Docs continuity begins as a persistence test: no
-Skill is named or preselected, and the target-project rule must be sufficient
-without loading Project Docs.
+Project Docs selection is revision-bound. Immutable `v0.1.2` remains the
+explicit-only historical control: `$manage-project-docs` is its manual behavior
+path and that package does not implicitly load. Decision 0019 now owns the
+distinct current development SOURCE. High-confidence documentation-governance
+intent or authority/evidence/routing/recovery symptoms may select it for only a
+minimum bounded read-only inspection and visible proposal. Selection or body
+loading grants no adoption, persistence, canonical-owner change, write, Git,
+or external authority; every such effect needs explicit natural-language
+authorization of the concrete visible effects. `$manage-project-docs` remains
+the unambiguous manual token and `Project Docs` remains the UI display name.
+Project Docs continuity begins as a persistence test: no Skill is named or
+preselected, and a valid target-project rule must be sufficient without loading
+Project Docs; broken governance may re-enter proposal-only behavior.
 Work Charter allows native implicit selection. An indirect installed-Skills
 request or symptom-only match may remain metadata-only or load the exact
 `SKILL.md`; either way, its first response remains proposal-only and must not
@@ -725,8 +728,8 @@ Token or context efficiency is a secondary measurement, not a pass condition. A 
 | [Work Charter midstream proposal](cases/work-charter-midstream.md) | `work-charter` | Recognize continuity symptoms and propose without mutation |
 | [Work Charter Planner/Executor](cases/work-charter-planner-executor.md) | `work-charter` | Run a one-writer loop with convergent correction accounting, reciprocal checkpoint-bound verdicts, one decision owner, and independent assessment |
 | [Work Charter Standard O/P/E](cases/work-charter-standard.md) | `work-charter` | Exercise visible reuse of an approved standing policy, two normal user contract gates, O/P/E verdict returns, and one bounded phase |
-| [Work Charter recovery integrity](cases/work-charter-recovery-integrity.md) | `work-charter` | Exercise resume, successor history, qualification/consumption separation, fail-closed authority, assessment recording, missing verdict returns, single-owner question relay, delivery/writer degradation, dirty-state, and multi-worktree boundaries across six variants, plus one direct package-denial/Harness-preload boundary |
-| [PowerShell boundary](cases/powershell-boundary.md) | `use-powershell-safely` | Select before explicit non-trivial PowerShell and validate command readiness before diagnosing boundary failures |
+| [Work Charter recovery integrity](cases/work-charter-recovery-integrity.md) | `work-charter` | Exercise resume, successor history, changed-ruleset reload, qualification/consumption separation, fail-closed authority, every-Notice disposition convergence, single-owner question relay, delivery/writer degradation, dirty-state, and multi-worktree boundaries across six variants, plus one direct package-denial/Harness-preload boundary |
+| [PowerShell boundary](cases/powershell-boundary.md) | `use-powershell-safely` | Select before genuinely non-trivial PowerShell, preserve ordinary/simple/POSIX negatives, and validate exact-runtime and WSL readiness boundaries synthetically |
 
 ## Fixture Preconditions
 
@@ -745,8 +748,10 @@ reparse-point containment of setup and inspection helpers, the shared Work
 Charter loop, the visible-reuse Standard starting boundary, six recovery-
 integrity variants, the
 direct-versus-wrapper PowerShell boundary, the UTF-8-without-BOM input, the
-parameter/error manifests plus three parse pairs and one automatic-variable
-runtime pair, and the tracked Codex evidence-controller regression. It does not
+parameter/error manifests plus three parse pairs, one automatic-variable
+runtime pair, exact-runtime/WSL readiness and selection negatives, and the
+tracked Codex evidence-controller regression with eighteen Work Charter convergence
+guards. It does not
 score an agent or prove Harness selection efficacy.
 
 Run the controller regression directly when changing its contract or fixtures:
@@ -770,15 +775,19 @@ pwsh -NoProfile -File .\evals\check-powershell-boundaries.ps1
 powershell.exe -NoProfile -File .\evals\check-powershell-boundaries.ps1
 ```
 
-It uses a task-specific temporary root to check static pre-error selection
-markers and negatives; `New-Item` parameter support; cmdlet non-terminating
+It uses a task-specific temporary root to run 59 assertions over exact current-
+package identity and static pre-error selection markers, a destructive-
+filesystem positive, and ordinary/simple/general-Windows/POSIX negatives;
+`New-Item` parameter support; cmdlet non-terminating
 error, fail-closed, and artifact-verification shapes; three invalid/valid
 parser pairs; the `$Matches` runtime pair; multi-candidate application
-discovery; scalar normalization; UTF-8/LF bytes; one-base path resolution; and
-nonrecursive confirmed-Junction removal under PowerShell 7 and Windows
-PowerShell 5.1. It is not a fresh-context behavior or model-selection test,
-live Bash/WSL test, sandbox-denial injection, or proof for other parameter,
-cmdlet, automatic-variable, syntax, or reparse-point families.
+discovery; resolved-but-nonzero/empty/malformed `pwsh` probes; application-only
+WSL zero/one/many discovery and immediate typed exit handling; scalar
+normalization; UTF-8/LF bytes; one-base path resolution; and nonrecursive
+confirmed-Junction removal under PowerShell 7 and Windows PowerShell 5.1. It
+does not invoke live WSL and is not a fresh-context behavior or model-selection
+test, sandbox-denial injection, or proof for other parameter, cmdlet,
+automatic-variable, syntax, or reparse-point families.
 
 ### 2026-08-15 PowerShell P1 bounded selection evidence
 
@@ -803,6 +812,22 @@ stable, or release readiness. Detailed controller artifacts remain ignored and
 private;
 only this sanitized method/result boundary and the per-Skill evidence ledger
 are tracked.
+
+### 2026-08-19 Work Charter deterministic convergence contract
+
+The content-only five-row `current_source_package` manifest identifies the
+live editable Work Charter package as
+`55fe27c17b5bd023b19a59f4f9517e83db057a528dba8f9844467f11555ecf3f`.
+Historical candidate and release manifests remain immutable. A baseline plus
+fifteen mutation rows cover wrong, missing, duplicate, and stale verdict routes;
+the named assessor plus wrong or missing disposition producers; a missing
+notice recipient; idle-as-acceptance; terminal ACK ping-pong; second or missing
+semantic question owners; altered or missing question/relay identities; and a
+superseded question revision. Source markers also require
+a fresh Session/run and normalized-text rule identities before the next
+affected action relies on changed governing rules. The checker validates
+portable SOURCE and fixture consistency only; it is not a task API, receipt
+store, generic transport controller, or behavior acceptance gate.
 
 ## Work Charter v0.2 Staged Matrix Definition
 
@@ -1349,13 +1374,17 @@ the attempt or evidence history. If Cycle 2 Review 5 still requires mutation or
 another review, closeout stops at `DECISION_REQUIRED`; no later reset is
 authorized.
 
-## Historical Project Docs M1R Forward Matrix (Excluded From This Candidate)
+## Current Project Docs Development SOURCE Matrix
 
-This matrix belongs to the later Decision 0019 material selection and behavior
-revision. It remains the evaluation contract for any future resumption of that
-revision, but it is not a release gate, behavior claim, or acceptance surface
-for the exact `v0.1.2` Project Docs package in the Work Charter `v0.2.0`
-prerelease candidate. For that excluded revision, keep four conditions
+Decision 0019 owns the distinct current six-file Project Docs development
+SOURCE. Its canonical path-sorted content manifest is
+`bbe5109b4b9788088f7ae374f79ca1300623840282a2d88472de9e3f93822199`.
+The fixture checker separately verifies the six immutable `v0.1.2` control
+blobs from their Git objects, so current development identity does not relabel
+an old candidate, installed copy, stable evidence, or release. This matrix is
+the future evaluation contract for the current revision; tranche B runs only
+deterministic metadata/case/source checks and creates no behavior-model,
+candidate, installed-copy, or release evidence. Keep four future conditions
 separate:
 
 1. **Native baseline** — run a matched documentation-governance request with

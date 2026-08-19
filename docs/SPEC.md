@@ -1,6 +1,6 @@
 # Product Specification
 
-Last updated: 2026-08-02
+Last updated: 2026-08-19
 
 ## Product Goal
 
@@ -106,6 +106,26 @@ For every Skill and operation, these surfaces remain distinct:
 
 Permission on one surface, Skill, or operation does not propagate to another.
 
+The three products are independent selection peers. Project Docs owns
+documentation-governance semantics: high-confidence governance intent or
+authority/evidence/routing/recovery symptoms may produce only a minimum bounded
+read-only inspection and visible proposal until the user explicitly authorizes
+the concrete adoption, canonical-owner, structural, or write effects. Work
+Charter owns consequential-work coordination and applies a fresh-Session/
+normalized-ruleset boundary when the next affected action depends on materially
+changed governing rules. PowerShell owns material Windows parser, version,
+argument, stream, encoding, path, permission, process, and WSL boundaries while
+ordinary cmdlets, simple native commands without such a boundary, general
+Windows work, and POSIX-only work stay negative. No peer grants another read,
+write, Git, installation, release, or external authority.
+
+When Work Charter roles exchange a Result Notice, every notice receives one
+checkpoint-bound disposition through its declared route. Missing, wrong,
+duplicate, or stale returns and runtime-idle state are not acceptance;
+terminal dispositions receive no acknowledgement, and one semantic owner asks
+each material user question. These are advisory product requirements, not a
+task API or deterministic message-delivery guarantee.
+
 ## Source, Version, And Distribution Contract
 
 - `skills/<skill-name>/` in an approved repository checkout is the only
@@ -169,6 +189,8 @@ v0.1 does not provide:
   engine, or compliance platform;
 - automatic role delivery, process locking, writer enforcement, background
   polling, integration, or release;
+- a generic coordination controller, callback broker, receipt database, or
+  host-level enforcement claim;
 - Wiki, Jira, Notion, or Confluence synchronization;
 - a documentation database, mandatory mapping registry, provenance graph,
   generator orchestration, or continuous drift scanner;

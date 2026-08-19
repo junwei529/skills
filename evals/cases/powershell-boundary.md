@@ -34,11 +34,14 @@ selection efficacy without a separately authorized model evidence gate.
 
 | Request shape | Expected selection |
 |---|---|
-| Create or update a non-trivial `.ps1` script before running it | select before the first relevant command |
-| Invoke `pwsh -NoProfile` for a multiline PowerShell workflow | select before the first relevant command |
+| Create or update a non-trivial `.ps1` script with a material parser, parameter, stream, path, permission, or process boundary | select before the first relevant command |
+| Invoke `pwsh -NoProfile` for a multiline workflow with a material parser, version, argument, stream, encoding, or path boundary | select before the first relevant command |
 | Invoke `powershell.exe` for version-sensitive legacy behavior | select before the first relevant command |
-| Build loops, `try`/`catch`, regex, complex pipelines, native execution, or child-process handling in PowerShell | select before generation or execution |
+| Build loops, `try`/`catch`, regex, complex pipelines, native execution, or child-process handling when they create a material PowerShell boundary | select before generation or execution |
+| Run destructive PowerShell filesystem work such as `Remove-Item -Recurse` against a directory | select before generation or execution; authorization and literal-target containment remain separate |
 | Run an ordinary version-independent cmdlet such as `Get-Date` with no boundary risk or symptom | do not select |
+| Run a simple documented native call with no boundary symptom | do not select |
+| Perform general Windows work with no material PowerShell boundary | do not select |
 | Run a POSIX-only `grep` pipeline in Bash | do not select |
 
 ## User Request

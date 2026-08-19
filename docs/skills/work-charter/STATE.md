@@ -9,13 +9,16 @@ Canonical editable SOURCE is the five-file package under
 `manage-large-tasks` path is retired without an alias or second discovery
 entry.
 
-The current unreleased SOURCE revision adds reciprocal checkpoint-bound role
-dispositions and single-owner user-decision relay. It distinguishes runtime
-`idle` from semantic `AWAITING_VERDICT`, requires terminal no-action returns
-without acknowledgement, and leaves concrete Codex task APIs and native-review
-ownership in host guidance. Decision 0016 owns the amended rationale. This
-working revision is not part of immutable `v0.2.0`, has no fresh loaded-copy or
-efficacy evidence, and authorizes no installation, release, or external effect.
+The current unreleased SOURCE revision applies reciprocal checkpoint-bound
+role dispositions to every Result Notice, preserves single-owner user-decision
+relay, and adds the changed-governing-ruleset reload boundary. It distinguishes
+runtime `idle` from semantic `AWAITING_VERDICT`, rejects missing, wrong,
+duplicate, and stale verdict routes, requires terminal no-action returns
+without acknowledgement, and leaves concrete Codex task APIs, native-review
+ownership, and Git/worktree policy in host guidance. Decision 0016 owns the
+accepted reciprocal-disposition rationale. This working revision is not part
+of immutable `v0.2.0`, has no fresh loaded-copy or efficacy evidence, and
+authorizes no installation, release, or external effect.
 
 Historical public control candidate
 `c42eef392a5b9f58bbee64aa73ffb603a6fb6c29` contains the five-file package
@@ -463,12 +466,12 @@ SOURCE by itself.
 
 ## Current Writer
 
-The current bounded writer is the task-dedicated worktree on
-`codex/work-charter-verdict-callbacks`. It owns only the reciprocal-verdict and
-single-question-owner SOURCE, evaluation, rationale, state, verification, and
-handoff correction recorded by the current documentation-impact closure. The
-index remains empty; no commit, push, installation, publication, release, or
-cleanup is authorized by this working state.
+The current bounded repository writer is the ES-C1 tranche B successor on
+`codex/es-c1-coordination-contracts`. It owns only the approved current-SOURCE,
+deterministic evaluation, mapped documentation, verification, and one local
+commit window. The accepted tranche A commit remains immutable. No push,
+installation, publication, release, integration, cleanup, or host effect is
+authorized by this working state.
 
 Historical WC-PV1 work is closed at local commit `7720fe1...`; its writer was
 relinquished after independent acceptance and later integration. Its retained
@@ -504,10 +507,13 @@ Release actions for `v0.2.0` are complete. The bounded release-prep lease on
 `22a8e19...`, a clean task checkout, and exact source/all-worktree
 reconciliation. No release-prep writer authority remains.
 
-This working revision changes Work Charter SOURCE, Design, its current-source
-package manifest, three existing behavior cases, one existing recovery fixture,
-and deterministic fixture coverage. It does not change the prospective matrix,
-rubric, historical candidate identities, controller module, other Skills,
+This working revision changes two Work Charter SOURCE files, its exact five-row
+`current_source_package` manifest, and deterministic convergence mutations for
+unsupported verdicts; wrong, missing, duplicate, and stale verdict routes;
+idle-as-acceptance; terminal acknowledgement ping-pong or scheduled work;
+second question ownership; altered relay; and superseded question revision.
+It does not change the prospective product
+matrix, rubric, historical candidate/release identities, Codex task APIs,
 discovery mappings, user configuration, push, installation, tag, release,
 stable-copy state, retained evidence, product/assessor evidence, or external
 publication. D31-D55, every consumed turn, and every earlier ignored carrier
@@ -1009,11 +1015,12 @@ are `UNKNOWN_NOT_ASSESSED`, and the candidate remains unaccepted.
 
 ## Next Gate
 
-For the current unreleased reciprocal-verdict revision, complete the declared
-SOURCE validator, fixture/controller regression, repository/documentation
-closure, parser, publication-safety, and diff checks. Record only the evidence
-actually produced. A commit, installation, release, or loaded-copy/product
-claim remains a separate explicit gate.
+For the current unreleased convergence and ruleset-transition revision,
+complete the declared SOURCE validator, fixture/controller regression,
+repository/documentation closure, parser, publication-safety, native review,
+and diff checks, then create only the authorized local tranche B commit. Fresh
+loaded-copy/product evaluation, installation, release, integration, and
+publication remain separate explicit gates.
 
 Immutable `v0.2.0` at exact commit `ac790233...` is released, installed as the
 active stable copy, verified by fresh loaded-copy canaries, and published as the

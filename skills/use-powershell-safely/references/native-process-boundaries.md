@@ -47,7 +47,9 @@ elseif ($pwshCandidates.Count -gt 1) {
 }
 ```
 
-If `pwsh` resolves, verify that exact executable rather than trusting `PATH`:
+If exactly one `pwsh` resolves, verify that exact executable rather than
+trusting `PATH`. Keep resolution, launch, output-contract, and support status
+separate:
 
 ```powershell
 $probeArgs = @(
@@ -58,16 +60,52 @@ $probeArgs = @(
     '$PSVersionTable.PSVersion.ToString()'
 )
 
-& $pwsh.Path @probeArgs
-$pwshProbeExit = $LASTEXITCODE
+$pwshLaunchSucceeded = $false
+$pwshProbeExit = $null
+$pwshProbeText = ''
+$pwshProbeError = $null
+
+if ($null -ne $pwsh) {
+    try {
+        $pwshProbeText = (& $pwsh.Path @probeArgs | Out-String)
+        $pwshProbeExit = [int]$LASTEXITCODE
+        $pwshLaunchSucceeded = $true
+    }
+    catch {
+        $pwshProbeError = $_
+    }
+}
+
+$pwshProbeLines = @(
+    (($pwshProbeText -replace "`r`n?", "`n") -split "`n") |
+        ForEach-Object { $_.Trim() } |
+        Where-Object { $_.Length -gt 0 }
+)
+$pwshOutputValid = (
+    $pwshProbeLines.Count -eq 1 -and
+    $pwshProbeLines[0] -match '^\d+\.\d+(?:\.\d+)?(?:-[0-9A-Za-z.-]+)?$'
+)
+$pwshUsable = (
+    $null -ne $pwsh -and
+    $pwshLaunchSucceeded -and
+    $pwshProbeExit -eq 0 -and
+    $pwshOutputValid
+)
 ```
+
+Capture `$LASTEXITCODE` immediately after the exact native probe and coerce it
+to an integer before another native command runs. A resolved path is not a
+usable runtime when launch fails, the exit is nonzero, stdout is empty, or the
+normalized stdout contains anything other than one well-formed version value.
+Keep support status `UNKNOWN` until current official lifecycle evidence is
+checked; a valid version string alone does not establish support.
 
 Classify the result:
 
 | Observation | Response |
 |---|---|
-| A usable, supported PowerShell 7 is present | Prefer it for version-sensitive modern workflows when the task is compatible |
-| `pwsh` resolves but cannot launch | Treat this as environment drift; inspect the resolved executable before proposing another install |
+| Exact probe launches, exits zero, emits one valid version, and current lifecycle evidence says supported | Prefer it for version-sensitive modern workflows when the task is compatible |
+| `pwsh` resolves but cannot launch, exits nonzero, emits empty output, or emits malformed output | Treat it as not yet usable; preserve which launch, exit, or output contract failed before proposing repair or another install |
 | Only Windows PowerShell 5.1 is usable | Continue on a 5.1-compatible path; conditionally recommend 7 when it materially reduces task risk |
 | The installed PowerShell 7 may be out of support | Check the current official lifecycle; do not hard-code a support date |
 | A required module or host supports only 5.1 | Keep that workload on 5.1 or stop for a compatibility decision |

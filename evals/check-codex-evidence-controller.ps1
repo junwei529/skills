@@ -3723,6 +3723,203 @@ function Test-PackageManifestHashGuards {
     return @($checks)
 }
 
+function Get-WorkCharterConvergenceViolations {
+    param([Parameter(Mandatory)][object]$Record)
+
+    $violations = [System.Collections.Generic.List[string]]::new()
+    $dispositions = @($Record.dispositions)
+    if ($dispositions.Count -eq 0) {
+        $violations.Add('missing-verdict-route')
+    }
+    elseif ($dispositions.Count -gt 1) {
+        $violations.Add('duplicate-verdict-route')
+    }
+    else {
+        $disposition = $dispositions[0]
+        $allowedVerdicts = @(
+            'ACCEPTED',
+            'CORRECTION_REQUIRED',
+            'DECISION_REQUIRED'
+        )
+        if ([string]$disposition.verdict -cnotin $allowedVerdicts) {
+            $violations.Add('unsupported-disposition-verdict')
+        }
+        if ([string]::IsNullOrWhiteSpace([string]$disposition.recipient) -or
+            [string]$disposition.recipient -cne [string]$Record.result_notice.return_route) {
+            $violation = if ([string]::IsNullOrWhiteSpace([string]$disposition.recipient)) {
+                'missing-verdict-route'
+            }
+            else {
+                'wrong-verdict-route'
+            }
+            $violations.Add($violation)
+        }
+        $noticeRecipient = [string]$Record.result_notice.recipient
+        $assessmentOwner = [string]$Record.result_notice.assessment_owner
+        $expectedDispositionSender = if (
+            [string]::IsNullOrWhiteSpace($assessmentOwner)
+        ) {
+            $noticeRecipient
+        }
+        else {
+            $assessmentOwner
+        }
+        if ([string]::IsNullOrWhiteSpace($noticeRecipient)) {
+            $violations.Add('missing-notice-recipient')
+        }
+        if ([string]::IsNullOrWhiteSpace([string]$disposition.sender)) {
+            $violations.Add('missing-verdict-producer')
+        }
+        elseif (-not [string]::IsNullOrWhiteSpace($expectedDispositionSender) -and
+            [string]$disposition.sender -cne $expectedDispositionSender) {
+            $violations.Add('wrong-verdict-producer')
+        }
+        if ([string]$disposition.checkpoint -cne [string]$Record.result_notice.checkpoint) {
+            $violations.Add('stale-verdict-route')
+        }
+        if ([bool]$disposition.terminal -and [bool]$Record.terminal_ack_sent) {
+            $violations.Add('terminal-ack-ping-pong')
+        }
+        if ([bool]$disposition.terminal -and
+            [string]$disposition.next_action -cne 'none') {
+            $violations.Add('terminal-disposition-schedules-work')
+        }
+    }
+
+    if ([string]$Record.runtime_status -ceq 'idle' -and
+        [bool]$Record.acceptance_inferred_from_idle -and
+        [string]$Record.semantic_status -ceq 'accepted') {
+        $violations.Add('runtime-idle-as-acceptance')
+    }
+
+    $questionOwner = [string]$Record.question.owner
+    $ownerClaims = @($Record.question.owner_claims | Select-Object -Unique)
+    if ([string]::IsNullOrWhiteSpace($questionOwner) -or
+        @($ownerClaims | Where-Object {
+            [string]::IsNullOrWhiteSpace([string]$_)
+        }).Count -gt 0) {
+        $violations.Add('missing-semantic-question-owner')
+    }
+    elseif ($ownerClaims.Count -ne 1 -or
+        [string]$ownerClaims[0] -cne [string]$Record.question.owner) {
+        $violations.Add('second-semantic-question-owner')
+    }
+
+    $questionLocator = [string]$Record.question.locator
+    $questionTextSha256 = [string]$Record.question.text_sha256
+    if ([string]::IsNullOrWhiteSpace($questionLocator) -or
+        $questionTextSha256 -cnotmatch '^[0-9a-f]{64}$') {
+        $violations.Add('missing-question-identity')
+    }
+    foreach ($relay in @($Record.relays)) {
+        $relayLocator = [string]$relay.locator
+        $relayTextSha256 = [string]$relay.text_sha256
+        if ([string]::IsNullOrWhiteSpace($relayLocator) -or
+            $relayTextSha256 -cnotmatch '^[0-9a-f]{64}$') {
+            $violations.Add('missing-relay-identity')
+        }
+        if ($relayLocator -cne $questionLocator -or
+            $relayTextSha256 -cne $questionTextSha256 -or
+            [string]::IsNullOrWhiteSpace([string]$relay.authority_anchor)) {
+            $violations.Add('altered-relay')
+        }
+        if ([int]$relay.revision -ne [int]$Record.question.revision) {
+            $violations.Add('superseded-question-revision')
+        }
+    }
+    return @($violations | Sort-Object -Unique)
+}
+
+function Test-WorkCharterConvergenceGuards {
+    $contract = $cases.work_charter_convergence_contract
+    $checks = [System.Collections.Generic.List[object]]::new()
+    $baselineViolations = @(Get-WorkCharterConvergenceViolations -Record $contract.baseline)
+    $checks.Add([ordered]@{
+        id = 'baseline'
+        passed = $baselineViolations.Count -eq 0
+        violations = $baselineViolations
+    })
+
+    foreach ($case in @($contract.mutations)) {
+        $changed = Copy-ControllerValue -Value $contract.baseline
+        switch ([string]$case.id) {
+            'wrong-verdict-route' {
+                $changed.dispositions[0].recipient = 'another-executor'
+            }
+            'missing-verdict-route' {
+                $changed.dispositions[0].recipient = ''
+            }
+            'duplicate-verdict-route' {
+                $changed.dispositions = @(
+                    $changed.dispositions[0],
+                    (Copy-ControllerValue -Value $changed.dispositions[0])
+                )
+            }
+            'stale-verdict-route' {
+                $changed.dispositions[0].checkpoint = 'phase-1/result-02'
+            }
+            'unsupported-disposition-verdict' {
+                $changed.dispositions[0].verdict = 'RETRY'
+            }
+            'named-assessor-producer' {
+                $changed.result_notice.assessment_owner = 'assessor'
+                $changed.dispositions[0].sender = 'assessor'
+            }
+            'wrong-verdict-producer' {
+                $changed.dispositions[0].sender = 'unrelated-role'
+            }
+            'missing-notice-recipient' {
+                $changed.result_notice.recipient = ''
+            }
+            'missing-verdict-producer' {
+                $changed.dispositions[0].sender = ''
+            }
+            'runtime-idle-as-acceptance' {
+                $changed.dispositions = @()
+                $changed.semantic_status = 'accepted'
+                $changed.acceptance_inferred_from_idle = $true
+            }
+            'terminal-ack-ping-pong' {
+                $changed.terminal_ack_sent = $true
+            }
+            'terminal-disposition-schedules-work' {
+                $changed.dispositions[0].next_action = 'start-next-phase'
+            }
+            'second-semantic-question-owner' {
+                $changed.question.owner_claims = @('executor', 'planner')
+            }
+            'missing-semantic-question-owner' {
+                $changed.question.owner = ' '
+                $changed.question.owner_claims = @(' ')
+            }
+            'altered-relay' {
+                $changed.relays[0].text_sha256 = ('b' * 64)
+            }
+            'missing-question-and-relay-identities' {
+                $changed.question.locator = ''
+                $changed.question.text_sha256 = ''
+                $changed.relays[0].locator = ''
+                $changed.relays[0].text_sha256 = ''
+            }
+            'superseded-question-revision' {
+                $changed.relays[0].revision = 1
+            }
+            default {
+                throw "Unknown Work Charter convergence mutation: $($case.id)"
+            }
+        }
+        $actual = @(Get-WorkCharterConvergenceViolations -Record $changed)
+        $expected = @($case.expected_violations | Sort-Object -Unique)
+        $checks.Add([ordered]@{
+            id = [string]$case.id
+            passed = (ConvertTo-CodexCanonicalJson -InputObject $actual) -ceq
+                (ConvertTo-CodexCanonicalJson -InputObject $expected)
+            violations = $actual
+        })
+    }
+    return @($checks)
+}
+
 function Get-PackageManifestChecks {
     $checks = [System.Collections.Generic.List[object]]::new()
     foreach ($name in @('72db7e9', 'b965102')) {
@@ -5019,6 +5216,7 @@ try {
     )
     $packageManifests = Get-PackageManifestChecks
     $packageManifestGuards = Test-PackageManifestHashGuards
+    $workCharterConvergenceGuards = Test-WorkCharterConvergenceGuards
     $sealedLocatorGuards = Test-SealedLocatorGuards -GuardRoot (Join-Path $scratchFull 'reparse-guard')
     $sealedByteCaptureGuards = Test-SealedByteCaptureGuard -GuardRoot (Join-Path $scratchFull 'capture-guard')
     $scratchTopologyGuards = Test-ScratchTopologyGuards -GuardRoot (
@@ -5073,6 +5271,9 @@ try {
     ).Count -eq 0
     $allPackageManifests = @($packageManifests | Where-Object { -not $_.passed }).Count -eq 0
     $allPackageManifestGuards = @($packageManifestGuards | Where-Object { -not $_.passed }).Count -eq 0
+    $allWorkCharterConvergenceGuards = @(
+        $workCharterConvergenceGuards | Where-Object { -not $_.passed }
+    ).Count -eq 0
     $allSealedLocatorGuards = @($sealedLocatorGuards | Where-Object { -not $_.passed }).Count -eq 0
     $allSealedByteCaptureGuards = @($sealedByteCaptureGuards | Where-Object { -not $_.passed }).Count -eq 0
     $allScratchTopologyGuards = @($scratchTopologyGuards | Where-Object { -not $_.passed }).Count -eq 0
@@ -5122,6 +5323,7 @@ try {
         $allHistoricalGeneratedContractGuards -and
         $allPackageManifests -and
         $allPackageManifestGuards -and
+        $allWorkCharterConvergenceGuards -and
         $allSealedLocatorGuards -and
         $allSealedByteCaptureGuards -and
         $allScratchTopologyGuards -and
@@ -5154,6 +5356,7 @@ try {
         @($historicalGeneratedContractGuards | Where-Object { -not $_.passed } | ForEach-Object { "generated-contract-guard:$($_.id)" }) +
         @($packageManifests | Where-Object { -not $_.passed } | ForEach-Object { "package:$($_.id)" }) +
         @($packageManifestGuards | Where-Object { -not $_.passed } | ForEach-Object { "package-guard:$($_.id)" }) +
+        @($workCharterConvergenceGuards | Where-Object { -not $_.passed } | ForEach-Object { "work-charter-convergence:$($_.id)" }) +
         @($sealedLocatorGuards | Where-Object { -not $_.passed } | ForEach-Object { "locator-guard:$($_.id)" }) +
         @($sealedByteCaptureGuards | Where-Object { -not $_.passed } | ForEach-Object { "capture-guard:$($_.id)" }) +
         @($scratchTopologyGuards | Where-Object { -not $_.passed } | ForEach-Object { "scratch-topology-guard:$($_.id)" }) +
@@ -5243,6 +5446,11 @@ try {
         package_manifest_hash_guards = [ordered]@{
             passed = @($packageManifestGuards | Where-Object passed).Count
             total = @($packageManifestGuards).Count
+        }
+        work_charter_convergence_guards = [ordered]@{
+            passed = @($workCharterConvergenceGuards | Where-Object passed).Count
+            total = @($workCharterConvergenceGuards).Count
+            identities = @($workCharterConvergenceGuards)
         }
         sealed_locator_guards = [ordered]@{
             passed = @($sealedLocatorGuards | Where-Object passed).Count

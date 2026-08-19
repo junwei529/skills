@@ -5,11 +5,13 @@ Last updated: 2026-08-19
 ## Snapshot
 
 - Repository: Agent Workflow Skills
-- Current bounded writer: ES-C1 tranche A on
-  `codex/es-c1-coordination-contracts`, based on exact
-  `main@0ae742f68bafe95be8c084d48185e5a8154eb690`. It owns only Decision 0025,
-  the mapped repository-governance owners/consumers, focused deterministic
-  checker coverage, one local commit, and the compact Planner Result Notice.
+- Current bounded writer: ES-C1 tranche B successor on
+  `codex/es-c1-coordination-contracts`, starting from accepted immutable commit
+  A `46d7aa20209d2374530c86c3f80b487f8721bcc8` whose parent is exact
+  `main@0ae742f68bafe95be8c084d48185e5a8154eb690`. It owns only the approved
+  current-SOURCE convergence for Project Docs, Work Charter, and PowerShell;
+  existing deterministic evaluation owners; mapped documentation; verification;
+  one local commit B; and the compact Planner Result Notice.
   The saved `main` checkout's six modified tracked paths are protected and
   unowned by this tranche: `docs/HANDOFF.md`, `docs/STATUS.md`,
   `docs/VERIFICATION.md`, `evals/README.md`,
@@ -18,13 +20,28 @@ Last updated: 2026-08-19
   are never opened, hashed, diffed, copied, staged, cleaned, overwritten, or
   used as evidence. No push, PR, merge, integration, release, install, mapping,
   cleanup, branch/worktree deletion, or host/external effect is authorized
-- Current correction: every independently assessed Result Notice gets exactly
-  one checkpoint-bound return for all three verdicts; terminal no-action
-  returns require no ACK; runtime `idle` is distinct from semantic
-  `AWAITING_VERDICT`; and every material user question has one owner while
-  other roles relay the exact question or answer once. The public package adds
-  no receipt file or message state machine. Local Codex references own concrete
-  callback, O/P/E, task-idle, and native-review question routing
+- Current correction: Project Docs has a distinct current Decision 0019 SOURCE
+  without relabelling immutable `v0.1.2`; every Work Charter Result Notice gets
+  one checkpoint-bound return and changed rules require a fresh loaded-ruleset
+  boundary before the next affected action; PowerShell readiness distinguishes
+  resolution, launch, output, exit, and support while synthetic WSL discovery
+  handles application-only zero/one/many candidates. No Skill adds a task API,
+  generic coordinator, dependency, runtime enforcement, or new authority
+- Native-review cycle 1 exhausted at 5/5 without a clean terminal result. The
+  user's explicit reset approval resolved that decision gate, recorded reset
+  count 1, and made the reset cycle the active commit gate without erasing the
+  first cycle. At the current freeze, reset reviews 1/5 and 2/5 have completed;
+  their P1 destructive-filesystem selection finding and two P2 disposition-
+  semantics findings are fixed, and affected deterministic checks pass. This
+  snapshot incorporates the two Planner correction-round documentation facts.
+  The reset contract stops at the first materially covered clean result; only
+  that result permits the already-authorized sole
+  local commit B and compact Planner Result Notice. Another exhausted cycle or
+  any material scope, permission, effect, or acceptance change returns
+  `DECISION_REQUIRED`. After commit/result delivery, the writer remains active
+  but semantically awaiting the Planner disposition and performs no
+  acknowledgement, polling, integration, release, cleanup, or other repository
+  action while awaiting that return
 - WC-PV1-D01 / WC-PV1-C01 ran from exact baseline `22a8e19...` on dedicated
   branch `codex/work-charter-pv1`. Its final zero-model qualification passed
   exact released Work Charter identity, Native exclusion, pair equality, and
@@ -330,6 +347,342 @@ deterministic consumers.
   ]
 }
 ```
+
+## ES-C1 Tranche B Documentation-Impact Closure
+
+This closure starts from the three reproduced current-SOURCE residuals. It
+promotes no historical evidence, adds no path, and keeps immutable candidate,
+installed-copy, stable, and release identities separate from editable SOURCE.
+
+```documentation-impact-closure
+{
+  "schema": "documentation-impact-closure/v1",
+  "closure_id": "es-c1-tranche-b-current-source-convergence",
+  "authorized_change_envelope": [
+    "AGENTS.md",
+    "README.md",
+    "README.zh-CN.md",
+    "docs/ARCHITECTURE.md",
+    "docs/AUTHORITY.md",
+    "docs/HANDOFF.md",
+    "docs/INDEX.md",
+    "docs/PROVENANCE.md",
+    "docs/RUNBOOK.md",
+    "docs/SPEC.md",
+    "docs/STATUS.md",
+    "docs/VERIFICATION.md",
+    "docs/decisions/0014-powershell-portable-guidance-and-private-host-delta.md",
+    "docs/decisions/0016-work-charter-authority-assessment-and-evidence-integrity.md",
+    "docs/decisions/0017-capability-delta-skill-development.md",
+    "docs/decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md",
+    "docs/decisions/0019-project-docs-implicit-discovery-and-demand-driven-modules.md",
+    "docs/decisions/0020-bounded-campaign-authorization-and-evidence-convergence.md",
+    "docs/decisions/0024-work-charter-product-validation-and-portfolio.md",
+    "docs/decisions/0025-monorepo-coordination-and-skill-contract-hardening.md",
+    "docs/skills/manage-project-docs/DESIGN.md",
+    "docs/skills/manage-project-docs/README.md",
+    "docs/skills/manage-project-docs/README.zh-CN.md",
+    "docs/skills/manage-project-docs/STATE.md",
+    "docs/skills/manage-project-docs/VERIFICATION.md",
+    "docs/skills/use-powershell-safely/DESIGN.md",
+    "docs/skills/use-powershell-safely/README.md",
+    "docs/skills/use-powershell-safely/README.zh-CN.md",
+    "docs/skills/use-powershell-safely/STATE.md",
+    "docs/skills/use-powershell-safely/VERIFICATION.md",
+    "docs/skills/work-charter/DESIGN.md",
+    "docs/skills/work-charter/README.md",
+    "docs/skills/work-charter/README.zh-CN.md",
+    "docs/skills/work-charter/STATE.md",
+    "docs/skills/work-charter/VERIFICATION.md",
+    "evals/README.md",
+    "evals/cases/powershell-boundary.md",
+    "evals/check-codex-evidence-controller.ps1",
+    "evals/check-fixtures.ps1",
+    "evals/check-powershell-boundaries.ps1",
+    "evals/codex-evidence-controller-cases.json",
+    "evals/fixtures/powershell-boundary/README.md",
+    "evals/fixtures/powershell-boundary/command-readiness-cases.json",
+    "scripts/check_repository.py",
+    "skills/manage-project-docs/SKILL.md",
+    "skills/manage-project-docs/agents/openai.yaml",
+    "skills/manage-project-docs/assets/templates/continuity-anchor.md",
+    "skills/manage-project-docs/assets/templates/project-doc-starter.md",
+    "skills/manage-project-docs/references/audit-and-adopt.md",
+    "skills/manage-project-docs/references/maintain-and-recover.md",
+    "skills/use-powershell-safely/SKILL.md",
+    "skills/use-powershell-safely/agents/openai.yaml",
+    "skills/use-powershell-safely/references/native-process-boundaries.md",
+    "skills/use-powershell-safely/references/text-encoding-boundaries.md",
+    "skills/use-powershell-safely/references/windows-wsl-boundaries.md",
+    "skills/work-charter/SKILL.md",
+    "skills/work-charter/agents/openai.yaml",
+    "skills/work-charter/assets/work-charter.md",
+    "skills/work-charter/references/coordination-and-recovery.md",
+    "skills/work-charter/references/standard-ope.md"
+  ],
+  "intended_update_set": [
+    "docs/ARCHITECTURE.md",
+    "docs/HANDOFF.md",
+    "docs/PROVENANCE.md",
+    "docs/SPEC.md",
+    "docs/STATUS.md",
+    "docs/VERIFICATION.md",
+    "docs/skills/manage-project-docs/DESIGN.md",
+    "docs/skills/manage-project-docs/README.md",
+    "docs/skills/manage-project-docs/README.zh-CN.md",
+    "docs/skills/manage-project-docs/STATE.md",
+    "docs/skills/manage-project-docs/VERIFICATION.md",
+    "docs/skills/use-powershell-safely/DESIGN.md",
+    "docs/skills/use-powershell-safely/README.md",
+    "docs/skills/use-powershell-safely/README.zh-CN.md",
+    "docs/skills/use-powershell-safely/STATE.md",
+    "docs/skills/use-powershell-safely/VERIFICATION.md",
+    "docs/skills/work-charter/DESIGN.md",
+    "docs/skills/work-charter/README.md",
+    "docs/skills/work-charter/README.zh-CN.md",
+    "docs/skills/work-charter/STATE.md",
+    "docs/skills/work-charter/VERIFICATION.md",
+    "evals/README.md",
+    "evals/cases/powershell-boundary.md",
+    "evals/check-codex-evidence-controller.ps1",
+    "evals/check-fixtures.ps1",
+    "evals/check-powershell-boundaries.ps1",
+    "evals/codex-evidence-controller-cases.json",
+    "evals/fixtures/powershell-boundary/README.md",
+    "evals/fixtures/powershell-boundary/command-readiness-cases.json",
+    "skills/manage-project-docs/SKILL.md",
+    "skills/manage-project-docs/agents/openai.yaml",
+    "skills/manage-project-docs/assets/templates/continuity-anchor.md",
+    "skills/manage-project-docs/assets/templates/project-doc-starter.md",
+    "skills/manage-project-docs/references/audit-and-adopt.md",
+    "skills/manage-project-docs/references/maintain-and-recover.md",
+    "skills/use-powershell-safely/SKILL.md",
+    "skills/use-powershell-safely/references/native-process-boundaries.md",
+    "skills/use-powershell-safely/references/windows-wsl-boundaries.md",
+    "skills/work-charter/SKILL.md",
+    "skills/work-charter/references/coordination-and-recovery.md"
+  ],
+  "review_target": [
+    "docs/ARCHITECTURE.md",
+    "docs/HANDOFF.md",
+    "docs/PROVENANCE.md",
+    "docs/SPEC.md",
+    "docs/STATUS.md",
+    "docs/VERIFICATION.md",
+    "docs/skills/manage-project-docs/DESIGN.md",
+    "docs/skills/manage-project-docs/README.md",
+    "docs/skills/manage-project-docs/README.zh-CN.md",
+    "docs/skills/manage-project-docs/STATE.md",
+    "docs/skills/manage-project-docs/VERIFICATION.md",
+    "docs/skills/use-powershell-safely/DESIGN.md",
+    "docs/skills/use-powershell-safely/README.md",
+    "docs/skills/use-powershell-safely/README.zh-CN.md",
+    "docs/skills/use-powershell-safely/STATE.md",
+    "docs/skills/use-powershell-safely/VERIFICATION.md",
+    "docs/skills/work-charter/DESIGN.md",
+    "docs/skills/work-charter/README.md",
+    "docs/skills/work-charter/README.zh-CN.md",
+    "docs/skills/work-charter/STATE.md",
+    "docs/skills/work-charter/VERIFICATION.md",
+    "evals/README.md",
+    "evals/cases/powershell-boundary.md",
+    "evals/check-codex-evidence-controller.ps1",
+    "evals/check-fixtures.ps1",
+    "evals/check-powershell-boundaries.ps1",
+    "evals/codex-evidence-controller-cases.json",
+    "evals/fixtures/powershell-boundary/README.md",
+    "evals/fixtures/powershell-boundary/command-readiness-cases.json",
+    "skills/manage-project-docs/SKILL.md",
+    "skills/manage-project-docs/agents/openai.yaml",
+    "skills/manage-project-docs/assets/templates/continuity-anchor.md",
+    "skills/manage-project-docs/assets/templates/project-doc-starter.md",
+    "skills/manage-project-docs/references/audit-and-adopt.md",
+    "skills/manage-project-docs/references/maintain-and-recover.md",
+    "skills/use-powershell-safely/SKILL.md",
+    "skills/use-powershell-safely/references/native-process-boundaries.md",
+    "skills/use-powershell-safely/references/windows-wsl-boundaries.md",
+    "skills/work-charter/SKILL.md",
+    "skills/work-charter/references/coordination-and-recovery.md"
+  ],
+  "changed_facts": [
+    {
+      "fact": "Project Docs Decision 0019 current executable SOURCE and proposal-only authority boundary",
+      "fact_class": "Currently implemented executable behavior",
+      "canonical_owner": "skills/manage-project-docs/SKILL.md",
+      "bounded_consumers": [
+        "docs/skills/manage-project-docs/DESIGN.md",
+        "docs/skills/manage-project-docs/README.md",
+        "docs/skills/manage-project-docs/README.zh-CN.md",
+        "docs/skills/manage-project-docs/STATE.md",
+        "docs/skills/manage-project-docs/VERIFICATION.md",
+        "evals/README.md",
+        "evals/check-fixtures.ps1",
+        "skills/manage-project-docs/agents/openai.yaml",
+        "skills/manage-project-docs/assets/templates/continuity-anchor.md",
+        "skills/manage-project-docs/assets/templates/project-doc-starter.md",
+        "skills/manage-project-docs/references/audit-and-adopt.md",
+        "skills/manage-project-docs/references/maintain-and-recover.md"
+      ],
+      "dispositions": [
+        {"path": "skills/manage-project-docs/SKILL.md", "status": "UPDATE", "reason": "Owns implicit proposal-only selection, manual-token distinction, concrete-effect authorization, peer precedence, and persisted-routing behavior."},
+        {"path": "skills/manage-project-docs/agents/openai.yaml", "status": "UPDATE", "reason": "Enables current implicit selection while denying unapproved writes."},
+        {"path": "skills/manage-project-docs/assets/templates/continuity-anchor.md", "status": "UPDATE", "reason": "Carries the Decision 0019 persisted-routing distinction."},
+        {"path": "skills/manage-project-docs/assets/templates/project-doc-starter.md", "status": "UPDATE", "reason": "Carries activation/update modes without adding a mandatory file."},
+        {"path": "skills/manage-project-docs/references/audit-and-adopt.md", "status": "UPDATE", "reason": "Owns bounded inspection, proposal, and concrete-effect adoption detail."},
+        {"path": "skills/manage-project-docs/references/maintain-and-recover.md", "status": "UPDATE", "reason": "Owns persisted ordinary maintenance and broken-route re-entry."},
+        {"path": "docs/skills/manage-project-docs/DESIGN.md", "status": "UPDATE", "reason": "Defines the current development contract and peer boundary."},
+        {"path": "docs/skills/manage-project-docs/README.md", "status": "UPDATE", "reason": "Publishes the canonical English current behavior and stable-control distinction."},
+        {"path": "docs/skills/manage-project-docs/README.zh-CN.md", "status": "UPDATE", "reason": "Mirrors the changed English public surface."},
+        {"path": "docs/skills/manage-project-docs/STATE.md", "status": "UPDATE", "reason": "Records current implementation, writer, historical controls, and next gate."},
+        {"path": "docs/skills/manage-project-docs/VERIFICATION.md", "status": "UPDATE", "reason": "Owns the distinct six-row current identity and deterministic claim limits."},
+        {"path": "evals/README.md", "status": "UPDATE", "reason": "Promotes the M1R matrix to the current development SOURCE contract."},
+        {"path": "evals/check-fixtures.ps1", "status": "UPDATE", "reason": "Checks current SOURCE and immutable v0.1.2 controls independently."}
+      ]
+    },
+    {
+      "fact": "Work Charter every-Notice convergence and materially changed governing-ruleset reload",
+      "fact_class": "Currently implemented executable behavior",
+      "canonical_owner": "skills/work-charter/SKILL.md",
+      "bounded_consumers": [
+        "docs/skills/work-charter/DESIGN.md",
+        "docs/skills/work-charter/README.md",
+        "docs/skills/work-charter/README.zh-CN.md",
+        "docs/skills/work-charter/STATE.md",
+        "docs/skills/work-charter/VERIFICATION.md",
+        "evals/README.md",
+        "evals/check-codex-evidence-controller.ps1",
+        "evals/check-fixtures.ps1",
+        "evals/codex-evidence-controller-cases.json",
+        "skills/work-charter/agents/openai.yaml",
+        "skills/work-charter/assets/work-charter.md",
+        "skills/work-charter/references/coordination-and-recovery.md",
+        "skills/work-charter/references/standard-ope.md"
+      ],
+      "dispositions": [
+        {"path": "skills/work-charter/SKILL.md", "status": "UPDATE", "reason": "Removes the assessed-Notice narrowing and adds affected-only fresh-ruleset reload semantics."},
+        {"path": "skills/work-charter/references/coordination-and-recovery.md", "status": "UPDATE", "reason": "Owns wrong/missing/duplicate/stale convergence and detailed ruleset transition behavior."},
+        {"path": "skills/work-charter/agents/openai.yaml", "status": "CHECKED_NO_CHANGE", "reason": "UI metadata and invocation policy do not encode these coordination details."},
+        {"path": "skills/work-charter/assets/work-charter.md", "status": "CHECKED_NO_CHANGE", "reason": "The optional carrier already represents checkpoint and decision ownership without new state machinery."},
+        {"path": "skills/work-charter/references/standard-ope.md", "status": "CHECKED_NO_CHANGE", "reason": "Its O/P/E returns already conform to the generalized every-Notice rule."},
+        {"path": "docs/skills/work-charter/DESIGN.md", "status": "UPDATE", "reason": "Defines convergence, reload, and advisory non-controller boundaries."},
+        {"path": "docs/skills/work-charter/README.md", "status": "UPDATE", "reason": "Explains the user-visible current contract in canonical English."},
+        {"path": "docs/skills/work-charter/README.zh-CN.md", "status": "UPDATE", "reason": "Mirrors the changed English public surface."},
+        {"path": "docs/skills/work-charter/STATE.md", "status": "UPDATE", "reason": "Records current bytes, writer, evaluation mutation set, and next gate."},
+        {"path": "docs/skills/work-charter/VERIFICATION.md", "status": "UPDATE", "reason": "Owns the exact current five-row manifest and deterministic limitations."},
+        {"path": "evals/README.md", "status": "UPDATE", "reason": "Documents the focused baseline plus fifteen convergence mutations."},
+        {"path": "evals/check-codex-evidence-controller.ps1", "status": "UPDATE", "reason": "Validates the focused content contract without runtime transport enforcement."},
+        {"path": "evals/codex-evidence-controller-cases.json", "status": "UPDATE", "reason": "Updates only current_source_package and adds fifteen mutation rows while preserving historical manifests."},
+        {"path": "evals/check-fixtures.ps1", "status": "UPDATE", "reason": "Checks the portable every-Notice and changed-ruleset source markers."}
+      ]
+    },
+    {
+      "fact": "PowerShell exact runtime readiness, WSL application cardinality, typed exit, destructive-filesystem selection, and narrowed trigger boundary",
+      "fact_class": "Currently implemented executable behavior",
+      "canonical_owner": "skills/use-powershell-safely/SKILL.md",
+      "bounded_consumers": [
+        "docs/skills/use-powershell-safely/DESIGN.md",
+        "docs/skills/use-powershell-safely/README.md",
+        "docs/skills/use-powershell-safely/README.zh-CN.md",
+        "docs/skills/use-powershell-safely/STATE.md",
+        "docs/skills/use-powershell-safely/VERIFICATION.md",
+        "evals/README.md",
+        "evals/cases/powershell-boundary.md",
+        "evals/check-fixtures.ps1",
+        "evals/check-powershell-boundaries.ps1",
+        "evals/fixtures/powershell-boundary/README.md",
+        "evals/fixtures/powershell-boundary/command-readiness-cases.json",
+        "skills/use-powershell-safely/agents/openai.yaml",
+        "skills/use-powershell-safely/references/native-process-boundaries.md",
+        "skills/use-powershell-safely/references/text-encoding-boundaries.md",
+        "skills/use-powershell-safely/references/windows-wsl-boundaries.md"
+      ],
+      "dispositions": [
+        {"path": "skills/use-powershell-safely/SKILL.md", "status": "UPDATE", "reason": "Narrows selection to material boundaries, retains destructive-filesystem work, and keeps ordinary/simple/general-Windows/POSIX negatives."},
+        {"path": "skills/use-powershell-safely/references/native-process-boundaries.md", "status": "UPDATE", "reason": "Separates resolution, exact launch, normalized version output, typed exit, and support status."},
+        {"path": "skills/use-powershell-safely/references/windows-wsl-boundaries.md", "status": "UPDATE", "reason": "Uses application-only zero/one/many discovery, exact selected path, and immediate typed exit."},
+        {"path": "skills/use-powershell-safely/agents/openai.yaml", "status": "CHECKED_NO_CHANGE", "reason": "Existing UI metadata remains compatible with the narrowed detailed trigger."},
+        {"path": "skills/use-powershell-safely/references/text-encoding-boundaries.md", "status": "CHECKED_NO_CHANGE", "reason": "No text-encoding behavior changed."},
+        {"path": "docs/skills/use-powershell-safely/DESIGN.md", "status": "UPDATE", "reason": "Defines exact readiness stages, WSL candidate discipline, and negative selection."},
+        {"path": "docs/skills/use-powershell-safely/README.md", "status": "UPDATE", "reason": "Publishes the canonical English trigger and current deterministic limits."},
+        {"path": "docs/skills/use-powershell-safely/README.zh-CN.md", "status": "UPDATE", "reason": "Mirrors the changed English public surface."},
+        {"path": "docs/skills/use-powershell-safely/STATE.md", "status": "UPDATE", "reason": "Records current implementation, rejected unrelated incident, writer, and next gate."},
+        {"path": "docs/skills/use-powershell-safely/VERIFICATION.md", "status": "UPDATE", "reason": "Owns the exact current five-row manifest, 59 assertions, and no-live-WSL limit."},
+        {"path": "evals/README.md", "status": "UPDATE", "reason": "Documents current synthetic coverage and exclusions."},
+        {"path": "evals/cases/powershell-boundary.md", "status": "UPDATE", "reason": "Adds destructive-filesystem selection plus ordinary, simple, general-Windows, and POSIX negative expectations."},
+        {"path": "evals/check-powershell-boundaries.ps1", "status": "UPDATE", "reason": "Implements focused dual-runtime synthetic readiness and candidate checks."},
+        {"path": "evals/fixtures/powershell-boundary/command-readiness-cases.json", "status": "UPDATE", "reason": "Adds exact readiness, WSL candidate/exit, and selection rows."},
+        {"path": "evals/fixtures/powershell-boundary/README.md", "status": "UPDATE", "reason": "Documents the synthetic fixture and explicit no-live-WSL boundary."},
+        {"path": "evals/check-fixtures.ps1", "status": "UPDATE", "reason": "Checks the expanded readiness rows while the boundary checker owns the 59-assertion contract."}
+      ]
+    },
+    {
+      "fact": "Shared three-peer product selection, authority, convergence, and current-versus-historical SOURCE boundary",
+      "fact_class": "Shared product, independent-Skill, version, and release requirements",
+      "canonical_owner": "docs/SPEC.md",
+      "bounded_consumers": [
+        "AGENTS.md",
+        "README.md",
+        "README.zh-CN.md",
+        "docs/ARCHITECTURE.md",
+        "docs/AUTHORITY.md",
+        "docs/INDEX.md",
+        "docs/PROVENANCE.md",
+        "docs/RUNBOOK.md",
+        "docs/STATUS.md"
+      ],
+      "dispositions": [
+        {"path": "docs/SPEC.md", "status": "UPDATE", "reason": "Owns the shared peer, authority, convergence, and negative-selection requirements."},
+        {"path": "docs/ARCHITECTURE.md", "status": "UPDATE", "reason": "Owns cross-Skill precedence and current-versus-historical identity topology."},
+        {"path": "docs/PROVENANCE.md", "status": "UPDATE", "reason": "Owns content-only current identity and no-relabel transformation rules."},
+        {"path": "docs/STATUS.md", "status": "UPDATE", "reason": "Summarizes current development manifests and excluded effects."},
+        {"path": "AGENTS.md", "status": "CHECKED_NO_CHANGE", "reason": "Tranche A already contains the applicable repository and fresh-ruleset governance."},
+        {"path": "README.md", "status": "CHECKED_NO_CHANGE", "reason": "The root human entry and immutable v0.2.0 release summary remain accurate."},
+        {"path": "README.zh-CN.md", "status": "CHECKED_NO_CHANGE", "reason": "The unchanged English root surface requires no mirror edit."},
+        {"path": "docs/AUTHORITY.md", "status": "CHECKED_NO_CHANGE", "reason": "The existing fact-class and canonical-owner map remains sufficient."},
+        {"path": "docs/INDEX.md", "status": "CHECKED_NO_CHANGE", "reason": "No document, decision, case, fixture, or package path is added or removed."},
+        {"path": "docs/RUNBOOK.md", "status": "CHECKED_NO_CHANGE", "reason": "Existing capability-delta, concrete-effect authorization, fresh-ruleset, and repository coordination procedures already cover the current facts."}
+      ]
+    },
+    {
+      "fact": "ES-C1 tranche B deterministic repository verification and immutable evidence separation",
+      "fact_class": "Repository checks, coherent candidate, tag, stable-install, and release evidence",
+      "canonical_owner": "docs/VERIFICATION.md",
+      "bounded_consumers": [
+        "docs/HANDOFF.md",
+        "docs/STATUS.md",
+        "scripts/check_repository.py"
+      ],
+      "dispositions": [
+        {"path": "docs/VERIFICATION.md", "status": "UPDATE", "reason": "Owns current manifests, deterministic checks, review limits, and excluded evidence effects."},
+        {"path": "docs/HANDOFF.md", "status": "UPDATE", "reason": "Carries the exact machine-closed 40-path review target and recovery boundary."},
+        {"path": "docs/STATUS.md", "status": "UPDATE", "reason": "Publishes only the bounded current development result."},
+        {"path": "scripts/check_repository.py", "status": "CHECKED_NO_CHANGE", "reason": "Existing strict repository, privacy, navigation, and exact documentation-impact closure checks are sufficient; Skill-specific deterministic consumers own the new assertions."}
+      ]
+    },
+    {
+      "fact": "ES-C1 tranche B writer custody, protected dirty boundary, one-commit gate, and Planner return",
+      "fact_class": "Repository writer custody, dirty scope, next integration action, and recovery order",
+      "canonical_owner": "docs/HANDOFF.md",
+      "bounded_consumers": [
+        "docs/STATUS.md",
+        "docs/VERIFICATION.md"
+      ],
+      "dispositions": [
+        {"path": "docs/HANDOFF.md", "status": "UPDATE", "reason": "Owns commit A baseline, successor writer lease, protected six-path status-only boundary, one commit B, and callback-first checkpoint."},
+        {"path": "docs/STATUS.md", "status": "UPDATE", "reason": "Displays the current bounded development state without integration or release."},
+        {"path": "docs/VERIFICATION.md", "status": "UPDATE", "reason": "Records verification, review, and excluded-effect boundaries for the same target."}
+      ]
+    }
+  ]
+}
+```
+
+Decisions 0014, 0016, 0017, 0018, 0019, 0020, 0024, and 0025 remain
+`CHECKED_NO_CHANGE`: current SOURCE conforms to their accepted boundaries and
+does not rewrite rationale or sealed evidence. Existing Project Docs and Work
+Charter cases remain `CHECKED_NO_CHANGE`; the current deterministic deltas are
+owned by the existing fixture/controller consumers above. No package file,
+case, fixture directory, decision, dependency, or other path is added.
 
 ## 2026-08-15 `v0.2.0` Release Completion
 
@@ -675,7 +1028,7 @@ external effect, acceptance credit, installation, or release action.
       ],
       "dispositions": [
         {"path": "docs/skills/work-charter/VERIFICATION.md", "status": "UPDATE", "reason": "Records only the new SOURCE and deterministic evidence plus unproved loaded-copy behavior."},
-        {"path": "evals/codex-evidence-controller-cases.json", "status": "UPDATE", "reason": "Updates only the live current-source five-file identity; historical candidates remain immutable."},
+        {"path": "evals/codex-evidence-controller-cases.json", "status": "UPDATE", "reason": "Updates only the live current-source five-file identity and convergence mutations; historical candidates remain immutable."},
         {"path": "evals/fixtures/work-charter-recovery-integrity/delivery-and-writer/SNAPSHOT.md", "status": "UPDATE", "reason": "Adds the minimal observed missing-return and decision-owner state."},
         {"path": "evals/check-fixtures.ps1", "status": "UPDATE", "reason": "Asserts the fixture state and portable SOURCE contract deterministically."},
         {"path": "docs/skills/work-charter/STATE.md", "status": "UPDATE", "reason": "Separates current unreleased SOURCE from immutable v0.2.0 and records the live writer/gate."},

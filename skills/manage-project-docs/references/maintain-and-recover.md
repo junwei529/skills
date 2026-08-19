@@ -29,10 +29,18 @@ For a routine event:
 
 1. Follow the target project's existing read and write routing.
 2. Revalidate the relevant code, tests, Git state, and external evidence.
-3. Update only the existing canonical owners whose facts changed.
-4. Replace stale duplicates with links or bounded summaries.
-5. Use `PROPOSE` instead of redesigning structure when routing is insufficient.
-6. Record actual verification and its limitations.
+3. Apply the owner's recorded update mode. Replace a current-state snapshot as
+   one coherent unit; revise a current contract in place; append or supersede a
+   decision or evidence record; and update generated or external facts only at
+   their editable source.
+4. Update only the existing canonical owners whose facts changed.
+5. Replace stale duplicates with links or bounded summaries.
+6. Use `PROPOSE` instead of redesigning structure when routing is insufficient.
+7. Record actual verification and its limitations.
+
+Do not turn a current-state owner into a chronological execution log. Preserve
+history in its existing decision or evidence owner, and keep the current owner
+short enough to recover from directly.
 
 ## Keep Recovery State Coherent
 
@@ -71,6 +79,12 @@ results into the anchor.
 On later tasks, validate that every referenced owner still serves the named
 responsibility. Refresh only a broken route, re-map only an affected owner, and
 run full rediscovery only when scope or authority is broadly unreliable.
+
+When routing and update modes remain valid, an ordinary task follows them
+without loading Project Docs. If a later governance request exposes a broken
+route, missing owner, new scope, or incompatible update lifecycle, Project Docs
+may be rediscovered implicitly to inspect and propose repair. The anchor does
+not invoke the Skill, and implicit selection does not authorize the repair.
 
 If the active Harness cannot load or verify the anchor, report weak continuity;
 installing this Skill does not make the target-project rule persistent.

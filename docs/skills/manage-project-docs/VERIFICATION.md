@@ -1,16 +1,17 @@
 # Project Docs Verification
 
-Last updated: 2026-08-15
+Last updated: 2026-08-19
 
 ## Claim Ledger
 
 | Claim | Status |
 |---|---|
-| The current release package has six canonical files | all six files at `v0.2.0` / `ac790233...` are byte-identical to `v0.1.2` / `ceed607...`; Project Docs is `unchanged` in the coherent release set |
+| The current development SOURCE has six canonical files | exact six-row identity below and fixture-checker equality pass; no package file was added |
+| The current release package has six canonical files | all six files at `v0.2.0` / `ac790233...` remain byte-identical to `v0.1.2` / `ceed607...`; Project Docs is `unchanged` in that coherent release set |
 | The five logical responsibilities work without fixed filenames | passed in mature, adoption, continuity, conflict, and safety fixtures |
 | Immutable `v0.1.2` explicit-only selection | controlled DEV_DISCOVERY, RC, and stable positive/negative canaries pass for that exact control |
-| Historical Decision 0019 implicit-selection policy and no-write boundary | `PARTIAL` at local development commit `776989f...`; its bytes are excluded from this release, and actual candidate selection plus physical loaded-copy attribution remain `UNKNOWN` |
-| Historical demand-driven modules and per-owner update modes | preserved in Decision 0019 and Git history, not present or claimed in the restored `v0.1.2` release-set package |
+| Current Decision 0019 implicit-selection policy and no-write boundary | verified statically and deterministically for proposal-only inspection, peer precedence, concrete-effect write authorization, and valid-route non-loading; actual fresh selection and physical loaded-copy attribution remain `UNKNOWN` |
+| Current demand-driven modules and per-owner update modes | present in current SOURCE and fixture contract; immutable release controls remain unchanged |
 | A sufficient mature layout is preserved | explicit SOURCE, RC, and stable `NOOP` smoke pass |
 | Authorized first adoption makes the minimum coherent change | historical exact-source synthetic behavior passes; the current implicit revision recognized bounded authorization and failed closed, but its write was environment-blocked and remains `UNKNOWN` |
 | Broken authority or structure fails closed | conflict, safety, and broken-routing variants pass |
@@ -19,6 +20,35 @@ Last updated: 2026-08-15
 | Current candidate identity and loaded-copy behavior | exact-commit `c42eef3...` RC plus independent assessment pass |
 | Stable loaded-copy identity and bounded current behavior | tag-pinned `v0.2.0` six-file identity and fresh `PROPOSE` canary pass; retained rollback remains exact `v0.1.2` |
 | Stable mutation, broad trigger telemetry, causal efficacy, token savings, or cross-Harness parity | unverified |
+
+## Current Development SOURCE Identity
+
+The six current files are strict UTF-8/no-BOM, LF-only, one-final-newline raw
+bytes. The fixture checker binds this exact current identity separately from
+immutable `v0.1.2` Git blob controls. Canonical JSON uses package-relative
+ordinal path ordering, lexicographically ordered `length`/`path`/`sha256`
+object keys, UTF-8 without BOM, and no insignificant whitespace. Its six-row
+manifest SHA-256 is
+`bbe5109b4b9788088f7ae374f79ca1300623840282a2d88472de9e3f93822199`:
+
+```text
+SKILL.md
+  a1dad61252625f18ddac743b65257229f8dd26e3a65e32652711e8c62e29a609
+agents/openai.yaml
+  0801a1829848027fb1c209608ac44ece0b3c0eae6ad7ac42dcc4facb9dd89468
+assets/templates/continuity-anchor.md
+  9b7cc87a002176b604301773db7b91af5ae113805b245dc94ad6481e72bdd603
+assets/templates/project-doc-starter.md
+  d49b567235b29aad84b468e054cea993bebc774094718ce3e9d7d2d30202a4e4
+references/audit-and-adopt.md
+  7a68d650d164f6f97088d8186916278df711e70db74f00117a088d22ce8d7f13
+references/maintain-and-recover.md
+  92768df8aa8d7a8f799366c46b9f03ba6bab8183896d80578188c03e361c9bb4
+```
+
+This is unreleased current SOURCE evidence only. It does not relabel the
+historical Decision 0019 predecessor, immutable `v0.1.2` or `v0.2.0`, an old
+candidate, installed copy, or stable evidence.
 
 ## 2026-08-15 `v0.2.0` Release Evidence
 
@@ -82,11 +112,11 @@ limits, and residual gates.
 This history is retained without being treated as the package under review in
 the Work Charter `v0.2.0` prerelease candidate.
 
-The release-prep fixture checker binds the exact six-file `v0.1.2` path set
-and raw SHA-256 values before treating the frozen Decision 0019 continuity
-fixture as excluded. The 18/18 aggregate pass therefore proves revision-aware
-repository consistency only; it does not activate implicit selection, rerun
-Project Docs behavior, or create candidate/loaded-copy/release evidence.
+The current fixture checker binds the exact current six-file hashes and
+separately resolves the six immutable `v0.1.2` Git blob identities. Its
+aggregate pass proves revision-aware repository consistency only; it does not
+create fresh selection, loaded-copy, candidate, installation, or release
+evidence.
 
 ## Implicit Discovery And Demand-Driven Modules
 

@@ -1,6 +1,6 @@
 # Work Charter Design
 
-Last updated: 2026-08-10
+Last updated: 2026-08-19
 
 ## Purpose And Audience
 
@@ -164,12 +164,14 @@ in exactly `ACCEPTED`, `CORRECTION_REQUIRED`, or `DECISION_REQUIRED`. Keep the
 verdict separate from durable recording and bind material evidence to its
 mutable subject and invalidation condition.
 
-Every Result Notice that triggers independent assessment receives exactly one
-checkpoint-bound disposition through the declared return route. The four
+Every Result Notice receives exactly one checkpoint-bound disposition through
+the declared return route. The route contract names the notice recipient, who
+owns that return unless a named independent assessment owner is required. The four
 action shapes are bounded correction, accepted listed continuation, terminal
 acceptance with no action, and terminal decision-required with one semantic
 decision owner. A missing disposition is awaiting verdict even when the lower
-role is runtime-idle; it is never implicit acceptance. Terminal dispositions
+role is runtime-idle; a wrong, duplicate, or stale disposition is likewise not
+convergence. Silence is never implicit acceptance. Terminal dispositions
 require no acknowledgement, so the protocol converges without polling or
 callback ping-pong.
 
@@ -198,6 +200,21 @@ worktrees. Its reciprocal-disposition and single-owner rules are semantic
 obligations, not a public receipt file, broker, lock, or message state machine.
 Parallel Executors, automatic worktree routing, and automatic integration
 remain deferred.
+
+## Governing-Ruleset Transitions
+
+An old Session may manually reread a materially changed governing instruction
+or Skill source for context and complete an already-authorized closeout. That
+reread is not proof that the Harness rebuilt or freshly loaded the changed
+instruction chain. Before the next affected action relies on the new rules, a
+fresh Session or run records normalized-text identities for every applicable
+governing source and requalifies only affected conditions. Unaffected evidence,
+approvals, consumed opportunities, correction history, and findings remain in
+force. A task rename, summary refresh, or manual reread is not a reload.
+
+This is a portable evidence and recovery contract. It adds no Codex task API,
+native-review budget, Git/worktree rule, receipt store, or generic transport
+state machine.
 
 ## Internal Package Boundaries
 

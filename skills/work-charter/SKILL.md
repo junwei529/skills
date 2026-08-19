@@ -151,6 +151,17 @@ boundary, consumes a budget, or repeats a one-shot operation.
 Project Docs is an optional independent peer: consume reliable locators when
 present, but do not require or automatically invoke it.
 
+## Reload Changed Governing Rules
+
+When a material governing instruction or Skill-package source changes, an old
+Session may reread it for context and finish an already-permitted closeout, but
+that reread is not proof that the Harness rebuilt or freshly loaded the changed
+instruction chain. Before the next affected action relies on the new rules,
+use a fresh Session or run, identify the applicable sources, record their
+normalized-text identities, and requalify only the conditions affected by the
+change. Do not treat a renamed task, refreshed summary, or manual reread as a
+ruleset reload.
+
 ## Assess And Stop
 
 Create a separate assessment only when the Charter requires independent
@@ -159,11 +170,14 @@ risks, return route, and exactly one verdict: `ACCEPTED`,
 `CORRECTION_REQUIRED`, or `DECISION_REQUIRED`. Passing tests, Goal completion,
 a commit, role delivery, or an Executor report is evidence, not acceptance.
 
-Every Result Notice that triggers independent assessment receives exactly one
-checkpoint-bound disposition back through the declared return route, including
-terminal `ACCEPTED` with no next action and `DECISION_REQUIRED`. A missing
-return remains awaiting verdict, not accepted. A terminal disposition grants no
-new action and requires no acknowledgement.
+Every Result Notice receives exactly one checkpoint-bound disposition back
+through its declared return route. Name the notice recipient as part of that
+route contract. When independent assessment is required, the assessment owner
+produces that disposition; otherwise the named notice recipient does. The
+allowed returns include terminal `ACCEPTED` with no next action and
+`DECISION_REQUIRED`. A missing, wrong, duplicate, or stale return remains
+awaiting verdict, not accepted. A terminal disposition grants no new action
+and requires no acknowledgement.
 
 Give each material user decision one semantic owner. Other roles may relay the
 exact question or answer and its authority anchor, but must not mirror the

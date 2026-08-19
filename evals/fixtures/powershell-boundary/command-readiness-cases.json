@@ -41,5 +41,79 @@
       "valid": "$resultItems = @('application-item'); [void]('abc' -match '^(?<prefix>a)'); if ($resultItems.Count -eq 1 -and $resultItems[0] -eq 'application-item') { 'preserved' }",
       "valid_expected": "preserved"
     }
+  ],
+  "pwsh_readiness_cases": [
+    {
+      "id": "usable-version",
+      "resolved_count": 1,
+      "launch_succeeded": true,
+      "exit_code": 0,
+      "stdout": "7.6.3\r\n",
+      "expected_usable": true
+    },
+    {
+      "id": "nonzero-exit",
+      "resolved_count": 1,
+      "launch_succeeded": true,
+      "exit_code": 9,
+      "stdout": "7.6.3\n",
+      "expected_usable": false
+    },
+    {
+      "id": "empty-output",
+      "resolved_count": 1,
+      "launch_succeeded": true,
+      "exit_code": 0,
+      "stdout": "\r\n",
+      "expected_usable": false
+    },
+    {
+      "id": "malformed-version-output",
+      "resolved_count": 1,
+      "launch_succeeded": true,
+      "exit_code": 0,
+      "stdout": "PowerShell 7 is ready\n",
+      "expected_usable": false
+    }
+  ],
+  "wsl_candidate_cases": [
+    {
+      "id": "wsl-zero-applications",
+      "discovered": [
+        {"command_type": "Alias", "path": "alias:wsl"}
+      ],
+      "expected_application_count": 0,
+      "expected_selected_path": null
+    },
+    {
+      "id": "wsl-one-application",
+      "discovered": [
+        {"command_type": "Application", "path": "fixture-system/wsl.exe"},
+        {"command_type": "Alias", "path": "alias:wsl"}
+      ],
+      "expected_application_count": 1,
+      "expected_selected_path": "fixture-system/wsl.exe"
+    },
+    {
+      "id": "wsl-many-applications",
+      "discovered": [
+        {"command_type": "Application", "path": "fixture-system/wsl.exe"},
+        {"command_type": "Application", "path": "fixture-shadow/wsl.exe"}
+      ],
+      "expected_application_count": 2,
+      "expected_selected_path": null
+    }
+  ],
+  "wsl_exit_cases": [
+    {"id": "wsl-zero-exit", "exit_code": 0, "expected_success": true},
+    {"id": "wsl-nonzero-exit", "exit_code": 23, "expected_success": false}
+  ],
+  "selection_cases": [
+    {"id": "material-nontrivial-powershell", "expected_select": true},
+    {"id": "destructive-filesystem-operation", "expected_select": true},
+    {"id": "ordinary-version-independent-cmdlet", "expected_select": false},
+    {"id": "simple-documented-native-call", "expected_select": false},
+    {"id": "general-windows-work", "expected_select": false},
+    {"id": "posix-only", "expected_select": false}
   ]
 }

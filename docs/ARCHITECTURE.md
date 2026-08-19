@@ -134,8 +134,25 @@ A recipe does not install, discover, select, invoke, adopt, update, or authorize
 another Skill. Sharing a tag, task, role, branch, worktree, or project document
 does not prove another Skill copy loaded.
 
+Catalog precedence follows the fact boundary, not a product hierarchy:
+
+| Observed need | Owning peer | Boundary |
+|---|---|---|
+| Documentation-governance intent or broken authority/evidence/routing/recovery ownership | Project Docs | Implicit selection may inspect only the minimum bounded read-only scope and present a visible proposal; every adoption, structural/canonical-owner change, and write remains separately authorized |
+| Consequential-work outcome, authority, evidence, recovery, writer, or independent-assessment coordination | Work Charter | Every Result Notice converges through one checkpoint return; a material governing-ruleset transition uses a fresh Session/run before the next affected action relies on it |
+| Material Windows parser, version, argument, stream, encoding, path, permission, process, or WSL boundary | PowerShell | Exact runtime/candidate/exit facts stay distinct; ordinary cmdlets and simple boundary-free native commands remain negatives |
+
+Valid persisted project-document routing owns ordinary canonical maintenance
+without loading Project Docs. Broken routing may re-enter only its proposal
+boundary. Dependency or co-selection never grants cross-write authority.
+
 Installation/discovery, invocation/adoption, execution/maintenance, and
 packaging/release remain separate authorization surfaces for each operation.
+
+Current editable SOURCE identities and immutable released identities also stay
+separate. A new content-only current-source manifest may bind working package
+bytes for deterministic checks, but it does not relabel a historical candidate,
+tag, installed copy, stable evidence, or release.
 
 ## Canonical Source And Derived Environments
 

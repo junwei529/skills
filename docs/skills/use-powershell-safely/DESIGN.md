@@ -1,6 +1,6 @@
 # PowerShell Design
 
-Last updated: 2026-08-15
+Last updated: 2026-08-19
 
 ## Purpose And Audience
 
@@ -16,11 +16,14 @@ automatic installer, or replacement for project governance.
 
 The Skill is eligible before the first relevant command when the request
 explicitly requires non-trivial PowerShell: a `.ps1` file, `pwsh` or
-`powershell.exe`, multiline logic, loops, `try`/`catch`, regex, pipelines,
-native or child processes, or version-, encoding-, stream-, permission-, or
-path-sensitive behavior. Selection is not contingent on a prior error.
-Ordinary version-independent cmdlets without a boundary risk or symptom, and
-POSIX-only work, remain negative selections.
+`powershell.exe`, multiline logic, loops, `try`/`catch`, regex, complex
+pipelines, or material parser-, version-, argument-, stream-, encoding-, path-,
+permission-, destructive-filesystem-, process-, or WSL-sensitive behavior.
+Destructive PowerShell filesystem work remains eligible even when the broader
+task could otherwise be described as general Windows work. Selection is not
+contingent on a prior error. Ordinary version-independent cmdlets, simple documented
+native commands with no material boundary or symptom, general Windows work,
+and POSIX-only work remain negative selections.
 
 The workflow:
 
@@ -51,8 +54,18 @@ PowerShell style guide.
 
 PowerShell 7 is preferred for compatible modern workflows when it materially
 reduces risk; Windows PowerShell 5.1 remains necessary for some legacy modules
-and hosts. Detection and recommendation are read-only. Installation and update
-require separate authorization and current official guidance.
+and hosts. A resolved executable is only a resolution fact. Readiness requires
+the exact selected `ApplicationInfo.Path` to launch, return typed native exit
+zero, and emit one normalized, well-formed version value; launch failure,
+nonzero exit, empty output, or malformed output are separate failed or
+`UNKNOWN` conditions, never usable-runtime proof.
+
+WSL discovery likewise normalizes only `ApplicationInfo` candidates, handles
+zero/one/many explicitly, executes the exact selected path, and captures the
+typed native exit immediately. These are synthetic readiness contracts; live
+WSL is not required for SOURCE acceptance. Detection and recommendation are
+read-only. Installation and update require separate authorization and current
+official guidance.
 
 ## Progressive Disclosure
 

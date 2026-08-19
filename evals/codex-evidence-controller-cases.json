@@ -46,12 +46,12 @@
   "entry_baseline_sha256": "2d0dcb755a1bf3af69e627e2500d88d82c7e7795a189a460c9aa5433e0cb4762",
   "current_source_package": {
     "canonicalization": "canonical-json/path-sorted-five-file-rows/v1",
-    "package_manifest_sha256": "5e19a252e942837c4da893f5cbb15492c21e56ce8afd994ff78382917032e1a6",
+    "package_manifest_sha256": "55fe27c17b5bd023b19a59f4f9517e83db057a528dba8f9844467f11555ecf3f",
     "files": [
-      {"path": "SKILL.md", "length": 10284, "sha256": "3a10639c3f40af348b16bbe0d39004951c8c0f2464424f66b4e701a21459387d"},
+      {"path": "SKILL.md", "length": 11079, "sha256": "0c88de132b62c5a395218a5a95eac8155167c22fa767b6e5f2935c495ee31ed3"},
       {"path": "agents/openai.yaml", "length": 306, "sha256": "f0032475e213d75ed17eb41c3424007ebc46c0ddb6739138c9908185beefdad6"},
       {"path": "assets/work-charter.md", "length": 2697, "sha256": "ba743343740b1419a84852f32608e41e1a04979bcd1a7af8dc16e41ca1a87e09"},
-      {"path": "references/coordination-and-recovery.md", "length": 12307, "sha256": "e650ca01ea97e4b3b2bf27627dd1378c791634d82e59aae993cc7ecbb33e11ce"},
+      {"path": "references/coordination-and-recovery.md", "length": 13257, "sha256": "b4832547825587386d68df0b4e79b7f4801593b5b00f335ed3a6504ee61b354e"},
       {"path": "references/standard-ope.md", "length": 4444, "sha256": "f827524db33e8c3ceb6e44789e18ca3c6c502fd44d9d0ec559b9cea423cd3858"}
     ]
   },
@@ -362,12 +362,74 @@
     {"id": "G07", "scenario": "absent-snapshot-preserves-legacy-output-shape", "expected_verdict": "ADMISSIBLE"},
     {"id": "G08", "scenario": "sealed-nonadmissible-rejects-assessor-request", "expected_verdict": "CONTROLLER_UNKNOWN"}
   ],
+  "work_charter_convergence_contract": {
+    "baseline": {
+      "result_notice": {
+        "sender": "executor",
+        "recipient": "planner",
+        "assessment_owner": null,
+        "checkpoint": "phase-1/result-03",
+        "return_route": "executor"
+      },
+      "dispositions": [
+        {
+          "sender": "planner",
+          "recipient": "executor",
+          "checkpoint": "phase-1/result-03",
+          "verdict": "ACCEPTED",
+          "terminal": true,
+          "next_action": "none"
+        }
+      ],
+      "runtime_status": "idle",
+      "semantic_status": "verdict_received",
+      "acceptance_inferred_from_idle": false,
+      "terminal_ack_sent": false,
+      "question": {
+        "locator": "review-cycle/reset-02",
+        "revision": 2,
+        "owner": "executor",
+        "owner_claims": ["executor"],
+        "text_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "supersedes_revision": 1
+      },
+      "relays": [
+        {
+          "actor": "planner",
+          "locator": "review-cycle/reset-02",
+          "revision": 2,
+          "text_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "authority_anchor": "user-approval/review-cycle-reset-02/revision-2"
+        }
+      ]
+    },
+    "mutations": [
+      {"id": "wrong-verdict-route", "expected_violations": ["wrong-verdict-route"]},
+      {"id": "missing-verdict-route", "expected_violations": ["missing-verdict-route"]},
+      {"id": "duplicate-verdict-route", "expected_violations": ["duplicate-verdict-route"]},
+      {"id": "stale-verdict-route", "expected_violations": ["stale-verdict-route"]},
+      {"id": "unsupported-disposition-verdict", "expected_violations": ["unsupported-disposition-verdict"]},
+      {"id": "named-assessor-producer", "expected_violations": []},
+      {"id": "wrong-verdict-producer", "expected_violations": ["wrong-verdict-producer"]},
+      {"id": "missing-notice-recipient", "expected_violations": ["missing-notice-recipient"]},
+      {"id": "missing-verdict-producer", "expected_violations": ["missing-verdict-producer"]},
+      {"id": "runtime-idle-as-acceptance", "expected_violations": ["missing-verdict-route", "runtime-idle-as-acceptance"]},
+      {"id": "terminal-ack-ping-pong", "expected_violations": ["terminal-ack-ping-pong"]},
+      {"id": "terminal-disposition-schedules-work", "expected_violations": ["terminal-disposition-schedules-work"]},
+      {"id": "second-semantic-question-owner", "expected_violations": ["second-semantic-question-owner"]},
+      {"id": "missing-semantic-question-owner", "expected_violations": ["missing-semantic-question-owner"]},
+      {"id": "altered-relay", "expected_violations": ["altered-relay"]},
+      {"id": "missing-question-and-relay-identities", "expected_violations": ["missing-question-identity", "missing-relay-identity"]},
+      {"id": "superseded-question-revision", "expected_violations": ["superseded-question-revision"]}
+    ]
+  },
   "limitations": [
     "Natural-language completions are not copied into the tracked fixture; their admissible structure routes to semantic assessment.",
     "The sealed A15 role-delivery and nested-turn violations remain structural failures even when the surrounding wording is semantically assessable.",
     "Absolute run roots are local evidence locators and are intentionally excluded from logical candidate identity.",
     "Historical source projections retain JSON pointers and canonical hashes only; they do not copy selected private values into the tracked fixture.",
     "Package-manifest SHA-256 is the canonical JSON hash of exactly five path-sorted path, length, and blob-content SHA-256 rows.",
-    "Auxiliary read-only observations can establish bounded reconciliation only; they never satisfy a required file read or loaded-copy claim."
+    "Auxiliary read-only observations can establish bounded reconciliation only; they never satisfy a required file read or loaded-copy claim.",
+    "The Work Charter convergence rows are mutation-driven fixture checks of the portable message contract, not a task API, receipt database, or runtime transport state machine."
   ]
 }

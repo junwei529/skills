@@ -21,7 +21,10 @@ PowerShell 用于诊断并安全处理 PowerShell、native executable、文本�
 
 ## 何时不使用
 
-- 普通、版本无关的 cmdlet 没有边界症状；或
+- 普通、版本无关的 cmdlet 没有边界症状；
+- 简单、已有文档的 native command 不涉及实质 parser、version、argument、stream、
+  encoding、path、permission、process 或 WSL 边界；
+- 只是一般 Windows 工作且没有 shell 边界；或
 - 任务完全是 POSIX-only。
 
 ## 独立安装
@@ -80,6 +83,15 @@ command-readiness checks 和 pre-error selection contract。一轮有界 fresh
 active-stable loaded-copy 证明，覆盖 entry、native 与 text references。目标命令仍未
 执行；广泛 selection、selected execution behavior、live WSL 与因果 efficacy 仍未
 证明。`a7637a6...` evidence sync 不是新的 PowerShell SOURCE revision。
+
+当前未发布 SOURCE 为真正的非平凡 PowerShell 保留 pre-error contract，同时收窄
+ordinary 与 simple near-neighbor selection。双 runtime 确定性套件现在会拒绝这样
+的 `pwsh`：虽然 executable 已解析，但精确 readiness probe 返回非零、空输出或
+malformed version；它还验证 application-only WSL candidate cardinality、立即保存
+的 typed native exit，以及破坏性文件操作的 pre-error 正向选择。PowerShell 7 与
+Windows PowerShell 5.1 下的 59 项 focused
+assertion 全部通过。未运行 live WSL，也未进行安装、提权、profile、policy、locale、
+registry 或 host configuration 变更。
 
 ## 权威合同
 

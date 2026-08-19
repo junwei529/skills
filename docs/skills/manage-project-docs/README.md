@@ -39,25 +39,27 @@ $skill-installer Install the Skill from https://github.com/junwei529/skills/tree
 Installation is separate from invocation, target-project adoption, writes, and
 release authority. Do not use the moving `main` branch as a stable identity.
 
-## Invoke
+## Invoke And Select
 
-Codex uses Project Docs only after the user explicitly asks to invoke it. A
-documentation-governance request that does not name or explicitly invoke
-Project Docs, authority/evidence/routing/recovery symptoms, and a persisted
-project rule do not load the Skill.
+The unambiguous manual token is `$manage-project-docs`; the UI name is
+**Project Docs**. Direct documentation-governance intent or high-confidence
+authority, evidence, routing, or recovery symptoms may also select the current
+development SOURCE for only the minimum bounded read-only inspection and a
+visible proposal. Selection or body loading never authorizes adoption,
+persistence, structural or canonical-owner change, or a write.
 
-Invoke it explicitly:
+Invoke it manually:
 
 ```text
 $manage-project-docs Audit this repository's project-document governance. Do
 not make structural changes without separate approval.
 ```
 
-After a concrete proposal is visible, an unambiguous natural-language approval
-authorizes only its listed target-project changes. After authorized adoption,
-ordinary tasks follow the target project's persisted routing without loading
-Project Docs. A broken route may ask the user to invoke Project Docs, but the
-route does not itself invoke the Skill or authorize its repair.
+Every write requires explicit natural-language authorization of its concrete
+visible effects. After authorized adoption, ordinary tasks follow the target
+project's persisted routing without loading Project Docs. Broken routing may
+re-enter proposal-only behavior, but neither the route nor selection authorizes
+repair.
 
 For a new project, Project Docs starts with the five minimum logical
 responsibilities and may use one combined starter when that is the smallest
@@ -66,9 +68,9 @@ and preserves their layout when the routing is sufficient.
 
 ## Safety Boundaries
 
-Audit is read-only unless an update is separately authorized. First adoption,
-new modules, splits, merges, renames, migrations, authority changes, and
-canonical-owner changes require explicit structural authorization. Project
+Audit is read-only unless an update is separately authorized. Every write,
+first adoption, new module, split, merge, rename, migration, authority change,
+and canonical-owner change requires authorization for the concrete effects. Project
 Docs stops before unsafe writes when scope, permission, writer ownership, or
 evidence is unresolved. It does not run as a daemon or scan every task in the
 background.
@@ -82,9 +84,11 @@ tag-pinned mature-layout `NOOP` canary. Immutable repository release
 exact six package files, classifies Project Docs as `unchanged`, and adds fresh
 active-stable loaded-copy proof. Its deliberately incomplete synthetic
 authority map returned factual `PROPOSE`; this is identity and bounded audit
-behavior, not a new Project Docs package or broader efficacy claim. The later
-Decision 0019 implicit-selection and demand-driven-module development revision
-remains preserved but excluded. Stable
+behavior, not a broader efficacy claim. The current unreleased six-file SOURCE
+promotes Decision 0019 with deterministic source, fixture, and current-identity
+checks while preserving the immutable explicit-only `v0.1.2`/`v0.2.0` package
+as historical control. Fresh loaded-copy selection, candidate, installation,
+release, and write persistence for this revision remain unproved. Stable
 mutation behavior, broad trigger telemetry, causal efficacy, token savings,
 and cross-Harness parity are not established. See
 [Verification](VERIFICATION.md) and [State](STATE.md).

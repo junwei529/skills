@@ -40,7 +40,19 @@ hypothesis.
 Use an explicit distribution and executable with separate arguments:
 
 ```powershell
-$wsl = Get-Command wsl.exe -CommandType Application -ErrorAction Stop
+$wslCandidates = @(
+    Get-Command wsl.exe -CommandType Application -All -ErrorAction SilentlyContinue
+)
+
+if ($wslCandidates.Count -eq 0) {
+    throw 'No wsl.exe application candidate was found.'
+}
+if ($wslCandidates.Count -gt 1) {
+    $wslCandidates | Select-Object Name, Path, CommandType
+    throw 'Multiple wsl.exe candidates require an explicit identity rule.'
+}
+
+$wsl = $wslCandidates[0]
 $distribution = 'Example-Distro'
 $wslArgs = @(
     '--distribution'
@@ -51,8 +63,16 @@ $wslArgs = @(
 )
 
 & $wsl.Path @wslArgs
-$wslExitCode = $LASTEXITCODE
+$wslExitCode = [int]$LASTEXITCODE
+if ($wslExitCode -ne 0) {
+    throw "The exact wsl.exe probe failed with exit $wslExitCode."
+}
 ```
+
+The selected value remains the one `ApplicationInfo` object, and invocation
+uses its exact `.Path`. Do not index a possibly scalar path string, accept a
+non-application alias, silently choose the first of several candidates, or run
+another native command before capturing the typed exit status.
 
 Then replace only the Linux executable and arguments needed by the task. Avoid
 long inline `bash -lc` payloads, Bash heredocs, command substitutions, or nested

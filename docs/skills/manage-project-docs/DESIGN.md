@@ -1,6 +1,6 @@
 # Project Docs Design
 
-Last updated: 2026-08-14
+Last updated: 2026-08-19
 
 ## Purpose And Audience
 
@@ -12,10 +12,10 @@ working rules, authority, evidence, and recovery discoverable and maintainable.
 It is not a document editor, Wiki, project manager, organization portal,
 translation system, or policy-enforcement engine.
 
-## Work Charter `v0.2.0` Release-Set Applicability
+## Current Development SOURCE Contract
 
-The immutable `v0.2.0` release set includes the
-Project Docs `v0.1.2` package at
+The immutable `v0.2.0` release set still includes the Project Docs `v0.1.2`
+package at
 `ceed607152849775b981c54add74bfa30d858e4d`. For this release set, Project
 Docs is explicit-only: the user must invoke `$manage-project-docs` before the
 Skill loads, while an adopted target-project instruction may route ordinary
@@ -23,11 +23,15 @@ canonical updates without loading the Skill. A governance failure or
 structural change may ask the user to invoke Project Docs; it does not itself
 invoke the Skill or authorize a change.
 
-The later [Decision 0019](../../decisions/0019-project-docs-implicit-discovery-and-demand-driven-modules.md)
-development contract remains accepted history but is excluded from this
-release. Its implicit-selection and demand-driven-module requirements below
-are historical/future development requirements, not behavior supplied or
-claimed by the six live `v0.1.2` package files.
+The distinct current editable six-file SOURCE promotes accepted
+[Decision 0019](../../decisions/0019-project-docs-implicit-discovery-and-demand-driven-modules.md).
+Direct governance intent or high-confidence authority, evidence, routing, or
+recovery symptoms may select it for only the minimum bounded read-only
+inspection and a visible proposal. Selection or body loading grants no
+adoption, persistence, structural or canonical-owner change, write, Git, or
+external authority. `$manage-project-docs` remains the manual token and
+**Project Docs** remains the UI name. Every write requires explicit
+natural-language authorization of its concrete visible effects.
 
 ## Behavior Contract
 
@@ -48,7 +52,7 @@ Project Docs distinguishes four surfaces:
 
 | Surface | Behavior |
 |---|---|
-| Discovery or audit | The user explicitly invokes `$manage-project-docs`; an adopted project rule may instead handle a valid ordinary canonical update without loading the Skill |
+| Discovery or audit | Manual invocation or high-confidence governance symptoms may select the Skill for minimum bounded read-only inspection and a visible proposal; an adopted project rule handles a valid ordinary update without loading it |
 | First adoption | After approval of a concrete proposal, create or update only the authorized minimum contract and continuity route |
 | Routine maintenance | Update existing canonical owners under an adopted project rule |
 | Structural repair or expansion | Rediscover and propose first; write only after explicit structural or owner authorization |
@@ -68,16 +72,16 @@ explicit only when it unambiguously confirms a concrete visible proposal and
 its listed target effects. `$manage-project-docs` remains a manual override,
 not a write token.
 
-When governance symptoms are incidental to another unblocked task, the live
-explicit-only package does not take over the task or load itself. An adopted
-project rule may visibly ask the user to invoke Project Docs. The Skill never
-polls conversations or runs as a background scanner.
+When governance symptoms are incidental to another unblocked task, the Skill
+does not take over the task. It performs at most the minimum useful read-only
+inspection and visible proposal. The Skill never polls conversations or runs
+as a background scanner.
 
-## Excluded Decision 0019 Demand-Driven Modules And Update Modes
+## Demand-Driven Modules And Update Modes
 
-This section records the accepted Decision 0019 development contract. The
-exact `v0.1.2` package in the Work Charter `v0.2.0` release set does not
-implement or claim these demand-driven-module requirements.
+This section owns the current Decision 0019 development contract. Immutable
+`v0.1.2` and `v0.2.0` package evidence remains historical control evidence and
+does not prove this current SOURCE loaded or ran.
 
 New projects may begin with one combined working contract that covers the five
 logical responsibilities. Existing projects map their current documents and
@@ -107,11 +111,9 @@ An authorized first adoption may merge a lightweight continuity anchor into an
 existing target-project instruction or governance entry. It contains routing,
 document-impact events, update modes, the structural gate, and recovery entry,
 not project facts. Later ordinary tasks use that durable route without loading
-Project Docs. Under the live explicit-only package, a governance failure, new
-scope, missing owner, incompatible update lifecycle, or structural change may
-ask the user to invoke Project Docs for inspection and proposal, but does not
-itself invoke the Skill or authorize repair. Decision 0019's later implicit
-rediscovery contract remains excluded historical/future development.
+Project Docs. A governance failure, new scope, missing owner, incompatible
+update lifecycle, or structural change may re-enter bounded proposal-only
+inspection, but neither the route nor implicit selection authorizes repair.
 
 Persistence belongs to target-project sources, not chat history, memory,
 discovery mappings, installed copies, or caches. If the Harness cannot load or
@@ -151,17 +153,19 @@ recovery entries make continuity weak; a new owner or route requires
 | [`maintain-and-recover.md`](../../../skills/manage-project-docs/references/maintain-and-recover.md) | Existing-owner maintenance, continuity, pause, handoff, recovery, and completion reconciliation |
 | [`project-doc-starter.md`](../../../skills/manage-project-docs/assets/templates/project-doc-starter.md) | Adaptable single-file first-adoption output |
 | [`continuity-anchor.md`](../../../skills/manage-project-docs/assets/templates/continuity-anchor.md) | Adaptable persistent routing fragment |
-| [`openai.yaml`](../../../skills/manage-project-docs/agents/openai.yaml) | Public display metadata and explicit-only release-set policy |
-| [Project Docs eval cases](../../../evals/README.md#historical-project-docs-m1r-forward-matrix-excluded-from-this-candidate) | Excluded Decision 0019 behavior and selection contract history |
+| [`openai.yaml`](../../../skills/manage-project-docs/agents/openai.yaml) | Public display metadata and current implicit-selection policy |
+| [Project Docs eval cases](../../../evals/README.md#current-project-docs-development-source-matrix) | Current Decision 0019 behavior and selection contract |
 
 Assets are optional outputs, not mandatory target-project filenames.
 
 ## Independent-Skill Boundary
 
-Project Docs and Work Charter are peers. Project Docs owns document semantics,
-canonical routing, adoption, repair, and continuity. It does not create or
-activate a Work Charter, choose roles, or transfer action authority. Optional
-composition remains a repository-level recipe.
+Project Docs, Work Charter, and Use PowerShell Safely are independent peers.
+Project Docs owns documentation semantics and routing; Work Charter owns
+consequential-work coordination; PowerShell owns material Windows shell/native/
+encoding/path/permission/WSL boundaries. No peer grants another write authority
+or takes over its public contract. Optional composition remains a repository-
+level recipe.
 
 ## Accepted Basis
 
@@ -169,4 +173,4 @@ composition remains a repository-level recipe.
 - [Decision 0007](../../decisions/0007-independent-skills-and-optional-recipes.md)
 - [Decision 0015](../../decisions/0015-federated-repository-documentation.md)
 - [Decision 0019](../../decisions/0019-project-docs-implicit-discovery-and-demand-driven-modules.md)
-  (accepted development history; excluded from this release set)
+  (current development SOURCE contract; immutable release evidence remains historical)
