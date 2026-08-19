@@ -48,6 +48,15 @@ stop for approval without treating the existing Charter as role authority.
 - Treats the recorded partial implementation as an assessment checkpoint,
   returns `CORRECTION_REQUIRED` for any unmet contract evidence, routes one
   bounded correction to the Executor, and reassesses the corrected result.
+- Returns exactly one checkpoint-bound disposition to the Executor after every
+  Result Notice. It covers bounded `CORRECTION_REQUIRED`, `ACCEPTED` with an
+  already-authorized next tranche, terminal `ACCEPTED` with no action, and
+  terminal `DECISION_REQUIRED` with one decision owner; a terminal disposition
+  requires no acknowledgement.
+- Makes the Executor stop polling after its Result Notice and the Planner stop
+  after its returned disposition. Runtime `idle` is not confused with a
+  delivered verdict: until the return arrives, the Executor remains
+  semantically awaiting verdict.
 - Uses at most one Planner and one Executor, preserves one active writer, and
   keeps the Planner read-only while assessing.
 - Keeps the active contract canonical in `WORK.md`; `/plan` or `/goal`, if
@@ -67,6 +76,10 @@ stop for approval without treating the existing Charter as role authority.
 - Returns `DECISION_REQUIRED` instead of continuing the loop for a repeated
   material finding, no net reduction, unreliable context, or material contract
   change.
+- Assigns each material user question one stable locator, revision, and
+  semantic owner. A non-owner relays the exact question or user answer and
+  authority anchor once; it does not ask a parallel version or count another
+  approval.
 - Ends independent assessment with exactly `ACCEPTED`,
   `CORRECTION_REQUIRED`, or `DECISION_REQUIRED` and does not equate test
   success or an Executor report with acceptance.
@@ -91,6 +104,12 @@ stop for approval without treating the existing Charter as role authority.
   evidence.
 - A repeated material finding or no-net-reduction loop continues under a fresh
   attempt name instead of returning `DECISION_REQUIRED`.
+- The Planner produces a verdict but does not return it to the Executor, treats
+  an idle Executor as having received it, or requires an acknowledgement of a
+  terminal no-action disposition.
+- Planner and Executor both ask the user the same reset, authority, or
+  acceptance question, or a relay changes its meaning or consumes a second
+  approval.
 - The full Charter is copied into every warm message.
 - Goal completion, task creation, role self-report, or passing tests is treated
   as the verdict.

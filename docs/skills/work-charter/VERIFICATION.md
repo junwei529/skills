@@ -1,12 +1,13 @@
 # Work Charter Verification
 
-Last updated: 2026-08-17
+Last updated: 2026-08-19
 
 ## Claim Ledger
 
 | Claim | Status |
 |---|---|
 | `work-charter` is the sole current five-file package | verified structurally for current SOURCE |
+| Reciprocal verdict and single decision-owner SOURCE revision | current unreleased five-file SOURCE, amended Decision 0016, L3/L4/recovery cases, recovery fixture, and deterministic contract check require one checkpoint-bound return for every Result Notice, terminal no-ack convergence, runtime-idle versus awaiting-verdict distinction, and one semantic user-question owner; deterministic validation passes, while fresh loaded-copy behavior and efficacy remain unproved |
 | Coherent `v0.2.0` release package identity | Work Charter is `changed` at exact five-file tree `97f0d9de17abc9c699772e0ebdcbdaa23d890008` and manifest `04c382a4...`; adding the independently changed PowerShell P1 package creates no new Work Charter SOURCE revision |
 | WC-PV1 paired product validation | exact release identity and Native/Assisted isolation qualified with zero product starts; all eight one-shot P1/P2/P3/P7 pilot roots then failed at provider-stream transport before a user-visible response, leaving zero admissible cells and terminal `INCONCLUSIVE / PRODUCT_UNKNOWN`; P4/P5/P6/P8, nested roles, and assessor did not start, and no efficacy claim follows |
 | Gate 1 protection, re-entry, convergence, and explicit-activation contract | D43 SOURCE correction is implemented in the current revision: indirect proposal is metadata-sufficient and workflow-free, while direct or confirmed activation requires the exact body; the commit containing the closed set becomes the exact D43 candidate, and D31-D42 remain immutable and unaccepted |
@@ -59,6 +60,35 @@ Last updated: 2026-08-17
 | Released-control exact-commit RC loaded-copy identity | verified historically at public `c42eef3...` |
 | Stable loaded-copy identity and proportional behavior | tag-pinned `v0.2.0` five-file identity and fresh L1 Flat canary pass; retained rollback remains exact `v0.1.2` |
 | Broad implicit telemetry, deterministic delivery/locking, full Gate 2, real-project efficacy, token savings, or cross-Harness parity | unverified |
+
+## 2026-08-19 Verdict-Convergence SOURCE Check
+
+The current unreleased five-file SOURCE requires one checkpoint-bound Planner
+disposition for every Executor Result Notice and one checkpoint-bound
+Orchestrator disposition for every Planner phase result. `ACCEPTED`,
+`CORRECTION_REQUIRED`, and `DECISION_REQUIRED` all return to the lower role;
+terminal no-action dispositions require no acknowledgement. Runtime `idle` is
+not treated as proof that a verdict was delivered. One semantic owner asks each
+user-owned question, while other roles may relay that exact question or answer
+without asking it again.
+
+Two fresh-context, read-only internal checks exercised the current instruction
+composition. The L3 check correctly kept an idle Executor in
+`awaiting_verdict` until the Planner's `ACCEPTED` disposition was delivered,
+rejected progress polling and terminal acknowledgement, and assigned a native
+review reset question to the Session running the review. The Standard O/P/E
+check correctly returned Planner verdicts to the Executor and Orchestrator
+verdicts to the Planner, kept the Orchestrator from contacting the Executor,
+preserved the Mandate and Phase Definition as the two normal user contract
+gates, and relayed the review owner's reset question without duplicating it.
+
+The Skill validator, exact-source fixture/controller checks, repository
+closure, whitespace check, and secret scan pass for this revision. Because the
+current host guidance independently contains the same coordination rule, the
+fresh-context checks prove the composed current instruction behavior, not a
+Skill-only causal effect, installed or stable loaded-copy behavior, or reliable
+cross-task delivery. No model/product evaluation, installation, commit, or
+release occurred.
 
 ## 2026-08-17 WC-PV1 Paired Pilot Terminal
 

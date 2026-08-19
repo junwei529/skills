@@ -164,6 +164,22 @@ in exactly `ACCEPTED`, `CORRECTION_REQUIRED`, or `DECISION_REQUIRED`. Keep the
 verdict separate from durable recording and bind material evidence to its
 mutable subject and invalidation condition.
 
+Every Result Notice that triggers independent assessment receives exactly one
+checkpoint-bound disposition through the declared return route. The four
+action shapes are bounded correction, accepted listed continuation, terminal
+acceptance with no action, and terminal decision-required with one semantic
+decision owner. A missing disposition is awaiting verdict even when the lower
+role is runtime-idle; it is never implicit acceptance. Terminal dispositions
+require no acknowledgement, so the protocol converges without polling or
+callback ping-pong.
+
+Each material user question has one semantic owner at a stable locator and
+revision. Other roles may relay the exact question or the user's exact answer
+and authority anchor once, but do not mirror the question, reinterpret the
+answer, or count a second approval. A transfer preserves predecessor identity;
+a materially changed question creates a new revision and returns once through
+its new owner.
+
 Bind correction history to the logical Charter subject and material contract
 revision, with each verdict tied to a stable checkpoint rather than a task,
 Session, root, epoch, attempt, or internal slice. An authorized material
@@ -177,20 +193,22 @@ review budgets independent.
 
 Work Charter may stop its own work, request one-writer restoration, and propose
 a new route. It cannot deterministically stop, lock, or reroute another Codex
-task, guarantee delivery, or automatically integrate worktrees. Parallel
-Executors, automatic worktree routing, and automatic integration remain
-deferred.
+task, guarantee delivery or acknowledgement, or automatically integrate
+worktrees. Its reciprocal-disposition and single-owner rules are semantic
+obligations, not a public receipt file, broker, lock, or message state machine.
+Parallel Executors, automatic worktree routing, and automatic integration
+remain deferred.
 
 ## Internal Package Boundaries
 
 | Source | Owner |
 |---|---|
 | [`SKILL.md`](../../../skills/work-charter/SKILL.md) | Metadata-state, direct package-load versus project-read boundary, degraded-load and unavailable-read stops, conditional role-reference routing, five-part contract, compact levels/carrier/re-entry workflow, authority, and stop boundary |
-| [`coordination-and-recovery.md`](../../../skills/work-charter/references/coordination-and-recovery.md) | Package-load timing versus project-read approval, entry/re-entry order, L1/L2 durability, managed workstreams, multi-worktree reconciliation, re-entry precedence, L3, correction, and evidence |
-| [`standard-ope.md`](../../../skills/work-charter/references/standard-ope.md) | L4 standing-policy reuse, control location, responsibilities, operating path, and honest degradation |
-| [`work-charter.md`](../../../skills/work-charter/assets/work-charter.md) | Optional no-existing-owner durable carrier |
+| [`coordination-and-recovery.md`](../../../skills/work-charter/references/coordination-and-recovery.md) | Package-load timing versus project-read approval, entry/re-entry order, L1/L2 durability, managed workstreams, multi-worktree reconciliation, re-entry precedence, L3, reciprocal dispositions, single decision ownership, correction, and evidence |
+| [`standard-ope.md`](../../../skills/work-charter/references/standard-ope.md) | L4 standing-policy reuse, control location, responsibilities, two normal user contract gates, O/P/E disposition routes, decision ownership, and honest degradation |
+| [`work-charter.md`](../../../skills/work-charter/assets/work-charter.md) | Optional no-existing-owner durable carrier, including pending decision owner and role-return pointers |
 | [`openai.yaml`](../../../skills/work-charter/agents/openai.yaml) | Concise UI metadata and implicit-invocation policy |
-| [Work Charter eval cases](../../../evals/README.md#work-charter-v02-staged-matrix-definition) | Direct activation, two-stage indirect entry, project-read authorization, L0-L4, managed resume, four re-entry routes, and negative contracts |
+| [Work Charter eval cases](../../../evals/README.md#work-charter-v02-staged-matrix-definition) | Direct activation, two-stage indirect entry, project-read authorization, L0-L4, managed resume, four re-entry routes, reciprocal dispositions, single decision ownership, and negative contracts |
 
 ## Independent-Skill Boundary
 

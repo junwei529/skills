@@ -723,9 +723,9 @@ Token or context efficiency is a secondary measurement, not a pass condition. A 
 | [Work Charter entry](cases/work-charter-entry.md) | `work-charter` | Prove direct full-Skill loading, bounded project-read authorization, unavailable-read fail-closed behavior, and current-task or durable single-agent protection |
 | [Cold resume](cases/cold-resume.md) | `work-charter` | Recover from durable state without Project Docs |
 | [Work Charter midstream proposal](cases/work-charter-midstream.md) | `work-charter` | Recognize continuity symptoms and propose without mutation |
-| [Work Charter Planner/Executor](cases/work-charter-planner-executor.md) | `work-charter` | Run a one-writer loop with convergent correction accounting and independent assessment |
-| [Work Charter Standard O/P/E](cases/work-charter-standard.md) | `work-charter` | Exercise visible reuse of an already approved standing policy and one bounded phase |
-| [Work Charter recovery integrity](cases/work-charter-recovery-integrity.md) | `work-charter` | Exercise resume, successor history, qualification/consumption separation, fail-closed authority, assessment, delivery, writer, dirty-state, and multi-worktree boundaries across six variants, plus one direct package-denial/Harness-preload boundary |
+| [Work Charter Planner/Executor](cases/work-charter-planner-executor.md) | `work-charter` | Run a one-writer loop with convergent correction accounting, reciprocal checkpoint-bound verdicts, one decision owner, and independent assessment |
+| [Work Charter Standard O/P/E](cases/work-charter-standard.md) | `work-charter` | Exercise visible reuse of an approved standing policy, two normal user contract gates, O/P/E verdict returns, and one bounded phase |
+| [Work Charter recovery integrity](cases/work-charter-recovery-integrity.md) | `work-charter` | Exercise resume, successor history, qualification/consumption separation, fail-closed authority, assessment recording, missing verdict returns, single-owner question relay, delivery/writer degradation, dirty-state, and multi-worktree boundaries across six variants, plus one direct package-denial/Harness-preload boundary |
 | [PowerShell boundary](cases/powershell-boundary.md) | `use-powershell-safely` | Select before explicit non-trivial PowerShell and validate command readiness before diagnosing boundary failures |
 
 ## Fixture Preconditions

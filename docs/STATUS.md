@@ -1,6 +1,6 @@
 # Repository Status
 
-Last updated: 2026-08-17
+Last updated: 2026-08-19
 
 ## Dashboard
 
@@ -9,9 +9,24 @@ Last updated: 2026-08-17
 | Tested package identity | coherent commit `ac790233d5a8ba5afafd6eef95b1d5bc3cbe83a6` proves exact 6/5/5 tag, RC, stable installed-copy, and loaded-copy identities | [Verification](VERIFICATION.md) |
 | Stable release identity | immutable [`v0.2.0`](https://github.com/junwei529/skills/releases/tag/v0.2.0) at `ac790233...` is the installed and GitHub Latest Release; retained rollback is exact `v0.1.2` / `ceed607...` | [Verification](VERIFICATION.md) |
 | Project Docs | exact six-file tree `ce6da120...` is `unchanged` from `v0.1.2`; Decision 0019 and local development commit `776989f...` remain preserved but their later package bytes are excluded | [State](skills/manage-project-docs/STATE.md) |
-| Work Charter | exact five-file tree `97f0d9de...` / manifest `04c382a4...` is `changed`; proportional RC and stable loaded-copy smokes pass, while WC-PV1 is `INCONCLUSIVE / PRODUCT_UNKNOWN` after eight pilot transport failures and full comparative efficacy remains unproved | [State](skills/work-charter/STATE.md) |
+| Work Charter | immutable `v0.2.0` remains exact tree `97f0d9de...` / manifest `04c382a4...`; the current unreleased SOURCE adds reciprocal checkpoint-bound verdict returns and one semantic user-question owner, with deterministic checks but no fresh loaded-copy or efficacy claim; WC-PV1 remains `INCONCLUSIVE / PRODUCT_UNKNOWN` | [State](skills/work-charter/STATE.md) |
 | PowerShell | exact reviewed P1 tree `d8bf6dc...` from SOURCE commit `30668743...` is `changed`; RC positive/two negatives/assessor and active-stable loaded-copy canary pass, while the target command did not execute | [State](skills/use-powershell-safely/STATE.md) |
 | Release lifecycle | `v0.2.0` tag, stable switch, fresh loaded-copy canaries, branch push, and GitHub Release are complete; retained evidence and rollback/worktree cleanup remain a separate decision | [Runbook](RUNBOOK.md) |
+
+## 2026-08-19 Work Charter Verdict Convergence
+
+The current task-dedicated working revision amends Decision 0016 and the
+five-file Work Charter SOURCE so every assessed Result Notice receives one
+checkpoint-bound return, including terminal no-action `ACCEPTED` and
+`DECISION_REQUIRED`. It also gives each material user question one semantic
+owner; other roles relay instead of asking again. The portable package does not
+add a receipt file, task API, broker, deterministic delivery claim, or public
+message state machine. Host-specific callback, runtime-idle, O/P/E, and native-
+review ownership rules are updated separately in local Codex references.
+
+This is unreleased SOURCE work. It does not alter immutable `v0.2.0`, rescore
+WC-PV1, prove loaded-copy behavior, authorize a commit, or start any model,
+product, installation, publication, integration, or cleanup action.
 
 ## 2026-08-17 WC-PV1 Terminal
 

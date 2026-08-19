@@ -106,6 +106,14 @@ recorded assessment, the authoritative owner must record it before the work is
 treated as closed. A new material change invalidates only the evidence it
 actually affects.
 
+When roles are used, a Result Notice does not disappear into the upstream
+task: its assessor returns exactly one disposition tied to that checkpoint,
+including terminal acceptance or a decision-required stop. Terminal
+dispositions need no acknowledgement, and roles do not poll one another. Each
+material user question has one owner; other roles relay the exact question or
+answer instead of asking again. These are coordination obligations, not a
+guarantee that the Harness delivered a message.
+
 ## Safety
 
 - Protection never expands action authority.

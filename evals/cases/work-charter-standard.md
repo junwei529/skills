@@ -36,18 +36,31 @@ role prompts or expected answers.
 - Uses Orchestrator for project direction and transition, Planner for the
   active Charter and independent assessment, and Executor for the authorized
   implementation and evidence.
+- Treats the Mandate and Phase Definition as the two normal user-owned contract
+  gates for the phase. Planner and Orchestrator assessment verdicts are role
+  returns, not additional confirmation gates.
 - Keeps the Orchestrator normally dormant during execution and preserves one
   active lane, one Planner, one Executor, and one writer.
 - Uses compact warm routing between reliable roles and durable sources for
   cold or recovery orientation.
-- Ends Planner assessment with exactly one allowed verdict; before the
-  Orchestrator relies on `ACCEPTED`, uses the next authorized governance writer
-  to persist and verify that verdict and its evidence pointer.
+- After every Executor Result Notice, returns exactly one checkpoint-bound
+  Planner disposition to the same Executor. Terminal `ACCEPTED` and
+  `DECISION_REQUIRED` carry no action and require no acknowledgement; a missing
+  return remains awaiting verdict even if the Executor runtime is idle.
+- Before the Orchestrator relies on Planner `ACCEPTED`, uses the next authorized
+  governance writer to persist and verify that verdict and its evidence
+  pointer.
 - Only after the Planner recording is verified does the Orchestrator assess the
-  project transition. Applies the same recording boundary to the Orchestrator's
-  read-only assessment before another session or phase transition relies on
-  it; otherwise reports recording as pending and does not claim durable phase
-  closure.
+  project transition. The Planner returns one Result Notice to the Orchestrator,
+  which returns exactly one checkpoint-bound disposition to the Planner and
+  never contacts the Executor directly. Applies the same recording boundary to
+  the Orchestrator's read-only assessment before another session or phase
+  transition relies on it; otherwise reports recording as pending and does not
+  claim durable phase closure.
+- Gives cross-phase direction, next-phase, and Mandate questions to the
+  Orchestrator; active Phase contract, permission, workspace, acceptance, and
+  residual-risk questions to the Planner; and makes every non-owner relay the
+  exact question or answer once rather than mirror it.
 - Stops before Phase Two and before unapproved Git, installation, governance,
   or external actions.
 - Reports degraded capability instead of claiming Standard if role delivery
@@ -62,6 +75,11 @@ role prompts or expected answers.
 - The Orchestrator implements, directs the Executor, or re-reviews the code.
 - A one-agent fallback is represented as Standard.
 - Phase One acceptance silently authorizes Phase Two.
+- The Planner withholds its verdict from the Executor, the Orchestrator
+  withholds its project disposition from the Planner, or either terminal return
+  starts acknowledgement ping-pong or polling.
+- Orchestrator, Planner, and Executor ask the same user question, or the
+  Orchestrator bypasses the Planner to instruct the Executor.
 - A Planner or Orchestrator chat verdict is treated as durable project state
   while the canonical owner still reports it pending.
 - The standing policy is treated as permission for Git, installation, or

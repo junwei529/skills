@@ -1,6 +1,6 @@
 # Repository Verification
 
-Last updated: 2026-08-17
+Last updated: 2026-08-19
 
 ## Scope
 
@@ -19,9 +19,9 @@ Sanitized detailed runs remain under [`evals/results`](../evals/results/README.m
 
 | Check | Purpose | Current result |
 |---|---|---|
-| Changed Skill validator | Validate frontmatter and package name without changing package bytes | all three SOURCE and all three active-stable package validators pass; exact Work Charter tree `97f0d9de...`, PowerShell tree `d8bf6dc...`, and unchanged Project Docs tree `ce6da120...` remain frozen |
-| Repository checker | Validate strict UTF-8/no BOM, whitespace, local links/fragments, publication safety, exact Skill/eval sets, federated docs, bilingual navigation, promoted evaluation governance, immutable Work Charter closeout consumers, and the fact-first closure against the actual uncommitted target | passes at 222 text files, 14 cases, and 12 fixtures; closure `work-charter-pv1-terminal` exactly matches the 14-path documentation and sanitized-result target |
-| Fixture checker | Validate synthetic starting states and their Git/reparse/ignored-result boundaries plus tracked controller, runner, and PowerShell readiness regressions | 19 named fixture/contract rows pass under PowerShell 7 after the producer controller pass; the Work Charter row is deterministic historical-runner regression only, with no new formal, canary, product, or assessor start |
+| Changed Skill validator | Validate frontmatter and package name without changing package bytes | current unreleased Work Charter SOURCE validates as one five-file package at manifest `5e19a252...`; immutable release tree `97f0d9de...` / manifest `04c382a4...`, PowerShell tree `d8bf6dc...`, and unchanged Project Docs tree `ce6da120...` remain separate and frozen |
+| Repository checker | Validate strict UTF-8/no BOM, whitespace, local links/fragments, publication safety, exact Skill/eval sets, federated docs, bilingual navigation, promoted evaluation governance, immutable Work Charter closeout consumers, and the fact-first closure against the actual uncommitted target | passes at 222 text files, 14 cases, and 12 fixtures; closure `work-charter-verdict-convergence` exactly matches the 20-path uncommitted target |
+| Fixture checker | Validate synthetic starting states and their Git/reparse/ignored-result boundaries plus tracked controller, runner, and PowerShell readiness regressions | 20 named fixture/contract rows pass under PowerShell 7 after the producer controller pass; the new row checks reciprocal verdicts, terminal no-ack convergence, runtime-idle distinction, and one decision owner, with no model, product, formal, canary, or assessor start |
 | Work Charter Gate 2 outer runner | Preserve the revision-aware deterministic contract without rerunning or reinterpreting sealed D55 | D55 remains sealed `QUALIFICATION_FAILED / PRODUCT_UNKNOWN`; the current candidate imports no dirty D55 runner/checker bytes and starts no formal, canary, product, or assessor path |
 | Work Charter WC-PV1 paired pilot | Compare clean Native against exact released `v0.2.0` with frozen paired prompts, payloads, model request, tools, permissions, catalogs, and privacy route | zero-model identity/isolation qualification passes; eight P1/P2/P3/P7 root turns are consumed once, all eight fail at provider-stream transport before final text, zero product cells are admissible, and the terminal is `INCONCLUSIVE / PRODUCT_UNKNOWN` with no remaining or assessor start |
 | Codex evidence controller | Validate one shared core across four entry modes, strict required-read versus bounded auxiliary-observation attribution, structural PowerShell/Git/path classification, source-and-generated-contract-bound historical regressions, exact package manifests, candidate-identity and content-proof shape, record cardinality, completed exit typing, optional sealed governing-disposition monotonicity, output-array shape, per-key single-capture sealed parsing and reuse, real-reparse rejection, fail-closed negatives, external-input types, independently resolved inner/wrapper command identity, canonical model-visible Git argv rendering, Git-read and external-filter safety, profile-free PowerShell wrappers, culture-independent canonical ordering, metamorphic equivalence, output no-clobber, and canonical repeatability | passes exact current-SOURCE package identity, 11/11 historical, 32/32 evidence-surface, 33/33 negative, 4/4 metamorphic, 8/8 governing-snapshot, 12/12 command-resolution, and 9/9 Git-read-safety guards; the trusted Git anchor is independent of PATH and survives a synthetic PATH-first shadow, all 5/5 rooted forms execute through the resolved PowerShell wrapper with typed zero exits and are admissible, bare/shadow variants fail closed, the table hashes to `694e173a...f5467`, and zero external model or assessor calls occurred |
@@ -33,8 +33,40 @@ Sanitized detailed runs remain under [`evals/results`](../evals/results/README.m
 | PowerShell P1 bounded pre-error selection | Compare one isolated exact-commit P1 positive against immutable `v0.1.2` under the same request, plus ordinary-cmdlet and POSIX-only negatives, only after an exact-response transport canary | earlier `PRE_ERROR_SELECTION_OBSERVED / NARROW_PASS` remains intact; coherent-release RC later loaded exact P1 in one positive, kept both negatives unloaded, and received one `ACCEPTED` assessor. The target command did not execute |
 | PowerShell parser sweep | Parse all `evals/**/*.ps1` files in PowerShell 7 and both portable checker entry points in Windows PowerShell 5.1 | all nine eval PowerShell scripts parse in PowerShell 7; `check-fixtures.ps1` and `check-powershell-boundaries.ps1` parse in Windows PowerShell 5.1; the PS7-only Work Charter invoker remains outside the 5.1 claim |
 | Markdown navigation and ownership | Verify local links/fragments, English/Chinese routes, expected per-Skill owners, and no orphan canonical owner | passes through repository checker |
-| `git diff --check` | Reject whitespace defects in the working revision | passes for the exact WC-PV1 14-path documentation and sanitized-result target |
-| Gitleaks | Detect secret-like content independently | exact uncommitted publication diff scan covers about 113 KB and passes with zero findings; ignored carriers remain outside publication scope |
+| `git diff --check` | Reject whitespace defects in the working revision | passes for the exact 20-path verdict-convergence target |
+| Gitleaks | Detect secret-like content independently | repository scan covers about 2.75 MB and passes with zero findings; no ignored evidence carrier is part of this working target |
+
+### 2026-08-19 — Work Charter verdict convergence SOURCE
+
+The unreleased five-file SOURCE manifest is
+`5e19a252e942837c4da893f5cbb15492c21e56ce8afd994ff78382917032e1a6`.
+It binds the compact Skill rule, detailed L3 and Standard O/P/E references, and
+optional carrier fields for reciprocal checkpoint-bound verdict returns,
+terminal no-ack convergence, runtime-idle versus awaiting-verdict distinction,
+and one semantic user-question owner. Historical candidate and release
+identities remain unchanged.
+
+The Work Charter validator passes. The PowerShell 7 parser accepts the modified
+fixture checker, and its complete producer-before-consumer run passes 20/20
+named rows, including exact current-SOURCE package identity and the new
+delivery/decision-owner regression. The repository checker passes at 222 text
+files, 14 cases, and 12 fixtures with the 20-path documentation-impact closure;
+`git diff --check` passes; and Gitleaks scans about 2.75 MB with zero findings.
+
+Two fresh-context, read-only internal checks also passed. One exercised the L3
+Planner/Executor boundary and correctly distinguished runtime `idle` from an
+undelivered verdict, returned all verdict branches, converged terminal branches
+without acknowledgement, and assigned a native-review reset question to the
+review-running Session. The other exercised Standard O/P/E and correctly
+returned Planner verdicts to the Executor and Orchestrator verdicts to the
+Planner, kept the Orchestrator from contacting the Executor, preserved the two
+normal user contract gates, and used exact relay rather than duplicate user
+questions. Because current host guidance independently contains the same rule,
+these checks prove composed current-instruction behavior rather than a
+Skill-only causal effect. Fresh installed/stable loaded-copy behavior, real
+cross-task delivery, efficacy, deterministic acknowledgement, and
+malicious-controller resistance remain unproved; no product evaluation,
+assessor, installation, publication, commit, or release action ran.
 
 ### 2026-08-17 — WC-PV1 paired product validation terminal
 

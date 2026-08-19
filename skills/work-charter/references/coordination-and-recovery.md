@@ -159,6 +159,11 @@ non-idempotent create or send is unavailable or uncertain, preserve any known
 identifier, report degraded capability, and stop without retrying or creating
 a replacement.
 
+A successful send proves dispatch only; it does not prove that the receiver
+completed a turn or adopted the message. Keep dispatch, remote terminal, and
+delivery uncertainty distinct in reports. When an action-bearing delivery is
+uncertain, do not activate a competing writer or route.
+
 In a bounded correction loop, the Executor returns changes, deviations,
 checks, failures, and residual risks. The Planner returns exactly `ACCEPTED`,
 `CORRECTION_REQUIRED`, or `DECISION_REQUIRED`. Bind correction history to the
@@ -168,6 +173,34 @@ branch, worktree, delivery epoch, attempt name, or internal slice is a carrier
 or observation; changing one does not reset approvals, completed corrections,
 consumed evidence opportunities, or open findings. An authorized material
 successor or split keeps a predecessor pointer and the applicable history.
+
+For every Result Notice, the assessment owner returns exactly one
+checkpoint-bound disposition through the lower role's declared return route:
+
+1. `CORRECTION_REQUIRED` with one bounded, verifiable same-scope delta;
+2. `ACCEPTED` with the next already-authorized tranche, when one exists;
+3. terminal `ACCEPTED` with no next action; or
+4. terminal `DECISION_REQUIRED` with the decision locator and semantic owner.
+
+The disposition identifies the assessed checkpoint, verdict, next action or
+explicitly no action, observable writer state, durable-recording state, and—if
+a user decision is required—the stable decision locator and owner. This is a
+portable message contract, not a required receipt file or public state
+machine. A lower role that has returned its Result Notice stops polling and
+remains idle; the upper role likewise stops after returning its disposition.
+A terminal disposition requires no acknowledgement, preventing callback
+ping-pong. Until the disposition is delivered, the lower role is semantically
+awaiting verdict even when its runtime status is idle; silence is never
+acceptance.
+
+Assign each material user question one semantic owner at a stable decision
+locator and revision. A non-owner may forward that exact question or relay the
+user's exact answer and authority anchor once to the owner. It must not ask a
+parallel version, reinterpret the answer, claim a second approval, or create a
+fresh decision merely because the carrier task changed. Transfer ownership
+only when authority or reliable context changes, and preserve the predecessor
+locator. A materially changed question supersedes the old revision and returns
+to the user once through the new owner.
 
 Only a completed independent `CORRECTION_REQUIRED` assessment against a stable
 checkpoint consumes a Work Charter correction round. Qualification, preflight,

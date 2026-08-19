@@ -159,6 +159,16 @@ risks, return route, and exactly one verdict: `ACCEPTED`,
 `CORRECTION_REQUIRED`, or `DECISION_REQUIRED`. Passing tests, Goal completion,
 a commit, role delivery, or an Executor report is evidence, not acceptance.
 
+Every Result Notice that triggers independent assessment receives exactly one
+checkpoint-bound disposition back through the declared return route, including
+terminal `ACCEPTED` with no next action and `DECISION_REQUIRED`. A missing
+return remains awaiting verdict, not accepted. A terminal disposition grants no
+new action and requires no acknowledgement.
+
+Give each material user decision one semantic owner. Other roles may relay the
+exact question or answer and its authority anchor, but must not mirror the
+question, reinterpret the answer, or consume the same approval again.
+
 Before another session relies on a material decision or assessment, verify its
 authoritative revision and required durable recording. Stop when contract,
 permission, workspace, writer, evidence, delivery, or recovery state is

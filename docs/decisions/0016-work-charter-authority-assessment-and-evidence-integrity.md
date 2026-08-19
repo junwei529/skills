@@ -1,6 +1,7 @@
 # 0016: Work Charter Authority, Assessment, And Evidence Integrity
 
 Date: 2026-07-31
+Last amended: 2026-08-19
 Status: accepted
 
 ## Context
@@ -92,12 +93,45 @@ failures require.
   repository lifecycle identities rather than Work Charter states. A role or
   task name is not loaded-copy proof.
 
+### 2026-08-19 Amendment: Verdict Convergence And Decision Ownership
+
+Later real role coordination exposed the re-evaluation condition above. A
+lower role returned its Result Notice and became idle; the assessor produced a
+terminal verdict but did not return it to the lower role. Both runtimes were
+idle while the lower role remained semantically awaiting verdict. Separate
+workflows also showed how the same review-budget or governance decision could
+be surfaced by more than one role.
+
+The accepted correction is deliberately smaller than a message system:
+
+- every Result Notice receives exactly one checkpoint-bound disposition
+  through its declared return route, for all three verdicts;
+- that disposition either carries one bounded correction, one already-listed
+  continuation, terminal acceptance with no action, or a terminal
+  decision-required stop with one semantic decision owner;
+- absence of the returned disposition is awaiting verdict, never acceptance;
+- a terminal disposition grants no new action and requires no acknowledgement,
+  so neither role polls or creates acknowledgement ping-pong;
+- each material user question has one stable locator, revision, and semantic
+  owner; non-owners may relay the exact question or answer and authority anchor
+  once, but may not mirror it, reinterpret it, or count another approval; and
+- successful dispatch, correlated remote terminal, and delivery uncertainty
+  remain distinct. Uncertain non-idempotent delivery still stops without an
+  automatic retry or replacement.
+
+These are portable semantic invariants. They add no fourth verdict, mandatory
+receipt file, public task API, deterministic delivery claim, broker, lock, or
+general message state machine. Harness-specific task status, callback tools,
+review-question ownership, and retry mechanics remain private control-plane
+responsibilities.
+
 ## Consequences
 
 - Work Charter can fail closed on stale authority and unrecorded acceptance
   without becoming a message broker or persistence system.
 - The five-file package, three assessment verdicts, proportional role model,
-  correction budget, and independent-Skill boundary remain unchanged.
+  correction budget, reciprocal-disposition rule, single-question-owner rule,
+  and independent-Skill boundary remain unchanged in shape.
 - One existing coordination reference owns the detailed behavior; no third
   reference, script, schema, lock, or required file is added.
 - Existing SOURCE, DEV, RC, and stable evidence predates this revision and

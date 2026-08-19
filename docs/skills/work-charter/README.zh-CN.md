@@ -85,6 +85,12 @@ Planner acceptance 本身不等于 durable closeout。项目要求记录 assessm
 由 authoritative owner 完成记录后才能视为关闭。新的实质变化只会使其实际影响的
 证据失效。
 
+使用角色时，Result Notice 不会只停留在上游 task：assessor 必须针对该 checkpoint
+恰好返回一个 disposition，包括 terminal acceptance 或 decision-required stop。
+terminal disposition 不要求 acknowledgement，角色之间也不靠 polling 等待。同一个
+实质用户问题只有一个 owner；其他角色只精确 relay 问题或答案，不再重复询问。这是
+coordination obligation，不是 Harness 已经成功交付消息的保证。
+
 ## 安全边界
 
 - Protection 不会扩大 action authority。

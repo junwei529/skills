@@ -867,6 +867,16 @@ Add-Check `
         $integrityDelivery -match 'Addressable role: unproved' -and
         $integrityDelivery -match 'Replacement authority: none' -and
         $integrityDelivery -match 'Delta owner: unknown' -and
+        $integrityDelivery -match 'Assessed checkpoint: `phase-1/result-03`' -and
+        $integrityDelivery -match 'Planner verdict produced: `ACCEPTED`' -and
+        $integrityDelivery -match 'Returned disposition delivery: missing' -and
+        $integrityDelivery -match 'Executor runtime status: idle' -and
+        $integrityDelivery -match 'Executor semantic status: awaiting verdict' -and
+        $integrityDelivery -match 'Terminal acknowledgement required: no' -and
+        $integrityDelivery -match 'Decision locator: `review-cycle/reset-02`' -and
+        $integrityDelivery -match 'Semantic owner: review-running Executor' -and
+        $integrityDelivery -match 'Planner action: relay exact answer and authority anchor only' -and
+        $integrityDelivery -match 'Orchestrator action: no parallel question' -and
         $integrityRevision -match 'Revision: `4`' -and
         $integrityRevision -match 'Requested scope: active and archived customers' -and
         $integrityRevision -match 'Authority for the scope or acceptance change: not yet granted' -and
@@ -878,7 +888,40 @@ Add-Check `
         $integrityWorktrees -match 'Common control location: `UNKNOWN`' -and
         $integrityWorktrees -match 'Dirty ownership: incomparable'
     ) `
-    -Expectation 'six read-only integrity variants expose resume, successor history, pending recording, consumption-aware hidden evidence drift, delivery/writer ambiguity, and divergent worktree carriers'
+    -Expectation 'six read-only integrity variants expose resume, successor history, pending recording, consumption-aware hidden evidence drift, reciprocal-verdict and single-owner delivery degradation, writer ambiguity, and divergent worktree carriers'
+
+$workCharterSkill = Get-Content -Raw -Encoding UTF8 (
+    Join-Path $repoRoot 'skills\work-charter\SKILL.md'
+)
+$workCharterCoordination = Get-Content -Raw -Encoding UTF8 (
+    Join-Path $repoRoot 'skills\work-charter\references\coordination-and-recovery.md'
+)
+$workCharterStandard = Get-Content -Raw -Encoding UTF8 (
+    Join-Path $repoRoot 'skills\work-charter\references\standard-ope.md'
+)
+Add-Check `
+    -Name 'work-charter verdict convergence contract' `
+    -Passed (
+        $workCharterSkill -match 'Every Result Notice.*exactly one\s+checkpoint-bound disposition' -and
+        $workCharterSkill -match 'terminal `ACCEPTED` with no next action and `DECISION_REQUIRED`' -and
+        $workCharterSkill -match 'terminal disposition grants no\s+new action and requires no acknowledgement' -and
+        $workCharterSkill -match 'material user decision one semantic owner' -and
+        $workCharterSkill -match 'exact question or answer and its authority anchor' -and
+        $workCharterCoordination -match 'A successful send proves dispatch only' -and
+        $workCharterCoordination -match '`CORRECTION_REQUIRED` with one bounded, verifiable same-scope delta' -and
+        $workCharterCoordination -match '`ACCEPTED` with the next already-authorized tranche' -and
+        $workCharterCoordination -match 'terminal `ACCEPTED` with no next action' -and
+        $workCharterCoordination -match 'terminal `DECISION_REQUIRED` with the decision locator and semantic owner' -and
+        $workCharterCoordination -match 'terminal disposition requires no acknowledgement' -and
+        $workCharterCoordination -match 'semantically\s+awaiting verdict even when its runtime status is idle' -and
+        $workCharterCoordination -match "relay the\s+user's exact answer and authority anchor once" -and
+        $workCharterCoordination -match 'must not ask a\s+parallel version' -and
+        $workCharterStandard -match 'two user-owned contract gates per phase' -and
+        $workCharterStandard -match 'Planner returns its phase-level Result Notice to the Orchestrator' -and
+        $workCharterStandard -match 'returns exactly one checkpoint-bound\s+disposition to the Planner' -and
+        $workCharterStandard -match 'It never contacts the Executor directly'
+    ) `
+    -Expectation 'portable SOURCE requires reciprocal checkpoint-bound verdicts, terminal no-ack convergence, runtime-idle distinction, and one semantic user-decision owner without a public receipt state machine'
 
 $powerShell = Join-Path $repoRoot 'evals\fixtures\powershell-boundary'
 $jsonPath = Join-Path $powerShell 'data\input file.json'

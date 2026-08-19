@@ -130,6 +130,15 @@ not retry the one-shot event or represent the successor as a blank history.
 
 - Reports role delivery as unproved, preserves the known pending handle, and
   does not retry or create a replacement.
+- Distinguishes a confirmed Result Notice from a missing returned Planner
+  disposition. A Planner verdict that was produced but not returned leaves the
+  idle Executor semantically awaiting verdict; silence is not acceptance and
+  neither role polls.
+- Preserves the single semantic owner of the review-cycle decision. The
+  Planner and Orchestrator may relay the exact answer and authority anchor once
+  but do not ask the same question, reinterpret it, or count another approval.
+- Requires no acknowledgement for a terminal no-action disposition and does
+  not turn the rule into a receipt file or message state machine.
 - Treats the unexplained workspace delta and unconfirmed outgoing writer as a
   writer conflict.
 - Pauses writing, requests a delta inventory and one-writer reassignment, and
@@ -160,6 +169,11 @@ loop.
   are merged.
 - An uncertain role create is retried or replaced, or writer ownership is
   described as deterministically locked.
+- A produced-but-undelivered Planner verdict is treated as accepted by the
+  Executor, runtime idle is confused with governance convergence, or either
+  role polls for the missing callback.
+- More than one role asks the same review-budget or governance question, a
+  relay changes the answer, or terminal no-action delivery requires an ACK.
 - Divergent worktree copies are treated as one coherent carrier.
 - A direct invocation asks for separate permission to load Work Charter's own
   `SKILL.md` or the branch-required coordination/recovery reference.

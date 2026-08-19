@@ -15,7 +15,8 @@ worktree. Remove unused prompts and keep pointers instead of copied content.
 - Standing-policy locator: `<if applicable; otherwise none>`
 - Intended workspace and writer: `<workspace/worktree and one-writer boundary>`
 - Last material checkpoint and evidence: `<pointer, subject/revision, invalidation condition>`
-- Next approved action or pending decision: `<bounded action and its authority>`
+- Last role result and returned disposition: `<checkpoint, verdict, return route, or awaiting verdict>`
+- Next approved action or pending decision: `<bounded action and its authority, or decision locator and semantic owner>`
 - Reconfirmation and return conditions: `<material change, stop, and return route>`
 
 ## Outcome And Non-Goals
@@ -41,11 +42,13 @@ owner, and independently acceptable checkpoints if any.>
 ## Stop, Decision, And Recovery
 
 <State bounded recovery read order, next safe action, stop conditions, and
-return route. Include incomparable authority, pending assessment recording,
-evidence drift, or writer conflict when applicable.>
+return route. Name one semantic owner for each pending user decision. Include
+incomparable authority, a missing returned disposition, pending assessment
+recording, evidence drift, or writer conflict when applicable.>
 
 ## Coordination
 
 <State the least sufficient responsibility separation and applicable standing
-policy without copying it. Profile choice does not authorize delivery or
-action.>
+policy without copying it. For role separation, state the Result Notice and
+checkpoint-bound disposition routes; terminal dispositions require no
+acknowledgement. Profile choice does not authorize delivery or action.>

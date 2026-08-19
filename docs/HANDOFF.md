@@ -1,10 +1,24 @@
 # Repository Handoff
 
-Last updated: 2026-08-17
+Last updated: 2026-08-19
 
 ## Snapshot
 
 - Repository: Agent Workflow Skills
+- Current bounded writer: task-dedicated worktree on
+  `codex/work-charter-verdict-callbacks`, based on integrated local
+  `main@7720fe1...`. It owns only the unreleased reciprocal-verdict and
+  single-question-owner SOURCE, evaluation, rationale, state, verification,
+  and this handoff closure. The index is empty. No commit, push, install,
+  publication, release, integration, cleanup, or task callback is authorized
+  or performed by this working revision
+- Current correction: every independently assessed Result Notice gets exactly
+  one checkpoint-bound return for all three verdicts; terminal no-action
+  returns require no ACK; runtime `idle` is distinct from semantic
+  `AWAITING_VERDICT`; and every material user question has one owner while
+  other roles relay the exact question or answer once. The public package adds
+  no receipt file or message state machine. Local Codex references own concrete
+  callback, O/P/E, task-idle, and native-review question routing
 - WC-PV1-D01 / WC-PV1-C01 ran from exact baseline `22a8e19...` on dedicated
   branch `codex/work-charter-pv1`. Its final zero-model qualification passed
   exact released Work Charter identity, Native exclusion, pair equality, and
@@ -15,21 +29,15 @@ Last updated: 2026-08-17
   start. The terminal is `INCONCLUSIVE / PRODUCT_UNKNOWN`; no SOURCE change,
   efficacy claim, replay, replacement, or remaining-evidence continuation is
   permitted under this Campaign
-- WC-PV1 writer transition: before the terminal local commit, the
-  task-dedicated lease owns only this 14-path documentation and sanitized-result
-  closeout plus the retained declared task-owned ignored carrier. Cycle 1 is
-  immutable at 5/5; after its three terminal P2 findings, the user approved
-  Cycle 2 for the same commit attempt. Reviews 1-2 found and corrected the
-  reference-loading and public-carrier/writer-transition gaps; 2/5 are consumed
-  and three reviews remain. The remaining route is the first clean materially
-  covered Cycle 2 re-review, affected checks, the authorized single local
-  commit, status-only reconciliation of every registered worktree, and one
-  terminal Result Notice to the declared read-only Planner task. Push, merge,
-  release, installation, integration, cleanup, configuration, product replay,
-  and other external effects remain excluded. A successful commit plus
-  post-commit reconciliation changes the lease to `RELINQUISHED` only when the
-  Completion Packet proves it; otherwise the live lease state is `UNKNOWN`.
-  These tracked bytes do not attest which side of that transition is live
+- Historical WC-PV1 writer transition is complete. Cycle 1 is immutable at
+  5/5; the user-approved Cycle 2 stopped at its first clean materially covered
+  result, review 3/5, with two reviews unused. The exact authorized 14-path
+  terminal candidate was committed locally as `7720fe1...`, independently
+  accepted, later fast-forward integrated, and pushed as `main@7720fe1...`.
+  Its Executor writer is `RELINQUISHED`. The retained ignored carrier remains
+  private evidence for `INCONCLUSIVE / PRODUCT_UNKNOWN`; no product replay,
+  efficacy credit, installation, release, cleanup, or remaining WC-PV1 action
+  follows from that closed Campaign
 - Latest exact Work Charter product candidate:
   `c4810057c3f28cca9f12004ca2018784cd21f449`; its five-file manifest is
   `04c382a48e43897a8806aa5ffd996984cb015d3d8cdc6e675e9181a6d94e6f44`.
@@ -388,6 +396,168 @@ acceptance boundary.
         {"path": "docs/skills/manage-project-docs/STATE.md", "status": "UPDATE", "reason": "Records post-release writer and cleanup boundary for the unchanged package."},
         {"path": "docs/skills/use-powershell-safely/STATE.md", "status": "UPDATE", "reason": "Records post-release writer and residual P1 evidence boundary."},
         {"path": "docs/skills/work-charter/STATE.md", "status": "UPDATE", "reason": "Records post-release writer and preserved Gate 2 limits."}
+      ]
+    }
+  ]
+}
+```
+
+## 2026-08-19 Work Charter Verdict-Convergence Documentation Impact
+
+This working closure starts from the observed role-convergence defect and the
+accepted Decision 0016 amendment. It changes portable Work Charter semantics,
+existing behavior definitions, current SOURCE identity, deterministic fixture
+coverage, and the mapped state/evidence/recovery consumers. It adds no public
+task API, receipt file, dependency, role, case, fixture directory, permission,
+external effect, acceptance credit, installation, or release action.
+
+```documentation-impact-closure
+{
+  "schema": "documentation-impact-closure/v1",
+  "closure_id": "work-charter-verdict-convergence",
+  "authorized_change_envelope": [
+    "docs/HANDOFF.md",
+    "docs/STATUS.md",
+    "docs/VERIFICATION.md",
+    "docs/decisions/0016-work-charter-authority-assessment-and-evidence-integrity.md",
+    "docs/skills/work-charter/DESIGN.md",
+    "docs/skills/work-charter/README.md",
+    "docs/skills/work-charter/README.zh-CN.md",
+    "docs/skills/work-charter/STATE.md",
+    "docs/skills/work-charter/VERIFICATION.md",
+    "evals/README.md",
+    "evals/cases/work-charter-planner-executor.md",
+    "evals/cases/work-charter-recovery-integrity.md",
+    "evals/cases/work-charter-standard.md",
+    "evals/check-fixtures.ps1",
+    "evals/codex-evidence-controller-cases.json",
+    "evals/fixtures/work-charter-recovery-integrity/delivery-and-writer/SNAPSHOT.md",
+    "skills/work-charter/SKILL.md",
+    "skills/work-charter/assets/work-charter.md",
+    "skills/work-charter/references/coordination-and-recovery.md",
+    "skills/work-charter/references/standard-ope.md"
+  ],
+  "intended_update_set": [
+    "docs/HANDOFF.md",
+    "docs/STATUS.md",
+    "docs/VERIFICATION.md",
+    "docs/decisions/0016-work-charter-authority-assessment-and-evidence-integrity.md",
+    "docs/skills/work-charter/DESIGN.md",
+    "docs/skills/work-charter/README.md",
+    "docs/skills/work-charter/README.zh-CN.md",
+    "docs/skills/work-charter/STATE.md",
+    "docs/skills/work-charter/VERIFICATION.md",
+    "evals/README.md",
+    "evals/cases/work-charter-planner-executor.md",
+    "evals/cases/work-charter-recovery-integrity.md",
+    "evals/cases/work-charter-standard.md",
+    "evals/check-fixtures.ps1",
+    "evals/codex-evidence-controller-cases.json",
+    "evals/fixtures/work-charter-recovery-integrity/delivery-and-writer/SNAPSHOT.md",
+    "skills/work-charter/SKILL.md",
+    "skills/work-charter/assets/work-charter.md",
+    "skills/work-charter/references/coordination-and-recovery.md",
+    "skills/work-charter/references/standard-ope.md"
+  ],
+  "review_target": [
+    "docs/HANDOFF.md",
+    "docs/STATUS.md",
+    "docs/VERIFICATION.md",
+    "docs/decisions/0016-work-charter-authority-assessment-and-evidence-integrity.md",
+    "docs/skills/work-charter/DESIGN.md",
+    "docs/skills/work-charter/README.md",
+    "docs/skills/work-charter/README.zh-CN.md",
+    "docs/skills/work-charter/STATE.md",
+    "docs/skills/work-charter/VERIFICATION.md",
+    "evals/README.md",
+    "evals/cases/work-charter-planner-executor.md",
+    "evals/cases/work-charter-recovery-integrity.md",
+    "evals/cases/work-charter-standard.md",
+    "evals/check-fixtures.ps1",
+    "evals/codex-evidence-controller-cases.json",
+    "evals/fixtures/work-charter-recovery-integrity/delivery-and-writer/SNAPSHOT.md",
+    "skills/work-charter/SKILL.md",
+    "skills/work-charter/assets/work-charter.md",
+    "skills/work-charter/references/coordination-and-recovery.md",
+    "skills/work-charter/references/standard-ope.md"
+  ],
+  "changed_facts": [
+    {
+      "fact": "Work Charter reciprocal verdict convergence and single semantic user-decision ownership",
+      "fact_class": "Accepted rationale, including capability-delta and external framework or optimizer disposition",
+      "canonical_owner": "docs/decisions/0016-work-charter-authority-assessment-and-evidence-integrity.md",
+      "bounded_consumers": [
+        "README.md",
+        "README.zh-CN.md",
+        "docs/ARCHITECTURE.md",
+        "docs/INDEX.md",
+        "docs/SPEC.md",
+        "docs/skills/work-charter/DESIGN.md",
+        "docs/skills/work-charter/README.md",
+        "docs/skills/work-charter/README.zh-CN.md",
+        "evals/README.md",
+        "evals/cases/work-charter-planner-executor.md",
+        "evals/cases/work-charter-recovery-integrity.md",
+        "evals/cases/work-charter-standard.md",
+        "skills/work-charter/SKILL.md",
+        "skills/work-charter/assets/work-charter.md",
+        "skills/work-charter/references/coordination-and-recovery.md",
+        "skills/work-charter/references/standard-ope.md"
+      ],
+      "dispositions": [
+        {"path": "docs/decisions/0016-work-charter-authority-assessment-and-evidence-integrity.md", "status": "UPDATE", "reason": "Amends the accepted rationale after an observed missing reverse-verdict and duplicate-question risk."},
+        {"path": "skills/work-charter/SKILL.md", "status": "UPDATE", "reason": "States the compact portable reciprocal-return and single-owner invariants."},
+        {"path": "skills/work-charter/references/coordination-and-recovery.md", "status": "UPDATE", "reason": "Owns detailed L3 delivery, terminal, relay, and uncertainty semantics."},
+        {"path": "skills/work-charter/references/standard-ope.md", "status": "UPDATE", "reason": "Owns O/P/E return paths, two normal contract gates, and role decision ownership."},
+        {"path": "skills/work-charter/assets/work-charter.md", "status": "UPDATE", "reason": "Lets an optional carrier point to the last returned disposition and one pending decision owner."},
+        {"path": "docs/skills/work-charter/DESIGN.md", "status": "UPDATE", "reason": "Defines the behavior and advisory/non-broker boundary."},
+        {"path": "docs/skills/work-charter/README.md", "status": "UPDATE", "reason": "Explains the user-visible convergence and non-guarantee in canonical English."},
+        {"path": "docs/skills/work-charter/README.zh-CN.md", "status": "UPDATE", "reason": "Mirrors the canonical English public surface."},
+        {"path": "evals/README.md", "status": "UPDATE", "reason": "Maps the revised behavior coverage."},
+        {"path": "evals/cases/work-charter-planner-executor.md", "status": "UPDATE", "reason": "Covers all Planner-to-Executor verdict branches and one question owner."},
+        {"path": "evals/cases/work-charter-standard.md", "status": "UPDATE", "reason": "Covers Planner-to-Executor and Orchestrator-to-Planner convergence without duplicate gates."},
+        {"path": "evals/cases/work-charter-recovery-integrity.md", "status": "UPDATE", "reason": "Covers produced-but-undelivered verdicts, runtime idle, relay, and terminal no-ack degradation."},
+        {"path": "README.md", "status": "CHECKED_NO_CHANGE", "reason": "Root product summary does not need detailed role-message semantics."},
+        {"path": "README.zh-CN.md", "status": "CHECKED_NO_CHANGE", "reason": "Mirrors the unchanged root summary."},
+        {"path": "docs/ARCHITECTURE.md", "status": "CHECKED_NO_CHANGE", "reason": "Package topology and cross-Skill ownership do not change."},
+        {"path": "docs/INDEX.md", "status": "CHECKED_NO_CHANGE", "reason": "Decision 0016 already has a discoverable index entry; no new Decision is created."},
+        {"path": "docs/SPEC.md", "status": "CHECKED_NO_CHANGE", "reason": "No shared product, version, or release requirement changes."}
+      ]
+    },
+    {
+      "fact": "Current unreleased Work Charter SOURCE identity and deterministic coordination regression",
+      "fact_class": "Per-Skill SOURCE, forward-test, DEV, RC, stable evidence and limits",
+      "canonical_owner": "docs/skills/work-charter/VERIFICATION.md",
+      "bounded_consumers": [
+        "docs/STATUS.md",
+        "docs/VERIFICATION.md",
+        "docs/skills/work-charter/STATE.md",
+        "evals/check-fixtures.ps1",
+        "evals/codex-evidence-controller-cases.json",
+        "evals/fixtures/work-charter-recovery-integrity/delivery-and-writer/SNAPSHOT.md"
+      ],
+      "dispositions": [
+        {"path": "docs/skills/work-charter/VERIFICATION.md", "status": "UPDATE", "reason": "Records only the new SOURCE and deterministic evidence plus unproved loaded-copy behavior."},
+        {"path": "evals/codex-evidence-controller-cases.json", "status": "UPDATE", "reason": "Updates only the live current-source five-file identity; historical candidates remain immutable."},
+        {"path": "evals/fixtures/work-charter-recovery-integrity/delivery-and-writer/SNAPSHOT.md", "status": "UPDATE", "reason": "Adds the minimal observed missing-return and decision-owner state."},
+        {"path": "evals/check-fixtures.ps1", "status": "UPDATE", "reason": "Asserts the fixture state and portable SOURCE contract deterministically."},
+        {"path": "docs/skills/work-charter/STATE.md", "status": "UPDATE", "reason": "Separates current unreleased SOURCE from immutable v0.2.0 and records the live writer/gate."},
+        {"path": "docs/STATUS.md", "status": "UPDATE", "reason": "Shows the unreleased correction without changing stable-release claims."},
+        {"path": "docs/VERIFICATION.md", "status": "UPDATE", "reason": "Records repository-level checks and exact limits after verification."}
+      ]
+    },
+    {
+      "fact": "Current verdict-convergence writer, dirty scope, and recovery route",
+      "fact_class": "Repository writer custody, dirty scope, next integration action, and recovery order",
+      "canonical_owner": "docs/HANDOFF.md",
+      "bounded_consumers": [
+        "docs/STATUS.md",
+        "docs/VERIFICATION.md"
+      ],
+      "dispositions": [
+        {"path": "docs/HANDOFF.md", "status": "UPDATE", "reason": "Owns the bounded writer, exact documentation-impact target, excluded actions, and recovery state."},
+        {"path": "docs/STATUS.md", "status": "UPDATE", "reason": "Displays the current unreleased work without implying a commit or release."},
+        {"path": "docs/VERIFICATION.md", "status": "UPDATE", "reason": "Records verification and non-effect boundaries for the working target."}
       ]
     }
   ]

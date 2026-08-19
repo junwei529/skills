@@ -1,6 +1,6 @@
 # Work Charter State
 
-Last updated: 2026-08-17
+Last updated: 2026-08-19
 
 ## Current Implementation
 
@@ -8,6 +8,14 @@ Canonical editable SOURCE is the five-file package under
 [`skills/work-charter`](../../../skills/work-charter). The superseded
 `manage-large-tasks` path is retired without an alias or second discovery
 entry.
+
+The current unreleased SOURCE revision adds reciprocal checkpoint-bound role
+dispositions and single-owner user-decision relay. It distinguishes runtime
+`idle` from semantic `AWAITING_VERDICT`, requires terminal no-action returns
+without acknowledgement, and leaves concrete Codex task APIs and native-review
+ownership in host guidance. Decision 0016 owns the amended rationale. This
+working revision is not part of immutable `v0.2.0`, has no fresh loaded-copy or
+efficacy evidence, and authorizes no installation, release, or external effect.
 
 Historical public control candidate
 `c42eef392a5b9f58bbee64aa73ffb603a6fb6c29` contains the five-file package
@@ -455,22 +463,17 @@ SOURCE by itself.
 
 ## Current Writer
 
-WC-PV1 writer transition on `codex/work-charter-pv1`: before the terminal local
-commit, the task-dedicated lease owns only the 14-path documentation and
-sanitized-result closeout plus the retained declared task-owned ignored carrier.
-Cycle 1 is immutable at 5/5; after its three terminal P2 findings, the user
-approved Cycle 2 for the same commit attempt. Reviews 1-2 found and corrected
-the reference-loading and public-carrier/writer-transition gaps; 2/5 are
-consumed and three reviews remain. The remaining route is the first clean
-materially covered Cycle 2 re-review, affected deterministic checks, the
-authorized single local commit, status-only reconciliation of every registered
-worktree, and one terminal Result Notice to the declared read-only Planner task.
-It excludes SOURCE, product or assessor reruns, push, merge, release,
-installation, integration, cleanup, configuration, and every other external
-effect. A successful commit plus reconciliation changes the lease to
-`RELINQUISHED` only when the Completion Packet proves it; otherwise the live
-lease state is `UNKNOWN`. These tracked bytes do not attest which side of that
-transition is live.
+The current bounded writer is the task-dedicated worktree on
+`codex/work-charter-verdict-callbacks`. It owns only the reciprocal-verdict and
+single-question-owner SOURCE, evaluation, rationale, state, verification, and
+handoff correction recorded by the current documentation-impact closure. The
+index remains empty; no commit, push, installation, publication, release, or
+cleanup is authorized by this working state.
+
+Historical WC-PV1 work is closed at local commit `7720fe1...`; its writer was
+relinquished after independent acceptance and later integration. Its retained
+carrier and `INCONCLUSIVE / PRODUCT_UNKNOWN` result are not evidence for this
+new SOURCE behavior.
 
 D51-D53 and both D54 Sessions no longer own an execution writer. Build lease
 `D54-explicit-root-build@main/d4374b381444b85fff4941e73cf7a8d32f18a96e`
@@ -501,12 +504,14 @@ Release actions for `v0.2.0` are complete. The bounded release-prep lease on
 `22a8e19...`, a clean task checkout, and exact source/all-worktree
 reconciliation. No release-prep writer authority remains.
 
-Work Charter SOURCE, Design, package manifest, behavior cases, fixtures,
-matrix, rubric, controller module, other Skills, discovery mappings, user
-configuration, push, installation, tag, release, stable-copy mutation,
-retained-evidence cleanup, formal/product/assessor evidence, automatic D56, and
-external publication remain excluded. D31-D54, every consumed turn, and every
-earlier ignored carrier remain immutable.
+This working revision changes Work Charter SOURCE, Design, its current-source
+package manifest, three existing behavior cases, one existing recovery fixture,
+and deterministic fixture coverage. It does not change the prospective matrix,
+rubric, historical candidate identities, controller module, other Skills,
+discovery mappings, user configuration, push, installation, tag, release,
+stable-copy state, retained evidence, product/assessor evidence, or external
+publication. D31-D55, every consumed turn, and every earlier ignored carrier
+remain immutable.
 
 ## Evidence State
 
@@ -1004,6 +1009,12 @@ are `UNKNOWN_NOT_ASSESSED`, and the candidate remains unaccepted.
 
 ## Next Gate
 
+For the current unreleased reciprocal-verdict revision, complete the declared
+SOURCE validator, fixture/controller regression, repository/documentation
+closure, parser, publication-safety, and diff checks. Record only the evidence
+actually produced. A commit, installation, release, or loaded-copy/product
+claim remains a separate explicit gate.
+
 Immutable `v0.2.0` at exact commit `ac790233...` is released, installed as the
 active stable copy, verified by fresh loaded-copy canaries, and published as the
 GitHub Latest Release. The release preserves exact Work Charter tree
@@ -1226,7 +1237,9 @@ evaluation.
 
 1. Read [`AGENTS.md`](../../../AGENTS.md) and the repository
    [Authority Map](../../AUTHORITY.md).
-2. Read current [Design](DESIGN.md), the accepted rationale in
+2. Read current [Design](DESIGN.md), the reciprocal-verdict amendment in
+   [Decision 0016](../../decisions/0016-work-charter-authority-assessment-and-evidence-integrity.md),
+   the accepted adoption rationale in
    [Decision 0018](../../decisions/0018-work-charter-adoption-levels-and-reentry-checkpoint.md),
    this state, and [Verification](VERIFICATION.md).
 3. Confirm live workspace, writer, and action authority.
