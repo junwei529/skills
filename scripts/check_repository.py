@@ -570,6 +570,95 @@ def check_evaluation_governance_contract(failures: list[str]) -> None:
         )
 
 
+def check_repository_coordination_contract(failures: list[str]) -> None:
+    contracts = (
+        (
+            "docs/decisions/0025-monorepo-coordination-and-skill-contract-hardening.md",
+            "Decision",
+            (
+                "one Git repository, one saved Codex Project, and one shared release and evaluation envelope",
+                "Directory, repository, saved Project, branch, worktree, and task or Session identity are separate dimensions.",
+                "A provider owns its public contract.",
+                "Dependency grants neither cross-write authority",
+                "one checkpoint-bound disposition",
+            ),
+        ),
+        (
+            "docs/decisions/0025-monorepo-coordination-and-skill-contract-hardening.md",
+            "Non-Goals",
+            (
+                "no non-Git coordination parent",
+                "no per-Skill repository, saved Project, or independent version line",
+                "no Plugin, MCP service, controller, broker, generic adapter, lock, receipt database, or host enforcement",
+                "no malicious-same-user or host-level security claim",
+            ),
+        ),
+        (
+            "docs/decisions/0025-monorepo-coordination-and-skill-contract-hardening.md",
+            "Re-evaluation Conditions",
+            (
+                "Two completed planning or release cycles",
+                "At least three independently recorded",
+                "across at least two Phases",
+                "Directory count, task count, Phase duration, and repository size alone do not meet a trigger.",
+            ),
+        ),
+        (
+            "AGENTS.md",
+            "Repository Coordination",
+            (
+                "Directory, repository, saved Project, branch, worktree, and task or Session identity are separate dimensions",
+                "exactly one repository writer owns the write window",
+                "Dependency grants no cross-write authority",
+                "one checkpoint-bound disposition",
+            ),
+        ),
+        (
+            "docs/ARCHITECTURE.md",
+            "Repository Coordination Topology",
+            (
+                "one Git repository, one saved Codex Project, and one shared release and evaluation envelope",
+                "Several authorized readers may inspect the same committed contract, while one exact repository writer owns the write window.",
+                "Compatibility declaration",
+                "Assembled integration tests",
+            ),
+        ),
+        (
+            "docs/RUNBOOK.md",
+            "Repository Coordination",
+            (
+                "Classify every participant as a reader, active Session, or current writer.",
+                "A dependency or failing consumer test is evidence for a delta, not cross-write authority.",
+                "one checkpoint-bound disposition",
+                "Reconcile every registered worktree status-only",
+            ),
+        ),
+        (
+            "docs/PROVENANCE.md",
+            "Source Categories",
+            (
+                "Approved portable repository-coordination requirements",
+                "no private repository, prompt, task, path, memory, or session material was inspected or copied",
+            ),
+        ),
+        (
+            "docs/INDEX.md",
+            "Decisions",
+            (
+                "0025-monorepo-coordination-and-skill-contract-hardening.md",
+                "Monorepo identity binding, one-writer routing, provider/consumer ownership, checkpoint convergence, and measurable split triggers",
+            ),
+        ),
+    )
+    for relative_path, heading, required_fragments in contracts:
+        require_section_contract(
+            relative_path,
+            heading,
+            required_fragments,
+            failures,
+        )
+
+
 def check_federated_documentation(failures: list[str]) -> None:
     docs_root = ROOT / "docs" / "skills"
     skill_doc_names = {
@@ -1789,6 +1878,7 @@ def main(argv: list[str] | None = None) -> int:
     check_direct_references(failures)
     check_federated_documentation(failures)
     check_evaluation_governance_contract(failures)
+    check_repository_coordination_contract(failures)
     check_scanner_self_tests(failures)
 
     closure_requested = args.documentation_impact_closure is not None

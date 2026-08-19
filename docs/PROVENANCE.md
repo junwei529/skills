@@ -1,6 +1,6 @@
 # Provenance And Publication Boundary
 
-Last updated: 2026-08-02
+Last updated: 2026-08-19
 
 ## Purpose
 
@@ -17,6 +17,7 @@ decision.
 |---|---|---|
 | Author-maintained global Codex guidance | Requirements source for documentation authority, bounded roles, context recovery, and Windows command boundaries | Concepts were rewritten into smaller, trigger-specific skills |
 | Author-maintained project documentation practice | Requirements source for specification, status, handoff, verification, and decision responsibilities | Generalized templates use placeholders rather than project facts |
+| Approved portable repository-coordination requirements | Requirements source for identity binding, one-writer routing, provider/consumer ownership, callback convergence, and split reconsideration | Rewritten as repository-local rules and Decision 0025; no private repository, prompt, task, path, memory, or session material was inspected or copied |
 | Locally bundled `skill-creator` | `<CODEX_HOME>/skills/.system/skill-creator/scripts/init_skill.py` generated the initial directories and metadata; `quick_validate.py` checked package structure | Generated instructional placeholders were removed; the tool revision was not exposed and remains unpinned |
 | [OpenAI Build skills guidance](https://learn.chatgpt.com/docs/build-skills) | Primary source for current standalone Skill discovery, `$skill-installer`, and Skill-versus-Plugin distribution boundaries | The v0.1 standalone GitHub choice is documented as a narrower early distribution path; the repository does not claim Plugin-directory availability |
 | [OpenAI AGENTS.md guidance](https://learn.chatgpt.com/docs/agent-configuration/agents-md) | Primary source for native global-to-project instruction loading and nearest-scope precedence | Project Docs follows the instruction chain already loaded by Codex; its separate responsibility map and canonical-write rules remain product semantics |

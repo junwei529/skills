@@ -1,6 +1,6 @@
 # Documentation Index
 
-Last updated: 2026-08-17
+Last updated: 2026-08-19
 
 ## Core Documents
 
@@ -57,6 +57,7 @@ mirror.
 | [`docs/decisions/0019-project-docs-implicit-discovery-and-demand-driven-modules.md`](decisions/0019-project-docs-implicit-discovery-and-demand-driven-modules.md) | Project Docs implicit discovery, proposal/write boundary, demand-driven modules, update modes, and persistent routing | accepted historical/future development contract; local commit `776989f...` remains in Git history but its package bytes are excluded from immutable `v0.2.0`, which uses exact `v0.1.2` Project Docs |
 | [`docs/decisions/0020-bounded-campaign-authorization-and-evidence-convergence.md`](decisions/0020-bounded-campaign-authorization-and-evidence-convergence.md) | One bounded authorization for qualification, evidence, assessment, and closeout with same-boundary transport qualification, lesson promotion, ruleset activation, and cumulative convergence | accepted |
 | [`docs/decisions/0024-work-charter-product-validation-and-portfolio.md`](decisions/0024-work-charter-product-validation-and-portfolio.md) | Light paired Native-versus-released Work Charter product validation, evidence-conditioned public claims, and portfolio routing | accepted for WC-PV1-D01 / WC-PV1-C01 |
+| [`docs/decisions/0025-monorepo-coordination-and-skill-contract-hardening.md`](decisions/0025-monorepo-coordination-and-skill-contract-hardening.md) | Monorepo identity binding, one-writer routing, provider/consumer ownership, checkpoint convergence, and measurable split triggers | accepted |
 
 ## Skill Sources
 

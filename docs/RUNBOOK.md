@@ -1,6 +1,6 @@
 # Development, Installation, And Release Runbook
 
-Last updated: 2026-08-15
+Last updated: 2026-08-19
 
 ## Quick Navigation
 
@@ -17,6 +17,7 @@ Last updated: 2026-08-15
 | RUN-RC | Release candidate | Test an isolated copy produced from an exact commit |
 | RUN-RELEASE | Release and stable install | Map a tag, package, install, update, or roll back |
 | RUN-EVIDENCE | Evidence record | Prove which revision and copy actually ran |
+| RUN-COORDINATION | Repository coordination | Bind identities, writer, provider/consumer ownership, and checkpoint returns |
 | RUN-STOP | Stop conditions | Escalate ambiguous or unsafe state |
 
 ## Purpose
@@ -923,6 +924,37 @@ such as maintaining a released line while developing the next line, preserving
 unrelated dirty work, or supporting explicitly authorized parallel work. Every
 worktree is still a source checkout and follows the same canonical-source rule.
 Record its branch, commit, dirty owner, and intended version line.
+
+## Repository Coordination
+
+Use this procedure when more than one directory, worktree, task, Session, or
+component participates in one repository change:
+
+1. Bind repository identity and common Git directory independently from the
+   working directory. Record the saved Project, branch, worktree, and task or
+   Session only when each dimension matters to routing.
+2. Classify every participant as a reader, active Session, or current writer.
+   Shared reads stay within their own authority; keep one exact repository
+   writer for all writes, including upstream and integration changes.
+3. Identify each changed public contract's provider. Make every consumer own
+   its compatibility declaration and assembled integration tests. A dependency
+   or failing consumer test is evidence for a delta, not cross-write authority.
+4. Route an upstream or integration delta to the current writer with its
+   contract owner, affected consumers, evidence, and acceptance boundary.
+5. Return one compact Result Notice, obtain independent verification, and
+   deliver one checkpoint-bound disposition. Both sides stop after their send;
+   uncertain delivery remains unresolved and never activates a competing
+   writer or implies acceptance.
+6. Reconcile every registered worktree status-only at the writer's terminal
+   boundary. Preserve attributed dirty scopes and keep protected bytes outside
+   evidence and implementation inputs.
+
+Keep the monorepo, saved Project, and shared release/evaluation envelope unless
+the measurable evidence thresholds in
+[Decision 0025](decisions/0025-monorepo-coordination-and-skill-contract-hardening.md)
+are met and the repository-level decision owner approves a different topology.
+Directory count, task count, Phase duration, and repository size alone do not
+justify a hybrid or split.
 
 ## Evidence Record
 

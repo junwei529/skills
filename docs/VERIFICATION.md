@@ -20,7 +20,8 @@ Sanitized detailed runs remain under [`evals/results`](../evals/results/README.m
 | Check | Purpose | Current result |
 |---|---|---|
 | Changed Skill validator | Validate frontmatter and package name without changing package bytes | current unreleased Work Charter SOURCE validates as one five-file package at manifest `5e19a252...`; immutable release tree `97f0d9de...` / manifest `04c382a4...`, PowerShell tree `d8bf6dc...`, and unchanged Project Docs tree `ce6da120...` remain separate and frozen |
-| Repository checker | Validate strict UTF-8/no BOM, whitespace, local links/fragments, publication safety, exact Skill/eval sets, federated docs, bilingual navigation, promoted evaluation governance, immutable Work Charter closeout consumers, and the fact-first closure against the actual uncommitted target | passes at 222 text files, 14 cases, and 12 fixtures; closure `work-charter-verdict-convergence` exactly matches the 20-path uncommitted target |
+| Repository checker | Validate strict UTF-8/no BOM, whitespace, local links/fragments, publication safety, exact Skill/eval sets, federated docs, bilingual navigation, promoted evaluation governance, immutable Work Charter closeout consumers, and the fact-first closure against the actual uncommitted target | passes at 223 text files, 14 cases, and 12 fixtures; closure `es-c1-tranche-a-monorepo-coordination` exactly matches the 10-path uncommitted target |
+| Repository coordination contract | Validate Decision 0025, repository-rule, architecture, runbook, provenance, and index/navigation consistency without claiming runtime enforcement | passes in the repository checker for the exact current working revision |
 | Fixture checker | Validate synthetic starting states and their Git/reparse/ignored-result boundaries plus tracked controller, runner, and PowerShell readiness regressions | 20 named fixture/contract rows pass under PowerShell 7 after the producer controller pass; the new row checks reciprocal verdicts, terminal no-ack convergence, runtime-idle distinction, and one decision owner, with no model, product, formal, canary, or assessor start |
 | Work Charter Gate 2 outer runner | Preserve the revision-aware deterministic contract without rerunning or reinterpreting sealed D55 | D55 remains sealed `QUALIFICATION_FAILED / PRODUCT_UNKNOWN`; the current candidate imports no dirty D55 runner/checker bytes and starts no formal, canary, product, or assessor path |
 | Work Charter WC-PV1 paired pilot | Compare clean Native against exact released `v0.2.0` with frozen paired prompts, payloads, model request, tools, permissions, catalogs, and privacy route | zero-model identity/isolation qualification passes; eight P1/P2/P3/P7 root turns are consumed once, all eight fail at provider-stream transport before final text, zero product cells are admissible, and the terminal is `INCONCLUSIVE / PRODUCT_UNKNOWN` with no remaining or assessor start |
@@ -33,8 +34,23 @@ Sanitized detailed runs remain under [`evals/results`](../evals/results/README.m
 | PowerShell P1 bounded pre-error selection | Compare one isolated exact-commit P1 positive against immutable `v0.1.2` under the same request, plus ordinary-cmdlet and POSIX-only negatives, only after an exact-response transport canary | earlier `PRE_ERROR_SELECTION_OBSERVED / NARROW_PASS` remains intact; coherent-release RC later loaded exact P1 in one positive, kept both negatives unloaded, and received one `ACCEPTED` assessor. The target command did not execute |
 | PowerShell parser sweep | Parse all `evals/**/*.ps1` files in PowerShell 7 and both portable checker entry points in Windows PowerShell 5.1 | all nine eval PowerShell scripts parse in PowerShell 7; `check-fixtures.ps1` and `check-powershell-boundaries.ps1` parse in Windows PowerShell 5.1; the PS7-only Work Charter invoker remains outside the 5.1 claim |
 | Markdown navigation and ownership | Verify local links/fragments, English/Chinese routes, expected per-Skill owners, and no orphan canonical owner | passes through repository checker |
-| `git diff --check` | Reject whitespace defects in the working revision | passes for the exact 20-path verdict-convergence target |
-| Gitleaks | Detect secret-like content independently | repository scan covers about 2.75 MB and passes with zero findings; no ignored evidence carrier is part of this working target |
+| `git diff --check` | Reject whitespace defects in the working revision | passes for the exact 10-path ES-C1 tranche A target |
+| Gitleaks | Detect secret-like content independently | Gitleaks 8.30.1 stdin scan of the exact tracked diff plus new Decision patch passes with zero findings; no ignored evidence carrier was read |
+
+### 2026-08-19 — Monorepo coordination contract
+
+Decision 0025, the repository rules, Architecture, Runbook, Provenance, and
+documentation index record one repository/Project/release envelope, separate
+identity dimensions, one repository writer, provider-owned public contracts,
+consumer-owned compatibility declarations and assembled tests, no dependency-
+derived cross-write authority, callback-first checkpoint convergence, explicit
+non-goals, and measurable split-reconsideration triggers.
+
+The repository checker validates those exact owner and navigation fragments as
+documentation consistency only. It does not prove writer exclusivity, task
+delivery, malicious-same-user resistance, host enforcement, or a public Skill
+behavior change. No Skill validator, model, assessor, candidate, installation,
+release, or external effect belongs to this repository-governance evidence.
 
 ### 2026-08-19 — Work Charter verdict convergence SOURCE
 

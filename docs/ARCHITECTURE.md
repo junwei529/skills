@@ -1,6 +1,6 @@
 # Architecture
 
-Last updated: 2026-08-02
+Last updated: 2026-08-19
 
 ## System Shape
 
@@ -16,6 +16,36 @@ repository governance and lifecycle
 
 There is no umbrella Skill, shared runtime, automatic composer, or product
 hierarchy. Each Skill remains usable alone.
+
+## Repository Coordination Topology
+
+The three products remain in one Git repository, one saved Codex Project, and
+one shared release and evaluation envelope. A directory, repository, saved
+Project, branch, worktree, and task or Session are separate identities. The
+current operation binds only the dimensions it needs and never treats one as
+proof of another.
+
+Repository access separates readers, active Sessions, and the writer. Several
+authorized readers may inspect the same committed contract, while one exact
+repository writer owns the write window. An active Session, dependency, branch,
+or worktree does not independently create write authority. Upstream and
+integration changes route through that writer.
+
+Contract ownership follows the dependency direction without propagating write
+authority:
+
+| Responsibility | Owner |
+|---|---|
+| Public contract | provider |
+| Compatibility declaration | each consumer |
+| Assembled integration tests | each consumer |
+| Upstream or integration modification | current repository writer, after the provider/consumer delta is reported |
+
+Coordination converges through compact callback-first Result Notices,
+independent verification, and one checkpoint-bound disposition. These are
+semantic repository rules, not a broker, receipt database, lock, or host-level
+security mechanism. [Decision 0025](decisions/0025-monorepo-coordination-and-skill-contract-hardening.md)
+owns the accepted rationale, non-goals, and measurable split triggers.
 
 ## Federated Documentation Ownership
 

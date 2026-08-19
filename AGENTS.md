@@ -49,6 +49,26 @@ Before changing this repository, read:
 - Do not add a Plugin, MCP service, UI, database, remote registry, or generic
   adapter framework without an accepted project decision.
 
+## Repository Coordination
+
+- Keep this repository as one Git repository, one saved Codex Project, and one
+  shared release/evaluation envelope. Directory, repository, saved Project,
+  branch, worktree, and task or Session identity are separate dimensions; bind
+  each relevant identity explicitly instead of inferring one from another.
+- Readers, active Sessions, and the repository writer are distinct. Shared
+  reads remain bounded by their own authority; exactly one repository writer
+  owns the write window, and upstream or integration changes route through
+  that exact writer.
+- A provider owns its public contract. Each consumer owns its compatibility
+  declaration and assembled integration tests. Dependency grants no cross-write
+  authority and does not authorize a consumer to rewrite its provider.
+- Use compact callback-first Result Notices for independent verification and
+  one checkpoint-bound disposition. Stop after dispatch; do not poll, create
+  acknowledgement traffic, infer acceptance from silence, or activate a
+  replacement writer when delivery is uncertain.
+- Apply the measurable reconsideration triggers and non-goals in
+  [Decision 0025](docs/decisions/0025-monorepo-coordination-and-skill-contract-hardening.md).
+
 ## Publication Safety
 
 - Do not copy the user's global `AGENTS.md`, reference files, memories, or

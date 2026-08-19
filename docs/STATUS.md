@@ -11,7 +11,28 @@ Last updated: 2026-08-19
 | Project Docs | exact six-file tree `ce6da120...` is `unchanged` from `v0.1.2`; Decision 0019 and local development commit `776989f...` remain preserved but their later package bytes are excluded | [State](skills/manage-project-docs/STATE.md) |
 | Work Charter | immutable `v0.2.0` remains exact tree `97f0d9de...` / manifest `04c382a4...`; the current unreleased SOURCE adds reciprocal checkpoint-bound verdict returns and one semantic user-question owner, with deterministic checks but no fresh loaded-copy or efficacy claim; WC-PV1 remains `INCONCLUSIVE / PRODUCT_UNKNOWN` | [State](skills/work-charter/STATE.md) |
 | PowerShell | exact reviewed P1 tree `d8bf6dc...` from SOURCE commit `30668743...` is `changed`; RC positive/two negatives/assessor and active-stable loaded-copy canary pass, while the target command did not execute | [State](skills/use-powershell-safely/STATE.md) |
+| Repository coordination | current working revision keeps one repository/Project/release envelope and records explicit identity, writer, provider/consumer, callback, and split-reconsideration boundaries | [Decision 0025](decisions/0025-monorepo-coordination-and-skill-contract-hardening.md) |
 | Release lifecycle | `v0.2.0` tag, stable switch, fresh loaded-copy canaries, branch push, and GitHub Release are complete; retained evidence and rollback/worktree cleanup remain a separate decision | [Runbook](RUNBOOK.md) |
+
+## 2026-08-19 Repository Coordination Contract
+
+The current repository-governance revision keeps one Git repository, one saved
+Codex Project, and one shared release/evaluation envelope. It binds directory,
+repository, Project, branch, worktree, and task or Session identities
+independently; separates readers and active Sessions from the one repository
+writer; and assigns public contracts to providers while consumers own their
+compatibility declarations and assembled integration tests.
+
+Dependency grants no cross-write authority. Upstream and integration changes
+route through the exact repository writer. Compact callback-first Result
+Notices receive independent verification and one checkpoint-bound disposition.
+Decision 0025 records measurable evidence thresholds for reconsidering a
+hybrid or split; directory count, task count, Phase duration, and repository
+size alone are insufficient.
+
+This is repository-development governance only. It changes no Skill package,
+public product contract, evaluation matrix, candidate, stable installation,
+release, Plugin, MCP service, controller, broker, lock, or host enforcement.
 
 ## 2026-08-19 Work Charter Verdict Convergence
 

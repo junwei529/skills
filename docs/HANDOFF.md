@@ -5,13 +5,19 @@ Last updated: 2026-08-19
 ## Snapshot
 
 - Repository: Agent Workflow Skills
-- Current bounded writer: task-dedicated worktree on
-  `codex/work-charter-verdict-callbacks`, based on integrated local
-  `main@7720fe1...`. It owns only the unreleased reciprocal-verdict and
-  single-question-owner SOURCE, evaluation, rationale, state, verification,
-  and this handoff closure. The index is empty. No commit, push, install,
-  publication, release, integration, cleanup, or task callback is authorized
-  or performed by this working revision
+- Current bounded writer: ES-C1 tranche A on
+  `codex/es-c1-coordination-contracts`, based on exact
+  `main@0ae742f68bafe95be8c084d48185e5a8154eb690`. It owns only Decision 0025,
+  the mapped repository-governance owners/consumers, focused deterministic
+  checker coverage, one local commit, and the compact Planner Result Notice.
+  The saved `main` checkout's six modified tracked paths are protected and
+  unowned by this tranche: `docs/HANDOFF.md`, `docs/STATUS.md`,
+  `docs/VERIFICATION.md`, `evals/README.md`,
+  `evals/check-work-charter-gate2-runner.ps1`, and
+  `evals/invoke-work-charter-gate2.ps1`. They are reconciled by status only and
+  are never opened, hashed, diffed, copied, staged, cleaned, overwritten, or
+  used as evidence. No push, PR, merge, integration, release, install, mapping,
+  cleanup, branch/worktree deletion, or host/external effect is authorized
 - Current correction: every independently assessed Result Notice gets exactly
   one checkpoint-bound return for all three verdicts; terminal no-action
   returns require no ACK; runtime `idle` is distinct from semantic
@@ -193,6 +199,137 @@ Last updated: 2026-08-19
   `.eval-runs/release-v0.2.0`, including the exact stable switch receipt,
   rollback copy, canary controller/results, and public-safe release notes.
   None of these directories is SOURCE or part of a commit
+
+## ES-C1 Tranche A Documentation-Impact Closure
+
+This closure starts from the accepted monorepo-coordination contract. It keeps
+the repository, saved Project, release/evaluation envelope, public Skill
+contracts, evaluation matrix, and release state unchanged. It creates only
+Decision 0025 and updates the minimum existing repository-governance owners and
+deterministic consumers.
+
+```documentation-impact-closure
+{
+  "schema": "documentation-impact-closure/v1",
+  "closure_id": "es-c1-tranche-a-monorepo-coordination",
+  "authorized_change_envelope": [
+    "AGENTS.md",
+    "README.md",
+    "README.zh-CN.md",
+    "docs/ARCHITECTURE.md",
+    "docs/AUTHORITY.md",
+    "docs/HANDOFF.md",
+    "docs/INDEX.md",
+    "docs/PROVENANCE.md",
+    "docs/RUNBOOK.md",
+    "docs/SPEC.md",
+    "docs/STATUS.md",
+    "docs/VERIFICATION.md",
+    "docs/decisions/0025-monorepo-coordination-and-skill-contract-hardening.md",
+    "scripts/check_repository.py"
+  ],
+  "intended_update_set": [
+    "AGENTS.md",
+    "docs/ARCHITECTURE.md",
+    "docs/HANDOFF.md",
+    "docs/INDEX.md",
+    "docs/PROVENANCE.md",
+    "docs/RUNBOOK.md",
+    "docs/STATUS.md",
+    "docs/VERIFICATION.md",
+    "docs/decisions/0025-monorepo-coordination-and-skill-contract-hardening.md",
+    "scripts/check_repository.py"
+  ],
+  "review_target": [
+    "AGENTS.md",
+    "docs/ARCHITECTURE.md",
+    "docs/HANDOFF.md",
+    "docs/INDEX.md",
+    "docs/PROVENANCE.md",
+    "docs/RUNBOOK.md",
+    "docs/STATUS.md",
+    "docs/VERIFICATION.md",
+    "docs/decisions/0025-monorepo-coordination-and-skill-contract-hardening.md",
+    "scripts/check_repository.py"
+  ],
+  "changed_facts": [
+    {
+      "fact": "Accepted monorepo coordination and Skill contract-hardening rationale",
+      "fact_class": "Accepted rationale, including capability-delta and external framework or optimizer disposition",
+      "canonical_owner": "docs/decisions/0025-monorepo-coordination-and-skill-contract-hardening.md",
+      "bounded_consumers": [
+        "AGENTS.md",
+        "README.md",
+        "README.zh-CN.md",
+        "docs/ARCHITECTURE.md",
+        "docs/AUTHORITY.md",
+        "docs/HANDOFF.md",
+        "docs/INDEX.md",
+        "docs/PROVENANCE.md",
+        "docs/RUNBOOK.md",
+        "docs/SPEC.md",
+        "docs/STATUS.md",
+        "docs/VERIFICATION.md",
+        "evals/README.md",
+        "scripts/check_repository.py"
+      ],
+      "dispositions": [
+        {"path": "docs/decisions/0025-monorepo-coordination-and-skill-contract-hardening.md", "status": "UPDATE", "reason": "Owns the accepted topology, identity, ownership, non-goal, and reconsideration rationale."},
+        {"path": "AGENTS.md", "status": "UPDATE", "reason": "Makes the repository-development coordination rules active for this project."},
+        {"path": "README.md", "status": "CHECKED_NO_CHANGE", "reason": "No shared public product or distribution surface changes."},
+        {"path": "README.zh-CN.md", "status": "CHECKED_NO_CHANGE", "reason": "The unchanged English public surface requires no mirror edit."},
+        {"path": "docs/ARCHITECTURE.md", "status": "UPDATE", "reason": "Owns the monorepo topology and provider/consumer ownership boundary."},
+        {"path": "docs/AUTHORITY.md", "status": "CHECKED_NO_CHANGE", "reason": "The existing fact-class and canonical-owner map is sufficient."},
+        {"path": "docs/HANDOFF.md", "status": "UPDATE", "reason": "Records the tranche writer, protected dirty boundary, closure, and return route."},
+        {"path": "docs/INDEX.md", "status": "UPDATE", "reason": "Indexes Decision 0025 and its accepted status."},
+        {"path": "docs/PROVENANCE.md", "status": "UPDATE", "reason": "Records the portable transformation and private-material exclusion."},
+        {"path": "docs/RUNBOOK.md", "status": "UPDATE", "reason": "Owns the operational identity, writer, contract, and callback procedure."},
+        {"path": "docs/SPEC.md", "status": "CHECKED_NO_CHANGE", "reason": "No shared public product requirement changes."},
+        {"path": "docs/STATUS.md", "status": "UPDATE", "reason": "Summarizes the current repository-governance revision and its limits."},
+        {"path": "docs/VERIFICATION.md", "status": "UPDATE", "reason": "Records the repository-level deterministic contract check and claim limits."},
+        {"path": "evals/README.md", "status": "CHECKED_NO_CHANGE", "reason": "No evaluation case, fixture, matrix, rubric, or evidence semantics change."},
+        {"path": "scripts/check_repository.py", "status": "UPDATE", "reason": "Adds focused deterministic contract and navigation consistency coverage."}
+      ]
+    },
+    {
+      "fact": "ES-C1 tranche A writer custody, protected dirty scope, and Planner checkpoint route",
+      "fact_class": "Repository writer custody, dirty scope, next integration action, and recovery order",
+      "canonical_owner": "docs/HANDOFF.md",
+      "bounded_consumers": [
+        "docs/RUNBOOK.md",
+        "docs/STATUS.md",
+        "docs/VERIFICATION.md"
+      ],
+      "dispositions": [
+        {"path": "docs/HANDOFF.md", "status": "UPDATE", "reason": "Owns the exact writer lease, protected six-path status-only boundary, one-commit terminal, and Planner return."},
+        {"path": "docs/RUNBOOK.md", "status": "UPDATE", "reason": "Defines status-only all-worktree reconciliation and callback-first closeout."},
+        {"path": "docs/STATUS.md", "status": "UPDATE", "reason": "Surfaces the bounded working revision without claiming integration or release."},
+        {"path": "docs/VERIFICATION.md", "status": "UPDATE", "reason": "Records the local deterministic evidence boundary and excluded effects."}
+      ]
+    },
+    {
+      "fact": "Repository coordination contract and navigation checks",
+      "fact_class": "Repository checks, coherent candidate, tag, stable-install, and release evidence",
+      "canonical_owner": "docs/VERIFICATION.md",
+      "bounded_consumers": [
+        "AGENTS.md",
+        "docs/HANDOFF.md",
+        "docs/RUNBOOK.md",
+        "docs/STATUS.md",
+        "scripts/check_repository.py"
+      ],
+      "dispositions": [
+        {"path": "docs/VERIFICATION.md", "status": "UPDATE", "reason": "Owns repository-check purpose, result, and non-enforcement limits."},
+        {"path": "AGENTS.md", "status": "UPDATE", "reason": "Contains the checked repository-governance contract."},
+        {"path": "docs/HANDOFF.md", "status": "UPDATE", "reason": "Carries the exact fact-first closure validated against the review target."},
+        {"path": "docs/RUNBOOK.md", "status": "UPDATE", "reason": "Documents the checked operational procedure."},
+        {"path": "docs/STATUS.md", "status": "UPDATE", "reason": "Publishes only the bounded current repository-governance state."},
+        {"path": "scripts/check_repository.py", "status": "UPDATE", "reason": "Implements the focused deterministic consumer."}
+      ]
+    }
+  ]
+}
+```
 
 ## 2026-08-15 `v0.2.0` Release Completion
 
